@@ -1,0 +1,248 @@
+{
+ "meta": {
+  "name": "Panda Express",
+  "slug": "pandaexpress",
+  "source": {
+   "html_url": "https://www.pandaexpress.com/nutritioninformation",
+   "retrieved": "2026-08-30"
+  },
+  "disclaimer_extra": "Panda Express publishes each side, entrée and sauce separately rather than as finished Bowls or Plates, so every value here is a component as printed. Portions are the standard serving: on a two- or three-entrée Plate the side is served smaller than the listed portion. Kids' Cub Meal portions and the beverage list are published but not included here.",
+  "blurb": "Build your Panda Express order the way you order it — pick a side, then your entrées — and see the calories and macros add up, using Panda Express' own published per-item nutrition data.",
+  "glyph": "grainbowl"
+ },
+ "categories": [
+  {
+   "id": "side",
+   "name": "Sides",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "entree",
+   "name": "Entrées",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "appetizer",
+   "name": "Appetizers",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "soup",
+   "name": "Soup",
+   "select": "single",
+   "flow": "extras"
+  },
+  {
+   "id": "sauce",
+   "name": "Sauces",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "treat",
+   "name": "Sweets",
+   "select": "multi",
+   "flow": "extras"
+  }
+ ],
+ "layout": {
+  "columns": [
+   "serving",
+   "calories",
+   "cff",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g"
+  ],
+  "allergen": false,
+  "serving": "oz",
+  "sections": "^(Sides|Vegetables|Chicken Breast|Chicken|Beef|Seafood|Appetizers|Cub Meals|More|Soup|Beverages)$",
+  "stop": "^Beverages$",
+  "skip": "^(Nutrition & Allergen information|Nothing found)|.*- cub meal"
+ },
+ "items": {
+  "chow fun": {
+   "cat": "side",
+   "name": "Chow Fun"
+  },
+  "chow mein": {
+   "cat": "side",
+   "name": "Chow Mein"
+  },
+  "fried rice": {
+   "cat": "side",
+   "name": "Fried Rice"
+  },
+  "super greens": {
+   "cat": "side",
+   "name": "Super Greens"
+  },
+  "white steamed rice": {
+   "cat": "side",
+   "name": "White Steamed Rice"
+  },
+  "eggplant tofu": {
+   "cat": "entree",
+   "name": "Eggplant Tofu"
+  },
+  "super greens entree": {
+   "cat": "entree",
+   "name": "Super Greens (Entrée Portion)"
+  },
+  "black pepper chicken": {
+   "cat": "entree",
+   "name": "Black Pepper Chicken"
+  },
+  "grilled teriyaki chicken": {
+   "cat": "entree",
+   "name": "Grilled Teriyaki Chicken"
+  },
+  "hot orange chicken": {
+   "cat": "entree",
+   "name": "Hot Orange Chicken"
+  },
+  "kung pao chicken": {
+   "cat": "entree",
+   "name": "Kung Pao Chicken"
+  },
+  "mushroom chicken": {
+   "cat": "entree",
+   "name": "Mushroom Chicken"
+  },
+  "orange chicken": {
+   "cat": "entree",
+   "name": "Orange Chicken"
+  },
+  "potato chicken": {
+   "cat": "entree",
+   "name": "Potato Chicken"
+  },
+  "teriyaki chicken": {
+   "cat": "entree",
+   "name": "Teriyaki Chicken"
+  },
+  "honey sesame chicken breast": {
+   "cat": "entree",
+   "name": "Honey Sesame Chicken Breast"
+  },
+  "string bean chicken breast": {
+   "cat": "entree",
+   "name": "String Bean Chicken Breast"
+  },
+  "sweet & sour chicken breast": {
+   "cat": "entree",
+   "name": "Sweet & Sour Chicken Breast"
+  },
+  "sweetfire chicken breast": {
+   "cat": "entree",
+   "name": "Sweetfire Chicken Breast"
+  },
+  "beijing beef": {
+   "cat": "entree",
+   "name": "Beijing Beef"
+  },
+  "Black Pepper Sirloin Steak": {
+   "cat": "entree",
+   "name": "Black Pepper Sirloin Steak"
+  },
+  "broccoli beef": {
+   "cat": "entree",
+   "name": "Broccoli Beef"
+  },
+  "honey walnut shrimp": {
+   "cat": "entree",
+   "name": "Honey Walnut Shrimp"
+  },
+  "steamed ginger fish": {
+   "cat": "entree",
+   "name": "Steamed Ginger Fish"
+  },
+  "wok-fired shrimp": {
+   "cat": "entree",
+   "name": "Wok-Fired Shrimp"
+  },
+  "chicken egg roll (1 roll)": {
+   "cat": "appetizer",
+   "name": "Chicken Egg Roll",
+   "desc": "1 roll"
+  },
+  "chicken potsticker (3 pcs)": {
+   "cat": "appetizer",
+   "name": "Chicken Potstickers",
+   "desc": "3 pieces"
+  },
+  "cream cheese rangoon (3 pcs)": {
+   "cat": "appetizer",
+   "name": "Cream Cheese Rangoon",
+   "desc": "3 pieces"
+  },
+  "vegetable spring roll (2 rolls)": {
+   "cat": "appetizer",
+   "name": "Vegetable Spring Rolls",
+   "desc": "2 rolls"
+  },
+  "Broccoli Beef Cub Meal (white rice, super greens, broccoli beef, apple crisps, bottled water)": {
+   "skip": "pre-assembled kids combo; we build from components"
+  },
+  "Grilled Teriyaki Chicken Cub Meal (chow mein, super greens, grilled teriyaki chicken, apple crisps, bottled water)": {
+   "skip": "pre-assembled kids combo; we build from components"
+  },
+  "Orange Chicken Cub Meal (white rice, super greens, orange chicken, apple crisps, bottled water)": {
+   "skip": "pre-assembled kids combo; we build from components"
+  },
+  "apple pie roll": {
+   "cat": "treat",
+   "name": "Apple Pie Roll"
+  },
+  "chili sauce": {
+   "cat": "sauce",
+   "name": "Chili Sauce"
+  },
+  "fortune cookie": {
+   "cat": "treat",
+   "name": "Fortune Cookie",
+   "desc": "1 cookie"
+  },
+  "hot mustard": {
+   "cat": "sauce",
+   "name": "Hot Mustard"
+  },
+  "potsticker sauce": {
+   "cat": "sauce",
+   "name": "Potsticker Sauce"
+  },
+  "soy sauce": {
+   "cat": "sauce",
+   "name": "Soy Sauce"
+  },
+  "sweet & sour sauce": {
+   "cat": "sauce",
+   "name": "Sweet & Sour Sauce"
+  },
+  "teriyaki sauce": {
+   "cat": "sauce",
+   "name": "Teriyaki Sauce"
+  },
+  "Tree Top Apple Crisps": {
+   "cat": "treat",
+   "name": "Tree Top Apple Crisps"
+  },
+  "hot & sour soup - bowl": {
+   "cat": "soup",
+   "name": "Hot & Sour Soup (Bowl)"
+  },
+  "hot & sour soup - cup": {
+   "cat": "soup",
+   "name": "Hot & Sour Soup (Cup)"
+  }
+ }
+}

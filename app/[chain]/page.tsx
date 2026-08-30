@@ -30,6 +30,8 @@ export default async function ChainPage(props: PageProps<"/[chain]">) {
   const chain = await getChain(slug);
   if (!chain) notFound();
 
+  const sourceUrl = chain.source.pdf_url ?? chain.source.html_url!;
+
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-6 sm:py-8">
       <div className="mb-5 flex flex-wrap items-end justify-between gap-x-4 gap-y-2">
@@ -45,7 +47,7 @@ export default async function ChainPage(props: PageProps<"/[chain]">) {
           </p>
         </div>
         <a
-          href={chain.source.pdf_url}
+          href={sourceUrl}
           rel="nofollow noopener"
           className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-xs text-muted transition-colors hover:border-accent hover:text-fg"
         >
@@ -84,7 +86,7 @@ export default async function ChainPage(props: PageProps<"/[chain]">) {
           Not affiliated with or endorsed by {chain.name}. Nutrition values are
           approximations derived from{" "}
           <a
-            href={chain.source.pdf_url}
+            href={sourceUrl}
             className="underline decoration-line underline-offset-2 hover:text-fg"
             rel="nofollow noopener"
           >

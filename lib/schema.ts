@@ -62,10 +62,17 @@ export const ChainSchema = z
   .object({
     name: z.string().min(1),
     slug: z.string().regex(/^[a-z0-9][a-z0-9-]*$/),
-    source: z.object({
-      pdf_url: z.string().url(),
-      retrieved: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-    }),
+    // A chain's published source is a PDF for most chains and a web page for
+    // others (Panda Express). Exactly one of the two is required.
+    source: z
+      .object({
+        pdf_url: z.string().url().optional(),
+        html_url: z.string().url().optional(),
+        retrieved: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+      })
+      .refine((s) => Boolean(s.pdf_url ?? s.html_url), {
+        message: "source needs either pdf_url or html_url",
+      }),
     disclaimer_extra: z.string().nullable().optional(),
     // Homepage tile illustration id (see components/ChainGlyph.tsx).
     glyph: z.string().optional(),

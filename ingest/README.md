@@ -2,7 +2,7 @@
 
 Admin-only. Output contract: `data/chains/<slug>.json` passing `lib/schema.ts`.
 Raw artifacts (source PDF, text dump, report) go to `data/raw/<slug>/` (gitignored).
-Python deps live in `ingest/.venv` (`python3 -m venv ingest/.venv && ingest/.venv/bin/pip install pdfplumber cloudscraper pillow`).
+Python deps live in `ingest/.venv` (`python3 -m venv ingest/.venv && ingest/.venv/bin/pip install pdfplumber cloudscraper pillow beautifulsoup4 lxml`). The last two are for `dump_html.py`.
 
 ## Pipeline (deterministic — same PDF in, byte-identical JSON out)
 
