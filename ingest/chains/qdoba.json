@@ -180,15 +180,18 @@
     },
     "Flour Tortilla (5.5\")": {
       "cat": "base",
-      "id": "flour-tortilla-5-5"
+      "id": "flour-tortilla-5-5",
+      "name": "Flour Tortilla (5.5\")"
     },
     "Flour Tortilla (10\")": {
       "cat": "base",
-      "id": "flour-tortilla-10"
+      "id": "flour-tortilla-10",
+      "name": "Flour Tortilla (10\")"
     },
     "Flour Tortilla (12.5\")": {
       "cat": "base",
-      "id": "flour-tortilla-12-5"
+      "id": "flour-tortilla-12-5",
+      "name": "Flour Tortilla (12.5\")"
     },
     "Grilled Adobo Chicken (3.5 oz.)": {
       "cat": "proteins",
@@ -633,11 +636,13 @@
       "name": "Minute Maid Kid's Apple Juice Box"
     },
     "Oasis 100% Apple Juice (CANADA)": {
-      "cat": "drinks"
+      "cat": "drinks",
+      "name": "Oasis 100% Apple Juice (Canada, 6 fl oz)"
     },
     "Oasis 100% Apple Juice (CANADA) [#2]": {
       "cat": "drinks",
-      "id": "oasis-100-apple-juice-canada-10oz"
+      "id": "oasis-100-apple-juice-canada-10oz",
+      "name": "Oasis 100% Apple Juice (Canada, 10 fl oz)"
     },
     "Simply Orange Juice (11.5 fl. oz.)": {
       "cat": "drinks",

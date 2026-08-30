@@ -3,10 +3,14 @@ import Link from "next/link";
 export function Logomark({ className = "h-7 w-7" }: { className?: string }) {
   return (
     <svg viewBox="0 0 64 64" className={className} aria-hidden>
-      <rect width="64" height="64" rx="14" fill="#059669" />
-      <circle cx="32" cy="19.2" r="5.4" fill="#fff" />
-      <rect x="16" y="28.5" width="32" height="7" rx="3.5" fill="#fff" />
-      <circle cx="32" cy="44.8" r="5.4" fill="#fff" />
+      <rect width="64" height="64" rx="14" fill="#0d9488" />
+      <g fill="#fff" transform="translate(8 8) scale(0.75)">
+        <path
+          fillRule="evenodd"
+          d="M6 22 H58 A26 26 0 0 1 6 22 Z M22 29 H42 a2.5 2.5 0 0 1 0 5 H22 a2.5 2.5 0 0 1 0 -5 Z M22 38 H42 a2.5 2.5 0 0 1 0 5 H22 a2.5 2.5 0 0 1 0 -5 Z"
+        />
+        <path d="M22 52 H42 a3 3 0 0 1 0 6 H22 a3 3 0 0 1 0 -6 Z" />
+      </g>
     </svg>
   );
 }

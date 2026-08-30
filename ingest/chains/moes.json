@@ -116,37 +116,37 @@
     "Seasoned Rice, Ingredient for Burrito": {
       "cat": "rice",
       "id": "seasoned-rice-burrito",
-      "name": "Seasoned Rice",
+      "name": "Seasoned Rice (burrito portion)",
       "desc": "burrito portion"
     },
     "Seasoned Rice, Cup and Burrito Bowl": {
       "cat": "rice",
       "id": "seasoned-rice-bowl",
-      "name": "Seasoned Rice",
+      "name": "Seasoned Rice (bowl portion)",
       "desc": "burrito bowl portion (= cup)"
     },
     "Seasoned Rice, Ingredient for Jr. Burrito": {
       "cat": "rice",
       "id": "seasoned-rice-jr",
-      "name": "Seasoned Rice",
+      "name": "Seasoned Rice (Jr. portion)",
       "desc": "Jr. burrito portion"
     },
     "Cilantro Lime Rice, Ingredient for Burrito": {
       "cat": "rice",
       "id": "cilantro-lime-rice-burrito",
-      "name": "Cilantro Lime Rice",
+      "name": "Cilantro Lime Rice (burrito portion)",
       "desc": "burrito portion"
     },
     "Cilantro Lime Rice, Cup and Burrito Bowl": {
       "cat": "rice",
       "id": "cilantro-lime-rice-bowl",
-      "name": "Cilantro Lime Rice",
+      "name": "Cilantro Lime Rice (bowl portion)",
       "desc": "burrito bowl portion (= cup)"
     },
     "Cilantro Lime Rice, Ingredient for Jr. Burrito": {
       "cat": "rice",
       "id": "cilantro-lime-rice-jr",
-      "name": "Cilantro Lime Rice",
+      "name": "Cilantro Lime Rice (Jr. portion)",
       "desc": "Jr. burrito portion"
     },
     "Black Beans, Ingredient portion for Burrito,": {
@@ -158,7 +158,7 @@
     "Black Beans Jr. Ingredient portion/taco fresh": {
       "cat": "beans",
       "id": "black-beans-jr",
-      "name": "Black Beans",
+      "name": "Black Beans (Jr. / taco portion)",
       "desc": "Jr. / taco portion"
     },
     "Pinto Beans, Ingredient for Burrito, Bowl,": {
@@ -170,7 +170,7 @@
     "Pinto Beans Jr. Ingredient portion/taco fresh": {
       "cat": "beans",
       "id": "pinto-beans-jr",
-      "name": "Pinto Beans",
+      "name": "Pinto Beans (Jr. / taco portion)",
       "desc": "Jr. / taco portion"
     },
     "Adobo Chicken, Medium": {

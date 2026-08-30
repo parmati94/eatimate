@@ -175,7 +175,7 @@
     },
     {
       "id": "seasoned-rice-burrito",
-      "name": "Seasoned Rice",
+      "name": "Seasoned Rice (burrito portion)",
       "category": "rice",
       "serving_desc": "burrito portion",
       "serving_g": null,
@@ -192,7 +192,7 @@
     },
     {
       "id": "seasoned-rice-bowl",
-      "name": "Seasoned Rice",
+      "name": "Seasoned Rice (bowl portion)",
       "category": "rice",
       "serving_desc": "burrito bowl portion (= cup)",
       "serving_g": null,
@@ -209,7 +209,7 @@
     },
     {
       "id": "seasoned-rice-jr",
-      "name": "Seasoned Rice",
+      "name": "Seasoned Rice (Jr. portion)",
       "category": "rice",
       "serving_desc": "Jr. burrito portion",
       "serving_g": null,
@@ -226,7 +226,7 @@
     },
     {
       "id": "cilantro-lime-rice-burrito",
-      "name": "Cilantro Lime Rice",
+      "name": "Cilantro Lime Rice (burrito portion)",
       "category": "rice",
       "serving_desc": "burrito portion",
       "serving_g": null,
@@ -243,7 +243,7 @@
     },
     {
       "id": "cilantro-lime-rice-bowl",
-      "name": "Cilantro Lime Rice",
+      "name": "Cilantro Lime Rice (bowl portion)",
       "category": "rice",
       "serving_desc": "burrito bowl portion (= cup)",
       "serving_g": null,
@@ -260,7 +260,7 @@
     },
     {
       "id": "cilantro-lime-rice-jr",
-      "name": "Cilantro Lime Rice",
+      "name": "Cilantro Lime Rice (Jr. portion)",
       "category": "rice",
       "serving_desc": "Jr. burrito portion",
       "serving_g": null,
@@ -294,7 +294,7 @@
     },
     {
       "id": "black-beans-jr",
-      "name": "Black Beans",
+      "name": "Black Beans (Jr. / taco portion)",
       "category": "beans",
       "serving_desc": "Jr. / taco portion",
       "serving_g": null,
@@ -328,7 +328,7 @@
     },
     {
       "id": "pinto-beans-jr",
-      "name": "Pinto Beans",
+      "name": "Pinto Beans (Jr. / taco portion)",
       "category": "beans",
       "serving_desc": "Jr. / taco portion",
       "serving_g": null,

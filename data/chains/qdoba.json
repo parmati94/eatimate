@@ -135,7 +135,7 @@
     },
     {
       "id": "flour-tortilla-5-5",
-      "name": "Flour Tortilla",
+      "name": "Flour Tortilla (5.5\")",
       "category": "base",
       "serving_desc": "1 tortilla (5.5\")",
       "serving_g": 24,
@@ -152,7 +152,7 @@
     },
     {
       "id": "flour-tortilla-10",
-      "name": "Flour Tortilla",
+      "name": "Flour Tortilla (10\")",
       "category": "base",
       "serving_desc": "1 tortilla (10\")",
       "serving_g": 71,
@@ -169,7 +169,7 @@
     },
     {
       "id": "flour-tortilla-12-5",
-      "name": "Flour Tortilla",
+      "name": "Flour Tortilla (12.5\")",
       "category": "base",
       "serving_desc": "1 tortilla (12.5\")",
       "serving_g": 102,
@@ -2429,7 +2429,7 @@
     },
     {
       "id": "oasis-100-apple-juice-canada",
-      "name": "Oasis 100% Apple Juice (CANADA)",
+      "name": "Oasis 100% Apple Juice (Canada, 6 fl oz)",
       "category": "drinks",
       "serving_desc": "6 fl oz",
       "serving_g": null,
@@ -2446,7 +2446,7 @@
     },
     {
       "id": "oasis-100-apple-juice-canada-10oz",
-      "name": "Oasis 100% Apple Juice (CANADA)",
+      "name": "Oasis 100% Apple Juice (Canada, 10 fl oz)",
       "category": "drinks",
       "serving_desc": "10 fl oz",
       "serving_g": null,

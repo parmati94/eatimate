@@ -13,12 +13,12 @@ export type ChainCard = {
 
 // Deterministic tile color per chain (no trademarked logos/colors).
 const PALETTE = [
-  "bg-emerald-600",
+  "bg-teal-600",
   "bg-sky-600",
   "bg-amber-600",
   "bg-rose-600",
   "bg-violet-600",
-  "bg-teal-600",
+  "bg-lime-600",
   "bg-orange-600",
   "bg-indigo-600",
 ];
