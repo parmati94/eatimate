@@ -41,6 +41,7 @@ export default function ChainSearch({ chains }: { chains: ChainCard[] }) {
         <IconSearch className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted" />
         <input
           type="search"
+          suppressHydrationWarning // Chrome iOS autofill injects __gcruniqueid
           autoFocus
           value={q}
           onChange={(e) => setQ(e.target.value)}

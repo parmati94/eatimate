@@ -182,6 +182,7 @@ function CategoryBody({
           <IconSearch className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" />
           <input
             type="search"
+            suppressHydrationWarning // Chrome iOS autofill injects __gcruniqueid
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
             placeholder={`Search ${cat.name.toLowerCase()}…`}
