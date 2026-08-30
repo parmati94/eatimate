@@ -13,10 +13,13 @@ export async function generateMetadata(
   const chain = await getChain(slug);
   if (!chain) return {};
   const title = `${chain.name} nutrition calculator`;
-  const description = `Build your ${chain.name} meal ingredient by ingredient and get calories, protein, carbs, fat, and sodium totals.`;
+  const description =
+    chain.blurb ??
+    `Build your ${chain.name} meal ingredient by ingredient and get calories, protein, carbs, fat, and sodium totals.`;
   return {
     title,
     description,
+    alternates: { canonical: `/${chain.slug}` },
     openGraph: { title: `${title} · Eatimate`, description },
     twitter: { title: `${title} · Eatimate`, description },
   };
@@ -32,7 +35,10 @@ export default async function ChainPage(props: PageProps<"/[chain]">) {
       <div className="mb-5 flex flex-wrap items-end justify-between gap-x-4 gap-y-2">
         <div>
           <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
-            {chain.name}
+            {chain.name}{" "}
+            <span className="font-semibold text-muted">
+              Nutrition Calculator
+            </span>
           </h1>
           <p className="mt-0.5 text-sm text-muted">
             Build your order — totals update as you go.
@@ -47,6 +53,29 @@ export default async function ChainPage(props: PageProps<"/[chain]">) {
           Source PDF · {chain.source.retrieved}
         </a>
       </div>
+
+      {chain.blurb && (
+        <p className="mb-5 max-w-2xl text-sm leading-relaxed text-muted">
+          {chain.blurb}
+        </p>
+      )}
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: `${chain.name} Nutrition Calculator`,
+            applicationCategory: "HealthApplication",
+            operatingSystem: "Web",
+            offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+            description:
+              chain.blurb ??
+              `Build your ${chain.name} meal ingredient by ingredient and get full nutrition totals.`,
+          }),
+        }}
+      />
 
       <MealBuilder chain={chain} />
 

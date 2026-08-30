@@ -1,7 +1,10 @@
+import type { Metadata } from "next";
 import { listChains } from "@/lib/data";
 import ChainSearch from "@/components/ChainSearch";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 export default async function Home() {
   const chains = await listChains();
@@ -14,8 +17,8 @@ export default async function Home() {
           Build the meal. <span className="text-accent-strong">Know the numbers.</span>
         </h1>
         <p className="mx-auto mt-3 max-w-md text-base text-muted sm:text-lg">
-          Ingredient-by-ingredient nutrition for restaurants that only publish a
-          PDF.
+          Pick your ingredients, get exact calories and macros — every number
+          from the chain’s official nutrition data.
         </p>
       </div>
 
@@ -32,8 +35,8 @@ export default async function Home() {
 
       <p className="mt-12 text-center text-xs text-muted">
         {chains.length} restaurant{chains.length === 1 ? "" : "s"} ·{" "}
-        {totalComponents} ingredients · every number traced to an official
-        nutrition PDF
+        {totalComponents} ingredients · every number traced to the chain's
+        official nutrition data
       </p>
     </main>
   );

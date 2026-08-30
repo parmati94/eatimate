@@ -8,7 +8,7 @@ export default function Header() {
         <Logo />
         <div className="flex items-center gap-3">
           <span className="hidden text-xs text-muted sm:block">
-            Nutrition math for PDF-only restaurants
+            Restaurant nutrition calculators
           </span>
           <ThemeToggle />
         </div>

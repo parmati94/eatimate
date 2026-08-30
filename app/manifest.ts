@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Eatimate",
     short_name: "Eatimate",
     description:
-      "Restaurant nutrition calculators for chains that only publish a PDF.",
+      "Free nutrition calculators for build-your-own restaurant meals.",
     start_url: "/",
     display: "standalone",
     background_color: "#f8f8f7",

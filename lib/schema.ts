@@ -49,6 +49,9 @@ export const ChainSchema = z
       retrieved: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
     }),
     disclaimer_extra: z.string().nullable().optional(),
+    // Short unique intro shown under the page title (and used as the meta
+    // description). Editorial, not from the PDF.
+    blurb: z.string().nullable().optional(),
     categories: z.array(CategorySchema).min(1),
     components: z.array(ComponentSchema).min(1),
   })

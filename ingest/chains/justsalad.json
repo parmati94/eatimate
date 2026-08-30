@@ -6,60 +6,209 @@
       "pdf_url": "https://www.justsalad.com/documents/Just_Salad_Nutrition_Guide_JUL26-C.pdf",
       "retrieved": "2026-08-30"
     },
-    "disclaimer_extra": "Just Salad's guide (July 2026) lists standard portions without serving weights; base greens/grains are listed per format (salad, warm bowl, market plate, wrap). Dressing values are the 1 oz 'light' serving. Menu rotates seasonally."
+    "disclaimer_extra": "Just Salad's guide (July 2026) lists standard portions without serving weights; base greens/grains are listed per format (salad, warm bowl, market plate, wrap). Dressing values are the 1 oz 'light' serving. Menu rotates seasonally.",
+    "blurb": "Assemble any Just Salad order — salad, warm bowl, market plate or wrap — from the July 2026 nutrition guide's per-ingredient data: bases by format, essentials, premiums, proteins and every dressing at the 1 oz pour."
   },
   "categories": [
-    {"id": "base", "name": "Format & Base", "select": "single", "flow": "build"},
-    {"id": "bread", "name": "Wrap / Bread", "select": "multi", "flow": "build"},
-    {"id": "essentials", "name": "Essentials", "select": "multi", "flow": "build"},
-    {"id": "premiums", "name": "Premiums", "select": "multi", "flow": "build"},
-    {"id": "cheese", "name": "Cheese", "select": "multi", "flow": "build"},
-    {"id": "protein", "name": "Protein", "select": "multi", "flow": "build"},
-    {"id": "dressings", "name": "Dressings", "select": "multi", "flow": "build"},
-    {"id": "combos", "name": "Curated Combos", "select": "multi", "flow": "extras"},
-    {"id": "signature", "name": "Menu Salads, Bowls, Plates & Wraps", "select": "single", "flow": "extras"},
-    {"id": "soups", "name": "Soups", "select": "multi", "flow": "extras"},
-    {"id": "snacks", "name": "Snacks", "select": "multi", "flow": "extras"},
-    {"id": "drinks", "name": "Drinks & Smoothies", "select": "single", "flow": "extras"}
+    {
+      "id": "base",
+      "name": "Format & Base",
+      "select": "single",
+      "flow": "build"
+    },
+    {
+      "id": "bread",
+      "name": "Wrap / Bread",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "essentials",
+      "name": "Essentials",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "premiums",
+      "name": "Premiums",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "cheese",
+      "name": "Cheese",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "protein",
+      "name": "Protein",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "dressings",
+      "name": "Dressings",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "combos",
+      "name": "Curated Combos",
+      "select": "multi",
+      "flow": "extras"
+    },
+    {
+      "id": "signature",
+      "name": "Menu Salads, Bowls, Plates & Wraps",
+      "select": "single",
+      "flow": "extras"
+    },
+    {
+      "id": "soups",
+      "name": "Soups",
+      "select": "multi",
+      "flow": "extras"
+    },
+    {
+      "id": "snacks",
+      "name": "Snacks",
+      "select": "multi",
+      "flow": "extras"
+    },
+    {
+      "id": "drinks",
+      "name": "Drinks & Smoothies",
+      "select": "single",
+      "flow": "extras"
+    }
   ],
   "layout": {
-    "columns": ["calories", "fat_g", "sat_fat_g", "trans_fat_g", "cholesterol_mg", "sodium_mg", "carbs_g", "fiber_g", "sugars_g", "protein_g"],
+    "columns": [
+      "calories",
+      "fat_g",
+      "sat_fat_g",
+      "trans_fat_g",
+      "cholesterol_mg",
+      "sodium_mg",
+      "carbs_g",
+      "fiber_g",
+      "sugars_g",
+      "protein_g"
+    ],
     "allergen": false,
     "serving": null,
     "sections": "^[A-Z][A-Z :&()+.'/™-]+$",
     "skip": "^(NUTRITION GUIDE)"
   },
   "section_categories": {
-    "SALADS": "signature", "MARKET PLATES": "signature", "WARM BOWLS": "signature", "WRAPS": "signature",
-    "DIGITAL EXCLUSIVES": "signature", "SUMMER SEASONALS": "signature",
-    "ESSENTIALS": "essentials", "ESSENTIALS (CONT.)": "essentials",
-    "PREMIUMS": "premiums", "PREMIUMS (CONT.)": "premiums",
-    "CHEESE": "cheese", "PROTEIN": "protein",
-    "CURATED COMBOS": "combos", "CURATED COMBOS (CONT.)": "combos",
-    "BASE: SALADS": {"cat": "base", "suffix": "Salad"},
-    "BASE: MARKET PLATES": {"cat": "base", "suffix": "Market Plate"},
-    "BASE: WARM BOWLS": {"cat": "base", "suffix": "Warm Bowl"},
-    "BASE: WRAPS": {"cat": "base", "suffix": "Wrap"},
-    "DRESSINGS": {"cat": "dressings", "desc": "1 oz (light)"}, "DRESSINGS (CONT.)": {"cat": "dressings", "desc": "1 oz (light)"},
-    "SOUPS": "soups", "BREAD": "bread",
-    "SMOOTHIES": "drinks", "HOUSEMADE LEMONADES": "drinks", "BEVERAGES": "drinks", "BEVERAGES (CONT.)": "drinks",
-    "SNACKS": "snacks", "SNACKS (CONT.)": "snacks"
+    "SALADS": "signature",
+    "MARKET PLATES": "signature",
+    "WARM BOWLS": "signature",
+    "WRAPS": "signature",
+    "DIGITAL EXCLUSIVES": "signature",
+    "SUMMER SEASONALS": "signature",
+    "ESSENTIALS": "essentials",
+    "ESSENTIALS (CONT.)": "essentials",
+    "PREMIUMS": "premiums",
+    "PREMIUMS (CONT.)": "premiums",
+    "CHEESE": "cheese",
+    "PROTEIN": "protein",
+    "CURATED COMBOS": "combos",
+    "CURATED COMBOS (CONT.)": "combos",
+    "BASE: SALADS": {
+      "cat": "base",
+      "suffix": "Salad"
+    },
+    "BASE: MARKET PLATES": {
+      "cat": "base",
+      "suffix": "Market Plate"
+    },
+    "BASE: WARM BOWLS": {
+      "cat": "base",
+      "suffix": "Warm Bowl"
+    },
+    "BASE: WRAPS": {
+      "cat": "base",
+      "suffix": "Wrap"
+    },
+    "DRESSINGS": {
+      "cat": "dressings",
+      "desc": "1 oz (light)"
+    },
+    "DRESSINGS (CONT.)": {
+      "cat": "dressings",
+      "desc": "1 oz (light)"
+    },
+    "SOUPS": "soups",
+    "BREAD": "bread",
+    "SMOOTHIES": "drinks",
+    "HOUSEMADE LEMONADES": "drinks",
+    "BEVERAGES": "drinks",
+    "BEVERAGES (CONT.)": "drinks",
+    "SNACKS": "snacks",
+    "SNACKS (CONT.)": "snacks"
   },
   "items": {
-    "Spinach [#5]": {"skip": "duplicate market-plate rows printed again under BASE: WRAPS"},
-    "Supergreens Blend [#5]": {"skip": "duplicate market-plate rows printed again under BASE: WRAPS"},
-    "Honey Crispy Chicken [#2]": {"cat": "signature", "id": "honey-crispy-chicken-digital", "name": "Honey Crispy Chicken (digital exclusive)"},
-    "Buffalo Chicken [#2]": {"cat": "signature", "id": "buffalo-chicken-wrap", "name": "Buffalo Chicken Wrap"},
-    "Crispy Chicken [#2]": {"cat": "protein"},
-    "HERO Wraps™": {"cat": "bread", "name": "HERO Wrap (wrap format)", "desc": "1 wrap"},
-    "Sea Salt & Herb Focaccia": {"cat": "bread", "desc": "1 piece"},
-    "Roasted Broccoli": {"cat": "essentials", "name": "Roasted Broccoli (seasonal)"},
-    "Parmesan Crisp": {"cat": "premiums", "name": "Parmesan Crisp (seasonal)"},
-    "Kimchi": {"cat": "premiums", "name": "Kimchi (seasonal)"},
-    "Gochujang Chicken": {"cat": "protein", "name": "Gochujang Chicken (seasonal)"},
-    "BBQ Ranch": {"cat": "dressings", "name": "BBQ Ranch (seasonal)", "desc": "1 oz (light)"},
-    "Gochujang Sauce": {"cat": "dressings", "name": "Gochujang Sauce (seasonal)", "desc": "1 oz (light)"},
-    "Vegan Protein Powder": {"cat": "drinks", "name": "Vegan Protein Powder (smoothie add-in)", "desc": "1 scoop"}
+    "Spinach [#5]": {
+      "skip": "duplicate market-plate rows printed again under BASE: WRAPS"
+    },
+    "Supergreens Blend [#5]": {
+      "skip": "duplicate market-plate rows printed again under BASE: WRAPS"
+    },
+    "Honey Crispy Chicken [#2]": {
+      "cat": "signature",
+      "id": "honey-crispy-chicken-digital",
+      "name": "Honey Crispy Chicken (digital exclusive)"
+    },
+    "Buffalo Chicken [#2]": {
+      "cat": "signature",
+      "id": "buffalo-chicken-wrap",
+      "name": "Buffalo Chicken Wrap"
+    },
+    "Crispy Chicken [#2]": {
+      "cat": "protein"
+    },
+    "HERO Wraps™": {
+      "cat": "bread",
+      "name": "HERO Wrap (wrap format)",
+      "desc": "1 wrap"
+    },
+    "Sea Salt & Herb Focaccia": {
+      "cat": "bread",
+      "desc": "1 piece"
+    },
+    "Roasted Broccoli": {
+      "cat": "essentials",
+      "name": "Roasted Broccoli (seasonal)"
+    },
+    "Parmesan Crisp": {
+      "cat": "premiums",
+      "name": "Parmesan Crisp (seasonal)"
+    },
+    "Kimchi": {
+      "cat": "premiums",
+      "name": "Kimchi (seasonal)"
+    },
+    "Gochujang Chicken": {
+      "cat": "protein",
+      "name": "Gochujang Chicken (seasonal)"
+    },
+    "BBQ Ranch": {
+      "cat": "dressings",
+      "name": "BBQ Ranch (seasonal)",
+      "desc": "1 oz (light)"
+    },
+    "Gochujang Sauce": {
+      "cat": "dressings",
+      "name": "Gochujang Sauce (seasonal)",
+      "desc": "1 oz (light)"
+    },
+    "Vegan Protein Powder": {
+      "cat": "drinks",
+      "name": "Vegan Protein Powder (smoothie add-in)",
+      "desc": "1 scoop"
+    }
   },
   "synthetic": []
 }
