@@ -8,6 +8,12 @@
   "disclaimer_extra": "CAVA's guide (June 2026) lists standard bowl/pita portions without serving weights. Fountain drink values are calculated without ice.",
   "categories": [
     {
+      "id": "format",
+      "name": "Bowl or Pita",
+      "select": "single",
+      "flow": "build"
+    },
+    {
       "id": "base",
       "name": "Base",
       "select": "multi",
@@ -76,26 +82,9 @@
   ],
   "components": [
     {
-      "id": "pita",
-      "name": "Pita (instead of a bowl)",
-      "category": "base",
-      "serving_desc": "1 pita",
-      "serving_g": null,
-      "calories": 320,
-      "fat_g": 6,
-      "sat_fat_g": 1,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 700,
-      "carbs_g": 54,
-      "fiber_g": 6,
-      "sugars_g": 3,
-      "protein_g": 13
-    },
-    {
       "id": "bowl",
       "name": "Bowl",
-      "category": "base",
+      "category": "format",
       "serving_desc": "1 bowl",
       "serving_g": null,
       "calories": 0,
@@ -109,6 +98,23 @@
       "sugars_g": 0,
       "protein_g": 0,
       "synthetic": true
+    },
+    {
+      "id": "pita",
+      "name": "Pita",
+      "category": "format",
+      "serving_desc": "1 pita",
+      "serving_g": null,
+      "calories": 320,
+      "fat_g": 6,
+      "sat_fat_g": 1,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 700,
+      "carbs_g": 54,
+      "fiber_g": 6,
+      "sugars_g": 3,
+      "protein_g": 13
     },
     {
       "id": "brown-rice",

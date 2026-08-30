@@ -9,20 +9,93 @@
     "disclaimer_extra": "CAVA's guide (June 2026) lists standard bowl/pita portions without serving weights. Fountain drink values are calculated without ice."
   },
   "categories": [
-    {"id": "base", "name": "Base", "select": "multi", "flow": "build"},
-    {"id": "dips", "name": "Dips & Spreads", "select": "multi", "flow": "build"},
-    {"id": "mains", "name": "Mains", "select": "multi", "flow": "build"},
-    {"id": "toppings", "name": "Toppings", "select": "multi", "flow": "build"},
-    {"id": "dressings", "name": "Dressings", "select": "multi", "flow": "build"},
-    {"id": "sides", "name": "Sides", "select": "multi", "flow": "extras"},
-    {"id": "curated-bowls", "name": "Curated Bowls", "select": "single", "flow": "extras"},
-    {"id": "curated-pitas", "name": "Curated Pitas", "select": "single", "flow": "extras"},
-    {"id": "kids", "name": "Kids Meal", "select": "multi", "flow": "extras"},
-    {"id": "desserts", "name": "Desserts", "select": "multi", "flow": "extras"},
-    {"id": "drinks", "name": "Drinks", "select": "single", "flow": "extras"}
+    {
+      "id": "format",
+      "name": "Bowl or Pita",
+      "select": "single",
+      "flow": "build"
+    },
+    {
+      "id": "base",
+      "name": "Base",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "dips",
+      "name": "Dips & Spreads",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "mains",
+      "name": "Mains",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "toppings",
+      "name": "Toppings",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "dressings",
+      "name": "Dressings",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "sides",
+      "name": "Sides",
+      "select": "multi",
+      "flow": "extras"
+    },
+    {
+      "id": "curated-bowls",
+      "name": "Curated Bowls",
+      "select": "single",
+      "flow": "extras"
+    },
+    {
+      "id": "curated-pitas",
+      "name": "Curated Pitas",
+      "select": "single",
+      "flow": "extras"
+    },
+    {
+      "id": "kids",
+      "name": "Kids Meal",
+      "select": "multi",
+      "flow": "extras"
+    },
+    {
+      "id": "desserts",
+      "name": "Desserts",
+      "select": "multi",
+      "flow": "extras"
+    },
+    {
+      "id": "drinks",
+      "name": "Drinks",
+      "select": "single",
+      "flow": "extras"
+    }
   ],
   "layout": {
-    "columns": ["calories", "cff", "fat_g", "sat_fat_g", "trans_fat_g", "cholesterol_mg", "sodium_mg", "carbs_g", "fiber_g", "sugars_g", "protein_g"],
+    "columns": [
+      "calories",
+      "cff",
+      "fat_g",
+      "sat_fat_g",
+      "trans_fat_g",
+      "cholesterol_mg",
+      "sodium_mg",
+      "carbs_g",
+      "fiber_g",
+      "sugars_g",
+      "protein_g"
+    ],
     "allergen": false,
     "serving": null,
     "sections": "^[A-Z][A-Z +*®]{2,30}$",
@@ -42,13 +115,33 @@
     "DRINKS*": "drinks"
   },
   "items": {
-    "Whole Pita": {"cat": "base", "id": "pita", "name": "Pita (instead of a bowl)", "desc": "1 pita"},
-    "Greyston Chocolate Chip Blondie": {"cat": "desserts"},
-    "Greyston Brownie": {"cat": "desserts"},
-    "Whisked! Apricot Honey (DMV)": {"cat": "desserts", "name": "Whisked! Apricot Honey Cookie (DMV only)"},
-    "Whisked! Salted Dark Chocolate Oat Cookie": {"cat": "desserts"}
+    "Whole Pita": {
+      "cat": "format",
+      "id": "pita",
+      "name": "Pita",
+      "desc": "1 pita"
+    },
+    "Greyston Chocolate Chip Blondie": {
+      "cat": "desserts"
+    },
+    "Greyston Brownie": {
+      "cat": "desserts"
+    },
+    "Whisked! Apricot Honey (DMV)": {
+      "cat": "desserts",
+      "name": "Whisked! Apricot Honey Cookie (DMV only)"
+    },
+    "Whisked! Salted Dark Chocolate Oat Cookie": {
+      "cat": "desserts"
+    }
   },
   "synthetic": [
-    {"id": "bowl", "name": "Bowl", "cat": "base", "desc": "1 bowl", "before": "brown-rice"}
+    {
+      "id": "bowl",
+      "name": "Bowl",
+      "cat": "format",
+      "desc": "1 bowl",
+      "before": "pita"
+    }
   ]
 }

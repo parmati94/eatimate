@@ -26,7 +26,10 @@ Config (ingest/chains/<slug>.json):
                name is addressed as "<name> [#2]" (2nd occurrence in the dump).
                Table order = display order within a category.
   synthetic:   [{id, name, cat, desc, after?}] zero-nutrient menu structure
-  section_categories: "SECTION" or "SECTION/SUB" -> default category (optional)
+  section_categories: "SECTION" or "SECTION/SUB" -> default category, or
+               {"cat": ..., "suffix": "Salad"} to append " (Salad)" to every
+               derived name/id in that section (same ingredient, per-format
+               portions) (optional)
 """
 import json, re, sys
 from pathlib import Path
@@ -183,7 +186,10 @@ def build(cfg, rows, extra=None):
         if spec is None:
             cat = sec_cats.get(f"{r.section}/{r.sub}") or sec_cats.get(r.section or "")
             if not cat: continue
-            spec = {"cat": cat}
+            spec = dict(cat) if isinstance(cat, dict) else {"cat": cat}
+            if "suffix" in spec:
+                n2, _ = split_serving(r.printed)
+                spec.setdefault("name", f"{n2} ({spec['suffix']})"); spec.setdefault("id", slug(f"{n2} {spec['suffix']}"))
         if "skip" in spec: r.used = True; continue
         c = make_component(r, layout, spec["cat"], spec.get("id"), spec.get("name"), spec.get("desc"))
         c["_ord"] = order_of.get(id(r), len(keys) + len(comps)); comps.append(c)
