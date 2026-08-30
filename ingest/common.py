@@ -213,6 +213,8 @@ def build(cfg, rows, extra=None):
             c = make_component(r, layout, sp.get("cat", spec["cat"]), sp.get("id"), sp.get("name"), sp.get("desc"))
             if sp.get("size_mode"): c["size_mode"] = sp["size_mode"]
             if sp.get("only_modes"): c["only_modes"] = sp["only_modes"]
+            if sp.get("variant_of"): c["variant_of"] = sp["variant_of"]
+            if sp.get("variant_label"): c["variant_label"] = sp["variant_label"]
             c["_ord"] = base_ord + 0.001 * n
             comps.append(c)
     # reverse so a synthetic may sit "before" a later-listed synthetic

@@ -35,6 +35,11 @@ export const ComponentSchema = z.object({
   // True for entries we add that the source PDF has no row for — menu structure
   // the PDF can't express, e.g. a plain bowl (0 cal). Never used for real rows.
   synthetic: z.boolean().optional(),
+  // Size variants of one item collapse into a single row with a size selector,
+  // rather than listing "Small Fries", "Medium Fries", "Large Fries" separately.
+  // The group head carries only variant_label; its siblings point at it.
+  variant_of: z.string().optional(),
+  variant_label: z.string().optional(),
 });
 
 // Chain-wide size scaling (e.g. Subway 6" vs Footlong): the active mode
@@ -112,6 +117,36 @@ export const ChainSchema = z
         }
       }
     }
+    // Variant groups: a head must exist, sit in the same category, and not
+    // itself be a variant (no chains of variants).
+    const byId = new Map(chain.components.map((c) => [c.id, c]));
+    for (const comp of chain.components) {
+      if (!comp.variant_of) continue;
+      const head = byId.get(comp.variant_of);
+      if (!head) {
+        ctx.addIssue({
+          code: "custom",
+          message: `component "${comp.id}" is a variant of unknown component "${comp.variant_of}"`,
+        });
+      } else if (head.variant_of) {
+        ctx.addIssue({
+          code: "custom",
+          message: `component "${comp.id}" points at "${head.id}", which is itself a variant`,
+        });
+      } else if (head.category !== comp.category) {
+        ctx.addIssue({
+          code: "custom",
+          message: `variant "${comp.id}" is in category "${comp.category}" but its head "${head.id}" is in "${head.category}"`,
+        });
+      }
+      if (!comp.variant_label) {
+        ctx.addIssue({
+          code: "custom",
+          message: `variant "${comp.id}" needs a variant_label for the size selector`,
+        });
+      }
+    }
+
     const compIds = new Set<string>();
     for (const comp of chain.components) {
       if (!catIds.has(comp.category)) {

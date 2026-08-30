@@ -119,6 +119,8 @@ function ComponentRow({
   qmult = 1,
   onToggle,
   onQty,
+  variants,
+  onVariant,
 }: {
   comp: Component;
   qty: number | undefined;
@@ -126,6 +128,9 @@ function ComponentRow({
   qmult?: number;
   onToggle: () => void;
   onQty: (q: number) => void;
+  /** All members of this size family, head first. Absent when there is only one. */
+  variants?: Component[];
+  onVariant?: (next: Component) => void;
 }) {
   const selected = !!qty;
   return (
@@ -169,6 +174,33 @@ function ComponentRow({
               </span>
             )}
           </span>
+          {variants && variants.length > 1 && (
+            // Sizes sit inside the row, so a family reads as one choice. Clicks
+            // must not bubble to the row's own toggle handler.
+            <span
+              className="mt-1 flex flex-wrap gap-1"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {variants.map((v) => {
+                const active = v.id === comp.id;
+                return (
+                  <button
+                    key={v.id}
+                    type="button"
+                    aria-pressed={active}
+                    onClick={() => onVariant?.(v)}
+                    className={`rounded-md border px-2 py-0.5 text-[11px] font-medium transition-colors ${
+                      active
+                        ? "border-accent bg-accent text-on-accent"
+                        : "border-line bg-surface text-muted hover:border-accent hover:text-accent-strong"
+                    }`}
+                  >
+                    {v.variant_label}
+                  </button>
+                );
+              })}
+            </span>
+          )}
         </span>
         {selected ? (
           <QtyStepper qty={qty} onChange={onQty} />
@@ -199,9 +231,23 @@ function CategoryBody({
 }) {
   const [filter, setFilter] = useState("");
   const single = cat.select === "single";
+  // Collapse size families ("Small/Medium/Large Fries") into one row carrying a
+  // size selector. Members share a name, so filtering keeps a family together.
+  const families = useMemo(() => {
+    const kids = new Map<string, Component[]>();
+    for (const c of comps) {
+      if (!c.variant_of) continue;
+      kids.set(c.variant_of, [...(kids.get(c.variant_of) ?? []), c]);
+    }
+    return comps
+      .filter((c) => !c.variant_of)
+      .map((head) => ({ head, members: [head, ...(kids.get(head.id) ?? [])] }));
+  }, [comps]);
   const shown = filter
-    ? comps.filter((c) => c.name.toLowerCase().includes(filter.toLowerCase()))
-    : comps;
+    ? families.filter((f) =>
+        f.head.name.toLowerCase().includes(filter.toLowerCase()),
+      )
+    : families;
   return (
     <div className="px-2 pb-2">
       {comps.length > SEARCH_THRESHOLD && (
@@ -218,17 +264,32 @@ function CategoryBody({
         </label>
       )}
       <ul className="space-y-0.5">
-        {shown.map((comp) => (
-          <ComponentRow
-            key={comp.id}
-            comp={comp}
-            qty={selections[comp.id]}
-            single={single}
-            qmult={qmultFor(comp)}
-            onToggle={() => toggle(comp, single)}
-            onQty={(q) => setQty(comp.id, q)}
-          />
-        ))}
+        {shown.map(({ head, members }) => {
+          // The row shows whichever size is selected, else the default size.
+          const active = members.find((m) => selections[m.id]) ?? head;
+          return (
+            <ComponentRow
+              key={head.id}
+              comp={active}
+              qty={selections[active.id]}
+              single={single}
+              qmult={qmultFor(active)}
+              onToggle={() => toggle(active, single)}
+              onQty={(q) => setQty(active.id, q)}
+              variants={members.length > 1 ? members : undefined}
+              onVariant={(next) => {
+                if (next.id === active.id) return;
+                const qty = selections[active.id];
+                // Switching size moves the selection rather than adding a second
+                // row, and carries the quantity across.
+                if (qty) {
+                  setQty(active.id, 0);
+                  setQty(next.id, qty);
+                }
+              }}
+            />
+          );
+        })}
         {shown.length === 0 && (
           <li className="px-3 py-2 text-sm text-muted">No matches.</li>
         )}
@@ -237,13 +298,18 @@ function CategoryBody({
   );
 }
 
+/** Display name including its size, so "Fries" never loses which one. */
+function fullName(c: Component): string {
+  return c.variant_label ? `${c.name} (${c.variant_label})` : c.name;
+}
+
 function picksSummary(comps: Component[], selections: Selections): string {
   const picked = comps.filter((c) => selections[c.id]);
   if (picked.length === 0) return "";
   return picked
     .map((c) => {
       const q = selections[c.id];
-      return q === 1 ? c.name : `${fmtQty(q)} ${c.name}`;
+      return q === 1 ? fullName(c) : `${fmtQty(q)} ${fullName(c)}`;
     })
     .join("  +  ");
 }
@@ -257,7 +323,9 @@ function labelText(
   url: string,
 ): string {
   const items = picked
-    .map((c) => (sel[c.id] === 1 ? c.name : `${fmtQty(sel[c.id])} ${c.name}`))
+    .map((c) =>
+      sel[c.id] === 1 ? fullName(c) : `${fmtQty(sel[c.id])} ${fullName(c)}`,
+    )
     .join(", ");
   return [
     `${chain.name}${modeName ? ` — ${modeName}` : ""} (built on eatimate)`,

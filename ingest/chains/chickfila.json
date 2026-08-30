@@ -113,6 +113,72 @@
   },
   "Bacon [#2]": {
    "cat": "toppings"
+  },
+  "Medium Chick-fil-A Waffle Potato Fries®": {
+   "cat": "side",
+   "id": "waffle-fries",
+   "name": "Chick-fil-A® Waffle Potato Fries",
+   "variant_label": "Medium"
+  },
+  "Small Chick-fil-A Waffle Potato Fries®": {
+   "cat": "side",
+   "id": "waffle-fries-small",
+   "name": "Chick-fil-A® Waffle Potato Fries",
+   "variant_of": "waffle-fries",
+   "variant_label": "Small"
+  },
+  "Large Chick-fil-A Waffle Potato Fries®": {
+   "cat": "side",
+   "id": "waffle-fries-large",
+   "name": "Chick-fil-A® Waffle Potato Fries",
+   "variant_of": "waffle-fries",
+   "variant_label": "Large"
+  },
+  "Medium Fruit Cup": {
+   "cat": "side",
+   "id": "fruit-cup",
+   "name": "Fruit Cup",
+   "variant_label": "Medium"
+  },
+  "Small Fruit Cup": {
+   "cat": "side",
+   "id": "fruit-cup-small",
+   "name": "Fruit Cup",
+   "variant_of": "fruit-cup",
+   "variant_label": "Small"
+  },
+  "Large Fruit Cup": {
+   "cat": "side",
+   "id": "fruit-cup-large",
+   "name": "Fruit Cup",
+   "variant_of": "fruit-cup",
+   "variant_label": "Large"
+  },
+  "Medium Mac & Cheese": {
+   "cat": "side",
+   "id": "mac-and-cheese",
+   "name": "Mac & Cheese",
+   "variant_label": "Medium"
+  },
+  "Small Mac & Cheese": {
+   "cat": "side",
+   "id": "mac-and-cheese-small",
+   "name": "Mac & Cheese",
+   "variant_of": "mac-and-cheese",
+   "variant_label": "Small"
+  },
+  "Cup of Chicken Noodle Soup": {
+   "cat": "side",
+   "id": "chicken-noodle-soup",
+   "name": "Chicken Noodle Soup",
+   "variant_label": "Cup"
+  },
+  "Bowl of Chicken Noodle Soup": {
+   "cat": "side",
+   "id": "chicken-noodle-soup-bowl",
+   "name": "Chicken Noodle Soup",
+   "variant_of": "chicken-noodle-soup",
+   "variant_label": "Bowl"
   }
  }
 }

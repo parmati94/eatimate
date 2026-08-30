@@ -1,75 +1,288 @@
 {
-  "meta": {
-    "name": "Five Guys",
-    "slug": "fiveguys",
-    "source": {
-      "pdf_url": "https://www.fiveguys.com/wp-content/uploads/2026/08/Five-Guys-US-Nutrition-Allergen-Guide-English-June-2026.pdf",
-      "retrieved": "2026-08-30"
-    },
-    "disclaimer_extra": "Five Guys' guide (June 2026) lists some items per supplier with near-identical values; the first-listed supplier's row is used. All toppings are free at the counter — free doesn't mean calorie-free.",
-    "blurb": "Build your Five Guys order patty by patty — bun, meat, all the free toppings, fries by size and style, even the milkshake mix-ins — from Five Guys' official June 2026 nutrition guide.",
-    "glyph": "burger"
+ "meta": {
+  "name": "Five Guys",
+  "slug": "fiveguys",
+  "source": {
+   "pdf_url": "https://www.fiveguys.com/wp-content/uploads/2026/08/Five-Guys-US-Nutrition-Allergen-Guide-English-June-2026.pdf",
+   "retrieved": "2026-08-30"
   },
-  "categories": [
-    {"id": "bun", "name": "Bun", "select": "single", "flow": "build"},
-    {"id": "meat", "name": "Patties & Meat", "select": "multi", "flow": "build"},
-    {"id": "toppings", "name": "Toppings & Sauces", "select": "multi", "flow": "build"},
-    {"id": "fries", "name": "Fries", "select": "multi", "flow": "extras"},
-    {"id": "shake", "name": "Milkshake Builder", "select": "multi", "flow": "extras"},
-    {"id": "snacks", "name": "Peanuts", "select": "multi", "flow": "extras"},
-    {"id": "drinks", "name": "Drinks", "select": "single", "flow": "extras"}
+  "disclaimer_extra": "Five Guys' guide (June 2026) lists some items per supplier with near-identical values; the first-listed supplier's row is used. All toppings are free at the counter — free doesn't mean calorie-free.",
+  "blurb": "Build your Five Guys order patty by patty — bun, meat, all the free toppings, fries by size and style, even the milkshake mix-ins — from Five Guys' official June 2026 nutrition guide.",
+  "glyph": "burger"
+ },
+ "categories": [
+  {
+   "id": "bun",
+   "name": "Bun",
+   "select": "single",
+   "flow": "build"
+  },
+  {
+   "id": "meat",
+   "name": "Patties & Meat",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "toppings",
+   "name": "Toppings & Sauces",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "fries",
+   "name": "Fries",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "shake",
+   "name": "Milkshake Builder",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "snacks",
+   "name": "Peanuts",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "drinks",
+   "name": "Drinks",
+   "select": "single",
+   "flow": "extras"
+  }
+ ],
+ "layout": {
+  "columns": [
+   "serving",
+   "calories",
+   "cff",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g"
   ],
-  "layout": {
-    "columns": ["serving", "calories", "cff", "fat_g", "sat_fat_g", "trans_fat_g", "cholesterol_mg", "sodium_mg", "carbs_g", "fiber_g", "sugars_g", "protein_g"],
-    "allergen": false,
-    "serving": "g",
-    "sections": "^[A-Z][A-Z0-9 %'&-]+$",
-    "stop": "^INGREDIENT LISTING$",
-    "skip": "^(Nutrition & Allergen Guide|USA$|Five Guys Enterprises|manufacturers of|assume any liability|Nutritional information provided|applicable regulations|nutrition values for each|Recommended limits|NUTRITION ALLERGENS|Serving Calories|Size \\(g\\))",
-    "pre_replace": [
-      ["^MIX-INS \\(.*$", "MIX-INS"],
-      ["< 1", "<1"],
-      ["^Chives Seasoning 1-2 ", "Chives Seasoning 2 "]
-    ]
-  },
-  "section_categories": {
-    "MEAT": {"cat": "meat", "desc": "1 serving"},
-    "BUN": {"cat": "bun", "desc": "1 bun"},
-    "FRIES - COOKED IN 100% PEANUT OIL": {"cat": "fries", "desc": "cooked in peanut oil"},
-    "TOPPINGS": {"cat": "toppings", "desc": "burger portion"},
-    "MILKSHAKES": {"cat": "shake", "desc": "1 serving"},
-    "MIX-INS": {"cat": "shake", "desc": "1 mix-in"},
-    "DRINKS": {"cat": "drinks", "desc": "1 bottle / carton"},
-    "SAUCES": {"cat": "toppings", "desc": "1 serving"},
-    "PEANUTS": {"cat": "snacks", "desc": "1 oz scoop"}
-  },
-  "items": {
-    "Bacon (2 pieces) (Supplier S)": {"cat": "meat", "id": "bacon", "name": "Bacon (2 pieces)", "desc": "½× for one piece"},
-    "Bacon (2 pieces) (Supplier D)": {"skip": "supplier variant; Supplier S row kept (values near-identical)"},
-    "Bacon (1 piece) (Supplier D)": {"skip": "covered by Bacon (2 pieces) at ½×"},
-    "Hamburger Patty": {"cat": "meat", "desc": "per patty — 2× for a regular burger"},
-    "Hot Dog (Supplier H)": {"cat": "meat", "id": "hot-dog", "name": "Hot Dog (split)", "desc": "1 dog"},
-    "Hot Dog (Supplier K)": {"skip": "supplier variant; Supplier H row kept (values near-identical)"},
-    "Mini Patty": {"cat": "meat", "desc": "per mini patty"},
-    "Eggs (2)": {"cat": "meat", "name": "Fried Eggs (2)", "desc": "breakfast, select locations"},
-    "Cheese (1 slice) (Supplier K)": {"cat": "toppings", "id": "cheese-slice", "name": "Cheese (1 slice)", "desc": "per slice — 2× for a regular cheeseburger"},
-    "Cheese (1 slice) (Supplier S)": {"skip": "supplier variant; Supplier K row kept (values near-identical)"},
-    "Cheese (1/2 slice) (Supplier S)": {"skip": "covered by Cheese (1 slice) at ½×"},
-    "Mayonnaise (Supplier K)": {"cat": "toppings", "id": "mayonnaise", "name": "Mayonnaise", "desc": "burger portion"},
-    "Mayonnaise (Supplier S)": {"skip": "supplier variant; Supplier K row kept (values near-identical)"},
-    "Pickles (Supplier M)": {"cat": "toppings", "id": "pickles", "name": "Pickles", "desc": "burger portion"},
-    "Pickles (Supplier B)": {"skip": "supplier variant; Supplier M row kept (values near-identical)"},
-    "Whipped Cream (Supplier S)": {"cat": "shake", "id": "whipped-cream", "name": "Whipped Cream", "desc": "1 topping"},
-    "Whipped Cream (Supplier A)": {"skip": "supplier variant; Supplier S row kept (values near-identical)"},
-    "Fry Sauce Bulk": {"skip": "bulk variant; the PC cup is what an order gets"},
-    "Fry Sauce PC": {"cat": "fries", "id": "fry-sauce", "name": "Fry Sauce", "desc": "1 cup"},
-    "Malt Vinegar (1tbs)": {"cat": "fries", "name": "Malt Vinegar", "desc": "1 tbsp"},
-    "Liquid Butter Flavored Oil": {"cat": "toppings", "name": "Liquid Butter (grilled bun)", "desc": "grill portion"},
-    "Chives Seasoning": {"cat": "toppings", "desc": "sprinkle"},
-    "Lemons (1 slice)": {"cat": "drinks", "name": "Lemon Slice", "desc": "1 slice"},
-    "Bulk Peanuts (1oz.)": {"cat": "snacks", "id": "bulk-peanuts", "name": "Peanuts", "desc": "1 oz scoop"}
-  },
-  "synthetic": [
-    {"id": "no-bun", "name": "No Bun (lettuce wrap / bowl)", "cat": "bun", "desc": "skip the bun", "before": "mini-bun"}
+  "allergen": false,
+  "serving": "g",
+  "sections": "^[A-Z][A-Z0-9 %'&-]+$",
+  "stop": "^INGREDIENT LISTING$",
+  "skip": "^(Nutrition & Allergen Guide|USA$|Five Guys Enterprises|manufacturers of|assume any liability|Nutritional information provided|applicable regulations|nutrition values for each|Recommended limits|NUTRITION ALLERGENS|Serving Calories|Size \\(g\\))",
+  "pre_replace": [
+   [
+    "^MIX-INS \\(.*$",
+    "MIX-INS"
+   ],
+   [
+    "< 1",
+    "<1"
+   ],
+   [
+    "^Chives Seasoning 1-2 ",
+    "Chives Seasoning 2 "
+   ]
   ]
+ },
+ "section_categories": {
+  "MEAT": {
+   "cat": "meat",
+   "desc": "1 serving"
+  },
+  "BUN": {
+   "cat": "bun",
+   "desc": "1 bun"
+  },
+  "FRIES - COOKED IN 100% PEANUT OIL": {
+   "cat": "fries",
+   "desc": "cooked in peanut oil"
+  },
+  "TOPPINGS": {
+   "cat": "toppings",
+   "desc": "burger portion"
+  },
+  "MILKSHAKES": {
+   "cat": "shake",
+   "desc": "1 serving"
+  },
+  "MIX-INS": {
+   "cat": "shake",
+   "desc": "1 mix-in"
+  },
+  "DRINKS": {
+   "cat": "drinks",
+   "desc": "1 bottle / carton"
+  },
+  "SAUCES": {
+   "cat": "toppings",
+   "desc": "1 serving"
+  },
+  "PEANUTS": {
+   "cat": "snacks",
+   "desc": "1 oz scoop"
+  }
+ },
+ "items": {
+  "Bacon (2 pieces) (Supplier S)": {
+   "cat": "meat",
+   "id": "bacon",
+   "name": "Bacon (2 pieces)",
+   "desc": "½× for one piece"
+  },
+  "Bacon (2 pieces) (Supplier D)": {
+   "skip": "supplier variant; Supplier S row kept (values near-identical)"
+  },
+  "Bacon (1 piece) (Supplier D)": {
+   "skip": "covered by Bacon (2 pieces) at ½×"
+  },
+  "Hamburger Patty": {
+   "cat": "meat",
+   "desc": "per patty — 2× for a regular burger"
+  },
+  "Hot Dog (Supplier H)": {
+   "cat": "meat",
+   "id": "hot-dog",
+   "name": "Hot Dog (split)",
+   "desc": "1 dog"
+  },
+  "Hot Dog (Supplier K)": {
+   "skip": "supplier variant; Supplier H row kept (values near-identical)"
+  },
+  "Mini Patty": {
+   "cat": "meat",
+   "desc": "per mini patty"
+  },
+  "Eggs (2)": {
+   "cat": "meat",
+   "name": "Fried Eggs (2)",
+   "desc": "breakfast, select locations"
+  },
+  "Cheese (1 slice) (Supplier K)": {
+   "cat": "toppings",
+   "id": "cheese-slice",
+   "name": "Cheese (1 slice)",
+   "desc": "per slice — 2× for a regular cheeseburger"
+  },
+  "Cheese (1 slice) (Supplier S)": {
+   "skip": "supplier variant; Supplier K row kept (values near-identical)"
+  },
+  "Cheese (1/2 slice) (Supplier S)": {
+   "skip": "covered by Cheese (1 slice) at ½×"
+  },
+  "Mayonnaise (Supplier K)": {
+   "cat": "toppings",
+   "id": "mayonnaise",
+   "name": "Mayonnaise",
+   "desc": "burger portion"
+  },
+  "Mayonnaise (Supplier S)": {
+   "skip": "supplier variant; Supplier K row kept (values near-identical)"
+  },
+  "Pickles (Supplier M)": {
+   "cat": "toppings",
+   "id": "pickles",
+   "name": "Pickles",
+   "desc": "burger portion"
+  },
+  "Pickles (Supplier B)": {
+   "skip": "supplier variant; Supplier M row kept (values near-identical)"
+  },
+  "Whipped Cream (Supplier S)": {
+   "cat": "shake",
+   "id": "whipped-cream",
+   "name": "Whipped Cream",
+   "desc": "1 topping"
+  },
+  "Whipped Cream (Supplier A)": {
+   "skip": "supplier variant; Supplier S row kept (values near-identical)"
+  },
+  "Fry Sauce Bulk": {
+   "skip": "bulk variant; the PC cup is what an order gets"
+  },
+  "Fry Sauce PC": {
+   "cat": "fries",
+   "id": "fry-sauce",
+   "name": "Fry Sauce",
+   "desc": "1 cup"
+  },
+  "Malt Vinegar (1tbs)": {
+   "cat": "fries",
+   "name": "Malt Vinegar",
+   "desc": "1 tbsp"
+  },
+  "Liquid Butter Flavored Oil": {
+   "cat": "toppings",
+   "name": "Liquid Butter (grilled bun)",
+   "desc": "grill portion"
+  },
+  "Chives Seasoning": {
+   "cat": "toppings",
+   "desc": "sprinkle"
+  },
+  "Lemons (1 slice)": {
+   "cat": "drinks",
+   "name": "Lemon Slice",
+   "desc": "1 slice"
+  },
+  "Bulk Peanuts (1oz.)": {
+   "cat": "snacks",
+   "id": "bulk-peanuts",
+   "name": "Peanuts",
+   "desc": "1 oz scoop"
+  },
+  "Regular Five Guys Style": {
+   "cat": "fries",
+   "id": "regular-five-guys-style",
+   "name": "Five Guys Style Fries",
+   "variant_label": "Regular"
+  },
+  "Little Five Guys Style": {
+   "cat": "fries",
+   "id": "little-five-guys-style",
+   "name": "Five Guys Style Fries",
+   "variant_label": "Little",
+   "variant_of": "regular-five-guys-style"
+  },
+  "Large Five Guys Style": {
+   "cat": "fries",
+   "id": "large-five-guys-style",
+   "name": "Five Guys Style Fries",
+   "variant_label": "Large",
+   "variant_of": "regular-five-guys-style"
+  },
+  "Regular Cajun Style": {
+   "cat": "fries",
+   "id": "regular-cajun-style",
+   "name": "Cajun Style Fries",
+   "variant_label": "Regular"
+  },
+  "Little Cajun Style": {
+   "cat": "fries",
+   "id": "little-cajun-style",
+   "name": "Cajun Style Fries",
+   "variant_label": "Little",
+   "variant_of": "regular-cajun-style"
+  },
+  "Large Cajun Style": {
+   "cat": "fries",
+   "id": "large-cajun-style",
+   "name": "Cajun Style Fries",
+   "variant_label": "Large",
+   "variant_of": "regular-cajun-style"
+  }
+ },
+ "synthetic": [
+  {
+   "id": "no-bun",
+   "name": "No Bun (lettuce wrap / bowl)",
+   "cat": "bun",
+   "desc": "skip the bun",
+   "before": "mini-bun"
+  }
+ ]
 }
