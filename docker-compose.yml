@@ -1,7 +1,7 @@
 services:
-  mealmath:
+  eatimate:
     build: .
-    container_name: mealmath
+    container_name: eatimate
     restart: unless-stopped
     ports:
       - "3100:3000"

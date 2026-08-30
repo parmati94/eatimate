@@ -231,7 +231,7 @@ function labelText(
     .map((c) => (sel[c.id] === 1 ? c.name : `${fmtQty(sel[c.id])} ${c.name}`))
     .join(", ");
   return [
-    `${chain.name} (built on mealmath)`,
+    `${chain.name} (built on eatimate)`,
     items,
     ``,
     `Calories: ${roundCalories(totals.calories)}`,

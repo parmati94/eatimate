@@ -5,7 +5,7 @@ import { IconMonitor, IconMoon, IconSun } from "./icons";
 
 export type Theme = "system" | "light" | "dark";
 const ORDER: Theme[] = ["system", "light", "dark"];
-export const THEME_KEY = "mealmath.theme";
+export const THEME_KEY = "eatimate.theme";
 
 function apply(theme: Theme) {
   const root = document.documentElement;

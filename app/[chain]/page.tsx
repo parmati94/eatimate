@@ -17,8 +17,8 @@ export async function generateMetadata(
   return {
     title,
     description,
-    openGraph: { title: `${title} · mealmath`, description },
-    twitter: { title: `${title} · mealmath`, description },
+    openGraph: { title: `${title} · Eatimate`, description },
+    twitter: { title: `${title} · Eatimate`, description },
   };
 }
 

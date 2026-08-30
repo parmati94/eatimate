@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "mealmath",
-    short_name: "mealmath",
+    name: "Eatimate",
+    short_name: "Eatimate",
     description:
       "Restaurant nutrition calculators for chains that only publish a PDF.",
     start_url: "/",

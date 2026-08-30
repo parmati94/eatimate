@@ -10,12 +10,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: { default: "mealmath", template: "%s · mealmath" },
+  title: { default: "Eatimate", template: "%s · Eatimate" },
   description:
     "Restaurant nutrition calculators for chains that only publish a PDF.",
-  applicationName: "mealmath",
-  appleWebApp: { capable: true, title: "mealmath", statusBarStyle: "default" },
-  openGraph: { siteName: "mealmath", type: "website" },
+  applicationName: "Eatimate",
+  appleWebApp: { capable: true, title: "Eatimate", statusBarStyle: "default" },
+  openGraph: { siteName: "Eatimate", type: "website" },
   twitter: { card: "summary" },
 };
 
@@ -41,7 +41,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {/* Apply a saved theme before first paint; default is the OS setting. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem("mealmath.theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}`,
+            __html: `try{var t=localStorage.getItem("eatimate.theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}`,
           }}
         />
         <Header />

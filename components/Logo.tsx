@@ -19,13 +19,13 @@ export function Logo({ wordmark = true }: { wordmark?: boolean }) {
   return (
     <Link
       href="/"
-      aria-label="mealmath home"
+      aria-label="eatimate home"
       className="inline-flex items-center gap-2 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-accent"
     >
       <Logomark />
       {wordmark && (
         <span className="text-[17px] font-bold tracking-tight">
-          meal<span className="text-accent-strong">math</span>
+          eat<span className="text-accent-strong">imate</span>
         </span>
       )}
     </Link>
