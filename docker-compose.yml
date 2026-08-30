@@ -1,0 +1,9 @@
+services:
+  mealmath:
+    build: .
+    container_name: mealmath
+    restart: unless-stopped
+    ports:
+      - "3100:3000"
+    volumes:
+      - ./data/chains:/app/data/chains:ro

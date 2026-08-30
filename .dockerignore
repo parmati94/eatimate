@@ -1,0 +1,8 @@
+node_modules
+.next
+.git
+PLAN.md
+data/raw
+ingest/.venv
+*.md
+!data/**/*.md
