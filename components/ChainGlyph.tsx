@@ -10,6 +10,16 @@ export default function ChainGlyph({
 }) {
   const detail = "var(--surface)";
   const body = {
+    burger: (
+      <g>
+        <path d="M12 30a20 14 0 0 1 40 0v2H12Z" fill="currentColor" />
+        <circle cx="24" cy="24" r="1.6" fill="var(--surface)" />
+        <circle cx="32" cy="21" r="1.6" fill="var(--surface)" />
+        <circle cx="40" cy="24" r="1.6" fill="var(--surface)" />
+        <path d="M11 36h42a3 3 0 0 1 0 6H11a3 3 0 0 1 0-6Z" fill="currentColor" opacity=".8" />
+        <path d="M13 46h38v2a6 6 0 0 1-6 6H19a6 6 0 0 1-6-6Z" fill="currentColor" />
+      </g>
+    ),
     burrito: (
       <g>
         <ellipse cx="32" cy="38" rx="20" ry="12" fill="currentColor" />

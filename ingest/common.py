@@ -163,6 +163,12 @@ def cff_corrections(components, rows):
         r = by_vals.get((c["calories"], c["fat_g"], c["protein_g"], c["carbs_g"]))
         if not r: continue
         alt = round(r.cells["cff"] / 9)
+        # Only correct a genuinely scrambled cell (Qdoba's Quesabirria prints
+        # 95 g fat against 380 cal-from-fat). A printed fat within rounding
+        # distance of cff/9 is consistent — keep it (Atwater estimates are
+        # allowed to miss for meat/cheese).
+        if abs(c["fat_g"] - r.cells["cff"] / 9) <= max(3, 0.4 * alt):
+            continue
         if abs(4 * (c["protein_g"] + c["carbs_g"]) + 9 * alt - c["calories"]) <= tol:
             c["corrections"] = [{"field": "fat_g", "printed": c["fat_g"], "used": alt,
                 "reason": f"PDF prints {c['fat_g']} g total fat but {r.cells['cff']:g} calories-from-fat and {c['calories']} kcal; {c['fat_g']} g fat would imply ~{est:.0f} kcal. {alt} g (= {r.cells['cff']:g}/9) makes the energy math consistent."}]
