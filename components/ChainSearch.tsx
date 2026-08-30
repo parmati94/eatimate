@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { IconSearch } from "./icons";
 
 export type ChainCard = {
   slug: string;
@@ -10,7 +11,7 @@ export type ChainCard = {
   retrieved: string;
 };
 
-// Deterministic pleasant tile color per chain (no trademarked logos/colors).
+// Deterministic tile color per chain (no trademarked logos/colors).
 const PALETTE = [
   "bg-emerald-600",
   "bg-sky-600",
@@ -36,31 +37,34 @@ export default function ChainSearch({ chains }: { chains: ChainCard[] }) {
 
   return (
     <div>
-      <input
-        type="search"
-        autoFocus
-        value={q}
-        onChange={(e) => setQ(e.target.value)}
-        placeholder="Search a restaurant…"
-        aria-label="Search a restaurant"
-        className="w-full rounded-2xl border border-neutral-300 bg-white px-5 py-4 text-lg shadow-sm outline-none transition-colors focus:border-emerald-500 dark:border-neutral-700 dark:bg-neutral-900"
-      />
+      <label className="relative block">
+        <IconSearch className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted" />
+        <input
+          type="search"
+          autoFocus
+          value={q}
+          onChange={(e) => setQ(e.target.value)}
+          placeholder="Search restaurants…"
+          aria-label="Search restaurants"
+          className="w-full rounded-2xl border border-line bg-surface py-4 pl-12 pr-5 text-lg shadow-sm outline-none transition-[border-color,box-shadow] placeholder:text-muted focus:border-accent focus:ring-4 focus:ring-accent/15"
+        />
+      </label>
 
-      <ul className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+      <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4">
         {shown.map((chain) => (
           <li key={chain.slug}>
             <Link
               href={`/${chain.slug}`}
-              className="group flex h-full flex-col items-center gap-2 rounded-2xl border border-neutral-200 bg-white p-5 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:border-emerald-500 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900"
+              className="group flex h-full flex-col items-center gap-2 rounded-2xl border border-line bg-surface p-5 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:border-accent hover:shadow-md focus-visible:border-accent focus-visible:outline-none"
             >
               <span
                 aria-hidden
-                className={`flex h-14 w-14 items-center justify-center rounded-2xl text-2xl font-extrabold text-white ${tileColor(chain.slug)}`}
+                className={`flex h-14 w-14 items-center justify-center rounded-2xl text-2xl font-bold text-white ${tileColor(chain.slug)}`}
               >
                 {chain.name[0]}
               </span>
               <span className="font-semibold leading-tight">{chain.name}</span>
-              <span className="text-xs text-neutral-500">
+              <span className="text-xs text-muted">
                 {chain.componentCount} ingredients
               </span>
             </Link>
@@ -69,7 +73,7 @@ export default function ChainSearch({ chains }: { chains: ChainCard[] }) {
       </ul>
 
       {shown.length === 0 && (
-        <p className="mt-8 text-center text-neutral-500">
+        <p className="mt-8 text-center text-muted">
           Nothing for “{q}” yet — restaurant requests are coming with the public
           version.
         </p>

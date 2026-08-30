@@ -11,6 +11,15 @@ import {
   roundSodium,
 } from "@/lib/rounding";
 import NutritionLabel from "./NutritionLabel";
+import {
+  IconCheck,
+  IconChevron,
+  IconCopy,
+  IconMinus,
+  IconPlus,
+  IconSearch,
+  IconX,
+} from "./icons";
 
 const QTY_STEPS = [0.5, 1, 2, 3];
 const SEARCH_THRESHOLD = 14;
@@ -54,31 +63,34 @@ function QtyStepper({
   onChange: (q: number) => void;
 }) {
   const i = QTY_STEPS.indexOf(qty);
+  const btn =
+    "flex h-9 w-9 items-center justify-center text-accent-strong transition-colors hover:bg-accent-soft disabled:opacity-30 disabled:hover:bg-transparent";
   return (
     <span
-      className="inline-flex items-center overflow-hidden rounded-full border border-emerald-300 bg-white text-sm dark:border-emerald-800 dark:bg-neutral-900"
+      className="inline-flex items-center overflow-hidden rounded-full border border-line bg-surface shadow-sm"
       onClick={(e) => e.stopPropagation()}
+      onKeyDown={(e) => e.stopPropagation()}
     >
       <button
         type="button"
-        aria-label="less"
+        aria-label="Less"
         disabled={i <= 0}
         onClick={() => onChange(QTY_STEPS[i - 1])}
-        className="px-2.5 py-1 text-emerald-700 hover:bg-emerald-50 disabled:opacity-30 dark:text-emerald-400 dark:hover:bg-neutral-800"
+        className={btn}
       >
-        −
+        <IconMinus className="h-4 w-4" />
       </button>
-      <span className="min-w-8 text-center text-xs font-semibold tabular-nums text-emerald-800 dark:text-emerald-300">
+      <span className="min-w-8 text-center text-xs font-semibold tabular-nums">
         {fmtQty(qty)}
       </span>
       <button
         type="button"
-        aria-label="more"
+        aria-label="More"
         disabled={i >= QTY_STEPS.length - 1}
         onClick={() => onChange(QTY_STEPS[i + 1])}
-        className="px-2.5 py-1 text-emerald-700 hover:bg-emerald-50 disabled:opacity-30 dark:text-emerald-400 dark:hover:bg-neutral-800"
+        className={btn}
       >
-        +
+        <IconPlus className="h-4 w-4" />
       </button>
     </span>
   );
@@ -111,36 +123,32 @@ function ComponentRow({
             onToggle();
           }
         }}
-        className={`flex min-h-11 cursor-pointer items-center gap-3 rounded-lg border px-3 py-2 transition-colors ${
-          selected
-            ? "border-emerald-500 bg-emerald-50 dark:border-emerald-600 dark:bg-emerald-950/40"
-            : "border-transparent hover:bg-neutral-50 dark:hover:bg-neutral-800/60"
+        className={`flex min-h-12 cursor-pointer items-center gap-3 rounded-xl px-3 py-1.5 outline-none transition-colors focus-visible:ring-2 focus-visible:ring-accent ${
+          selected ? "bg-accent-soft" : "hover:bg-surface-2"
         }`}
       >
         <span
           aria-hidden
-          className={`flex h-4 w-4 shrink-0 items-center justify-center border text-[10px] font-bold text-white ${
-            single ? "rounded-full" : "rounded"
+          className={`flex h-5 w-5 shrink-0 items-center justify-center border-2 transition-colors ${
+            single ? "rounded-full" : "rounded-md"
           } ${
             selected
-              ? "border-emerald-600 bg-emerald-600"
-              : "border-neutral-300 dark:border-neutral-600"
+              ? "border-accent bg-accent text-on-accent"
+              : "border-line bg-surface"
           }`}
         >
-          {selected && "✓"}
+          {selected && <IconCheck className="h-3 w-3" />}
         </span>
         <span className="min-w-0 flex-1">
-          <span className="block truncate text-sm font-medium">
+          <span className="block truncate text-[15px] font-medium leading-snug">
             {comp.name}
           </span>
-          <span className="block text-xs text-neutral-500">
-            {comp.serving_desc}
-          </span>
+          <span className="block text-xs text-muted">{comp.serving_desc}</span>
         </span>
         {selected ? (
           <QtyStepper qty={qty} onChange={onQty} />
         ) : (
-          <span className="text-xs tabular-nums text-neutral-400">
+          <span className="text-xs tabular-nums text-muted">
             {comp.calories} cal
           </span>
         )}
@@ -170,13 +178,16 @@ function CategoryBody({
   return (
     <div className="px-2 pb-2">
       {comps.length > SEARCH_THRESHOLD && (
-        <input
-          type="search"
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-          placeholder={`Search ${cat.name.toLowerCase()}…`}
-          className="mb-1 w-full rounded-lg border border-neutral-200 bg-transparent px-3 py-1.5 text-sm outline-none focus:border-emerald-500 dark:border-neutral-700"
-        />
+        <label className="relative mb-1 block">
+          <IconSearch className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" />
+          <input
+            type="search"
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+            placeholder={`Search ${cat.name.toLowerCase()}…`}
+            className="w-full rounded-lg border border-line bg-surface-2 py-2 pl-9 pr-3 text-sm outline-none transition-colors placeholder:text-muted focus:border-accent"
+          />
+        </label>
       )}
       <ul className="space-y-0.5">
         {shown.map((comp) => (
@@ -190,7 +201,7 @@ function CategoryBody({
           />
         ))}
         {shown.length === 0 && (
-          <li className="px-3 py-2 text-sm text-neutral-500">No matches.</li>
+          <li className="px-3 py-2 text-sm text-muted">No matches.</li>
         )}
       </ul>
     </div>
@@ -208,7 +219,13 @@ function picksSummary(comps: Component[], selections: Selections): string {
     .join("  +  ");
 }
 
-function labelText(chain: Chain, picked: Component[], sel: Selections, totals: Totals, url: string): string {
+function labelText(
+  chain: Chain,
+  picked: Component[],
+  sel: Selections,
+  totals: Totals,
+  url: string,
+): string {
   const items = picked
     .map((c) => (sel[c.id] === 1 ? c.name : `${fmtQty(sel[c.id])} ${c.name}`))
     .join(", ");
@@ -253,10 +270,116 @@ function CopyLabelButton({
         setCopied(true);
         setTimeout(() => setCopied(false), 1500);
       }}
-      className="w-full rounded-lg border border-emerald-600 bg-white px-3 py-2 text-sm font-medium text-emerald-700 hover:bg-emerald-50 dark:bg-neutral-900 dark:text-emerald-400 dark:hover:bg-emerald-950/40"
+      className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl border border-line bg-surface text-sm font-medium shadow-sm transition-colors hover:border-accent hover:text-accent-strong"
     >
-      {copied ? "Copied ✓" : "Copy label as text"}
+      {copied ? (
+        <>
+          <IconCheck className="h-4 w-4 text-accent-strong" /> Copied
+        </>
+      ) : (
+        <>
+          <IconCopy className="h-4 w-4" /> Copy label as text
+        </>
+      )}
     </button>
+  );
+}
+
+function SectionHeader({
+  index,
+  name,
+  count,
+  summary,
+  open,
+  onClick,
+}: {
+  index?: number;
+  name: string;
+  count: number;
+  summary: string;
+  open: boolean;
+  onClick?: () => void;
+}) {
+  const done = !!summary;
+  const badge =
+    index !== undefined ? (
+      <span
+        className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold transition-colors ${
+          done
+            ? "bg-accent text-on-accent"
+            : open
+              ? "bg-fg text-bg"
+              : "bg-surface-2 text-muted"
+        }`}
+      >
+        {done ? <IconCheck className="h-3.5 w-3.5" /> : index}
+      </span>
+    ) : null;
+  const inner = (
+    <>
+      {badge}
+      <span className="min-w-0 flex-1">
+        <span className="flex items-baseline gap-2">
+          <span className="font-semibold">{name}</span>
+          <span className="text-xs text-muted">{count}</span>
+        </span>
+        {summary && !open && (
+          <span className="block truncate text-xs font-medium text-accent-strong">
+            {summary}
+          </span>
+        )}
+      </span>
+      <IconChevron
+        className={`h-4 w-4 shrink-0 text-muted transition-transform ${open ? "rotate-90" : ""}`}
+      />
+    </>
+  );
+  const cls = "flex min-h-[52px] w-full items-center gap-3 px-4 py-2.5 text-left";
+  return onClick ? (
+    <button type="button" onClick={onClick} aria-expanded={open} className={cls}>
+      {inner}
+    </button>
+  ) : (
+    <summary className={`${cls} cursor-pointer list-none [&::-webkit-details-marker]:hidden`}>
+      {inner}
+    </summary>
+  );
+}
+
+function ExtrasSection({
+  cat,
+  comps,
+  selections,
+  toggle,
+  setQty,
+}: {
+  cat: Category;
+  comps: Component[];
+  selections: Selections;
+  toggle: (comp: Component, single: boolean) => void;
+  setQty: (id: string, q: number) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  return (
+    <details
+      open={open}
+      onToggle={(e) => setOpen((e.currentTarget as HTMLDetailsElement).open)}
+      className="rounded-2xl border border-line bg-surface shadow-sm"
+    >
+      <SectionHeader
+        name={cat.name}
+        count={comps.length}
+        summary={picksSummary(comps, selections)}
+        open={open}
+      />
+      <CategoryBody
+        cat={cat}
+        comps={comps}
+        selections={selections}
+        toggle={toggle}
+        setQty={setQty}
+      />
+    </details>
   );
 }
 
@@ -292,6 +415,7 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
     if (m) {
       const sel = decodeMeal(m, chain);
       if (Object.keys(sel).length > 0) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time restore from URL after mount
         setSelections(sel);
         setOpenCat(null);
       }
@@ -348,57 +472,30 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
   const setQty = (id: string, q: number) =>
     setSelections((prev) => ({ ...prev, [id]: q }));
 
+  const clearAll = () => setSelections({});
+
   return (
-    <div className="grid gap-6 pb-24 lg:grid-cols-[1fr_300px] lg:pb-0">
-      <div className="space-y-4">
+    <div className="grid gap-6 pb-28 lg:grid-cols-[1fr_300px] lg:pb-0">
+      <div className="space-y-5">
         <div className="space-y-2">
           {buildCats.map((cat, idx) => {
             const comps = byCategory.get(cat.id)!;
             const open = openCat === cat.id;
-            const summary = picksSummary(comps, selections);
             return (
               <section
                 key={cat.id}
-                className={`rounded-xl border bg-white shadow-sm transition-colors dark:bg-neutral-900 ${
-                  open
-                    ? "border-emerald-400 dark:border-emerald-700"
-                    : "border-neutral-200 dark:border-neutral-800"
+                className={`rounded-2xl border bg-surface shadow-sm transition-colors ${
+                  open ? "border-accent/60" : "border-line"
                 }`}
               >
-                <button
-                  type="button"
+                <SectionHeader
+                  index={idx + 1}
+                  name={cat.name}
+                  count={comps.length}
+                  summary={picksSummary(comps, selections)}
+                  open={open}
                   onClick={() => setOpenCat(open ? null : cat.id)}
-                  aria-expanded={open}
-                  className="flex w-full items-center gap-2 px-4 py-3 text-left"
-                >
-                  <span
-                    className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white ${
-                      summary ? "bg-emerald-600" : "bg-neutral-400 dark:bg-neutral-600"
-                    }`}
-                  >
-                    {idx + 1}
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="flex items-baseline gap-2">
-                      <span className="font-semibold">{cat.name}</span>
-                      {!summary && (
-                        <span className="text-xs text-neutral-500">
-                          {cat.select === "single" ? "pick one" : "pick any"}
-                        </span>
-                      )}
-                    </span>
-                    {summary && !open && (
-                      <span className="block truncate text-xs font-medium text-emerald-700 dark:text-emerald-400">
-                        {summary}
-                      </span>
-                    )}
-                  </span>
-                  <span
-                    className={`text-xs text-neutral-400 transition-transform ${open ? "rotate-90" : ""}`}
-                  >
-                    ▶
-                  </span>
-                </button>
+                />
                 {open && (
                   <CategoryBody
                     cat={cat}
@@ -415,99 +512,93 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
 
         {extraCats.length > 0 && (
           <>
-            <h2 className="pt-2 text-sm font-semibold uppercase tracking-wide text-neutral-500">
+            <h2 className="px-1 pt-1 text-xs font-semibold uppercase tracking-wider text-muted">
               Sides, drinks &amp; other menu items
             </h2>
             <div className="space-y-2">
-              {extraCats.map((cat) => {
-                const comps = byCategory.get(cat.id)!;
-                const summary = picksSummary(comps, selections);
-                return (
-                  <details
-                    key={cat.id}
-                    className="group rounded-xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900"
-                  >
-                    <summary className="flex cursor-pointer select-none items-center gap-2 px-4 py-3">
-                      <span className="text-xs text-neutral-400 transition-transform group-open:rotate-90">
-                        ▶
-                      </span>
-                      <span className="min-w-0 flex-1">
-                        <span className="flex items-baseline gap-2">
-                          <span className="font-semibold">{cat.name}</span>
-                          <span className="text-xs font-normal text-neutral-500">
-                            {comps.length}
-                          </span>
-                        </span>
-                        {summary && (
-                          <span className="block truncate text-xs font-medium text-emerald-700 group-open:hidden dark:text-emerald-400">
-                            {summary}
-                          </span>
-                        )}
-                      </span>
-                    </summary>
-                    <CategoryBody
-                      cat={cat}
-                      comps={comps}
-                      selections={selections}
-                      toggle={toggle}
-                      setQty={setQty}
-                    />
-                  </details>
-                );
-              })}
+              {extraCats.map((cat) => (
+                <ExtrasSection
+                  key={cat.id}
+                  cat={cat}
+                  comps={byCategory.get(cat.id)!}
+                  selections={selections}
+                  toggle={toggle}
+                  setQty={setQty}
+                />
+              ))}
             </div>
           </>
         )}
       </div>
 
       {/* Desktop: sticky label column */}
-      <aside className="hidden lg:sticky lg:top-4 lg:block lg:space-y-2 lg:self-start">
+      <aside className="hidden lg:sticky lg:top-[72px] lg:block lg:space-y-2 lg:self-start">
         <NutritionLabel totals={totals} />
         <CopyLabelButton chain={chain} selections={selections} totals={totals} />
-        <div className="flex items-center justify-between text-xs text-neutral-500">
+        <div className="flex items-center justify-between px-1 text-xs text-muted">
           <span>
             {selectedCount} item{selectedCount === 1 ? "" : "s"} selected
           </span>
           {selectedCount > 0 && (
             <button
               type="button"
-              onClick={() => setSelections({})}
-              className="underline"
+              onClick={clearAll}
+              className="inline-flex items-center gap-1 hover:text-fg"
             >
-              clear all
+              <IconX className="h-3 w-3" /> Clear
             </button>
           )}
         </div>
       </aside>
 
-      {/* Mobile: sticky totals bar + slide-up label */}
-      <div className="fixed inset-x-0 bottom-0 z-10 lg:hidden">
-        {labelOpen && (
-          <div className="mx-auto max-w-md space-y-2 px-4 pb-2">
-            <NutritionLabel totals={totals} />
-            <CopyLabelButton
-              chain={chain}
-              selections={selections}
-              totals={totals}
+      {/* Mobile: floating totals bar + slide-up label sheet */}
+      {labelOpen && (
+        <div
+          className="fixed inset-0 z-20 bg-black/30 backdrop-blur-[2px] lg:hidden"
+          onClick={() => setLabelOpen(false)}
+          aria-hidden
+        />
+      )}
+      <div className="pointer-events-none fixed inset-x-0 bottom-0 z-20 lg:hidden">
+        <div className="pointer-events-auto mx-auto max-w-md px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+          {labelOpen && (
+            <div className="mb-2 max-h-[70vh] space-y-2 overflow-y-auto rounded-2xl bg-surface p-3 shadow-2xl ring-1 ring-line">
+              <NutritionLabel totals={totals} />
+              <CopyLabelButton
+                chain={chain}
+                selections={selections}
+                totals={totals}
+              />
+              {selectedCount > 0 && (
+                <button
+                  type="button"
+                  onClick={clearAll}
+                  className="inline-flex h-9 w-full items-center justify-center gap-1 text-xs text-muted"
+                >
+                  <IconX className="h-3 w-3" /> Clear meal
+                </button>
+              )}
+            </div>
+          )}
+          <button
+            type="button"
+            onClick={() => setLabelOpen((v) => !v)}
+            aria-expanded={labelOpen}
+            className="flex h-14 w-full items-center justify-between rounded-2xl bg-accent px-4 text-on-accent shadow-lg shadow-accent/30"
+          >
+            <span className="text-lg font-bold tabular-nums">
+              {roundCalories(totals.calories)} cal
+            </span>
+            <span className="text-xs tabular-nums opacity-90">
+              {roundGrams(totals.protein_g)}g protein ·{" "}
+              {roundGrams(totals.carbs_g)}g carbs · {roundGrams(totals.fat_g)}g
+              fat
+            </span>
+            <IconChevron
+              className={`h-5 w-5 transition-transform ${labelOpen ? "rotate-90" : "-rotate-90"}`}
             />
-          </div>
-        )}
-        <button
-          type="button"
-          onClick={() => setLabelOpen((v) => !v)}
-          className="flex w-full items-center justify-between border-t border-emerald-700 bg-emerald-600 px-5 py-3 text-white"
-        >
-          <span className="text-lg font-bold tabular-nums">
-            {roundCalories(totals.calories)} cal
-          </span>
-          <span className="text-sm tabular-nums opacity-90">
-            P {roundGrams(totals.protein_g)}g · C {roundGrams(totals.carbs_g)}g
-            · F {roundGrams(totals.fat_g)}g
-          </span>
-          <span className="text-sm font-medium underline">
-            {labelOpen ? "hide" : "label"}
-          </span>
-        </button>
+          </button>
+        </div>
       </div>
     </div>
   );
