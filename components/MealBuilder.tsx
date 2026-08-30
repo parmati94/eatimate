@@ -249,6 +249,41 @@ function labelText(
   ].join("\n");
 }
 
+/**
+ * Copy with fallbacks: navigator.clipboard only exists in secure contexts
+ * (https / localhost), so on a plain-http LAN dev URL (phone testing) fall back
+ * to the legacy execCommand path, and as a last resort show the text to copy.
+ */
+function copyText(text: string): Promise<boolean> {
+  if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
+    return navigator.clipboard.writeText(text).then(
+      () => true,
+      () => legacyCopy(text),
+    );
+  }
+  return Promise.resolve(legacyCopy(text));
+}
+
+function legacyCopy(text: string): boolean {
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "0";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    ta.setSelectionRange(0, text.length); // iOS needs an explicit range
+    const ok = document.execCommand("copy");
+    document.body.removeChild(ta);
+    return ok;
+  } catch {
+    return false;
+  }
+}
+
 function CopyLabelButton({
   chain,
   selections,
@@ -258,31 +293,57 @@ function CopyLabelButton({
   selections: Selections;
   totals: Totals;
 }) {
-  const [copied, setCopied] = useState(false);
+  const [state, setState] = useState<"idle" | "copied" | "manual">("idle");
+  const [text, setText] = useState("");
   const picked = chain.components.filter((c) => selections[c.id]);
   if (picked.length === 0) return null;
   return (
-    <button
-      type="button"
-      onClick={async () => {
-        await navigator.clipboard.writeText(
-          labelText(chain, picked, selections, totals, window.location.href),
-        );
-        setCopied(true);
-        setTimeout(() => setCopied(false), 1500);
-      }}
-      className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl border border-line bg-surface text-sm font-medium shadow-sm transition-colors hover:border-accent hover:text-accent-strong"
-    >
-      {copied ? (
-        <>
-          <IconCheck className="h-4 w-4 text-accent-strong" /> Copied
-        </>
-      ) : (
-        <>
-          <IconCopy className="h-4 w-4" /> Copy label as text
-        </>
+    <div className="space-y-2">
+      <button
+        type="button"
+        onClick={async () => {
+          const t = labelText(
+            chain,
+            picked,
+            selections,
+            totals,
+            window.location.href,
+          );
+          setText(t);
+          if (await copyText(t)) {
+            setState("copied");
+            setTimeout(() => setState("idle"), 1500);
+          } else {
+            setState("manual");
+          }
+        }}
+        className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl border border-line bg-surface text-sm font-medium shadow-sm transition-colors hover:border-accent hover:text-accent-strong"
+      >
+        {state === "copied" ? (
+          <>
+            <IconCheck className="h-4 w-4 text-accent-strong" /> Copied
+          </>
+        ) : (
+          <>
+            <IconCopy className="h-4 w-4" /> Copy label as text
+          </>
+        )}
+      </button>
+      {state === "manual" && (
+        <div className="space-y-1">
+          <p className="px-1 text-xs text-muted">
+            Couldn&apos;t access the clipboard — select and copy below.
+          </p>
+          <textarea
+            readOnly
+            value={text}
+            rows={6}
+            onFocus={(e) => e.currentTarget.select()}
+            className="w-full rounded-xl border border-line bg-surface-2 p-2 font-mono text-xs"
+          />
+        </div>
       )}
-    </button>
+    </div>
   );
 }
 
