@@ -16,6 +16,11 @@ Config (ingest/chains/<slug>.json):
                subsections regex with one group (optional; e.g. DIG Sides/Mains)
                skip      regex; lines to ignore
                footer    regex stripped from line ends (fused page numbers)
+               stop      regex; parsing ends at the first line matching it
+                         (e.g. an allergen guide that follows the nutrition table)
+             Wrapped names are handled: a numbers-only line takes the preceding
+             prose line as its name, plus the following line when that line is
+             neither a row nor a section header.
   items:       printed row name -> {cat, id?, name?, desc?} (id/name/desc are
                derived when omitted); or {"skip": reason}. A repeated printed
                name is addressed as "<name> [#2]" (2nd occurrence in the dump).
@@ -69,12 +74,30 @@ def parse_dump(path, layout):
     sub_re = re.compile(layout["subsections"]) if layout.get("subsections") else None
     skip_re = re.compile(layout["skip"]) if layout.get("skip") else None
     footer_re = re.compile(layout["footer"]) if layout.get("footer") else None
-    rows, section, sub, pending = [], None, None, []
+    stop_re = re.compile(layout["stop"]) if layout.get("stop") else None
+    nums_only = re.compile(rf"^(?:{TOK}\s+){{{n-1}}}{TOK}$")
+    lines = []
     for line in Path(path).read_text().splitlines():
         line = line.strip()
         if footer_re: line = footer_re.sub("", line).strip()
+        if stop_re and stop_re.match(line): break
         if not line or line.startswith("=====") or (skip_re and skip_re.match(line)):
             continue
+        lines.append(line)
+    # join wrapped names: "<name part>" / "<numbers>" / "<name rest>"
+    joined, i = [], 0
+    while i < len(lines):
+        if nums_only.match(lines[i]) and joined and not row_re.match(joined[-1]) and not sec_re.match(joined[-1]):
+            name, nums = joined.pop(), lines[i]
+            nxt = lines[i + 1] if i + 1 < len(lines) else ""
+            if nxt and not row_re.match(nxt) and not sec_re.match(nxt) and not nums_only.match(nxt):
+                name += " " + nxt; i += 1
+            joined.append(f"{name} {nums}")
+        else:
+            joined.append(lines[i])
+        i += 1
+    rows, section, sub, pending = [], None, None, []
+    for line in joined:
         if sub_re and sub_re.match(line):
             sub = sub_re.match(line).group(1); continue
         m = row_re.match(line)
