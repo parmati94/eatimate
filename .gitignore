@@ -46,3 +46,4 @@ data/raw/
 CLAUDE.md
 AGENTS.md
 ingest/.venv/
+__pycache__/

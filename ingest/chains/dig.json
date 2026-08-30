@@ -1,0 +1,254 @@
+{
+  "meta": {
+    "name": "DIG",
+    "slug": "dig",
+    "source": {
+      "pdf_url": "https://storyblok.pleinaircdn.com/f/274373/x/f847b38fee/dig-nutrition-summer-2026.pdf",
+      "retrieved": "2026-08-30"
+    },
+    "disclaimer_extra": "DIG's chart lists single bowl-portion servings (Summer 2026 menu, updated July 9, 2026); a la carte vegetable sides are 1.5 servings. Menu rotates seasonally."
+  },
+  "categories": [
+    {
+      "id": "base",
+      "name": "Base",
+      "select": "single",
+      "flow": "build"
+    },
+    {
+      "id": "sides",
+      "name": "Market Sides",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "mains",
+      "name": "Mains",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "extras",
+      "name": "Extras",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "sauces",
+      "name": "Sauces",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "signature",
+      "name": "Bowls, Plates & Salads",
+      "select": "single",
+      "flow": "extras"
+    },
+    {
+      "id": "kids",
+      "name": "Little Digs (Kids)",
+      "select": "single",
+      "flow": "extras"
+    },
+    {
+      "id": "desserts",
+      "name": "Desserts",
+      "select": "multi",
+      "flow": "extras"
+    }
+  ],
+  "layout": {
+    "columns": [
+      "serving",
+      "calories",
+      "fat_g",
+      "sat_fat_g",
+      "trans_fat_g",
+      "cholesterol_mg",
+      "sodium_mg",
+      "carbs_g",
+      "fiber_g",
+      "sugars_g",
+      "protein_g"
+    ],
+    "allergen": false,
+    "serving": "oz",
+    "sections": "^[A-Z][A-Z'’ ]{2,30}$",
+    "subsections": "^(Sides|Mains|Extras) Serving Size",
+    "skip": "^(DIG INN NUTRITION|Starting from|that you do not|1\\.5 servings|our ingredients|Serving Size \\(oz\\)|Last Updated)"
+  },
+  "items": {
+    "Brown Rice": {
+      "cat": "base",
+      "desc": "5 oz bowl portion"
+    },
+    "Herb Rice": {
+      "cat": "base",
+      "desc": "5 oz bowl portion"
+    },
+    "Farm Greens with Mint": {
+      "cat": "base",
+      "desc": "1.5 oz bowl portion"
+    },
+    "Dill Pickle Potato Salad": {
+      "cat": "sides",
+      "desc": "5 oz bowl portion"
+    },
+    "Cowboy Caviar": {
+      "cat": "sides",
+      "desc": "4.3 oz bowl portion"
+    },
+    "Cashew Kale Caesar": {
+      "cat": "sides",
+      "desc": "2.7 oz bowl portion"
+    },
+    "Tomatoes & Cucumbers": {
+      "cat": "sides",
+      "desc": "4.3 oz bowl portion"
+    },
+    "Charred Broccoli with Lemon": {
+      "cat": "sides",
+      "desc": "4.3 oz bowl portion"
+    },
+    "Sheet Tray Carrots": {
+      "cat": "sides",
+      "desc": "4 oz bowl portion"
+    },
+    "Roasted Sweet Potatoes": {
+      "cat": "sides",
+      "desc": "6 oz bowl portion"
+    },
+    "Jasper Hill Mac & Cheese": {
+      "cat": "sides",
+      "desc": "6 oz bowl portion"
+    },
+    "Cheesy Cauliflower": {
+      "cat": "sides",
+      "desc": "4.3 oz bowl portion"
+    },
+    "Feta Grain Salad": {
+      "cat": "sides",
+      "desc": "5 oz bowl portion"
+    },
+    "Smoky Sweet Chicken": {
+      "cat": "mains",
+      "desc": "5 oz bowl portion"
+    },
+    "Seared Wild Salmon": {
+      "cat": "mains",
+      "desc": "4 oz bowl portion"
+    },
+    "Crispy Tofu": {
+      "cat": "mains",
+      "desc": "4 oz bowl portion"
+    },
+    "Charred Chicken": {
+      "cat": "mains",
+      "desc": "4.3 oz bowl portion"
+    },
+    "Herb Roasted Chicken": {
+      "cat": "mains",
+      "desc": "3.3 oz bowl portion"
+    },
+    "Crispy Chicken": {
+      "cat": "mains",
+      "desc": "5.3 oz bowl portion"
+    },
+    "Hot Honey Chicken": {
+      "cat": "mains",
+      "desc": "5.1 oz bowl portion"
+    },
+    "Avocado with Olive Oil and Maldon Salt": {
+      "cat": "extras"
+    },
+    "Focaccia": {
+      "cat": "extras"
+    },
+    "Brioche Cheddar Pullapart": {
+      "cat": "extras"
+    },
+    "Heirloom Blue Cornbread": {
+      "cat": "extras"
+    },
+    "Pickle Spear": {
+      "cat": "extras"
+    },
+    "Garlic Aioli": {
+      "cat": "sauces"
+    },
+    "Hot Honey": {
+      "cat": "sauces"
+    },
+    "Pesto": {
+      "cat": "sauces"
+    },
+    "Sriracha": {
+      "cat": "sauces"
+    },
+    "Classic Dig": {
+      "cat": "signature"
+    },
+    "Vegan Dig Classic": {
+      "cat": "signature"
+    },
+    "Spicy Salmon Bowl": {
+      "cat": "signature"
+    },
+    "Hot Honey Chicken Bowl": {
+      "cat": "signature"
+    },
+    "Smoky Sweet Chicken Plate": {
+      "cat": "signature"
+    },
+    "Summer Favorites Plate": {
+      "cat": "signature"
+    },
+    "Vegan Picnic Plate": {
+      "cat": "signature"
+    },
+    "Cheesy Cauliflower Chicken Plate": {
+      "cat": "signature"
+    },
+    "Feta Grain Bowl": {
+      "cat": "signature"
+    },
+    "Fan Faves Plate": {
+      "cat": "signature"
+    },
+    "Vegan Favorites Plate": {
+      "cat": "signature"
+    },
+    "Charred Chicken & Rice": {
+      "cat": "signature"
+    },
+    "Power Plate": {
+      "cat": "signature"
+    },
+    "Kale Caesar Salad": {
+      "cat": "signature"
+    },
+    "Kale Caesar Salad with Crispy Chicken": {
+      "cat": "signature"
+    },
+    "Kid's Classic": {
+      "cat": "kids"
+    },
+    "Old Macdonald": {
+      "cat": "kids"
+    },
+    "Flourless Brownie": {
+      "cat": "desserts"
+    },
+    "Chocolate Chip Cookie": {
+      "cat": "desserts"
+    },
+    "Salted Caramel Cookie": {
+      "cat": "desserts"
+    },
+    "Iced Lemon Cake": {
+      "cat": "desserts"
+    }
+  },
+  "synthetic": []
+}
