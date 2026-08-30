@@ -1,0 +1,118 @@
+{
+ "meta": {
+  "name": "Chick-fil-A",
+  "slug": "chickfila",
+  "source": {
+   "html_url": "https://www.chick-fil-a.com/nutrition-allergens",
+   "retrieved": "2026-08-30",
+   "groups": [
+    "Buns",
+    "Proteins",
+    "Sandwich Toppings",
+    "Salad Toppings",
+    "Soup Toppings",
+    "Dipping Sauces",
+    "Dressings",
+    "Sides"
+   ]
+  },
+  "disclaimer_extra": "Chick-fil-A publishes its buns, proteins, toppings, sauces and dressings as separate component tables alongside its finished menu items; this builder uses those component tables, so a sandwich you assemble here may differ slightly from the published total for a comparable menu item. Drinks, coffee, treats, catering and whole menu items are published but not included. One known gap: Chick-fil-A's sandwiches are served with pickles, but pickles are not published as a separate topping — a sandwich built here reads roughly 100 mg lower in sodium than the equivalent published menu item.",
+  "blurb": "Build a Chick-fil-A order component by component — bun, filet, cheese and toppings, then sauces and sides — from Chick-fil-A's own published per-ingredient nutrition tables.",
+  "glyph": "burger"
+ },
+ "categories": [
+  {
+   "id": "bun",
+   "name": "Bun",
+   "select": "single",
+   "flow": "build"
+  },
+  {
+   "id": "protein",
+   "name": "Protein",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "toppings",
+   "name": "Toppings & Cheese",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "sauce",
+   "name": "Dipping Sauces",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "dressing",
+   "name": "Dressings",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "saladtop",
+   "name": "Salad & Soup Toppings",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "side",
+   "name": "Sides",
+   "select": "multi",
+   "flow": "extras"
+  }
+ ],
+ "layout": {
+  "columns": [
+   "serving",
+   "calories",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g"
+  ],
+  "allergen": false,
+  "serving": "g",
+  "sections": "^(Buns|Proteins|Sandwich Toppings|Salad Toppings|Soup Toppings|Dipping Sauces|Dressings|Sides)$"
+ },
+ "section_categories": {
+  "Buns": "bun",
+  "Proteins": "protein",
+  "Sandwich Toppings": "toppings",
+  "Salad Toppings": "saladtop",
+  "Soup Toppings": "saladtop",
+  "Dipping Sauces": "sauce",
+  "Dressings": "dressing",
+  "Sides": "side"
+ },
+ "items": {
+  "Chick-fil-A Waffle Potato Fries®": {
+   "skip": "identical to the Medium row"
+  },
+  "Fruit Cup": {
+   "skip": "identical to the Medium row"
+  },
+  "Mac & Cheese": {
+   "skip": "identical to the Medium row"
+  },
+  "Chicken Noodle Soup": {
+   "skip": "identical to the Cup row"
+  },
+  "Berry Parfait w/ Granola": {
+   "skip": "identical to the base Berry Parfait row"
+  },
+  "Bacon": {
+   "skip": "same row is listed under Sandwich Toppings, kept there"
+  },
+  "Bacon [#2]": {
+   "cat": "toppings"
+  }
+ }
+}
