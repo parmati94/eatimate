@@ -6,13 +6,51 @@
       "pdf_url": "https://assets.ctfassets.net/zqt8tllj2cy0/229Bgcvw5c0RwcUkhyghXG/d3722a14b4b1dd925316a8936200f5bd/MOES_1906368_Nutrition_Chart_2026_R4.pdf",
       "retrieved": "2026-08-30"
     },
-    "disclaimer_extra": "Moe's publishes no serving weights; portions are as named on their chart. Protein portions: the chart's Small (tacos/kids) and Double rows are exactly ½× and 2× of the Medium row shown here.",
-    "blurb": "Recreate your Moe's Southwest Grill order ingredient by ingredient — tortilla or bowl, rice, beans, protein, queso and toppings — using Moe's official 2026 nutrition chart, with taco-size and double-protein portions one tap away."
+    "disclaimer_extra": "Moe's publishes no serving weights; portions are as named on their chart. Taco formats use the chart's Small protein portion automatically; 2× a protein for double.",
+    "blurb": "Recreate your Moe's Southwest Grill order — pick burrito, bowl, taco or salad, then rice, beans, protein, queso and toppings from Moe's official 2026 nutrition chart, with taco-size portions handled for you.",
+    "size_modes": [
+      {
+        "id": "burrito",
+        "name": "Burrito",
+        "default": true,
+        "multipliers": {}
+      },
+      {
+        "id": "jr-burrito",
+        "name": "Jr. Burrito",
+        "multipliers": {}
+      },
+      {
+        "id": "taco",
+        "name": "Taco",
+        "note": "Taco protein is the chart's Small portion (½ of regular).",
+        "multipliers": {
+          "proteins": 0.5
+        }
+      },
+      {
+        "id": "crispy-taco",
+        "name": "Crispy Taco / Stack",
+        "multipliers": {
+          "proteins": 0.5
+        }
+      },
+      {
+        "id": "bowl",
+        "name": "Bowl",
+        "multipliers": {}
+      },
+      {
+        "id": "salad",
+        "name": "Salad",
+        "multipliers": {}
+      }
+    ]
   },
   "categories": [
     {
       "id": "base",
-      "name": "Base / Format",
+      "name": "Format",
       "select": "single",
       "flow": "build"
     },
@@ -93,136 +131,200 @@
     "12” Flour Tortilla": {
       "cat": "base",
       "id": "tortilla-12",
-      "name": "12\" Flour Tortilla",
-      "desc": "burrito / quesadilla"
+      "name": "Burrito (12\" tortilla)",
+      "desc": "1 tortilla",
+      "size_mode": "burrito"
     },
     "8” Flour Tortilla": {
       "cat": "base",
       "id": "tortilla-8",
-      "name": "8\" Flour Tortilla",
-      "desc": "Jr. burrito"
+      "name": "Jr. Burrito (8\" tortilla)",
+      "desc": "1 tortilla",
+      "size_mode": "jr-burrito"
     },
     "6” Flour Tortilla": {
       "cat": "base",
       "id": "tortilla-6",
-      "name": "6\" Flour Tortilla",
-      "desc": "1 taco"
+      "name": "Taco (6\" soft tortilla)",
+      "desc": "per taco",
+      "size_mode": "taco"
     },
     "6” Crispy Corn Tortilla/Stack Shell": {
       "cat": "base",
       "id": "crispy-corn-shell",
-      "name": "6\" Crispy Corn Tortilla / Stack Shell",
-      "desc": "1 shell"
+      "name": "Crispy Taco / Stack Shell",
+      "desc": "per shell",
+      "size_mode": "crispy-taco"
     },
     "Seasoned Rice, Ingredient for Burrito": {
       "cat": "rice",
       "id": "seasoned-rice-burrito",
-      "name": "Seasoned Rice (burrito portion)",
-      "desc": "burrito portion"
+      "name": "Seasoned Rice",
+      "desc": "rice portion",
+      "only_modes": [
+        "burrito"
+      ]
     },
     "Seasoned Rice, Cup and Burrito Bowl": {
       "cat": "rice",
       "id": "seasoned-rice-bowl",
-      "name": "Seasoned Rice (bowl portion)",
-      "desc": "burrito bowl portion (= cup)"
+      "name": "Seasoned Rice",
+      "desc": "rice portion",
+      "only_modes": [
+        "bowl",
+        "salad"
+      ]
     },
     "Seasoned Rice, Ingredient for Jr. Burrito": {
       "cat": "rice",
       "id": "seasoned-rice-jr",
-      "name": "Seasoned Rice (Jr. portion)",
-      "desc": "Jr. burrito portion"
+      "name": "Seasoned Rice",
+      "desc": "rice portion",
+      "only_modes": [
+        "jr-burrito"
+      ]
     },
     "Cilantro Lime Rice, Ingredient for Burrito": {
       "cat": "rice",
       "id": "cilantro-lime-rice-burrito",
-      "name": "Cilantro Lime Rice (burrito portion)",
-      "desc": "burrito portion"
+      "name": "Cilantro Lime Rice",
+      "desc": "rice portion",
+      "only_modes": [
+        "burrito"
+      ]
     },
     "Cilantro Lime Rice, Cup and Burrito Bowl": {
       "cat": "rice",
       "id": "cilantro-lime-rice-bowl",
-      "name": "Cilantro Lime Rice (bowl portion)",
-      "desc": "burrito bowl portion (= cup)"
+      "name": "Cilantro Lime Rice",
+      "desc": "rice portion",
+      "only_modes": [
+        "bowl",
+        "salad"
+      ]
     },
     "Cilantro Lime Rice, Ingredient for Jr. Burrito": {
       "cat": "rice",
       "id": "cilantro-lime-rice-jr",
-      "name": "Cilantro Lime Rice (Jr. portion)",
-      "desc": "Jr. burrito portion"
+      "name": "Cilantro Lime Rice",
+      "desc": "rice portion",
+      "only_modes": [
+        "jr-burrito"
+      ]
     },
     "Black Beans, Ingredient portion for Burrito,": {
       "cat": "beans",
       "id": "black-beans",
       "name": "Black Beans",
-      "desc": "burrito / bowl / nacho / quesadilla / stack portion"
+      "desc": "bean portion",
+      "only_modes": [
+        "burrito",
+        "bowl",
+        "salad"
+      ]
     },
     "Black Beans Jr. Ingredient portion/taco fresh": {
       "cat": "beans",
       "id": "black-beans-jr",
-      "name": "Black Beans (Jr. / taco portion)",
-      "desc": "Jr. / taco portion"
+      "name": "Black Beans",
+      "desc": "bean portion",
+      "only_modes": [
+        "jr-burrito",
+        "taco",
+        "crispy-taco"
+      ]
     },
     "Pinto Beans, Ingredient for Burrito, Bowl,": {
       "cat": "beans",
       "id": "pinto-beans",
       "name": "Pinto Beans",
-      "desc": "burrito / bowl / nacho / quesadilla / stack portion"
+      "desc": "bean portion",
+      "only_modes": [
+        "burrito",
+        "bowl",
+        "salad"
+      ]
     },
     "Pinto Beans Jr. Ingredient portion/taco fresh": {
       "cat": "beans",
       "id": "pinto-beans-jr",
-      "name": "Pinto Beans (Jr. / taco portion)",
-      "desc": "Jr. / taco portion"
+      "name": "Pinto Beans",
+      "desc": "bean portion",
+      "only_modes": [
+        "jr-burrito",
+        "taco",
+        "crispy-taco"
+      ]
     },
     "Adobo Chicken, Medium": {
       "cat": "proteins",
       "id": "adobo-chicken",
       "name": "Adobo Chicken",
-      "desc": "medium portion (burrito, bowl, salad, nachos) · ½× = taco/kids · 2× = double"
+      "desc": "regular portion"
     },
     "White Meat Chicken, Medium": {
       "cat": "proteins",
       "id": "white-meat-chicken",
       "name": "White Meat Chicken",
-      "desc": "medium portion (burrito, bowl, salad, nachos) · ½× = taco/kids · 2× = double"
+      "desc": "regular portion"
     },
     "Hand Cut Steak, Medium": {
       "cat": "proteins",
       "id": "hand-cut-steak",
       "name": "Hand Cut Steak",
-      "desc": "medium portion (burrito, bowl, salad, nachos) · ½× = taco/kids · 2× = double"
+      "desc": "regular portion"
     },
     "Ground Beef, Medium": {
       "cat": "proteins",
       "id": "ground-beef",
       "name": "Ground Beef",
-      "desc": "medium portion (burrito, bowl, salad, nachos) · ½× = taco/kids · 2× = double"
+      "desc": "regular portion"
     },
     "Tofu, Medium": {
       "cat": "proteins",
       "id": "tofu",
       "name": "Tofu",
-      "desc": "medium portion (burrito, bowl, salad, nachos) · ½× = taco/kids · 2× = double"
+      "desc": "regular portion"
     },
     "Queso, Add-On": {
       "cat": "queso-guac",
       "name": "Queso (add-on)",
-      "desc": "regular add-on"
+      "desc": "regular add-on",
+      "only_modes": [
+        "burrito",
+        "jr-burrito",
+        "bowl",
+        "salad"
+      ]
     },
     "Queso, Add-On, Small": {
       "cat": "queso-guac",
-      "name": "Queso (add-on, small)",
-      "desc": "taco / kids add-on"
+      "name": "Queso (add-on)",
+      "desc": "taco-size add-on",
+      "only_modes": [
+        "taco",
+        "crispy-taco"
+      ]
     },
     "Guac, Add-On": {
       "cat": "queso-guac",
       "name": "Guac (add-on)",
-      "desc": "regular add-on"
+      "desc": "regular add-on",
+      "only_modes": [
+        "burrito",
+        "jr-burrito",
+        "bowl",
+        "salad"
+      ]
     },
     "Guac, Add-On, Small": {
       "cat": "queso-guac",
-      "name": "Guac (add-on, small)",
-      "desc": "taco / kids add-on"
+      "name": "Guac (add-on)",
+      "desc": "taco-size add-on",
+      "only_modes": [
+        "taco",
+        "crispy-taco"
+      ]
     },
     "Moe’s Sauce": {
       "cat": "sauces-salsas",
@@ -486,24 +588,25 @@
   "synthetic": [
     {
       "id": "bowl",
-      "name": "Burrito Bowl (no tortilla)",
+      "name": "Bowl",
       "cat": "base",
-      "desc": "1 bowl",
-      "before": "salad"
+      "desc": "no tortilla",
+      "size_mode": "bowl",
+      "before": "tortilla-12"
     },
     {
       "id": "salad",
-      "name": "Salad (no shell)",
+      "name": "Salad",
       "cat": "base",
-      "desc": "1 salad",
+      "desc": "no shell",
+      "size_mode": "salad",
       "before": "tortilla-12"
     },
     {
       "id": "water",
       "name": "Water",
       "cat": "drinks",
-      "desc": "any size",
-      "before": "coca-cola-zero-kids"
+      "desc": "any size"
     }
   ]
 }

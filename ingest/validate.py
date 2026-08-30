@@ -22,6 +22,14 @@ for c in d["components"]:
         flags.append(f"{c['id']}: printed {c['calories']} kcal vs macro estimate {est:.0f} (fat {c['fat_g']} carb {c['carbs_g']} prot {c['protein_g']})")
     if c["sat_fat_g"] + c["trans_fat_g"] > c["fat_g"] + 0.51: flags.append(f"{c['id']}: sat+trans fat > total fat")
     if c["fiber_g"] + c["sugars_g"] > c["carbs_g"] + 1.01: flags.append(f"{c['id']}: fiber+sugar > carbs")
+seen = {}
+for c in d["components"]:
+    key = (c["category"], c["name"])
+    for other in seen.get(key, []):
+        am, bm = c.get("only_modes"), other.get("only_modes")
+        if not am or not bm or set(am) & set(bm):
+            flags.append(f"duplicate visible name {key}: {other['id']} vs {c['id']}")
+    seen.setdefault(key, []).append(c)
 by_cat = {}
 for c in d["components"]: by_cat[c["category"]] = by_cat.get(c["category"], 0) + 1
 print(f"{d['slug']}: {len(d['components'])} components, {sum(1 for c in d['components'] if c.get('synthetic'))} synthetic")

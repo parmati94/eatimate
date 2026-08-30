@@ -1,0 +1,341 @@
+{
+  "meta": {
+    "name": "Subway",
+    "slug": "subway",
+    "source": {
+      "pdf_url": "https://www.subway.com/en-us/menunutrition/nutrition",
+      "retrieved": "2026-08-30"
+    },
+    "disclaimer_extra": "Subway's January 2026 chart lists 6\" sub portions; footlong breads and wraps scale the rest of the build automatically per Subway's own guidance (one footlong = two 6\" servings; a wrap uses the footlong meat portion). Items marked with asterisks are at participating locations.",
+    "blurb": "Build your Subway order the way the line works — bread, protein, cheese, veggies, sauces — from Subway's official January 2026 nutrition chart. Pick a 6\" or footlong bread and the whole build scales itself.",
+    "size_modes": [
+      {
+        "id": "six-inch",
+        "name": "6\" Sub",
+        "default": true,
+        "multipliers": {}
+      },
+      {
+        "id": "footlong",
+        "name": "Footlong",
+        "note": "One footlong = two 6\" servings per Subway's chart.",
+        "multipliers": {
+          "bread": 2,
+          "protein": 2,
+          "cheese": 2,
+          "veggies": 2,
+          "sauces": 2
+        }
+      },
+      {
+        "id": "wrap",
+        "name": "Wrap",
+        "note": "A wrap uses the footlong meat portion per Subway's chart.",
+        "multipliers": {
+          "protein": 2
+        }
+      },
+      {
+        "id": "pocket",
+        "name": "Pocket",
+        "multipliers": {}
+      },
+      {
+        "id": "kids-mini",
+        "name": "Kids Mini",
+        "multipliers": {}
+      },
+      {
+        "id": "no-bread",
+        "name": "Salad / Bowl",
+        "multipliers": {}
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": "format",
+      "name": "Size",
+      "select": "single",
+      "flow": "build"
+    },
+    {
+      "id": "bread",
+      "name": "Bread",
+      "select": "single",
+      "flow": "build"
+    },
+    {
+      "id": "protein",
+      "name": "Protein",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "cheese",
+      "name": "Cheese",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "veggies",
+      "name": "Veggies",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "sauces",
+      "name": "Sauces & Seasonings",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "sandwiches",
+      "name": "Menu Sandwiches (6\")",
+      "select": "single",
+      "flow": "extras"
+    },
+    {
+      "id": "wraps",
+      "name": "Menu Wraps",
+      "select": "single",
+      "flow": "extras"
+    },
+    {
+      "id": "salads",
+      "name": "Menu Salads",
+      "select": "single",
+      "flow": "extras"
+    },
+    {
+      "id": "protein-bowls",
+      "name": "Protein Bowls",
+      "select": "single",
+      "flow": "extras"
+    },
+    {
+      "id": "breakfast-pizza",
+      "name": "Breakfast, Pizza & Sliders",
+      "select": "single",
+      "flow": "extras"
+    },
+    {
+      "id": "desserts-sides",
+      "name": "Desserts, Sides & Soup",
+      "select": "multi",
+      "flow": "extras"
+    }
+  ],
+  "layout": {
+    "columns": [
+      "serving",
+      "calories",
+      "fat_g",
+      "sat_fat_g",
+      "trans_fat_g",
+      "cholesterol_mg",
+      "sodium_mg",
+      "carbs_g",
+      "fiber_g",
+      "sugars_g",
+      "added_sugars",
+      "protein_g",
+      "vit_d",
+      "calcium",
+      "iron",
+      "potassium"
+    ],
+    "allergen": false,
+    "serving": "g",
+    "sections": "^[A-Z][A-Z &'’]+$",
+    "subsections": "^(Kids' Mini Sub|Protein Pockets|Egg Patty on 6\" Artisan Italian|Egg Patty on 12\" Wrap|8\" Pizza|Sliders$|Breads(?= Double)|Sandwich Condiments and Toppings$|Seasonings and Spices(?= Amount)|Vegetables(?= Amount)|Cheese(?= Amount)|Individual Proteins(?= Amount)|Cookies & Sides$|Soup(?=\\*\\*))",
+    "skip": "^(U\\.S\\. NUTRITION|January 20|2,000 calories|6\" Sandwiches Double|Fresh Fit® Values|Wraps Values|Values include|include dressing|dressing unless|Salads$|Cheesesteaks$|Chicken$|Italians$|Deli Classics$|Clubs$|Local Favorites \\*\\*$|Amount on 6|values for salad|footlong=two|A Registered Dietitian|formulations, however|\\*Number of salami|\\*\\*At participating|1The gluten-free)"
+  },
+  "section_categories": {
+    "SANDWICHES": {
+      "cat": "sandwiches",
+      "desc": "one 6\" sub"
+    },
+    "SANDWICHES/Kids' Mini Sub": {
+      "cat": "sandwiches",
+      "suffix": "Kids Mini",
+      "desc": "one kids mini sub"
+    },
+    "WRAPS": {
+      "cat": "wraps",
+      "suffix": "Wrap",
+      "desc": "one wrap"
+    },
+    "WRAPS/Protein Pockets": {
+      "cat": "wraps",
+      "suffix": "Protein Pocket",
+      "desc": "one 9\" pocket"
+    },
+    "SALADS": {
+      "cat": "salads",
+      "suffix": "Salad",
+      "desc": "one salad, no dressing unless noted"
+    },
+    "PROTEIN BOWLS": {
+      "cat": "protein-bowls",
+      "suffix": "Protein Bowl",
+      "desc": "one bowl, no dressing or cheese unless noted"
+    },
+    "BREAKFAST & PIZZA & SLIDERS": {
+      "cat": "breakfast-pizza",
+      "desc": "one 6\" breakfast sub"
+    },
+    "BREAKFAST & PIZZA & SLIDERS/Egg Patty on 12\" Wrap": {
+      "cat": "breakfast-pizza",
+      "suffix": "Breakfast Wrap",
+      "desc": "one breakfast wrap"
+    },
+    "BREAKFAST & PIZZA & SLIDERS/8\" Pizza": {
+      "cat": "breakfast-pizza",
+      "suffix": "8\" Pizza",
+      "desc": "one 8\" pizza"
+    },
+    "BREAKFAST & PIZZA & SLIDERS/Sliders": {
+      "cat": "breakfast-pizza",
+      "suffix": "Slider",
+      "desc": "one slider"
+    },
+    "BREADS & INGREDIENTS/Breads": {
+      "cat": "bread",
+      "desc": "one 6\" portion"
+    },
+    "BREADS & INGREDIENTS/Sandwich Condiments and Toppings": {
+      "cat": "sauces",
+      "desc": "sauce portion"
+    },
+    "BREADS & INGREDIENTS/Seasonings and Spices": {
+      "cat": "sauces",
+      "desc": "seasoning"
+    },
+    "BREADS & INGREDIENTS/Vegetables": {
+      "cat": "veggies",
+      "desc": "sandwich portion"
+    },
+    "BREADS & INGREDIENTS/Cheese": {
+      "cat": "cheese",
+      "desc": "cheese portion"
+    },
+    "BREADS & INGREDIENTS/Individual Proteins": {
+      "cat": "protein",
+      "desc": "meat portion"
+    },
+    "DESSERTS & SIDES/Cookies & Sides": {
+      "cat": "desserts-sides",
+      "desc": "1 serving"
+    },
+    "DESSERTS & SIDES/Soup": {
+      "cat": "desserts-sides",
+      "suffix": "Soup",
+      "desc": "8 oz bowl"
+    }
+  },
+  "items": {
+    "6\" Artisan Italian Bread": {
+      "cat": "bread",
+      "id": "6-artisan-italian-bread",
+      "name": "Artisan Italian",
+      "desc": "one loaf",
+      "only_modes": [
+        "six-inch",
+        "footlong"
+      ]
+    },
+    "6\" Hearty Multigrain Bread": {
+      "cat": "bread",
+      "id": "6-hearty-multigrain-bread",
+      "name": "Hearty Multigrain",
+      "desc": "one loaf",
+      "only_modes": [
+        "six-inch",
+        "footlong"
+      ]
+    },
+    "6\" Jalapeño Cheddar Bread**": {
+      "cat": "bread",
+      "id": "6-jalape-o-cheddar-bread",
+      "name": "Jalapeño Cheddar",
+      "desc": "one loaf",
+      "only_modes": [
+        "six-inch",
+        "footlong"
+      ]
+    },
+    "6\" Artisan Flatbread": {
+      "cat": "bread",
+      "id": "6-artisan-flatbread",
+      "name": "Artisan Flatbread",
+      "desc": "one loaf",
+      "only_modes": [
+        "six-inch",
+        "footlong"
+      ]
+    },
+    "12\" Wrap": {
+      "cat": "format",
+      "id": "12-wrap",
+      "name": "Wrap",
+      "desc": "12\" wrap · footlong meat portion",
+      "size_mode": "wrap"
+    },
+    "9\" Wrap (Pocket)": {
+      "cat": "format",
+      "id": "9-wrap-pocket",
+      "name": "Pocket",
+      "desc": "9\" wrap pocket",
+      "size_mode": "pocket"
+    },
+    "Mini Artisan Italian Bread": {
+      "cat": "bread",
+      "name": "Mini Artisan Italian",
+      "desc": "kids mini loaf",
+      "only_modes": [
+        "kids-mini"
+      ]
+    },
+    "Mini Hearty Multigrain Bread": {
+      "cat": "bread",
+      "name": "Mini Hearty Multigrain",
+      "desc": "kids mini loaf",
+      "only_modes": [
+        "kids-mini"
+      ]
+    }
+  },
+  "synthetic": [
+    {
+      "id": "format-six-inch",
+      "name": "6\" Sub",
+      "cat": "format",
+      "desc": "pick a bread next",
+      "size_mode": "six-inch",
+      "before": "12-wrap"
+    },
+    {
+      "id": "format-footlong",
+      "name": "Footlong",
+      "cat": "format",
+      "desc": "everything ×2",
+      "size_mode": "footlong",
+      "before": "12-wrap"
+    },
+    {
+      "id": "format-kids-mini",
+      "name": "Kids Mini",
+      "cat": "format",
+      "desc": "mini loaf",
+      "size_mode": "kids-mini"
+    },
+    {
+      "id": "no-bread",
+      "name": "Salad / Bowl",
+      "cat": "format",
+      "desc": "no bread",
+      "size_mode": "no-bread"
+    }
+  ]
+}

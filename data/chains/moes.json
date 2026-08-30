@@ -5,12 +5,50 @@
     "pdf_url": "https://assets.ctfassets.net/zqt8tllj2cy0/229Bgcvw5c0RwcUkhyghXG/d3722a14b4b1dd925316a8936200f5bd/MOES_1906368_Nutrition_Chart_2026_R4.pdf",
     "retrieved": "2026-08-30"
   },
-  "disclaimer_extra": "Moe's publishes no serving weights; portions are as named on their chart. Protein portions: the chart's Small (tacos/kids) and Double rows are exactly ½× and 2× of the Medium row shown here.",
-  "blurb": "Recreate your Moe's Southwest Grill order ingredient by ingredient — tortilla or bowl, rice, beans, protein, queso and toppings — using Moe's official 2026 nutrition chart, with taco-size and double-protein portions one tap away.",
+  "disclaimer_extra": "Moe's publishes no serving weights; portions are as named on their chart. Taco formats use the chart's Small protein portion automatically; 2× a protein for double.",
+  "blurb": "Recreate your Moe's Southwest Grill order — pick burrito, bowl, taco or salad, then rice, beans, protein, queso and toppings from Moe's official 2026 nutrition chart, with taco-size portions handled for you.",
+  "size_modes": [
+    {
+      "id": "burrito",
+      "name": "Burrito",
+      "default": true,
+      "multipliers": {}
+    },
+    {
+      "id": "jr-burrito",
+      "name": "Jr. Burrito",
+      "multipliers": {}
+    },
+    {
+      "id": "taco",
+      "name": "Taco",
+      "note": "Taco protein is the chart's Small portion (½ of regular).",
+      "multipliers": {
+        "proteins": 0.5
+      }
+    },
+    {
+      "id": "crispy-taco",
+      "name": "Crispy Taco / Stack",
+      "multipliers": {
+        "proteins": 0.5
+      }
+    },
+    {
+      "id": "bowl",
+      "name": "Bowl",
+      "multipliers": {}
+    },
+    {
+      "id": "salad",
+      "name": "Salad",
+      "multipliers": {}
+    }
+  ],
   "categories": [
     {
       "id": "base",
-      "name": "Base / Format",
+      "name": "Format",
       "select": "single",
       "flow": "build"
     },
@@ -72,9 +110,9 @@
   "components": [
     {
       "id": "bowl",
-      "name": "Burrito Bowl (no tortilla)",
+      "name": "Bowl",
       "category": "base",
-      "serving_desc": "1 bowl",
+      "serving_desc": "no tortilla",
       "serving_g": null,
       "calories": 0,
       "fat_g": 0,
@@ -86,13 +124,14 @@
       "fiber_g": 0,
       "sugars_g": 0,
       "protein_g": 0,
-      "synthetic": true
+      "synthetic": true,
+      "size_mode": "bowl"
     },
     {
       "id": "salad",
-      "name": "Salad (no shell)",
+      "name": "Salad",
       "category": "base",
-      "serving_desc": "1 salad",
+      "serving_desc": "no shell",
       "serving_g": null,
       "calories": 0,
       "fat_g": 0,
@@ -104,13 +143,14 @@
       "fiber_g": 0,
       "sugars_g": 0,
       "protein_g": 0,
-      "synthetic": true
+      "synthetic": true,
+      "size_mode": "salad"
     },
     {
       "id": "tortilla-12",
-      "name": "12\" Flour Tortilla",
+      "name": "Burrito (12\" tortilla)",
       "category": "base",
-      "serving_desc": "burrito / quesadilla",
+      "serving_desc": "1 tortilla",
       "serving_g": null,
       "calories": 310,
       "fat_g": 8,
@@ -121,13 +161,14 @@
       "carbs_g": 51,
       "fiber_g": 1,
       "sugars_g": 1,
-      "protein_g": 8
+      "protein_g": 8,
+      "size_mode": "burrito"
     },
     {
       "id": "tortilla-8",
-      "name": "8\" Flour Tortilla",
+      "name": "Jr. Burrito (8\" tortilla)",
       "category": "base",
-      "serving_desc": "Jr. burrito",
+      "serving_desc": "1 tortilla",
       "serving_g": null,
       "calories": 100,
       "fat_g": 3,
@@ -138,13 +179,14 @@
       "carbs_g": 17,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 2
+      "protein_g": 2,
+      "size_mode": "jr-burrito"
     },
     {
       "id": "tortilla-6",
-      "name": "6\" Flour Tortilla",
+      "name": "Taco (6\" soft tortilla)",
       "category": "base",
-      "serving_desc": "1 taco",
+      "serving_desc": "per taco",
       "serving_g": null,
       "calories": 70,
       "fat_g": 2,
@@ -155,13 +197,14 @@
       "carbs_g": 11,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 2
+      "protein_g": 2,
+      "size_mode": "taco"
     },
     {
       "id": "crispy-corn-shell",
-      "name": "6\" Crispy Corn Tortilla / Stack Shell",
+      "name": "Crispy Taco / Stack Shell",
       "category": "base",
-      "serving_desc": "1 shell",
+      "serving_desc": "per shell",
       "serving_g": null,
       "calories": 40,
       "fat_g": 3,
@@ -172,13 +215,14 @@
       "carbs_g": 3,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 1
+      "protein_g": 1,
+      "size_mode": "crispy-taco"
     },
     {
       "id": "seasoned-rice-burrito",
-      "name": "Seasoned Rice (burrito portion)",
+      "name": "Seasoned Rice",
       "category": "rice",
-      "serving_desc": "burrito portion",
+      "serving_desc": "rice portion",
       "serving_g": null,
       "calories": 150,
       "fat_g": 3,
@@ -189,13 +233,16 @@
       "carbs_g": 27,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 3
+      "protein_g": 3,
+      "only_modes": [
+        "burrito"
+      ]
     },
     {
       "id": "seasoned-rice-bowl",
-      "name": "Seasoned Rice (bowl portion)",
+      "name": "Seasoned Rice",
       "category": "rice",
-      "serving_desc": "burrito bowl portion (= cup)",
+      "serving_desc": "rice portion",
       "serving_g": null,
       "calories": 300,
       "fat_g": 6,
@@ -206,13 +253,17 @@
       "carbs_g": 54,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 6
+      "protein_g": 6,
+      "only_modes": [
+        "bowl",
+        "salad"
+      ]
     },
     {
       "id": "seasoned-rice-jr",
-      "name": "Seasoned Rice (Jr. portion)",
+      "name": "Seasoned Rice",
       "category": "rice",
-      "serving_desc": "Jr. burrito portion",
+      "serving_desc": "rice portion",
       "serving_g": null,
       "calories": 94,
       "fat_g": 2,
@@ -223,13 +274,16 @@
       "carbs_g": 18,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 2
+      "protein_g": 2,
+      "only_modes": [
+        "jr-burrito"
+      ]
     },
     {
       "id": "cilantro-lime-rice-burrito",
-      "name": "Cilantro Lime Rice (burrito portion)",
+      "name": "Cilantro Lime Rice",
       "category": "rice",
-      "serving_desc": "burrito portion",
+      "serving_desc": "rice portion",
       "serving_g": null,
       "calories": 140,
       "fat_g": 3,
@@ -240,13 +294,16 @@
       "carbs_g": 27,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 3
+      "protein_g": 3,
+      "only_modes": [
+        "burrito"
+      ]
     },
     {
       "id": "cilantro-lime-rice-bowl",
-      "name": "Cilantro Lime Rice (bowl portion)",
+      "name": "Cilantro Lime Rice",
       "category": "rice",
-      "serving_desc": "burrito bowl portion (= cup)",
+      "serving_desc": "rice portion",
       "serving_g": null,
       "calories": 280,
       "fat_g": 6,
@@ -257,13 +314,17 @@
       "carbs_g": 54,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 6
+      "protein_g": 6,
+      "only_modes": [
+        "bowl",
+        "salad"
+      ]
     },
     {
       "id": "cilantro-lime-rice-jr",
-      "name": "Cilantro Lime Rice (Jr. portion)",
+      "name": "Cilantro Lime Rice",
       "category": "rice",
-      "serving_desc": "Jr. burrito portion",
+      "serving_desc": "rice portion",
       "serving_g": null,
       "calories": 93,
       "fat_g": 2,
@@ -274,13 +335,16 @@
       "carbs_g": 18,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 2
+      "protein_g": 2,
+      "only_modes": [
+        "jr-burrito"
+      ]
     },
     {
       "id": "black-beans",
       "name": "Black Beans",
       "category": "beans",
-      "serving_desc": "burrito / bowl / nacho / quesadilla / stack portion",
+      "serving_desc": "bean portion",
       "serving_g": null,
       "calories": 60,
       "fat_g": 0,
@@ -291,13 +355,18 @@
       "carbs_g": 12,
       "fiber_g": 3,
       "sugars_g": 0,
-      "protein_g": 3
+      "protein_g": 3,
+      "only_modes": [
+        "burrito",
+        "bowl",
+        "salad"
+      ]
     },
     {
       "id": "black-beans-jr",
-      "name": "Black Beans (Jr. / taco portion)",
+      "name": "Black Beans",
       "category": "beans",
-      "serving_desc": "Jr. / taco portion",
+      "serving_desc": "bean portion",
       "serving_g": null,
       "calories": 30,
       "fat_g": 0,
@@ -308,13 +377,18 @@
       "carbs_g": 6,
       "fiber_g": 2,
       "sugars_g": 0,
-      "protein_g": 2
+      "protein_g": 2,
+      "only_modes": [
+        "jr-burrito",
+        "taco",
+        "crispy-taco"
+      ]
     },
     {
       "id": "pinto-beans",
       "name": "Pinto Beans",
       "category": "beans",
-      "serving_desc": "burrito / bowl / nacho / quesadilla / stack portion",
+      "serving_desc": "bean portion",
       "serving_g": null,
       "calories": 60,
       "fat_g": 0,
@@ -325,13 +399,18 @@
       "carbs_g": 12,
       "fiber_g": 3,
       "sugars_g": 0,
-      "protein_g": 3
+      "protein_g": 3,
+      "only_modes": [
+        "burrito",
+        "bowl",
+        "salad"
+      ]
     },
     {
       "id": "pinto-beans-jr",
-      "name": "Pinto Beans (Jr. / taco portion)",
+      "name": "Pinto Beans",
       "category": "beans",
-      "serving_desc": "Jr. / taco portion",
+      "serving_desc": "bean portion",
       "serving_g": null,
       "calories": 30,
       "fat_g": 0,
@@ -342,13 +421,18 @@
       "carbs_g": 6,
       "fiber_g": 2,
       "sugars_g": 0,
-      "protein_g": 2
+      "protein_g": 2,
+      "only_modes": [
+        "jr-burrito",
+        "taco",
+        "crispy-taco"
+      ]
     },
     {
       "id": "adobo-chicken",
       "name": "Adobo Chicken",
       "category": "proteins",
-      "serving_desc": "medium portion (burrito, bowl, salad, nachos) · ½× = taco/kids · 2× = double",
+      "serving_desc": "regular portion",
       "serving_g": null,
       "calories": 100,
       "fat_g": 5,
@@ -365,7 +449,7 @@
       "id": "white-meat-chicken",
       "name": "White Meat Chicken",
       "category": "proteins",
-      "serving_desc": "medium portion (burrito, bowl, salad, nachos) · ½× = taco/kids · 2× = double",
+      "serving_desc": "regular portion",
       "serving_g": null,
       "calories": 110,
       "fat_g": 3,
@@ -382,7 +466,7 @@
       "id": "hand-cut-steak",
       "name": "Hand Cut Steak",
       "category": "proteins",
-      "serving_desc": "medium portion (burrito, bowl, salad, nachos) · ½× = taco/kids · 2× = double",
+      "serving_desc": "regular portion",
       "serving_g": null,
       "calories": 130,
       "fat_g": 8,
@@ -399,7 +483,7 @@
       "id": "ground-beef",
       "name": "Ground Beef",
       "category": "proteins",
-      "serving_desc": "medium portion (burrito, bowl, salad, nachos) · ½× = taco/kids · 2× = double",
+      "serving_desc": "regular portion",
       "serving_g": null,
       "calories": 150,
       "fat_g": 9,
@@ -416,7 +500,7 @@
       "id": "tofu",
       "name": "Tofu",
       "category": "proteins",
-      "serving_desc": "medium portion (burrito, bowl, salad, nachos) · ½× = taco/kids · 2× = double",
+      "serving_desc": "regular portion",
       "serving_g": null,
       "calories": 110,
       "fat_g": 7,
@@ -444,13 +528,19 @@
       "carbs_g": 3,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 5
+      "protein_g": 5,
+      "only_modes": [
+        "burrito",
+        "jr-burrito",
+        "bowl",
+        "salad"
+      ]
     },
     {
       "id": "queso-add-on-small",
-      "name": "Queso (add-on, small)",
+      "name": "Queso (add-on)",
       "category": "queso-guac",
-      "serving_desc": "taco / kids add-on",
+      "serving_desc": "taco-size add-on",
       "serving_g": null,
       "calories": 50,
       "fat_g": 4,
@@ -461,7 +551,11 @@
       "carbs_g": 1,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 2
+      "protein_g": 2,
+      "only_modes": [
+        "taco",
+        "crispy-taco"
+      ]
     },
     {
       "id": "guac-add-on",
@@ -478,13 +572,19 @@
       "carbs_g": 4,
       "fiber_g": 3,
       "sugars_g": 1,
-      "protein_g": 1
+      "protein_g": 1,
+      "only_modes": [
+        "burrito",
+        "jr-burrito",
+        "bowl",
+        "salad"
+      ]
     },
     {
       "id": "guac-add-on-small",
-      "name": "Guac (add-on, small)",
+      "name": "Guac (add-on)",
       "category": "queso-guac",
-      "serving_desc": "taco / kids add-on",
+      "serving_desc": "taco-size add-on",
       "serving_g": null,
       "calories": 40,
       "fat_g": 4,
@@ -495,7 +595,11 @@
       "carbs_g": 3,
       "fiber_g": 2,
       "sugars_g": 0,
-      "protein_g": 1
+      "protein_g": 1,
+      "only_modes": [
+        "taco",
+        "crispy-taco"
+      ]
     },
     {
       "id": "moes-sauce",
@@ -1161,24 +1265,6 @@
       "protein_g": 2
     },
     {
-      "id": "water",
-      "name": "Water",
-      "category": "drinks",
-      "serving_desc": "any size",
-      "serving_g": null,
-      "calories": 0,
-      "fat_g": 0,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 0,
-      "carbs_g": 0,
-      "fiber_g": 0,
-      "sugars_g": 0,
-      "protein_g": 0,
-      "synthetic": true
-    },
-    {
       "id": "coca-cola-zero-kids",
       "name": "Coca Cola Zero (Kids)",
       "category": "drinks",
@@ -1381,6 +1467,24 @@
       "fiber_g": 1,
       "sugars_g": 97,
       "protein_g": 0
+    },
+    {
+      "id": "water",
+      "name": "Water",
+      "category": "drinks",
+      "serving_desc": "any size",
+      "serving_g": null,
+      "calories": 0,
+      "fat_g": 0,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 0,
+      "carbs_g": 0,
+      "fiber_g": 0,
+      "sugars_g": 0,
+      "protein_g": 0,
+      "synthetic": true
     }
   ]
 }

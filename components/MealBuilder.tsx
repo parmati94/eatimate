@@ -21,7 +21,8 @@ import {
   IconX,
 } from "./icons";
 
-const QTY_STEPS = [0.5, 1, 2, 3];
+// Extended so per-piece items (wings, tenders) can reach real order sizes.
+const QTY_STEPS = [0.5, 1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 15, 20];
 const SEARCH_THRESHOLD = 14;
 
 type Selections = Record<string, number>; // component id -> qty multiplier
@@ -100,12 +101,14 @@ function ComponentRow({
   comp,
   qty,
   single,
+  qmult = 1,
   onToggle,
   onQty,
 }: {
   comp: Component;
   qty: number | undefined;
   single: boolean;
+  qmult?: number;
   onToggle: () => void;
   onQty: (q: number) => void;
 }) {
@@ -143,13 +146,20 @@ function ComponentRow({
           <span className="block truncate text-[15px] font-medium leading-snug">
             {comp.name}
           </span>
-          <span className="block text-xs text-muted">{comp.serving_desc}</span>
+          <span className="block text-xs text-muted">
+            {comp.serving_desc}
+            {qmult !== 1 && (
+              <span className="ml-1 font-semibold text-accent-strong">
+                ×{qmult}
+              </span>
+            )}
+          </span>
         </span>
         {selected ? (
           <QtyStepper qty={qty} onChange={onQty} />
         ) : (
           <span className="text-xs tabular-nums text-muted">
-            {comp.calories} cal
+            {Math.round(comp.calories * qmult)} cal
           </span>
         )}
       </div>
@@ -161,12 +171,14 @@ function CategoryBody({
   cat,
   comps,
   selections,
+  qmultFor = () => 1,
   toggle,
   setQty,
 }: {
   cat: Category;
   comps: Component[];
   selections: Selections;
+  qmultFor?: (comp: Component) => number;
   toggle: (comp: Component, single: boolean) => void;
   setQty: (id: string, q: number) => void;
 }) {
@@ -197,6 +209,7 @@ function CategoryBody({
             comp={comp}
             qty={selections[comp.id]}
             single={single}
+            qmult={qmultFor(comp)}
             onToggle={() => toggle(comp, single)}
             onQty={(q) => setQty(comp.id, q)}
           />
@@ -222,6 +235,7 @@ function picksSummary(comps: Component[], selections: Selections): string {
 
 function labelText(
   chain: Chain,
+  modeName: string | null,
   picked: Component[],
   sel: Selections,
   totals: Totals,
@@ -231,7 +245,7 @@ function labelText(
     .map((c) => (sel[c.id] === 1 ? c.name : `${fmtQty(sel[c.id])} ${c.name}`))
     .join(", ");
   return [
-    `${chain.name} (built on eatimate)`,
+    `${chain.name}${modeName ? ` — ${modeName}` : ""} (built on eatimate)`,
     items,
     ``,
     `Calories: ${roundCalories(totals.calories)}`,
@@ -286,10 +300,12 @@ function legacyCopy(text: string): boolean {
 
 function CopyLabelButton({
   chain,
+  modeName,
   selections,
   totals,
 }: {
   chain: Chain;
+  modeName: string | null;
   selections: Selections;
   totals: Totals;
 }) {
@@ -304,6 +320,7 @@ function CopyLabelButton({
         onClick={async () => {
           const t = labelText(
             chain,
+            modeName,
             picked,
             selections,
             totals,
@@ -460,16 +477,72 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
     return m;
   }, [chain]);
 
+  // Chain-wide size scaling (e.g. Subway 6" vs Footlong). Activated by the
+  // selected component carrying a size_mode (the Size step's rows) — the
+  // format pick IS the size choice; there is no separate control.
+  const modes = chain.size_modes ?? null;
+  const defaultMode = modes?.find((m) => m.default) ?? modes?.[0] ?? null;
+  const activeMode = useMemo(() => {
+    if (!modes) return null;
+    for (const c of chain.components) {
+      if (selections[c.id] && c.size_mode) {
+        return modes.find((m) => m.id === c.size_mode) ?? defaultMode;
+      }
+    }
+    return defaultMode;
+  }, [modes, defaultMode, chain, selections]);
+  const mult = (cat: string) => activeMode?.multipliers[cat] ?? 1;
+  // A row that would activate a mode previews its own scaling.
+  const rowMult = (comp: Component) => {
+    if (comp.size_mode && modes) {
+      const m = modes.find((x) => x.id === comp.size_mode);
+      return m?.multipliers[comp.category] ?? 1;
+    }
+    return mult(comp.category);
+  };
+  // Mode-gated visibility: e.g. loaves only for 6"/footlong, mini loaves only
+  // for kids mini. A category with nothing visible disappears entirely.
+  const isVisible = (c: Component) =>
+    !c.only_modes || (activeMode != null && c.only_modes.includes(activeMode.id));
+  const visibleByCategory = useMemo(() => {
+    const m = new Map<string, Component[]>();
+    for (const c of chain.components) {
+      if (!isVisible(c)) continue;
+      const list = m.get(c.category) ?? [];
+      list.push(c);
+      m.set(c.category, list);
+    }
+    return m;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [chain, activeMode]);
+
   const buildCats = chain.categories.filter(
-    (c) => (c.flow ?? "build") === "build" && byCategory.has(c.id),
+    (c) => (c.flow ?? "build") === "build" && visibleByCategory.has(c.id),
   );
   const extraCats = chain.categories.filter(
-    (c) => c.flow === "extras" && byCategory.has(c.id),
+    (c) => c.flow === "extras" && visibleByCategory.has(c.id),
   );
 
   const [openCat, setOpenCat] = useState<string | null>(
     buildCats[0]?.id ?? null,
   );
+
+  // Changing the format prunes picks that are no longer offered (switching
+  // to Wrap drops a selected loaf, etc.).
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reconcile after mode change
+    setSelections((prev) => {
+      let changed = false;
+      const next: Selections = {};
+      for (const c of chain.components) {
+        if (!prev[c.id]) continue;
+        if (isVisible(c)) next[c.id] = prev[c.id];
+        else changed = true;
+      }
+      return changed ? next : prev;
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeMode]);
 
   // Restore meal from ?m= after mount (SSR renders the empty state).
   useEffect(() => {
@@ -501,10 +574,12 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
     for (const c of chain.components) {
       const qty = selections[c.id];
       if (!qty) continue;
-      for (const f of NUTRIENT_FIELDS) t[f] += c[f] * qty;
+      const k = qty * (activeMode?.multipliers[c.category] ?? 1);
+      for (const f of NUTRIENT_FIELDS) t[f] += c[f] * k;
     }
     return t;
-  }, [chain, selections]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [chain, selections, activeMode]);
 
   const selectedCount = Object.keys(selections).length;
 
@@ -524,10 +599,22 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
       next[comp.id] = 1;
       return next;
     });
-    // Single-select pick in the build flow: advance the accordion.
+    // Single-select pick in the build flow: advance the accordion, using the
+    // visibility of the mode this pick activates (picking Wrap skips Bread).
     if (single && !selections[comp.id]) {
-      const idx = buildCats.findIndex((c) => c.id === comp.category);
-      if (idx >= 0) setOpenCat(buildCats[idx + 1]?.id ?? null);
+      const modeAfter = comp.size_mode
+        ? (modes?.find((m) => m.id === comp.size_mode) ?? defaultMode)
+        : activeMode;
+      const vis = (c: Component) =>
+        !c.only_modes ||
+        (modeAfter != null && c.only_modes.includes(modeAfter.id));
+      const cats = chain.categories.filter(
+        (cat) =>
+          (cat.flow ?? "build") === "build" &&
+          chain.components.some((c) => c.category === cat.id && vis(c)),
+      );
+      const idx = cats.findIndex((c) => c.id === comp.category);
+      if (idx >= 0) setOpenCat(cats[idx + 1]?.id ?? null);
     }
   }
 
@@ -541,7 +628,7 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
       <div className="space-y-5">
         <div className="space-y-2">
           {buildCats.map((cat, idx) => {
-            const comps = byCategory.get(cat.id)!;
+            const comps = visibleByCategory.get(cat.id)!;
             const open = openCat === cat.id;
             return (
               <section
@@ -563,6 +650,7 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
                     cat={cat}
                     comps={comps}
                     selections={selections}
+                    qmultFor={rowMult}
                     toggle={toggle}
                     setQty={setQty}
                   />
@@ -582,7 +670,7 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
                 <ExtrasSection
                   key={cat.id}
                   cat={cat}
-                  comps={byCategory.get(cat.id)!}
+                  comps={visibleByCategory.get(cat.id)!}
                   selections={selections}
                   toggle={toggle}
                   setQty={setQty}
@@ -596,7 +684,12 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
       {/* Desktop: sticky label column */}
       <aside className="hidden lg:sticky lg:top-[72px] lg:block lg:space-y-2 lg:self-start">
         <NutritionLabel totals={totals} />
-        <CopyLabelButton chain={chain} selections={selections} totals={totals} />
+        <CopyLabelButton
+          chain={chain}
+          modeName={activeMode && activeMode !== defaultMode ? activeMode.name : null}
+          selections={selections}
+          totals={totals}
+        />
         <div className="flex items-center justify-between px-1 text-xs text-muted">
           <span>
             {selectedCount} item{selectedCount === 1 ? "" : "s"} selected
@@ -628,6 +721,7 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
               <NutritionLabel totals={totals} />
               <CopyLabelButton
                 chain={chain}
+                modeName={activeMode && activeMode !== defaultMode ? activeMode.name : null}
                 selections={selections}
                 totals={totals}
               />

@@ -6,11 +6,40 @@
     "retrieved": "2026-08-30"
   },
   "disclaimer_extra": "Just Salad's guide (July 2026) lists standard portions without serving weights; base greens/grains are listed per format (salad, warm bowl, market plate, wrap). Dressing values are the 1 oz 'light' serving. Menu rotates seasonally.",
-  "blurb": "Assemble any Just Salad order — salad, warm bowl, market plate or wrap — from the July 2026 nutrition guide's per-ingredient data: bases by format, essentials, premiums, proteins and every dressing at the 1 oz pour.",
+  "blurb": "Assemble any Just Salad order — pick your format (salad, warm bowl, market plate or wrap), then build from the July 2026 nutrition guide's per-ingredient data: bases, essentials, premiums, proteins and every dressing at the 1 oz pour.",
+  "size_modes": [
+    {
+      "id": "salad",
+      "name": "Salad",
+      "default": true,
+      "multipliers": {}
+    },
+    {
+      "id": "warm-bowl",
+      "name": "Warm Bowl",
+      "multipliers": {}
+    },
+    {
+      "id": "market-plate",
+      "name": "Market Plate",
+      "multipliers": {}
+    },
+    {
+      "id": "wrap",
+      "name": "Wrap",
+      "multipliers": {}
+    }
+  ],
   "categories": [
     {
+      "id": "format",
+      "name": "Format",
+      "select": "single",
+      "flow": "build"
+    },
+    {
       "id": "base",
-      "name": "Format & Base",
+      "name": "Base",
       "select": "single",
       "flow": "build"
     },
@@ -83,10 +112,86 @@
   ],
   "components": [
     {
+      "id": "format-salad",
+      "name": "Salad",
+      "category": "format",
+      "serving_desc": "chopped to order",
+      "serving_g": null,
+      "calories": 0,
+      "fat_g": 0,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 0,
+      "carbs_g": 0,
+      "fiber_g": 0,
+      "sugars_g": 0,
+      "protein_g": 0,
+      "synthetic": true,
+      "size_mode": "salad"
+    },
+    {
+      "id": "format-warm-bowl",
+      "name": "Warm Bowl",
+      "category": "format",
+      "serving_desc": "warm base",
+      "serving_g": null,
+      "calories": 0,
+      "fat_g": 0,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 0,
+      "carbs_g": 0,
+      "fiber_g": 0,
+      "sugars_g": 0,
+      "protein_g": 0,
+      "synthetic": true,
+      "size_mode": "warm-bowl"
+    },
+    {
+      "id": "format-market-plate",
+      "name": "Market Plate",
+      "category": "format",
+      "serving_desc": "hearty base",
+      "serving_g": null,
+      "calories": 0,
+      "fat_g": 0,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 0,
+      "carbs_g": 0,
+      "fiber_g": 0,
+      "sugars_g": 0,
+      "protein_g": 0,
+      "synthetic": true,
+      "size_mode": "market-plate"
+    },
+    {
+      "id": "format-wrap",
+      "name": "Wrap",
+      "category": "format",
+      "serving_desc": "in a HERO wrap",
+      "serving_g": null,
+      "calories": 0,
+      "fat_g": 0,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 0,
+      "carbs_g": 0,
+      "fiber_g": 0,
+      "sugars_g": 0,
+      "protein_g": 0,
+      "synthetic": true,
+      "size_mode": "wrap"
+    },
+    {
       "id": "arugula-salad",
-      "name": "Arugula (Salad)",
+      "name": "Arugula",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "salad portion",
       "serving_g": null,
       "calories": 20,
       "fat_g": 0.5,
@@ -97,13 +202,16 @@
       "carbs_g": 3,
       "fiber_g": 1,
       "sugars_g": 2,
-      "protein_g": 2
+      "protein_g": 2,
+      "only_modes": [
+        "salad"
+      ]
     },
     {
       "id": "kale-salad",
-      "name": "Kale (Salad)",
+      "name": "Kale",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "salad portion",
       "serving_g": null,
       "calories": 25,
       "fat_g": 0,
@@ -114,13 +222,16 @@
       "carbs_g": 5,
       "fiber_g": 2,
       "sugars_g": 1,
-      "protein_g": 2
+      "protein_g": 2,
+      "only_modes": [
+        "salad"
+      ]
     },
     {
       "id": "red-cabbage-salad",
-      "name": "Red Cabbage (Salad)",
+      "name": "Red Cabbage",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "salad portion",
       "serving_g": null,
       "calories": 80,
       "fat_g": 1,
@@ -131,13 +242,16 @@
       "carbs_g": 15,
       "fiber_g": 5,
       "sugars_g": 3,
-      "protein_g": 5
+      "protein_g": 5,
+      "only_modes": [
+        "salad"
+      ]
     },
     {
       "id": "romaine-salad",
-      "name": "Romaine (Salad)",
+      "name": "Romaine",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "salad portion",
       "serving_g": null,
       "calories": 30,
       "fat_g": 0,
@@ -148,13 +262,16 @@
       "carbs_g": 5,
       "fiber_g": 4,
       "sugars_g": 2,
-      "protein_g": 2
+      "protein_g": 2,
+      "only_modes": [
+        "salad"
+      ]
     },
     {
       "id": "spinach-salad",
-      "name": "Spinach (Salad)",
+      "name": "Spinach",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "salad portion",
       "serving_g": null,
       "calories": 20,
       "fat_g": 0,
@@ -165,13 +282,16 @@
       "carbs_g": 3,
       "fiber_g": 2,
       "sugars_g": 0,
-      "protein_g": 3
+      "protein_g": 3,
+      "only_modes": [
+        "salad"
+      ]
     },
     {
       "id": "supergreens-blend-salad",
-      "name": "Supergreens Blend (Salad)",
+      "name": "Supergreens Blend",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "salad portion",
       "serving_g": null,
       "calories": 30,
       "fat_g": 0,
@@ -182,13 +302,16 @@
       "carbs_g": 6,
       "fiber_g": 3,
       "sugars_g": 2,
-      "protein_g": 3
+      "protein_g": 3,
+      "only_modes": [
+        "salad"
+      ]
     },
     {
       "id": "arugula-market-plate",
-      "name": "Arugula (Market Plate)",
+      "name": "Arugula",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "plate portion",
       "serving_g": null,
       "calories": 0,
       "fat_g": 0,
@@ -199,13 +322,16 @@
       "carbs_g": 1,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 0
+      "protein_g": 0,
+      "only_modes": [
+        "market-plate"
+      ]
     },
     {
       "id": "basmati-rice-market-plate",
-      "name": "Basmati Rice (Market Plate)",
+      "name": "Basmati Rice",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "plate portion",
       "serving_g": null,
       "calories": 260,
       "fat_g": 3.5,
@@ -216,13 +342,16 @@
       "carbs_g": 53,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 4
+      "protein_g": 4,
+      "only_modes": [
+        "market-plate"
+      ]
     },
     {
       "id": "basmati-rice-black-lentil-mix-market-plate",
-      "name": "Basmati Rice + Black Lentil Mix (Market Plate)",
+      "name": "Basmati Rice + Black Lentil Mix",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "plate portion",
       "serving_g": null,
       "calories": 340,
       "fat_g": 5,
@@ -233,13 +362,16 @@
       "carbs_g": 64,
       "fiber_g": 5,
       "sugars_g": 0,
-      "protein_g": 10
+      "protein_g": 10,
+      "only_modes": [
+        "market-plate"
+      ]
     },
     {
       "id": "black-lentils-market-plate",
-      "name": "Black Lentils (Market Plate)",
+      "name": "Black Lentils",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "plate portion",
       "serving_g": null,
       "calories": 330,
       "fat_g": 6,
@@ -250,13 +382,16 @@
       "carbs_g": 46,
       "fiber_g": 19,
       "sugars_g": 0,
-      "protein_g": 20
+      "protein_g": 20,
+      "only_modes": [
+        "market-plate"
+      ]
     },
     {
       "id": "kale-market-plate",
-      "name": "Kale (Market Plate)",
+      "name": "Kale",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "plate portion",
       "serving_g": null,
       "calories": 0,
       "fat_g": 0,
@@ -267,13 +402,16 @@
       "carbs_g": 1,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 0
+      "protein_g": 0,
+      "only_modes": [
+        "market-plate"
+      ]
     },
     {
       "id": "romaine-market-plate",
-      "name": "Romaine (Market Plate)",
+      "name": "Romaine",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "plate portion",
       "serving_g": null,
       "calories": 5,
       "fat_g": 0,
@@ -284,13 +422,16 @@
       "carbs_g": 1,
       "fiber_g": 1,
       "sugars_g": 0,
-      "protein_g": 0
+      "protein_g": 0,
+      "only_modes": [
+        "market-plate"
+      ]
     },
     {
       "id": "spinach-market-plate",
-      "name": "Spinach (Market Plate)",
+      "name": "Spinach",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "plate portion",
       "serving_g": null,
       "calories": 0,
       "fat_g": 0,
@@ -301,13 +442,16 @@
       "carbs_g": 1,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 1
+      "protein_g": 1,
+      "only_modes": [
+        "market-plate"
+      ]
     },
     {
       "id": "supergreens-blend-market-plate",
-      "name": "Supergreens Blend (Market Plate)",
+      "name": "Supergreens Blend",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "plate portion",
       "serving_g": null,
       "calories": 5,
       "fat_g": 0,
@@ -318,13 +462,16 @@
       "carbs_g": 1,
       "fiber_g": 1,
       "sugars_g": 0,
-      "protein_g": 1
+      "protein_g": 1,
+      "only_modes": [
+        "market-plate"
+      ]
     },
     {
       "id": "arugula-warm-bowl",
-      "name": "Arugula (Warm Bowl)",
+      "name": "Arugula",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "bowl portion",
       "serving_g": null,
       "calories": 10,
       "fat_g": 0,
@@ -335,13 +482,16 @@
       "carbs_g": 1,
       "fiber_g": 1,
       "sugars_g": 1,
-      "protein_g": 1
+      "protein_g": 1,
+      "only_modes": [
+        "warm-bowl"
+      ]
     },
     {
       "id": "basmati-rice-warm-bowl",
-      "name": "Basmati Rice (Warm Bowl)",
+      "name": "Basmati Rice",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "bowl portion",
       "serving_g": null,
       "calories": 130,
       "fat_g": 1.5,
@@ -352,13 +502,16 @@
       "carbs_g": 26,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 2
+      "protein_g": 2,
+      "only_modes": [
+        "warm-bowl"
+      ]
     },
     {
       "id": "black-lentils-warm-bowl",
-      "name": "Black Lentils (Warm Bowl)",
+      "name": "Black Lentils",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "bowl portion",
       "serving_g": null,
       "calories": 160,
       "fat_g": 3,
@@ -369,13 +522,16 @@
       "carbs_g": 23,
       "fiber_g": 9,
       "sugars_g": 0,
-      "protein_g": 10
+      "protein_g": 10,
+      "only_modes": [
+        "warm-bowl"
+      ]
     },
     {
       "id": "kale-warm-bowl",
-      "name": "Kale (Warm Bowl)",
+      "name": "Kale",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "bowl portion",
       "serving_g": null,
       "calories": 10,
       "fat_g": 0,
@@ -386,13 +542,16 @@
       "carbs_g": 2,
       "fiber_g": 1,
       "sugars_g": 1,
-      "protein_g": 1
+      "protein_g": 1,
+      "only_modes": [
+        "warm-bowl"
+      ]
     },
     {
       "id": "romaine-warm-bowl",
-      "name": "Romaine (Warm Bowl)",
+      "name": "Romaine",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "bowl portion",
       "serving_g": null,
       "calories": 15,
       "fat_g": 0,
@@ -403,13 +562,16 @@
       "carbs_g": 3,
       "fiber_g": 2,
       "sugars_g": 1,
-      "protein_g": 1
+      "protein_g": 1,
+      "only_modes": [
+        "warm-bowl"
+      ]
     },
     {
       "id": "spinach-warm-bowl",
-      "name": "Spinach (Warm Bowl)",
+      "name": "Spinach",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "bowl portion",
       "serving_g": null,
       "calories": 10,
       "fat_g": 0,
@@ -420,13 +582,16 @@
       "carbs_g": 2,
       "fiber_g": 1,
       "sugars_g": 0,
-      "protein_g": 1
+      "protein_g": 1,
+      "only_modes": [
+        "warm-bowl"
+      ]
     },
     {
       "id": "supergreens-blend-warm-bowl",
-      "name": "Supergreens Blend (Warm Bowl)",
+      "name": "Supergreens Blend",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "bowl portion",
       "serving_g": null,
       "calories": 15,
       "fat_g": 0,
@@ -437,13 +602,16 @@
       "carbs_g": 3,
       "fiber_g": 1,
       "sugars_g": 1,
-      "protein_g": 1
+      "protein_g": 1,
+      "only_modes": [
+        "warm-bowl"
+      ]
     },
     {
       "id": "arugula-wrap",
-      "name": "Arugula (Wrap)",
+      "name": "Arugula",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "wrap portion",
       "serving_g": null,
       "calories": 10,
       "fat_g": 0,
@@ -454,13 +622,16 @@
       "carbs_g": 1,
       "fiber_g": 1,
       "sugars_g": 1,
-      "protein_g": 1
+      "protein_g": 1,
+      "only_modes": [
+        "wrap"
+      ]
     },
     {
       "id": "kale-wrap",
-      "name": "Kale (Wrap)",
+      "name": "Kale",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "wrap portion",
       "serving_g": null,
       "calories": 10,
       "fat_g": 0,
@@ -471,13 +642,16 @@
       "carbs_g": 2,
       "fiber_g": 1,
       "sugars_g": 1,
-      "protein_g": 1
+      "protein_g": 1,
+      "only_modes": [
+        "wrap"
+      ]
     },
     {
       "id": "red-cabbage-wrap",
-      "name": "Red Cabbage (Wrap)",
+      "name": "Red Cabbage",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "wrap portion",
       "serving_g": null,
       "calories": 40,
       "fat_g": 0.5,
@@ -488,13 +662,16 @@
       "carbs_g": 8,
       "fiber_g": 3,
       "sugars_g": 2,
-      "protein_g": 3
+      "protein_g": 3,
+      "only_modes": [
+        "wrap"
+      ]
     },
     {
       "id": "romaine-wrap",
-      "name": "Romaine (Wrap)",
+      "name": "Romaine",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "wrap portion",
       "serving_g": null,
       "calories": 15,
       "fat_g": 0,
@@ -505,13 +682,16 @@
       "carbs_g": 3,
       "fiber_g": 2,
       "sugars_g": 1,
-      "protein_g": 1
+      "protein_g": 1,
+      "only_modes": [
+        "wrap"
+      ]
     },
     {
       "id": "spinach-wrap",
-      "name": "Spinach (Wrap)",
+      "name": "Spinach",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "wrap portion",
       "serving_g": null,
       "calories": 10,
       "fat_g": 0,
@@ -522,13 +702,16 @@
       "carbs_g": 2,
       "fiber_g": 1,
       "sugars_g": 0,
-      "protein_g": 1
+      "protein_g": 1,
+      "only_modes": [
+        "wrap"
+      ]
     },
     {
       "id": "supergreens-blend-wrap",
-      "name": "Supergreens Blend (Wrap)",
+      "name": "Supergreens Blend",
       "category": "base",
-      "serving_desc": "1 serving",
+      "serving_desc": "wrap portion",
       "serving_g": null,
       "calories": 15,
       "fat_g": 0,
@@ -539,11 +722,14 @@
       "carbs_g": 3,
       "fiber_g": 1,
       "sugars_g": 1,
-      "protein_g": 1
+      "protein_g": 1,
+      "only_modes": [
+        "wrap"
+      ]
     },
     {
       "id": "hero-wraps",
-      "name": "HERO Wrap (wrap format)",
+      "name": "HERO Wrap",
       "category": "bread",
       "serving_desc": "1 wrap",
       "serving_g": null,
@@ -556,7 +742,10 @@
       "carbs_g": 36,
       "fiber_g": 33,
       "sugars_g": 0,
-      "protein_g": 15
+      "protein_g": 15,
+      "only_modes": [
+        "wrap"
+      ]
     },
     {
       "id": "sea-salt-herb-focaccia",

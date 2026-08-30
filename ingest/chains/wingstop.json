@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "name": "Wingstop",
+    "slug": "wingstop",
+    "source": {
+      "pdf_url": "https://s3.amazonaws.com/wingstop.com/assets/static/WSR18-0009-Corporate-NutritionalGuide-JumboWings-HR_OFFICAL.pdf",
+      "retrieved": "2026-08-30"
+    },
+    "disclaimer_extra": "Wingstop's guide lists nutrition per single wing, boneless piece or tender — set the quantity to your order size (e.g. 8× for 8 wings). Fountain drink values are as printed per cup size.",
+    "blurb": "Pick your Wingstop flavors and count your pieces — classic, boneless or tenders, all 13 flavors — with per-piece nutrition from Wingstop's official guide, plus fries, dips, sandwiches and drinks."
+  },
+  "categories": [
+    {
+      "id": "classic",
+      "name": "Classic Wings",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "boneless",
+      "name": "Boneless Wings",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "tenders",
+      "name": "Crispy Tenders",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "sides",
+      "name": "Sides & Dips",
+      "select": "multi",
+      "flow": "build"
+    },
+    {
+      "id": "sandwiches",
+      "name": "Chicken Sandwiches",
+      "select": "single",
+      "flow": "extras"
+    },
+    {
+      "id": "drinks",
+      "name": "Drinks",
+      "select": "single",
+      "flow": "extras"
+    }
+  ],
+  "layout": {
+    "columns": [
+      "serving",
+      "calories",
+      "fat_g",
+      "sat_fat_g",
+      "trans_fat_g",
+      "cholesterol_mg",
+      "sodium_mg",
+      "carbs_g",
+      "fiber_g",
+      "sugars_g",
+      "added_sugars",
+      "protein_g",
+      "vit_d",
+      "calcium",
+      "iron",
+      "potassium"
+    ],
+    "allergen": false,
+    "serving": "g",
+    "sections": "^[A-Z][A-Z ]+$",
+    "skip": "^(NUTRITIONAL GUIDE|Total Saturated|Serving Fat Fat|Size Calories|Portion \\(ml\\)|Serving Size Calories)",
+    "pre_replace": [
+      [
+        "^.*TENDERT.*$",
+        "TENDERS"
+      ],
+      [
+        "^.*SANDWICT.*$",
+        "SANDWICH"
+      ],
+      [
+        "(\\d+)ea \\((\\d+(?:\\.\\d+)?)g\\)",
+        "\\g<2>"
+      ],
+      [
+        "(\\d+) Sticks \\((\\d+(?:\\.\\d+)?)g\\)",
+        "\\g<2>"
+      ],
+      [
+        "(\\d+(?:\\.\\d+)?)oz Cup \\((\\d+(?:\\.\\d+)?)g\\)",
+        "(\\g<1> oz) \\g<2>"
+      ],
+      [
+        " (Regular|Large) (\\d+(?:\\.\\d+)?)oz \\((\\d+(?:\\.\\d+)?)g\\)",
+        " [\\g<1>, \\g<2> oz] \\g<3>"
+      ],
+      [
+        "^(.+?) (\\d+)oz (Regular|Large) (\\d+) (\\d+(?:\\.\\d+)?) (\\d+(?:\\.\\d+)?) (\\d+(?:\\.\\d+)?) (\\d+(?:\\.\\d+)?) (\\d+(?:\\.\\d+)?) (\\d+(?:\\.\\d+)?) (\\d+(?:\\.\\d+)?)$",
+        "\\g<1> [\\g<2> oz \\g<3>] 0 \\g<5> \\g<7> \\g<8> 0 0 \\g<10> \\g<11> 0 \\g<9> 0 0 0 0 0 0"
+      ]
+    ]
+  },
+  "section_categories": {
+    "CLASSIC WINGS": {
+      "cat": "classic",
+      "desc": "per wing"
+    },
+    "WINGS": {
+      "cat": "boneless",
+      "suffix": "Boneless",
+      "desc": "per piece"
+    },
+    "TENDERS": {
+      "cat": "tenders",
+      "suffix": "Tender",
+      "desc": "per tender"
+    },
+    "SANDWICH": {
+      "cat": "sandwiches",
+      "suffix": "Sandwich",
+      "desc": "one sandwich"
+    },
+    "SIDES": {
+      "cat": "sides",
+      "desc": "1 serving"
+    },
+    "BEVERAGES": {
+      "cat": "drinks",
+      "desc": "fountain drink"
+    }
+  },
+  "items": {
+    "Veggie Sticks Celery": {
+      "cat": "sides",
+      "desc": "5 sticks"
+    },
+    "Veggie Sticks Carrots": {
+      "cat": "sides",
+      "desc": "5 sticks"
+    },
+    "Fried Corn Regular": {
+      "cat": "sides",
+      "desc": "5 pieces"
+    },
+    "Fried Corn Large": {
+      "cat": "sides",
+      "desc": "10 pieces"
+    },
+    "Brownie": {
+      "cat": "sides",
+      "desc": "1 brownie"
+    }
+  },
+  "synthetic": []
+}

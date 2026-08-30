@@ -7,12 +7,41 @@
       "retrieved": "2026-08-30"
     },
     "disclaimer_extra": "Just Salad's guide (July 2026) lists standard portions without serving weights; base greens/grains are listed per format (salad, warm bowl, market plate, wrap). Dressing values are the 1 oz 'light' serving. Menu rotates seasonally.",
-    "blurb": "Assemble any Just Salad order — salad, warm bowl, market plate or wrap — from the July 2026 nutrition guide's per-ingredient data: bases by format, essentials, premiums, proteins and every dressing at the 1 oz pour."
+    "blurb": "Assemble any Just Salad order — pick your format (salad, warm bowl, market plate or wrap), then build from the July 2026 nutrition guide's per-ingredient data: bases, essentials, premiums, proteins and every dressing at the 1 oz pour.",
+    "size_modes": [
+      {
+        "id": "salad",
+        "name": "Salad",
+        "default": true,
+        "multipliers": {}
+      },
+      {
+        "id": "warm-bowl",
+        "name": "Warm Bowl",
+        "multipliers": {}
+      },
+      {
+        "id": "market-plate",
+        "name": "Market Plate",
+        "multipliers": {}
+      },
+      {
+        "id": "wrap",
+        "name": "Wrap",
+        "multipliers": {}
+      }
+    ]
   },
   "categories": [
     {
+      "id": "format",
+      "name": "Format",
+      "select": "single",
+      "flow": "build"
+    },
+    {
       "id": "base",
-      "name": "Format & Base",
+      "name": "Base",
       "select": "single",
       "flow": "build"
     },
@@ -118,19 +147,35 @@
     "CURATED COMBOS (CONT.)": "combos",
     "BASE: SALADS": {
       "cat": "base",
-      "suffix": "Salad"
+      "id_suffix": "Salad",
+      "only_modes": [
+        "salad"
+      ],
+      "desc": "salad portion"
     },
     "BASE: MARKET PLATES": {
       "cat": "base",
-      "suffix": "Market Plate"
+      "id_suffix": "Market Plate",
+      "only_modes": [
+        "market-plate"
+      ],
+      "desc": "plate portion"
     },
     "BASE: WARM BOWLS": {
       "cat": "base",
-      "suffix": "Warm Bowl"
+      "id_suffix": "Warm Bowl",
+      "only_modes": [
+        "warm-bowl"
+      ],
+      "desc": "bowl portion"
     },
     "BASE: WRAPS": {
       "cat": "base",
-      "suffix": "Wrap"
+      "id_suffix": "Wrap",
+      "only_modes": [
+        "wrap"
+      ],
+      "desc": "wrap portion"
     },
     "DRESSINGS": {
       "cat": "dressings",
@@ -171,8 +216,11 @@
     },
     "HERO Wraps™": {
       "cat": "bread",
-      "name": "HERO Wrap (wrap format)",
-      "desc": "1 wrap"
+      "name": "HERO Wrap",
+      "desc": "1 wrap",
+      "only_modes": [
+        "wrap"
+      ]
     },
     "Sea Salt & Herb Focaccia": {
       "cat": "bread",
@@ -210,5 +258,34 @@
       "desc": "1 scoop"
     }
   },
-  "synthetic": []
+  "synthetic": [
+    {
+      "id": "format-salad",
+      "name": "Salad",
+      "cat": "format",
+      "desc": "chopped to order",
+      "size_mode": "salad"
+    },
+    {
+      "id": "format-warm-bowl",
+      "name": "Warm Bowl",
+      "cat": "format",
+      "desc": "warm base",
+      "size_mode": "warm-bowl"
+    },
+    {
+      "id": "format-market-plate",
+      "name": "Market Plate",
+      "cat": "format",
+      "desc": "hearty base",
+      "size_mode": "market-plate"
+    },
+    {
+      "id": "format-wrap",
+      "name": "Wrap",
+      "cat": "format",
+      "desc": "in a HERO wrap",
+      "size_mode": "wrap"
+    }
+  ]
 }

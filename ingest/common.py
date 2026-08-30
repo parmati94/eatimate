@@ -16,15 +16,21 @@ Config (ingest/chains/<slug>.json):
                subsections regex with one group (optional; e.g. DIG Sides/Mains)
                skip      regex; lines to ignore
                footer    regex stripped from line ends (fused page numbers)
+               pre_replace  list of [regex, replacement] applied to every line
+                         before any matching — for normalizing odd layouts
+                         (serving embedded in names, per-section column sets)
                stop      regex; parsing ends at the first line matching it
                          (e.g. an allergen guide that follows the nutrition table)
              Wrapped names are handled: a numbers-only line takes the preceding
              prose line as its name, plus the following line when that line is
              neither a row nor a section header.
-  items:       printed row name -> {cat, id?, name?, desc?} (id/name/desc are
-               derived when omitted); or {"skip": reason}. A repeated printed
-               name is addressed as "<name> [#2]" (2nd occurrence in the dump).
-               Table order = display order within a category.
+  items:       printed row name -> {cat, id?, name?, desc?, size_mode?,
+               copies?} (id/name/desc derived when omitted); or {"skip":
+               reason}. `copies` is a list of extra specs emitting clones of
+               the same printed row (e.g. a Footlong variant of a 6" bread —
+               same printed values, its own name/size_mode). A repeated
+               printed name is addressed as "<name> [#2]" (2nd occurrence in
+               the dump). Table order = display order within a category.
   synthetic:   [{id, name, cat, desc, after?}] zero-nutrient menu structure
   section_categories: "SECTION" or "SECTION/SUB" -> default category, or
                {"cat": ..., "suffix": "Salad"} to append " (Salad)" to every
@@ -78,11 +84,13 @@ def parse_dump(path, layout):
     skip_re = re.compile(layout["skip"]) if layout.get("skip") else None
     footer_re = re.compile(layout["footer"]) if layout.get("footer") else None
     stop_re = re.compile(layout["stop"]) if layout.get("stop") else None
+    pre = [(re.compile(a), b) for a, b in layout.get("pre_replace", [])]
     nums_only = re.compile(rf"^(?:{TOK}\s+){{{n-1}}}{TOK}$")
     lines = []
     for line in Path(path).read_text().splitlines():
         line = line.strip()
         if footer_re: line = footer_re.sub("", line).strip()
+        for a, b in pre: line = a.sub(b, line)
         if stop_re and stop_re.match(line): break
         if not line or line.startswith("=====") or (skip_re and skip_re.match(line)):
             continue
@@ -190,12 +198,22 @@ def build(cfg, rows, extra=None):
             if "suffix" in spec:
                 n2, _ = split_serving(r.printed)
                 spec.setdefault("name", f"{n2} ({spec['suffix']})"); spec.setdefault("id", slug(f"{n2} {spec['suffix']}"))
+            elif "id_suffix" in spec:
+                n2, _ = split_serving(r.printed)
+                spec.setdefault("id", slug(f"{n2} {spec['id_suffix']}"))
         if "skip" in spec: r.used = True; continue
-        c = make_component(r, layout, spec["cat"], spec.get("id"), spec.get("name"), spec.get("desc"))
-        c["_ord"] = order_of.get(id(r), len(keys) + len(comps)); comps.append(c)
+        base_ord = order_of.get(id(r), len(keys) + len(comps))
+        for n, sp in enumerate([spec] + spec.get("copies", [])):
+            c = make_component(r, layout, sp.get("cat", spec["cat"]), sp.get("id"), sp.get("name"), sp.get("desc"))
+            if sp.get("size_mode"): c["size_mode"] = sp["size_mode"]
+            if sp.get("only_modes"): c["only_modes"] = sp["only_modes"]
+            c["_ord"] = base_ord + 0.001 * n
+            comps.append(c)
     # reverse so a synthetic may sit "before" a later-listed synthetic
     for n, s in reversed(list(enumerate(cfg.get("synthetic", [])))):
         c = synthetic(s["id"], s["name"], s["cat"], s["desc"])
+        if s.get("size_mode"): c["size_mode"] = s["size_mode"]
+        if s.get("only_modes"): c["only_modes"] = s["only_modes"]
         target = next((x for x in comps if x["id"] == s.get("before")), None)
         c["_ord"] = (target["_ord"] - 0.5 + 0.001 * n) if target else (10**6 + n)
         comps.append(c)
