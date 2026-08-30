@@ -6,6 +6,9 @@
    "html_url": "https://www.chick-fil-a.com/nutrition-allergens",
    "retrieved": "2026-08-30",
    "groups": [
+    "Entrées",
+    "Breakfast",
+    "Salads",
     "Buns",
     "Proteins",
     "Sandwich Toppings",
@@ -21,6 +24,13 @@
   "glyph": "burger"
  },
  "categories": [
+  {
+   "id": "preset",
+   "name": "Start with a menu item",
+   "select": "single",
+   "flow": "preset",
+   "note": "These are Chick-fil-A's published totals for the item as served. Anything you add below is added on top — what's already in the item isn't itemised yet, so don't re-add a bun or filet."
+  },
   {
    "id": "bun",
    "name": "Bun",
@@ -80,7 +90,7 @@
   ],
   "allergen": false,
   "serving": "g",
-  "sections": "^(Buns|Proteins|Sandwich Toppings|Salad Toppings|Soup Toppings|Dipping Sauces|Dressings|Sides)$"
+  "sections": "^(Entrées|Breakfast|Salads|Buns|Proteins|Sandwich Toppings|Salad Toppings|Soup Toppings|Dipping Sauces|Dressings|Sides)$"
  },
  "section_categories": {
   "Buns": "bun",
@@ -90,9 +100,33 @@
   "Soup Toppings": "saladtop",
   "Dipping Sauces": "sauce",
   "Dressings": "dressing",
-  "Sides": "side"
+  "Sides": "side",
+  "Entrées": "preset",
+  "Breakfast": "preset",
+  "Salads": "preset"
  },
  "items": {
+  "Berry Parfait [#1]": {
+   "skip": "also printed under Sides, kept there with its size group"
+  },
+  "Berry Parfait w/ Cookie Crumbs [#1]": {
+   "skip": "also printed under Sides, kept there with its size group"
+  },
+  "Berry Parfait w/ Granola [#1]": {
+   "skip": "also printed under Sides, kept there with its size group"
+  },
+  "Fruit Cup [#1]": {
+   "skip": "also printed under Sides, kept there with its size group"
+  },
+  "Small Fruit Cup [#1]": {
+   "skip": "also printed under Sides, kept there with its size group"
+  },
+  "Medium Fruit Cup [#1]": {
+   "skip": "also printed under Sides, kept there with its size group"
+  },
+  "Large Fruit Cup [#1]": {
+   "skip": "also printed under Sides, kept there with its size group"
+  },
   "Chick-fil-A Waffle Potato Fries®": {
    "skip": "identical to the Medium row"
   },

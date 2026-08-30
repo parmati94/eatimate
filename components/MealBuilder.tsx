@@ -599,9 +599,17 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chain, activeMode]);
 
-  const buildCats = chain.categories.filter(
-    (c) => (c.flow ?? "build") === "build" && visibleByCategory.has(c.id),
+  // Presets open the numbered flow: on a "name and tweak" chain you start from
+  // a published menu item, then add to it. Chains without presets are unchanged.
+  const presetCats = chain.categories.filter(
+    (c) => c.flow === "preset" && visibleByCategory.has(c.id),
   );
+  const buildCats = [
+    ...presetCats,
+    ...chain.categories.filter(
+      (c) => (c.flow ?? "build") === "build" && visibleByCategory.has(c.id),
+    ),
+  ];
   const extraCats = chain.categories.filter(
     (c) => c.flow === "extras" && visibleByCategory.has(c.id),
   );
@@ -736,14 +744,21 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
                   onClick={() => setOpenCat(open ? null : cat.id)}
                 />
                 {open && (
-                  <CategoryBody
-                    cat={cat}
-                    comps={comps}
-                    selections={selections}
-                    qmultFor={rowMult}
-                    toggle={toggle}
-                    setQty={setQty}
-                  />
+                  <>
+                    {cat.note && (
+                      <p className="px-4 pb-1 text-xs leading-relaxed text-muted">
+                        {cat.note}
+                      </p>
+                    )}
+                    <CategoryBody
+                      cat={cat}
+                      comps={comps}
+                      selections={selections}
+                      qmultFor={rowMult}
+                      toggle={toggle}
+                      setQty={setQty}
+                    />
+                  </>
                 )}
               </section>
             );

@@ -27,6 +27,12 @@ for c in d["components"]:
     key = (c["category"], c["name"])
     for other in seen.get(key, []):
         am, bm = c.get("only_modes"), other.get("only_modes")
+        # Size variants share a name on purpose -- they render as one row with a
+        # selector. Only flag names that would actually appear twice in a list.
+        head_c = c.get("variant_of") or c["id"]
+        head_o = other.get("variant_of") or other["id"]
+        if head_c == head_o:
+            continue
         if not am or not bm or set(am) & set(bm):
             flags.append(f"duplicate visible name {key}: {other['id']} vs {c['id']}")
     seen.setdefault(key, []).append(c)

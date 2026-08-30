@@ -187,8 +187,15 @@ def main():
     for l in lines:
         if l.startswith("=====") or not l.strip():
             continue
-        parts = l.split()
-        k = sum(1 for p in parts if re.fullmatch(r"-|<1|\d+(?:\.\d+)?", p))
+        # Count only the TRAILING run of values. Counting numerics anywhere
+        # flags any item whose name contains a number ("4 ct Chick-n-Minis"),
+        # and a check that cries wolf is one people learn to ignore.
+        k = 0
+        for tok in reversed(l.split()):
+            if re.fullmatch(r"-|<1|\d+(?:\.\d+)?", tok):
+                k += 1
+            else:
+                break
         if k:
             widths[k] = widths.get(k, 0) + 1
     if len(widths) > 1:

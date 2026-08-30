@@ -60,7 +60,10 @@ export const CategorySchema = z.object({
   select: z.enum(["single", "multi"]),
   // "build" categories form the numbered build-your-own flow; "extras" render
   // as collapsed add-on sections (drinks, kids, signature items...). Absent = build.
-  flow: z.enum(["build", "extras"]).optional(),
+  // "preset" opens the flow: pick a published menu item as a starting point.
+  flow: z.enum(["preset", "build", "extras"]).optional(),
+  // Optional explanatory line shown under the category heading.
+  note: z.string().optional(),
 });
 
 export const ChainSchema = z
