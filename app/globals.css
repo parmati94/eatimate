@@ -14,8 +14,9 @@
   --on-accent: #ffffff;
 }
 
+/* Dark: follows the OS unless the user picked a theme (data-theme on <html>). */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #0e0f11;
     --surface: #16181b;
     --surface-2: #1e2125;
@@ -28,6 +29,18 @@
     --on-accent: #ffffff;
   }
 }
+:root[data-theme="dark"] {
+    --bg: #0e0f11;
+    --surface: #16181b;
+    --surface-2: #1e2125;
+    --line: #2a2e34;
+    --fg: #ececea;
+    --muted: #9aa0a9;
+    --accent: #10b981;
+    --accent-strong: #34d399;
+    --accent-soft: rgba(16, 185, 129, 0.13);
+    --on-accent: #ffffff;
+  }
 
 @theme inline {
   --color-bg: var(--bg);
@@ -46,6 +59,12 @@
 
 html {
   color-scheme: light dark;
+}
+html[data-theme="light"] {
+  color-scheme: light;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
 }
 
 body {
