@@ -7,6 +7,7 @@
   },
   "disclaimer_extra": "DIG's chart lists single bowl-portion servings (Summer 2026 menu, updated July 9, 2026); a la carte vegetable sides are 1.5 servings. Menu rotates seasonally.",
   "blurb": "Build a DIG bowl the way the market line works — base, market sides, a main and sauces — with nutrition from DIG's Summer 2026 chart, including every seasonal plate and bowl.",
+  "glyph": "grainbowl",
   "categories": [
     {
       "id": "base",

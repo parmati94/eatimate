@@ -2,28 +2,31 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import ChainGlyph from "./ChainGlyph";
 import { IconSearch } from "./icons";
 
 export type ChainCard = {
   slug: string;
   name: string;
+  glyph?: string;
   componentCount: number;
   retrieved: string;
 };
 
-// Deterministic tile color per chain (no trademarked logos/colors).
+// Deterministic tile hue per chain (no trademarked logos/colors); rendered
+// as a tinted ground with the hue carried by the food glyph.
 const PALETTE = [
-  "bg-teal-600",
-  "bg-sky-600",
-  "bg-amber-600",
-  "bg-rose-600",
-  "bg-violet-600",
-  "bg-lime-600",
-  "bg-orange-600",
-  "bg-indigo-600",
+  "#0d9488",
+  "#0284c7",
+  "#d97706",
+  "#e11d48",
+  "#7c3aed",
+  "#65a30d",
+  "#ea580c",
+  "#4f46e5",
 ];
 
-function tileColor(slug: string): string {
+function tileHue(slug: string): string {
   let h = 0;
   for (const ch of slug) h = (h * 31 + ch.charCodeAt(0)) % 997;
   return PALETTE[h % PALETTE.length];
@@ -60,9 +63,18 @@ export default function ChainSearch({ chains }: { chains: ChainCard[] }) {
             >
               <span
                 aria-hidden
-                className={`flex h-14 w-14 items-center justify-center rounded-2xl text-2xl font-bold text-white ${tileColor(chain.slug)}`}
+                className="flex h-14 w-14 items-center justify-center rounded-2xl border"
+                style={{
+                  color: tileHue(chain.slug),
+                  background: `color-mix(in oklab, ${tileHue(chain.slug)} 13%, var(--surface))`,
+                  borderColor: `color-mix(in oklab, ${tileHue(chain.slug)} 25%, var(--line))`,
+                }}
               >
-                {chain.name[0]}
+                {chain.glyph ? (
+                  <ChainGlyph glyph={chain.glyph} />
+                ) : (
+                  <span className="text-2xl font-bold">{chain.name[0]}</span>
+                )}
               </span>
               <span className="font-semibold leading-tight">{chain.name}</span>
               <span className="text-xs text-muted">

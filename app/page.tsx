@@ -27,6 +27,7 @@ export default async function Home() {
           chains={chains.map((c) => ({
             slug: c.slug,
             name: c.name,
+            glyph: c.glyph,
             componentCount: c.components.length,
             retrieved: c.source.retrieved,
           }))}
