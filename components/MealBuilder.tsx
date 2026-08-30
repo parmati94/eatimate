@@ -24,6 +24,8 @@ import {
 // Extended so per-piece items (wings, tenders) can reach real order sizes.
 const QTY_STEPS = [0.5, 1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 15, 20];
 const SEARCH_THRESHOLD = 14;
+/** Quiet period before mirroring selections into the URL (see the sync effect). */
+const URL_SYNC_DELAY_MS = 600;
 
 type Selections = Record<string, number>; // component id -> qty multiplier
 
@@ -36,6 +38,19 @@ function fmtQty(q: number): string {
 }
 
 // ---- URL meal state: /chain?m=id,id:0.5,id:2 ------------------------------
+
+/**
+ * The shareable URL for a meal, computed from state rather than read back out
+ * of the address bar -- the effect below writes there on a delay, so
+ * window.location can trail the current selections by a moment.
+ */
+function mealUrl(sel: Selections): string {
+  const url = new URL(window.location.href);
+  const encoded = encodeMeal(sel);
+  if (encoded) url.searchParams.set("m", encoded);
+  else url.searchParams.delete("m");
+  return url.href;
+}
 
 function encodeMeal(sel: Selections): string {
   return Object.entries(sel)
@@ -324,7 +339,7 @@ function CopyLabelButton({
             picked,
             selections,
             totals,
-            window.location.href,
+            mealUrl(selections),
           );
           setText(t);
           if (await copyText(t)) {
@@ -560,13 +575,20 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
   }, []);
 
   // Mirror selections into the URL so any meal is a shareable/bookmarkable link.
+  //
+  // Debounced on purpose: Cloudflare Web Analytics patches the History API and
+  // counts every replaceState as a virtual pageview, so writing on each tap
+  // reported ~20 "pageviews" for one person building one meal. Waiting for a
+  // pause collapses a burst of edits into a single URL write.
   useEffect(() => {
     if (!hydrated.current) return;
-    const url = new URL(window.location.href);
-    const encoded = encodeMeal(selections);
-    if (encoded) url.searchParams.set("m", encoded);
-    else url.searchParams.delete("m");
-    window.history.replaceState(null, "", url);
+    const t = setTimeout(() => {
+      const href = mealUrl(selections);
+      if (href !== window.location.href) {
+        window.history.replaceState(null, "", href);
+      }
+    }, URL_SYNC_DELAY_MS);
+    return () => clearTimeout(t);
   }, [selections]);
 
   const totals = useMemo(() => {

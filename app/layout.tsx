@@ -34,6 +34,8 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  const beaconToken = process.env.CF_BEACON_TOKEN;
+
   return (
     <html
       lang="en"
@@ -50,6 +52,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         {children}
         <SiteFooter />
+        {/*
+          Cloudflare Web Analytics, embedded manually so we can set spa:false.
+          The beacon patches the History API, and the meal builder rewrites the
+          URL via replaceState, so SPA mode counted every ingredient tap as a
+          pageview. Only renders when CF_BEACON_TOKEN is set -- keep it unset
+          until "Automatic setup" is OFF in the dashboard, or both beacons load
+          and every hit is counted twice.
+        */}
+        {beaconToken ? (
+          <script
+            type="module"
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon={JSON.stringify({ token: beaconToken, spa: false })}
+          />
+        ) : null}
       </body>
     </html>
   );

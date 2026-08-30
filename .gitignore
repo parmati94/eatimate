@@ -48,3 +48,4 @@ AGENTS.md
 ingest/.venv/
 __pycache__/
 notes/
+scripts/

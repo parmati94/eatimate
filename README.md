@@ -10,7 +10,8 @@ line the way you'd order (base → protein → toppings → sauces), watch an
 FDA-style nutrition label total up live, share any meal as a URL, and copy the
 label as text into trackers like Lose It!.
 
-Currently covered: **Qdoba · Moe's Southwest Grill · DIG · CAVA · Just Salad**
+Currently covered: **Qdoba · Moe's Southwest Grill · DIG · CAVA · Just Salad ·
+Subway · Wingstop · Five Guys**
 
 ## How it works
 
