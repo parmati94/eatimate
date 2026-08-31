@@ -142,7 +142,7 @@
       "name": "Crust",
       "select": "single",
       "flow": "build",
-      "note": "Hand tossed crusts are brushed with garlic oil blend as standard. Domino's publishes it as a separate line, so add it unless you ordered the crust plain."
+      "note": "Hand tossed crusts are brushed with garlic oil blend as standard, and the parmesan stuffed crust carries both garlic oil and a parmesan dusting. Domino's publishes each as its own line, so add them unless you ordered the crust plain."
     },
     {
       "id": "sauce",
@@ -622,7 +622,7 @@
     },
     {
       "id": "parmesan-md-stuffed",
-      "name": "Parmesan",
+      "name": "Parmesan (baked on the crust)",
       "category": "crust",
       "serving_desc": "1 slice (8 per pizza)",
       "serving_g": 1,
