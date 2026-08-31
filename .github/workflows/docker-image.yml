@@ -22,8 +22,11 @@ jobs:
 
       - run: npm ci
 
+      # PageProps/LayoutProps are generated, so they must exist before tsc runs.
       - name: Typecheck
-        run: npx tsc --noEmit
+        run: |
+          npx next typegen
+          npx tsc --noEmit
 
       - name: Test
         run: npm test
