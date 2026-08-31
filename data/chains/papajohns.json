@@ -181,7 +181,7 @@
   "components": [
     {
       "id": "crust-original-one",
-      "name": "Original Crust, Pizza for One",
+      "name": "Original Crust",
       "category": "crust",
       "serving_desc": "1 slice (4 per pizza)",
       "serving_g": null,
@@ -195,11 +195,12 @@
       "fiber_g": 1,
       "sugars_g": 2,
       "protein_g": 3,
-      "size_mode": "original-one"
+      "size_mode": "original-one",
+      "variant_label": "Pizza for One"
     },
     {
       "id": "crust-original-small",
-      "name": "Original Crust, Small",
+      "name": "Original Crust",
       "category": "crust",
       "serving_desc": "1 slice (6 per pizza)",
       "serving_g": null,
@@ -213,11 +214,13 @@
       "fiber_g": 1,
       "sugars_g": 2,
       "protein_g": 4,
-      "size_mode": "original-small"
+      "size_mode": "original-small",
+      "variant_label": "Small",
+      "variant_of": "crust-original-one"
     },
     {
       "id": "crust-original-medium",
-      "name": "Original Crust, Medium",
+      "name": "Original Crust",
       "category": "crust",
       "serving_desc": "1 slice (8 per pizza)",
       "serving_g": null,
@@ -231,11 +234,13 @@
       "fiber_g": 1,
       "sugars_g": 2,
       "protein_g": 4,
-      "size_mode": "original-medium"
+      "size_mode": "original-medium",
+      "variant_label": "Medium",
+      "variant_of": "crust-original-one"
     },
     {
       "id": "crust-original-large",
-      "name": "Original Crust, Large",
+      "name": "Original Crust",
       "category": "crust",
       "serving_desc": "1 slice (8 per pizza)",
       "serving_g": null,
@@ -249,11 +254,13 @@
       "fiber_g": 1,
       "sugars_g": 3,
       "protein_g": 5,
-      "size_mode": "original-large"
+      "size_mode": "original-large",
+      "variant_label": "Large",
+      "variant_of": "crust-original-one"
     },
     {
       "id": "crust-original-xl",
-      "name": "Original Crust, Extra Large",
+      "name": "Original Crust",
       "category": "crust",
       "serving_desc": "1 slice (10 per pizza)",
       "serving_g": null,
@@ -267,7 +274,9 @@
       "fiber_g": 1,
       "sugars_g": 3,
       "protein_g": 6,
-      "size_mode": "original-xl"
+      "size_mode": "original-xl",
+      "variant_label": "Extra Large",
+      "variant_of": "crust-original-one"
     },
     {
       "id": "crust-thin",
@@ -304,6 +313,25 @@
       "sugars_g": 1,
       "protein_g": 2,
       "size_mode": "gluten-free"
+    },
+    {
+      "id": "epic-stuffed-crust-original-large",
+      "name": "Epic Stuffed Crust (Large)",
+      "category": "crust",
+      "serving_desc": "1 slice (8 per pizza)",
+      "serving_g": null,
+      "calories": 260,
+      "fat_g": 6.5,
+      "sat_fat_g": 4,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 10,
+      "sodium_mg": 530,
+      "carbs_g": 36,
+      "fiber_g": 1,
+      "sugars_g": 2,
+      "protein_g": 9,
+      "derived": "Papa John's sells Epic Stuffed Crust on custom pizzas but publishes no crust row for it. These figures are the Original Crust Large row plus the difference between Papa John's own Large and Epic Stuffed Cheese Pizza (290 vs 360 cal per slice), which is the crust swap with sauce and cheese held constant. Epic Stuffed is Large-only, so every sauce, cheese and topping below is Papa John's published Large figure.",
+      "size_mode": "original-large"
     },
     {
       "id": "original-sauce-original-one",

@@ -51,8 +51,11 @@ chain's published data ──▶ ingest pipeline ──▶ data/chains/<slug>.js
 - **Server-rendered, client-computed.** Chain pages are SSR (every ingredient
   in the HTML); the builder is a client component doing pure local math — no
   API calls after page load, no database, no accounts.
-- **Display rounding follows FDA labeling rules** (21 CFR 101.9), applied only
-  at render time; raw values are stored unrounded.
+- **A total is the exact sum of published values.** Nothing is rounded to FDA
+  label increments: the stored figures are already each chain's published
+  numbers, so rounding their sum would add error rather than remove it — and it
+  made a 5-calorie sauce appear to move a total by 10. Display rounding does
+  one job, keeping summed grams legible (4.5 + 0.5 + 7.8, not 12.799999999).
 
 ## Stack
 
@@ -68,7 +71,7 @@ No host Node needed — the dev loop is containerized:
 docker compose -f docker-compose.dev.yml up   # http://localhost:3100, hot reload
 ```
 
-Tests (pure logic — FDA rounding, meal totals, share links):
+Tests (pure logic — display rounding, meal totals, share links):
 
 ```bash
 npm test

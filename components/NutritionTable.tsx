@@ -1,11 +1,5 @@
 import type { Chain } from "@/lib/schema";
-import {
-  roundCalories,
-  roundCholesterol,
-  roundFat,
-  roundGrams,
-  roundSodium,
-} from "@/lib/rounding";
+import { show } from "@/lib/rounding";
 
 // A plain, crawlable rendering of every published value. The builder above is
 // the product; this exists so the page also answers "<chain> nutrition facts"
@@ -51,8 +45,7 @@ export default function NutritionTable({ chain }: { chain: Chain }) {
       <p className="mt-2 max-w-3xl text-sm text-muted">
         Every item {chain.name} publishes, as served. Values come from{" "}
         {chain.name}&rsquo;s official nutrition guide (retrieved{" "}
-        {chain.source.retrieved}) and are rounded for display using FDA labeling
-        rules.
+        {chain.source.retrieved}) exactly as published.
       </p>
 
       {byCategory.map(({ cat, rows }) => (
@@ -119,31 +112,31 @@ export default function NutritionTable({ chain }: { chain: Chain }) {
                     </th>
                     <td className="py-1.5 pr-3 text-muted">{c.serving_desc}</td>
                     <td className="py-1.5 pr-3 text-right">
-                      {roundCalories(c.calories)}
+                      {show(c.calories)}
                     </td>
                     <td className="py-1.5 pr-3 text-right">
-                      {roundFat(c.fat_g)}g
+                      {show(c.fat_g, 1)}g
                     </td>
                     <td className="py-1.5 pr-3 text-right">
-                      {roundFat(c.sat_fat_g)}g
+                      {show(c.sat_fat_g, 1)}g
                     </td>
                     <td className="py-1.5 pr-3 text-right">
-                      {roundCholesterol(c.cholesterol_mg)}mg
+                      {show(c.cholesterol_mg)}mg
                     </td>
                     <td className="py-1.5 pr-3 text-right">
-                      {roundSodium(c.sodium_mg)}mg
+                      {show(c.sodium_mg)}mg
                     </td>
                     <td className="py-1.5 pr-3 text-right">
-                      {roundGrams(c.carbs_g)}g
+                      {show(c.carbs_g, 1)}g
                     </td>
                     <td className="py-1.5 pr-3 text-right">
-                      {roundGrams(c.fiber_g)}g
+                      {show(c.fiber_g, 1)}g
                     </td>
                     <td className="py-1.5 pr-3 text-right">
-                      {roundGrams(c.sugars_g)}g
+                      {show(c.sugars_g, 1)}g
                     </td>
                     <td className="py-1.5 text-right">
-                      {roundGrams(c.protein_g)}g
+                      {show(c.protein_g, 1)}g
                     </td>
                   </tr>
                 ))}

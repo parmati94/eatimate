@@ -26,8 +26,10 @@ export default async function About() {
         <p>
           Every number traces to the restaurant&apos;s own published nutrition
           data — each calculator links its source document and the date we
-          retrieved it. Values are stored exactly as printed and only rounded
-          for display using FDA labeling rules (21 CFR 101.9). In the rare case
+          retrieved it. Values are stored exactly as printed, and a total is the
+          exact sum of them: nothing is rounded to label increments, because
+          doing so would change a correct number into a tidier wrong one. In the
+          rare case
           a published document contradicts itself, the correction is recorded
           in the data with the printed value, the value used, and the reason.
         </p>

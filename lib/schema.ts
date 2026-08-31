@@ -35,6 +35,11 @@ export const ComponentSchema = z.object({
   // True for entries we add that the source PDF has no row for — menu structure
   // the PDF can't express, e.g. a plain bowl (0 cal). Never used for real rows.
   synthetic: z.boolean().optional(),
+  // A row the chain sells but publishes no ingredient-level figures for, whose
+  // values we worked out from two figures the chain DOES publish. Carries the
+  // arithmetic in plain words; the page states it on the row and in the footer,
+  // because a number of ours must never pass for one of theirs.
+  derived: z.string().optional(),
   // Size variants of one item collapse into a single row with a size selector,
   // rather than listing "Small Fries", "Medium Fries", "Large Fries" separately.
   // The group head carries only variant_label; its siblings point at it.

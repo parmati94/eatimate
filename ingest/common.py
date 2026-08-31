@@ -368,6 +368,17 @@ def build(cfg, rows, extra=None):
                 serv = cfg.get("mode_servings", {}).get(mode)
                 if serv:
                     c["serving_desc"] = serv
+                # Modes that are sizes of one crust collapse into a single row
+                # with a size selector, rather than five rows all saying
+                # "Original Crust". mode_names then carries the family name.
+                mv = sp.get("mode_variants", {}).get(mode)
+                if mv:
+                    c["variant_label"] = mv["label"]
+                    fam = f"{c['category']}/{mv['family']}"
+                    if fam in families:
+                        c["variant_of"] = families[fam]
+                    else:
+                        families[fam] = c["id"]
             elif mode:
                 # Per-slice sources must say so on every row: "1 serving" hides
                 # the one fact a pizza calculator turns on.
@@ -391,6 +402,20 @@ def build(cfg, rows, extra=None):
             if sp.get("feature"): c["feature"] = True
             c["_ord"] = base_ord + 0.001 * n
             comps.append(c)
+    # Components the chain sells but publishes only inside a composite figure.
+    # The values are stated in the config with the arithmetic that produced
+    # them; nothing here is inferred at run time.
+    for d in cfg.get("derived", []):
+        c = synthetic(d["id"], d["name"], d["cat"], d.get("desc"))
+        c.pop("synthetic", None)
+        c.update({k: v for k, v in d["values"].items()})
+        c["derived"] = d["reason"]
+        if d.get("size_mode"): c["size_mode"] = d["size_mode"]
+        if d.get("only_modes"): c["only_modes"] = d["only_modes"]
+        if d.get("serving_desc"): c["serving_desc"] = d["serving_desc"]
+        target = next((x for x in comps if x["id"] == d.get("after")), None)
+        c["_ord"] = (target["_ord"] + 0.5) if target else (10**6 - 1)
+        comps.append(c)
     # reverse so a synthetic may sit "before" a later-listed synthetic
     for n, s in reversed(list(enumerate(cfg.get("synthetic", [])))):
         c = synthetic(s["id"], s["name"], s["cat"], s["desc"])

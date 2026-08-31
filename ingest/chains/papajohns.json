@@ -281,13 +281,35 @@
    "name": "Crust",
    "mode_selector": true,
    "mode_names": {
-    "original-one": "Original Crust, Pizza for One",
-    "original-small": "Original Crust, Small",
-    "original-medium": "Original Crust, Medium",
-    "original-large": "Original Crust, Large",
-    "original-xl": "Original Crust, Extra Large",
+    "original-one": "Original Crust",
+    "original-small": "Original Crust",
+    "original-medium": "Original Crust",
+    "original-large": "Original Crust",
+    "original-xl": "Original Crust",
     "thin": "Thin Crust",
     "gluten-free": "Gluten Free Crust"
+   },
+   "mode_variants": {
+    "original-one": {
+     "family": "original",
+     "label": "Pizza for One"
+    },
+    "original-small": {
+     "family": "original",
+     "label": "Small"
+    },
+    "original-medium": {
+     "family": "original",
+     "label": "Medium"
+    },
+    "original-large": {
+     "family": "original",
+     "label": "Large"
+    },
+    "original-xl": {
+     "family": "original",
+     "label": "Extra Large"
+    }
    }
   },
   "Original Sauce": {
@@ -572,5 +594,29 @@
     "reason": "Papa John's prints 291 g carbohydrate against 0 kcal and 0 g sugar in the same row -- 291 g of carbohydrate is about 1164 kcal, so the row contradicts itself. Its own calorie and sugar figures both imply 0 g. The printed value repeats the carbohydrate published for regular Coke at the same size."
    }
   ]
- }
+ },
+ "derived": [
+  {
+   "id": "epic-stuffed-crust-original-large",
+   "name": "Epic Stuffed Crust (Large)",
+   "cat": "crust",
+   "size_mode": "original-large",
+   "serving_desc": "1 slice (8 per pizza)",
+   "after": "crust-original-large",
+   "reason": "Papa John's sells Epic Stuffed Crust on custom pizzas but publishes no crust row for it. These figures are the Original Crust Large row plus the difference between Papa John's own Large and Epic Stuffed Cheese Pizza (290 vs 360 cal per slice), which is the crust swap with sauce and cheese held constant. Epic Stuffed is Large-only, so every sauce, cheese and topping below is Papa John's published Large figure.",
+   "values": {
+    "calories": 260,
+    "fat_g": 6.5,
+    "sat_fat_g": 4,
+    "trans_fat_g": 0,
+    "cholesterol_mg": 10,
+    "sodium_mg": 530,
+    "carbs_g": 36,
+    "fiber_g": 1,
+    "sugars_g": 2,
+    "protein_g": 9,
+    "serving_g": null
+   }
+  }
+ ]
 }

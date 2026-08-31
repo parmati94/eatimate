@@ -3,11 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Category, Chain, Component, Totals } from "@/lib/schema";
 import {
-  roundCalories,
-  roundCholesterol,
-  roundFat,
-  roundGrams,
-  roundSodium,
+  show,
 } from "@/lib/rounding";
 import {
   COVERAGE_STEPS,
@@ -162,6 +158,14 @@ function ComponentRow({
           </span>
           <span className="block text-xs text-muted">
             {comp.serving_desc}
+            {comp.derived && (
+              <span
+                className="ml-1 rounded bg-surface-2 px-1 py-px text-[10px] font-medium uppercase tracking-wide"
+                title={comp.derived}
+              >
+                derived
+              </span>
+            )}
             {qmult !== 1 && (
               <span className="ml-1 font-semibold text-accent-strong">
                 ×{qmult}
@@ -357,16 +361,16 @@ function labelText(
     `${chain.name}${modeName ? ` — ${modeName}` : ""} (built on eatimate)`,
     items + (portionNote ? ` — ${portionNote}` : ""),
     ``,
-    `Calories: ${roundCalories(totals.calories)}`,
-    `Total Fat: ${roundFat(totals.fat_g)} g`,
-    `Saturated Fat: ${roundFat(totals.sat_fat_g)} g`,
-    `Trans Fat: ${roundFat(totals.trans_fat_g)} g`,
-    `Cholesterol: ${roundCholesterol(totals.cholesterol_mg)} mg`,
-    `Sodium: ${roundSodium(totals.sodium_mg)} mg`,
-    `Total Carbohydrate: ${roundGrams(totals.carbs_g)} g`,
-    `Dietary Fiber: ${roundGrams(totals.fiber_g)} g`,
-    `Total Sugars: ${roundGrams(totals.sugars_g)} g`,
-    `Protein: ${roundGrams(totals.protein_g)} g`,
+    `Calories: ${show(totals.calories)}`,
+    `Total Fat: ${show(totals.fat_g, 1)} g`,
+    `Saturated Fat: ${show(totals.sat_fat_g, 1)} g`,
+    `Trans Fat: ${show(totals.trans_fat_g, 1)} g`,
+    `Cholesterol: ${show(totals.cholesterol_mg)} mg`,
+    `Sodium: ${show(totals.sodium_mg)} mg`,
+    `Total Carbohydrate: ${show(totals.carbs_g, 1)} g`,
+    `Dietary Fiber: ${show(totals.fiber_g, 1)} g`,
+    `Total Sugars: ${show(totals.sugars_g, 1)} g`,
+    `Protein: ${show(totals.protein_g, 1)} g`,
     ``,
     url,
   ].join("\n");
@@ -871,7 +875,12 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
           chain.components.some((c) => c.category === cat.id && vis(c)),
       );
       const idx = cats.findIndex((c) => c.id === comp.category);
-      if (idx >= 0) setOpenCat(cats[idx + 1]?.id ?? null);
+      // Stay put when the row carries a size selector: advancing would collapse
+      // the step before the size has been chosen, so getting it wrong means
+      // going back. Rows without a size still advance as before.
+      if (idx >= 0 && !comp.variant_label) {
+        setOpenCat(cats[idx + 1]?.id ?? null);
+      }
     }
   }
 
@@ -1161,11 +1170,11 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
             className="flex h-14 w-full items-center justify-between rounded-2xl bg-accent px-4 text-on-accent shadow-lg shadow-accent/30"
           >
             <span className="text-lg font-bold tabular-nums">
-              {roundCalories(totals.calories)} cal
+              {show(totals.calories)} cal
             </span>
             <span className="text-xs tabular-nums opacity-90">
-              {roundGrams(totals.protein_g)}g protein ·{" "}
-              {roundGrams(totals.carbs_g)}g carbs · {roundGrams(totals.fat_g)}g
+              {show(totals.protein_g, 1)}g protein ·{" "}
+              {show(totals.carbs_g, 1)}g carbs · {show(totals.fat_g, 1)}g
               fat
             </span>
             <IconChevron
