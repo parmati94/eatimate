@@ -31,7 +31,11 @@
     }
   ],
   "glyph": "salad",
-  "formats": ["Salad", "Warm bowl", "Wrap"],
+  "formats": [
+    "Salad",
+    "Warm bowl",
+    "Wrap"
+  ],
   "categories": [
     {
       "id": "format",

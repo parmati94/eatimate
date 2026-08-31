@@ -11,8 +11,9 @@
    "dump_sha256": "13e26bf50b9b2d5d9a6a86d65f752dd94ec7ffea73e7ceb9e4a07543dedc97f1"
   },
   "disclaimer_extra": "Panda Express publishes each side, entrée and sauce separately rather than as finished Bowls or Plates, so every value here is a component as printed. Portions are the standard serving: on a two- or three-entrée Plate the side is served smaller than the listed portion. Kids' Cub Meal portions and the beverage list are published but not included here.",
-  "blurb": "Build your Panda Express order the way you order it — pick a side, then your entrées — and see the calories and macros add up, using Panda Express' own published per-item nutrition data.",
-  "glyph": "grainbowl"
+  "blurb": "Build your Panda Express order the way you order it — pick a side, then your entrées — and watch the calories and macros add up.",
+  "glyph": "grainbowl",
+  "formats": ["Bowl", "Plate", "Bigger Plate"]
  },
  "categories": [
   {

@@ -46,7 +46,12 @@
     }
   ],
   "glyph": "taco",
-  "formats": ["Burrito", "Bowl", "Taco", "Salad"],
+  "formats": [
+    "Burrito",
+    "Bowl",
+    "Taco",
+    "Salad"
+  ],
   "categories": [
     {
       "id": "base",

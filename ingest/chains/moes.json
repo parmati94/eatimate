@@ -13,7 +13,7 @@
    "asset_sha256": "f6833a43b5582797f3b738def16edf88476f5e7fe31d702256b9a0a20f31efbd"
   },
   "disclaimer_extra": "Moe's publishes no serving weights; portions are as named on their chart. Taco formats use the chart's Small protein portion automatically; 2× a protein for double.",
-  "blurb": "Recreate your Moe's Southwest Grill order — pick burrito, bowl, taco or salad, then rice, beans, protein, queso and toppings from Moe's official 2026 nutrition chart, with taco-size portions handled for you.",
+  "blurb": "Recreate your Moe's Southwest Grill order — pick burrito, bowl, taco or salad, then rice, beans, protein, queso and toppings, with taco-size portions handled for you.",
   "size_modes": [
    {
     "id": "burrito",
@@ -52,7 +52,8 @@
     "multipliers": {}
    }
   ],
-  "glyph": "taco"
+  "glyph": "taco",
+  "formats": ["Burrito", "Bowl", "Taco", "Salad"]
  },
  "categories": [
   {

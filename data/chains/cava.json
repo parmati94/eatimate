@@ -8,7 +8,10 @@
   "disclaimer_extra": "CAVA's guide (June 2026) lists standard bowl/pita portions without serving weights. Fountain drink values are calculated without ice.",
   "blurb": "Start with a bowl or pita and add CAVA's bases, dips, mains, toppings and dressings for full nutrition on your exact order.",
   "glyph": "pita",
-  "formats": ["Bowl", "Pita"],
+  "formats": [
+    "Bowl",
+    "Pita"
+  ],
   "categories": [
     {
       "id": "format",

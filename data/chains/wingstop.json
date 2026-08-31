@@ -8,7 +8,11 @@
   "disclaimer_extra": "Wingstop's guide lists nutrition per single wing, boneless piece or tender — set the quantity to your order size (e.g. 8× for 8 wings). Fountain drink values are as printed per cup size.",
   "blurb": "Pick your Wingstop flavors and count your pieces — classic, boneless or tenders, all 13 flavors — with per-piece nutrition, plus fries, dips, sandwiches and drinks.",
   "glyph": "wing",
-  "formats": ["Classic", "Boneless", "Tenders"],
+  "formats": [
+    "Classic",
+    "Boneless",
+    "Tenders"
+  ],
   "categories": [
     {
       "id": "classic",
