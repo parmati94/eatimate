@@ -1,14 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo, Geist } from "next/font/google";
 import Header from "@/components/Header";
 import SiteFooter from "@/components/SiteFooter";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
+// Geist carries running text and controls. Archivo carries every heading and
+// every figure: it is a squared grotesque with real weight contrast, which is
+// the register the FDA panel already sets on this site. Geist Mono used to be
+// loaded here for a single textarea -- a whole font download for one element --
+// so the mono role now falls back to the platform stack.
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
+  // 800 is the calorie figure and the h1; 500-700 covers headings and numerals.
+  weight: ["500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -39,7 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${archivo.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col bg-bg text-fg">

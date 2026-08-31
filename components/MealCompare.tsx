@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
-import ChainGlyph from "@/components/ChainGlyph";
 import CompareTable from "@/components/CompareTable";
 import MealBuilder from "@/components/MealBuilder";
-import { tileHue } from "@/lib/brand";
+import type { Tint } from "@/lib/brand";
+import ChainMark from "./ChainMark";
 import { copyText } from "@/lib/clipboard";
 import { compareRows, fmtNutrient } from "@/lib/compare";
 import {
@@ -37,9 +37,13 @@ const URL_SYNC_DELAY_MS = 600;
 
 export default function MealCompare({
   chains,
+  tints,
   presets,
 }: {
   chains: [Chain, Chain];
+  /** Each chain's colour, in the same order. Resolved on the server, because
+   *  a shade depends on the whole roster. */
+  tints: [Tint, Tint];
   presets: ComparePreset[];
 }) {
   const [presetId, setPresetId] = useState(presets[0]?.id ?? "");
@@ -152,10 +156,10 @@ export default function MealCompare({
                 type="button"
                 onClick={() => loadPreset(p)}
                 aria-pressed={p.id === presetId}
-                className={`rounded-full border px-3 py-1.5 text-xs transition-colors ${
+                className={`flex min-h-10 items-center rounded-full border px-3.5 text-xs transition-colors ${
                   p.id === presetId
-                    ? "border-accent bg-accent-soft font-semibold text-fg"
-                    : "border-line text-muted hover:border-accent hover:text-fg"
+                    ? "border-brand bg-surface font-semibold text-fg"
+                    : "border-line text-muted hover:border-fg/30 hover:text-fg"
                 }`}
               >
                 {p.name}
@@ -180,17 +184,19 @@ export default function MealCompare({
             type="button"
             onClick={() => setTab(i)}
             aria-pressed={tab === i}
-            className={`flex items-center justify-center gap-2 rounded-xl border px-3 py-2.5 text-sm transition-colors ${
+            className={`flex min-h-12 items-center justify-center gap-2 rounded-xl border px-3 py-2 text-sm transition-colors ${
               tab === i
-                ? "border-accent bg-surface font-semibold"
+                ? "border-brand bg-surface font-semibold"
                 : "border-line text-muted"
             }`}
           >
-            {c.glyph && (
-              <span style={{ color: tileHue(c.slug) }}>
-                <ChainGlyph glyph={c.glyph} className="h-5 w-5" />
-              </span>
-            )}
+            <ChainMark
+              glyph={c.glyph}
+              name={c.name}
+              tint={tints[i]}
+              className="h-7 w-7 rounded-lg"
+              iconClassName="h-5 w-5"
+            />
             {c.name}
           </button>
         ))}
@@ -200,20 +206,28 @@ export default function MealCompare({
         {chains.map((chain, i) => (
           // Both sides stay in the DOM on mobile — only one is shown. The
           // hidden half is still the indexable half of the comparison.
+          //
+          // data-chain is doing real work here rather than decorating: this is
+          // the one screen showing two chains at once, so each column's
+          // selections carry that chain's colour and it stays obvious which
+          // half you are editing. The totals bar below stays brand teal.
           <div
             key={chain.slug}
+            data-chain
+            style={
+              {
+                "--chain-l": tints[i].light,
+                "--chain-d": tints[i].dark,
+              } as CSSProperties
+            }
             className={`min-w-0 ${tab === i ? "" : "hidden lg:block"}`}
           >
             <div className="mb-3 hidden items-center gap-2.5 lg:flex">
-              <span
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg"
-                style={{
-                  background: `color-mix(in srgb, ${tileHue(chain.slug)} 14%, transparent)`,
-                  color: tileHue(chain.slug),
-                }}
-              >
-                {chain.glyph && <ChainGlyph glyph={chain.glyph} className="h-6 w-6" />}
-              </span>
+              <ChainMark
+                glyph={chain.glyph}
+                name={chain.name}
+                tint={tints[i]}
+              />
               <p className="text-sm font-semibold">{chain.name}</p>
             </div>
             <MealBuilder

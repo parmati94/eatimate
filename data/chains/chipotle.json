@@ -6,8 +6,9 @@
     "retrieved": "2026-08-31"
   },
   "disclaimer_extra": "Chipotle's printed nutrition chart is dated March 2025. Items it predates — Chicken Tinga, Chipotle Honey Chicken, Crispy Chicken, Pollo Asado and Cilantro Lime Sauce — come from Chipotle's live online menu, which publishes every nutrient except cholesterol. Those rows are marked, and their cholesterol is our estimate, scaled from Chipotle's own printed figures for comparable items; the workings are listed below. Every other number on them is Chipotle's.",
-  "blurb": "Build your Chipotle burrito, bowl, salad or tacos ingredient by ingredient — rice, beans, every protein including the newer ones, salsas, guac and queso — with per-portion nutrition from Chipotle's own published data.",
+  "blurb": "Build your Chipotle burrito, bowl, salad or tacos ingredient by ingredient — rice, beans, every protein including the newer ones, salsas, guac and queso.",
   "glyph": "burrito",
+  "formats": ["Burrito", "Bowl", "Salad", "Tacos"],
   "categories": [
     {
       "id": "base",

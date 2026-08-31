@@ -2,16 +2,17 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import ChainGlyph from "./ChainGlyph";
-import { tileHue } from "@/lib/brand";
+import ChainMark from "./ChainMark";
+import type { Tint } from "@/lib/brand";
 import { IconSearch } from "./icons";
 
 export type ChainCard = {
   slug: string;
   name: string;
   glyph?: string;
-  componentCount: number;
-  retrieved: string;
+  /** What the chain sells, in a customer's words. */
+  formats?: string[];
+  tint: Tint;
 };
 
 export default function ChainSearch({ chains }: { chains: ChainCard[] }) {
@@ -27,12 +28,11 @@ export default function ChainSearch({ chains }: { chains: ChainCard[] }) {
         <input
           type="search"
           suppressHydrationWarning // Chrome iOS autofill injects __gcruniqueid
-          autoFocus
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="Search restaurants…"
           aria-label="Search restaurants"
-          className="w-full rounded-2xl border border-line bg-surface py-4 pl-12 pr-5 text-lg shadow-sm outline-none transition-[border-color,box-shadow] placeholder:text-muted focus:border-accent focus:ring-4 focus:ring-accent/15"
+          className="w-full rounded-2xl border border-line bg-surface py-4 pl-12 pr-5 text-lg shadow-sm outline-none transition-[border-color,box-shadow] placeholder:text-muted focus:border-brand focus:ring-4 focus:ring-brand/15"
         />
       </label>
 
@@ -41,27 +41,21 @@ export default function ChainSearch({ chains }: { chains: ChainCard[] }) {
           <li key={chain.slug}>
             <Link
               href={`/${chain.slug}`}
-              className="group flex h-full flex-col items-center gap-2 rounded-2xl border border-line bg-surface p-5 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:border-accent hover:shadow-md focus-visible:border-accent focus-visible:outline-none"
+              className="group flex h-full flex-col items-center gap-2 rounded-2xl border border-line bg-surface p-5 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:border-fg/20 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/40"
             >
-              <span
-                aria-hidden
-                className="flex h-14 w-14 items-center justify-center rounded-2xl border"
-                style={{
-                  color: tileHue(chain.slug),
-                  background: `color-mix(in oklab, ${tileHue(chain.slug)} 13%, var(--surface))`,
-                  borderColor: `color-mix(in oklab, ${tileHue(chain.slug)} 25%, var(--line))`,
-                }}
-              >
-                {chain.glyph ? (
-                  <ChainGlyph glyph={chain.glyph} />
-                ) : (
-                  <span className="text-2xl font-bold">{chain.name[0]}</span>
-                )}
-              </span>
+              <ChainMark
+                glyph={chain.glyph}
+                name={chain.name}
+                tint={chain.tint}
+                className="h-14 w-14 rounded-2xl"
+                iconClassName="h-11 w-11"
+              />
               <span className="font-semibold leading-tight">{chain.name}</span>
-              <span className="text-xs text-muted">
-                {chain.componentCount} ingredients
-              </span>
+              {chain.formats && (
+                <span className="text-xs text-muted">
+                  {chain.formats.join(" · ")}
+                </span>
+              )}
             </Link>
           </li>
         ))}
@@ -69,8 +63,15 @@ export default function ChainSearch({ chains }: { chains: ChainCard[] }) {
 
       {shown.length === 0 && (
         <p className="mt-8 text-center text-muted">
-          Nothing for “{q}” yet — restaurant requests are coming with the public
-          version.
+          No restaurant matching “{q}” yet.{" "}
+          <a
+            href="https://github.com/parmati94/eatimate/issues/new"
+            rel="noopener"
+            className="underline decoration-line underline-offset-4 hover:text-fg"
+          >
+            Ask for it
+          </a>
+          .
         </p>
       )}
     </div>

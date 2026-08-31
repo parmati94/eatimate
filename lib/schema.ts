@@ -112,9 +112,15 @@ export const ChainSchema = z
     disclaimer_extra: z.string().nullable().optional(),
     // Homepage tile illustration id (see components/ChainGlyph.tsx).
     glyph: z.string().optional(),
-    // Short unique intro shown under the page title (and used as the meta
-    // description). Editorial, not from the PDF.
+    // Short unique intro. Editorial, not from the PDF. Rendered below the
+    // builder (it is reading, and the builder is the reason for the visit) and
+    // reused as the meta description with a provenance clause appended.
     blurb: z.string().nullable().optional(),
+    // What the chain sells, in a customer's words -- "Burrito", "Bowl". Shown
+    // under the homepage tile, where an ingredient count used to be: nobody
+    // picks a restaurant by ingredient count, and 784 vs 35 made the better
+    // covered chain look worse.
+    formats: z.array(z.string().min(1)).min(1).max(5).optional(),
     categories: z.array(CategorySchema).min(1),
     size_modes: z.array(SizeModeSchema).min(2).optional(),
     portion: PortionSchema.optional(),

@@ -8,6 +8,7 @@
   "disclaimer_extra": "Buffalo Wild Wings publishes a finished total for each wing count and republishes every sauce and dry rub underneath it, so a sauce is scaled to the order it is tossed in rather than to a single wing — boneless wings are sauced more heavily than bone-in at the same count. Pick your wings first and the sauce list shows the values for that order. Splitting flavours on one order (Buffalo Wild Wings allows two on 10 or more) is a half quantity of each sauce. One wing order at a time: to total two different orders, add them up separately. Alcoholic drinks are listed as published: their calories come mostly from alcohol, which is not one of the nutrients on the label, so the macros shown will not add up to the calorie figure.",
   "blurb": "Pick your Buffalo Wild Wings order by the count — boneless, bone-in, flats or drums — then add any of the 23 signature sauces or dry rubs, each scaled to that exact order size, plus appetisers, sides and dips.",
   "glyph": "wing",
+  "formats": ["Boneless", "Bone-in", "Cauliflower"],
   "size_modes": [
     {
       "id": "boneless-6",

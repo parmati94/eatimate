@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ChainPicker from "@/components/ChainPicker";
 import CompareCard from "@/components/CompareCard";
-import { listChains } from "@/lib/data";
+import { chainTints, listChains } from "@/lib/data";
 import { listComparePairs } from "@/lib/meals";
 
 export const metadata: Metadata = {
@@ -12,11 +12,15 @@ export const metadata: Metadata = {
 };
 
 export default async function CompareIndex() {
-  const [pairs, chains] = await Promise.all([listComparePairs(), listChains()]);
+  const [pairs, chains, tints] = await Promise.all([
+    listComparePairs(),
+    listChains(),
+    chainTints(),
+  ]);
 
   return (
     <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8 sm:py-12">
-      <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+      <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
         Compare two chains
       </h1>
       <p className="mt-3 max-w-2xl text-base text-muted">
@@ -27,33 +31,39 @@ export default async function CompareIndex() {
 
       <div className="mt-6">
         <ChainPicker
-          chains={chains.map((c) => ({ slug: c.slug, name: c.name, glyph: c.glyph }))}
+          chains={chains.map((c) => ({
+            slug: c.slug,
+            name: c.name,
+            glyph: c.glyph,
+            tint: tints.get(c.slug)!,
+          }))}
         />
       </div>
 
-      <h2 className="mt-10 text-lg font-bold tracking-tight">Recommended</h2>
-      <p className="mt-1 text-sm text-muted">
-        These open with the same order already built at both, so there is
-        something to read before you touch anything.
-      </p>
+      {/* The explainer that used to sit under this heading ("...so there is
+          something to read before you touch anything") described the reader's
+          experience rather than telling them anything. The heading says it. */}
+      <h2 className="mt-10 text-lg font-bold tracking-tight">
+        Recommended — already built at both
+      </h2>
 
       {pairs.length === 0 ? (
-        <p className="mt-8 text-sm text-muted">No comparisons yet.</p>
+        <p className="mt-5 text-sm text-muted">No comparisons yet.</p>
       ) : (
         <ul className="mt-5 grid gap-3 sm:grid-cols-2 sm:gap-4">
           {pairs.map((p) => (
             <li key={p.slug}>
-              <CompareCard pair={p} />
+              <CompareCard pair={p} tints={tints} />
             </li>
           ))}
         </ul>
       )}
 
+      {/* The pair pages carry the full version of this note against the build
+          it actually describes. Here it is one line. */}
       <p className="mt-10 max-w-2xl text-xs leading-relaxed text-muted">
-        Comparisons start from a build of ours, not the chains&rsquo;. No
-        restaurant sells a dish designed to line up against another&rsquo;s, so
-        each starting point is the closest honest reading of a rule stated on
-        the page, and every ingredient is yours to change.
+        Starting builds are ours, not the chains&rsquo; — and every ingredient
+        is yours to change.
       </p>
     </main>
   );

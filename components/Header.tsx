@@ -7,18 +7,20 @@ export default function Header() {
     <header className="sticky top-0 z-30 border-b border-line bg-bg/80 backdrop-blur supports-[backdrop-filter]:bg-bg/70">
       <div className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between px-4">
         <Logo />
-        <div className="flex items-center gap-3">
+        <nav className="flex items-center gap-1">
+          {/* "Restaurant nutrition calculators" used to sit here as static grey
+              text beside this link, where it read as a nav item that had
+              broken. It is a description of the site, so it lives in the
+              footer now -- still on every page, no longer pretending to be
+              navigation. */}
           <Link
             href="/compare"
-            className="rounded-full px-2.5 py-1 text-sm text-muted transition-colors hover:text-fg"
+            className="flex min-h-10 items-center rounded-full px-3 text-sm text-muted transition-colors hover:bg-surface-2 hover:text-fg"
           >
             Compare
           </Link>
-          <span className="hidden text-xs text-muted md:block">
-            Restaurant nutrition calculators
-          </span>
           <ThemeToggle />
-        </div>
+        </nav>
       </div>
     </header>
   );

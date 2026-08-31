@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import ChainGlyph from "@/components/ChainGlyph";
-import { tileHue } from "@/lib/brand";
+import ChainMark from "@/components/ChainMark";
+import type { Tint } from "@/lib/brand";
 import { pairSlug } from "@/lib/compare";
 import { useState } from "react";
 import { IconSearch } from "@/components/icons";
@@ -15,7 +15,7 @@ export interface CompareLink {
   /** Which side of that comparison this chain is, so a meal in progress lands
    *  in the right column. */
   side: "a" | "b";
-  other: { slug: string; name: string; glyph?: string };
+  other: { slug: string; name: string; glyph?: string; tint: Tint };
 }
 
 /**
@@ -84,22 +84,15 @@ export default function CompareStrip({
             <Link
               href={link.href}
               onClick={carryMeal(link)}
-              className="flex items-center gap-2 rounded-full border border-line py-1.5 pl-1.5 pr-3.5 text-sm text-muted transition-colors hover:border-accent hover:text-fg"
+              className="flex min-h-11 items-center gap-2 rounded-full border border-line py-2 pl-2 pr-4 text-sm text-muted transition-colors hover:border-fg/30 hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/40"
             >
-              <span
-                aria-hidden
-                className="flex h-7 w-7 items-center justify-center rounded-full"
-                style={{
-                  color: tileHue(link.other.slug),
-                  background: `color-mix(in oklab, ${tileHue(link.other.slug)} 13%, var(--surface))`,
-                }}
-              >
-                {link.other.glyph ? (
-                  <ChainGlyph glyph={link.other.glyph} className="h-5 w-5" />
-                ) : (
-                  <span className="text-xs font-bold">{link.other.name[0]}</span>
-                )}
-              </span>
+              <ChainMark
+                glyph={link.other.glyph}
+                name={link.other.name}
+                tint={link.other.tint}
+                className="h-7 w-7 rounded-full"
+                iconClassName="h-5 w-5"
+              />
               vs {link.other.name}
             </Link>
           </li>
@@ -110,7 +103,7 @@ export default function CompareStrip({
               type="button"
               onClick={() => setOpen((v) => !v)}
               aria-expanded={open}
-              className="flex h-10 items-center rounded-full border border-dashed border-line px-3.5 text-sm text-muted transition-colors hover:border-accent hover:text-fg"
+              className="flex min-h-11 items-center rounded-full border border-dashed border-line px-4 text-sm text-muted transition-colors hover:border-fg/30 hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/40"
             >
               {open ? "Close" : "vs any other chain"}
             </button>
@@ -129,7 +122,7 @@ export default function CompareStrip({
               onChange={(e) => setQ(e.target.value)}
               placeholder="Search restaurants…"
               aria-label={`Search a restaurant to compare with ${chainName}`}
-              className="w-full rounded-xl border border-line bg-surface py-2 pl-10 pr-4 text-sm outline-none focus:border-accent focus:ring-4 focus:ring-accent/15"
+              className="w-full rounded-xl border border-line bg-surface py-2 pl-10 pr-4 text-sm outline-none focus:border-brand focus:ring-4 focus:ring-brand/15"
             />
           </label>
           {matches.length === 0 ? (
@@ -141,7 +134,7 @@ export default function CompareStrip({
                   <button
                     type="button"
                     onClick={goAnywhere(o.slug)}
-                    className="rounded-full border border-line px-3 py-1.5 text-sm text-muted transition-colors hover:border-accent hover:text-fg"
+                    className="min-h-11 rounded-full border border-line px-4 py-2 text-sm text-muted transition-colors hover:border-fg/30 hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/40"
                   >
                     vs {o.name}
                   </button>
