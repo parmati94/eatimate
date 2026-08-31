@@ -11,6 +11,12 @@ import {
 // the product; this exists so the page also answers "<chain> nutrition facts"
 // for people (and crawlers) who just want the table.
 export default function NutritionTable({ chain }: { chain: Chain }) {
+  // A mode-gated component is published once per mode (BWW republishes every
+  // sauce under each wing count). In the builder only one is ever visible, but
+  // the table shows them all, so each needs to say which order it belongs to.
+  const modeName = new Map(
+    (chain.size_modes ?? []).map((m) => [m.id, m.name]),
+  );
   const byCategory = chain.categories
     .map((cat) => ({
       cat,
@@ -104,6 +110,12 @@ export default function NutritionTable({ chain }: { chain: Chain }) {
                       className="py-1.5 pr-3 text-left font-normal"
                     >
                       {c.name}
+                      {c.only_modes?.length === 1 && (
+                        <span className="text-muted">
+                          {" "}
+                          · {modeName.get(c.only_modes[0]) ?? c.only_modes[0]}
+                        </span>
+                      )}
                     </th>
                     <td className="py-1.5 pr-3 text-muted">{c.serving_desc}</td>
                     <td className="py-1.5 pr-3 text-right">

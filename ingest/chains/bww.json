@@ -1,0 +1,883 @@
+{
+ "meta": {
+  "name": "Buffalo Wild Wings",
+  "slug": "bww",
+  "source": {
+   "pdf_url": "https://assets.ctfassets.net/6dxmiqksdkqb/2XgznB5cOqQ9l1r7PQAasB/dd312340082cc00107545e7ab21318a7/BWW_Nutrition_Guide__08-18-2026_-_11-17-2026_.pdf",
+   "retrieved": "2026-08-31",
+   "format": "pdf"
+  },
+  "disclaimer_extra": "Buffalo Wild Wings publishes a finished total for each wing count and republishes every sauce and dry rub underneath it, so a sauce is scaled to the order it is tossed in rather than to a single wing — boneless wings are sauced more heavily than bone-in at the same count. Pick your wings first and the sauce list shows the values for that order. Splitting flavours on one order (Buffalo Wild Wings allows two on 10 or more) is a half quantity of each sauce. One wing order at a time: to total two different orders, add them up separately. Alcoholic drinks are listed as published: their calories come mostly from alcohol, which is not one of the nutrients on the label, so the macros shown will not add up to the calorie figure.",
+  "blurb": "Pick your Buffalo Wild Wings order by the count — boneless, bone-in, flats or drums — then add any of the 23 signature sauces or dry rubs, each scaled to that exact order size, plus appetisers, sides and dips.",
+  "glyph": "wing",
+  "size_modes": [
+   {
+    "id": "boneless-6",
+    "name": "6 Boneless",
+    "multipliers": {}
+   },
+   {
+    "id": "boneless-10",
+    "name": "10 Boneless",
+    "multipliers": {},
+    "default": true
+   },
+   {
+    "id": "boneless-15",
+    "name": "15 Boneless",
+    "multipliers": {}
+   },
+   {
+    "id": "boneless-20",
+    "name": "20 Boneless",
+    "multipliers": {}
+   },
+   {
+    "id": "boneless-30",
+    "name": "30 Boneless",
+    "multipliers": {}
+   },
+   {
+    "id": "bonein-6",
+    "name": "6 Bone-In",
+    "multipliers": {}
+   },
+   {
+    "id": "bonein-10",
+    "name": "10 Bone-In",
+    "multipliers": {}
+   },
+   {
+    "id": "bonein-15",
+    "name": "15 Bone-In",
+    "multipliers": {}
+   },
+   {
+    "id": "bonein-20",
+    "name": "20 Bone-In",
+    "multipliers": {}
+   },
+   {
+    "id": "bonein-30",
+    "name": "30 Bone-In",
+    "multipliers": {}
+   },
+   {
+    "id": "cauliflower-small",
+    "name": "Small Cauliflower",
+    "multipliers": {}
+   },
+   {
+    "id": "cauliflower-large",
+    "name": "Large Cauliflower",
+    "multipliers": {}
+   }
+  ]
+ },
+ "categories": [
+  {
+   "id": "wings",
+   "name": "Wings",
+   "select": "single",
+   "flow": "build",
+   "note": "Buffalo Wild Wings publishes one finished total per count, so pick the order size you actually ordered."
+  },
+  {
+   "id": "sauce",
+   "name": "Sauces & Dry Rubs",
+   "select": "multi",
+   "flow": "build",
+   "note": "Scaled to the wing order above — the same sauce is a different number on 6 wings than on 30."
+  },
+  {
+   "id": "dips",
+   "name": "Dips, Dressings & Extras",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "dippers",
+   "name": "Chicken Dippers",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "apps",
+   "name": "Appetizers",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "mains",
+   "name": "Burgers, Sandwiches & Salads",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "addons",
+   "name": "Burger & Sandwich Add-ons",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "sides",
+   "name": "Sides",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "kids",
+   "name": "Kids",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "desserts",
+   "name": "Desserts",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "drinks",
+   "name": "Drinks",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "party",
+   "name": "Party Menu",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "bar",
+   "name": "Cocktails & Wine",
+   "select": "multi",
+   "flow": "extras"
+  }
+ ],
+ "layout": {
+  "columns": [
+   "calories",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g"
+  ],
+  "allergen": false,
+  "serving": null,
+  "sections": "^(OPTIONAL TOPPINGS FOR FRENCH FRIES, POTATO WEDGES, OR TOTS \\(REGULAR / LARGE\\)|SAUCES, DRY RUBS & EXTRAS|HANDCRAFTED & ZERO PROOF|AROUND THE WORLD SAUCES|WINGS & ACCOMPANIMENTS|SIDES & SUBSTITUTIONS|ULTIMATE SAMPLER|CHICKEN DIPPERS|PROTEIN OPTIONS|VEGGIES & DIPS|ACCOMPANIMENTS|MAKE 'EM SAUCY|MAKE IT DELUXE|DIPPERS & MORE|ADD A DRY RUB|DIPPING SAUCE|WRAPS & TACOS|SODAS & MORE|APPETIZERS|SANDWICHES|BIG SALADS|PARTY MENU|DRESSINGS|BREAKFAST|BEVERAGES|COCKTAILS|TOPPINGS|DESSERTS|BURGERS|FLAVORS|EXTRAS|SWEETS|MIXERS|SIDES|KIDS|WINE)$",
+  "subsections": "^(SIGNATURE SAUCES|DRY RUBS)$",
+  "row_sections": "^(\\d+ COUNT (?:BONELESS|BONE-IN) WINGS|(?:SMALL|LARGE) CAULIFLOWER WINGS)",
+  "skip": "^(BUFFALO WILD WINGS|NUTRITION GUIDE|Fat Sat Fat|\\(g\\)|\\* NUTRITION|BONELESS WINGS Nutritional|BONE-IN WINGS Nutritional|CAULIFLOWER WINGS Nutritional|All wings are listed|are listed without|guest\\. All wings|Choice of \\d+ of the following|Add Signature Sauce.*\\d+-\\d+|^Nutritional values|^guest\\.|^\\d+ sauces \\(|Saucy Chicken Sandwich.*\\d+-\\d+|Due to the rotating nature)",
+  "footer": null,
+  "pre_replace": [
+   [
+    "`",
+    ""
+   ],
+   [
+    "--",
+    "-"
+   ],
+   [
+    "[‘’]",
+    "'"
+   ],
+   [
+    "^AROUND THE WORLD SAUCES .*$",
+    "AROUND THE WORLD SAUCES"
+   ],
+   [
+    "(\\d)\\. (\\d)",
+    "\\1.\\2"
+   ],
+   [
+    "’",
+    "'"
+   ],
+   [
+    "^OPTIONAL TOPPINGS FOR FRENCH FRIES, POTATO WEDGES, OR TOTS \\(REGULAR / LARGE\\) [A-Za-z(].*$",
+    "OPTIONAL TOPPINGS FOR FRENCH FRIES, POTATO WEDGES, OR TOTS (REGULAR / LARGE)"
+   ],
+   [
+    "^SAUCES, DRY RUBS & EXTRAS [A-Za-z(].*$",
+    "SAUCES, DRY RUBS & EXTRAS"
+   ],
+   [
+    "^HANDCRAFTED & ZERO PROOF [A-Za-z(].*$",
+    "HANDCRAFTED & ZERO PROOF"
+   ],
+   [
+    "^AROUND THE WORLD SAUCES [A-Za-z(].*$",
+    "AROUND THE WORLD SAUCES"
+   ],
+   [
+    "^WINGS & ACCOMPANIMENTS [A-Za-z(].*$",
+    "WINGS & ACCOMPANIMENTS"
+   ],
+   [
+    "^SIDES & SUBSTITUTIONS [A-Za-z(].*$",
+    "SIDES & SUBSTITUTIONS"
+   ],
+   [
+    "^ULTIMATE SAMPLER [A-Za-z(].*$",
+    "ULTIMATE SAMPLER"
+   ],
+   [
+    "^CHICKEN DIPPERS [A-Za-z(].*$",
+    "CHICKEN DIPPERS"
+   ],
+   [
+    "^PROTEIN OPTIONS [A-Za-z(].*$",
+    "PROTEIN OPTIONS"
+   ],
+   [
+    "^VEGGIES & DIPS [A-Za-z(].*$",
+    "VEGGIES & DIPS"
+   ],
+   [
+    "^ACCOMPANIMENTS [A-Za-z(].*$",
+    "ACCOMPANIMENTS"
+   ],
+   [
+    "^MAKE 'EM SAUCY [A-Za-z(].*$",
+    "MAKE 'EM SAUCY"
+   ],
+   [
+    "^MAKE IT DELUXE [A-Za-z(].*$",
+    "MAKE IT DELUXE"
+   ],
+   [
+    "^DIPPERS & MORE [A-Za-z(].*$",
+    "DIPPERS & MORE"
+   ],
+   [
+    "^ADD A DRY RUB [A-Za-z(].*$",
+    "ADD A DRY RUB"
+   ],
+   [
+    "^DIPPING SAUCE [A-Za-z(].*$",
+    "DIPPING SAUCE"
+   ],
+   [
+    "^WRAPS & TACOS [A-Za-z(].*$",
+    "WRAPS & TACOS"
+   ],
+   [
+    "^SODAS & MORE [A-Za-z(].*$",
+    "SODAS & MORE"
+   ],
+   [
+    "^APPETIZERS [A-Za-z(].*$",
+    "APPETIZERS"
+   ],
+   [
+    "^SANDWICHES [A-Za-z(].*$",
+    "SANDWICHES"
+   ],
+   [
+    "^BIG SALADS [A-Za-z(].*$",
+    "BIG SALADS"
+   ],
+   [
+    "^PARTY MENU [A-Za-z(].*$",
+    "PARTY MENU"
+   ],
+   [
+    "^DRESSINGS [A-Za-z(].*$",
+    "DRESSINGS"
+   ],
+   [
+    "^BREAKFAST [A-Za-z(].*$",
+    "BREAKFAST"
+   ],
+   [
+    "^BEVERAGES [A-Za-z(].*$",
+    "BEVERAGES"
+   ],
+   [
+    "^COCKTAILS [A-Za-z(].*$",
+    "COCKTAILS"
+   ],
+   [
+    "^TOPPINGS [A-Za-z(].*$",
+    "TOPPINGS"
+   ],
+   [
+    "^DESSERTS [A-Za-z(].*$",
+    "DESSERTS"
+   ],
+   [
+    "^BURGERS [A-Za-z(].*$",
+    "BURGERS"
+   ],
+   [
+    "^FLAVORS [A-Za-z(].*$",
+    "FLAVORS"
+   ],
+   [
+    "^EXTRAS [A-Za-z(].*$",
+    "EXTRAS"
+   ],
+   [
+    "^SWEETS [A-Za-z(].*$",
+    "SWEETS"
+   ],
+   [
+    "^MIXERS [A-Za-z(].*$",
+    "MIXERS"
+   ],
+   [
+    "^SIDES [A-Za-z(].*$",
+    "SIDES"
+   ],
+   [
+    "^KIDS [A-Za-z(].*$",
+    "KIDS"
+   ],
+   [
+    "^WINE [A-Za-z(].*$",
+    "WINE"
+   ],
+   [
+    ", Regular / Large",
+    ""
+   ],
+   [
+    "^- limited time (?=\\d)",
+    ""
+   ]
+  ],
+  "dual_split": {
+   "MAKE 'EM SAUCY": [
+    "3 count",
+    "5 count"
+   ],
+   "SIDES & SUBSTITUTIONS": [
+    "Regular",
+    "Large"
+   ],
+   "OPTIONAL TOPPINGS FOR FRENCH FRIES, POTATO WEDGES, OR TOTS (REGULAR / LARGE)": [
+    "Regular",
+    "Large"
+   ],
+   "BREAKFAST": [
+    "Bacon",
+    "Sausage"
+   ],
+   "WRAPS & TACOS": [
+    "Pulled Chicken",
+    "Boneless Wings"
+   ],
+   "PARTY MENU": [
+    "Pulled Chicken",
+    "Boneless Wings"
+   ],
+   "ADD A DRY RUB": [
+    "3 count",
+    "5 count"
+   ],
+   "DIPPERS & MORE": [
+    "Pulled Chicken",
+    "Boneless Wings"
+   ]
+  },
+  "stop": "^\\*NUTRITION ABBREVIATION KEY"
+ },
+ "section_modes": {
+  "6 COUNT BONELESS WINGS": "boneless-6",
+  "10 COUNT BONELESS WINGS": "boneless-10",
+  "15 COUNT BONELESS WINGS": "boneless-15",
+  "20 COUNT BONELESS WINGS": "boneless-20",
+  "30 COUNT BONELESS WINGS": "boneless-30",
+  "6 COUNT BONE-IN WINGS": "bonein-6",
+  "10 COUNT BONE-IN WINGS": "bonein-10",
+  "15 COUNT BONE-IN WINGS": "bonein-15",
+  "20 COUNT BONE-IN WINGS": "bonein-20",
+  "30 COUNT BONE-IN WINGS": "bonein-30",
+  "SMALL CAULIFLOWER WINGS": "cauliflower-small",
+  "LARGE CAULIFLOWER WINGS": "cauliflower-large"
+ },
+ "section_categories": {
+  "6 COUNT BONELESS WINGS": {
+   "cat": "wings",
+   "mode_selector": true
+  },
+  "6 COUNT BONELESS WINGS/SIGNATURE SAUCES": "sauce",
+  "6 COUNT BONELESS WINGS/DRY RUBS": "sauce",
+  "10 COUNT BONELESS WINGS": {
+   "cat": "wings",
+   "mode_selector": true
+  },
+  "10 COUNT BONELESS WINGS/SIGNATURE SAUCES": "sauce",
+  "10 COUNT BONELESS WINGS/DRY RUBS": "sauce",
+  "15 COUNT BONELESS WINGS": {
+   "cat": "wings",
+   "mode_selector": true
+  },
+  "15 COUNT BONELESS WINGS/SIGNATURE SAUCES": "sauce",
+  "15 COUNT BONELESS WINGS/DRY RUBS": "sauce",
+  "20 COUNT BONELESS WINGS": {
+   "cat": "wings",
+   "mode_selector": true
+  },
+  "20 COUNT BONELESS WINGS/SIGNATURE SAUCES": "sauce",
+  "20 COUNT BONELESS WINGS/DRY RUBS": "sauce",
+  "30 COUNT BONELESS WINGS": {
+   "cat": "wings",
+   "mode_selector": true
+  },
+  "30 COUNT BONELESS WINGS/SIGNATURE SAUCES": "sauce",
+  "30 COUNT BONELESS WINGS/DRY RUBS": "sauce",
+  "6 COUNT BONE-IN WINGS": {
+   "cat": "wings",
+   "mode_selector": true
+  },
+  "6 COUNT BONE-IN WINGS/SIGNATURE SAUCES": "sauce",
+  "6 COUNT BONE-IN WINGS/DRY RUBS": "sauce",
+  "10 COUNT BONE-IN WINGS": {
+   "cat": "wings",
+   "mode_selector": true
+  },
+  "10 COUNT BONE-IN WINGS/SIGNATURE SAUCES": "sauce",
+  "10 COUNT BONE-IN WINGS/DRY RUBS": "sauce",
+  "15 COUNT BONE-IN WINGS": {
+   "cat": "wings",
+   "mode_selector": true
+  },
+  "15 COUNT BONE-IN WINGS/SIGNATURE SAUCES": "sauce",
+  "15 COUNT BONE-IN WINGS/DRY RUBS": "sauce",
+  "20 COUNT BONE-IN WINGS": {
+   "cat": "wings",
+   "mode_selector": true
+  },
+  "20 COUNT BONE-IN WINGS/SIGNATURE SAUCES": "sauce",
+  "20 COUNT BONE-IN WINGS/DRY RUBS": "sauce",
+  "30 COUNT BONE-IN WINGS": {
+   "cat": "wings",
+   "mode_selector": true
+  },
+  "30 COUNT BONE-IN WINGS/SIGNATURE SAUCES": "sauce",
+  "30 COUNT BONE-IN WINGS/DRY RUBS": "sauce",
+  "SMALL CAULIFLOWER WINGS": {
+   "cat": "wings",
+   "mode_selector": true
+  },
+  "SMALL CAULIFLOWER WINGS/SIGNATURE SAUCES": "sauce",
+  "SMALL CAULIFLOWER WINGS/DRY RUBS": "sauce",
+  "LARGE CAULIFLOWER WINGS": {
+   "cat": "wings",
+   "mode_selector": true
+  },
+  "LARGE CAULIFLOWER WINGS/SIGNATURE SAUCES": "sauce",
+  "LARGE CAULIFLOWER WINGS/DRY RUBS": "sauce",
+  "VEGGIES & DIPS": {
+   "cat": "dips",
+   "id_suffix": "veggies-dips"
+  },
+  "SAUCES, DRY RUBS & EXTRAS": {
+   "cat": "dips",
+   "id_suffix": "sauces-dry-rubs-extras"
+  },
+  "EXTRAS": {
+   "cat": "dips",
+   "id_suffix": "extras"
+  },
+  "AROUND THE WORLD SAUCES": {
+   "cat": "dips",
+   "id_suffix": "around-the-world-sauce"
+  },
+  "ADD A DRY RUB": {
+   "cat": "dippers",
+   "id_suffix": "dipper-rub"
+  },
+  "DIPPING SAUCE": {
+   "cat": "dips",
+   "id_suffix": "dipping-sauce"
+  },
+  "DRESSINGS": {
+   "cat": "dips",
+   "id_suffix": "dressings"
+  },
+  "ACCOMPANIMENTS": {
+   "cat": "party",
+   "suffix": "Party"
+  },
+  "CHICKEN DIPPERS": {
+   "cat": "dippers",
+   "id_suffix": "chicken-dippers"
+  },
+  "MAKE 'EM SAUCY": {
+   "cat": "dippers",
+   "id_suffix": "make-em-saucy"
+  },
+  "APPETIZERS": {
+   "cat": "apps",
+   "id_suffix": "appetizers"
+  },
+  "ULTIMATE SAMPLER": {
+   "cat": "apps",
+   "suffix": "in Ultimate Sampler"
+  },
+  "BURGERS": {
+   "cat": "mains",
+   "id_suffix": "burgers"
+  },
+  "SANDWICHES": {
+   "cat": "mains",
+   "id_suffix": "sandwiches"
+  },
+  "WRAPS & TACOS": {
+   "cat": "mains",
+   "id_suffix": "wraps-tacos"
+  },
+  "BIG SALADS": {
+   "cat": "mains",
+   "id_suffix": "big-salads"
+  },
+  "BREAKFAST": {
+   "cat": "mains",
+   "id_suffix": "breakfast"
+  },
+  "PROTEIN OPTIONS": {
+   "cat": "addons",
+   "id_suffix": "protein-options"
+  },
+  "TOPPINGS": {
+   "cat": "addons",
+   "id_suffix": "toppings"
+  },
+  "MAKE IT DELUXE": {
+   "cat": "addons",
+   "suffix": "Deluxe"
+  },
+  "SIDES & SUBSTITUTIONS": {
+   "cat": "sides",
+   "id_suffix": "sides-substitutions"
+  },
+  "SIDES": {
+   "cat": "party",
+   "suffix": "Party Size"
+  },
+  "OPTIONAL TOPPINGS FOR FRENCH FRIES, POTATO WEDGES, OR TOTS (REGULAR / LARGE)": "sides",
+  "KIDS": {
+   "cat": "kids",
+   "id_suffix": "kids"
+  },
+  "DESSERTS": {
+   "cat": "desserts",
+   "id_suffix": "desserts"
+  },
+  "SWEETS": {
+   "cat": "party",
+   "suffix": "Party Size"
+  },
+  "BEVERAGES": {
+   "cat": "drinks",
+   "id_suffix": "beverages"
+  },
+  "SODAS & MORE": {
+   "cat": "drinks",
+   "id_suffix": "sodas-more"
+  },
+  "HANDCRAFTED & ZERO PROOF": {
+   "cat": "drinks",
+   "id_suffix": "handcrafted-zero-proof"
+  },
+  "FLAVORS": {
+   "cat": "drinks",
+   "id_suffix": "flavors"
+  },
+  "MIXERS": {
+   "cat": "drinks",
+   "id_suffix": "mixers"
+  },
+  "COCKTAILS": {
+   "cat": "bar",
+   "id_suffix": "cocktails"
+  },
+  "WINE": {
+   "cat": "bar",
+   "id_suffix": "wine"
+  },
+  "WINGS & ACCOMPANIMENTS": {
+   "cat": "party",
+   "id_suffix": "wings-accompaniments"
+  },
+  "PARTY MENU": {
+   "cat": "party",
+   "id_suffix": "party-menu"
+  },
+  "DIPPERS & MORE": {
+   "cat": "party",
+   "id_suffix": "dippers-more"
+  }
+ },
+ "items": {
+  "6 COUNT BONELESS WINGS, add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "wings",
+   "name": "Boneless Wings",
+   "mode_selector": true,
+   "variant_label": "6"
+  },
+  "10 COUNT BONELESS WINGS, add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "wings",
+   "name": "Boneless Wings",
+   "mode_selector": true,
+   "variant_label": "10",
+   "variant_of": "wings-boneless-6"
+  },
+  "15 COUNT BONELESS WINGS, add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "wings",
+   "name": "Boneless Wings",
+   "mode_selector": true,
+   "variant_label": "15",
+   "variant_of": "wings-boneless-6"
+  },
+  "20 COUNT BONELESS WINGS, add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "wings",
+   "name": "Boneless Wings",
+   "mode_selector": true,
+   "variant_label": "20",
+   "variant_of": "wings-boneless-6"
+  },
+  "30 COUNT BONELESS WINGS, add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "wings",
+   "name": "Boneless Wings",
+   "mode_selector": true,
+   "variant_label": "30",
+   "variant_of": "wings-boneless-6"
+  },
+  "6 COUNT BONE-IN WINGS, add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "wings",
+   "name": "Bone-In Wings",
+   "mode_selector": true,
+   "variant_label": "6"
+  },
+  "10 COUNT BONE-IN WINGS, add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "wings",
+   "name": "Bone-In Wings",
+   "mode_selector": true,
+   "variant_label": "10",
+   "variant_of": "wings-bonein-6"
+  },
+  "15 COUNT BONE-IN WINGS, add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "wings",
+   "name": "Bone-In Wings",
+   "mode_selector": true,
+   "variant_label": "15",
+   "variant_of": "wings-bonein-6"
+  },
+  "20 COUNT BONE-IN WINGS, add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "wings",
+   "name": "Bone-In Wings",
+   "mode_selector": true,
+   "variant_label": "20",
+   "variant_of": "wings-bonein-6"
+  },
+  "30 COUNT BONE-IN WINGS, add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "wings",
+   "name": "Bone-In Wings",
+   "mode_selector": true,
+   "variant_label": "30",
+   "variant_of": "wings-bonein-6"
+  },
+  "6 COUNT BONE-IN WINGS (FLATS ONLY), add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "flats",
+   "name": "Bone-In Wings (Flats Only)",
+   "mode_selector": true,
+   "variant_label": "6"
+  },
+  "10 COUNT BONE-IN WINGS (FLATS ONLY), add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "flats",
+   "name": "Bone-In Wings (Flats Only)",
+   "mode_selector": true,
+   "variant_label": "10",
+   "variant_of": "flats-bonein-6"
+  },
+  "15 COUNT BONE-IN WINGS (FLATS ONLY), add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "flats",
+   "name": "Bone-In Wings (Flats Only)",
+   "mode_selector": true,
+   "variant_label": "15",
+   "variant_of": "flats-bonein-6"
+  },
+  "20 COUNT BONE-IN WINGS (FLATS ONLY), add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "flats",
+   "name": "Bone-In Wings (Flats Only)",
+   "mode_selector": true,
+   "variant_label": "20",
+   "variant_of": "flats-bonein-6"
+  },
+  "30 COUNT BONE-IN WINGS (FLATS ONLY), add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "flats",
+   "name": "Bone-In Wings (Flats Only)",
+   "mode_selector": true,
+   "variant_label": "30",
+   "variant_of": "flats-bonein-6"
+  },
+  "6 COUNT BONE-IN WINGS (DRUMS ONLY), add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "drums",
+   "name": "Bone-In Wings (Drums Only)",
+   "mode_selector": true,
+   "variant_label": "6"
+  },
+  "10 COUNT BONE-IN WINGS (DRUMS ONLY), add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "drums",
+   "name": "Bone-In Wings (Drums Only)",
+   "mode_selector": true,
+   "variant_label": "10",
+   "variant_of": "drums-bonein-6"
+  },
+  "15 COUNT BONE-IN WINGS (DRUMS ONLY), add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "drums",
+   "name": "Bone-In Wings (Drums Only)",
+   "mode_selector": true,
+   "variant_label": "15",
+   "variant_of": "drums-bonein-6"
+  },
+  "20 COUNT BONE-IN WINGS (DRUMS ONLY), add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "drums",
+   "name": "Bone-In Wings (Drums Only)",
+   "mode_selector": true,
+   "variant_label": "20",
+   "variant_of": "drums-bonein-6"
+  },
+  "30 COUNT BONE-IN WINGS (DRUMS ONLY), add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "drums",
+   "name": "Bone-In Wings (Drums Only)",
+   "mode_selector": true,
+   "variant_label": "30",
+   "variant_of": "drums-bonein-6"
+  },
+  "SMALL CAULIFLOWER WINGS, add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "wings",
+   "name": "Cauliflower Wings",
+   "mode_selector": true,
+   "variant_label": "Small"
+  },
+  "LARGE CAULIFLOWER WINGS, add Signature Sauce or Dry Rub": {
+   "cat": "wings",
+   "id": "wings",
+   "name": "Cauliflower Wings",
+   "mode_selector": true,
+   "variant_label": "Large",
+   "variant_of": "wings-cauliflower-small"
+  },
+  "Add Chili [#1]": {
+   "cat": "apps",
+   "id": "add-chili-queso",
+   "name": "Add Chili (to Hatch Queso with Chips)"
+  },
+  "Add Chili [#2]": {
+   "cat": "apps",
+   "id": "add-chili-nachos",
+   "name": "Add Chili (to Ultimate Nachos)"
+  },
+  "Add House-made Guacamole [#1]": {
+   "cat": "apps",
+   "id": "add-guac-queso",
+   "name": "Add House-made Guacamole (to Hatch Queso with Chips)"
+  },
+  "Add House-made Guacamole [#2]": {
+   "cat": "apps",
+   "id": "add-guac-nachos",
+   "name": "Add House-made Guacamole (to Ultimate Nachos)"
+  },
+  "Hatch Queso with Chips [#1]": {
+   "cat": "apps",
+   "id": "hatch-queso-chips",
+   "name": "Hatch Queso with Chips"
+  },
+  "Hatch Queso with Chips [#2]": {
+   "cat": "party",
+   "id": "hatch-queso-chips-party",
+   "name": "Hatch Queso with Chips (Party Size)"
+  },
+  "Everything Pretzel Knots, with New Belgium Fat Tire® Beer Cheese and Honey Mustard [#1]": {
+   "cat": "apps",
+   "id": "pretzel-knots",
+   "name": "Everything Pretzel Knots, with Beer Cheese and Honey Mustard"
+  },
+  "Everything Pretzel Knots, with New Belgium Fat Tire® Beer Cheese and Honey Mustard [#2]": {
+   "cat": "party",
+   "id": "pretzel-knots-party",
+   "name": "Everything Pretzel Knots, with Beer Cheese and Honey Mustard (Party Size)"
+  },
+  "Old Fashioned [#1]": {
+   "cat": "bar",
+   "id": "old-fashioned",
+   "name": "Old Fashioned"
+  },
+  "Old Fashioned [#2]": {
+   "cat": "bar",
+   "id": "old-fashioned-2",
+   "name": "Old Fashioned (second listing)"
+  },
+  "B-Dubs Dip - 8 fl oz [#1]": {
+   "cat": "party",
+   "id": "b-dubs-dip-8oz-party",
+   "name": "B-Dubs Dip - 8 fl oz"
+  },
+  "B-Dubs Dip - 8 fl oz [#2]": {
+   "skip": "identical row repeated under each dipper type"
+  },
+  "B-Dubs Dip - 8 fl oz [#3]": {
+   "skip": "identical row repeated under each dipper type"
+  }
+ },
+ "mode_servings": {
+  "boneless-6": "6 boneless wings",
+  "bonein-6": "6 bone-in wings",
+  "boneless-10": "10 boneless wings",
+  "bonein-10": "10 bone-in wings",
+  "boneless-15": "15 boneless wings",
+  "bonein-15": "15 bone-in wings",
+  "boneless-20": "20 boneless wings",
+  "bonein-20": "20 bone-in wings",
+  "boneless-30": "30 boneless wings",
+  "bonein-30": "30 bone-in wings",
+  "cauliflower-small": "small cauliflower wings",
+  "cauliflower-large": "large cauliflower wings"
+ },
+ "variant_split": " / ",
+ "energy_exempt": {
+  "bar": "calories are largely from alcohol (7 kcal/g), which is not a label nutrient"
+ },
+ "name_variants": [
+  {
+   "sections": [
+    "CHICKEN DIPPERS",
+    "WINGS & ACCOMPANIMENTS"
+   ],
+   "pattern": "^(?P<label>\\d+)\\s+[Cc]ount\\s+(?P<family>.+)$"
+  }
+ ]
+}

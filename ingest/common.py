@@ -14,6 +14,7 @@ Config (ingest/chains/<slug>.json):
                floz_sections  section names whose serving cell is fl oz (drinks)
                sections  regex; a line matching it starts a new section
                subsections regex with one group (optional; e.g. DIG Sides/Mains)
+               row_sections regex (optional) -- a data row that also opens a section
                skip      regex; lines to ignore
                footer    regex stripped from line ends (fused page numbers)
                pre_replace  list of [regex, replacement] applied to every line
@@ -98,11 +99,24 @@ def parse_dump(path, layout):
     row_re = re.compile(rf"^(?P<name>.+?){al}\s+(?P<toks>(?:{TOK}\s+){{{n-1}}}{TOK})$")
     sec_re = re.compile(layout["sections"])
     sub_re = re.compile(layout["subsections"]) if layout.get("subsections") else None
+    # A heading that is itself a data row: BWW's "6 COUNT BONELESS WINGS ..."
+    # carries the naked-wing values AND opens the tier whose sauces follow.
+    rowsec_re = re.compile(layout["row_sections"]) if layout.get("row_sections") else None
     skip_re = re.compile(layout["skip"]) if layout.get("skip") else None
     footer_re = re.compile(layout["footer"]) if layout.get("footer") else None
     stop_re = re.compile(layout["stop"]) if layout.get("stop") else None
     pre = [(re.compile(a), b) for a, b in layout.get("pre_replace", [])]
     nums_only = re.compile(rf"^(?:{TOK}\s+){{{n-1}}}{TOK}$")
+    # Some guides print two sizes side by side in one row ("370 / 740"), with
+    # cells that are common to both left single ("0"). dual_split names the
+    # two columns per section; each row then becomes two, tagged with the
+    # section's labels so variant_split can collapse them into a size selector.
+    dual_cfg = layout.get("dual_split", {})
+    DUAL = rf"{TOK}\s*/\s*{TOK}|{TOK}"
+    dual_re = re.compile(rf"^(?P<name>.+?)\s+(?P<cells>(?:(?:{DUAL})\s+){{{n-1}}}(?:{DUAL}))$") if dual_cfg else None
+    cell_re = re.compile(DUAL)
+    # Wrapped rows whose number line carries dual cells still need joining.
+    nums_join = re.compile(rf"^(?:(?:{DUAL})\s+){{{n-1}}}(?:{DUAL})$") if dual_cfg else nums_only
     lines = []
     for line in Path(path).read_text().splitlines():
         line = line.strip()
@@ -115,10 +129,10 @@ def parse_dump(path, layout):
     # join wrapped names: "<name part>" / "<numbers>" / "<name rest>"
     joined, i = [], 0
     while i < len(lines):
-        if nums_only.match(lines[i]) and joined and not row_re.match(joined[-1]) and not sec_re.match(joined[-1]):
+        if nums_join.match(lines[i]) and joined and not row_re.match(joined[-1]) and not sec_re.match(joined[-1]):
             name, nums = joined.pop(), lines[i]
             nxt = lines[i + 1] if i + 1 < len(lines) else ""
-            if nxt and not row_re.match(nxt) and not sec_re.match(nxt) and not nums_only.match(nxt):
+            if nxt and not row_re.match(nxt) and not sec_re.match(nxt) and not nums_join.match(nxt):
                 name += " " + nxt; i += 1
             joined.append(f"{name} {nums}")
         else:
@@ -128,6 +142,20 @@ def parse_dump(path, layout):
     for line in joined:
         if sub_re and sub_re.match(line):
             sub = sub_re.match(line).group(1); continue
+        dual = dual_cfg.get(section or "") if dual_cfg else None
+        if dual and not row_re.match(line):
+            md = dual_re.match(line)
+            if md:
+                parts = cell_re.findall(md.group("cells"))
+                for idx, label in enumerate(dual):
+                    vals = [re.split(r"\s*/\s*", c)[idx] if "/" in c else c
+                            for c in parts]
+                    r = Row(section, sub, f"{md.group('name').strip()} / {label}",
+                            dict(zip(cols, [num(t) for t in vals])),
+                            [cols[i] for i, t in enumerate(vals) if t == "-"])
+                    r.serving_desc = None
+                    rows.append(r)
+                continue
         m = row_re.match(line)
         if m and not layout.get("dash_rows_are_data", False) and re.fullmatch(r"(?:-\s*)+", m.group("toks")):
             continue  # all-dash rows carry no data
@@ -145,6 +173,12 @@ def parse_dump(path, layout):
                     [cols[i] for i, t in enumerate(toks) if t == "-"])
             r.serving_desc = serving_desc
             rows.append(r)
+            if rowsec_re:
+                ms = rowsec_re.match(line)
+                if ms:
+                    section = ms.group(1) if ms.groups() else ms.group(0)
+                    sub = None
+                    r.section = section
         elif sec_re.match(line):
             section, sub = sec_re.match(line).group(0), None
         else:
@@ -279,6 +313,28 @@ def build(cfg, rows, extra=None):
             elif "id_suffix" in spec:
                 n2, _ = split_serving(r.printed)
                 spec.setdefault("id", slug(f"{n2} {spec['id_suffix']}"))
+            # A size family the source spells out in the row name itself
+            # ("2 count Original Chicken Dippers") rather than with a separator.
+            # Grouping by pattern instead of by literal name means a re-ingest
+            # still groups a reworded row, and a newly added count joins the
+            # family on its own instead of appearing loose.
+            for rule in cfg.get("name_variants", []):
+                secs = rule.get("sections")
+                if secs and (r.section or "") not in secs:
+                    continue
+                mv = re.match(rule["pattern"], r.printed)
+                if not mv:
+                    continue
+                fam_txt, label = mv.group("family").strip(), mv.group("label").strip()
+                spec.setdefault("name", fam_txt)
+                spec.setdefault("id", slug(r.printed))
+                spec["variant_label"] = label
+                fam = f"{spec.get('cat')}/{slug(fam_txt)}"
+                if fam in families:
+                    spec["variant_of"] = families[fam]
+                else:
+                    families[fam] = spec["id"]
+                break
             sep = cfg.get("variant_split")
             if sep and sep in r.printed:
                 # The source lists each size as its own row ("Cheesesticks / 10"").
@@ -288,13 +344,17 @@ def build(cfg, rows, extra=None):
                 spec.setdefault("id", slug(r.printed))
                 spec.setdefault("name", head.strip())
                 spec["variant_label"] = label.strip()
-                fam = slug(head)
+                # Family key must include the category: BWW prints the same dry
+                # rubs as a dipper size family and again as a fries-topping one,
+                # and a name-only key made the second point at the first's head.
+                fam = f"{spec.get('cat')}/{slug(head)}"
                 if fam in families:
                     spec["variant_of"] = families[fam]
                 else:
                     families[fam] = spec["id"]
         if "skip" in spec: r.used = True; continue
-        mode = cfg.get("section_modes", {}).get(r.section or "")
+        sec_modes = cfg.get("section_modes", {})
+        mode = sec_modes.get(f"{r.section}/{r.sub}") or sec_modes.get(r.section or "")
         base_ord = order_of.get(id(r), len(keys) + len(comps))
         for n, sp in enumerate([spec] + spec.get("copies", [])):
             c = make_component(r, layout, sp.get("cat", spec["cat"]), sp.get("id"), sp.get("name"), sp.get("desc"))

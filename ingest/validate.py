@@ -3,9 +3,18 @@ Hard errors (exit 1): negatives, duplicate ids, unknown category, missing fields
 Flags (printed): energy math off by > max(25% of calories, 20 kcal).
 """
 import json, sys
+from pathlib import Path
 FIELDS = ["calories","fat_g","sat_fat_g","trans_fat_g","cholesterol_mg","sodium_mg","carbs_g","fiber_g","sugars_g","protein_g"]
 d = json.load(open(sys.argv[1]))
+# The energy check assumes calories come from protein/carbs/fat. Alcohol is
+# 7 kcal/g and is not one of the label nutrients, so a chain may declare
+# categories where the check does not apply (with a reason) in its config.
+cfg_path = Path(__file__).parent / "chains" / f"{d['slug']}.json"
+exempt = {}
+if cfg_path.exists():
+    exempt = json.load(open(cfg_path)).get("energy_exempt", {})
 errors, flags = [], []
+skipped = 0
 cats = {c["id"] for c in d["categories"]}
 ids = set()
 for c in d["components"]:
@@ -18,7 +27,9 @@ for c in d["components"]:
     if c.get("synthetic"): continue
     est = 4*(c["protein_g"]+c["carbs_g"]) + 9*c["fat_g"]
     tol = max(0.25*c["calories"], 20)
-    if abs(est - c["calories"]) > tol:
+    if c["category"] in exempt:
+        skipped += 1
+    elif abs(est - c["calories"]) > tol:
         flags.append(f"{c['id']}: printed {c['calories']} kcal vs macro estimate {est:.0f} (fat {c['fat_g']} carb {c['carbs_g']} prot {c['protein_g']})")
     if c["sat_fat_g"] + c["trans_fat_g"] > c["fat_g"] + 0.51: flags.append(f"{c['id']}: sat+trans fat > total fat")
     if c["fiber_g"] + c["sugars_g"] > c["carbs_g"] + 1.01: flags.append(f"{c['id']}: fiber+sugar > carbs")
@@ -57,6 +68,8 @@ singles = [c["name"] for c in d["categories"] if c["select"] == "single"]
 if singles:
     shape.append("exclusive: " + ", ".join(singles))
 print("  presentation:", "; ".join(shape) if shape else "plain ingredient list")
+for cat, why in exempt.items():
+    print(f"  energy check not applied to {cat}: {why}")
 for f in flags: print("FLAG:", f)
 for e in errors: print("ERROR:", e)
 sys.exit(1 if errors else 0)
