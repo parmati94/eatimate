@@ -1,15 +1,37 @@
-name: Build and Push Docker Image
+name: CI and Publish
 
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 
 env:
   IMAGE: ghcr.io/${{ github.repository_owner }}/eatimate
 
 jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Test
+        run: npm test
+
+  # Only publish once the checks pass, and never from a pull request.
   build:
+    needs: check
+    if: github.event_name != 'pull_request'
     strategy:
       matrix:
         include:
