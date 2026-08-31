@@ -1,0 +1,376 @@
+{
+ "meta": {
+  "name": "Papa John's",
+  "slug": "papajohns",
+  "source": {
+   "html_url": "https://www.papajohns.com/company/nutritional-details/index.html",
+   "html_urls": [
+    "https://www.papajohns.com/company/nutritional-details/crust.html",
+    "https://www.papajohns.com/company/nutritional-details/sauce.html",
+    "https://www.papajohns.com/company/nutritional-details/cheese.html",
+    "https://www.papajohns.com/company/nutritional-details/toppings.html"
+   ],
+   "retrieved": "2026-08-30",
+   "format": "html_matrix",
+   "matrix": true,
+   "plain_ua": true
+  },
+  "disclaimer_extra": "Papa John's publishes every topping per slice, for each crust and size, so pick your crust and size first — the values below are for one slice of that pizza. Multiply by the slice count shown to get a whole pizza. Values are published for a one-topping pizza; a heavily loaded pizza may differ.",
+  "blurb": "Build a Papa John's pizza slice by slice — crust, size, sauce, cheese and every topping — using Papa John's own per-slice nutrition tables for each crust and size.",
+  "glyph": "burger",
+  "size_modes": [
+   {
+    "id": "original-one",
+    "name": "Original Crust, Pizza for One",
+    "note": "4 slices",
+    "default": false,
+    "multipliers": {
+     "crust": 1,
+     "sauce": 1,
+     "cheese": 1,
+     "topping": 1
+    }
+   },
+   {
+    "id": "original-small",
+    "name": "Original Crust, Small",
+    "note": "6 slices",
+    "default": false,
+    "multipliers": {
+     "crust": 1,
+     "sauce": 1,
+     "cheese": 1,
+     "topping": 1
+    }
+   },
+   {
+    "id": "original-medium",
+    "name": "Original Crust, Medium",
+    "note": "8 slices",
+    "default": false,
+    "multipliers": {
+     "crust": 1,
+     "sauce": 1,
+     "cheese": 1,
+     "topping": 1
+    }
+   },
+   {
+    "id": "original-large",
+    "name": "Original Crust, Large",
+    "note": "8 slices",
+    "default": true,
+    "multipliers": {
+     "crust": 1,
+     "sauce": 1,
+     "cheese": 1,
+     "topping": 1
+    }
+   },
+   {
+    "id": "original-xl",
+    "name": "Original Crust, Extra Large",
+    "note": "10 slices",
+    "default": false,
+    "multipliers": {
+     "crust": 1,
+     "sauce": 1,
+     "cheese": 1,
+     "topping": 1
+    }
+   },
+   {
+    "id": "thin",
+    "name": "Thin Crust",
+    "note": "8 slices",
+    "default": false,
+    "multipliers": {
+     "crust": 1,
+     "sauce": 1,
+     "cheese": 1,
+     "topping": 1
+    }
+   },
+   {
+    "id": "gluten-free",
+    "name": "Gluten Free Crust",
+    "note": "6 slices",
+    "default": false,
+    "multipliers": {
+     "crust": 1,
+     "sauce": 1,
+     "cheese": 1,
+     "topping": 1
+    }
+   }
+  ]
+ },
+ "categories": [
+  {
+   "id": "crust",
+   "name": "Crust & Size",
+   "select": "single",
+   "flow": "build"
+  },
+  {
+   "id": "sauce",
+   "name": "Sauce",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "cheese",
+   "name": "Cheese",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "topping",
+   "name": "Toppings",
+   "select": "multi",
+   "flow": "build"
+  }
+ ],
+ "layout": {
+  "columns": [
+   "calories",
+   "cff",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g"
+  ],
+  "allergen": false,
+  "serving": null,
+  "sections": "^(Original\\ Crust\\ Pizza\\ for\\ One|Original\\ Crust\\ Small|Original\\ Crust\\ Medium|Original\\ Crust\\ Large|Original\\ Crust\\ Extra\\ Large|Thin\\ Crust|Gluten\\ Free)$",
+  "pre_replace": [
+   [
+    "^Gluten Pizza$",
+    "Gluten Free"
+   ]
+  ]
+ },
+ "section_modes": {
+  "Original Crust Pizza for One": "original-one",
+  "Original Crust Small": "original-small",
+  "Original Crust Medium": "original-medium",
+  "Original Crust Large": "original-large",
+  "Original Crust Extra Large": "original-xl",
+  "Thin Crust": "thin",
+  "Gluten Free": "gluten-free"
+ },
+ "items": {
+  "Crust": {
+   "cat": "crust",
+   "name": "Crust",
+   "mode_selector": true,
+   "mode_names": {
+    "original-one": "Original Crust, Pizza for One",
+    "original-small": "Original Crust, Small",
+    "original-medium": "Original Crust, Medium",
+    "original-large": "Original Crust, Large",
+    "original-xl": "Original Crust, Extra Large",
+    "thin": "Thin Crust",
+    "gluten-free": "Gluten Free Crust"
+   }
+  },
+  "Original Sauce": {
+   "cat": "sauce",
+   "id": "original-sauce",
+   "name": "Original Sauce",
+   "variant_label": "Regular"
+  },
+  "Original Sauce-Light": {
+   "cat": "sauce",
+   "id": "original-sauce-light",
+   "name": "Original Sauce",
+   "variant_of": "original-sauce",
+   "variant_label": "Light"
+  },
+  "Original Sauce-Extra": {
+   "cat": "sauce",
+   "id": "original-sauce-extra",
+   "name": "Original Sauce",
+   "variant_of": "original-sauce",
+   "variant_label": "Extra"
+  },
+  "BBQ Sauce": {
+   "cat": "sauce",
+   "id": "bbq-sauce",
+   "name": "BBQ Sauce",
+   "variant_label": "Regular"
+  },
+  "BBQ Sauce-Light": {
+   "cat": "sauce",
+   "id": "bbq-sauce-light",
+   "name": "BBQ Sauce",
+   "variant_of": "bbq-sauce",
+   "variant_label": "Light"
+  },
+  "BBQ Sauce-Extra": {
+   "cat": "sauce",
+   "id": "bbq-sauce-extra",
+   "name": "BBQ Sauce",
+   "variant_of": "bbq-sauce",
+   "variant_label": "Extra"
+  },
+  "Ranch Sauce": {
+   "cat": "sauce",
+   "id": "ranch-sauce",
+   "name": "Ranch Sauce",
+   "variant_label": "Regular"
+  },
+  "Ranch Sauce-Light": {
+   "cat": "sauce",
+   "id": "ranch-sauce-light",
+   "name": "Ranch Sauce",
+   "variant_of": "ranch-sauce",
+   "variant_label": "Light"
+  },
+  "Ranch Sauce-Extra": {
+   "cat": "sauce",
+   "id": "ranch-sauce-extra",
+   "name": "Ranch Sauce",
+   "variant_of": "ranch-sauce",
+   "variant_label": "Extra"
+  },
+  "Alfredo Sauce": {
+   "cat": "sauce",
+   "name": "Alfredo Sauce"
+  },
+  "Cheesy Burger Sauce": {
+   "cat": "sauce",
+   "name": "Cheesy Burger Sauce"
+  },
+  "Cheese": {
+   "cat": "cheese",
+   "id": "cheese",
+   "name": "Cheese",
+   "variant_label": "Regular"
+  },
+  "Light Cheese": {
+   "cat": "cheese",
+   "id": "cheese-light",
+   "name": "Cheese",
+   "variant_of": "cheese",
+   "variant_label": "Light"
+  },
+  "Extra Cheese": {
+   "cat": "cheese",
+   "id": "cheese-extra",
+   "name": "Cheese",
+   "variant_of": "cheese",
+   "variant_label": "Extra"
+  },
+  "Anchovies": {
+   "cat": "topping",
+   "name": "Anchovies"
+  },
+  "Bacon": {
+   "cat": "topping",
+   "name": "Bacon"
+  },
+  "Banana Peppers": {
+   "cat": "topping",
+   "name": "Banana Peppers"
+  },
+  "Beef": {
+   "cat": "topping",
+   "name": "Beef"
+  },
+  "Black Olives": {
+   "cat": "topping",
+   "name": "Black Olives"
+  },
+  "Canadian Bacon": {
+   "cat": "topping",
+   "name": "Canadian Bacon"
+  },
+  "Chicken": {
+   "cat": "topping",
+   "name": "Chicken"
+  },
+  "Crispy Cuppy Pepperoni": {
+   "cat": "topping",
+   "name": "Crispy Cuppy Pepperoni"
+  },
+  "Green Olives": {
+   "cat": "topping",
+   "name": "Green Olives"
+  },
+  "Green Pepper": {
+   "cat": "topping",
+   "name": "Green Pepper"
+  },
+  "Italian Sausage": {
+   "cat": "topping",
+   "name": "Italian Sausage"
+  },
+  "Jalapeno": {
+   "cat": "topping",
+   "name": "Jalapeno"
+  },
+  "Meatball": {
+   "cat": "topping",
+   "name": "Meatball"
+  },
+  "Mushroom": {
+   "cat": "topping",
+   "name": "Mushroom"
+  },
+  "Onion": {
+   "cat": "topping",
+   "name": "Onion"
+  },
+  "Parmesan/Romano": {
+   "cat": "topping",
+   "name": "Parmesan/Romano"
+  },
+  "Pepperoni": {
+   "cat": "topping",
+   "name": "Pepperoni"
+  },
+  "Pineapple": {
+   "cat": "topping",
+   "name": "Pineapple"
+  },
+  "Tomatoes": {
+   "cat": "topping",
+   "name": "Tomatoes"
+  },
+  "Salami": {
+   "cat": "topping",
+   "name": "Salami"
+  },
+  "Steak": {
+   "cat": "topping",
+   "name": "Steak"
+  },
+  "Sausage": {
+   "cat": "topping",
+   "name": "Sausage"
+  },
+  "Spinach": {
+   "cat": "topping",
+   "name": "Spinach"
+  },
+  "Three Cheese Blend": {
+   "cat": "topping",
+   "name": "Three Cheese Blend"
+  }
+ },
+ "mode_servings": {
+  "original-one": "1 slice (4 per pizza)",
+  "original-small": "1 slice (6 per pizza)",
+  "original-medium": "1 slice (8 per pizza)",
+  "original-large": "1 slice (8 per pizza)",
+  "original-xl": "1 slice (10 per pizza)",
+  "thin": "1 slice (8 per pizza)",
+  "gluten-free": "1 slice (6 per pizza)"
+ }
+}

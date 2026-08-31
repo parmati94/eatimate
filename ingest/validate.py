@@ -40,6 +40,23 @@ by_cat = {}
 for c in d["components"]: by_cat[c["category"]] = by_cat.get(c["category"], 0) + 1
 print(f"{d['slug']}: {len(d['components'])} components, {sum(1 for c in d['components'] if c.get('synthetic'))} synthetic")
 for cat in d["categories"]: print(f"  {cat['id']:<16} {by_cat.get(cat['id'],0):>3}  ({cat['select']}, {cat.get('flow','build')})")
+# What SHAPE will this chain render as? Nothing declares that directly -- the
+# builder adapts to whichever capabilities the data uses -- so spell it out
+# here rather than leaving it to be inferred by reading the UI code.
+shape = []
+if any(c.get("flow") == "preset" for c in d["categories"]):
+    shape.append("preset fork (menu item or build your own)")
+if d.get("size_modes"):
+    shape.append(f"format-first ({len(d['size_modes'])} size modes)")
+if any(c.get("feature") for c in d["components"]):
+    shape.append("make-it-a-meal step")
+fams = {c["variant_of"] for c in d["components"] if c.get("variant_of")}
+if fams:
+    shape.append(f"{len(fams)} size-selector families")
+singles = [c["name"] for c in d["categories"] if c["select"] == "single"]
+if singles:
+    shape.append("exclusive: " + ", ".join(singles))
+print("  presentation:", "; ".join(shape) if shape else "plain ingredient list")
 for f in flags: print("FLAG:", f)
 for e in errors: print("ERROR:", e)
 sys.exit(1 if errors else 0)

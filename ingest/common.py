@@ -32,6 +32,11 @@ Config (ingest/chains/<slug>.json):
                printed name is addressed as "<name> [#2]" (2nd occurrence in
                the dump). Table order = display order within a category.
   synthetic:   [{id, name, cat, desc, after?}] zero-nutrient menu structure
+  mode_servings: mode id -> serving_desc for every row in that mode.
+  section_modes: "SECTION" -> size mode id. Use when the section names the
+               size/format rather than the category (transposed sources):
+               each row becomes one component per mode, id suffixed with the
+               mode and only_modes set to it.
   section_categories: "SECTION" or "SECTION/SUB" -> default category, or
                {"cat": ..., "suffix": "Salad"} to append " (Salad)" to every
                derived name/id in that section (same ingredient, per-format
@@ -213,9 +218,36 @@ def build(cfg, rows, extra=None):
                 n2, _ = split_serving(r.printed)
                 spec.setdefault("id", slug(f"{n2} {spec['id_suffix']}"))
         if "skip" in spec: r.used = True; continue
+        mode = cfg.get("section_modes", {}).get(r.section or "")
         base_ord = order_of.get(id(r), len(keys) + len(comps))
         for n, sp in enumerate([spec] + spec.get("copies", [])):
             c = make_component(r, layout, sp.get("cat", spec["cat"]), sp.get("id"), sp.get("name"), sp.get("desc"))
+            if mode and sp.get("mode_selector"):
+                # This row IS the format choice: one per mode, always visible,
+                # and picking it activates its mode. Without it every component
+                # would be gated on a mode nothing could turn on.
+                c["id"] = f"{c['id']}-{mode}"
+                c["size_mode"] = mode
+                c["name"] = sp.get("mode_names", {}).get(mode, c["name"])
+                serv = cfg.get("mode_servings", {}).get(mode)
+                if serv:
+                    c["serving_desc"] = serv
+            elif mode:
+                # Per-slice sources must say so on every row: "1 serving" hides
+                # the one fact a pizza calculator turns on.
+                serv = cfg.get("mode_servings", {}).get(mode)
+                if serv:
+                    c["serving_desc"] = serv
+                # One component per (item, mode); the mode qualifies the id and
+                # gates visibility, and the values are the chain's own for that
+                # crust-and-size, not a multiplier applied to a base.
+                c["id"] = f"{c['id']}-{mode}"
+                c["only_modes"] = [mode]
+                # A variant's head is per-mode too, so the reference has to be
+                # qualified the same way or it points at a component that the
+                # mode suffix has renamed out from under it.
+                if sp.get("variant_of"):
+                    sp = dict(sp, variant_of=f"{sp['variant_of']}-{mode}")
             if sp.get("size_mode"): c["size_mode"] = sp["size_mode"]
             if sp.get("only_modes"): c["only_modes"] = sp["only_modes"]
             if sp.get("variant_of"): c["variant_of"] = sp["variant_of"]
