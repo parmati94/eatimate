@@ -723,7 +723,14 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
 
   return (
     <div className="grid gap-6 pb-28 lg:grid-cols-[1fr_300px] lg:pb-0">
-      <div className="space-y-5">
+      {/*
+        min-w-0 is load-bearing: a grid item defaults to min-width:auto, and
+        `truncate` sets white-space:nowrap, so a long component name contributes
+        its FULL width to the column's min-content and stretches the page past
+        the viewport. Chick-fil-A's "Spicy Southwest Salad w/ Chick-fil-A
+        Chick-n-Strips" pushed the mobile layout to 574px in a 390px window.
+      */}
+      <div className="min-w-0 space-y-5">
         <div className="space-y-2">
           {buildCats.map((cat, idx) => {
             const comps = visibleByCategory.get(cat.id)!;
