@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { decodeMeal, encodeMeal, mealTotals } from "./meal";
+import { decodeMeal, encodeMeal, mealSubtitle, mealTotals } from "./meal";
 import { ChainSchema } from "./schema";
 
 function chain(slug: string) {
@@ -98,5 +98,40 @@ describe("published data invariants", () => {
         expect(fix.printed, c.id).not.toBe(fix.used);
       }
     }
+  });
+});
+
+describe("mealSubtitle", () => {
+  it("adds the item count when there is no mode or portion to show", () => {
+    // Otherwise the line just restates the page heading.
+    expect(mealSubtitle(cava, null, 1, 0, 6)).toBe("CAVA · 6 items");
+    expect(mealSubtitle(cava, null, 1, 0, 1)).toBe("CAVA · 1 item");
+  });
+
+  it("names the chain alone before anything is picked", () => {
+    expect(mealSubtitle(cava, null)).toBe("CAVA");
+  });
+
+  it("prefers the mode and portion over the item count", () => {
+    expect(mealSubtitle(papajohns, "Thin Crust", 2, 8, 5)).toBe(
+      "Papa John's · Thin Crust · 2 of 8 slices",
+    );
+  });
+
+  it("states the portion, because a saved image outlives its page", () => {
+    expect(mealSubtitle(papajohns, "Original Crust, Large", 1, 8)).toBe(
+      "Papa John's · Original Crust, Large · 1 of 8 slices",
+    );
+    expect(mealSubtitle(papajohns, "Original Crust, Large", 3, 8)).toBe(
+      "Papa John's · Original Crust, Large · 3 of 8 slices",
+    );
+  });
+
+  it("says 'all' rather than 8 of 8", () => {
+    expect(mealSubtitle(papajohns, null, 8, 8)).toBe("Papa John's · all 8 slices");
+  });
+
+  it("omits the portion for a chain that has none", () => {
+    expect(mealSubtitle(cava, "Pita", 4, 8)).toBe("CAVA · Pita");
   });
 });

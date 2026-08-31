@@ -15,13 +15,16 @@ import {
   Selections,
   decodeMeal,
   encodeMeal,
+  mealSubtitle,
   mealTotals,
 } from "@/lib/meal";
+import { drawLabel } from "@/lib/labelImage";
 import NutritionLabel from "./NutritionLabel";
 import {
   IconCheck,
   IconChevron,
   IconCopy,
+  IconDownload,
   IconMinus,
   IconPlus,
   IconSearch,
@@ -404,6 +407,67 @@ function legacyCopy(text: string): boolean {
   }
 }
 
+/**
+ * Save the panel as a PNG, drawn in the browser -- no request, so nothing about
+ * a meal leaves the device.
+ *
+ * iOS Safari ignores <a download> for blob URLs, so there the image is opened
+ * in a new tab to be long-pressed and saved. Web Share is tried first, since it
+ * puts the file straight into Photos (and therefore into a tracker's scanner).
+ */
+function SaveImageButton({
+  chain,
+  subtitle,
+  totals,
+  selections,
+}: {
+  chain: Chain;
+  subtitle: string;
+  totals: Totals;
+  selections: Selections;
+}) {
+  const [busy, setBusy] = useState(false);
+  // Shown even with nothing selected, greyed out: the panel is on screen from
+  // the start, so hiding its controls just makes the feature undiscoverable.
+  const empty = chain.components.every((c) => !selections[c.id]);
+  return (
+    <button
+      type="button"
+      disabled={busy || empty}
+      onClick={async () => {
+        setBusy(true);
+        try {
+          const blob = await drawLabel(totals, subtitle);
+          if (!blob) return;
+          const name = `${chain.slug}-nutrition.png`;
+          const file = new File([blob], name, { type: "image/png" });
+          const nav = navigator as Navigator & {
+            canShare?: (d: { files: File[] }) => boolean;
+          };
+          if (nav.canShare?.({ files: [file] })) {
+            await nav.share({ files: [file], title: "Nutrition Facts" });
+            return;
+          }
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = name;
+          if ("download" in a) a.click();
+          else window.open(url, "_blank");
+          setTimeout(() => URL.revokeObjectURL(url), 10000);
+        } catch {
+          // A cancelled share rejects; nothing to report.
+        } finally {
+          setBusy(false);
+        }
+      }}
+      className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl border border-line bg-surface text-sm font-medium shadow-sm transition-colors hover:border-accent hover:text-accent-strong disabled:opacity-50 disabled:hover:border-line disabled:hover:text-fg"
+    >
+      <IconDownload className="h-4 w-4" /> Save label as image
+    </button>
+  );
+}
+
 function CopyLabelButton({
   chain,
   modeName,
@@ -422,11 +486,12 @@ function CopyLabelButton({
   const [state, setState] = useState<"idle" | "copied" | "manual">("idle");
   const [text, setText] = useState("");
   const picked = chain.components.filter((c) => selections[c.id]);
-  if (picked.length === 0) return null;
+  const empty = picked.length === 0;
   return (
     <div className="space-y-2">
       <button
         type="button"
+        disabled={empty}
         onClick={async () => {
           const t = labelText(
             chain,
@@ -447,7 +512,7 @@ function CopyLabelButton({
             setState("manual");
           }
         }}
-        className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl border border-line bg-surface text-sm font-medium shadow-sm transition-colors hover:border-accent hover:text-accent-strong"
+        className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl border border-line bg-surface text-sm font-medium shadow-sm transition-colors hover:border-accent hover:text-accent-strong disabled:opacity-50 disabled:hover:border-line disabled:hover:text-fg"
       >
         {state === "copied" ? (
           <>
@@ -767,6 +832,13 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
   );
 
   const selectedCount = Object.keys(selections).length;
+  const subtitle = mealSubtitle(
+    chain,
+    activeMode && activeMode !== defaultMode ? activeMode.name : null,
+    portion,
+    portionMax,
+    selectedCount,
+  );
 
   function toggle(comp: Component, single: boolean) {
     setSelections((prev) => {
@@ -1013,7 +1085,13 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
 
       {/* Desktop: sticky label column */}
       <aside className="hidden lg:sticky lg:top-[72px] lg:block lg:space-y-2 lg:self-start">
-        <NutritionLabel totals={totals} />
+        <NutritionLabel totals={totals} subtitle={subtitle} />
+        <SaveImageButton
+          chain={chain}
+          subtitle={subtitle}
+          totals={totals}
+          selections={selections}
+        />
         <CopyLabelButton
           chain={chain}
           modeName={activeMode && activeMode !== defaultMode ? activeMode.name : null}
@@ -1050,7 +1128,13 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
         <div className="pointer-events-auto mx-auto max-w-md px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
           {labelOpen && (
             <div className="mb-2 max-h-[70vh] space-y-2 overflow-y-auto rounded-2xl bg-surface p-3 shadow-2xl ring-1 ring-line">
-              <NutritionLabel totals={totals} />
+              <NutritionLabel totals={totals} subtitle={subtitle} />
+              <SaveImageButton
+                chain={chain}
+                subtitle={subtitle}
+                totals={totals}
+                selections={selections}
+              />
               <CopyLabelButton
                 chain={chain}
                 modeName={activeMode && activeMode !== defaultMode ? activeMode.name : null}

@@ -35,6 +35,13 @@ export const IconCopy = (p: P) => (
     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
   </Svg>
 );
+export const IconDownload = (p: P) => (
+  <Svg {...p}>
+    <path d="M12 3v12" />
+    <path d="m7 12 5 5 5-5" />
+    <path d="M4 20h16" />
+  </Svg>
+);
 export const IconSearch = (p: P) => (
   <Svg {...p}>
     <circle cx="11" cy="11" r="8" />

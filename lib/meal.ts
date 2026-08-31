@@ -67,3 +67,35 @@ export function mealTotals(
   }
   return t;
 }
+
+/**
+ * What the panel is actually measuring. A saved image outlives the page it came
+ * from, so it has to say on its face which chain and how much.
+ *
+ * The chain name is always first -- on the page it is redundant, but in a photo
+ * sitting in a food tracker it is the only thing identifying the meal. Where
+ * there is no size mode or portion to add, the item count keeps the line from
+ * being a bare restatement of the name.
+ */
+export function mealSubtitle(
+  chain: Chain,
+  modeName: string | null,
+  portion = 1,
+  portionMax = 0,
+  itemCount = 0,
+): string {
+  const parts = [chain.name];
+  if (modeName) parts.push(modeName);
+  if (portionMax > 1 && chain.portion) {
+    const unit = chain.portion.unit;
+    parts.push(
+      portion === portionMax
+        ? `all ${portionMax} ${unit}s`
+        : `${portion} of ${portionMax} ${unit}s`,
+    );
+  }
+  if (parts.length === 1 && itemCount > 0) {
+    parts.push(`${itemCount} item${itemCount === 1 ? "" : "s"}`);
+  }
+  return parts.join(" · ");
+}
