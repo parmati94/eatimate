@@ -6,6 +6,7 @@ Usage: refresh.py <slug> | --all [--json]
 Reads meta.source from ingest/chains/<slug>.json and reports one of:
 
   ok        the recorded URL is still current and its content is unchanged
+  unpinned  no hash recorded yet -- run --record; not a change
   moved     the page now links a different asset (re-ingest from the new URL)
   changed   same URL, but the text we parse is different (re-ingest)
   reexport  same URL, bytes differ, extracted text identical (harmless)
@@ -145,6 +146,12 @@ def check(slug):
         out["note"] = f"fetching asset: {type(e).__name__}"
         return out
 
+    if not src.get("asset_sha256") and not src.get("dump_sha256"):
+        # A newly added chain has nothing to compare against yet. Saying
+        # "changed" here would be a lie that trains you to ignore the tool.
+        out.update(state="unpinned", note=f"{how}; no hash recorded -- run --record")
+        return out
+
     if hashlib.sha256(body).hexdigest() == src.get("asset_sha256"):
         out.update(state="ok", note=f"{how}; bytes identical")
         return out
@@ -211,10 +218,10 @@ def main():
     else:
         for r in rows:
             print(f"  {r['chain']:14} {r['state'].upper():9} {r['note'][:96]}")
-        bad = [r for r in rows if r["state"] not in ("ok", "reexport")]
+        bad = [r for r in rows if r["state"] not in ("ok", "reexport", "unpinned")]
         print(f"\n{len(rows) - len(bad)}/{len(rows)} current" +
               (f"; needs attention: {', '.join(r['chain'] for r in bad)}" if bad else ""))
-    sys.exit(1 if any(r["state"] not in ("ok", "reexport") for r in rows) else 0)
+    sys.exit(1 if any(r["state"] not in ("ok", "reexport", "unpinned") for r in rows) else 0)
 
 
 if __name__ == "__main__":

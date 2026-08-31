@@ -1,0 +1,116 @@
+{
+ "meta": {
+  "name": "Cafe Rio",
+  "slug": "caferio",
+  "source": {
+   "pdf_url": "https://assets.trinitip.caferio-core.com/5fc18ec8aa3c03000910c905/635fd8e1f2751f0008cf4c0b/NutritionWebUpdate8.5x11printable.pdf",
+   "retrieved": "2026-08-31",
+   "format": "pdf",
+   "page_url": "https://www.caferio.com/nutrition",
+   "link_pattern": "NutritionWebUpdate",
+   "fetch": "plain",
+   "dump_sha256": "f8722e2c51c620cbdbfe1a70daaea4a3d4f59ce693b277044778d25d954bc63c",
+   "asset_sha256": "ac54321af588aa07189a8cbd5b34b366f875037475ca7ed22966a49875daa8fe"
+  },
+  "disclaimer_extra": "Cafe Rio publishes each ingredient at a stated portion (proteins per 2 oz, rice and beans per 4.5 oz, dressings per 1.5–2 fl oz), so the totals here are for the portions as listed rather than a particular menu item.",
+  "blurb": "Build your Cafe Rio order ingredient by ingredient — tortilla, rice and beans, fire-grilled meats, sauces, guac and cotija — with per-portion nutrition straight from Cafe Rio's published chart.",
+  "glyph": "burrito"
+ },
+ "categories": [
+  {
+   "id": "base",
+   "name": "Tortilla",
+   "select": "single",
+   "flow": "build"
+  },
+  {
+   "id": "ricebeans",
+   "name": "Rice & Beans",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "protein",
+   "name": "Meats",
+   "select": "single",
+   "flow": "build"
+  },
+  {
+   "id": "sauces",
+   "name": "Sauces & Dressings",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "toppings",
+   "name": "Toppings & Sides",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "extras",
+   "name": "Desserts & Drinks",
+   "select": "multi",
+   "flow": "extras"
+  }
+ ],
+ "layout": {
+  "columns": [
+   "calories",
+   "cff",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g"
+  ],
+  "allergen": false,
+  "serving": null,
+  "sections": "^(Tortillas|Beans & Rice|Meats|Sauces & Dressings|Toppings & Specials|Desserts & Drinks)$",
+  "pre_replace": [
+   [
+    "(?:\\s+(?:X|•|GF|V))+\\s*$",
+    ""
+   ],
+   [
+    "^(.+?)\\s+(\\.?\\d[\\d.]*\\s?(?:ea|oz|floz))\\s+(?=\\d)",
+    "\\1 [\\2] "
+   ]
+  ],
+  "serving_brackets": true,
+  "skip": "^(Nutritional & Allergen Info|Q U A NTIT Y)",
+  "stop": "^Individual foods may come in contact"
+ },
+ "section_categories": {
+  "Tortillas": "base",
+  "Beans & Rice": "ricebeans",
+  "Meats": "protein",
+  "Sauces & Dressings": "sauces",
+  "Toppings & Specials": "toppings",
+  "Desserts & Drinks": "extras"
+ },
+ "items": {
+  "Tortillas/Tortilla Chips": {
+   "cat": "toppings"
+  },
+  "Tortillas/Tortilla Strips": {
+   "cat": "toppings"
+  },
+  "Tortillas/Tostada Shell": {
+   "cat": "toppings"
+  }
+ },
+ "synthetic": [
+  {
+   "id": "no-tortilla",
+   "name": "No tortilla (bowl or salad)",
+   "cat": "base",
+   "desc": "served in a bowl",
+   "before": "12-inch-flour-tortilla"
+  }
+ ]
+}

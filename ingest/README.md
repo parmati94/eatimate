@@ -141,12 +141,19 @@ footlong multiplying every filling. A second pizza chain starts from
    every unconsumed row; fill in `items` until it passes. Categories model the
    chain's actual build flow (`select: single` where you pick one). Excluded by
    policy: allergens, calories-from-fat, potassium (parse them, don't emit them).
-4. **Menu-completion pass:** add `synthetic` entries for formats the menu offers
+4. **Record how to find it again**, while you still have it open: set
+   `source.page_url` (the nutrition *page*), `source.link_pattern` (which link on
+   that page is ours — most pages offer several PDFs) and `source.fetch`
+   (`plain` / `cloudscraper` / `redirect` / `asset`; try plain first, a heavier
+   client is not a safer one). Then `refresh.py --record <slug>` to pin the
+   hashes. Skip this and the chain is invisible to `refresh.py` forever, which
+   is how a source goes quietly stale.
+5. **Menu-completion pass:** add `synthetic` entries for formats the menu offers
    but the PDF omits (bowl, salad without shell, water). Check the chain's
    ordering site to know what exists.
-5. `validate.py`: energy check kcal ≈ 4·(protein+carbs) + 9·fat within
+6. `validate.py`: energy check kcal ≈ 4·(protein+carbs) + 9·fat within
    max(25%, 20 kcal); sat+trans ≤ fat; fiber+sugar ≤ carbs; negatives; ids.
-6. **Corrections policy:** never silently deviate from the printed value, and
+7. **Corrections policy:** never silently deviate from the printed value, and
    never substitute an outside source. A value may only be changed where the
    source contradicts *itself within one row*, and the change is recorded as
    `{field, printed, used, reason}` in `corrections[]` and rendered in the page
