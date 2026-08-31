@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import CorrectionsNote from "@/components/CorrectionsNote";
 import { notFound } from "next/navigation";
 import MealBuilder from "@/components/MealBuilder";
 import { IconExternal } from "@/components/icons";
@@ -98,6 +99,7 @@ export default async function ChainPage(props: PageProps<"/[chain]">) {
           the restaurant directly.
         </p>
         {chain.disclaimer_extra && <p>{chain.disclaimer_extra}</p>}
+        <CorrectionsNote chain={chain} />
       </footer>
     </main>
   );
