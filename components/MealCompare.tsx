@@ -211,6 +211,20 @@ export default function MealCompare({
           // the one screen showing two chains at once, so each column's
           // selections carry that chain's colour and it stays obvious which
           // half you are editing. The totals bar below stays brand teal.
+          //
+          // Known weak spot, measured rather than guessed: 5 of the 12
+          // recommended pairs are same-cuisine, and those two chains share a
+          // hue and differ only in shade. At full strength -- the step badges,
+          // the selected chips, the row highlights -- that is a ~0.10 OKLab
+          // step, which is visible. Where it fails is the 36px chain mark,
+          // whose ground is color-mix(... 11%, surface): the same step arrives
+          // there as ~0.011, well under the threshold anyone can see.
+          //
+          // This was briefly "fixed" by dropping the tint and painting both
+          // columns brand teal. That was the wrong trade -- it removed a
+          // working signal from the chrome to fix the marks, and made a chain
+          // one colour on its own page and another here. If the marks need
+          // solving, solve the dilution, not the hue.
           <div
             key={chain.slug}
             data-chain
