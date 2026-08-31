@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import CompareStrip, { type CompareLink } from "@/components/CompareStrip";
 import CorrectionsNote, { DerivedNote } from "@/components/CorrectionsNote";
 import NutritionTable from "@/components/NutritionTable";
 import { notFound } from "next/navigation";
 import MealBuilder from "@/components/MealBuilder";
 import { IconExternal } from "@/components/icons";
 import { getChain, listChains } from "@/lib/data";
+import { pairsWith } from "@/lib/meals";
 
 // The chain data ships inside the image, so every page is known at build time.
 // Rendering them once makes the HTML edge-cacheable instead of re-parsing 400+
@@ -53,6 +55,17 @@ export default async function ChainPage(props: PageProps<"/[chain]">) {
   const chain = await getChain(slug);
   if (!chain) notFound();
 
+  // Narrowed here rather than in the component: CompareStrip is a client
+  // component, so whatever it takes is serialised into the page.
+  const links: CompareLink[] = (await pairsWith(slug)).map((p) => {
+    const isFirst = p.chains[0].slug === slug;
+    const other = isFirst ? p.chains[1] : p.chains[0];
+    return {
+      href: `/compare/${p.slug}`,
+      side: isFirst ? "a" : "b",
+      other: { slug: other.slug, name: other.name, glyph: other.glyph },
+    };
+  });
   const sourceUrl = chain.source.pdf_url ?? chain.source.html_url!;
 
   return (
@@ -104,6 +117,8 @@ export default async function ChainPage(props: PageProps<"/[chain]">) {
       />
 
       <MealBuilder chain={chain} />
+
+      <CompareStrip chainName={chain.name} links={links} />
 
       <NutritionTable chain={chain} />
 
