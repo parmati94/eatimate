@@ -214,13 +214,13 @@ function ComponentRow({
             </span>
           )}
         </span>
-        {selected ? (
-          <QtyStepper qty={qty} onChange={onQty} steps={qtySteps} />
-        ) : (
-          <span className="text-xs tabular-nums text-muted">
-            {Math.round(comp.calories * qmult)} cal
-          </span>
-        )}
+        {selected && <QtyStepper qty={qty} onChange={onQty} steps={qtySteps} />}
+        {/* Always shown: comparing sizes is the whole point of the size
+            buttons, and it is the selected row you are comparing. Stays last
+            so the calorie column lines up whether or not a row is selected. */}
+        <span className="w-14 shrink-0 text-right text-xs tabular-nums text-muted">
+          {Math.round(comp.calories * qmult)} cal
+        </span>
       </div>
     </li>
   );
@@ -244,6 +244,10 @@ function CategoryBody({
   setQty: (id: string, q: number) => void;
 }) {
   const [filter, setFilter] = useState("");
+  const [expanded, setExpanded] = useState(false);
+  // Size chosen on a row that is not selected yet, so the buttons work before
+  // you commit to the item and the calories update as you compare.
+  const [preview, setPreview] = useState<Record<string, string>>({});
   const single = cat.select === "single";
   // Collapse size families ("Small/Medium/Large Fries") into one row carrying a
   // size selector. Members share a name, so filtering keeps a family together.
@@ -257,11 +261,22 @@ function CategoryBody({
       .filter((c) => !c.variant_of)
       .map((head) => ({ head, members: [head, ...(kids.get(head.id) ?? [])] }));
   }, [comps]);
-  const shown = filter
+  const matched = filter
     ? families.filter((f) =>
         f.head.name.toLowerCase().includes(filter.toLowerCase()),
       )
     : families;
+  // Long lists cut off with a "Show all" rather than becoming an inner scroll
+  // box: a nested scroll region fights the page scroll on touch, and a styled
+  // scrollbar does not exist there. Anything selected survives the cut.
+  const collapsible = !filter && matched.length > SEARCH_THRESHOLD;
+  const shown =
+    collapsible && !expanded
+      ? matched.filter(
+          (f, i) =>
+            i < SEARCH_THRESHOLD || f.members.some((m) => selections[m.id]),
+        )
+      : matched;
   return (
     <div className="px-2 pb-2">
       {comps.length > SEARCH_THRESHOLD && (
@@ -280,7 +295,10 @@ function CategoryBody({
       <ul className="space-y-0.5">
         {shown.map(({ head, members }) => {
           // The row shows whichever size is selected, else the default size.
-          const active = members.find((m) => selections[m.id]) ?? head;
+          const active =
+            members.find((m) => selections[m.id]) ??
+            members.find((m) => m.id === preview[head.id]) ??
+            head;
           return (
             <ComponentRow
               key={head.id}
@@ -294,6 +312,7 @@ function CategoryBody({
               variants={members.length > 1 ? members : undefined}
               onVariant={(next) => {
                 if (next.id === active.id) return;
+                setPreview((p) => ({ ...p, [head.id]: next.id }));
                 const qty = selections[active.id];
                 // Switching size moves the selection rather than adding a second
                 // row, and carries the quantity across.
@@ -309,6 +328,15 @@ function CategoryBody({
           <li className="px-3 py-2 text-sm text-muted">No matches.</li>
         )}
       </ul>
+      {collapsible && (
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          className="mt-1 w-full rounded-lg py-2 text-sm font-medium text-accent-strong transition-colors hover:bg-surface-2"
+        >
+          {expanded ? "Show fewer" : `Show all ${matched.length}`}
+        </button>
+      )}
     </div>
   );
 }
