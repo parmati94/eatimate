@@ -29,6 +29,41 @@ git diff data/chains/<slug>.json                                    # review
 PYTHONPATH=ingest ingest/.venv/bin/python ingest/rebuild.py --check # nothing else drifted
 ```
 
+## Has the source moved or changed?
+
+```bash
+ingest/.venv/bin/python ingest/refresh.py --all      # exit 1 if anything needs attention
+```
+
+Reports `ok` / `reexport` / `moved` / `changed` / `error` per chain, and writes
+nothing. It answers the question a recorded URL alone cannot: a chain can
+publish a new guide at a *new* URL while the old one keeps serving stale data
+(Qdoba's did, for six years).
+
+Three fields in `meta.source` drive it, and each exists because of a real
+failure seen while building it:
+
+- `page_url` — the chain's nutrition *page*, where the current asset link
+  lives. Without it we can only detect a change at a URL we already know.
+- `link_pattern` — which link on that page is ours. Every one of these pages
+  offers several PDFs (BWW links a nutrition guide, an allergen guide, an
+  ingredient list and a soybean-oil notice); without a pattern they all read
+  as "moved".
+- `fetch` — how to reach it, because no single client works everywhere:
+  `plain`, `cloudscraper` (Cloudflare), `redirect` (Just Salad's /allergens
+  302s at the current guide), `asset` (Wingstop's stable S3 path). Five Guys
+  403s cloudscraper but answers a plain request, so heavier is not safer.
+
+Two hashes, because one cannot tell these apart:
+
+- `asset_sha256` — the bytes. Cheap, but a chain re-exporting an unchanged
+  document trips it (Qdoba is doing exactly that today).
+- `dump_sha256` — the text we actually parse, whitespace-normalised, so a
+  trailing newline is not reported as a change. This is the authoritative one.
+
+Page-sourced chains (Chick-fil-A, Panda, Papa John's) have no asset to
+resolve, so they are re-dumped and compared on `dump_sha256` instead.
+
 `ingest/overview.py` prints two tables: which optional presentation fields each
 chain uses (and therefore what shape it renders as), and each chain's
 extraction knobs — including whether a new row ERRORs or is absorbed.

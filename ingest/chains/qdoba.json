@@ -6,7 +6,7 @@
    "pdf_url": "https://assets.ctfassets.net/0tc4847zqy12/bQFJBCmsAk4ww4qzdfAOm/27c88d608796913d6a47899ecffb6a3c/Nutrition_8.5.26.pdf",
    "retrieved": "2026-08-30",
    "format": "pdf",
-   "fetch": "browser",
+   "fetch": "cloudscraper",
    "dump_sha256": "c20a7870f4bb206c32279438cc049dfe8f40468000287bb5a0688f583bebf145",
    "asset_sha256": "6b8836622fdbaa07f3b5e1e8deb5558ec8ed4f2add180e75a0f92a7cd34ca17a",
    "page_url": "https://www.qdoba.com/nutrition-allergens",
