@@ -14,7 +14,7 @@
     "matrix": true,
     "plain_ua": true
   },
-  "disclaimer_extra": "Papa John's publishes every topping per slice, for each crust and size, so pick your crust and size first — the values below are for one slice of that pizza. Multiply by the slice count shown to get a whole pizza. Values are published for a one-topping pizza; a heavily loaded pizza may differ.",
+  "disclaimer_extra": "Papa John's publishes every topping per slice, for each crust and size. Build the pizza, then choose how many slices you ate. Per-slice values are rounded by Papa John's, so a whole pizza carries that rounding multiplied by the slice count. Topping values are published for a one-topping pizza; a heavily loaded pizza may differ.",
   "blurb": "Build a Papa John's pizza slice by slice — crust, size, sauce, cheese and every topping — using Papa John's own per-slice nutrition tables for each crust and size.",
   "glyph": "burger",
   "size_modes": [
@@ -28,7 +28,8 @@
         "sauce": 1,
         "cheese": 1,
         "topping": 1
-      }
+      },
+      "portion_count": 4
     },
     {
       "id": "original-small",
@@ -40,7 +41,8 @@
         "sauce": 1,
         "cheese": 1,
         "topping": 1
-      }
+      },
+      "portion_count": 6
     },
     {
       "id": "original-medium",
@@ -52,7 +54,8 @@
         "sauce": 1,
         "cheese": 1,
         "topping": 1
-      }
+      },
+      "portion_count": 8
     },
     {
       "id": "original-large",
@@ -64,7 +67,8 @@
         "sauce": 1,
         "cheese": 1,
         "topping": 1
-      }
+      },
+      "portion_count": 8
     },
     {
       "id": "original-xl",
@@ -76,7 +80,8 @@
         "sauce": 1,
         "cheese": 1,
         "topping": 1
-      }
+      },
+      "portion_count": 10
     },
     {
       "id": "thin",
@@ -88,7 +93,8 @@
         "sauce": 1,
         "cheese": 1,
         "topping": 1
-      }
+      },
+      "portion_count": 8
     },
     {
       "id": "gluten-free",
@@ -100,9 +106,19 @@
         "sauce": 1,
         "cheese": 1,
         "topping": 1
-      }
+      },
+      "portion_count": 6
     }
   ],
+  "portion": {
+    "unit": "slice",
+    "categories": [
+      "crust",
+      "sauce",
+      "cheese",
+      "topping"
+    ]
+  },
   "categories": [
     {
       "id": "crust",

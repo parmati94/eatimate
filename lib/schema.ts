@@ -57,6 +57,8 @@ export const SizeModeSchema = z.object({
   note: z.string().optional(),
   default: z.boolean().optional(),
   multipliers: z.record(z.string(), z.number().positive()),
+  // How many portions the built item divides into in this mode.
+  portion_count: z.number().int().positive().optional(),
 });
 
 export const CategorySchema = z.object({
@@ -69,6 +71,14 @@ export const CategorySchema = z.object({
   flow: z.enum(["preset", "build", "extras"]).optional(),
   // Optional explanatory line shown under the category heading.
   note: z.string().optional(),
+});
+
+// How much of the built item was eaten, for chains whose published unit is a
+// fraction of what you order: Papa John's publishes per slice, but you build a
+// pizza. Coverage stays per-component (half pepperoni); this is the portion.
+export const PortionSchema = z.object({
+  unit: z.string().min(1),
+  categories: z.array(z.string()).min(1),
 });
 
 export const ChainSchema = z
@@ -94,6 +104,7 @@ export const ChainSchema = z
     blurb: z.string().nullable().optional(),
     categories: z.array(CategorySchema).min(1),
     size_modes: z.array(SizeModeSchema).min(2).optional(),
+    portion: PortionSchema.optional(),
     components: z.array(ComponentSchema).min(1),
   })
   .superRefine((chain, ctx) => {
@@ -151,6 +162,15 @@ export const ChainSchema = z
         ctx.addIssue({
           code: "custom",
           message: `variant "${comp.id}" needs a variant_label for the size selector`,
+        });
+      }
+    }
+
+    for (const cat of chain.portion?.categories ?? []) {
+      if (!catIds.has(cat)) {
+        ctx.addIssue({
+          code: "custom",
+          message: `portion scales unknown category "${cat}"`,
         });
       }
     }

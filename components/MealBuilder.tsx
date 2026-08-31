@@ -44,11 +44,13 @@ function fmtQty(q: number): string {
  * of the address bar -- the effect below writes there on a delay, so
  * window.location can trail the current selections by a moment.
  */
-function mealUrl(sel: Selections): string {
+function mealUrl(sel: Selections, portion = 1): string {
   const url = new URL(window.location.href);
   const encoded = encodeMeal(sel);
   if (encoded) url.searchParams.set("m", encoded);
   else url.searchParams.delete("m");
+  if (portion > 1) url.searchParams.set("p", String(portion));
+  else url.searchParams.delete("p");
   return url.href;
 }
 
@@ -321,6 +323,7 @@ function labelText(
   sel: Selections,
   totals: Totals,
   url: string,
+  portionNote: string | null = null,
 ): string {
   const items = picked
     .map((c) =>
@@ -329,7 +332,7 @@ function labelText(
     .join(", ");
   return [
     `${chain.name}${modeName ? ` — ${modeName}` : ""} (built on eatimate)`,
-    items,
+    items + (portionNote ? ` — ${portionNote}` : ""),
     ``,
     `Calories: ${roundCalories(totals.calories)}`,
     `Total Fat: ${roundFat(totals.fat_g)} g`,
@@ -386,11 +389,15 @@ function CopyLabelButton({
   modeName,
   selections,
   totals,
+  portion = 1,
+  portionMax = 0,
 }: {
   chain: Chain;
   modeName: string | null;
   selections: Selections;
   totals: Totals;
+  portion?: number;
+  portionMax?: number;
 }) {
   const [state, setState] = useState<"idle" | "copied" | "manual">("idle");
   const [text, setText] = useState("");
@@ -407,7 +414,10 @@ function CopyLabelButton({
             picked,
             selections,
             totals,
-            mealUrl(selections),
+            mealUrl(selections, portion),
+            portionMax > 1 && chain.portion
+              ? `${portion} of ${portionMax} ${chain.portion.unit}s`
+              : null,
           );
           setText(t);
           if (await copyText(t)) {
@@ -680,9 +690,28 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeMode]);
 
+  // Portion: how much of the built item was eaten. Distinct from a component's
+  // own quantity, which is coverage (half the pizza gets pepperoni). Only the
+  // categories the chain names are scaled, so a side never rides along.
+  const portionMax = activeMode?.portion_count ?? 0;
+  const portionCats = useMemo(
+    () => new Set(chain.portion?.categories ?? []),
+    [chain],
+  );
+  const [portion, setPortion] = useState(1);
+  useEffect(() => {
+    if (portionMax) setPortion((p) => Math.min(Math.max(p, 1), portionMax));
+  }, [portionMax]);
+
   // Restore meal from ?m= after mount (SSR renders the empty state).
   useEffect(() => {
-    const m = new URLSearchParams(window.location.search).get("m");
+    const q = new URLSearchParams(window.location.search);
+    const p = Number(q.get("p"));
+    if (Number.isInteger(p) && p > 1) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time restore from URL after mount
+      setPortion(p);
+    }
+    const m = q.get("m");
     if (m) {
       const sel = decodeMeal(m, chain);
       if (Object.keys(sel).length > 0) {
@@ -704,25 +733,26 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
   useEffect(() => {
     if (!hydrated.current) return;
     const t = setTimeout(() => {
-      const href = mealUrl(selections);
+      const href = mealUrl(selections, portion);
       if (href !== window.location.href) {
         window.history.replaceState(null, "", href);
       }
     }, URL_SYNC_DELAY_MS);
     return () => clearTimeout(t);
-  }, [selections]);
+  }, [selections, portion]);
 
   const totals = useMemo(() => {
     const t = emptyTotals();
     for (const c of chain.components) {
       const qty = selections[c.id];
       if (!qty) continue;
-      const k = qty * (activeMode?.multipliers[c.category] ?? 1);
+      const scale = portionCats.has(c.category) ? portion : 1;
+      const k = qty * (activeMode?.multipliers[c.category] ?? 1) * scale;
       for (const f of NUTRIENT_FIELDS) t[f] += c[f] * k;
     }
     return t;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [chain, selections, activeMode]);
+  }, [chain, selections, activeMode, portion, portionCats]);
 
   const selectedCount = Object.keys(selections).length;
 
@@ -873,6 +903,42 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
           })}
         </div>
 
+        {portionMax > 1 && (
+          <section className="rounded-2xl border border-line bg-surface p-3 shadow-sm">
+            <div className="flex flex-wrap items-baseline justify-between gap-2 px-1 pb-2">
+              <h2 className="text-xs font-semibold uppercase tracking-wider text-muted">
+                How many {chain.portion!.unit}s did you eat?
+              </h2>
+              <span className="text-xs text-muted">
+                {portion === portionMax
+                  ? "the whole thing"
+                  : `of ${portionMax}`}
+              </span>
+            </div>
+            <div className="flex flex-wrap gap-1.5 px-1">
+              {Array.from({ length: portionMax }, (_, i) => i + 1).map((n) => (
+                <button
+                  key={n}
+                  type="button"
+                  aria-pressed={n === portion}
+                  onClick={() => setPortion(n)}
+                  className={`h-9 min-w-9 rounded-lg border px-2.5 text-sm font-medium tabular-nums transition-colors ${
+                    n === portion
+                      ? "border-accent bg-accent text-on-accent"
+                      : "border-line bg-surface text-muted hover:border-accent hover:text-accent-strong"
+                  }`}
+                >
+                  {n}
+                </button>
+              ))}
+            </div>
+            <p className="px-1 pt-2 text-xs text-muted">
+              Ingredients above are per {chain.portion!.unit}. The label counts{" "}
+              {portion} of {portionMax}.
+            </p>
+          </section>
+        )}
+
         {featured.length > 0 && (
           <section className="rounded-2xl border border-line bg-surface p-3 shadow-sm">
             <h2 className="px-1 pb-2 text-xs font-semibold uppercase tracking-wider text-muted">
@@ -951,6 +1017,8 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
           modeName={activeMode && activeMode !== defaultMode ? activeMode.name : null}
           selections={selections}
           totals={totals}
+          portion={portion}
+          portionMax={portionMax}
         />
         <div className="flex items-center justify-between px-1 text-xs text-muted">
           <span>
@@ -986,6 +1054,8 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
                 modeName={activeMode && activeMode !== defaultMode ? activeMode.name : null}
                 selections={selections}
                 totals={totals}
+                portion={portion}
+                portionMax={portionMax}
               />
               {selectedCount > 0 && (
                 <button
