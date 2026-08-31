@@ -411,9 +411,14 @@ def build(cfg, rows, extra=None):
                 # mode suffix has renamed out from under it.
                 if sp.get("variant_of"):
                     sp = dict(sp, variant_of=f"{sp['variant_of']}-{mode}")
+                # An add-on names the crust it is brushed onto, and that crust
+                # is per-mode too, so the reference needs the same suffix.
+                if sp.get("addon_of"):
+                    sp = dict(sp, addon_of=f"{sp['addon_of']}-{mode}")
             if sp.get("size_mode"): c["size_mode"] = sp["size_mode"]
             if sp.get("only_modes"): c["only_modes"] = sp["only_modes"]
             if sp.get("variant_of"): c["variant_of"] = sp["variant_of"]
+            if sp.get("addon_of"): c["addon_of"] = sp["addon_of"]
             if sp.get("variant_label"): c["variant_label"] = sp["variant_label"]
             if sp.get("feature"): c["feature"] = True
             c["_ord"] = base_ord + 0.001 * n

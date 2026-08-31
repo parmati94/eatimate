@@ -14,7 +14,11 @@
   "disclaimer_extra": "Domino's publishes each ingredient separately for every size and crust, per the serving size that page states. Cheese is published twice — once for a cheese-only pizza and once for a pizza that also has toppings, since Domino's uses less of it — so pick the row that matches your order. Domino's notes that additional toppings change the values and does not say by how much, so a heavily loaded pizza is an upper bound.",
   "blurb": "Build your Domino's pizza by size and crust — every crust, sauce, cheese and topping priced per slice, with a slices-eaten control so you total what you actually ate.",
   "glyph": "pizza",
-  "formats": ["Pizza", "Any crust", "By the slice"],
+  "formats": [
+   "Pizza",
+   "Any crust",
+   "By the slice"
+  ],
   "size_modes": [
    {
     "id": "personal",
@@ -145,7 +149,7 @@
    "name": "Crust",
    "select": "single",
    "flow": "build",
-   "note": "Hand tossed crusts are brushed with garlic oil blend as standard. Domino's publishes it as a separate line, so add it unless you ordered the crust plain."
+   "note": "Hand tossed crusts are brushed with garlic oil blend as standard, and the parmesan stuffed crust carries both garlic oil and a parmesan dusting. Domino's publishes each as its own line, so add them unless you ordered the crust plain."
   },
   {
    "id": "sauce",
@@ -594,13 +598,17 @@
    "variant_label": "Personal"
   },
   "Garlic Oil Blend (Hand Tossed Only)": {
-   "cat": "crust"
+   "cat": "crust",
+   "addon_of": "hand-tossed"
   },
   "12\" Medium Parmesan Stuffed Crust Pizza/Garlic Oil Blend": {
-   "cat": "crust"
+   "cat": "crust",
+   "addon_of": "parmesan-stuffed-crust"
   },
   "12\" Medium Parmesan Stuffed Crust Pizza/Parmesan": {
-   "cat": "crust"
+   "cat": "crust",
+   "name": "Parmesan (baked on the crust)",
+   "addon_of": "parmesan-stuffed-crust"
   }
  }
 }
