@@ -3,9 +3,14 @@ import CorrectionsNote from "@/components/CorrectionsNote";
 import { notFound } from "next/navigation";
 import MealBuilder from "@/components/MealBuilder";
 import { IconExternal } from "@/components/icons";
-import { getChain } from "@/lib/data";
+import { getChain, listChains } from "@/lib/data";
 
-export const dynamic = "force-dynamic";
+// The chain data ships inside the image, so every page is known at build time.
+// Rendering them once makes the HTML edge-cacheable instead of re-parsing 400+
+// components per request. An unknown slug still 404s via notFound().
+export async function generateStaticParams() {
+  return (await listChains()).map((c) => ({ chain: c.slug }));
+}
 
 export async function generateMetadata(
   props: PageProps<"/[chain]">,

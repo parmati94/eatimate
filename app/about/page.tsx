@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { listChains } from "@/lib/data";
 
-export const dynamic = "force-dynamic";
-
 export const metadata: Metadata = {
   title: "About",
   description:

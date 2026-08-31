@@ -10,6 +10,11 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
+# Pages are prerendered, so anything the layout reads from the environment is
+# baked in HERE, not at container start. The Cloudflare beacon token is public
+# (it ships in every page's HTML); without it the beacon is simply omitted.
+ARG CF_BEACON_TOKEN=""
+ENV CF_BEACON_TOKEN=$CF_BEACON_TOKEN
 RUN npm run build
 
 FROM base AS runner

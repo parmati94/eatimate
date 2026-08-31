@@ -2,8 +2,6 @@ import type { MetadataRoute } from "next";
 import { listChains } from "@/lib/data";
 import { SITE_URL } from "@/lib/site";
 
-export const dynamic = "force-dynamic";
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const chains = await listChains();
   return [

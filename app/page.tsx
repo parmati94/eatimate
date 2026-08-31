@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { listChains } from "@/lib/data";
 import ChainSearch from "@/components/ChainSearch";
 
-export const dynamic = "force-dynamic";
-
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 export default async function Home() {
