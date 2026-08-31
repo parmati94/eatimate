@@ -1,0 +1,541 @@
+{
+ "meta": {
+  "name": "Domino's",
+  "slug": "dominos",
+  "source": {
+   "pdf_url": "https://www.dominos.com/cms/assets/0e4a30f5-a8fb-4c2d-ab54-b1aae92b72df",
+   "retrieved": "2026-08-31",
+   "format": "pdf",
+   "page_url": "https://www.dominos.com/en/pages/content/nutritional/nutrition",
+   "fetch": "manual",
+   "dump_sha256": "f3ce89116c12bd5a84d841709bc633a736258e8c30787f96ee97a0bc451f9959",
+   "asset_sha256": "a38f57ef911da916dfd4b6e07888b9374fae1540cd90a06fe5e67f778284eb11"
+  },
+  "disclaimer_extra": "Domino's publishes each ingredient separately for every size and crust, per the serving size that page states. Cheese is published twice — once for a cheese-only pizza and once for a pizza that also has toppings, since Domino's uses less of it — so pick the row that matches your order. Domino's notes that additional toppings change the values and does not say by how much, so a heavily loaded pizza is an upper bound.",
+  "blurb": "Build your Domino's pizza by size and crust — every crust, sauce, cheese and topping priced per slice from Domino's own August 2026 guide, with a slices-eaten control so you can total what you actually ate.",
+  "glyph": "pizza",
+  "size_modes": [
+   {
+    "id": "personal",
+    "name": "Personal",
+    "note": "2 per pizza",
+    "default": false,
+    "multipliers": {},
+    "portion_count": 2
+   },
+   {
+    "id": "xs-hand",
+    "name": "8\" Extra Small Hand Tossed",
+    "note": "2 per pizza",
+    "default": false,
+    "multipliers": {},
+    "portion_count": 2
+   },
+   {
+    "id": "sm-hand",
+    "name": "10\" Small Hand Tossed",
+    "note": "3 per pizza",
+    "default": false,
+    "multipliers": {},
+    "portion_count": 3
+   },
+   {
+    "id": "sm-thin",
+    "name": "10\" Small Crunchy Thin",
+    "note": "4 per pizza",
+    "default": false,
+    "multipliers": {},
+    "portion_count": 4
+   },
+   {
+    "id": "sm-gf",
+    "name": "10\" Small Gluten Free",
+    "note": "3 per pizza",
+    "default": false,
+    "multipliers": {},
+    "portion_count": 3
+   },
+   {
+    "id": "md-hand",
+    "name": "12\" Medium Hand Tossed",
+    "note": "8 per pizza",
+    "default": true,
+    "multipliers": {},
+    "portion_count": 8
+   },
+   {
+    "id": "md-ny",
+    "name": "12\" Medium New York Style",
+    "note": "6 per pizza",
+    "default": false,
+    "multipliers": {},
+    "portion_count": 6
+   },
+   {
+    "id": "md-thin",
+    "name": "12\" Medium Crunchy Thin",
+    "note": "4 per pizza",
+    "default": false,
+    "multipliers": {},
+    "portion_count": 4
+   },
+   {
+    "id": "md-pan",
+    "name": "12\" Medium Pan",
+    "note": "8 per pizza",
+    "default": false,
+    "multipliers": {},
+    "portion_count": 8
+   },
+   {
+    "id": "md-stuffed",
+    "name": "12\" Medium Parmesan Stuffed",
+    "note": "8 per pizza",
+    "default": false,
+    "multipliers": {},
+    "portion_count": 8
+   },
+   {
+    "id": "lg-hand",
+    "name": "14\" Large Hand Tossed",
+    "note": "8 per pizza",
+    "default": false,
+    "multipliers": {},
+    "portion_count": 8
+   },
+   {
+    "id": "lg-ny",
+    "name": "14\" Large New York Style",
+    "note": "6 per pizza",
+    "default": false,
+    "multipliers": {},
+    "portion_count": 6
+   },
+   {
+    "id": "xl-hand",
+    "name": "16\" Extra Large Hand Tossed",
+    "note": "8 per pizza",
+    "default": false,
+    "multipliers": {},
+    "portion_count": 8
+   },
+   {
+    "id": "xl-ny",
+    "name": "16\" Extra Large New York",
+    "note": "6 per pizza",
+    "default": false,
+    "multipliers": {},
+    "portion_count": 6
+   }
+  ],
+  "portion": {
+   "unit": "serving",
+   "categories": [
+    "crust",
+    "sauce",
+    "cheese",
+    "topping"
+   ]
+  }
+ },
+ "categories": [
+  {
+   "id": "crust",
+   "name": "Crust",
+   "select": "single",
+   "flow": "build",
+   "note": "Hand tossed crusts are brushed with garlic oil blend as standard. Domino's publishes it as a separate line, so add it unless you ordered the crust plain."
+  },
+  {
+   "id": "sauce",
+   "name": "Sauce",
+   "select": "single",
+   "flow": "build"
+  },
+  {
+   "id": "cheese",
+   "name": "Cheese",
+   "select": "single",
+   "flow": "build",
+   "note": "Domino's uses less cheese when a pizza also has toppings, and publishes both figures — pick the one matching your order."
+  },
+  {
+   "id": "topping",
+   "name": "Toppings",
+   "select": "multi",
+   "flow": "build"
+  }
+ ],
+ "layout": {
+  "columns": [
+   "serving",
+   "calories",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "added_sugars",
+   "protein_g"
+  ],
+  "allergen": false,
+  "serving": "g",
+  "sections": "^(Personal Domino™ Pizza|8\" Extra Small Hand Tossed Pizza\\*|10\" Small Hand Tossed Pizza|10\" Small Crunchy Thin Crust Pizza|10\" Small Gluten Free Pizza|12\" Medium Hand Tossed Pizza|12\" Medium New York Style Pizza|12\" Medium Crunchy Thin Crust Pizza|12\" Medium Pan Pizza|12\" Medium Parmesan Stuffed Crust Pizza|14\" Large Hand Tossed and Crunchy Thin Pizza|14\" Large New York Style Pizza|16\" Extra Large Hand Tossed Pizza|16\" Extra Large New York Style Pizza)$",
+  "subsections": "^(CRUST|SAUCE|CHEESE ONLY PIZZA|CHEESE PIZZA ALONG WITH OTHER TOPPINGS|1 TOPPING PIZZA)",
+  "skip": "^(?:(?:taF|latoT|detarutaS|snarT|loretselohC|muidoS|setardyhobraC|rebiF|sraguS|deddA|nietorP|seirolaC|thgieW|\\)g\\(|\\)gm\\()\\s*)+$|^(Ingredient Nutrition|of 1/\\d+ of Pizza|The pizza products|location and supplier|\\* ?Note:|Domino.s Nutrition Guide|Weight|Calories|DOMINO.S NUTRITION GUIDE|August 20\\d\\d$|\\(Includes|Table of Contents|Build Your Own|Using the Food Pyramid|it is possible to enjoy|Domino.s chooses|Domino.s dedicates|\\d+ FRONT-\\d+|©20\\d\\d)",
+  "stop": "^Specialty Pizzas",
+  "pre_replace": [
+   [
+    "^.*\\.\\s\\.\\s\\..*$",
+    ""
+   ],
+   [
+    " \\(Serving Size is [^)]*\\)",
+    ""
+   ]
+  ]
+ },
+ "section_modes": {
+  "Personal Domino™ Pizza": "personal",
+  "8\" Extra Small Hand Tossed Pizza*": "xs-hand",
+  "10\" Small Hand Tossed Pizza": "sm-hand",
+  "10\" Small Crunchy Thin Crust Pizza": "sm-thin",
+  "10\" Small Gluten Free Pizza": "sm-gf",
+  "12\" Medium Hand Tossed Pizza": "md-hand",
+  "12\" Medium New York Style Pizza": "md-ny",
+  "12\" Medium Crunchy Thin Crust Pizza": "md-thin",
+  "12\" Medium Pan Pizza": "md-pan",
+  "12\" Medium Parmesan Stuffed Crust Pizza": "md-stuffed",
+  "14\" Large Hand Tossed and Crunchy Thin Pizza": "lg-hand",
+  "14\" Large New York Style Pizza": "lg-ny",
+  "16\" Extra Large Hand Tossed Pizza": "xl-hand",
+  "16\" Extra Large New York Style Pizza": "xl-ny"
+ },
+ "mode_servings": {
+  "personal": "1/2 of pizza",
+  "xs-hand": "1/2 of pizza",
+  "sm-hand": "1/3 of pizza",
+  "sm-thin": "1/4 of pizza",
+  "sm-gf": "1/3 of pizza",
+  "md-hand": "1 slice (8 per pizza)",
+  "md-ny": "1 slice (6 per pizza)",
+  "md-thin": "1/4 of pizza",
+  "md-pan": "1 slice (8 per pizza)",
+  "md-stuffed": "1 slice (8 per pizza)",
+  "lg-hand": "1 slice (8 per pizza)",
+  "lg-ny": "1 slice (6 per pizza)",
+  "xl-hand": "1 slice (8 per pizza)",
+  "xl-ny": "1 slice (6 per pizza)"
+ },
+ "section_categories": {
+  "Personal Domino™ Pizza/CRUST": "crust",
+  "Personal Domino™ Pizza/SAUCE": "sauce",
+  "Personal Domino™ Pizza/CHEESE ONLY PIZZA": {
+   "cat": "cheese",
+   "suffix": "cheese-only pizza",
+   "id_suffix": "only"
+  },
+  "Personal Domino™ Pizza/CHEESE PIZZA ALONG WITH OTHER TOPPINGS": {
+   "cat": "cheese",
+   "suffix": "with other toppings",
+   "id_suffix": "withtop"
+  },
+  "Personal Domino™ Pizza/1 TOPPING PIZZA": "topping",
+  "8\" Extra Small Hand Tossed Pizza*/CRUST": "crust",
+  "8\" Extra Small Hand Tossed Pizza*/SAUCE": "sauce",
+  "8\" Extra Small Hand Tossed Pizza*/CHEESE ONLY PIZZA": {
+   "cat": "cheese",
+   "suffix": "cheese-only pizza",
+   "id_suffix": "only"
+  },
+  "8\" Extra Small Hand Tossed Pizza*/CHEESE PIZZA ALONG WITH OTHER TOPPINGS": {
+   "cat": "cheese",
+   "suffix": "with other toppings",
+   "id_suffix": "withtop"
+  },
+  "8\" Extra Small Hand Tossed Pizza*/1 TOPPING PIZZA": "topping",
+  "10\" Small Hand Tossed Pizza/CRUST": "crust",
+  "10\" Small Hand Tossed Pizza/SAUCE": "sauce",
+  "10\" Small Hand Tossed Pizza/CHEESE ONLY PIZZA": {
+   "cat": "cheese",
+   "suffix": "cheese-only pizza",
+   "id_suffix": "only"
+  },
+  "10\" Small Hand Tossed Pizza/CHEESE PIZZA ALONG WITH OTHER TOPPINGS": {
+   "cat": "cheese",
+   "suffix": "with other toppings",
+   "id_suffix": "withtop"
+  },
+  "10\" Small Hand Tossed Pizza/1 TOPPING PIZZA": "topping",
+  "10\" Small Crunchy Thin Crust Pizza/CRUST": "crust",
+  "10\" Small Crunchy Thin Crust Pizza/SAUCE": "sauce",
+  "10\" Small Crunchy Thin Crust Pizza/CHEESE ONLY PIZZA": {
+   "cat": "cheese",
+   "suffix": "cheese-only pizza",
+   "id_suffix": "only"
+  },
+  "10\" Small Crunchy Thin Crust Pizza/CHEESE PIZZA ALONG WITH OTHER TOPPINGS": {
+   "cat": "cheese",
+   "suffix": "with other toppings",
+   "id_suffix": "withtop"
+  },
+  "10\" Small Crunchy Thin Crust Pizza/1 TOPPING PIZZA": "topping",
+  "10\" Small Gluten Free Pizza/CRUST": "crust",
+  "10\" Small Gluten Free Pizza/SAUCE": "sauce",
+  "10\" Small Gluten Free Pizza/CHEESE ONLY PIZZA": {
+   "cat": "cheese",
+   "suffix": "cheese-only pizza",
+   "id_suffix": "only"
+  },
+  "10\" Small Gluten Free Pizza/CHEESE PIZZA ALONG WITH OTHER TOPPINGS": {
+   "cat": "cheese",
+   "suffix": "with other toppings",
+   "id_suffix": "withtop"
+  },
+  "10\" Small Gluten Free Pizza/1 TOPPING PIZZA": "topping",
+  "12\" Medium Hand Tossed Pizza/CRUST": "crust",
+  "12\" Medium Hand Tossed Pizza/SAUCE": "sauce",
+  "12\" Medium Hand Tossed Pizza/CHEESE ONLY PIZZA": {
+   "cat": "cheese",
+   "suffix": "cheese-only pizza",
+   "id_suffix": "only"
+  },
+  "12\" Medium Hand Tossed Pizza/CHEESE PIZZA ALONG WITH OTHER TOPPINGS": {
+   "cat": "cheese",
+   "suffix": "with other toppings",
+   "id_suffix": "withtop"
+  },
+  "12\" Medium Hand Tossed Pizza/1 TOPPING PIZZA": "topping",
+  "12\" Medium New York Style Pizza/CRUST": "crust",
+  "12\" Medium New York Style Pizza/SAUCE": "sauce",
+  "12\" Medium New York Style Pizza/CHEESE ONLY PIZZA": {
+   "cat": "cheese",
+   "suffix": "cheese-only pizza",
+   "id_suffix": "only"
+  },
+  "12\" Medium New York Style Pizza/CHEESE PIZZA ALONG WITH OTHER TOPPINGS": {
+   "cat": "cheese",
+   "suffix": "with other toppings",
+   "id_suffix": "withtop"
+  },
+  "12\" Medium New York Style Pizza/1 TOPPING PIZZA": "topping",
+  "12\" Medium Crunchy Thin Crust Pizza/CRUST": "crust",
+  "12\" Medium Crunchy Thin Crust Pizza/SAUCE": "sauce",
+  "12\" Medium Crunchy Thin Crust Pizza/CHEESE ONLY PIZZA": {
+   "cat": "cheese",
+   "suffix": "cheese-only pizza",
+   "id_suffix": "only"
+  },
+  "12\" Medium Crunchy Thin Crust Pizza/CHEESE PIZZA ALONG WITH OTHER TOPPINGS": {
+   "cat": "cheese",
+   "suffix": "with other toppings",
+   "id_suffix": "withtop"
+  },
+  "12\" Medium Crunchy Thin Crust Pizza/1 TOPPING PIZZA": "topping",
+  "12\" Medium Pan Pizza/CRUST": "crust",
+  "12\" Medium Pan Pizza/SAUCE": "sauce",
+  "12\" Medium Pan Pizza/CHEESE ONLY PIZZA": {
+   "cat": "cheese",
+   "suffix": "cheese-only pizza",
+   "id_suffix": "only"
+  },
+  "12\" Medium Pan Pizza/CHEESE PIZZA ALONG WITH OTHER TOPPINGS": {
+   "cat": "cheese",
+   "suffix": "with other toppings",
+   "id_suffix": "withtop"
+  },
+  "12\" Medium Pan Pizza/1 TOPPING PIZZA": "topping",
+  "12\" Medium Parmesan Stuffed Crust Pizza/CRUST": "crust",
+  "12\" Medium Parmesan Stuffed Crust Pizza/SAUCE": "sauce",
+  "12\" Medium Parmesan Stuffed Crust Pizza/CHEESE ONLY PIZZA": {
+   "cat": "cheese",
+   "suffix": "cheese-only pizza",
+   "id_suffix": "only"
+  },
+  "12\" Medium Parmesan Stuffed Crust Pizza/CHEESE PIZZA ALONG WITH OTHER TOPPINGS": {
+   "cat": "cheese",
+   "suffix": "with other toppings",
+   "id_suffix": "withtop"
+  },
+  "12\" Medium Parmesan Stuffed Crust Pizza/1 TOPPING PIZZA": "topping",
+  "14\" Large Hand Tossed and Crunchy Thin Pizza/CRUST": "crust",
+  "14\" Large Hand Tossed and Crunchy Thin Pizza/SAUCE": "sauce",
+  "14\" Large Hand Tossed and Crunchy Thin Pizza/CHEESE ONLY PIZZA": {
+   "cat": "cheese",
+   "suffix": "cheese-only pizza",
+   "id_suffix": "only"
+  },
+  "14\" Large Hand Tossed and Crunchy Thin Pizza/CHEESE PIZZA ALONG WITH OTHER TOPPINGS": {
+   "cat": "cheese",
+   "suffix": "with other toppings",
+   "id_suffix": "withtop"
+  },
+  "14\" Large Hand Tossed and Crunchy Thin Pizza/1 TOPPING PIZZA": "topping",
+  "14\" Large New York Style Pizza/CRUST": "crust",
+  "14\" Large New York Style Pizza/SAUCE": "sauce",
+  "14\" Large New York Style Pizza/CHEESE ONLY PIZZA": {
+   "cat": "cheese",
+   "suffix": "cheese-only pizza",
+   "id_suffix": "only"
+  },
+  "14\" Large New York Style Pizza/CHEESE PIZZA ALONG WITH OTHER TOPPINGS": {
+   "cat": "cheese",
+   "suffix": "with other toppings",
+   "id_suffix": "withtop"
+  },
+  "14\" Large New York Style Pizza/1 TOPPING PIZZA": "topping",
+  "16\" Extra Large Hand Tossed Pizza/CRUST": "crust",
+  "16\" Extra Large Hand Tossed Pizza/SAUCE": "sauce",
+  "16\" Extra Large Hand Tossed Pizza/CHEESE ONLY PIZZA": {
+   "cat": "cheese",
+   "suffix": "cheese-only pizza",
+   "id_suffix": "only"
+  },
+  "16\" Extra Large Hand Tossed Pizza/CHEESE PIZZA ALONG WITH OTHER TOPPINGS": {
+   "cat": "cheese",
+   "suffix": "with other toppings",
+   "id_suffix": "withtop"
+  },
+  "16\" Extra Large Hand Tossed Pizza/1 TOPPING PIZZA": "topping",
+  "16\" Extra Large New York Style Pizza/CRUST": "crust",
+  "16\" Extra Large New York Style Pizza/SAUCE": "sauce",
+  "16\" Extra Large New York Style Pizza/CHEESE ONLY PIZZA": {
+   "cat": "cheese",
+   "suffix": "cheese-only pizza",
+   "id_suffix": "only"
+  },
+  "16\" Extra Large New York Style Pizza/CHEESE PIZZA ALONG WITH OTHER TOPPINGS": {
+   "cat": "cheese",
+   "suffix": "with other toppings",
+   "id_suffix": "withtop"
+  },
+  "16\" Extra Large New York Style Pizza/1 TOPPING PIZZA": "topping"
+ },
+ "items": {
+  "8\" Extra Small Hand Tossed Pizza*/Hand Tossed": {
+   "cat": "crust",
+   "id": "hand-tossed",
+   "name": "Hand Tossed",
+   "mode_selector": true,
+   "variant_label": "8\" Extra Small"
+  },
+  "10\" Small Hand Tossed Pizza/Hand Tossed": {
+   "cat": "crust",
+   "id": "hand-tossed",
+   "name": "Hand Tossed",
+   "mode_selector": true,
+   "variant_label": "10\" Small",
+   "variant_of": "hand-tossed-xs-hand"
+  },
+  "12\" Medium Hand Tossed Pizza/Hand Tossed": {
+   "cat": "crust",
+   "id": "hand-tossed",
+   "name": "Hand Tossed",
+   "mode_selector": true,
+   "variant_label": "12\" Medium",
+   "variant_of": "hand-tossed-xs-hand"
+  },
+  "14\" Large Hand Tossed and Crunchy Thin Pizza/Hand Tossed": {
+   "cat": "crust",
+   "id": "hand-tossed",
+   "name": "Hand Tossed",
+   "mode_selector": true,
+   "variant_label": "14\" Large",
+   "variant_of": "hand-tossed-xs-hand"
+  },
+  "16\" Extra Large Hand Tossed Pizza/Hand Tossed": {
+   "cat": "crust",
+   "id": "hand-tossed",
+   "name": "Hand Tossed",
+   "mode_selector": true,
+   "variant_label": "16\" Extra Large",
+   "variant_of": "hand-tossed-xs-hand"
+  },
+  "10\" Small Crunchy Thin Crust Pizza/Crunchy Thin": {
+   "cat": "crust",
+   "id": "crunchy-thin",
+   "name": "Crunchy Thin",
+   "mode_selector": true,
+   "variant_label": "10\" Small"
+  },
+  "12\" Medium Crunchy Thin Crust Pizza/Crunchy Thin": {
+   "cat": "crust",
+   "id": "crunchy-thin",
+   "name": "Crunchy Thin",
+   "mode_selector": true,
+   "variant_label": "12\" Medium",
+   "variant_of": "crunchy-thin-sm-thin"
+  },
+  "14\" Large Hand Tossed and Crunchy Thin Pizza/Crunchy Thin": {
+   "cat": "crust",
+   "id": "crunchy-thin",
+   "name": "Crunchy Thin",
+   "mode_selector": true,
+   "variant_label": "14\" Large",
+   "variant_of": "crunchy-thin-sm-thin"
+  },
+  "12\" Medium New York Style Pizza/New York Style": {
+   "cat": "crust",
+   "id": "new-york-style",
+   "name": "New York Style",
+   "mode_selector": true,
+   "variant_label": "12\" Medium"
+  },
+  "14\" Large New York Style Pizza/New York Style": {
+   "cat": "crust",
+   "id": "new-york-style",
+   "name": "New York Style",
+   "mode_selector": true,
+   "variant_label": "14\" Large",
+   "variant_of": "new-york-style-md-ny"
+  },
+  "16\" Extra Large New York Style Pizza/New York Style": {
+   "cat": "crust",
+   "id": "new-york-style",
+   "name": "New York Style",
+   "mode_selector": true,
+   "variant_label": "16\" Extra Large",
+   "variant_of": "new-york-style-md-ny"
+  },
+  "12\" Medium Pan Pizza/Pan Pizza": {
+   "cat": "crust",
+   "id": "pan",
+   "name": "Pan",
+   "mode_selector": true,
+   "variant_label": "12\" Medium"
+  },
+  "10\" Small Gluten Free Pizza/Gluten Free": {
+   "cat": "crust",
+   "id": "gluten-free",
+   "name": "Gluten Free",
+   "mode_selector": true,
+   "variant_label": "10\" Small"
+  },
+  "12\" Medium Parmesan Stuffed Crust Pizza/Parmesan Stuffed Crust": {
+   "cat": "crust",
+   "id": "parmesan-stuffed-crust",
+   "name": "Parmesan Stuffed Crust",
+   "mode_selector": true,
+   "variant_label": "12\" Medium"
+  },
+  "Personal Domino™ Pizza/Detroit Style": {
+   "cat": "crust",
+   "id": "detroit-style",
+   "name": "Detroit Style",
+   "mode_selector": true,
+   "variant_label": "Personal"
+  },
+  "Garlic Oil Blend (Hand Tossed Only)": {
+   "cat": "crust"
+  },
+  "12\" Medium Parmesan Stuffed Crust Pizza/Garlic Oil Blend": {
+   "cat": "crust"
+  },
+  "12\" Medium Parmesan Stuffed Crust Pizza/Parmesan": {
+   "cat": "crust"
+  }
+ }
+}

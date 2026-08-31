@@ -7,6 +7,7 @@ Reads meta.source from ingest/chains/<slug>.json and reports one of:
 
   ok        the recorded URL is still current and its content is unchanged
   unpinned  no hash recorded yet -- run --record; not a change
+  manual    the link can only be resolved by hand (JS-rendered page)
   moved     the page now links a different asset (re-ingest from the new URL)
   changed   same URL, but the text we parse is different (re-ingest)
   reexport  same URL, bytes differ, extracted text identical (harmless)
@@ -24,6 +25,10 @@ CAVA and Moe's are the reverse:
   cloudscraper  Cloudflare-walled page
   redirect      page_url 302s straight at the current asset
   asset         no page; the asset URL is stable and replaced in place
+  manual        the page renders its link with JS and mints a new URL per
+                edition, so neither the page nor the asset can be diffed
+                without a browser (Domino's). overview.py's freshness table
+                is what catches these, by age rather than by change.
 """
 import hashlib, json, re, subprocess, sys, tempfile, warnings
 from pathlib import Path
@@ -85,9 +90,15 @@ def redump(slug, fmt, args=None):
             keep.write_text(saved)
 
 
+class Manual(Exception):
+    """Not a failure: this chain simply cannot be checked without a browser."""
+
+
 def resolve(src):
     """The asset URL the chain publishes right now, and how we know."""
     how = src.get("fetch", "plain")
+    if how == "manual":
+        raise Manual("link is JS-rendered; check by hand (see overview.py freshness)")
     if how == "asset":
         return src["pdf_url"], "asset url (no page)"
     if how == "redirect":
@@ -132,6 +143,9 @@ def check(slug):
     try:
         live, how = resolve(src)
         out["note"] = how
+    except Manual as e:
+        out.update(state="manual", note=str(e))
+        return out
     except Exception as e:
         out["note"] = f"{type(e).__name__}: {e}"
         return out
@@ -218,10 +232,10 @@ def main():
     else:
         for r in rows:
             print(f"  {r['chain']:14} {r['state'].upper():9} {r['note'][:96]}")
-        bad = [r for r in rows if r["state"] not in ("ok", "reexport", "unpinned")]
+        bad = [r for r in rows if r["state"] not in ("ok", "reexport", "unpinned", "manual")]
         print(f"\n{len(rows) - len(bad)}/{len(rows)} current" +
               (f"; needs attention: {', '.join(r['chain'] for r in bad)}" if bad else ""))
-    sys.exit(1 if any(r["state"] not in ("ok", "reexport", "unpinned") for r in rows) else 0)
+    sys.exit(1 if any(r["state"] not in ("ok", "reexport", "unpinned", "manual") for r in rows) else 0)
 
 
 if __name__ == "__main__":
