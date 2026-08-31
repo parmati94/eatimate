@@ -1283,10 +1283,16 @@ export default function MealBuilder({
             Copy-for-Lose-It! on a phone, so it has to read as a control: a grab
             handle above the content, and a chevron that turns.
 
-            With nothing picked it says so rather than showing "0 cal". A zero
-            is a result, and presenting the empty state as a result made the
-            first thing a visitor saw on the primary device look like a failed
-            calculation. Teal is reserved for a real total.
+            With nothing picked it says so rather than showing "0 cal" -- a zero
+            is a result, and presenting the empty state as one made the first
+            thing a visitor saw look like a failed calculation.
+
+            The empty bar sits on the page background and only lights up teal
+            once there is a real total to show, so the colour means "this is
+            your number" rather than "this is a bar". Both states are the same
+            height and the same shape, so nothing jumps when the first
+            ingredient lands -- that jump, not the colour, was what made the
+            empty state read as unfinished.
           */}
           <button
             type="button"
@@ -1297,10 +1303,10 @@ export default function MealBuilder({
                 ? "Hide the nutrition label"
                 : "Show the nutrition label"
             }
-            className={`flex w-full flex-col items-center gap-1.5 rounded-2xl px-4 pb-3 pt-2 transition-colors ${
+            className={`flex min-h-14 w-full flex-col items-center justify-center gap-1.5 rounded-2xl px-4 pb-3 pt-2 shadow-lg transition-colors ${
               selectedCount === 0
-                ? "border border-line bg-surface text-fg shadow-lg"
-                : "bg-brand text-on-brand shadow-lg shadow-brand/30"
+                ? "border border-line bg-surface text-fg"
+                : "bg-brand text-on-brand shadow-brand/30"
             }`}
           >
             <span
@@ -1308,22 +1314,37 @@ export default function MealBuilder({
               className="h-1 w-9 shrink-0 rounded-full bg-current opacity-30"
             />
             <span className="flex w-full items-center justify-between gap-3">
+              {/*
+                Both states are one line at every width, which is what keeps
+                them the same height. The trailing detail is dropped below
+                380px instead of being allowed to wrap: measured, the full
+                macro line is 180px and a 360px phone -- a very common Android
+                width -- leaves 304px for a 85px total, 180px of macros, the
+                chevron and two gaps. It wrapped, and the bar grew by 14px the
+                moment the first ingredient landed.
+              */}
               {selectedCount === 0 ? (
                 <>
-                  <span className="num text-sm font-bold">Nutrition Facts</span>
-                  <span className="text-xs text-muted">
-                    Pick an ingredient to start
+                  <span className="num shrink-0 text-base font-extrabold leading-none">
+                    Nutrition Facts
+                  </span>
+                  <span className="min-w-0 truncate text-xs text-muted">
+                    Pick an ingredient
+                    <span className="hidden min-[380px]:inline"> to start</span>
                   </span>
                 </>
               ) : (
                 <>
-                  <span className="num text-xl font-extrabold leading-none">
+                  <span className="num shrink-0 text-xl font-extrabold leading-none">
                     {show(totals.calories)} cal
                   </span>
-                  <span className="num text-xs opacity-90">
-                    {show(totals.protein_g, 1)}g protein ·{" "}
-                    {show(totals.carbs_g, 1)}g carbs ·{" "}
-                    {show(totals.fat_g, 1)}g fat
+                  <span className="num min-w-0 truncate text-xs opacity-90">
+                    {show(totals.protein_g, 1)}g protein
+                    <span className="hidden min-[380px]:inline">
+                      {" · "}
+                      {show(totals.carbs_g, 1)}g carbs ·{" "}
+                      {show(totals.fat_g, 1)}g fat
+                    </span>
                   </span>
                 </>
               )}
