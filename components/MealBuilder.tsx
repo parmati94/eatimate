@@ -90,7 +90,7 @@ function QtyStepper({
       >
         <IconMinus className="h-4 w-4" />
       </button>
-      <span className="min-w-8 text-center text-xs font-semibold tabular-nums">
+      <span className="num min-w-8 text-center text-xs font-semibold">
         {format(qty)}
       </span>
       <button
@@ -129,6 +129,7 @@ function ComponentRow({
   qtySteps?: number[];
 }) {
   const selected = !!qty;
+  const hasVariants = !!variants && variants.length > 1;
   return (
     <li>
       <div
@@ -142,15 +143,18 @@ function ComponentRow({
             onToggle();
           }
         }}
-        className={`flex min-h-12 cursor-pointer items-center gap-3 rounded-xl px-3 py-1.5 outline-none transition-colors focus-visible:ring-2 focus-visible:ring-accent ${
-          selected ? "bg-accent-soft" : "hover:bg-surface-2"
-        }`}
+        // A row carrying size chips is two lines taller than one without, so it
+        // aligns to the top: centring put the radio halfway down the chips,
+        // level with nothing.
+        className={`flex min-h-12 cursor-pointer gap-3 rounded-xl px-3 py-1.5 outline-none transition-colors focus-visible:ring-2 focus-visible:ring-accent ${
+          hasVariants ? "items-start py-2" : "items-center"
+        } ${selected ? "bg-accent-soft" : "hover:bg-surface-2"}`}
       >
         <span
           aria-hidden
           className={`flex h-5 w-5 shrink-0 items-center justify-center border-2 transition-colors ${
-            single ? "rounded-full" : "rounded-md"
-          } ${
+            hasVariants ? "mt-0.5" : ""
+          } ${single ? "rounded-full" : "rounded-md"} ${
             selected
               ? "border-accent bg-accent text-on-accent"
               : "border-line bg-surface"
@@ -186,22 +190,25 @@ function ComponentRow({
               </span>
             )}
           </span>
-          {variants && variants.length > 1 && (
+          {hasVariants && (
             // Sizes sit inside the row, so a family reads as one choice. Clicks
             // must not bubble to the row's own toggle handler.
             <span
-              className="mt-1 flex flex-wrap gap-1"
+              className="mt-1.5 flex flex-wrap gap-1.5"
               onClick={(e) => e.stopPropagation()}
             >
               {variants.map((v) => {
                 const active = v.id === comp.id;
                 return (
+                  // 44px: on Buffalo Wild Wings these size chips ARE the
+                  // order -- picking 6 wings or 20 -- and at their old 23px
+                  // they were the smallest targets on the site.
                   <button
                     key={v.id}
                     type="button"
                     aria-pressed={active}
                     onClick={() => onVariant?.(v)}
-                    className={`rounded-md border px-2 py-0.5 text-[11px] font-medium transition-colors ${
+                    className={`num flex min-h-11 items-center justify-center rounded-lg border px-3 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       active
                         ? "border-accent bg-accent text-on-accent"
                         : "border-line bg-surface text-muted hover:border-accent hover:text-accent-strong"
@@ -218,7 +225,7 @@ function ComponentRow({
         {/* Always shown: comparing sizes is the whole point of the size
             buttons, and it is the selected row you are comparing. Stays last
             so the calorie column lines up whether or not a row is selected. */}
-        <span className="w-14 shrink-0 text-right text-xs tabular-nums text-muted">
+        <span className={`num w-12 shrink-0 text-right text-xs text-muted ${hasVariants ? "mt-0.5" : ""}`}>
           {Math.round(comp.calories * qmult)} cal
         </span>
       </div>
@@ -599,18 +606,21 @@ function SectionHeader({
   onClick?: () => void;
 }) {
   const done = !!summary;
+  // The numeral stays put once the step is done. Replacing it with a tick lost
+  // the one thing the number was carrying -- where you are in the line -- at
+  // exactly the moment you want to know how much of the order is left.
   const badge =
     index !== undefined ? (
       <span
-        className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold transition-colors ${
+        className={`num flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold transition-colors ${
           done
             ? "bg-accent text-on-accent"
             : open
               ? "bg-fg text-bg"
-              : "bg-surface-2 text-muted"
+              : "bg-surface-2 text-muted ring-1 ring-line"
         }`}
       >
-        {done ? <IconCheck className="h-3.5 w-3.5" /> : index}
+        {index}
       </span>
     ) : null;
   const inner = (
@@ -619,11 +629,12 @@ function SectionHeader({
       <span className="min-w-0 flex-1">
         <span className="flex items-baseline gap-2">
           <span className="font-semibold">{name}</span>
-          <span className="text-xs text-muted">{count}</span>
+          <span className="num text-xs text-muted">{count}</span>
         </span>
         {summary && !open && (
-          <span className="block truncate text-xs font-medium text-accent-strong">
-            {summary}
+          <span className="flex items-center gap-1 text-xs font-medium text-accent-strong">
+            <IconCheck className="h-3 w-3 shrink-0" />
+            <span className="truncate">{summary}</span>
           </span>
         )}
       </span>
@@ -662,7 +673,7 @@ function ExtrasSection({
     <details
       open={open}
       onToggle={(e) => setOpen((e.currentTarget as HTMLDetailsElement).open)}
-      className="rounded-2xl border border-line bg-surface shadow-sm"
+      className="rounded-2xl border border-line/70 bg-surface/60"
     >
       <SectionHeader
         name={cat.name}
@@ -1066,6 +1077,9 @@ export default function MealBuilder({
           </div>
         )}
 
+        {/* The numbered steps are one run, not six loose cards: a short rule
+            joins each badge to the one above it, so the counter line reads as
+            a line. The open step carries the weight. */}
         <div className="space-y-2">
           {buildCats.map((cat, idx) => {
             const comps = visibleByCategory.get(cat.id)!;
@@ -1073,8 +1087,14 @@ export default function MealBuilder({
             return (
               <section
                 key={cat.id}
-                className={`rounded-2xl border bg-surface shadow-sm transition-colors ${
-                  open ? "border-accent/60" : "border-line"
+                className={`relative rounded-2xl border bg-surface transition-all ${
+                  open
+                    ? "border-accent/60 shadow-md ring-1 ring-accent/15"
+                    : "border-line shadow-sm"
+                } ${
+                  idx > 0
+                    ? "before:absolute before:-top-2 before:left-[29px] before:h-2 before:w-0.5 before:bg-line before:content-['']"
+                    : ""
                 }`}
               >
                 <SectionHeader
@@ -1258,23 +1278,81 @@ export default function MealBuilder({
               )}
             </div>
           )}
+          {/*
+            The bar is the only way to the label, Share, Save-as-image and
+            Copy-for-Lose-It! on a phone, so it has to read as a control: a grab
+            handle above the content, and a chevron that turns.
+
+            With nothing picked it says so rather than showing "0 cal" -- a zero
+            is a result, and presenting the empty state as one made the first
+            thing a visitor saw look like a failed calculation.
+
+            The empty bar sits on the page background and only lights up teal
+            once there is a real total to show, so the colour means "this is
+            your number" rather than "this is a bar". Both states are the same
+            height and the same shape, so nothing jumps when the first
+            ingredient lands -- that jump, not the colour, was what made the
+            empty state read as unfinished.
+          */}
           <button
             type="button"
             onClick={() => setLabelOpen((v) => !v)}
             aria-expanded={labelOpen}
-            className="flex h-14 w-full items-center justify-between rounded-2xl bg-accent px-4 text-on-accent shadow-lg shadow-accent/30"
+            aria-label={
+              labelOpen
+                ? "Hide the nutrition label"
+                : "Show the nutrition label"
+            }
+            className={`flex min-h-14 w-full flex-col items-center justify-center gap-1.5 rounded-2xl px-4 pb-3 pt-2 shadow-lg transition-colors ${
+              selectedCount === 0
+                ? "border border-line bg-surface text-fg"
+                : "bg-brand text-on-brand shadow-brand/30"
+            }`}
           >
-            <span className="text-lg font-bold tabular-nums">
-              {show(totals.calories)} cal
-            </span>
-            <span className="text-xs tabular-nums opacity-90">
-              {show(totals.protein_g, 1)}g protein ·{" "}
-              {show(totals.carbs_g, 1)}g carbs · {show(totals.fat_g, 1)}g
-              fat
-            </span>
-            <IconChevron
-              className={`h-5 w-5 transition-transform ${labelOpen ? "rotate-90" : "-rotate-90"}`}
+            <span
+              aria-hidden
+              className="h-1 w-9 shrink-0 rounded-full bg-current opacity-30"
             />
+            <span className="flex w-full items-center justify-between gap-3">
+              {/*
+                Both states are one line at every width, which is what keeps
+                them the same height. The trailing detail is dropped below
+                380px instead of being allowed to wrap: measured, the full
+                macro line is 180px and a 360px phone -- a very common Android
+                width -- leaves 304px for a 85px total, 180px of macros, the
+                chevron and two gaps. It wrapped, and the bar grew by 14px the
+                moment the first ingredient landed.
+              */}
+              {selectedCount === 0 ? (
+                <>
+                  <span className="num shrink-0 text-base font-extrabold leading-none">
+                    Nutrition Facts
+                  </span>
+                  <span className="min-w-0 truncate text-xs text-muted">
+                    Pick an ingredient
+                    <span className="hidden min-[380px]:inline"> to start</span>
+                  </span>
+                </>
+              ) : (
+                <>
+                  <span className="num shrink-0 text-xl font-extrabold leading-none">
+                    {show(totals.calories)} cal
+                  </span>
+                  <span className="num min-w-0 truncate text-xs opacity-90">
+                    {show(totals.protein_g, 1)}g protein
+                    <span className="hidden min-[380px]:inline">
+                      {" · "}
+                      {show(totals.carbs_g, 1)}g carbs ·{" "}
+                      {show(totals.fat_g, 1)}g fat
+                    </span>
+                  </span>
+                </>
+              )}
+              <IconChevron
+                aria-hidden
+                className={`h-5 w-5 shrink-0 transition-transform ${labelOpen ? "rotate-90" : "-rotate-90"}`}
+              />
+            </span>
           </button>
         </div>
       </div>

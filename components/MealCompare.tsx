@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
-import ChainGlyph from "@/components/ChainGlyph";
 import CompareTable from "@/components/CompareTable";
 import MealBuilder from "@/components/MealBuilder";
-import { tileHue } from "@/lib/brand";
+import type { Tint } from "@/lib/brand";
+import ChainMark from "./ChainMark";
 import { copyText } from "@/lib/clipboard";
 import { compareRows, fmtNutrient } from "@/lib/compare";
 import {
@@ -37,9 +37,13 @@ const URL_SYNC_DELAY_MS = 600;
 
 export default function MealCompare({
   chains,
+  tints,
   presets,
 }: {
   chains: [Chain, Chain];
+  /** Each chain's colour, in the same order. Resolved on the server, because
+   *  a shade depends on the whole roster. */
+  tints: [Tint, Tint];
   presets: ComparePreset[];
 }) {
   const [presetId, setPresetId] = useState(presets[0]?.id ?? "");
@@ -140,22 +144,44 @@ export default function MealCompare({
 
   return (
     <div>
+      {/*
+        The starting point, as one object.
+
+        This used to be three stacked strata -- a 12px inline label, a row of
+        40px pills, then five lines of rule prose -- sandwiched between the page
+        intro and the builder. On a phone that put about nine lines of text
+        between you and the thing you came to use, and the label read as an
+        orphan hanging off the pills rather than as their heading (it was
+        centred to the pixel; the problem was hierarchy, not alignment).
+
+        Now: label above its control, both in one bordered block, with the rule
+        collapsed behind a summary that names the build. Every word stays in the
+        DOM -- it is the honest account of what the preset contains, and it is
+        the only per-pair prose on the page.
+      */}
       {presets.length > 0 && (
-        <div className="mb-5">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-muted">
-              Start from
-            </span>
+        <div className="mb-5 max-w-2xl rounded-2xl border border-line bg-surface-2 p-3">
+          <p
+            id="start-from"
+            className="px-1 text-xs font-semibold uppercase tracking-wider text-muted"
+          >
+            Start from
+          </p>
+          <div
+            role="group"
+            aria-labelledby="start-from"
+            className="mt-2 flex flex-wrap gap-2"
+          >
             {presets.map((p) => (
               <button
                 key={p.id}
                 type="button"
                 onClick={() => loadPreset(p)}
                 aria-pressed={p.id === presetId}
-                className={`rounded-full border px-3 py-1.5 text-xs transition-colors ${
+                className={`flex min-h-10 items-center rounded-full border px-3.5 text-xs transition-colors ${
                   p.id === presetId
-                    ? "border-accent bg-accent-soft font-semibold text-fg"
-                    : "border-line text-muted hover:border-accent hover:text-fg"
+                    ? "border-brand bg-surface font-semibold text-fg"
+                    : "border-line bg-surface text-muted hover:border-fg/30 hover:text-fg"
                 }`}
               >
                 {p.name}
@@ -163,9 +189,20 @@ export default function MealCompare({
             ))}
           </div>
           {preset && (
-            <p className="mt-2 max-w-2xl text-xs leading-relaxed text-muted">
-              {preset.rule}
-            </p>
+            <details className="group mt-2.5">
+              <summary className="inline-flex min-h-8 cursor-pointer list-none items-center px-1 text-xs text-muted underline decoration-line underline-offset-2 hover:text-fg">
+                What&rsquo;s in this order?
+                <span className="ml-1 group-open:hidden" aria-hidden>
+                  &#9656;
+                </span>
+                <span className="ml-1 hidden group-open:inline" aria-hidden>
+                  &#9662;
+                </span>
+              </summary>
+              <p className="mt-1 max-w-2xl border-l border-line px-1 pl-3 text-xs leading-relaxed text-muted">
+                {preset.rule}
+              </p>
+            </details>
           )}
         </div>
       )}
@@ -180,17 +217,20 @@ export default function MealCompare({
             type="button"
             onClick={() => setTab(i)}
             aria-pressed={tab === i}
-            className={`flex items-center justify-center gap-2 rounded-xl border px-3 py-2.5 text-sm transition-colors ${
+            className={`flex min-h-12 items-center justify-center gap-2 rounded-xl border px-3 py-2 text-sm transition-colors ${
               tab === i
-                ? "border-accent bg-surface font-semibold"
+                ? "border-brand bg-surface font-semibold"
                 : "border-line text-muted"
             }`}
           >
-            {c.glyph && (
-              <span style={{ color: tileHue(c.slug) }}>
-                <ChainGlyph glyph={c.glyph} className="h-5 w-5" />
-              </span>
-            )}
+            <ChainMark
+              glyph={c.glyph}
+              name={c.name}
+              tint={tints[i]}
+              emphasis="solid"
+              className="h-7 w-7 rounded-lg"
+              iconClassName="h-5 w-5"
+            />
             {c.name}
           </button>
         ))}
@@ -200,20 +240,43 @@ export default function MealCompare({
         {chains.map((chain, i) => (
           // Both sides stay in the DOM on mobile — only one is shown. The
           // hidden half is still the indexable half of the comparison.
+          //
+          // data-chain is doing real work here rather than decorating: this is
+          // the one screen showing two chains at once, so each column's
+          // selections carry that chain's colour and it stays obvious which
+          // half you are editing. The totals bar below stays brand teal.
+          //
+          // Known weak spot, measured rather than guessed: 5 of the 12
+          // recommended pairs are same-cuisine, and those two chains share a
+          // hue and differ only in shade. At full strength -- the step badges,
+          // the selected chips, the row highlights -- that is a ~0.10 OKLab
+          // step, which is visible. Where it fails is the 36px chain mark,
+          // whose ground is color-mix(... 11%, surface): the same step arrives
+          // there as ~0.011, well under the threshold anyone can see.
+          //
+          // This was briefly "fixed" by dropping the tint and painting both
+          // columns brand teal. That was the wrong trade -- it removed a
+          // working signal from the chrome to fix the marks, and made a chain
+          // one colour on its own page and another here. If the marks need
+          // solving, solve the dilution, not the hue.
           <div
             key={chain.slug}
+            data-chain
+            style={
+              {
+                "--chain-l": tints[i].light,
+                "--chain-d": tints[i].dark,
+              } as CSSProperties
+            }
             className={`min-w-0 ${tab === i ? "" : "hidden lg:block"}`}
           >
             <div className="mb-3 hidden items-center gap-2.5 lg:flex">
-              <span
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg"
-                style={{
-                  background: `color-mix(in srgb, ${tileHue(chain.slug)} 14%, transparent)`,
-                  color: tileHue(chain.slug),
-                }}
-              >
-                {chain.glyph && <ChainGlyph glyph={chain.glyph} className="h-6 w-6" />}
-              </span>
+              <ChainMark
+                glyph={chain.glyph}
+                name={chain.name}
+                tint={tints[i]}
+                emphasis="solid"
+              />
               <p className="text-sm font-semibold">{chain.name}</p>
             </div>
             <MealBuilder

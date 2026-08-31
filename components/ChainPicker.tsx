@@ -2,30 +2,28 @@
 
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
-import ChainGlyph from "@/components/ChainGlyph";
+import ChainMark from "@/components/ChainMark";
 import { IconSearch, IconX } from "@/components/icons";
-import { tileHue } from "@/lib/brand";
+import type { Tint } from "@/lib/brand";
 import { pairSlug } from "@/lib/compare";
 
 export interface PickableChain {
   slug: string;
   name: string;
   glyph?: string;
+  tint: Tint;
 }
 
 function Chip({ chain, onClear }: { chain: PickableChain; onClear: () => void }) {
   return (
-    <span className="flex items-center gap-2 rounded-xl border border-accent bg-surface py-2 pl-2 pr-2.5 text-sm font-semibold">
-      <span
-        aria-hidden
-        className="flex h-7 w-7 items-center justify-center rounded-lg"
-        style={{
-          color: tileHue(chain.slug),
-          background: `color-mix(in oklab, ${tileHue(chain.slug)} 13%, var(--surface))`,
-        }}
-      >
-        {chain.glyph ? <ChainGlyph glyph={chain.glyph} className="h-5 w-5" /> : chain.name[0]}
-      </span>
+    <span className="flex min-h-11 items-center gap-2 rounded-xl border border-brand bg-surface py-2 pl-2 pr-2.5 text-sm font-semibold">
+      <ChainMark
+        glyph={chain.glyph}
+        name={chain.name}
+        tint={chain.tint}
+        className="h-7 w-7 rounded-lg"
+        iconClassName="h-5 w-5"
+      />
       {chain.name}
       <button
         type="button"
@@ -91,7 +89,7 @@ export default function ChainPicker({ chains }: { chains: PickableChain[] }) {
           onChange={(e) => setQ(e.target.value)}
           placeholder="Search restaurants…"
           aria-label="Search restaurants to compare"
-          className="w-full rounded-xl border border-line bg-surface py-2.5 pl-10 pr-4 text-sm outline-none transition-[border-color,box-shadow] placeholder:text-muted focus:border-accent focus:ring-4 focus:ring-accent/15"
+          className="w-full rounded-xl border border-line bg-surface py-2.5 pl-10 pr-4 text-sm outline-none transition-[border-color,box-shadow] placeholder:text-muted focus:border-brand focus:ring-4 focus:ring-brand/15"
         />
       </label>
 
@@ -104,18 +102,15 @@ export default function ChainPicker({ chains }: { chains: PickableChain[] }) {
               <button
                 type="button"
                 onClick={() => pick(c)}
-                className="flex items-center gap-2 rounded-full border border-line bg-surface py-1.5 pl-1.5 pr-3.5 text-sm text-muted transition-colors hover:border-accent hover:text-fg"
+                className="flex min-h-11 items-center gap-2 rounded-full border border-line bg-surface py-2 pl-2 pr-4 text-sm text-muted transition-colors hover:border-fg/30 hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/40"
               >
-                <span
-                  aria-hidden
-                  className="flex h-7 w-7 items-center justify-center rounded-full"
-                  style={{
-                    color: tileHue(c.slug),
-                    background: `color-mix(in oklab, ${tileHue(c.slug)} 13%, var(--surface))`,
-                  }}
-                >
-                  {c.glyph ? <ChainGlyph glyph={c.glyph} className="h-5 w-5" /> : c.name[0]}
-                </span>
+                <ChainMark
+                  glyph={c.glyph}
+                  name={c.name}
+                  tint={c.tint}
+                  className="h-7 w-7 rounded-full"
+                  iconClassName="h-5 w-5"
+                />
                 {c.name}
               </button>
             </li>

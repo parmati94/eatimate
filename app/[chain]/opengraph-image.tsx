@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
-import { getChain, listChains } from "@/lib/data";
-import { tileHue } from "@/lib/brand";
+import { chainTint, getChain, listChains } from "@/lib/data";
+import { possessive } from "@/lib/text";
 
 // One card per chain, generated at build time. Satori only supports flexbox,
 // so every container here is an explicit flex row/column.
@@ -37,9 +37,9 @@ export default async function Image({
 }) {
   const { chain: slug } = await params;
   const chain = await getChain(slug);
-  const hue = tileHue(slug);
+  const hue = (await chainTint(slug)).light; // the card is always drawn on white
   const name = chain?.name ?? "Eatimate";
-  const count = chain?.components.length ?? 0;
+  const formats = chain?.formats?.join(" · ") ?? "";
 
   return new ImageResponse(
     (
@@ -65,8 +65,8 @@ export default async function Image({
             Nutrition Calculator
           </div>
           <div style={{ display: "flex", fontSize: 34, color: "#6b7079", marginTop: 26 }}>
-            {count > 0
-              ? `Build your order from ${count} ingredients — calories and macros update as you go.`
+            {formats
+              ? `${formats} — calories and macros update as you go.`
               : "Build your order — calories and macros update as you go."}
           </div>
         </div>
@@ -76,7 +76,7 @@ export default async function Image({
             eatimate.app
           </div>
           <div style={{ display: "flex", fontSize: 26, color: "#6b7079" }}>
-            Every number from {name}&rsquo;s official nutrition data
+            Every number from {possessive(name)} official nutrition data
           </div>
         </div>
       </div>

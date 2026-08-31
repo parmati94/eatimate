@@ -13,8 +13,9 @@
    "asset_sha256": "835116e2aef59945ac403faaced3d56db685344d19166682d75a2d2a78764d4d"
   },
   "disclaimer_extra": "Five Guys' guide (June 2026) lists some items per supplier with near-identical values; the first-listed supplier's row is used. All toppings are free at the counter — free doesn't mean calorie-free.",
-  "blurb": "Build your Five Guys order patty by patty — bun, meat, all the free toppings, fries by size and style, even the milkshake mix-ins — from Five Guys' official June 2026 nutrition guide.",
-  "glyph": "burger"
+  "blurb": "Build your Five Guys order patty by patty — bun, meat, all the free toppings, fries by size and style, even the milkshake mix-ins.",
+  "glyph": "burger",
+  "formats": ["Burger", "Hot dog", "Fries"]
  },
  "categories": [
   {

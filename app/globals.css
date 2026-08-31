@@ -1,6 +1,13 @@
 @import "tailwindcss";
 
-/* Design tokens. Light is the base; dark redefines the same names. */
+/* Design tokens. Light is the base; dark redefines the same names.
+ *
+ * Two accent roles, deliberately separated:
+ *   --brand   Eatimate's teal. Reserved for the running total and the mark, so
+ *             "what this adds up to" is always the same colour on every page.
+ *   --accent  the *chain's* colour on a chain page (see [data-chain] below),
+ *             falling back to the brand teal everywhere else. Carries selection
+ *             and progress: "what you picked". */
 :root {
   --bg: #f7f7f5;
   --surface: #ffffff;
@@ -8,13 +15,22 @@
   --line: #e4e6e2;
   --fg: #16181a;
   --muted: #6b7079;
+  --brand: #0d9488;
+  --brand-strong: #0f766e;
+  --on-brand: #ffffff;
   --accent: #0d9488;
   --accent-strong: #0f766e;
   --accent-soft: #f0fdfa;
   --on-accent: #ffffff;
 }
 
-/* Dark: follows the OS unless the user picked a theme (data-theme on <html>). */
+/* Dark: follows the OS unless the user picked a theme (data-theme on <html>).
+ * Both blocks carry the same values -- plain CSS has no way to share them, so
+ * any edit here has to be made twice.
+ *
+ * --on-accent/--on-brand go to ink rather than white: the dark accents sit
+ * around L 0.72, where white text or a white checkmark on top only reaches
+ * ~2.3:1. Cutting the mark out in near-black instead reads at ~8:1. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0e0f11;
@@ -23,24 +39,55 @@
     --line: #2a2e34;
     --fg: #ececea;
     --muted: #9aa0a9;
+    --brand: #14b8a6;
+    --brand-strong: #2dd4bf;
+    --on-brand: #06211d;
     --accent: #14b8a6;
     --accent-strong: #2dd4bf;
     --accent-soft: rgba(20, 184, 166, 0.14);
-    --on-accent: #ffffff;
+    --on-accent: #0e0f11;
   }
 }
 :root[data-theme="dark"] {
-    --bg: #0e0f11;
-    --surface: #16181b;
-    --surface-2: #1e2125;
-    --line: #2a2e34;
-    --fg: #ececea;
-    --muted: #9aa0a9;
-    --accent: #14b8a6;
-    --accent-strong: #2dd4bf;
-    --accent-soft: rgba(20, 184, 166, 0.14);
-    --on-accent: #ffffff;
+  --bg: #0e0f11;
+  --surface: #16181b;
+  --surface-2: #1e2125;
+  --line: #2a2e34;
+  --fg: #ececea;
+  --muted: #9aa0a9;
+  --brand: #14b8a6;
+  --brand-strong: #2dd4bf;
+  --on-brand: #06211d;
+  --accent: #14b8a6;
+  --accent-strong: #2dd4bf;
+  --accent-soft: rgba(20, 184, 166, 0.14);
+  --on-accent: #0e0f11;
+}
+
+/* A chain page paints its own hue over the accent role. The element carries
+ * --chain-l/--chain-d (see lib/brand.ts, tileTint) and the theme picks one;
+ * -strong and -soft are then mixed toward the current --fg/--surface, so both
+ * stay legible in either theme without a second authored value. */
+[data-chain] {
+  --accent: var(--chain-l);
+  --accent-strong: color-mix(in oklab, var(--chain-l) 80%, var(--fg));
+  --accent-soft: color-mix(in oklab, var(--chain-l) 11%, var(--surface));
+  --on-accent: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) [data-chain] {
+    --accent: var(--chain-d);
+    --accent-strong: color-mix(in oklab, var(--chain-d) 80%, var(--fg));
+    --accent-soft: color-mix(in oklab, var(--chain-d) 13%, var(--surface));
+    --on-accent: #0e0f11;
   }
+}
+:root[data-theme="dark"] [data-chain] {
+  --accent: var(--chain-d);
+  --accent-strong: color-mix(in oklab, var(--chain-d) 80%, var(--fg));
+  --accent-soft: color-mix(in oklab, var(--chain-d) 13%, var(--surface));
+  --on-accent: #0e0f11;
+}
 
 @theme inline {
   --color-bg: var(--bg);
@@ -53,8 +100,13 @@
   --color-accent-strong: var(--accent-strong);
   --color-accent-soft: var(--accent-soft);
   --color-on-accent: var(--on-accent);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-on-brand: var(--on-brand);
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-display: var(--font-archivo), "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 html {
@@ -73,6 +125,36 @@ body {
   font-family: var(--font-sans);
   font-feature-settings: "cv11", "ss01";
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Every heading takes the display face without a class at each call site. */
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.021em;
+  }
+}
+
+/* A figure: the display face with tabular lining figures, so a calorie count
+ * does not reflow as it counts up and columns of numbers line up. */
+@utility num {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Homepage hero: each ingredient row lands in turn. `both` holds the opening
+ * frame during the row's delay, so the rows do not all flash in first. */
+@keyframes demo-row {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 input[type="search"]::-webkit-search-cancel-button {

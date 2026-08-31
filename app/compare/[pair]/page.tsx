@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import MealCompare, { type ComparePreset } from "@/components/MealCompare";
-import { getChain } from "@/lib/data";
+import type { Tint } from "@/lib/brand";
+import { chainTint, getChain } from "@/lib/data";
 import { listPairs, pairDishes, pairSlug, parsePair } from "@/lib/meals";
+import { possessive } from "@/lib/text";
 
 // Both orderings are generated, because "chipotle vs cava" and "cava vs
 // chipotle" are both things people type. Only the alphabetical one is
@@ -32,6 +34,7 @@ async function load(slug: string) {
   const chains = await Promise.all([getChain(a), getChain(b)]);
   if (chains.some((c) => c === null)) return null; // an unknown chain is still a 404
   const dishes = await pairDishes(a, b);
+  const tints = await Promise.all([chainTint(a), chainTint(b)]);
   // Each dish becomes a starting point for the live comparison. The first is
   // what renders server-side, so it is the version that gets indexed.
   const presets: ComparePreset[] = dishes.map(({ dish, meals }) => ({
@@ -44,6 +47,7 @@ async function load(slug: string) {
   return {
     a: chains[0]!,
     b: chains[1]!,
+    tints: tints as [Tint, Tint],
     presets,
     recommended: dishes.length > 0,
   };
@@ -78,19 +82,18 @@ export default async function ComparePage(props: PageProps<"/compare/[pair]">) {
   const { pair } = await props.params;
   const data = await load(pair);
   if (!data) notFound();
-  const { a, b, presets, recommended } = data;
+  const { a, b, tints, presets, recommended } = data;
 
   return (
     <main className="mx-auto w-full max-w-6xl flex-1 px-4 pt-6 pb-28 sm:pt-8">
-      <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
+      <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
         {a.name} vs {b.name}{" "}
         <span className="font-semibold text-muted">Nutrition Compared</span>
       </h1>
       <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-        Build both orders side by side and watch the difference move. Compared
-        as served, not per 100 g — portions differ between chains, and that
-        difference is part of the answer. Every figure is each chain&rsquo;s own
-        published data.
+        Change either order and watch the difference move. Compared as served,
+        not per 100 g — portions differ between chains, and that difference is
+        part of the answer.
       </p>
 
       {!recommended && (
@@ -103,7 +106,7 @@ export default async function ComparePage(props: PageProps<"/compare/[pair]">) {
       )}
 
       <div className="mt-6">
-        <MealCompare chains={[a, b]} presets={presets} />
+        <MealCompare chains={[a, b]} tints={tints} presets={presets} />
       </div>
 
       <footer className="mt-6 space-y-2 border-t border-line pt-4 text-xs leading-relaxed text-muted">
@@ -119,7 +122,7 @@ export default async function ComparePage(props: PageProps<"/compare/[pair]">) {
                 className="underline decoration-line underline-offset-2 hover:text-fg"
                 rel="nofollow noopener"
               >
-                {c.name}&rsquo;s published data
+                {possessive(c.name)} published data
               </a>{" "}
               (retrieved {c.source.retrieved})
             </span>

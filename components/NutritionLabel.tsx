@@ -64,16 +64,16 @@ export default function NutritionLabel({
   subtitle?: string;
 }) {
   return (
-    <div className="rounded-lg border-2 border-black bg-white p-3 text-black shadow-sm">
-      <p className="text-[26px] font-black leading-none tracking-tight">
+    <div className="num rounded-lg border-2 border-black bg-white p-3 text-black shadow-sm">
+      <p className="text-[27px] font-extrabold leading-none tracking-tight">
         Nutrition Facts
       </p>
       <p className="mt-1 border-b-[7px] border-black pb-1 text-xs">
         {subtitle ?? "Your meal as built"}
       </p>
       <div className="flex items-end justify-between py-1">
-        <span className="text-lg font-black">Calories</span>
-        <span className="text-[32px] font-black leading-none tabular-nums">
+        <span className="text-lg font-extrabold">Calories</span>
+        <span className="text-[34px] font-extrabold leading-none">
           {labelCalories(totals)}
         </span>
       </div>

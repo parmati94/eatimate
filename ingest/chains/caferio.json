@@ -13,8 +13,9 @@
    "asset_sha256": "ac54321af588aa07189a8cbd5b34b366f875037475ca7ed22966a49875daa8fe"
   },
   "disclaimer_extra": "Cafe Rio publishes each ingredient at a stated portion (proteins per 2 oz, rice and beans per 4.5 oz, dressings per 1.5–2 fl oz), so the totals here are for the portions as listed rather than a particular menu item.",
-  "blurb": "Build your Cafe Rio order ingredient by ingredient — tortilla, rice and beans, fire-grilled meats, sauces, guac and cotija — with per-portion nutrition straight from Cafe Rio's published chart.",
-  "glyph": "burrito"
+  "blurb": "Build your Cafe Rio order ingredient by ingredient — tortilla, rice and beans, fire-grilled meats, sauces, guac and cotija.",
+  "glyph": "burrito",
+  "formats": ["Burrito", "Bowl", "Salad", "Tacos"]
  },
  "categories": [
   {

@@ -12,8 +12,9 @@
    "asset_sha256": "a38f57ef911da916dfd4b6e07888b9374fae1540cd90a06fe5e67f778284eb11"
   },
   "disclaimer_extra": "Domino's publishes each ingredient separately for every size and crust, per the serving size that page states. Cheese is published twice — once for a cheese-only pizza and once for a pizza that also has toppings, since Domino's uses less of it — so pick the row that matches your order. Domino's notes that additional toppings change the values and does not say by how much, so a heavily loaded pizza is an upper bound.",
-  "blurb": "Build your Domino's pizza by size and crust — every crust, sauce, cheese and topping priced per slice from Domino's own August 2026 guide, with a slices-eaten control so you can total what you actually ate.",
+  "blurb": "Build your Domino's pizza by size and crust — every crust, sauce, cheese and topping priced per slice, with a slices-eaten control so you total what you actually ate.",
   "glyph": "pizza",
+  "formats": ["Pizza", "Any crust", "By the slice"],
   "size_modes": [
    {
     "id": "personal",

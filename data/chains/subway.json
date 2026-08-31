@@ -6,7 +6,7 @@
     "retrieved": "2026-08-30"
   },
   "disclaimer_extra": "Subway's January 2026 chart lists 6\" sub portions; footlong breads and wraps scale the rest of the build automatically per Subway's own guidance (one footlong = two 6\" servings; a wrap uses the footlong meat portion). Items marked with asterisks are at participating locations.",
-  "blurb": "Build your Subway order the way the line works — bread, protein, cheese, veggies, sauces — from Subway's official January 2026 nutrition chart. Pick a 6\" or footlong bread and the whole build scales itself.",
+  "blurb": "Build your Subway order the way the line works — bread, protein, cheese, veggies, sauces. Pick a 6\" or footlong bread and the whole build scales itself.",
   "size_modes": [
     {
       "id": "six-inch",
@@ -51,6 +51,12 @@
     }
   ],
   "glyph": "sub",
+  "formats": [
+    "6\" Sub",
+    "Footlong",
+    "Wrap",
+    "Salad"
+  ],
   "categories": [
     {
       "id": "format",
