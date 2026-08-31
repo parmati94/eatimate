@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
 import CompareTable from "@/components/CompareTable";
 import MealBuilder from "@/components/MealBuilder";
@@ -207,18 +207,19 @@ export default function MealCompare({
           // Both sides stay in the DOM on mobile — only one is shown. The
           // hidden half is still the indexable half of the comparison.
           //
-          // Deliberately NOT tinted per chain, though the rest of the site is.
-          // Chain hue encodes what the chain sells, so two chains selling the
-          // same thing differ only in shade — and 5 of the 12 recommended
-          // pairs are same-cuisine (all three burrito combinations, plus
-          // Domino's/Papa John's and BWW/Wingstop). Worse, the tinted grounds
-          // are color-mix(... 11%, surface), which compresses a 0.10 lightness
-          // step to about 0.011 at the point of use. On the one page whose job
-          // is telling two chains apart, that left the colour carrying no
-          // signal while looking like it did. The glyph and the name carry it;
-          // the chrome stays brand teal on both sides.
+          // data-chain is doing real work here rather than decorating: this is
+          // the one screen showing two chains at once, so each column's
+          // selections carry that chain's colour and it stays obvious which
+          // half you are editing. The totals bar below stays brand teal.
           <div
             key={chain.slug}
+            data-chain
+            style={
+              {
+                "--chain-l": tints[i].light,
+                "--chain-d": tints[i].dark,
+              } as CSSProperties
+            }
             className={`min-w-0 ${tab === i ? "" : "hidden lg:block"}`}
           >
             <div className="mb-3 hidden items-center gap-2.5 lg:flex">
