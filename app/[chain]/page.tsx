@@ -52,7 +52,8 @@ export default async function ChainPage(props: PageProps<"/[chain]">) {
           className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-xs text-muted transition-colors hover:border-accent hover:text-fg"
         >
           <IconExternal className="h-3.5 w-3.5" />
-          Source PDF · {chain.source.retrieved}
+          Source {chain.source.pdf_url ? "PDF" : "page"} ·{" "}
+          {chain.source.retrieved}
         </a>
       </div>
 

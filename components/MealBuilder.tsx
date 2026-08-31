@@ -599,24 +599,55 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chain, activeMode]);
 
-  // Presets open the numbered flow: on a "name and tweak" chain you start from
-  // a published menu item, then add to it. Chains without presets are unchanged.
+  // On a "name and tweak" chain the two paths are mutually exclusive: you
+  // either start from a published menu item OR compose one from parts. Stacking
+  // them in one numbered flow reads as building a second sandwich.
   const presetCats = chain.categories.filter(
     (c) => c.flow === "preset" && visibleByCategory.has(c.id),
   );
-  const buildCats = [
-    ...presetCats,
-    ...chain.categories.filter(
-      (c) => (c.flow ?? "build") === "build" && visibleByCategory.has(c.id),
-    ),
-  ];
-  const extraCats = chain.categories.filter(
+  const scratchCats = chain.categories.filter(
+    (c) => (c.flow ?? "build") === "build" && visibleByCategory.has(c.id),
+  );
+  const hasPresets = presetCats.length > 0;
+  const [mode, setMode] = useState<"menu" | "scratch" | null>(null);
+  const buildCats = !hasPresets
+    ? scratchCats
+    : mode === "menu"
+      ? presetCats
+      : mode === "scratch"
+        ? scratchCats
+        : [];
+  const plainExtras = chain.categories.filter(
     (c) => c.flow === "extras" && visibleByCategory.has(c.id),
   );
+  // Started from a menu item? Everything else becomes something you can add.
+  // Which of those are "already in it" is not published, so the page shows the
+  // full list and says so, rather than us guessing on the customer's behalf.
+  const extraCats =
+    mode === "menu" ? [...scratchCats, ...plainExtras] : plainExtras;
 
   const [openCat, setOpenCat] = useState<string | null>(
     buildCats[0]?.id ?? null,
   );
+
+  /** Choosing a path drops anything picked on the other one, so a hidden
+   *  selection can never keep counting toward the totals. */
+  const chooseMode = (next: "menu" | "scratch") => {
+    const drop = new Set(
+      (next === "menu" ? scratchCats : presetCats).flatMap((c) =>
+        (visibleByCategory.get(c.id) ?? []).map((x) => x.id),
+      ),
+    );
+    setSelections((prev) => {
+      const kept: Selections = {};
+      for (const [id, q] of Object.entries(prev)) if (!drop.has(id)) kept[id] = q;
+      return kept;
+    });
+    setMode(next);
+    setOpenCat(
+      (next === "menu" ? presetCats : scratchCats)[0]?.id ?? null,
+    );
+  };
 
   // Changing the format prunes picks that are no longer offered (switching
   // to Wrap drops a selected loaf, etc.).
@@ -731,6 +762,62 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
         Chick-n-Strips" pushed the mobile layout to 574px in a 390px window.
       */}
       <div className="min-w-0 space-y-5">
+        {hasPresets && (
+          <div className="rounded-2xl border border-line bg-surface p-3 shadow-sm">
+            {mode === null ? (
+              <>
+                <p className="px-1 pb-2 text-sm font-semibold">
+                  How do you want to start?
+                </p>
+                <div className="grid gap-2 sm:grid-cols-2">
+                  <button
+                    type="button"
+                    onClick={() => chooseMode("menu")}
+                    className="rounded-xl border border-line px-4 py-3 text-left transition-colors hover:border-accent hover:bg-surface-2"
+                  >
+                    <span className="block text-sm font-semibold">
+                      Start from a menu item
+                    </span>
+                    <span className="mt-0.5 block text-xs text-muted">
+                      Exactly as {chain.name} publishes it, then add to it.
+                    </span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => chooseMode("scratch")}
+                    className="rounded-xl border border-line px-4 py-3 text-left transition-colors hover:border-accent hover:bg-surface-2"
+                  >
+                    <span className="block text-sm font-semibold">
+                      Build your own
+                    </span>
+                    <span className="mt-0.5 block text-xs text-muted">
+                      Compose it ingredient by ingredient.
+                    </span>
+                  </button>
+                </div>
+              </>
+            ) : (
+              <div className="flex items-center justify-between gap-3 px-1">
+                <span className="text-sm font-medium">
+                  {mode === "menu"
+                    ? "Starting from a menu item"
+                    : "Building your own"}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelections({});
+                    setMode(null);
+                    setOpenCat(null);
+                  }}
+                  className="text-xs font-medium text-accent-strong underline underline-offset-2"
+                >
+                  Change
+                </button>
+              </div>
+            )}
+          </div>
+        )}
         <div className="space-y-2">
           {buildCats.map((cat, idx) => {
             const comps = visibleByCategory.get(cat.id)!;
@@ -775,7 +862,9 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
         {extraCats.length > 0 && (
           <>
             <h2 className="px-1 pt-1 text-xs font-semibold uppercase tracking-wider text-muted">
-              Sides, drinks &amp; other menu items
+              {mode === "menu"
+                ? "Add to it"
+                : "Sides, drinks & other menu items"}
             </h2>
             <div className="space-y-2">
               {extraCats.map((cat) => (

@@ -20,16 +20,16 @@
    ]
   },
   "disclaimer_extra": "Chick-fil-A publishes its buns, proteins, toppings, sauces and dressings as separate component tables alongside its finished menu items; this builder uses those component tables, so a sandwich you assemble here may differ slightly from the published total for a comparable menu item. Drinks, coffee, treats, catering and whole menu items are published but not included. One known gap: Chick-fil-A's sandwiches are served with pickles, but pickles are not published as a separate topping — a sandwich built here reads roughly 100 mg lower in sodium than the equivalent published menu item.",
-  "blurb": "Build a Chick-fil-A order component by component — bun, filet, cheese and toppings, then sauces and sides — from Chick-fil-A's own published per-ingredient nutrition tables.",
+  "blurb": "Start from a Chick-fil-A menu item at its published nutrition — swap the cheese or the chicken and the numbers stay Chick-fil-A's own — or build a sandwich from their bun, filet and topping tables.",
   "glyph": "burger"
  },
  "categories": [
   {
    "id": "preset",
-   "name": "Start with a menu item",
+   "name": "Pick a menu item",
    "select": "single",
    "flow": "preset",
-   "note": "These are Chick-fil-A's published totals for the item as served. Anything you add below is added on top — what's already in the item isn't itemised yet, so don't re-add a bun or filet."
+   "note": "These are Chick-fil-A's published totals for the item as served, including the cheese and chicken options they publish. Anything you add below is added on top of it."
   },
   {
    "id": "bun",
@@ -213,6 +213,550 @@
    "name": "Chicken Noodle Soup",
    "variant_of": "chicken-noodle-soup",
    "variant_label": "Bowl"
+  },
+  "Chick-fil-A Chick-n-Minis®": {
+   "skip": "identical to one of its own published variants"
+  },
+  "4 ct Chick-fil-A Chick-n-Minis®": {
+   "cat": "preset",
+   "id": "chick-fil-a-chick-n-minis",
+   "name": "Chick-fil-A Chick-n-Minis®",
+   "variant_label": "4 ct"
+  },
+  "10 ct Chick-fil-A Chick-n-Minis®": {
+   "cat": "preset",
+   "id": "chick-fil-a-chick-n-minis-10-ct",
+   "name": "Chick-fil-A Chick-n-Minis®",
+   "variant_of": "chick-fil-a-chick-n-minis",
+   "variant_label": "10 ct"
+  },
+  "Hash Brown Scramble Burrito": {
+   "skip": "identical to one of its own published variants"
+  },
+  "Hash Brown Scramble Burrito w/ Nuggets": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-burrito",
+   "name": "Hash Brown Scramble Burrito",
+   "variant_label": "Nuggets"
+  },
+  "Hash Brown Scramble Burrito w/ Sausage": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-burrito-sausage",
+   "name": "Hash Brown Scramble Burrito",
+   "variant_of": "hash-brown-scramble-burrito",
+   "variant_label": "Sausage"
+  },
+  "Hash Brown Scramble Burrito w/ Grilled Filet": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-burrito-grilled-filet",
+   "name": "Hash Brown Scramble Burrito",
+   "variant_of": "hash-brown-scramble-burrito",
+   "variant_label": "Grilled Filet"
+  },
+  "Hash Brown Scramble Burrito w/ Spicy Chicken": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-burrito-spicy-chicken",
+   "name": "Hash Brown Scramble Burrito",
+   "variant_of": "hash-brown-scramble-burrito",
+   "variant_label": "Spicy Chicken"
+  },
+  "Hash Brown Scramble Burrito w/ Bacon": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-burrito-bacon",
+   "name": "Hash Brown Scramble Burrito",
+   "variant_of": "hash-brown-scramble-burrito",
+   "variant_label": "Bacon"
+  },
+  "Hash Brown Scramble Burrito w/ No Meat": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-burrito-no-meat",
+   "name": "Hash Brown Scramble Burrito",
+   "variant_of": "hash-brown-scramble-burrito",
+   "variant_label": "No Meat"
+  },
+  "Hash Brown Scramble Burrito w/ Nuggets - no hash browns": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-burrito-nuggets-no-hash-browns",
+   "name": "Hash Brown Scramble Burrito",
+   "variant_of": "hash-brown-scramble-burrito",
+   "variant_label": "Nuggets - no hash browns"
+  },
+  "Hash Brown Scramble Burrito w/ Sausage - no hash browns": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-burrito-sausage-no-hash-browns",
+   "name": "Hash Brown Scramble Burrito",
+   "variant_of": "hash-brown-scramble-burrito",
+   "variant_label": "Sausage - no hash browns"
+  },
+  "Hash Brown Scramble Burrito w/ Grilled Filet - no hash brown": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-burrito-grilled-filet-no-hash-brown",
+   "name": "Hash Brown Scramble Burrito",
+   "variant_of": "hash-brown-scramble-burrito",
+   "variant_label": "Grilled Filet - no hash brown"
+  },
+  "Hash Brown Scramble Burrito w/ Spicy Chicken - no hash browns": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-burrito-spicy-chicken-no-hash-browns",
+   "name": "Hash Brown Scramble Burrito",
+   "variant_of": "hash-brown-scramble-burrito",
+   "variant_label": "Spicy Chicken - no hash browns"
+  },
+  "Hash Brown Scramble Burrito w/ Bacon - no hash browns": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-burrito-bacon-no-hash-browns",
+   "name": "Hash Brown Scramble Burrito",
+   "variant_of": "hash-brown-scramble-burrito",
+   "variant_label": "Bacon - no hash browns"
+  },
+  "Hash Brown Scramble Burrito w/ No Meat - no hash browns": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-burrito-no-meat-no-hash-browns",
+   "name": "Hash Brown Scramble Burrito",
+   "variant_of": "hash-brown-scramble-burrito",
+   "variant_label": "No Meat - no hash browns"
+  },
+  "Hash Brown Scramble Bowl": {
+   "skip": "identical to one of its own published variants"
+  },
+  "Hash Brown Scramble Bowl w/ Nuggets": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-bowl",
+   "name": "Hash Brown Scramble Bowl",
+   "variant_label": "Nuggets"
+  },
+  "Hash Brown Scramble Bowl w/ Sausage": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-bowl-sausage",
+   "name": "Hash Brown Scramble Bowl",
+   "variant_of": "hash-brown-scramble-bowl",
+   "variant_label": "Sausage"
+  },
+  "Hash Brown Scramble Bowl w/ Grilled Filet": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-bowl-grilled-filet",
+   "name": "Hash Brown Scramble Bowl",
+   "variant_of": "hash-brown-scramble-bowl",
+   "variant_label": "Grilled Filet"
+  },
+  "Hash Brown Scramble Bowl w/ Spicy Chicken": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-bowl-spicy-chicken",
+   "name": "Hash Brown Scramble Bowl",
+   "variant_of": "hash-brown-scramble-bowl",
+   "variant_label": "Spicy Chicken"
+  },
+  "Hash Brown Scramble Bowl w/ Bacon": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-bowl-bacon",
+   "name": "Hash Brown Scramble Bowl",
+   "variant_of": "hash-brown-scramble-bowl",
+   "variant_label": "Bacon"
+  },
+  "Hash Brown Scramble Bowl w/ No Meat": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-bowl-no-meat",
+   "name": "Hash Brown Scramble Bowl",
+   "variant_of": "hash-brown-scramble-bowl",
+   "variant_label": "No Meat"
+  },
+  "Hash Brown Scramble Bowl w/ Nuggets - no hash browns": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-bowl-nuggets-no-hash-browns",
+   "name": "Hash Brown Scramble Bowl",
+   "variant_of": "hash-brown-scramble-bowl",
+   "variant_label": "Nuggets - no hash browns"
+  },
+  "Hash Brown Scramble Bowl w/ Sausage - no hash browns": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-bowl-sausage-no-hash-browns",
+   "name": "Hash Brown Scramble Bowl",
+   "variant_of": "hash-brown-scramble-bowl",
+   "variant_label": "Sausage - no hash browns"
+  },
+  "Hash Brown Scramble Bowl w/ Grilled Filet - no hash browns": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-bowl-grilled-filet-no-hash-browns",
+   "name": "Hash Brown Scramble Bowl",
+   "variant_of": "hash-brown-scramble-bowl",
+   "variant_label": "Grilled Filet - no hash browns"
+  },
+  "Hash Brown Scramble Bowl w/ Spicy Chicken - no hash browns": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-bowl-spicy-chicken-no-hash-browns",
+   "name": "Hash Brown Scramble Bowl",
+   "variant_of": "hash-brown-scramble-bowl",
+   "variant_label": "Spicy Chicken - no hash browns"
+  },
+  "Hash Brown Scramble Bowl w/ Bacon - no hash browns": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-bowl-bacon-no-hash-browns",
+   "name": "Hash Brown Scramble Bowl",
+   "variant_of": "hash-brown-scramble-bowl",
+   "variant_label": "Bacon - no hash browns"
+  },
+  "Hash Brown Scramble Bowl w/ No Meat - no hash browns": {
+   "cat": "preset",
+   "id": "hash-brown-scramble-bowl-no-meat-no-hash-browns",
+   "name": "Hash Brown Scramble Bowl",
+   "variant_of": "hash-brown-scramble-bowl",
+   "variant_label": "No Meat - no hash browns"
+  },
+  "Chicken & Waffles Breakfast Sandwich w/ Chick-fil-A® Filet": {
+   "cat": "preset",
+   "id": "chicken-waffles-breakfast-sandwich",
+   "name": "Chicken & Waffles Breakfast Sandwich",
+   "variant_label": "Chick-fil-A® Filet"
+  },
+  "Chicken & Waffles Breakfast Sandwich w/ Spicy Filet": {
+   "cat": "preset",
+   "id": "chicken-waffles-breakfast-sandwich-spicy-filet",
+   "name": "Chicken & Waffles Breakfast Sandwich",
+   "variant_of": "chicken-waffles-breakfast-sandwich",
+   "variant_label": "Spicy Filet"
+  },
+  "Chicken & Waffles Breakfast Sandwich w/ Grilled Filet": {
+   "cat": "preset",
+   "id": "chicken-waffles-breakfast-sandwich-grilled-filet",
+   "name": "Chicken & Waffles Breakfast Sandwich",
+   "variant_of": "chicken-waffles-breakfast-sandwich",
+   "variant_label": "Grilled Filet"
+  },
+  "Spicy Deluxe Sandwich": {
+   "skip": "identical to one of its own published variants"
+  },
+  "Spicy Deluxe Sandwich w/ Pepper Jack": {
+   "cat": "preset",
+   "id": "spicy-deluxe-sandwich",
+   "name": "Spicy Deluxe Sandwich",
+   "variant_label": "Pepper Jack"
+  },
+  "Spicy Deluxe Sandwich w/ American": {
+   "cat": "preset",
+   "id": "spicy-deluxe-sandwich-american",
+   "name": "Spicy Deluxe Sandwich",
+   "variant_of": "spicy-deluxe-sandwich",
+   "variant_label": "American"
+  },
+  "Spicy Deluxe Sandwich w/ Colby Jack": {
+   "cat": "preset",
+   "id": "spicy-deluxe-sandwich-colby-jack",
+   "name": "Spicy Deluxe Sandwich",
+   "variant_of": "spicy-deluxe-sandwich",
+   "variant_label": "Colby Jack"
+  },
+  "Spicy Deluxe Sandwich w/ No Cheese": {
+   "cat": "preset",
+   "id": "spicy-deluxe-sandwich-no-cheese",
+   "name": "Spicy Deluxe Sandwich",
+   "variant_of": "spicy-deluxe-sandwich",
+   "variant_label": "No Cheese"
+  },
+  "Chick-fil-A Chick-n-Strips®": {
+   "skip": "identical to one of its own published variants"
+  },
+  "2 ct Chick-fil-A Chick-n-Strips®": {
+   "cat": "preset",
+   "id": "chick-fil-a-chick-n-strips",
+   "name": "Chick-fil-A Chick-n-Strips®",
+   "variant_label": "2 ct"
+  },
+  "3 ct Chick-fil-A Chick-n-Strips®": {
+   "cat": "preset",
+   "id": "chick-fil-a-chick-n-strips-3-ct",
+   "name": "Chick-fil-A Chick-n-Strips®",
+   "variant_of": "chick-fil-a-chick-n-strips",
+   "variant_label": "3 ct"
+  },
+  "4 ct Chick-fil-A Chick-n-Strips®": {
+   "cat": "preset",
+   "id": "chick-fil-a-chick-n-strips-4-ct",
+   "name": "Chick-fil-A Chick-n-Strips®",
+   "variant_of": "chick-fil-a-chick-n-strips",
+   "variant_label": "4 ct"
+  },
+  "10 ct Chick-fil-A Chick-n-Strips®": {
+   "cat": "preset",
+   "id": "chick-fil-a-chick-n-strips-10-ct",
+   "name": "Chick-fil-A Chick-n-Strips®",
+   "variant_of": "chick-fil-a-chick-n-strips",
+   "variant_label": "10 ct"
+  },
+  "Chick-fil-A® Nuggets": {
+   "skip": "identical to one of its own published variants"
+  },
+  "8 ct Chick-fil-A® Nuggets": {
+   "cat": "preset",
+   "id": "chick-fil-a-nuggets",
+   "name": "Chick-fil-A® Nuggets",
+   "variant_label": "8 ct"
+  },
+  "12 ct Chick-fil-A® Nuggets": {
+   "cat": "preset",
+   "id": "chick-fil-a-nuggets-12-ct",
+   "name": "Chick-fil-A® Nuggets",
+   "variant_of": "chick-fil-a-nuggets",
+   "variant_label": "12 ct"
+  },
+  "30 ct Chick-fil-A® Nuggets": {
+   "cat": "preset",
+   "id": "chick-fil-a-nuggets-30-ct",
+   "name": "Chick-fil-A® Nuggets",
+   "variant_of": "chick-fil-a-nuggets",
+   "variant_label": "30 ct"
+  },
+  "Grilled Nuggets": {
+   "skip": "identical to one of its own published variants"
+  },
+  "8 ct Grilled Nuggets": {
+   "cat": "preset",
+   "id": "grilled-nuggets",
+   "name": "Grilled Nuggets",
+   "variant_label": "8 ct"
+  },
+  "12 ct Grilled Nuggets": {
+   "cat": "preset",
+   "id": "grilled-nuggets-12-ct",
+   "name": "Grilled Nuggets",
+   "variant_of": "grilled-nuggets",
+   "variant_label": "12 ct"
+  },
+  "30 ct Grilled Nuggets": {
+   "cat": "preset",
+   "id": "grilled-nuggets-30-ct",
+   "name": "Grilled Nuggets",
+   "variant_of": "grilled-nuggets",
+   "variant_label": "30 ct"
+  },
+  "Chick-fil-A® Deluxe Sandwich": {
+   "skip": "identical to one of its own published variants"
+  },
+  "Chick-fil-A® Deluxe Sandwich w/ American": {
+   "cat": "preset",
+   "id": "chick-fil-a-deluxe-sandwich",
+   "name": "Chick-fil-A® Deluxe Sandwich",
+   "variant_label": "American"
+  },
+  "Chick-fil-A® Deluxe Sandwich w/ Colby Jack": {
+   "cat": "preset",
+   "id": "chick-fil-a-deluxe-sandwich-colby-jack",
+   "name": "Chick-fil-A® Deluxe Sandwich",
+   "variant_of": "chick-fil-a-deluxe-sandwich",
+   "variant_label": "Colby Jack"
+  },
+  "Chick-fil-A® Deluxe Sandwich w/ Pepper Jack": {
+   "cat": "preset",
+   "id": "chick-fil-a-deluxe-sandwich-pepper-jack",
+   "name": "Chick-fil-A® Deluxe Sandwich",
+   "variant_of": "chick-fil-a-deluxe-sandwich",
+   "variant_label": "Pepper Jack"
+  },
+  "Chick-fil-A® Deluxe Sandwich w/ No Cheese": {
+   "cat": "preset",
+   "id": "chick-fil-a-deluxe-sandwich-no-cheese",
+   "name": "Chick-fil-A® Deluxe Sandwich",
+   "variant_of": "chick-fil-a-deluxe-sandwich",
+   "variant_label": "No Cheese"
+  },
+  "Grilled Chicken Club w/ Colby Jack": {
+   "cat": "preset",
+   "id": "grilled-chicken-club",
+   "name": "Grilled Chicken Club",
+   "variant_label": "Colby Jack"
+  },
+  "Grilled Chicken Club w/ American": {
+   "cat": "preset",
+   "id": "grilled-chicken-club-american",
+   "name": "Grilled Chicken Club",
+   "variant_of": "grilled-chicken-club",
+   "variant_label": "American"
+  },
+  "Grilled Chicken Club w/ Pepper Jack": {
+   "cat": "preset",
+   "id": "grilled-chicken-club-pepper-jack",
+   "name": "Grilled Chicken Club",
+   "variant_of": "grilled-chicken-club",
+   "variant_label": "Pepper Jack"
+  },
+  "Grilled Chicken Club w/ No Cheese": {
+   "cat": "preset",
+   "id": "grilled-chicken-club-no-cheese",
+   "name": "Grilled Chicken Club",
+   "variant_of": "grilled-chicken-club",
+   "variant_label": "No Cheese"
+  },
+  "Chicken & Waffles Sandwich w/ Chick-fil-A® Filet": {
+   "cat": "preset",
+   "id": "chicken-waffles-sandwich",
+   "name": "Chicken & Waffles Sandwich",
+   "variant_label": "Chick-fil-A® Filet"
+  },
+  "Chicken & Waffles Sandwich w/ Spicy Filet": {
+   "cat": "preset",
+   "id": "chicken-waffles-sandwich-spicy-filet",
+   "name": "Chicken & Waffles Sandwich",
+   "variant_of": "chicken-waffles-sandwich",
+   "variant_label": "Spicy Filet"
+  },
+  "Chicken & Waffles Sandwich w/ Grilled Filet": {
+   "cat": "preset",
+   "id": "chicken-waffles-sandwich-grilled-filet",
+   "name": "Chicken & Waffles Sandwich",
+   "variant_of": "chicken-waffles-sandwich",
+   "variant_label": "Grilled Filet"
+  },
+  "Cobb Salad": {
+   "skip": "identical to one of its own published variants"
+  },
+  "Cobb Salad w/ Nuggets": {
+   "cat": "preset",
+   "id": "cobb-salad",
+   "name": "Cobb Salad",
+   "variant_label": "Nuggets"
+  },
+  "Cobb Salad w/ Spicy Grilled Filet (Cold)": {
+   "cat": "preset",
+   "id": "cobb-salad-spicy-grilled-filet-cold",
+   "name": "Cobb Salad",
+   "variant_of": "cobb-salad",
+   "variant_label": "Spicy Grilled Filet (Cold)"
+  },
+  "Cobb Salad w/ Grilled Nuggets": {
+   "cat": "preset",
+   "id": "cobb-salad-grilled-nuggets",
+   "name": "Cobb Salad",
+   "variant_of": "cobb-salad",
+   "variant_label": "Grilled Nuggets"
+  },
+  "Cobb Salad w/ Chick-fil-A Chick-n-Strips®": {
+   "cat": "preset",
+   "id": "cobb-salad-chick-fil-a-chick-n-strips",
+   "name": "Cobb Salad",
+   "variant_of": "cobb-salad",
+   "variant_label": "Chick-fil-A Chick-n-Strips®"
+  },
+  "Cobb Salad w/ Grilled Filet (Cold)": {
+   "cat": "preset",
+   "id": "cobb-salad-grilled-filet-cold",
+   "name": "Cobb Salad",
+   "variant_of": "cobb-salad",
+   "variant_label": "Grilled Filet (Cold)"
+  },
+  "Cobb Salad w/ Grilled Filet (Warm)": {
+   "cat": "preset",
+   "id": "cobb-salad-grilled-filet-warm",
+   "name": "Cobb Salad",
+   "variant_of": "cobb-salad",
+   "variant_label": "Grilled Filet (Warm)"
+  },
+  "Cobb Salad w/ No Chicken": {
+   "cat": "preset",
+   "id": "cobb-salad-no-chicken",
+   "name": "Cobb Salad",
+   "variant_of": "cobb-salad",
+   "variant_label": "No Chicken"
+  },
+  "Spicy Southwest Salad": {
+   "skip": "identical to one of its own published variants"
+  },
+  "Spicy Southwest Salad w/ Spicy Grilled Filet (Cold)": {
+   "cat": "preset",
+   "id": "spicy-southwest-salad",
+   "name": "Spicy Southwest Salad",
+   "variant_label": "Spicy Grilled Filet (Cold)"
+  },
+  "Spicy Southwest Salad w/ Grilled Filet (Cold)": {
+   "cat": "preset",
+   "id": "spicy-southwest-salad-grilled-filet-cold",
+   "name": "Spicy Southwest Salad",
+   "variant_of": "spicy-southwest-salad",
+   "variant_label": "Grilled Filet (Cold)"
+  },
+  "Spicy Southwest Salad w/ Nuggets": {
+   "cat": "preset",
+   "id": "spicy-southwest-salad-nuggets",
+   "name": "Spicy Southwest Salad",
+   "variant_of": "spicy-southwest-salad",
+   "variant_label": "Nuggets"
+  },
+  "Spicy Southwest Salad w/ Grilled Nuggets": {
+   "cat": "preset",
+   "id": "spicy-southwest-salad-grilled-nuggets",
+   "name": "Spicy Southwest Salad",
+   "variant_of": "spicy-southwest-salad",
+   "variant_label": "Grilled Nuggets"
+  },
+  "Spicy Southwest Salad w/ Chick-fil-A Chick-n-Strips®": {
+   "cat": "preset",
+   "id": "spicy-southwest-salad-chick-fil-a-chick-n-strips",
+   "name": "Spicy Southwest Salad",
+   "variant_of": "spicy-southwest-salad",
+   "variant_label": "Chick-fil-A Chick-n-Strips®"
+  },
+  "Spicy Southwest Salad w/ Grilled Filet (Warm)": {
+   "cat": "preset",
+   "id": "spicy-southwest-salad-grilled-filet-warm",
+   "name": "Spicy Southwest Salad",
+   "variant_of": "spicy-southwest-salad",
+   "variant_label": "Grilled Filet (Warm)"
+  },
+  "Spicy Southwest Salad w/ No Chicken": {
+   "cat": "preset",
+   "id": "spicy-southwest-salad-no-chicken",
+   "name": "Spicy Southwest Salad",
+   "variant_of": "spicy-southwest-salad",
+   "variant_label": "No Chicken"
+  },
+  "Market Salad": {
+   "skip": "identical to one of its own published variants"
+  },
+  "Market Salad w/ Grilled Filet (Cold)": {
+   "cat": "preset",
+   "id": "market-salad",
+   "name": "Market Salad",
+   "variant_label": "Grilled Filet (Cold)"
+  },
+  "Market Salad w/ Spicy Grilled Filet (Cold)": {
+   "cat": "preset",
+   "id": "market-salad-spicy-grilled-filet-cold",
+   "name": "Market Salad",
+   "variant_of": "market-salad",
+   "variant_label": "Spicy Grilled Filet (Cold)"
+  },
+  "Market Salad w/ Chick-fil-A Chick-n-Strips®": {
+   "cat": "preset",
+   "id": "market-salad-chick-fil-a-chick-n-strips",
+   "name": "Market Salad",
+   "variant_of": "market-salad",
+   "variant_label": "Chick-fil-A Chick-n-Strips®"
+  },
+  "Market Salad w/ Nuggets": {
+   "cat": "preset",
+   "id": "market-salad-nuggets",
+   "name": "Market Salad",
+   "variant_of": "market-salad",
+   "variant_label": "Nuggets"
+  },
+  "Market Salad w/ Grilled Nuggets": {
+   "cat": "preset",
+   "id": "market-salad-grilled-nuggets",
+   "name": "Market Salad",
+   "variant_of": "market-salad",
+   "variant_label": "Grilled Nuggets"
+  },
+  "Market Salad w/ Grilled Filet (Warm)": {
+   "cat": "preset",
+   "id": "market-salad-grilled-filet-warm",
+   "name": "Market Salad",
+   "variant_of": "market-salad",
+   "variant_label": "Grilled Filet (Warm)"
+  },
+  "Market Salad w/ No Chicken": {
+   "cat": "preset",
+   "id": "market-salad-no-chicken",
+   "name": "Market Salad",
+   "variant_of": "market-salad",
+   "variant_label": "No Chicken"
   }
  }
 }
