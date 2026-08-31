@@ -1,0 +1,344 @@
+{
+ "meta": {
+  "name": "Chipotle",
+  "slug": "chipotle",
+  "source": {
+   "pdf_url": "https://www.chipotle.com/content/dam/chipotle/menu/nutrition/US-Nutrition-Facts-Paper-Menu-3-2025.pdf",
+   "retrieved": "2026-08-31",
+   "format": "pdf",
+   "page_url": "https://www.chipotle.com/nutrition-calculator",
+   "fetch": "manual"
+  },
+  "disclaimer_extra": "Chipotle's printed nutrition chart is dated March 2025. Items it predates — Chicken Tinga, Chipotle Honey Chicken, Crispy Chicken, Pollo Asado and Cilantro Lime Sauce — come from Chipotle's live online menu, which publishes every nutrient except cholesterol. Those rows are marked, and their cholesterol is our estimate, scaled from Chipotle's own printed figures for comparable items; the workings are listed below. Every other number on them is Chipotle's.",
+  "blurb": "Build your Chipotle burrito, bowl, salad or tacos ingredient by ingredient — rice, beans, every protein including the newer ones, salsas, guac and queso — with per-portion nutrition from Chipotle's own published data.",
+  "glyph": "burrito",
+  "menu_check": {
+   "items_url": "https://services.chipotle.com/menu-metadata/v1/menu-metadata/nutrition?channel=web&region=US",
+   "names_url": "https://services.chipotle.com/menuinnovation/v1/universalmenus/menurules?country=US",
+   "headers": {
+    "ocp-apim-subscription-key": "b4d9f36380184a3788857063bce25d6a"
+   },
+   "nutrition": {
+    "tcal": "calories",
+    "tfat": "fat_g",
+    "satu": "sat_fat_g",
+    "tran": "trans_fat_g",
+    "sodi": "sodium_mg",
+    "carb": "carbs_g",
+    "fibe": "fiber_g",
+    "suga": "sugars_g",
+    "prot": "protein_g"
+   },
+   "ignore": "burrito|bowl|quesadilla|salad|tacos?\\s*\\(|kids?|meal|chips|water|juice|tea|lemonade|soda|cola|coke|sprite|jarritos|pellegrino|poppi|spindrift|topo|kiju|honest|hubert|innocent|lemonaid|moonshine|starbucks|milk|agua|limeade|beverage|corona|sparkling|^no |^extra |^half |^build-your-own|tortillas? \\(|^2 |^double wrap|on the side|taco$",
+   "aliases": {
+    "Brown Rice": "Cilantro-Lime Brown Rice",
+    "White Rice": "Cilantro-Lime White Rice",
+    "Fajita Veggies": "Fajita Vegetables",
+    "Side of Beef Barbacoa": "Barbacoa",
+    "Soft Flour Tortilla": "Flour Tortilla (taco)"
+   }
+  }
+ },
+ "categories": [
+  {
+   "id": "base",
+   "name": "Tortilla or Bowl",
+   "select": "single",
+   "flow": "build"
+  },
+  {
+   "id": "rice",
+   "name": "Rice",
+   "select": "single",
+   "flow": "build"
+  },
+  {
+   "id": "beans",
+   "name": "Beans",
+   "select": "single",
+   "flow": "build"
+  },
+  {
+   "id": "protein",
+   "name": "Protein",
+   "select": "single",
+   "flow": "build"
+  },
+  {
+   "id": "salsa",
+   "name": "Salsa",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "toppings",
+   "name": "Toppings",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "sides",
+   "name": "Sides",
+   "select": "multi",
+   "flow": "extras"
+  }
+ ],
+ "layout": {
+  "columns": [
+   "calories",
+   "cff",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g"
+  ],
+  "allergen": false,
+  "serving": null,
+  "sections": "^(BURRITOS, TACOS & SALADS|WHAT GOES INSIDE|SIDES & DRINKS)$",
+  "pre_replace": [
+   [
+    "<\\s+1",
+    "<1"
+   ],
+   [
+    "^(.+?)\\s+(\\d+(?:\\.\\d+)?\\s*(?:ea|oz|fl oz))\\s+(?=\\d)",
+    "\\1 [\\2] "
+   ]
+  ],
+  "serving_brackets": true,
+  "skip": "^(nutrition facts|Offerings may vary|vary from order|seasons, or differences|for general nutrition|keep this chart|Before placing|Nutritional content|noitroP|taF$|morF|staF|loretselohC|setardyhobraC|rebiF|\\)g\\(|\\)gm\\(|[A-Z][a-z]+ tortilla with|Chopped romaine|Responsibly raised|Organic plant-based|Your choice of|Just like a|cilantro-lime rice|beans, meat|or sour cream|of beans, meat|chipotle-honey vin|romaine lettuce|salsa, cheese|hours, then|for hours|chipotle adobo|Includes our)",
+  "stop": "^Barq's Root Beer",
+  "start": "^Flour Tortilla \\(burrito\\)"
+ },
+ "section_categories": {},
+ "items": {
+  "Flour Tortilla (burrito)": {
+   "cat": "base",
+   "name": "Flour Tortilla (burrito)"
+  },
+  "Flour Tortilla (taco)": {
+   "cat": "base",
+   "name": "Flour Tortilla (taco)"
+  },
+  "Crispy Corn Tortilla": {
+   "cat": "base"
+  },
+  "Cilantro-Lime Brown Rice": {
+   "cat": "rice"
+  },
+  "Cilantro-Lime White Rice": {
+   "cat": "rice"
+  },
+  "Black Beans": {
+   "cat": "beans"
+  },
+  "Pinto Beans": {
+   "cat": "beans"
+  },
+  "Barbacoa": {
+   "cat": "protein"
+  },
+  "Chicken": {
+   "cat": "protein"
+  },
+  "Carnitas": {
+   "cat": "protein"
+  },
+  "Steak": {
+   "cat": "protein"
+  },
+  "Sofritas": {
+   "cat": "protein"
+  },
+  "Fresh Tomato Salsa": {
+   "cat": "salsa"
+  },
+  "Roasted Chili-Corn Salsa": {
+   "cat": "salsa"
+  },
+  "Tomatillo-Green Chili Salsa": {
+   "cat": "salsa"
+  },
+  "Tomatillo-Red Chili Salsa": {
+   "cat": "salsa"
+  },
+  "Fajita Vegetables": {
+   "cat": "toppings"
+  },
+  "Cheese": {
+   "cat": "toppings"
+  },
+  "Sour Cream": {
+   "cat": "toppings"
+  },
+  "Guacamole (topping/side)": {
+   "cat": "toppings",
+   "name": "Guacamole"
+  },
+  "Guacamole (large)": {
+   "cat": "toppings",
+   "name": "Guacamole (large)"
+  },
+  "Queso Blanco (entreé)": {
+   "cat": "toppings",
+   "name": "Queso Blanco"
+  },
+  "Queso Blanco (side)": {
+   "cat": "sides",
+   "name": "Queso Blanco (side)"
+  },
+  "Queso Blanco (large)": {
+   "cat": "sides",
+   "name": "Queso Blanco (large)"
+  },
+  "Supergreens Salad Mix": {
+   "cat": "toppings"
+  },
+  "Romaine Lettuce (tacos)": {
+   "cat": "toppings",
+   "name": "Romaine Lettuce"
+  },
+  "Chips (regular)": {
+   "cat": "sides",
+   "name": "Chips"
+  },
+  "Chips (large)": {
+   "cat": "sides",
+   "name": "Chips (large)"
+  },
+  "Chipotle-Honey Vinaigrette": {
+   "cat": "sides"
+  }
+ },
+ "synthetic": [
+  {
+   "id": "no-tortilla",
+   "name": "No tortilla (bowl or salad)",
+   "cat": "base",
+   "desc": "served in a bowl",
+   "before": "flour-tortilla-burrito"
+  }
+ ],
+ "derived": [
+  {
+   "id": "cilantro-lime-sauce",
+   "name": "Cilantro Lime Sauce",
+   "cat": "toppings",
+   "serving_desc": "2 oz",
+   "values": {
+    "calories": 80,
+    "fat_g": 6,
+    "sat_fat_g": 4.5,
+    "trans_fat_g": 0,
+    "cholesterol_mg": 25,
+    "sodium_mg": 300,
+    "carbs_g": 3,
+    "fiber_g": 1,
+    "sugars_g": 2,
+    "protein_g": 2,
+    "serving_g": null
+   },
+   "reason": "Chipotle's online menu publishes no cholesterol. Estimated at 25 mg by scaling this item's 6 g of fat against Chipotle's own printed chart, where 2 oz of their sour cream is 40 mg with 9 g of fat — fat is the better guide than protein for a dairy sauce. Every other figure on this row is Chipotle's own.",
+   "estimated": [
+    "cholesterol_mg"
+   ]
+  },
+  {
+   "id": "chicken-tinga",
+   "name": "Chicken Tinga",
+   "cat": "protein",
+   "serving_desc": "5 oz",
+   "values": {
+    "calories": 240,
+    "fat_g": 12,
+    "sat_fat_g": 2.5,
+    "trans_fat_g": 0,
+    "cholesterol_mg": 105,
+    "sodium_mg": 810,
+    "carbs_g": 6,
+    "fiber_g": 1,
+    "sugars_g": 3,
+    "protein_g": 27,
+    "serving_g": null
+   },
+   "reason": "Chipotle's online menu publishes no cholesterol. Estimated at 105 mg by scaling this item's 27 g protein against Chipotle's own printed chart, where 4 oz of their grilled chicken is 125 mg with 32 g of protein. Every other figure on this row is Chipotle's own.",
+   "estimated": [
+    "cholesterol_mg"
+   ]
+  },
+  {
+   "id": "chipotle-honey-chicken",
+   "name": "Chipotle Honey Chicken",
+   "cat": "protein",
+   "serving_desc": "5 oz",
+   "values": {
+    "calories": 260,
+    "fat_g": 10,
+    "sat_fat_g": 2.5,
+    "trans_fat_g": 0,
+    "cholesterol_mg": 100,
+    "sodium_mg": 840,
+    "carbs_g": 16,
+    "fiber_g": 0,
+    "sugars_g": 11,
+    "protein_g": 26,
+    "serving_g": null
+   },
+   "reason": "Chipotle's online menu publishes no cholesterol. Estimated at 100 mg by scaling this item's 26 g protein against Chipotle's own printed chart, where 4 oz of their grilled chicken is 125 mg with 32 g of protein. Every other figure on this row is Chipotle's own.",
+   "estimated": [
+    "cholesterol_mg"
+   ]
+  },
+  {
+   "id": "crispy-chicken",
+   "name": "Crispy Chicken",
+   "cat": "protein",
+   "serving_desc": "5 oz",
+   "values": {
+    "calories": 280,
+    "fat_g": 9,
+    "sat_fat_g": 1,
+    "trans_fat_g": 0,
+    "cholesterol_mg": 160,
+    "sodium_mg": 870,
+    "carbs_g": 9,
+    "fiber_g": 4,
+    "sugars_g": 0,
+    "protein_g": 41,
+    "serving_g": null
+   },
+   "reason": "Chipotle's online menu publishes no cholesterol. Estimated at 160 mg by scaling this item's 41 g protein against Chipotle's own printed chart, where 4 oz of their grilled chicken is 125 mg with 32 g of protein. Every other figure on this row is Chipotle's own.",
+   "estimated": [
+    "cholesterol_mg"
+   ]
+  },
+  {
+   "id": "pollo-asado",
+   "name": "Pollo Asado",
+   "cat": "protein",
+   "serving_desc": "5 oz",
+   "values": {
+    "calories": 220,
+    "fat_g": 8,
+    "sat_fat_g": 3.5,
+    "trans_fat_g": 0,
+    "cholesterol_mg": 145,
+    "sodium_mg": 440,
+    "carbs_g": 4,
+    "fiber_g": 0,
+    "sugars_g": 2,
+    "protein_g": 37,
+    "serving_g": null
+   },
+   "reason": "Chipotle's online menu publishes no cholesterol. Estimated at 145 mg by scaling this item's 37 g protein against Chipotle's own printed chart, where 4 oz of their grilled chicken is 125 mg with 32 g of protein. Every other figure on this row is Chipotle's own.",
+   "estimated": [
+    "cholesterol_mg"
+   ]
+  }
+ ]
+}
