@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useMemo, useRef, useState } from "react";
 import type { Category, Chain, Component, Totals } from "@/lib/schema";
 import {
   show,
@@ -9,13 +9,16 @@ import {
   COVERAGE_STEPS,
   QTY_STEPS,
   Selections,
+  activeSizeMode,
   decodeMeal,
+  defaultSizeMode,
   encodeMeal,
+  estimatedNutrients,
   mealSubtitle,
   mealTotals,
-  estimatedNutrients,
   unknownNutrients,
 } from "@/lib/meal";
+import { copyText } from "@/lib/clipboard";
 import { drawLabel } from "@/lib/labelImage";
 import NutritionLabel from "./NutritionLabel";
 import {
@@ -388,41 +391,6 @@ function labelText(
 }
 
 /**
- * Copy with fallbacks: navigator.clipboard only exists in secure contexts
- * (https / localhost), so on a plain-http LAN dev URL (phone testing) fall back
- * to the legacy execCommand path, and as a last resort show the text to copy.
- */
-function copyText(text: string): Promise<boolean> {
-  if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
-    return navigator.clipboard.writeText(text).then(
-      () => true,
-      () => legacyCopy(text),
-    );
-  }
-  return Promise.resolve(legacyCopy(text));
-}
-
-function legacyCopy(text: string): boolean {
-  try {
-    const ta = document.createElement("textarea");
-    ta.value = text;
-    ta.setAttribute("readonly", "");
-    ta.style.position = "fixed";
-    ta.style.top = "0";
-    ta.style.opacity = "0";
-    document.body.appendChild(ta);
-    ta.focus();
-    ta.select();
-    ta.setSelectionRange(0, text.length); // iOS needs an explicit range
-    const ok = document.execCommand("copy");
-    document.body.removeChild(ta);
-    return ok;
-  } catch {
-    return false;
-  }
-}
-
-/**
  * Save the panel as a PNG, drawn in the browser -- no request, so nothing about
  * a meal leaves the device.
  *
@@ -713,8 +681,35 @@ function ExtrasSection({
   );
 }
 
-export default function MealBuilder({ chain }: { chain: Chain }) {
-  const [selections, setSelections] = useState<Selections>({});
+/**
+ * The build flow for one chain.
+ *
+ * Uncontrolled by default, which is what the chain page wants: it owns its own
+ * selections and mirrors them into ?m=. The comparison view passes `selections`
+ * and `onSelectionsChange` to hold two of these at once, turns `syncUrl` off so
+ * one builder cannot fight the other over the address bar, and asks for `bare`
+ * chrome because the comparison owns the totals panel for both sides.
+ */
+export default function MealBuilder({
+  chain,
+  selections: controlledSelections,
+  onSelectionsChange,
+  portion: controlledPortion,
+  onPortionChange,
+  syncUrl = true,
+  chrome = "full",
+}: {
+  chain: Chain;
+  selections?: Selections;
+  onSelectionsChange?: Dispatch<SetStateAction<Selections>>;
+  portion?: number;
+  onPortionChange?: Dispatch<SetStateAction<number>>;
+  syncUrl?: boolean;
+  chrome?: "full" | "bare";
+}) {
+  const [ownSelections, setOwnSelections] = useState<Selections>({});
+  const selections = controlledSelections ?? ownSelections;
+  const setSelections = onSelectionsChange ?? setOwnSelections;
   const [labelOpen, setLabelOpen] = useState(false);
   const hydrated = useRef(false);
 
@@ -732,16 +727,11 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
   // selected component carrying a size_mode (the Size step's rows) — the
   // format pick IS the size choice; there is no separate control.
   const modes = chain.size_modes ?? null;
-  const defaultMode = modes?.find((m) => m.default) ?? modes?.[0] ?? null;
-  const activeMode = useMemo(() => {
-    if (!modes) return null;
-    for (const c of chain.components) {
-      if (selections[c.id] && c.size_mode) {
-        return modes.find((m) => m.id === c.size_mode) ?? defaultMode;
-      }
-    }
-    return defaultMode;
-  }, [modes, defaultMode, chain, selections]);
+  const defaultMode = defaultSizeMode(chain);
+  const activeMode = useMemo(
+    () => activeSizeMode(chain, selections),
+    [chain, selections],
+  );
   const mult = (cat: string) => activeMode?.multipliers[cat] ?? 1;
   // A row that would activate a mode previews its own scaling.
   const rowMult = (comp: Component) => {
@@ -856,13 +846,22 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
     () => new Set(chain.portion?.categories ?? []),
     [chain],
   );
-  const [portion, setPortion] = useState(1);
+  const [ownPortion, setOwnPortion] = useState(1);
+  const portion = controlledPortion ?? ownPortion;
+  const setPortion = onPortionChange ?? setOwnPortion;
   useEffect(() => {
     if (portionMax) setPortion((p) => Math.min(Math.max(p, 1), portionMax));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [portionMax]);
 
   // Restore meal from ?m= after mount (SSR renders the empty state).
+  // Skipped when controlled: the owner supplied the meal, and re-reading the
+  // address bar would overwrite it with whichever side wrote last.
   useEffect(() => {
+    if (!syncUrl) {
+      hydrated.current = true;
+      return;
+    }
     const q = new URLSearchParams(window.location.search);
     const p = Number(q.get("p"));
     if (Number.isInteger(p) && p > 1) {
@@ -889,7 +888,7 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
   // reported ~20 "pageviews" for one person building one meal. Waiting for a
   // pause collapses a burst of edits into a single URL write.
   useEffect(() => {
-    if (!hydrated.current) return;
+    if (!hydrated.current || !syncUrl) return;
     const t = setTimeout(() => {
       const href = mealUrl(selections, portion);
       if (href !== window.location.href) {
@@ -897,7 +896,7 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
       }
     }, URL_SYNC_DELAY_MS);
     return () => clearTimeout(t);
-  }, [selections, portion]);
+  }, [selections, portion, syncUrl]);
 
   const totals = useMemo(
     () => mealTotals(chain, selections, activeMode, portion),
@@ -970,7 +969,14 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
   const clearAll = () => setSelections({});
 
   return (
-    <div className="grid gap-6 pb-28 lg:grid-cols-[1fr_300px] lg:pb-0">
+    <div
+      // No bottom padding for the floating totals bar: the page owns that
+      // clearance, because anything rendered after the builder would otherwise
+      // sit below a 112px hole on mobile.
+      className={
+        chrome === "bare" ? "grid gap-6" : "grid gap-6 lg:grid-cols-[1fr_300px]"
+      }
+    >
       {/*
         min-w-0 is load-bearing: a grid item defaults to min-width:auto, and
         `truncate` sets white-space:nowrap, so a long component name contributes
@@ -1173,6 +1179,7 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
       </div>
 
       {/* Desktop: sticky label column */}
+      {chrome === "full" && (
       <aside className="hidden lg:sticky lg:top-[72px] lg:block lg:space-y-2 lg:self-start">
         <NutritionLabel totals={totals} subtitle={subtitle} missing={missing} estimated={estimated} />
         <ShareMealButton chain={chain} selections={selections} portion={portion} />
@@ -1207,15 +1214,17 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
           )}
         </div>
       </aside>
+      )}
 
       {/* Mobile: floating totals bar + slide-up label sheet */}
-      {labelOpen && (
+      {chrome === "full" && labelOpen && (
         <div
           className="fixed inset-0 z-20 bg-black/30 backdrop-blur-[2px] lg:hidden"
           onClick={() => setLabelOpen(false)}
           aria-hidden
         />
       )}
+      {chrome === "full" && (
       <div className="pointer-events-none fixed inset-x-0 bottom-0 z-20 lg:hidden">
         <div className="pointer-events-auto mx-auto max-w-md px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
           {labelOpen && (
@@ -1269,6 +1278,7 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
           </button>
         </div>
       </div>
+      )}
     </div>
   );
 }
