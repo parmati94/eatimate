@@ -7,6 +7,10 @@ services:
     # host, and Next's SWC binaries are glibc/musl-specific
     image: node:22
     container_name: eatimate-dev
+    # Run as uid 1000 (the image's "node" user), not root. Without this the
+    # bind mount means npm install and next dev leave root-owned node_modules
+    # and .next on the host, and host-side npm/next then fail with EACCES.
+    user: node
     working_dir: /app
     command: sh -c "npm install && npm run dev"
     ports:
