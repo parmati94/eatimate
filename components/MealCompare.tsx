@@ -28,6 +28,9 @@ export interface ComparePreset {
   rule: string;
   /** One selection set per side, in the same order as `chains`. */
   sides: Selections[];
+  /** How much of each built item the starting build eats — 2 slices of a
+   *  pizza, say. Without this a pizza preset shows per-slice totals. */
+  portions: number[];
 }
 
 const URL_SYNC_DELAY_MS = 600;
@@ -45,7 +48,10 @@ export default function MealCompare({
     preset?.sides[0] ?? {},
     preset?.sides[1] ?? {},
   ]);
-  const [portions, setPortions] = useState<[number, number]>([1, 1]);
+  const [portions, setPortions] = useState<[number, number]>([
+    preset?.portions[0] ?? 1,
+    preset?.portions[1] ?? 1,
+  ]);
   const [tab, setTab] = useState(0);
   const [copied, setCopied] = useState(false);
   const hydrated = useRef(false);
@@ -129,6 +135,7 @@ export default function MealCompare({
   const loadPreset = (p: ComparePreset) => {
     setPresetId(p.id);
     setSelections([{ ...p.sides[0] }, { ...p.sides[1] }]);
+    setPortions([p.portions[0] ?? 1, p.portions[1] ?? 1]);
   };
 
   return (
