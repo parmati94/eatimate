@@ -7,7 +7,7 @@ export const CorrectionSchema = z.object({
   printed: z.number().nullable(),
   used: z.number(),
   reason: z.string(),
-});
+}).strict();
 
 export const ComponentSchema = z.object({
   id: z.string().regex(/^[a-z0-9][a-z0-9-]*$/),
@@ -45,7 +45,7 @@ export const ComponentSchema = z.object({
   // ordered more than kale, so this is our judgement, set by hand per chain.
   // It affects ordering and prominence only — never a number.
   feature: z.boolean().optional(),
-});
+}).strict();
 
 // Chain-wide size scaling (e.g. Subway 6" vs Footlong): the active mode
 // multiplies every component in the listed categories. Activated by selecting
@@ -59,7 +59,7 @@ export const SizeModeSchema = z.object({
   multipliers: z.record(z.string(), z.number().positive()),
   // How many portions the built item divides into in this mode.
   portion_count: z.number().int().positive().optional(),
-});
+}).strict();
 
 export const CategorySchema = z.object({
   id: z.string().regex(/^[a-z0-9][a-z0-9-]*$/),
@@ -71,7 +71,7 @@ export const CategorySchema = z.object({
   flow: z.enum(["preset", "build", "extras"]).optional(),
   // Optional explanatory line shown under the category heading.
   note: z.string().optional(),
-});
+}).strict();
 
 // How much of the built item was eaten, for chains whose published unit is a
 // fraction of what you order: Papa John's publishes per slice, but you build a
@@ -79,7 +79,7 @@ export const CategorySchema = z.object({
 export const PortionSchema = z.object({
   unit: z.string().min(1),
   categories: z.array(z.string()).min(1),
-});
+}).strict();
 
 export const ChainSchema = z
   .object({
@@ -93,6 +93,7 @@ export const ChainSchema = z
         html_url: z.string().url().optional(),
         retrieved: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
       })
+      .strict()
       .refine((s) => Boolean(s.pdf_url ?? s.html_url), {
         message: "source needs either pdf_url or html_url",
       }),
@@ -107,6 +108,7 @@ export const ChainSchema = z
     portion: PortionSchema.optional(),
     components: z.array(ComponentSchema).min(1),
   })
+  .strict()
   .superRefine((chain, ctx) => {
     const catIds = new Set(chain.categories.map((c) => c.id));
     const modeIds = new Set((chain.size_modes ?? []).map((m) => m.id));
@@ -213,4 +215,31 @@ export const NUTRIENT_FIELDS = [
 ] as const;
 
 export type NutrientField = (typeof NUTRIENT_FIELDS)[number];
+
+/** Field names as a person would read them, for corrections and label copy. */
+export const NUTRIENT_LABELS: Record<NutrientField, string> = {
+  calories: "calories",
+  fat_g: "total fat",
+  sat_fat_g: "saturated fat",
+  trans_fat_g: "trans fat",
+  cholesterol_mg: "cholesterol",
+  sodium_mg: "sodium",
+  carbs_g: "carbohydrate",
+  fiber_g: "dietary fibre",
+  sugars_g: "sugars",
+  protein_g: "protein",
+};
+
+export const NUTRIENT_UNITS: Record<NutrientField, string> = {
+  calories: "cal",
+  fat_g: "g",
+  sat_fat_g: "g",
+  trans_fat_g: "g",
+  cholesterol_mg: "mg",
+  sodium_mg: "mg",
+  carbs_g: "g",
+  fiber_g: "g",
+  sugars_g: "g",
+  protein_g: "g",
+};
 export type Totals = Record<NutrientField, number>;

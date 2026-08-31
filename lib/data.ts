@@ -19,21 +19,35 @@ export const listChains = cache(async (): Promise<Chain[]> => {
       .filter((f) => f.endsWith(".json"))
       .map(async (f) => {
         const raw = await fs.readFile(path.join(CHAINS_DIR, f), "utf8");
-        return ChainSchema.parse(JSON.parse(raw));
+        return parseChain(f.replace(/\.json$/, ""), raw);
       }),
   );
-  return chains.sort((a, b) => a.name.localeCompare(b.name));
+  // One malformed file drops its own tile rather than taking down the index.
+  return chains
+    .filter((c): c is Chain => c !== null)
+    .sort((a, b) => a.name.localeCompare(b.name));
 });
+
+/** A file that exists but does not validate is a bug, not a 404. The schema is
+ *  strict, so a mistyped optional key lands here instead of silently switching
+ *  a feature off — say so rather than serving a blank page. */
+function parseChain(slug: string, raw: string): Chain | null {
+  const parsed = ChainSchema.safeParse(JSON.parse(raw));
+  if (parsed.success) return parsed.data;
+  console.error(
+    `chain "${slug}" failed validation and will not be served:`,
+    parsed.error.issues.map((i) => `${i.path.join(".")}: ${i.message}`),
+  );
+  return null;
+}
 
 export const getChain = cache(async (slug: string): Promise<Chain | null> => {
   if (!/^[a-z0-9-]+$/.test(slug)) return null;
+  let raw: string;
   try {
-    const raw = await fs.readFile(
-      path.join(CHAINS_DIR, `${slug}.json`),
-      "utf8",
-    );
-    return ChainSchema.parse(JSON.parse(raw));
+    raw = await fs.readFile(path.join(CHAINS_DIR, `${slug}.json`), "utf8");
   } catch {
-    return null;
+    return null; // no such chain
   }
+  return parseChain(slug, raw);
 });

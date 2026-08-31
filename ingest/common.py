@@ -371,6 +371,11 @@ def finish(cfg, components, rows, pending, out_dir="data/chains"):
         for e in errors: print("ERROR:", e, file=sys.stderr)
         sys.exit(1)
     chain = dict(cfg["meta"]); chain["categories"] = cfg["categories"]; chain["components"] = components
+    # meta.source also carries extraction knobs (matrix, plain_ua, html_urls...).
+    # Those describe how to READ the source, not the chain, so they stay in
+    # ingest/chains and never reach the app -- whose schema is strict.
+    chain["source"] = {k: v for k, v in chain["source"].items()
+                       if k in ("pdf_url", "html_url", "retrieved")}
     out = Path(out_dir) / f"{slug_}.json"
     out.write_text(json.dumps(chain, indent=2, ensure_ascii=False) + "\n")
     dashes = [(r.printed, r.dashes) for r in rows if r.dashes]
