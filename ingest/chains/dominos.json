@@ -598,14 +598,17 @@
    "variant_label": "Personal"
   },
   "Garlic Oil Blend (Hand Tossed Only)": {
-   "cat": "crust"
+   "cat": "crust",
+   "addon_of": "hand-tossed"
   },
   "12\" Medium Parmesan Stuffed Crust Pizza/Garlic Oil Blend": {
-   "cat": "crust"
+   "cat": "crust",
+   "addon_of": "parmesan-stuffed-crust"
   },
   "12\" Medium Parmesan Stuffed Crust Pizza/Parmesan": {
    "cat": "crust",
-   "name": "Parmesan (baked on the crust)"
+   "name": "Parmesan (baked on the crust)",
+   "addon_of": "parmesan-stuffed-crust"
   }
  }
 }

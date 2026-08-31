@@ -935,6 +935,11 @@ export default function MealBuilder({
   );
 
   function toggle(comp: Component, single: boolean) {
+    // An add-on rides along with the choice it names; it is not an alternative
+    // to it. Clearing the category here would deselect the crust it belongs
+    // to, which then drops that crust's size mode, which then prunes the
+    // add-on itself -- two clicks and an empty meal.
+    const isAddon = !!comp.addon_of;
     setSelections((prev) => {
       const next = { ...prev };
       const adding = !next[comp.id];
@@ -942,7 +947,7 @@ export default function MealBuilder({
         delete next[comp.id];
         return next;
       }
-      if (single) {
+      if (single && !isAddon) {
         for (const other of byCategory.get(comp.category) ?? []) {
           delete next[other.id];
         }
@@ -952,7 +957,7 @@ export default function MealBuilder({
     });
     // Single-select pick in the build flow: advance the accordion, using the
     // visibility of the mode this pick activates (picking Wrap skips Bread).
-    if (single && !selections[comp.id]) {
+    if (single && !isAddon && !selections[comp.id]) {
       const modeAfter = comp.size_mode
         ? (modes?.find((m) => m.id === comp.size_mode) ?? defaultMode)
         : activeMode;

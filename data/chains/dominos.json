@@ -518,7 +518,8 @@
       "protein_g": 0,
       "only_modes": [
         "xs-hand"
-      ]
+      ],
+      "addon_of": "hand-tossed-xs-hand"
     },
     {
       "id": "garlic-oil-blend-hand-tossed-only-sm-hand",
@@ -538,7 +539,8 @@
       "protein_g": 0,
       "only_modes": [
         "sm-hand"
-      ]
+      ],
+      "addon_of": "hand-tossed-sm-hand"
     },
     {
       "id": "garlic-oil-blend-hand-tossed-only-md-hand",
@@ -558,7 +560,8 @@
       "protein_g": 0,
       "only_modes": [
         "md-hand"
-      ]
+      ],
+      "addon_of": "hand-tossed-md-hand"
     },
     {
       "id": "garlic-oil-blend-hand-tossed-only-lg-hand",
@@ -578,7 +581,8 @@
       "protein_g": 0,
       "only_modes": [
         "lg-hand"
-      ]
+      ],
+      "addon_of": "hand-tossed-lg-hand"
     },
     {
       "id": "garlic-oil-blend-hand-tossed-only-xl-hand",
@@ -598,7 +602,8 @@
       "protein_g": 0,
       "only_modes": [
         "xl-hand"
-      ]
+      ],
+      "addon_of": "hand-tossed-xl-hand"
     },
     {
       "id": "garlic-oil-blend-md-stuffed",
@@ -618,7 +623,8 @@
       "protein_g": 0,
       "only_modes": [
         "md-stuffed"
-      ]
+      ],
+      "addon_of": "parmesan-stuffed-crust-md-stuffed"
     },
     {
       "id": "parmesan-md-stuffed",
@@ -638,7 +644,8 @@
       "protein_g": 0,
       "only_modes": [
         "md-stuffed"
-      ]
+      ],
+      "addon_of": "parmesan-stuffed-crust-md-stuffed"
     },
     {
       "id": "pizza-sauce-personal",

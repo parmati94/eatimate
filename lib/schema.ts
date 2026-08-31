@@ -52,6 +52,13 @@ export const ComponentSchema = z.object({
   // The group head carries only variant_label; its siblings point at it.
   variant_of: z.string().optional(),
   variant_label: z.string().optional(),
+  // A row the chain publishes as part of building one specific choice rather
+  // than as an alternative to it: Domino's brushes garlic oil onto a hand
+  // tossed crust and dusts parmesan on the stuffed one. Picking one must NOT
+  // clear the crust the way picking a different crust does -- it is additive.
+  // Never inferred: sauce and cheese rows have the identical shape (gated to a
+  // mode, no size_mode of their own) and are strictly alternatives.
+  addon_of: z.string().optional(),
   // Surfaced in the "Make it a meal" step instead of being buried in a long
   // extras list. EDITORIAL: nothing in a nutrition document says fries are
   // ordered more than kale, so this is our judgement, set by hand per chain.
@@ -182,6 +189,27 @@ export const ChainSchema = z
         ctx.addIssue({
           code: "custom",
           message: `variant "${comp.id}" needs a variant_label for the size selector`,
+        });
+      }
+    }
+
+    for (const comp of chain.components) {
+      if (!comp.addon_of) continue;
+      const parent = byId.get(comp.addon_of);
+      if (!parent) {
+        ctx.addIssue({
+          code: "custom",
+          message: `component "${comp.id}" is an add-on to unknown component "${comp.addon_of}"`,
+        });
+      } else if (parent.category !== comp.category) {
+        ctx.addIssue({
+          code: "custom",
+          message: `add-on "${comp.id}" is in category "${comp.category}" but its parent "${parent.id}" is in "${parent.category}"`,
+        });
+      } else if (parent.addon_of) {
+        ctx.addIssue({
+          code: "custom",
+          message: `add-on "${comp.id}" points at "${parent.id}", which is itself an add-on`,
         });
       }
     }
