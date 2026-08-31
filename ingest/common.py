@@ -128,8 +128,12 @@ def parse_dump(path, layout):
         for a, b in pre: line = a.sub(b, line)
         if stop_re and stop_re.match(line): break
         if not started:
-            if start_re.match(line): started = True
-            continue
+            # Inclusive, mirroring the exclusive `stop`: the range is
+            # [start, stop). The marker is the first row we want, not the
+            # last one we don't.
+            if not start_re.match(line):
+                continue
+            started = True
         if not line or line.startswith("=====") or (skip_re and skip_re.match(line)):
             continue
         lines.append(line)
