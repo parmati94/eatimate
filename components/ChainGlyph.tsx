@@ -84,9 +84,13 @@ export default function ChainGlyph({
       </g>
     ),
     wing: (
-      <g fill="currentColor">
-        <path d="M22 20a12 12 0 0 1 20 8c1 8-6 14-13 13l-9 9a4 4 0 1 1-6-6l9-9c-2-6 0-12-1-15Z" transform="rotate(6 32 32)" />
-        <circle cx="17" cy="47" r="4.6" />
+      // Drumstick, drawn upright and symmetric about x=32, then tilted as one
+      // group: meat over a bone shaft flaring into a bone end.
+      <g fill="currentColor" transform="rotate(-35 32 32)">
+        <rect x="28.75" y="36" width="6.5" height="10" rx="3.25" />
+        <rect x="25.5" y="45" width="13" height="7.5" rx="3.5" />
+        <path d="M32 12c7 0 13 6 13 13.5 0 7.5-5 14.5-13 14.5s-13-7-13-14.5C19 18 25 12 32 12Z" />
+        <path d="M26 34q6 4 12 0" fill="none" stroke={detail} strokeWidth="3" strokeLinecap="round" opacity=".5" />
       </g>
     ),
   }[glyph];

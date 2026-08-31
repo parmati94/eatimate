@@ -78,3 +78,13 @@ body {
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
+
+/* Tailwind v4's reset drops Preflight's pointer cursor on buttons. */
+button:not(:disabled),
+summary,
+[role="button"]:not([aria-disabled="true"]) {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: default;
+}
