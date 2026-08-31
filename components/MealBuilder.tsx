@@ -970,10 +970,11 @@ export default function MealBuilder({
 
   return (
     <div
+      // No bottom padding for the floating totals bar: the page owns that
+      // clearance, because anything rendered after the builder would otherwise
+      // sit below a 112px hole on mobile.
       className={
-        chrome === "bare"
-          ? "grid gap-6"
-          : "grid gap-6 pb-28 lg:grid-cols-[1fr_300px] lg:pb-0"
+        chrome === "bare" ? "grid gap-6" : "grid gap-6 lg:grid-cols-[1fr_300px]"
       }
     >
       {/*

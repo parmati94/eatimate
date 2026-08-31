@@ -139,7 +139,7 @@ export default function MealCompare({
   };
 
   return (
-    <div className="pb-24">
+    <div>
       {presets.length > 0 && (
         <div className="mb-5">
           <div className="flex flex-wrap items-center gap-2">

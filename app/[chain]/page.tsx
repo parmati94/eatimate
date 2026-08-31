@@ -74,7 +74,7 @@ export default async function ChainPage(props: PageProps<"/[chain]">) {
   const sourceUrl = chain.source.pdf_url ?? chain.source.html_url!;
 
   return (
-    <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-6 sm:py-8">
+        <main className="mx-auto w-full max-w-5xl flex-1 px-4 pt-6 pb-28 sm:pt-8 lg:pb-8">
       <div className="mb-5 flex flex-wrap items-end justify-between gap-x-4 gap-y-2">
         <div>
           <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">

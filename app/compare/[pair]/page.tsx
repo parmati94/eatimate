@@ -81,7 +81,7 @@ export default async function ComparePage(props: PageProps<"/compare/[pair]">) {
   const { a, b, presets, recommended } = data;
 
   return (
-    <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:py-8">
+    <main className="mx-auto w-full max-w-6xl flex-1 px-4 pt-6 pb-28 sm:pt-8">
       <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
         {a.name} vs {b.name}{" "}
         <span className="font-semibold text-muted">Nutrition Compared</span>
