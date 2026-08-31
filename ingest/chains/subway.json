@@ -5,7 +5,11 @@
   "source": {
    "pdf_url": "https://www.subway.com/en-us/menunutrition/nutrition",
    "retrieved": "2026-08-30",
-   "format": "pdf"
+   "format": "pdf",
+   "page_url": "https://www.subway.com/en-us/menunutrition/nutrition",
+   "fetch": "plain",
+   "dump_sha256": "4e11d0607c52f2e042e6a8a77ad0677237b6fc9537d41179f85da073d3282a94",
+   "asset_sha256": "5bc07a188f91e734584bfb1326a46c9a6010d8d63e3b838fc6ee6e4afa763ede"
   },
   "disclaimer_extra": "Subway's January 2026 chart lists 6\" sub portions; footlong breads and wraps scale the rest of the build automatically per Subway's own guidance (one footlong = two 6\" servings; a wrap uses the footlong meat portion). Items marked with asterisks are at participating locations.",
   "blurb": "Build your Subway order the way the line works — bread, protein, cheese, veggies, sauces — from Subway's official January 2026 nutrition chart. Pick a 6\" or footlong bread and the whole build scales itself.",

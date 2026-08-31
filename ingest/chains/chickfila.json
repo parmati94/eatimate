@@ -21,7 +21,10 @@
     "Coffee",
     "Treats"
    ],
-   "format": "json"
+   "format": "json",
+   "page_url": "https://www.chick-fil-a.com/nutrition-allergens",
+   "fetch": "plain",
+   "dump_sha256": "613bf956c9b865e7c3dcc7e003d0f9fbd7fb1efcee884a4432b20975efb3e7d9"
   },
   "disclaimer_extra": "Chick-fil-A publishes its buns, proteins, toppings, sauces and dressings as separate component tables alongside its finished menu items; this builder uses those component tables, so a sandwich you assemble here may differ slightly from the published total for a comparable menu item. Catering items are not included. Two gaps come from the source: sandwiches are served with pickles, which Chick-fil-A does not publish as a separate topping, so a sandwich built here reads roughly 100 mg lower in sodium than the equivalent menu item; and of the fountain drinks only Coca-Cola and Dr Pepper are published on their own — Diet Coke, Sprite, Coke Zero and Barq's appear only inside Frosted shakes.",
   "blurb": "Start from a Chick-fil-A menu item at its published nutrition — swap the cheese or the chicken and the numbers stay Chick-fil-A's own — or build a sandwich from their bun, filet and topping tables.",

@@ -5,7 +5,12 @@
   "source": {
    "pdf_url": "https://assets.ctfassets.net/kugm9fp9ib18/Ki4gri5pvT2rtPcjBQPjR/5c435502ed8a9c07d54e8eb8af7ce1cf/KT5_26_AN_STND_RECAN11148_DIGITAL.pdf",
    "retrieved": "2026-08-30",
-   "format": "pdf"
+   "format": "pdf",
+   "page_url": "https://cava.com/nutrition",
+   "link_pattern": "AN_STND",
+   "fetch": "cloudscraper",
+   "dump_sha256": "2805fb2b1b3cf063d71370106f745a23a2f29ba24b453cbbe7256a1f6134c559",
+   "asset_sha256": "a39a67c31b76a4eb2c57691d831d2334b637f38c5046a9bd8a740731007cde8d"
   },
   "disclaimer_extra": "CAVA's guide (June 2026) lists standard bowl/pita portions without serving weights. Fountain drink values are calculated without ice.",
   "blurb": "Start with a bowl or pita and add CAVA's bases, dips, mains, toppings and dressings to see full nutrition for your exact order, straight from CAVA's June 2026 nutrition and allergen guide.",
