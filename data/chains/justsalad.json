@@ -89,7 +89,7 @@
     {
       "id": "signature",
       "name": "Menu Salads, Bowls, Plates & Wraps",
-      "select": "single",
+      "select": "multi",
       "flow": "extras"
     },
     {
@@ -107,7 +107,7 @@
     {
       "id": "drinks",
       "name": "Drinks & Smoothies",
-      "select": "single",
+      "select": "multi",
       "flow": "extras"
     }
   ],

@@ -25,7 +25,7 @@
     {
       "id": "preset",
       "name": "Pick a menu item",
-      "select": "single",
+      "select": "multi",
       "flow": "preset",
       "note": "These are Chick-fil-A's published totals for the item as served, including the cheese and chicken options they publish. Anything you add below is added on top of it."
     },

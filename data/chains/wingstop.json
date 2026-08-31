@@ -36,13 +36,13 @@
     {
       "id": "sandwiches",
       "name": "Chicken Sandwiches",
-      "select": "single",
+      "select": "multi",
       "flow": "extras"
     },
     {
       "id": "drinks",
       "name": "Drinks",
-      "select": "single",
+      "select": "multi",
       "flow": "extras"
     }
   ],

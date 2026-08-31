@@ -30,7 +30,7 @@
     {
       "id": "soup",
       "name": "Soup",
-      "select": "single",
+      "select": "multi",
       "flow": "extras"
     },
     {

@@ -91,31 +91,31 @@
     {
       "id": "sandwiches",
       "name": "Menu Sandwiches (6\")",
-      "select": "single",
+      "select": "multi",
       "flow": "extras"
     },
     {
       "id": "wraps",
       "name": "Menu Wraps",
-      "select": "single",
+      "select": "multi",
       "flow": "extras"
     },
     {
       "id": "salads",
       "name": "Menu Salads",
-      "select": "single",
+      "select": "multi",
       "flow": "extras"
     },
     {
       "id": "protein-bowls",
       "name": "Protein Bowls",
-      "select": "single",
+      "select": "multi",
       "flow": "extras"
     },
     {
       "id": "breakfast-pizza",
       "name": "Breakfast, Pizza & Sliders",
-      "select": "single",
+      "select": "multi",
       "flow": "extras"
     },
     {

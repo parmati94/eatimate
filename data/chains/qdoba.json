@@ -30,7 +30,7 @@
     {
       "id": "proteins",
       "name": "Proteins",
-      "select": "single",
+      "select": "multi",
       "flow": "build"
     },
     {
@@ -60,7 +60,7 @@
     {
       "id": "signature-eats",
       "name": "Signature Eats",
-      "select": "single",
+      "select": "multi",
       "flow": "extras"
     },
     {
@@ -78,7 +78,7 @@
     {
       "id": "drinks",
       "name": "Drinks",
-      "select": "single",
+      "select": "multi",
       "flow": "extras"
     }
   ],

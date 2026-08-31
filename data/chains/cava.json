@@ -54,13 +54,13 @@
     {
       "id": "curated-bowls",
       "name": "Curated Bowls",
-      "select": "single",
+      "select": "multi",
       "flow": "extras"
     },
     {
       "id": "curated-pitas",
       "name": "Curated Pitas",
-      "select": "single",
+      "select": "multi",
       "flow": "extras"
     },
     {
@@ -78,7 +78,7 @@
     {
       "id": "drinks",
       "name": "Drinks",
-      "select": "single",
+      "select": "multi",
       "flow": "extras"
     }
   ],

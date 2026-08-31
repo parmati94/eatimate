@@ -1,149 +1,149 @@
 {
-  "meta": {
-    "name": "CAVA",
-    "slug": "cava",
-    "source": {
-      "pdf_url": "https://assets.ctfassets.net/kugm9fp9ib18/Ki4gri5pvT2rtPcjBQPjR/5c435502ed8a9c07d54e8eb8af7ce1cf/KT5_26_AN_STND_RECAN11148_DIGITAL.pdf",
-      "retrieved": "2026-08-30"
-    },
-    "disclaimer_extra": "CAVA's guide (June 2026) lists standard bowl/pita portions without serving weights. Fountain drink values are calculated without ice.",
-    "blurb": "Start with a bowl or pita and add CAVA's bases, dips, mains, toppings and dressings to see full nutrition for your exact order, straight from CAVA's June 2026 nutrition and allergen guide.",
-    "glyph": "pita"
+ "meta": {
+  "name": "CAVA",
+  "slug": "cava",
+  "source": {
+   "pdf_url": "https://assets.ctfassets.net/kugm9fp9ib18/Ki4gri5pvT2rtPcjBQPjR/5c435502ed8a9c07d54e8eb8af7ce1cf/KT5_26_AN_STND_RECAN11148_DIGITAL.pdf",
+   "retrieved": "2026-08-30"
   },
-  "categories": [
-    {
-      "id": "format",
-      "name": "Bowl or Pita",
-      "select": "single",
-      "flow": "build"
-    },
-    {
-      "id": "base",
-      "name": "Base",
-      "select": "multi",
-      "flow": "build"
-    },
-    {
-      "id": "dips",
-      "name": "Dips & Spreads",
-      "select": "multi",
-      "flow": "build"
-    },
-    {
-      "id": "mains",
-      "name": "Mains",
-      "select": "multi",
-      "flow": "build"
-    },
-    {
-      "id": "toppings",
-      "name": "Toppings",
-      "select": "multi",
-      "flow": "build"
-    },
-    {
-      "id": "dressings",
-      "name": "Dressings",
-      "select": "multi",
-      "flow": "build"
-    },
-    {
-      "id": "sides",
-      "name": "Sides",
-      "select": "multi",
-      "flow": "extras"
-    },
-    {
-      "id": "curated-bowls",
-      "name": "Curated Bowls",
-      "select": "single",
-      "flow": "extras"
-    },
-    {
-      "id": "curated-pitas",
-      "name": "Curated Pitas",
-      "select": "single",
-      "flow": "extras"
-    },
-    {
-      "id": "kids",
-      "name": "Kids Meal",
-      "select": "multi",
-      "flow": "extras"
-    },
-    {
-      "id": "desserts",
-      "name": "Desserts",
-      "select": "multi",
-      "flow": "extras"
-    },
-    {
-      "id": "drinks",
-      "name": "Drinks",
-      "select": "single",
-      "flow": "extras"
-    }
+  "disclaimer_extra": "CAVA's guide (June 2026) lists standard bowl/pita portions without serving weights. Fountain drink values are calculated without ice.",
+  "blurb": "Start with a bowl or pita and add CAVA's bases, dips, mains, toppings and dressings to see full nutrition for your exact order, straight from CAVA's June 2026 nutrition and allergen guide.",
+  "glyph": "pita"
+ },
+ "categories": [
+  {
+   "id": "format",
+   "name": "Bowl or Pita",
+   "select": "single",
+   "flow": "build"
+  },
+  {
+   "id": "base",
+   "name": "Base",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "dips",
+   "name": "Dips & Spreads",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "mains",
+   "name": "Mains",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "toppings",
+   "name": "Toppings",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "dressings",
+   "name": "Dressings",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "sides",
+   "name": "Sides",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "curated-bowls",
+   "name": "Curated Bowls",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "curated-pitas",
+   "name": "Curated Pitas",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "kids",
+   "name": "Kids Meal",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "desserts",
+   "name": "Desserts",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "drinks",
+   "name": "Drinks",
+   "select": "multi",
+   "flow": "extras"
+  }
+ ],
+ "layout": {
+  "columns": [
+   "calories",
+   "cff",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g"
   ],
-  "layout": {
-    "columns": [
-      "calories",
-      "cff",
-      "fat_g",
-      "sat_fat_g",
-      "trans_fat_g",
-      "cholesterol_mg",
-      "sodium_mg",
-      "carbs_g",
-      "fiber_g",
-      "sugars_g",
-      "protein_g"
-    ],
-    "allergen": false,
-    "serving": null,
-    "sections": "^[A-Z][A-Z +*®]{2,30}$",
-    "skip": "^(NUTRITION AND ALLERGEN GUIDE|Nutrition Guide|While we take|intolerances|on supplier|ingredient substitutions|See page|Recipe Cal|Cal\\. fro)",
-    "stop": "^Allergen Guide$"
+  "allergen": false,
+  "serving": null,
+  "sections": "^[A-Z][A-Z +*®]{2,30}$",
+  "skip": "^(NUTRITION AND ALLERGEN GUIDE|Nutrition Guide|While we take|intolerances|on supplier|ingredient substitutions|See page|Recipe Cal|Cal\\. fro)",
+  "stop": "^Allergen Guide$"
+ },
+ "section_categories": {
+  "CURATED BOWLS": "curated-bowls",
+  "CURATED PITAS": "curated-pitas",
+  "BASES": "base",
+  "MAINS": "mains",
+  "KIDS MEAL": "kids",
+  "TOPPINGS": "toppings",
+  "DIPS + SPREADS": "dips",
+  "DRESSINGS": "dressings",
+  "SIDES": "sides",
+  "DRINKS*": "drinks"
+ },
+ "items": {
+  "Whole Pita": {
+   "cat": "format",
+   "id": "pita",
+   "name": "Pita",
+   "desc": "1 pita"
   },
-  "section_categories": {
-    "CURATED BOWLS": "curated-bowls",
-    "CURATED PITAS": "curated-pitas",
-    "BASES": "base",
-    "MAINS": "mains",
-    "KIDS MEAL": "kids",
-    "TOPPINGS": "toppings",
-    "DIPS + SPREADS": "dips",
-    "DRESSINGS": "dressings",
-    "SIDES": "sides",
-    "DRINKS*": "drinks"
+  "Greyston Chocolate Chip Blondie": {
+   "cat": "desserts"
   },
-  "items": {
-    "Whole Pita": {
-      "cat": "format",
-      "id": "pita",
-      "name": "Pita",
-      "desc": "1 pita"
-    },
-    "Greyston Chocolate Chip Blondie": {
-      "cat": "desserts"
-    },
-    "Greyston Brownie": {
-      "cat": "desserts"
-    },
-    "Whisked! Apricot Honey (DMV)": {
-      "cat": "desserts",
-      "name": "Whisked! Apricot Honey Cookie (DMV only)"
-    },
-    "Whisked! Salted Dark Chocolate Oat Cookie": {
-      "cat": "desserts"
-    }
+  "Greyston Brownie": {
+   "cat": "desserts"
   },
-  "synthetic": [
-    {
-      "id": "bowl",
-      "name": "Bowl",
-      "cat": "format",
-      "desc": "1 bowl",
-      "before": "pita"
-    }
-  ]
+  "Whisked! Apricot Honey (DMV)": {
+   "cat": "desserts",
+   "name": "Whisked! Apricot Honey Cookie (DMV only)"
+  },
+  "Whisked! Salted Dark Chocolate Oat Cookie": {
+   "cat": "desserts"
+  }
+ },
+ "synthetic": [
+  {
+   "id": "bowl",
+   "name": "Bowl",
+   "cat": "format",
+   "desc": "1 bowl",
+   "before": "pita"
+  }
+ ]
 }

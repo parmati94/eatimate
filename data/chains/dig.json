@@ -42,13 +42,13 @@
     {
       "id": "signature",
       "name": "Bowls, Plates & Salads",
-      "select": "single",
+      "select": "multi",
       "flow": "extras"
     },
     {
       "id": "kids",
       "name": "Little Digs (Kids)",
-      "select": "single",
+      "select": "multi",
       "flow": "extras"
     },
     {

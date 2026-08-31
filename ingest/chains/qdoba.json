@@ -1,736 +1,736 @@
 {
-  "meta": {
-    "name": "Qdoba",
-    "slug": "qdoba",
-    "source": {
-      "pdf_url": "https://assets.ctfassets.net/0tc4847zqy12/bQFJBCmsAk4ww4qzdfAOm/27c88d608796913d6a47899ecffb6a3c/Nutrition_8.5.26.pdf",
-      "retrieved": "2026-08-30"
-    },
-    "disclaimer_extra": "Qdoba nutrition chart dated August 5, 2026. Items marked Canada / select locations / limited time are as printed on the chart.",
-    "blurb": "Build any Qdoba order — burrito, bowl, tacos, or salad — from the proteins, quesos, salsas and toppings on Qdoba's official nutrition chart (August 2026), and watch calories, protein, carbs and fat add up as you pick.",
-    "glyph": "burrito"
+ "meta": {
+  "name": "Qdoba",
+  "slug": "qdoba",
+  "source": {
+   "pdf_url": "https://assets.ctfassets.net/0tc4847zqy12/bQFJBCmsAk4ww4qzdfAOm/27c88d608796913d6a47899ecffb6a3c/Nutrition_8.5.26.pdf",
+   "retrieved": "2026-08-30"
   },
-  "categories": [
-    {
-      "id": "base",
-      "name": "Base / Format",
-      "select": "single",
-      "flow": "build"
-    },
-    {
-      "id": "rice",
-      "name": "Rice",
-      "select": "single",
-      "flow": "build"
-    },
-    {
-      "id": "beans",
-      "name": "Beans",
-      "select": "single",
-      "flow": "build"
-    },
-    {
-      "id": "proteins",
-      "name": "Proteins",
-      "select": "single",
-      "flow": "build"
-    },
-    {
-      "id": "queso-sauces",
-      "name": "Queso, Sauces & Dressings",
-      "select": "multi",
-      "flow": "build"
-    },
-    {
-      "id": "salsas",
-      "name": "Salsas",
-      "select": "multi",
-      "flow": "build"
-    },
-    {
-      "id": "toppings",
-      "name": "Toppings",
-      "select": "multi",
-      "flow": "build"
-    },
-    {
-      "id": "sides",
-      "name": "Sides",
-      "select": "multi",
-      "flow": "extras"
-    },
-    {
-      "id": "signature-eats",
-      "name": "Signature Eats",
-      "select": "single",
-      "flow": "extras"
-    },
-    {
-      "id": "kids-ingredients",
-      "name": "Kids Ingredients",
-      "select": "multi",
-      "flow": "extras"
-    },
-    {
-      "id": "desserts",
-      "name": "Desserts",
-      "select": "multi",
-      "flow": "extras"
-    },
-    {
-      "id": "drinks",
-      "name": "Drinks",
-      "select": "single",
-      "flow": "extras"
-    }
+  "disclaimer_extra": "Qdoba nutrition chart dated August 5, 2026. Items marked Canada / select locations / limited time are as printed on the chart.",
+  "blurb": "Build any Qdoba order — burrito, bowl, tacos, or salad — from the proteins, quesos, salsas and toppings on Qdoba's official nutrition chart (August 2026), and watch calories, protein, carbs and fat add up as you pick.",
+  "glyph": "burrito"
+ },
+ "categories": [
+  {
+   "id": "base",
+   "name": "Base / Format",
+   "select": "single",
+   "flow": "build"
+  },
+  {
+   "id": "rice",
+   "name": "Rice",
+   "select": "single",
+   "flow": "build"
+  },
+  {
+   "id": "beans",
+   "name": "Beans",
+   "select": "single",
+   "flow": "build"
+  },
+  {
+   "id": "proteins",
+   "name": "Proteins",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "queso-sauces",
+   "name": "Queso, Sauces & Dressings",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "salsas",
+   "name": "Salsas",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "toppings",
+   "name": "Toppings",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "sides",
+   "name": "Sides",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "signature-eats",
+   "name": "Signature Eats",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "kids-ingredients",
+   "name": "Kids Ingredients",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "desserts",
+   "name": "Desserts",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "drinks",
+   "name": "Drinks",
+   "select": "multi",
+   "flow": "extras"
+  }
+ ],
+ "layout": {
+  "columns": [
+   "serving",
+   "calories",
+   "cff",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g",
+   "sodium_mg",
+   "potassium"
   ],
-  "layout": {
-    "columns": [
-      "serving",
-      "calories",
-      "cff",
-      "fat_g",
-      "sat_fat_g",
-      "trans_fat_g",
-      "cholesterol_mg",
-      "carbs_g",
-      "fiber_g",
-      "sugars_g",
-      "protein_g",
-      "sodium_mg",
-      "potassium"
-    ],
-    "allergen": true,
-    "serving": "g",
-    "floz_sections": [
-      "Fountain Beverages",
-      "Bottled Beverages"
-    ],
-    "sections": "^(Ingredients for Entrées|Signature Eats®|Small Bites|Limited Time Offerings|Ingredients for Kids Items|Fountain Beverages|Bottled Beverages|Dessert)",
-    "skip": "^(Nutrition Facts 2026|\\)g|g$|n$|\\($|e$|\\(v\\)=|Allergen Key|[A-Z][a-z]? = |2,000 calories|Like most|containing one|Letters in Red|deciding which|\\* Nutrition|ordering\\. This|\\*\\* Calorie|Create Your Own|Menu Board|Burrito - |Bowls - |Nachos - |Loaded Quesadilla|Cheese Crusted|Mini Bowls - |Single Taco|Salad - |Kid's Quesadilla - |Kid's 3-Cheese|Breakfast |Loaded Tortilla Soup|\\dof5$)",
-    "footer": "\\s+\\dof5$"
+  "allergen": true,
+  "serving": "g",
+  "floz_sections": [
+   "Fountain Beverages",
+   "Bottled Beverages"
+  ],
+  "sections": "^(Ingredients for Entrées|Signature Eats®|Small Bites|Limited Time Offerings|Ingredients for Kids Items|Fountain Beverages|Bottled Beverages|Dessert)",
+  "skip": "^(Nutrition Facts 2026|\\)g|g$|n$|\\($|e$|\\(v\\)=|Allergen Key|[A-Z][a-z]? = |2,000 calories|Like most|containing one|Letters in Red|deciding which|\\* Nutrition|ordering\\. This|\\*\\* Calorie|Create Your Own|Menu Board|Burrito - |Bowls - |Nachos - |Loaded Quesadilla|Cheese Crusted|Mini Bowls - |Single Taco|Salad - |Kid's Quesadilla - |Kid's 3-Cheese|Breakfast |Loaded Tortilla Soup|\\dof5$)",
+  "footer": "\\s+\\dof5$"
+ },
+ "items": {
+  "Bacon (Select Locations) (1 oz.)": {
+   "cat": "proteins",
+   "id": "bacon-1oz",
+   "name": "Bacon (select locations, 1 oz)"
   },
-  "items": {
-    "Bacon (Select Locations) (1 oz.)": {
-      "cat": "proteins",
-      "id": "bacon-1oz",
-      "name": "Bacon (select locations, 1 oz)"
-    },
-    "Bacon (Select Locations) (2 oz.)": {
-      "cat": "proteins",
-      "id": "bacon",
-      "name": "Bacon (select locations)"
-    },
-    "Black Beans (4 oz.) (v)": {
-      "cat": "beans",
-      "id": "black-beans",
-      "name": "Black Beans"
-    },
-    "Brisket Birria (3.5 oz)": {
-      "cat": "proteins"
-    },
-    "Chile Crema (1 oz)": {
-      "cat": "queso-sauces"
-    },
-    "Chile Corn Salsa (1 oz.)": {
-      "cat": "salsas"
-    },
-    "Chopped Cilantro (.12 oz )": {
-      "cat": "toppings"
-    },
-    "Chorizo (1.5 oz.)": {
-      "cat": "proteins",
-      "id": "chorizo-1-5oz",
-      "name": "Chorizo (half portion)"
-    },
-    "Chorizo (3.0 oz.)": {
-      "cat": "proteins"
-    },
-    "Cilantro Lime Rice (4 oz.) (v)": {
-      "cat": "rice",
-      "id": "cilantro-lime-rice",
-      "name": "Cilantro Lime Rice"
-    },
-    "Citrus Vinaigrette (1.5 oz.) (CANADA)": {
-      "cat": "queso-sauces",
-      "name": "Citrus Vinaigrette (Canada)"
-    },
-    "Citrus Vinaigrette (1.5 oz.) (US)": {
-      "cat": "queso-sauces",
-      "id": "citrus-vinaigrette",
-      "name": "Citrus Vinaigrette"
-    },
-    "Cotija Cheese (.25 oz.)": {
-      "cat": "toppings",
-      "id": "cheese-cotija"
-    },
-    "Crispy Taco Shell**": {
-      "cat": "base",
-      "desc": "1 shell"
-    },
-    "Crunchy Tortilla Shell": {
-      "cat": "base",
-      "id": "crunchy-tortilla-bowl",
-      "name": "Crunchy Tortilla Shell (salad bowl)",
-      "desc": "1 shell"
-    },
-    "Eggs (6 oz.)": {
-      "cat": "proteins"
-    },
-    "Fajita Veggies (2 oz.)": {
-      "cat": "toppings"
-    },
-    "Flour Tortilla (5.5\")": {
-      "cat": "base",
-      "id": "flour-tortilla-5-5",
-      "name": "Flour Tortilla (5.5\")"
-    },
-    "Flour Tortilla (10\")": {
-      "cat": "base",
-      "id": "flour-tortilla-10",
-      "name": "Flour Tortilla (10\")"
-    },
-    "Flour Tortilla (12.5\")": {
-      "cat": "base",
-      "id": "flour-tortilla-12-5",
-      "name": "Flour Tortilla (12.5\")"
-    },
-    "Grilled Adobo Chicken (3.5 oz.)": {
-      "cat": "proteins",
-      "id": "chicken-grilled-adobo"
-    },
-    "Grilled Steak (3.5 oz.)": {
-      "cat": "proteins",
-      "id": "steak-grilled"
-    },
-    "Ground Beef (3.5 oz.)": {
-      "cat": "proteins",
-      "id": "beef-ground"
-    },
-    "Habanero Salsa (1 oz.)": {
-      "cat": "salsas"
-    },
-    "Hand Crafted Guacamole (2 oz.)": {
-      "cat": "toppings",
-      "id": "hand-smashed-guac-2oz",
-      "name": "Hand Crafted Guacamole (2 oz)"
-    },
-    "Hand Crafted Guacamole (4 oz.)": {
-      "cat": "toppings",
-      "id": "hand-smashed-guac-4oz",
-      "name": "Hand Crafted Guacamole (4 oz)"
-    },
-    "Picante Ranch Dressing (1.5 oz.)": {
-      "cat": "queso-sauces"
-    },
-    "Pickled Red Onion (0.8 oz)": {
-      "cat": "toppings"
-    },
-    "Pico de Gallo (1 oz.)": {
-      "cat": "salsas"
-    },
-    "Pinto Beans (4 oz.) (v)": {
-      "cat": "beans",
-      "id": "pinto-beans",
-      "name": "Pinto Beans"
-    },
-    "Plant-Based Impossible™ (3.1 oz.) *select locations only*": {
-      "cat": "proteins",
-      "id": "impossible-plant-based",
-      "name": "Plant-Based Impossible™ (select locations)"
-    },
-    "Pork Carnitas (3.5 oz.)": {
-      "cat": "proteins",
-      "id": "pork-pulled"
-    },
-    "Queso Diablo (2 oz.)": {
-      "cat": "queso-sauces",
-      "name": "Queso Diablo (2 oz)"
-    },
-    "Queso Diablo (4 oz.)": {
-      "cat": "queso-sauces",
-      "id": "queso-diablo-4oz",
-      "name": "Queso Diablo (4 oz)"
-    },
-    "Roasted Tomato Salsa (1 oz.)": {
-      "cat": "salsas"
-    },
-    "Romaine Lettuce (0.25 oz.)": {
-      "cat": "toppings",
-      "id": "lettuce-shredded",
-      "name": "Romaine Lettuce (topping)"
-    },
-    "Romaine Lettuce for Salad (3.5 oz)": {
-      "cat": "toppings",
-      "id": "lettuce-romaine",
-      "name": "Romaine Lettuce (salad base)"
-    },
-    "Salsa Roja (1 oz.)": {
-      "cat": "salsas"
-    },
-    "Salsa Verde (1 oz.)": {
-      "cat": "salsas"
-    },
-    "Seasoned Brown Rice (4 oz.) (v)": {
-      "cat": "rice",
-      "id": "brown-rice-seasoned",
-      "name": "Seasoned Brown Rice"
-    },
-    "Seasoned Potatoes (2 oz.)": {
-      "cat": "sides",
-      "id": "potatoes-seasoned"
-    },
-    "Shredded Cheese (1.0 oz.)": {
-      "cat": "toppings",
-      "id": "cheese-shredded",
-      "desc": "1 oz"
-    },
-    "Sour Cream, (1 oz.)": {
-      "cat": "toppings",
-      "name": "Sour Cream"
-    },
-    "Three Cheese Queso (2 oz.)": {
-      "cat": "queso-sauces",
-      "id": "three-cheese-queso-2oz",
-      "name": "3-Cheese Queso (2 oz)"
-    },
-    "Three Cheese Queso (4 oz.)": {
-      "cat": "queso-sauces",
-      "id": "three-cheese-queso-4oz",
-      "name": "3-Cheese Queso (4 oz)"
-    },
-    "Tortilla Chips (4 oz.)": {
-      "cat": "sides",
-      "id": "corn-tortilla-chips"
-    },
-    "Tortilla Strips (0.5 oz.)": {
-      "cat": "sides"
-    },
-    "Chicken Queso Bowl": {
-      "cat": "signature-eats",
-      "desc": "1 bowl"
-    },
-    "Chicken Queso Burrito": {
-      "cat": "signature-eats",
-      "desc": "1 burrito"
-    },
-    "Cholula® Hot & Sweet Chicken Bowl": {
-      "cat": "signature-eats",
-      "desc": "1 bowl"
-    },
-    "Cholula® Hot & Sweet Chicken Burrito": {
-      "cat": "signature-eats",
-      "desc": "1 burrito"
-    },
-    "Citrus Lime Chicken Salad": {
-      "cat": "signature-eats",
-      "desc": "1 salad"
-    },
-    "Double Protein Bowl - Chicken": {
-      "cat": "signature-eats",
-      "desc": "1 bowl"
-    },
-    "Double Protein Bowl - Steak": {
-      "cat": "signature-eats",
-      "desc": "1 bowl"
-    },
-    "Fajita Vegan Bowl": {
-      "cat": "signature-eats",
-      "desc": "1 bowl"
-    },
-    "Impossible™ Taco Salad *select locations only*": {
-      "cat": "signature-eats",
-      "id": "impossible-taco-salad-select-locations",
-      "name": "Impossible™ Taco Salad (select locations)",
-      "desc": "1 salad"
-    },
-    "Keto Bowl - Brisket Birria": {
-      "cat": "signature-eats",
-      "desc": "1 bowl"
-    },
-    "Keto Bowl - Chicken": {
-      "cat": "signature-eats",
-      "desc": "1 bowl"
-    },
-    "Keto Bowl - Steak": {
-      "cat": "signature-eats",
-      "desc": "1 bowl"
-    },
-    "Quesabirria Burrito": {
-      "cat": "signature-eats",
-      "desc": "1 burrito"
-    },
-    "Quesabirria Quesadilla": {
-      "cat": "signature-eats",
-      "desc": "1 quesadilla"
-    },
-    "Southwest Steak Burrito": {
-      "cat": "signature-eats",
-      "desc": "1 burrito"
-    },
-    "Street Style Chicken Tacos (3) Flour": {
-      "cat": "signature-eats",
-      "desc": "3 tacos"
-    },
-    "Street Style Pork Carnitas Tacos (3) Flour": {
-      "cat": "signature-eats",
-      "desc": "3 tacos"
-    },
-    "Spicy Tequila Lime Steak (3.5 oz)": {
-      "cat": "proteins",
-      "name": "Spicy Tequila Lime Steak (limited time)"
-    },
-    "Churro Chips": {
-      "cat": "desserts",
-      "name": "Churro Chips (limited time)",
-      "desc": "1 serving (64 g)"
-    },
-    "Apple Sauce, Natural": {
-      "cat": "kids-ingredients",
-      "id": "apple-sauce",
-      "desc": "1 cup (111 g)"
-    },
-    "Black Beans (2 oz.)": {
-      "cat": "kids-ingredients",
-      "id": "black-beans-kids",
-      "name": "Black Beans (kids)"
-    },
-    "Cilantro Lime Rice (2 oz.)": {
-      "cat": "kids-ingredients",
-      "id": "cilantro-lime-rice-kids",
-      "name": "Cilantro Lime Rice (kids)"
-    },
-    "Grilled Chicken (1.75 oz.)": {
-      "cat": "kids-ingredients",
-      "id": "chicken-grilled-adobo-kids",
-      "name": "Grilled Chicken (kids)"
-    },
-    "Grilled Steak (1.75 oz.)": {
-      "cat": "kids-ingredients",
-      "id": "steak-grilled-kids",
-      "name": "Grilled Steak (kids)"
-    },
-    "Hand Smashed Guac (1 oz.)": {
-      "cat": "kids-ingredients",
-      "id": "hand-smashed-guac-1oz",
-      "name": "Hand Smashed Guac (kids)"
-    },
-    "Pinto Beans (2 oz.)": {
-      "cat": "kids-ingredients",
-      "id": "pinto-beans-kids",
-      "name": "Pinto Beans (kids)"
-    },
-    "Pork Carnitas (2 oz.)": {
-      "cat": "kids-ingredients",
-      "id": "pork-pulled-kids",
-      "name": "Pork Carnitas (kids)"
-    },
-    "Seasoned Brown Rice (2 oz.)": {
-      "cat": "kids-ingredients",
-      "id": "brown-rice-seasoned-kids",
-      "name": "Seasoned Brown Rice (kids)"
-    },
-    "Shredded Cheese (0.5 oz.)": {
-      "cat": "kids-ingredients",
-      "id": "cheese-shredded-kids",
-      "name": "Shredded Cheese (kids)"
-    },
-    "Sour Cream (1 oz.)": {
-      "cat": "kids-ingredients",
-      "id": "sour-cream-kids",
-      "name": "Sour Cream (kids)"
-    },
-    "Three Cheese Queso (1 oz.)": {
-      "cat": "kids-ingredients",
-      "id": "three-cheese-queso-1oz",
-      "name": "3-Cheese Queso (kids)"
-    },
-    "Tortilla Chips (2 oz.)": {
-      "cat": "kids-ingredients",
-      "id": "tortilla-chips-kids",
-      "name": "Tortilla Chips (kids)"
-    },
-    "Side (black beans w/ cheese)": {
-      "cat": "kids-ingredients",
-      "id": "kids-side-beans-cheese",
-      "desc": "1 side"
-    },
-    "Barq's Root Beer (Reg)": {
-      "cat": "drinks"
-    },
-    "Barq's Root Beer (Lrg)": {
-      "cat": "drinks"
-    },
-    "Caffeine Free Diet Coke (Reg)": {
-      "cat": "drinks"
-    },
-    "Caffeine Free Diet Coke (Lrg)": {
-      "cat": "drinks"
-    },
-    "Cherry Coca-Cola (Reg)": {
-      "cat": "drinks"
-    },
-    "Cherry Coca-Cola (Lrg)": {
-      "cat": "drinks"
-    },
-    "Coca-Cola Zero (Reg)": {
-      "cat": "drinks"
-    },
-    "Coca-Cola Zero (Lrg)": {
-      "cat": "drinks"
-    },
-    "Coca-Cola (Reg)": {
-      "cat": "drinks"
-    },
-    "Coca-Cola (Lrg)": {
-      "cat": "drinks"
-    },
-    "Diet Coke (Reg)": {
-      "cat": "drinks"
-    },
-    "Diet Coke (Lrg)": {
-      "cat": "drinks"
-    },
-    "Diet Dr. Pepper (Reg)": {
-      "cat": "drinks"
-    },
-    "Diet Dr. Pepper (Lrg)": {
-      "cat": "drinks"
-    },
-    "Dr. Peppers (Reg)": {
-      "cat": "drinks"
-    },
-    "Dr. Peppers (Lrg)": {
-      "cat": "drinks"
-    },
-    "Fanta Orange (Reg)": {
-      "cat": "drinks"
-    },
-    "Fanta Orange (Lrg)": {
-      "cat": "drinks"
-    },
-    "Hi-C Flashin Fruit Punch (Reg)": {
-      "cat": "drinks"
-    },
-    "Hi-C Flashin Fruit Punch (Lrg)": {
-      "cat": "drinks"
-    },
-    "Mello Yello (Reg)": {
-      "cat": "drinks"
-    },
-    "Mello Yello (Lrg)": {
-      "cat": "drinks"
-    },
-    "Minute Maid Lemonade(HFCS) Reg": {
-      "cat": "drinks",
-      "id": "minute-maid-lemonade-reg",
-      "name": "Minute Maid Lemonade (Reg)"
-    },
-    "Minute Maid Lemonade(HFCS) Lrg": {
-      "cat": "drinks",
-      "id": "minute-maid-lemonade-lrg",
-      "name": "Minute Maid Lemonade (Lrg)"
-    },
-    "Minute Maid Light Lemonade (Reg)": {
-      "cat": "drinks"
-    },
-    "Minute Maid Light Lemonade (Lrg)": {
-      "cat": "drinks"
-    },
-    "POWERade Mountain Berry Blast (Reg)": {
-      "cat": "drinks"
-    },
-    "POWERade Mountain Berry Blast (Lrg)": {
-      "cat": "drinks"
-    },
-    "Gold Peak Classic Blend Tea (Reg)": {
-      "cat": "drinks"
-    },
-    "Gold Peak Classic Blend Tea (Lrg)": {
-      "cat": "drinks"
-    },
-    "Gold Peak Southern Tea (Reg)": {
-      "cat": "drinks"
-    },
-    "Gold Peak Southern Tea (Lrg)": {
-      "cat": "drinks"
-    },
-    "Gold Peak Classic Sweet Tea (Reg)": {
-      "cat": "drinks"
-    },
-    "Gold Peak Classic Sweet Tea (Lrg)": {
-      "cat": "drinks"
-    },
-    "Sprite (Reg)": {
-      "cat": "drinks"
-    },
-    "Sprite (Lrg)": {
-      "cat": "drinks"
-    },
-    "Dasani Water (16.9 fl. oz.)": {
-      "cat": "drinks",
-      "id": "dasani-water",
-      "name": "Dasani Water"
-    },
-    "Coca Cola (20 fl. oz.)": {
-      "cat": "drinks",
-      "id": "coca-cola-bottle",
-      "name": "Coca-Cola (bottle)"
-    },
-    "Diet Coke (20 fl. oz.)": {
-      "cat": "drinks",
-      "id": "diet-coke-bottle",
-      "name": "Diet Coke (bottle)"
-    },
-    "Gold Peak Black Ice Tea, Unsweetened (16.9 fl. oz.)": {
-      "cat": "drinks",
-      "id": "gold-peak-black-ice-tea-unsweetened",
-      "name": "Gold Peak Black Ice Tea, Unsweetened"
-    },
-    "Gold Peak Green Tea (16.9 fl. oz.)": {
-      "cat": "drinks",
-      "id": "gold-peak-green-tea",
-      "name": "Gold Peak Green Tea"
-    },
-    "Gold Peak Peach Ice Tea (16.9 fl. oz.)": {
-      "cat": "drinks",
-      "id": "gold-peak-peach-ice-tea",
-      "name": "Gold Peak Peach Ice Tea"
-    },
-    "Gold Peak Raspberry Ice Tea (16.9 fl. oz.)": {
-      "cat": "drinks",
-      "id": "gold-peak-raspberry-ice-tea",
-      "name": "Gold Peak Raspberry Ice Tea"
-    },
-    "Honest Apple Juice Box (6 fl. oz.)": {
-      "cat": "drinks",
-      "id": "honest-apple-juice-box",
-      "name": "Honest Apple Juice Box"
-    },
-    "Jarritos Lime (12.5 fl.oz)": {
-      "cat": "drinks",
-      "id": "jarritos-lime",
-      "name": "Jarritos Lime"
-    },
-    "Jarritos Mandarian (12.5 fl.oz)": {
-      "cat": "drinks",
-      "id": "jarritos-mandarian",
-      "name": "Jarritos Mandarian"
-    },
-    "Jarritos Pineapple (12.5 fl. oz)": {
-      "cat": "drinks",
-      "id": "jarritos-pineapple",
-      "name": "Jarritos Pineapple"
-    },
-    "Jarritos Strawberry (12.5fl. oz)": {
-      "cat": "drinks",
-      "id": "jarritos-strawberry",
-      "name": "Jarritos Strawberry"
-    },
-    "Mexican Coke (12 fl. Oz)": {
-      "cat": "drinks",
-      "id": "mexican-coca-cola",
-      "name": "Mexican Coke"
-    },
-    "Minute Maid Kid's Apple Juice Box (6 fl. oz.)": {
-      "cat": "drinks",
-      "id": "minute-maid-kids-apple-juice",
-      "name": "Minute Maid Kid's Apple Juice Box"
-    },
-    "Oasis 100% Apple Juice (CANADA)": {
-      "cat": "drinks",
-      "name": "Oasis 100% Apple Juice (Canada, 6 fl oz)"
-    },
-    "Oasis 100% Apple Juice (CANADA) [#2]": {
-      "cat": "drinks",
-      "id": "oasis-100-apple-juice-canada-10oz",
-      "name": "Oasis 100% Apple Juice (Canada, 10 fl oz)"
-    },
-    "Simply Orange Juice (11.5 fl. oz.)": {
-      "cat": "drinks",
-      "id": "simply-orange-juice",
-      "name": "Simply Orange Juice"
-    },
-    "Vitamin Water Power C (20 fl. oz.)": {
-      "cat": "drinks",
-      "id": "vitamin-water-power-c",
-      "name": "Vitamin Water Power C"
-    },
-    "Vitamin Water XXX (20 fl. oz.)": {
-      "cat": "drinks",
-      "id": "vitamin-water-xxx",
-      "name": "Vitamin Water XXX"
-    },
-    "Vitamin Water Zero Squeezed Lemonade (20 fl. oz.)": {
-      "cat": "drinks",
-      "id": "vitamin-water-zero-squeezed-lemonade",
-      "name": "Vitamin Water Zero Squeezed Lemonade"
-    },
-    "Milk, Chocolate lowfat 1% (7 fl. oz.)/ CA Standards": {
-      "cat": "drinks",
-      "id": "chocolate-milk-lowfat",
-      "name": "Chocolate Milk, Lowfat 1% (CA standards)"
-    },
-    "Milk, Chocolate lowfat 1% (8 fl. oz.)/ Fed Standards": {
-      "cat": "drinks",
-      "id": "chocolate-milk-lowfat-8oz",
-      "name": "Chocolate Milk, Lowfat 1% (Fed standards)"
-    },
-    "Milk, White lowfat 1% (7 fl. oz.)/ CA Standards": {
-      "cat": "drinks",
-      "id": "white-milk-lowfat-7oz",
-      "name": "White Milk, Lowfat 1% (CA standards)"
-    },
-    "Milk, White lowfat 1% (8 fl. oz.)/ Fed Standards": {
-      "cat": "drinks",
-      "id": "white-milk-lowfat-8oz",
-      "name": "White Milk, Lowfat 1% (Fed standards)"
-    },
-    "Double Chocolate Brownie (CANADA)": {
-      "cat": "desserts",
-      "name": "Double Chocolate Brownie (Canada)",
-      "desc": "1 brownie"
-    },
-    "Double Chocolate Brownie (US)": {
-      "cat": "desserts",
-      "id": "double-chocolate-brownie",
-      "name": "Double Chocolate Brownie",
-      "desc": "1 brownie"
-    },
-    "Chocolate Chunk Cookie (US)": {
-      "cat": "desserts",
-      "id": "chocolate-chunk-cookie",
-      "name": "Chocolate Chunk Cookie",
-      "desc": "1 cookie"
-    },
-    "Chocolate Chunk Cookie (CANADA)": {
-      "cat": "desserts",
-      "name": "Chocolate Chunk Cookie (Canada)",
-      "desc": "1 cookie"
-    },
-    "Churro bites (CANADA only)": {
-      "cat": "desserts",
-      "id": "churro-bites-canada",
-      "name": "Churro Bites (Canada only)",
-      "desc": "1 serving (100 g)"
-    },
-    "Nutella (CANADA only)": {
-      "cat": "desserts",
-      "id": "nutella-canada",
-      "name": "Nutella (Canada only)",
-      "desc": "15 g"
-    },
-    "Flour Tortilla (5.5\") [#2]": {
-      "skip": "kids row identical to the entrée row"
-    }
+  "Bacon (Select Locations) (2 oz.)": {
+   "cat": "proteins",
+   "id": "bacon",
+   "name": "Bacon (select locations)"
   },
-  "synthetic": [
-    {
-      "id": "bowl",
-      "name": "Bowl (no tortilla)",
-      "cat": "base",
-      "desc": "1 bowl",
-      "before": "bacon-1oz"
-    }
-  ]
+  "Black Beans (4 oz.) (v)": {
+   "cat": "beans",
+   "id": "black-beans",
+   "name": "Black Beans"
+  },
+  "Brisket Birria (3.5 oz)": {
+   "cat": "proteins"
+  },
+  "Chile Crema (1 oz)": {
+   "cat": "queso-sauces"
+  },
+  "Chile Corn Salsa (1 oz.)": {
+   "cat": "salsas"
+  },
+  "Chopped Cilantro (.12 oz )": {
+   "cat": "toppings"
+  },
+  "Chorizo (1.5 oz.)": {
+   "cat": "proteins",
+   "id": "chorizo-1-5oz",
+   "name": "Chorizo (half portion)"
+  },
+  "Chorizo (3.0 oz.)": {
+   "cat": "proteins"
+  },
+  "Cilantro Lime Rice (4 oz.) (v)": {
+   "cat": "rice",
+   "id": "cilantro-lime-rice",
+   "name": "Cilantro Lime Rice"
+  },
+  "Citrus Vinaigrette (1.5 oz.) (CANADA)": {
+   "cat": "queso-sauces",
+   "name": "Citrus Vinaigrette (Canada)"
+  },
+  "Citrus Vinaigrette (1.5 oz.) (US)": {
+   "cat": "queso-sauces",
+   "id": "citrus-vinaigrette",
+   "name": "Citrus Vinaigrette"
+  },
+  "Cotija Cheese (.25 oz.)": {
+   "cat": "toppings",
+   "id": "cheese-cotija"
+  },
+  "Crispy Taco Shell**": {
+   "cat": "base",
+   "desc": "1 shell"
+  },
+  "Crunchy Tortilla Shell": {
+   "cat": "base",
+   "id": "crunchy-tortilla-bowl",
+   "name": "Crunchy Tortilla Shell (salad bowl)",
+   "desc": "1 shell"
+  },
+  "Eggs (6 oz.)": {
+   "cat": "proteins"
+  },
+  "Fajita Veggies (2 oz.)": {
+   "cat": "toppings"
+  },
+  "Flour Tortilla (5.5\")": {
+   "cat": "base",
+   "id": "flour-tortilla-5-5",
+   "name": "Flour Tortilla (5.5\")"
+  },
+  "Flour Tortilla (10\")": {
+   "cat": "base",
+   "id": "flour-tortilla-10",
+   "name": "Flour Tortilla (10\")"
+  },
+  "Flour Tortilla (12.5\")": {
+   "cat": "base",
+   "id": "flour-tortilla-12-5",
+   "name": "Flour Tortilla (12.5\")"
+  },
+  "Grilled Adobo Chicken (3.5 oz.)": {
+   "cat": "proteins",
+   "id": "chicken-grilled-adobo"
+  },
+  "Grilled Steak (3.5 oz.)": {
+   "cat": "proteins",
+   "id": "steak-grilled"
+  },
+  "Ground Beef (3.5 oz.)": {
+   "cat": "proteins",
+   "id": "beef-ground"
+  },
+  "Habanero Salsa (1 oz.)": {
+   "cat": "salsas"
+  },
+  "Hand Crafted Guacamole (2 oz.)": {
+   "cat": "toppings",
+   "id": "hand-smashed-guac-2oz",
+   "name": "Hand Crafted Guacamole (2 oz)"
+  },
+  "Hand Crafted Guacamole (4 oz.)": {
+   "cat": "toppings",
+   "id": "hand-smashed-guac-4oz",
+   "name": "Hand Crafted Guacamole (4 oz)"
+  },
+  "Picante Ranch Dressing (1.5 oz.)": {
+   "cat": "queso-sauces"
+  },
+  "Pickled Red Onion (0.8 oz)": {
+   "cat": "toppings"
+  },
+  "Pico de Gallo (1 oz.)": {
+   "cat": "salsas"
+  },
+  "Pinto Beans (4 oz.) (v)": {
+   "cat": "beans",
+   "id": "pinto-beans",
+   "name": "Pinto Beans"
+  },
+  "Plant-Based Impossible™ (3.1 oz.) *select locations only*": {
+   "cat": "proteins",
+   "id": "impossible-plant-based",
+   "name": "Plant-Based Impossible™ (select locations)"
+  },
+  "Pork Carnitas (3.5 oz.)": {
+   "cat": "proteins",
+   "id": "pork-pulled"
+  },
+  "Queso Diablo (2 oz.)": {
+   "cat": "queso-sauces",
+   "name": "Queso Diablo (2 oz)"
+  },
+  "Queso Diablo (4 oz.)": {
+   "cat": "queso-sauces",
+   "id": "queso-diablo-4oz",
+   "name": "Queso Diablo (4 oz)"
+  },
+  "Roasted Tomato Salsa (1 oz.)": {
+   "cat": "salsas"
+  },
+  "Romaine Lettuce (0.25 oz.)": {
+   "cat": "toppings",
+   "id": "lettuce-shredded",
+   "name": "Romaine Lettuce (topping)"
+  },
+  "Romaine Lettuce for Salad (3.5 oz)": {
+   "cat": "toppings",
+   "id": "lettuce-romaine",
+   "name": "Romaine Lettuce (salad base)"
+  },
+  "Salsa Roja (1 oz.)": {
+   "cat": "salsas"
+  },
+  "Salsa Verde (1 oz.)": {
+   "cat": "salsas"
+  },
+  "Seasoned Brown Rice (4 oz.) (v)": {
+   "cat": "rice",
+   "id": "brown-rice-seasoned",
+   "name": "Seasoned Brown Rice"
+  },
+  "Seasoned Potatoes (2 oz.)": {
+   "cat": "sides",
+   "id": "potatoes-seasoned"
+  },
+  "Shredded Cheese (1.0 oz.)": {
+   "cat": "toppings",
+   "id": "cheese-shredded",
+   "desc": "1 oz"
+  },
+  "Sour Cream, (1 oz.)": {
+   "cat": "toppings",
+   "name": "Sour Cream"
+  },
+  "Three Cheese Queso (2 oz.)": {
+   "cat": "queso-sauces",
+   "id": "three-cheese-queso-2oz",
+   "name": "3-Cheese Queso (2 oz)"
+  },
+  "Three Cheese Queso (4 oz.)": {
+   "cat": "queso-sauces",
+   "id": "three-cheese-queso-4oz",
+   "name": "3-Cheese Queso (4 oz)"
+  },
+  "Tortilla Chips (4 oz.)": {
+   "cat": "sides",
+   "id": "corn-tortilla-chips"
+  },
+  "Tortilla Strips (0.5 oz.)": {
+   "cat": "sides"
+  },
+  "Chicken Queso Bowl": {
+   "cat": "signature-eats",
+   "desc": "1 bowl"
+  },
+  "Chicken Queso Burrito": {
+   "cat": "signature-eats",
+   "desc": "1 burrito"
+  },
+  "Cholula® Hot & Sweet Chicken Bowl": {
+   "cat": "signature-eats",
+   "desc": "1 bowl"
+  },
+  "Cholula® Hot & Sweet Chicken Burrito": {
+   "cat": "signature-eats",
+   "desc": "1 burrito"
+  },
+  "Citrus Lime Chicken Salad": {
+   "cat": "signature-eats",
+   "desc": "1 salad"
+  },
+  "Double Protein Bowl - Chicken": {
+   "cat": "signature-eats",
+   "desc": "1 bowl"
+  },
+  "Double Protein Bowl - Steak": {
+   "cat": "signature-eats",
+   "desc": "1 bowl"
+  },
+  "Fajita Vegan Bowl": {
+   "cat": "signature-eats",
+   "desc": "1 bowl"
+  },
+  "Impossible™ Taco Salad *select locations only*": {
+   "cat": "signature-eats",
+   "id": "impossible-taco-salad-select-locations",
+   "name": "Impossible™ Taco Salad (select locations)",
+   "desc": "1 salad"
+  },
+  "Keto Bowl - Brisket Birria": {
+   "cat": "signature-eats",
+   "desc": "1 bowl"
+  },
+  "Keto Bowl - Chicken": {
+   "cat": "signature-eats",
+   "desc": "1 bowl"
+  },
+  "Keto Bowl - Steak": {
+   "cat": "signature-eats",
+   "desc": "1 bowl"
+  },
+  "Quesabirria Burrito": {
+   "cat": "signature-eats",
+   "desc": "1 burrito"
+  },
+  "Quesabirria Quesadilla": {
+   "cat": "signature-eats",
+   "desc": "1 quesadilla"
+  },
+  "Southwest Steak Burrito": {
+   "cat": "signature-eats",
+   "desc": "1 burrito"
+  },
+  "Street Style Chicken Tacos (3) Flour": {
+   "cat": "signature-eats",
+   "desc": "3 tacos"
+  },
+  "Street Style Pork Carnitas Tacos (3) Flour": {
+   "cat": "signature-eats",
+   "desc": "3 tacos"
+  },
+  "Spicy Tequila Lime Steak (3.5 oz)": {
+   "cat": "proteins",
+   "name": "Spicy Tequila Lime Steak (limited time)"
+  },
+  "Churro Chips": {
+   "cat": "desserts",
+   "name": "Churro Chips (limited time)",
+   "desc": "1 serving (64 g)"
+  },
+  "Apple Sauce, Natural": {
+   "cat": "kids-ingredients",
+   "id": "apple-sauce",
+   "desc": "1 cup (111 g)"
+  },
+  "Black Beans (2 oz.)": {
+   "cat": "kids-ingredients",
+   "id": "black-beans-kids",
+   "name": "Black Beans (kids)"
+  },
+  "Cilantro Lime Rice (2 oz.)": {
+   "cat": "kids-ingredients",
+   "id": "cilantro-lime-rice-kids",
+   "name": "Cilantro Lime Rice (kids)"
+  },
+  "Grilled Chicken (1.75 oz.)": {
+   "cat": "kids-ingredients",
+   "id": "chicken-grilled-adobo-kids",
+   "name": "Grilled Chicken (kids)"
+  },
+  "Grilled Steak (1.75 oz.)": {
+   "cat": "kids-ingredients",
+   "id": "steak-grilled-kids",
+   "name": "Grilled Steak (kids)"
+  },
+  "Hand Smashed Guac (1 oz.)": {
+   "cat": "kids-ingredients",
+   "id": "hand-smashed-guac-1oz",
+   "name": "Hand Smashed Guac (kids)"
+  },
+  "Pinto Beans (2 oz.)": {
+   "cat": "kids-ingredients",
+   "id": "pinto-beans-kids",
+   "name": "Pinto Beans (kids)"
+  },
+  "Pork Carnitas (2 oz.)": {
+   "cat": "kids-ingredients",
+   "id": "pork-pulled-kids",
+   "name": "Pork Carnitas (kids)"
+  },
+  "Seasoned Brown Rice (2 oz.)": {
+   "cat": "kids-ingredients",
+   "id": "brown-rice-seasoned-kids",
+   "name": "Seasoned Brown Rice (kids)"
+  },
+  "Shredded Cheese (0.5 oz.)": {
+   "cat": "kids-ingredients",
+   "id": "cheese-shredded-kids",
+   "name": "Shredded Cheese (kids)"
+  },
+  "Sour Cream (1 oz.)": {
+   "cat": "kids-ingredients",
+   "id": "sour-cream-kids",
+   "name": "Sour Cream (kids)"
+  },
+  "Three Cheese Queso (1 oz.)": {
+   "cat": "kids-ingredients",
+   "id": "three-cheese-queso-1oz",
+   "name": "3-Cheese Queso (kids)"
+  },
+  "Tortilla Chips (2 oz.)": {
+   "cat": "kids-ingredients",
+   "id": "tortilla-chips-kids",
+   "name": "Tortilla Chips (kids)"
+  },
+  "Side (black beans w/ cheese)": {
+   "cat": "kids-ingredients",
+   "id": "kids-side-beans-cheese",
+   "desc": "1 side"
+  },
+  "Barq's Root Beer (Reg)": {
+   "cat": "drinks"
+  },
+  "Barq's Root Beer (Lrg)": {
+   "cat": "drinks"
+  },
+  "Caffeine Free Diet Coke (Reg)": {
+   "cat": "drinks"
+  },
+  "Caffeine Free Diet Coke (Lrg)": {
+   "cat": "drinks"
+  },
+  "Cherry Coca-Cola (Reg)": {
+   "cat": "drinks"
+  },
+  "Cherry Coca-Cola (Lrg)": {
+   "cat": "drinks"
+  },
+  "Coca-Cola Zero (Reg)": {
+   "cat": "drinks"
+  },
+  "Coca-Cola Zero (Lrg)": {
+   "cat": "drinks"
+  },
+  "Coca-Cola (Reg)": {
+   "cat": "drinks"
+  },
+  "Coca-Cola (Lrg)": {
+   "cat": "drinks"
+  },
+  "Diet Coke (Reg)": {
+   "cat": "drinks"
+  },
+  "Diet Coke (Lrg)": {
+   "cat": "drinks"
+  },
+  "Diet Dr. Pepper (Reg)": {
+   "cat": "drinks"
+  },
+  "Diet Dr. Pepper (Lrg)": {
+   "cat": "drinks"
+  },
+  "Dr. Peppers (Reg)": {
+   "cat": "drinks"
+  },
+  "Dr. Peppers (Lrg)": {
+   "cat": "drinks"
+  },
+  "Fanta Orange (Reg)": {
+   "cat": "drinks"
+  },
+  "Fanta Orange (Lrg)": {
+   "cat": "drinks"
+  },
+  "Hi-C Flashin Fruit Punch (Reg)": {
+   "cat": "drinks"
+  },
+  "Hi-C Flashin Fruit Punch (Lrg)": {
+   "cat": "drinks"
+  },
+  "Mello Yello (Reg)": {
+   "cat": "drinks"
+  },
+  "Mello Yello (Lrg)": {
+   "cat": "drinks"
+  },
+  "Minute Maid Lemonade(HFCS) Reg": {
+   "cat": "drinks",
+   "id": "minute-maid-lemonade-reg",
+   "name": "Minute Maid Lemonade (Reg)"
+  },
+  "Minute Maid Lemonade(HFCS) Lrg": {
+   "cat": "drinks",
+   "id": "minute-maid-lemonade-lrg",
+   "name": "Minute Maid Lemonade (Lrg)"
+  },
+  "Minute Maid Light Lemonade (Reg)": {
+   "cat": "drinks"
+  },
+  "Minute Maid Light Lemonade (Lrg)": {
+   "cat": "drinks"
+  },
+  "POWERade Mountain Berry Blast (Reg)": {
+   "cat": "drinks"
+  },
+  "POWERade Mountain Berry Blast (Lrg)": {
+   "cat": "drinks"
+  },
+  "Gold Peak Classic Blend Tea (Reg)": {
+   "cat": "drinks"
+  },
+  "Gold Peak Classic Blend Tea (Lrg)": {
+   "cat": "drinks"
+  },
+  "Gold Peak Southern Tea (Reg)": {
+   "cat": "drinks"
+  },
+  "Gold Peak Southern Tea (Lrg)": {
+   "cat": "drinks"
+  },
+  "Gold Peak Classic Sweet Tea (Reg)": {
+   "cat": "drinks"
+  },
+  "Gold Peak Classic Sweet Tea (Lrg)": {
+   "cat": "drinks"
+  },
+  "Sprite (Reg)": {
+   "cat": "drinks"
+  },
+  "Sprite (Lrg)": {
+   "cat": "drinks"
+  },
+  "Dasani Water (16.9 fl. oz.)": {
+   "cat": "drinks",
+   "id": "dasani-water",
+   "name": "Dasani Water"
+  },
+  "Coca Cola (20 fl. oz.)": {
+   "cat": "drinks",
+   "id": "coca-cola-bottle",
+   "name": "Coca-Cola (bottle)"
+  },
+  "Diet Coke (20 fl. oz.)": {
+   "cat": "drinks",
+   "id": "diet-coke-bottle",
+   "name": "Diet Coke (bottle)"
+  },
+  "Gold Peak Black Ice Tea, Unsweetened (16.9 fl. oz.)": {
+   "cat": "drinks",
+   "id": "gold-peak-black-ice-tea-unsweetened",
+   "name": "Gold Peak Black Ice Tea, Unsweetened"
+  },
+  "Gold Peak Green Tea (16.9 fl. oz.)": {
+   "cat": "drinks",
+   "id": "gold-peak-green-tea",
+   "name": "Gold Peak Green Tea"
+  },
+  "Gold Peak Peach Ice Tea (16.9 fl. oz.)": {
+   "cat": "drinks",
+   "id": "gold-peak-peach-ice-tea",
+   "name": "Gold Peak Peach Ice Tea"
+  },
+  "Gold Peak Raspberry Ice Tea (16.9 fl. oz.)": {
+   "cat": "drinks",
+   "id": "gold-peak-raspberry-ice-tea",
+   "name": "Gold Peak Raspberry Ice Tea"
+  },
+  "Honest Apple Juice Box (6 fl. oz.)": {
+   "cat": "drinks",
+   "id": "honest-apple-juice-box",
+   "name": "Honest Apple Juice Box"
+  },
+  "Jarritos Lime (12.5 fl.oz)": {
+   "cat": "drinks",
+   "id": "jarritos-lime",
+   "name": "Jarritos Lime"
+  },
+  "Jarritos Mandarian (12.5 fl.oz)": {
+   "cat": "drinks",
+   "id": "jarritos-mandarian",
+   "name": "Jarritos Mandarian"
+  },
+  "Jarritos Pineapple (12.5 fl. oz)": {
+   "cat": "drinks",
+   "id": "jarritos-pineapple",
+   "name": "Jarritos Pineapple"
+  },
+  "Jarritos Strawberry (12.5fl. oz)": {
+   "cat": "drinks",
+   "id": "jarritos-strawberry",
+   "name": "Jarritos Strawberry"
+  },
+  "Mexican Coke (12 fl. Oz)": {
+   "cat": "drinks",
+   "id": "mexican-coca-cola",
+   "name": "Mexican Coke"
+  },
+  "Minute Maid Kid's Apple Juice Box (6 fl. oz.)": {
+   "cat": "drinks",
+   "id": "minute-maid-kids-apple-juice",
+   "name": "Minute Maid Kid's Apple Juice Box"
+  },
+  "Oasis 100% Apple Juice (CANADA)": {
+   "cat": "drinks",
+   "name": "Oasis 100% Apple Juice (Canada, 6 fl oz)"
+  },
+  "Oasis 100% Apple Juice (CANADA) [#2]": {
+   "cat": "drinks",
+   "id": "oasis-100-apple-juice-canada-10oz",
+   "name": "Oasis 100% Apple Juice (Canada, 10 fl oz)"
+  },
+  "Simply Orange Juice (11.5 fl. oz.)": {
+   "cat": "drinks",
+   "id": "simply-orange-juice",
+   "name": "Simply Orange Juice"
+  },
+  "Vitamin Water Power C (20 fl. oz.)": {
+   "cat": "drinks",
+   "id": "vitamin-water-power-c",
+   "name": "Vitamin Water Power C"
+  },
+  "Vitamin Water XXX (20 fl. oz.)": {
+   "cat": "drinks",
+   "id": "vitamin-water-xxx",
+   "name": "Vitamin Water XXX"
+  },
+  "Vitamin Water Zero Squeezed Lemonade (20 fl. oz.)": {
+   "cat": "drinks",
+   "id": "vitamin-water-zero-squeezed-lemonade",
+   "name": "Vitamin Water Zero Squeezed Lemonade"
+  },
+  "Milk, Chocolate lowfat 1% (7 fl. oz.)/ CA Standards": {
+   "cat": "drinks",
+   "id": "chocolate-milk-lowfat",
+   "name": "Chocolate Milk, Lowfat 1% (CA standards)"
+  },
+  "Milk, Chocolate lowfat 1% (8 fl. oz.)/ Fed Standards": {
+   "cat": "drinks",
+   "id": "chocolate-milk-lowfat-8oz",
+   "name": "Chocolate Milk, Lowfat 1% (Fed standards)"
+  },
+  "Milk, White lowfat 1% (7 fl. oz.)/ CA Standards": {
+   "cat": "drinks",
+   "id": "white-milk-lowfat-7oz",
+   "name": "White Milk, Lowfat 1% (CA standards)"
+  },
+  "Milk, White lowfat 1% (8 fl. oz.)/ Fed Standards": {
+   "cat": "drinks",
+   "id": "white-milk-lowfat-8oz",
+   "name": "White Milk, Lowfat 1% (Fed standards)"
+  },
+  "Double Chocolate Brownie (CANADA)": {
+   "cat": "desserts",
+   "name": "Double Chocolate Brownie (Canada)",
+   "desc": "1 brownie"
+  },
+  "Double Chocolate Brownie (US)": {
+   "cat": "desserts",
+   "id": "double-chocolate-brownie",
+   "name": "Double Chocolate Brownie",
+   "desc": "1 brownie"
+  },
+  "Chocolate Chunk Cookie (US)": {
+   "cat": "desserts",
+   "id": "chocolate-chunk-cookie",
+   "name": "Chocolate Chunk Cookie",
+   "desc": "1 cookie"
+  },
+  "Chocolate Chunk Cookie (CANADA)": {
+   "cat": "desserts",
+   "name": "Chocolate Chunk Cookie (Canada)",
+   "desc": "1 cookie"
+  },
+  "Churro bites (CANADA only)": {
+   "cat": "desserts",
+   "id": "churro-bites-canada",
+   "name": "Churro Bites (Canada only)",
+   "desc": "1 serving (100 g)"
+  },
+  "Nutella (CANADA only)": {
+   "cat": "desserts",
+   "id": "nutella-canada",
+   "name": "Nutella (Canada only)",
+   "desc": "15 g"
+  },
+  "Flour Tortilla (5.5\") [#2]": {
+   "skip": "kids row identical to the entrée row"
+  }
+ },
+ "synthetic": [
+  {
+   "id": "bowl",
+   "name": "Bowl (no tortilla)",
+   "cat": "base",
+   "desc": "1 bowl",
+   "before": "bacon-1oz"
+  }
+ ]
 }

@@ -104,7 +104,7 @@
     {
       "id": "drinks",
       "name": "Drinks",
-      "select": "single",
+      "select": "multi",
       "flow": "extras"
     }
   ],
