@@ -500,8 +500,11 @@ function ShareMealButton({
           try {
             await navigator.share({ title, url });
             return;
-          } catch {
-            // Cancelled, or the sheet refused; fall through to the clipboard.
+          } catch (e) {
+            // Dismissing the sheet is a decision, not a failure: copying the
+            // link and flashing "Link copied" would undo what was just asked.
+            if ((e as Error)?.name === "AbortError") return;
+            // Anything else (no handler, refused) falls through to the clipboard.
           }
         }
         if (await copyText(url)) {
