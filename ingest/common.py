@@ -105,6 +105,10 @@ def parse_dump(path, layout):
     skip_re = re.compile(layout["skip"]) if layout.get("skip") else None
     footer_re = re.compile(layout["footer"]) if layout.get("footer") else None
     stop_re = re.compile(layout["stop"]) if layout.get("stop") else None
+    # Mirror of `stop`, for guides that open with a cover or a marketing
+    # menu before the nutrition tables begin (Chipotle's paper menu).
+    start_re = re.compile(layout["start"]) if layout.get("start") else None
+    started = start_re is None
     pre = [(re.compile(a), b) for a, b in layout.get("pre_replace", [])]
     nums_only = re.compile(rf"^(?:{TOK}\s+){{{n-1}}}{TOK}$")
     # Some guides print two sizes side by side in one row ("370 / 740"), with
@@ -123,6 +127,9 @@ def parse_dump(path, layout):
         if footer_re: line = footer_re.sub("", line).strip()
         for a, b in pre: line = a.sub(b, line)
         if stop_re and stop_re.match(line): break
+        if not started:
+            if start_re.match(line): started = True
+            continue
         if not line or line.startswith("=====") or (skip_re and skip_re.match(line)):
             continue
         lines.append(line)
@@ -206,6 +213,11 @@ def make_component(row, layout, cat, id=None, name=None, desc=None):
          "serving_desc": desc or row.serving_desc or d2 or "1 serving",
          "serving_g": serving_g}
     c.update(row.nutrients())
+    # A dash in a nullable column means the chain does not publish it, which is
+    # not the same as measuring zero. Only cholesterol is nullable today
+    # (Chipotle publishes every other nutrient and no cholesterol at all).
+    if "cholesterol_mg" in row.dashes:
+        c["cholesterol_mg"] = None
     row.used = True
     return c
 
@@ -402,14 +414,17 @@ def build(cfg, rows, extra=None):
             if sp.get("feature"): c["feature"] = True
             c["_ord"] = base_ord + 0.001 * n
             comps.append(c)
-    # Components the chain sells but publishes only inside a composite figure.
-    # The values are stated in the config with the arithmetic that produced
-    # them; nothing here is inferred at run time.
+    # Components declared in the config rather than read from the dump: either
+    # worked out from figures the chain publishes (`reason` set, shown as
+    # derived), or published by the chain somewhere the main source does not
+    # reach -- a live menu that postdates a printed chart. menu_check.py finds
+    # the latter; nothing here is inferred at run time.
     for d in cfg.get("derived", []):
         c = synthetic(d["id"], d["name"], d["cat"], d.get("desc"))
         c.pop("synthetic", None)
         c.update({k: v for k, v in d["values"].items()})
-        c["derived"] = d["reason"]
+        if d.get("reason"): c["derived"] = d["reason"]
+        if d.get("estimated"): c["estimated"] = d["estimated"]
         if d.get("size_mode"): c["size_mode"] = d["size_mode"]
         if d.get("only_modes"): c["only_modes"] = d["only_modes"]
         if d.get("serving_desc"): c["serving_desc"] = d["serving_desc"]
@@ -461,10 +476,18 @@ def finish(cfg, components, rows, pending, out_dir="data/chains"):
     # ingest/chains and never reach the app -- whose schema is strict.
     chain["source"] = {k: v for k, v in chain["source"].items()
                        if k in ("pdf_url", "html_url", "retrieved")}
+    # Same for meta-level knobs: menu_check tells menu_check.py where the live
+    # menu is; the app has no use for it and its schema would reject it.
+    for k in ("menu_check",):
+        chain.pop(k, None)
     out = Path(out_dir) / f"{slug_}.json"
     out.write_text(json.dumps(chain, indent=2, ensure_ascii=False) + "\n")
-    dashes = [(r.printed, r.dashes) for r in rows if r.dashes]
+    dashes = [(r.printed, [d for d in r.dashes if d != "cholesterol_mg"])
+              for r in rows if [d for d in r.dashes if d != "cholesterol_mg"]]
     if dashes: print(f"  note: '-' cells read as 0: {dashes}", file=sys.stderr)
+    nochol = [r.printed for r in rows if "cholesterol_mg" in r.dashes]
+    if nochol:
+        print(f"  note: {len(nochol)} rows publish no cholesterol", file=sys.stderr)
     print(f"{slug_}: {len(rows)} PDF rows -> {len(components)} components "
           f"({sum(1 for c in components if c.get('synthetic'))} synthetic, "
           f"{sum(1 for c in components if c.get('corrections'))} corrected) -> {out}", file=sys.stderr)

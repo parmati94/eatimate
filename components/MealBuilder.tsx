@@ -13,6 +13,8 @@ import {
   encodeMeal,
   mealSubtitle,
   mealTotals,
+  estimatedNutrients,
+  unknownNutrients,
 } from "@/lib/meal";
 import { drawLabel } from "@/lib/labelImage";
 import NutritionLabel from "./NutritionLabel";
@@ -165,6 +167,14 @@ function ComponentRow({
                 title={comp.derived}
               >
                 derived
+              </span>
+            )}
+            {comp.cholesterol_mg == null && (
+              <span
+                className="ml-1 rounded bg-surface-2 px-1 py-px text-[10px] font-medium uppercase tracking-wide"
+                title="This chain does not publish cholesterol for this item, so a meal containing it has no cholesterol total."
+              >
+                no cholesterol figure
               </span>
             )}
             {qmult !== 1 && (
@@ -425,11 +435,15 @@ function SaveImageButton({
   subtitle,
   totals,
   selections,
+  missing,
+  estimated,
 }: {
   chain: Chain;
   subtitle: string;
   totals: Totals;
   selections: Selections;
+  missing?: ReadonlySet<string>;
+  estimated?: ReadonlySet<string>;
 }) {
   const [busy, setBusy] = useState(false);
   // Shown even with nothing selected, greyed out: the panel is on screen from
@@ -442,7 +456,7 @@ function SaveImageButton({
       onClick={async () => {
         setBusy(true);
         try {
-          const blob = await drawLabel(totals, subtitle);
+          const blob = await drawLabel(totals, subtitle, missing, estimated);
           if (!blob) return;
           const name = `${chain.slug}-nutrition.png`;
           const file = new File([blob], name, { type: "image/png" });
@@ -889,6 +903,17 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
     () => mealTotals(chain, selections, activeMode, portion),
     [chain, selections, activeMode, portion],
   );
+  // Nutrients no total can be given for, because something picked does not
+  // publish them. The label says so rather than printing a summed zero.
+  const missing = useMemo(
+    () => unknownNutrients(chain, selections),
+    [chain, selections],
+  );
+  // Totals that lean on a figure of ours rather than the chain's.
+  const estimated = useMemo(
+    () => estimatedNutrients(chain, selections),
+    [chain, selections],
+  );
 
   const selectedCount = Object.keys(selections).length;
   const subtitle = mealSubtitle(
@@ -1149,13 +1174,15 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
 
       {/* Desktop: sticky label column */}
       <aside className="hidden lg:sticky lg:top-[72px] lg:block lg:space-y-2 lg:self-start">
-        <NutritionLabel totals={totals} subtitle={subtitle} />
+        <NutritionLabel totals={totals} subtitle={subtitle} missing={missing} estimated={estimated} />
         <ShareMealButton chain={chain} selections={selections} portion={portion} />
         <SaveImageButton
           chain={chain}
           subtitle={subtitle}
           totals={totals}
           selections={selections}
+          missing={missing}
+          estimated={estimated}
         />
         <CopyLabelButton
           chain={chain}
@@ -1193,13 +1220,15 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
         <div className="pointer-events-auto mx-auto max-w-md px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
           {labelOpen && (
             <div className="mb-2 max-h-[70vh] space-y-2 overflow-y-auto rounded-2xl bg-surface p-3 shadow-2xl ring-1 ring-line">
-              <NutritionLabel totals={totals} subtitle={subtitle} />
+              <NutritionLabel totals={totals} subtitle={subtitle} missing={missing} estimated={estimated} />
               <ShareMealButton chain={chain} selections={selections} portion={portion} />
               <SaveImageButton
                 chain={chain}
                 subtitle={subtitle}
                 totals={totals}
                 selections={selections}
+                missing={missing}
+                estimated={estimated}
               />
               <CopyLabelButton
                 chain={chain}

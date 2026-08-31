@@ -23,7 +23,9 @@ for c in d["components"]:
     if c["category"] not in cats: errors.append(f"{c['id']}: unknown category {c['category']}")
     for f in FIELDS:
         if f not in c: errors.append(f"{c['id']}: missing {f}")
-        elif c[f] < 0: errors.append(f"{c['id']}: negative {f}")
+        # None means the chain does not publish it, which is legitimate and
+        # different from a negative or absent field.
+        elif c[f] is not None and c[f] < 0: errors.append(f"{c['id']}: negative {f}")
     if c.get("synthetic"): continue
     est = 4*(c["protein_g"]+c["carbs_g"]) + 9*c["fat_g"]
     tol = max(0.25*c["calories"], 20)

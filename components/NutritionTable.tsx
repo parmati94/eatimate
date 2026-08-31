@@ -121,7 +121,11 @@ export default function NutritionTable({ chain }: { chain: Chain }) {
                       {show(c.sat_fat_g, 1)}g
                     </td>
                     <td className="py-1.5 pr-3 text-right">
-                      {show(c.cholesterol_mg)}mg
+                      {c.cholesterol_mg == null ? (
+                        <span title="not published by this chain">&mdash;</span>
+                      ) : (
+                        `${show(c.cholesterol_mg)}mg`
+                      )}
                     </td>
                     <td className="py-1.5 pr-3 text-right">
                       {show(c.sodium_mg)}mg

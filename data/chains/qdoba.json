@@ -1506,7 +1506,7 @@
       "fat_g": 19,
       "sat_fat_g": 4,
       "trans_fat_g": 0,
-      "cholesterol_mg": 0,
+      "cholesterol_mg": null,
       "sodium_mg": 150,
       "carbs_g": 49,
       "fiber_g": 0,

@@ -3,6 +3,7 @@
 import {
   Chain,
   NUTRIENT_FIELDS,
+  NutrientField,
   SizeMode,
   Totals,
 } from "./schema";
@@ -63,9 +64,42 @@ export function mealTotals(
     if (!qty) continue;
     const scale = portionCats.has(c.category) ? portion : 1;
     const k = qty * (activeMode?.multipliers[c.category] ?? 1) * scale;
-    for (const f of NUTRIENT_FIELDS) t[f] += c[f] * k;
+    for (const f of NUTRIENT_FIELDS) t[f] += (c[f] ?? 0) * k;
   }
   return t;
+}
+
+/**
+ * Nutrients no total can be given for, because a selected item does not
+ * publish them. Summing an absent value as zero and printing it would be
+ * indistinguishable from the chain having measured zero.
+ */
+export function unknownNutrients(
+  chain: Chain,
+  selections: Selections,
+): Set<NutrientField> {
+  const out = new Set<NutrientField>();
+  for (const c of chain.components) {
+    if (!selections[c.id]) continue;
+    for (const f of NUTRIENT_FIELDS) if (c[f] == null) out.add(f);
+  }
+  return out;
+}
+
+/**
+ * Nutrients whose total includes a figure we estimated. The label marks these
+ * approximate rather than printing them like measurements.
+ */
+export function estimatedNutrients(
+  chain: Chain,
+  selections: Selections,
+): Set<NutrientField> {
+  const out = new Set<NutrientField>();
+  for (const c of chain.components) {
+    if (!selections[c.id]) continue;
+    for (const f of c.estimated ?? []) out.add(f as NutrientField);
+  }
+  return out;
 }
 
 /**

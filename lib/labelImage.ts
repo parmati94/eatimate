@@ -33,6 +33,8 @@ function wrap(ctx: CanvasRenderingContext2D, text: string, max: number) {
 export function drawLabel(
   totals: Totals,
   subtitle: string,
+  missing?: ReadonlySet<string>,
+  estimated?: ReadonlySet<string>,
   scale = 3,
 ): Promise<Blob | null> {
   const canvas = document.createElement("canvas");
@@ -44,7 +46,7 @@ export function drawLabel(
   const subLines = wrap(ctx, subtitle, W - PAD * 2);
   ctx.font = `10px ${SANS}`;
   const noteLines = wrap(ctx, LABEL_FOOTNOTE, W - PAD * 2);
-  const rows = labelRows(totals);
+  const rows = labelRows(totals, missing, estimated);
   const height =
     PAD + 30 + subLines.length * 15 + 12 + 46 + 20 + rows.length * 22 + 14 +
     noteLines.length * 13 + PAD;
@@ -108,7 +110,8 @@ export function drawLabel(
     ctx.fillText(r.label, x, y);
     const w = ctx.measureText(r.label).width;
     ctx.font = `13px ${SANS}`;
-    ctx.fillText(` ${r.value}${r.unit}`, x + w, y);
+    ctx.fillText(r.value === null ? " not published"
+      : `${r.approx ? " \u2248" : ""} ${r.value}${r.unit}${r.approx ? " (est.)" : ""}`, x + w, y);
     if (r.dv !== undefined) {
       ctx.font = `bold 13px ${SANS}`;
       ctx.textAlign = "right";

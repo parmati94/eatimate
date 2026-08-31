@@ -4,13 +4,15 @@ import { LABEL_FOOTNOTE, labelCalories, labelRows } from "@/lib/label";
 function Row({
   label,
   value,
+  approx = false,
   unit,
   dv,
   indent = false,
   bold = false,
 }: {
   label: string;
-  value: number;
+  value: number | null;
+  approx?: boolean;
   unit: string;
   dv?: number;
   indent?: boolean;
@@ -23,8 +25,20 @@ function Row({
       <span>
         <span className={bold ? "font-bold" : ""}>{label}</span>{" "}
         <span className="tabular-nums">
-          {value}
-          {unit}
+          {value === null ? (
+            <span title="not published by this chain">not published</span>
+          ) : (
+            <>
+              {approx && "≈ "}
+              {value}
+              {unit}
+              {approx && (
+                <span className="ml-1 font-normal text-neutral-600">
+                  &middot; includes an estimate
+                </span>
+              )}
+            </>
+          )}
         </span>
       </span>
       {dv !== undefined && (
@@ -41,7 +55,11 @@ function Row({
 export default function NutritionLabel({
   totals,
   subtitle,
+  missing,
+  estimated,
 }: {
+  missing?: ReadonlySet<string>;
+  estimated?: ReadonlySet<string>;
   totals: Totals;
   subtitle?: string;
 }) {
@@ -62,7 +80,7 @@ export default function NutritionLabel({
       <div className="border-t-4 border-black pt-0.5 text-right text-[11px] font-bold">
         % Daily Value*
       </div>
-      {labelRows(totals).map((r) => (
+      {labelRows(totals, missing, estimated).map((r) => (
         <Row key={r.label} {...r} />
       ))}
       <p className="mt-1.5 border-t-[5px] border-black pt-1.5 text-[10px] leading-snug text-neutral-700">

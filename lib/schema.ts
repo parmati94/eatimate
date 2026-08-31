@@ -19,7 +19,10 @@ export const ComponentSchema = z.object({
   fat_g: nonNeg,
   sat_fat_g: nonNeg,
   trans_fat_g: nonNeg,
-  cholesterol_mg: nonNeg,
+  // Nullable because a chain may simply not publish it. Chipotle publishes
+  // every other nutrient and no cholesterol at all; storing 0 would be a
+  // number we invented, and a meat bowl reading 0 mg would be a lie.
+  cholesterol_mg: nonNeg.nullable(),
   sodium_mg: nonNeg,
   carbs_g: nonNeg,
   fiber_g: nonNeg,
@@ -40,6 +43,10 @@ export const ComponentSchema = z.object({
   // arithmetic in plain words; the page states it on the row and in the footer,
   // because a number of ours must never pass for one of theirs.
   derived: z.string().optional(),
+  // Which of this row's nutrients are our estimate rather than the chain's
+  // figure. A total containing one is shown as approximate, so a screenshot of
+  // the label can never pass an estimate off as a measurement.
+  estimated: z.array(z.string()).optional(),
   // Size variants of one item collapse into a single row with a size selector,
   // rather than listing "Small Fries", "Medium Fries", "Large Fries" separately.
   // The group head carries only variant_label; its siblings point at it.
