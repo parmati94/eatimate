@@ -164,6 +164,48 @@
    "name": "Toppings",
    "select": "multi",
    "flow": "build"
+  },
+  {
+   "id": "breads",
+   "name": "Breads",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "chicken",
+   "name": "Chicken & Wings",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "desserts",
+   "name": "Desserts",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "dips",
+   "name": "Dipping Cups & Dressings",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "sandwiches",
+   "name": "Oven-Baked Sandwiches",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "pasta",
+   "name": "Pasta",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "salads",
+   "name": "Salads",
+   "select": "multi",
+   "flow": "extras"
   }
  ],
  "layout": {
@@ -183,10 +225,10 @@
   ],
   "allergen": false,
   "serving": "g",
-  "sections": "^(Personal Domino™ Pizza|8\" Extra Small Hand Tossed Pizza\\*|10\" Small Hand Tossed Pizza|10\" Small Crunchy Thin Crust Pizza|10\" Small Gluten Free Pizza|12\" Medium Hand Tossed Pizza|12\" Medium New York Style Pizza|12\" Medium Crunchy Thin Crust Pizza|12\" Medium Pan Pizza|12\" Medium Parmesan Stuffed Crust Pizza|14\" Large Hand Tossed and Crunchy Thin Pizza|14\" Large New York Style Pizza|16\" Extra Large Hand Tossed Pizza|16\" Extra Large New York Style Pizza)$",
-  "subsections": "^(CRUST|SAUCE|CHEESE ONLY PIZZA|CHEESE PIZZA ALONG WITH OTHER TOPPINGS|1 TOPPING PIZZA)",
-  "skip": "^(?:(?:taF|latoT|detarutaS|snarT|loretselohC|muidoS|setardyhobraC|rebiF|sraguS|deddA|nietorP|seirolaC|thgieW|\\)g\\(|\\)gm\\()\\s*)+$|^(Ingredient Nutrition|of 1/\\d+ of Pizza|The pizza products|location and supplier|\\* ?Note:|Domino.s Nutrition Guide|Weight|Calories|DOMINO.S NUTRITION GUIDE|August 20\\d\\d$|\\(Includes|Table of Contents|Build Your Own|Using the Food Pyramid|it is possible to enjoy|Domino.s chooses|Domino.s dedicates|\\d+ FRONT-\\d+|©20\\d\\d)",
-  "stop": "^Specialty Pizzas",
+  "sections": "^(Personal Domino™ Pizza|8\" Extra Small Hand Tossed Pizza\\*|10\" Small Hand Tossed Pizza|10\" Small Crunchy Thin Crust Pizza|10\" Small Gluten Free Pizza|12\" Medium Hand Tossed Pizza|12\" Medium New York Style Pizza|12\" Medium Crunchy Thin Crust Pizza|12\" Medium Pan Pizza|12\" Medium Parmesan Stuffed Crust Pizza|14\" Large Hand Tossed and Crunchy Thin Pizza|14\" Large New York Style Pizza|16\" Extra Large Hand Tossed Pizza|16\" Extra Large New York Style Pizza|Sandwiches, Pasta, Chicken & Sides|Specialty Pizzas|\\*VARIANCE Hand Tossed Breakfast Pizzas|\\*VARIANCE Domino.s Hoagies)$",
+  "subsections": "^(CRUST|SAUCE|CHEESE ONLY PIZZA|CHEESE PIZZA ALONG WITH OTHER TOPPINGS|1 TOPPING PIZZA|BREADS|CHICKEN|DESSERTS|DIPPING CUPS|OVEN-BAKED SANDWICHES|PENNE PASTA|SALADS|SALAD DRESSINGS)",
+  "skip": "^(?:(?:taF|latoT|detarutaS|snarT|loretselohC|muidoS|setardyhobraC|rebiF|sraguS|deddA|nietorP|seirolaC|thgieW|eziS|gnivreS|\\)g\\(|\\)gm\\()\\s*)+$|^(Ingredient Nutrition|of 1/\\d+ of |The pizza products|location and supplier|\\* ?Note:|Domino.s Nutrition Guide|Weight|Calories|SPECIALTY PIZZAS \\(info|DOMINO.S NUTRITION GUIDE|August 20\\d\\d$|\\(Includes|Table of Contents|Build Your Own|Using the Food Pyramid|it is possible to enjoy|Domino.s chooses|Domino.s dedicates|\\d+ FRONT-\\d+|©20\\d\\d|The People.s Pizza|ExtravaganZZa|Honolulu Hawaiian|MeatZZa|Memphis BBQ Chicken|Pacific Veggie|Philly Cheese Steak|Spicy Chicken Bacon Ranch|Spinach & Feta|Ultimate Pepperoni|Wisconsin 6 Cheese|\\*1\\d .*BREAKFAST PIZZA|^BUILD YOUR OWN|Nutrition Information for Drinks)",
+  "stop": "^===== PAGE 19 =====",
   "pre_replace": [
    [
     "^.*\\.\\s\\.\\s\\..*$",
@@ -195,8 +237,13 @@
    [
     " \\(Serving Size is [^)]*\\)",
     ""
+   ],
+   [
+    "^(.+?)\\s+((?:\\d+(?:\\.\\d+)?|\\d/\\d)\\s+(?:pieces?|slices?|servings?|orders?|cups?|cakes?|brownies?|[Ss]andwich|[Dd]ish|[Cc]ontainer))\\s+(?=\\d)",
+    "\\1 [\\2] "
    ]
-  ]
+  ],
+  "serving_brackets": true
  },
  "section_modes": {
   "Personal Domino™ Pizza": "personal",
@@ -412,7 +459,24 @@
    "suffix": "with other toppings",
    "id_suffix": "withtop"
   },
-  "16\" Extra Large New York Style Pizza/1 TOPPING PIZZA": "topping"
+  "16\" Extra Large New York Style Pizza/1 TOPPING PIZZA": "topping",
+  "Sandwiches, Pasta, Chicken & Sides/BREADS": "breads",
+  "Sandwiches, Pasta, Chicken & Sides/CHICKEN": "chicken",
+  "Sandwiches, Pasta, Chicken & Sides/DESSERTS": "desserts",
+  "Sandwiches, Pasta, Chicken & Sides/DIPPING CUPS": "dips",
+  "Sandwiches, Pasta, Chicken & Sides/SALAD DRESSINGS": "dips",
+  "Sandwiches, Pasta, Chicken & Sides/OVEN-BAKED SANDWICHES": "sandwiches",
+  "Sandwiches, Pasta, Chicken & Sides/PENNE PASTA": "pasta",
+  "Sandwiches, Pasta, Chicken & Sides/SALADS": "salads",
+  "Specialty Pizzas": {
+   "skip": "whole named pizzas, not build-your-own ingredients"
+  },
+  "*VARIANCE Hand Tossed Breakfast Pizzas": {
+   "skip": "breakfast pizzas are their own build; not ingested"
+  },
+  "*VARIANCE Domino's Hoagies": {
+   "skip": "hoagies are a separate build with their own serving basis; not ingested"
+  }
  },
  "items": {
   "8\" Extra Small Hand Tossed Pizza*/Hand Tossed": {
