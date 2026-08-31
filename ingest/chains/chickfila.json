@@ -22,7 +22,7 @@
     "Treats"
    ]
   },
-  "disclaimer_extra": "Chick-fil-A publishes its buns, proteins, toppings, sauces and dressings as separate component tables alongside its finished menu items; this builder uses those component tables, so a sandwich you assemble here may differ slightly from the published total for a comparable menu item. Catering items are not included. One known gap: Chick-fil-A's sandwiches are served with pickles, but pickles are not published as a separate topping — a sandwich built here reads roughly 100 mg lower in sodium than the equivalent published menu item.",
+  "disclaimer_extra": "Chick-fil-A publishes its buns, proteins, toppings, sauces and dressings as separate component tables alongside its finished menu items; this builder uses those component tables, so a sandwich you assemble here may differ slightly from the published total for a comparable menu item. Catering items are not included. Two gaps come from the source: sandwiches are served with pickles, which Chick-fil-A does not publish as a separate topping, so a sandwich built here reads roughly 100 mg lower in sodium than the equivalent menu item; and of the fountain drinks only Coca-Cola and Dr Pepper are published on their own — Diet Coke, Sprite, Coke Zero and Barq's appear only inside Frosted shakes.",
   "blurb": "Start from a Chick-fil-A menu item at its published nutrition — swap the cheese or the chicken and the numbers stay Chick-fil-A's own — or build a sandwich from their bun, filet and topping tables.",
   "glyph": "burger"
  },
@@ -980,7 +980,8 @@
    "cat": "drink",
    "id": "coca-cola",
    "name": "Coca-Cola®",
-   "variant_label": "Medium"
+   "variant_label": "Medium",
+   "feature": true
   },
   "Large Coca-Cola®": {
    "cat": "drink",
@@ -1000,7 +1001,8 @@
    "cat": "drink",
    "id": "dr-pepper",
    "name": "Dr Pepper®",
-   "variant_label": "Medium"
+   "variant_label": "Medium",
+   "feature": true
   },
   "Large Dr Pepper®": {
    "cat": "drink",
@@ -1008,6 +1010,10 @@
    "name": "Dr Pepper®",
    "variant_label": "Large",
    "variant_of": "dr-pepper"
+  },
+  "DASANI® Bottled Water": {
+   "cat": "drink",
+   "feature": true
   }
  }
 }

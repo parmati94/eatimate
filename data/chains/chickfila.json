@@ -21,7 +21,7 @@
       "Treats"
     ]
   },
-  "disclaimer_extra": "Chick-fil-A publishes its buns, proteins, toppings, sauces and dressings as separate component tables alongside its finished menu items; this builder uses those component tables, so a sandwich you assemble here may differ slightly from the published total for a comparable menu item. Catering items are not included. One known gap: Chick-fil-A's sandwiches are served with pickles, but pickles are not published as a separate topping — a sandwich built here reads roughly 100 mg lower in sodium than the equivalent published menu item.",
+  "disclaimer_extra": "Chick-fil-A publishes its buns, proteins, toppings, sauces and dressings as separate component tables alongside its finished menu items; this builder uses those component tables, so a sandwich you assemble here may differ slightly from the published total for a comparable menu item. Catering items are not included. Two gaps come from the source: sandwiches are served with pickles, which Chick-fil-A does not publish as a separate topping, so a sandwich built here reads roughly 100 mg lower in sodium than the equivalent menu item; and of the fountain drinks only Coca-Cola and Dr Pepper are published on their own — Diet Coke, Sprite, Coke Zero and Barq's appear only inside Frosted shakes.",
   "blurb": "Start from a Chick-fil-A menu item at its published nutrition — swap the cheese or the chicken and the numbers stay Chick-fil-A's own — or build a sandwich from their bun, filet and topping tables.",
   "glyph": "burger",
   "categories": [
@@ -3313,7 +3313,8 @@
       "fiber_g": 0,
       "sugars_g": 46,
       "protein_g": 0,
-      "variant_label": "Medium"
+      "variant_label": "Medium",
+      "feature": true
     },
     {
       "id": "coca-cola-large",
@@ -3369,7 +3370,8 @@
       "fiber_g": 0,
       "sugars_g": 44,
       "protein_g": 0,
-      "variant_label": "Medium"
+      "variant_label": "Medium",
+      "feature": true
     },
     {
       "id": "dr-pepper-large",
@@ -3389,6 +3391,24 @@
       "protein_g": 0,
       "variant_of": "dr-pepper",
       "variant_label": "Large"
+    },
+    {
+      "id": "dasani-bottled-water",
+      "name": "DASANI® Bottled Water",
+      "category": "drink",
+      "serving_desc": "479 g",
+      "serving_g": 479,
+      "calories": 0,
+      "fat_g": 0,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 0,
+      "carbs_g": 0,
+      "fiber_g": 0,
+      "sugars_g": 0,
+      "protein_g": 0,
+      "feature": true
     },
     {
       "id": "pineapple-dragonfruit-lemonade",
@@ -3845,23 +3865,6 @@
       "cholesterol_mg": 0,
       "sodium_mg": 15,
       "carbs_g": 7,
-      "fiber_g": 0,
-      "sugars_g": 0,
-      "protein_g": 0
-    },
-    {
-      "id": "dasani-bottled-water",
-      "name": "DASANI® Bottled Water",
-      "category": "drink",
-      "serving_desc": "479 g",
-      "serving_g": 479,
-      "calories": 0,
-      "fat_g": 0,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 0,
-      "carbs_g": 0,
       "fiber_g": 0,
       "sugars_g": 0,
       "protein_g": 0
