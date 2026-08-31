@@ -1,14 +1,10 @@
 import { ImageResponse } from "next/og";
-import { listChains } from "@/lib/data";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt = "Eatimate — free nutrition calculators for build-your-own restaurant meals";
 
 export default async function Image() {
-  const chains = await listChains();
-  const total = chains.reduce((n, c) => n + c.components.length, 0);
-
   return new ImageResponse(
     (
       <div
@@ -42,7 +38,7 @@ export default async function Image() {
             eatimate.app
           </div>
           <div style={{ display: "flex", fontSize: 26, color: "#6b7079" }}>
-            {chains.length} restaurants · {total.toLocaleString("en-US")} ingredients
+            Every number from the chain&rsquo;s own nutrition data
           </div>
         </div>
       </div>

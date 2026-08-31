@@ -21,6 +21,7 @@ import {
   IconChevron,
   IconCopy,
   IconDownload,
+  IconShare,
   IconMinus,
   IconPlus,
   IconSearch,
@@ -468,6 +469,57 @@ function SaveImageButton({
       className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl border border-line bg-surface text-sm font-medium shadow-sm transition-colors hover:border-accent hover:text-accent-strong disabled:opacity-50 disabled:hover:border-line disabled:hover:text-fg"
     >
       <IconDownload className="h-4 w-4" /> Save label as image
+    </button>
+  );
+}
+
+/**
+ * Share the meal itself. The selections already live in the URL, but nobody
+ * discovers that, and nobody selects a long URL out of a phone's address bar.
+ * Native sheet where there is one, clipboard everywhere else.
+ */
+function ShareMealButton({
+  chain,
+  selections,
+  portion = 1,
+}: {
+  chain: Chain;
+  selections: Selections;
+  portion?: number;
+}) {
+  const [state, setState] = useState<"idle" | "copied">("idle");
+  const empty = chain.components.every((c) => !selections[c.id]);
+  return (
+    <button
+      type="button"
+      disabled={empty}
+      onClick={async () => {
+        const url = mealUrl(selections, portion);
+        const title = `${chain.name} on eatimate`;
+        if (navigator.share) {
+          try {
+            await navigator.share({ title, url });
+            return;
+          } catch {
+            // Cancelled, or the sheet refused; fall through to the clipboard.
+          }
+        }
+        if (await copyText(url)) {
+          setState("copied");
+          setTimeout(() => setState("idle"), 1500);
+        }
+      }}
+      className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl border border-line bg-surface text-sm font-medium shadow-sm transition-colors hover:border-accent hover:text-accent-strong disabled:opacity-50 disabled:hover:border-line disabled:hover:text-fg"
+    >
+      {state === "copied" ? (
+        <>
+          <IconCheck className="h-4 w-4 text-accent-strong" /> Link copied
+        </>
+      ) : (
+        <>
+          <IconShare className="h-4 w-4" /> Share this meal
+        </>
+      )}
     </button>
   );
 }
@@ -1095,6 +1147,7 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
       {/* Desktop: sticky label column */}
       <aside className="hidden lg:sticky lg:top-[72px] lg:block lg:space-y-2 lg:self-start">
         <NutritionLabel totals={totals} subtitle={subtitle} />
+        <ShareMealButton chain={chain} selections={selections} portion={portion} />
         <SaveImageButton
           chain={chain}
           subtitle={subtitle}
@@ -1138,6 +1191,7 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
           {labelOpen && (
             <div className="mb-2 max-h-[70vh] space-y-2 overflow-y-auto rounded-2xl bg-surface p-3 shadow-2xl ring-1 ring-line">
               <NutritionLabel totals={totals} subtitle={subtitle} />
+              <ShareMealButton chain={chain} selections={selections} portion={portion} />
               <SaveImageButton
                 chain={chain}
                 subtitle={subtitle}

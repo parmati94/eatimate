@@ -42,6 +42,14 @@ export const IconDownload = (p: P) => (
     <path d="M4 20h16" />
   </Svg>
 );
+// iOS-style share: a box with an arrow leaving the top.
+export const IconShare = (p: P) => (
+  <Svg {...p}>
+    <path d="M12 3v12" />
+    <path d="m8 7 4-4 4 4" />
+    <path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" />
+  </Svg>
+);
 export const IconSearch = (p: P) => (
   <Svg {...p}>
     <circle cx="11" cy="11" r="8" />

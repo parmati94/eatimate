@@ -6,7 +6,6 @@ export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 export default async function Home() {
   const chains = await listChains();
-  const totalComponents = chains.reduce((n, c) => n + c.components.length, 0);
 
   return (
     <main className="mx-auto w-full max-w-4xl flex-1 px-4 pb-16 pt-12 sm:pt-20">
@@ -33,9 +32,7 @@ export default async function Home() {
       </div>
 
       <p className="mt-12 text-center text-xs text-muted">
-        {chains.length} restaurant{chains.length === 1 ? "" : "s"} ·{" "}
-        {totalComponents} ingredients · every number traced to the chain's
-        official nutrition data
+        Every number traced to the chain&rsquo;s official nutrition data
       </p>
     </main>
   );
