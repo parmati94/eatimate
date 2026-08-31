@@ -72,6 +72,17 @@ export default function ChainGlyph({
         <path d="M12 32c4 4 8-4 12 0s8-4 12 0 8-4 12 0" stroke={detail} strokeWidth="3.4" fill="none" strokeLinecap="round" />
       </g>
     ),
+    pizza: (
+      <g>
+        {/* one slice, tip up: crust at the base, cheese face, three pepperoni */}
+        <path d="M32 8 54 50a2 2 0 0 1-1.8 3H11.8A2 2 0 0 1 10 50Z" fill="currentColor" />
+        <path d="M32 16 47.5 46H16.5Z" fill={detail} opacity=".28" />
+        <path d="M11.8 53h40.4a2 2 0 0 0 1.8-3H10a2 2 0 0 0 1.8 3Z" fill="currentColor" />
+        <circle cx="32" cy="30" r="3" fill={detail} />
+        <circle cx="25" cy="42" r="3" fill={detail} />
+        <circle cx="39" cy="42" r="3" fill={detail} />
+      </g>
+    ),
     wing: (
       <g fill="currentColor">
         <path d="M22 20a12 12 0 0 1 20 8c1 8-6 14-13 13l-9 9a4 4 0 1 1-6-6l9-9c-2-6 0-12-1-15Z" transform="rotate(6 32 32)" />

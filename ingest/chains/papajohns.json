@@ -17,7 +17,7 @@
   },
   "disclaimer_extra": "Papa John's publishes every topping per slice, for each crust and size. Build the pizza, then choose how many slices you ate. Per-slice values are rounded by Papa John's, so a whole pizza carries that rounding multiplied by the slice count. Topping values are published for a one-topping pizza; a heavily loaded pizza may differ.",
   "blurb": "Build a Papa John's pizza slice by slice — crust, size, sauce, cheese and every topping — using Papa John's own per-slice nutrition tables for each crust and size.",
-  "glyph": "burger",
+  "glyph": "pizza",
   "size_modes": [
    {
     "id": "original-one",
