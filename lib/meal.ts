@@ -43,6 +43,39 @@ export function decodeMeal(raw: string, chain: Chain): Selections {
 }
 
 /**
+ * The size mode a chain falls back to when nothing has chosen one.
+ * Null for the chains (most of them) that have no chain-wide sizing.
+ */
+export function defaultSizeMode(chain: Chain): SizeMode | null {
+  const modes = chain.size_modes;
+  if (!modes) return null;
+  return modes.find((m) => m.default) ?? modes[0] ?? null;
+}
+
+/**
+ * The size mode the current selections put the chain in: the format pick IS
+ * the size choice (picking Footlong scales the whole build), so this reads it
+ * back off the selections rather than tracking it separately.
+ *
+ * Pure, and exported, because the comparison view needs a second meal's totals
+ * without mounting a second builder to compute them.
+ */
+export function activeSizeMode(
+  chain: Chain,
+  selections: Selections,
+): SizeMode | null {
+  const modes = chain.size_modes;
+  if (!modes) return null;
+  const fallback = defaultSizeMode(chain);
+  for (const c of chain.components) {
+    if (selections[c.id] && c.size_mode) {
+      return modes.find((m) => m.id === c.size_mode) ?? fallback;
+    }
+  }
+  return fallback;
+}
+
+/**
  * Raw (unrounded) totals for a meal.
  *
  * Three multipliers stack: the component's own quantity, the active size mode's
