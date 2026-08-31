@@ -210,6 +210,7 @@ def build(cfg, rows, extra=None):
         if spec is None:
             cat = sec_cats.get(f"{r.section}/{r.sub}") or sec_cats.get(r.section or "")
             if not cat: continue
+            r.defaulted = True
             spec = dict(cat) if isinstance(cat, dict) else {"cat": cat}
             if "suffix" in spec:
                 n2, _ = split_serving(r.printed)
@@ -273,6 +274,14 @@ def finish(cfg, components, rows, pending, out_dir="data/chains"):
     errors = []
     unused = [r.printed for r in rows if not r.used]
     if unused: errors.append(f"unconsumed PDF rows: {unused}")
+    # Rows matched by a section default rather than an items entry are NOT
+    # errors -- that is how section_categories chains stay current when a chain
+    # adds an item. But they took a GUESSED category, so say how many, or a new
+    # menu item can slip in unreviewed.
+    defaulted = [r.printed for r in rows if getattr(r, "defaulted", False)]
+    if defaulted:
+        print(f"  note: {len(defaulted)} rows took a section default (no items entry); "
+              f"review the diff for new items")
     if pending: errors.append(f"unparsed non-empty lines: {pending[:8]}{' ...' if len(pending) > 8 else ''}")
     ids = [c["id"] for c in components]
     dups = sorted({i for i in ids if ids.count(i) > 1})
