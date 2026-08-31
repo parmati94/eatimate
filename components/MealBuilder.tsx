@@ -80,10 +80,13 @@ function QtyStepper({
   qty,
   onChange,
   steps = QTY_STEPS,
+  format = fmtQty,
 }: {
   qty: number;
   onChange: (q: number) => void;
   steps?: number[];
+  /** A count reads as "3", a multiplier as "3×". */
+  format?: (q: number) => string;
 }) {
   const i = steps.indexOf(qty);
   const btn =
@@ -104,7 +107,7 @@ function QtyStepper({
         <IconMinus className="h-4 w-4" />
       </button>
       <span className="min-w-8 text-center text-xs font-semibold tabular-nums">
-        {fmtQty(qty)}
+        {format(qty)}
       </span>
       <button
         type="button"
@@ -872,6 +875,31 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
             )}
           </div>
         )}
+        {portionMax > 1 && (
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-2xl border border-line bg-surface px-3 py-2 shadow-sm">
+            <span className="text-sm font-medium">
+              {chain.portion!.unit.charAt(0).toUpperCase() +
+                chain.portion!.unit.slice(1)}s eaten
+            </span>
+            <QtyStepper
+              qty={portion}
+              onChange={setPortion}
+              steps={Array.from({ length: portionMax }, (_, i) => i + 1)}
+              format={(q) => String(q)}
+            />
+            <span className="text-xs text-muted">of {portionMax}</span>
+            <button
+              type="button"
+              onClick={() => setPortion(portion === portionMax ? 1 : portionMax)}
+              className="ml-auto text-xs font-medium text-accent-strong underline underline-offset-2"
+            >
+              {portion === portionMax
+                ? `one ${chain.portion!.unit}`
+                : `all ${portionMax}`}
+            </button>
+          </div>
+        )}
+
         <div className="space-y-2">
           {buildCats.map((cat, idx) => {
             const comps = visibleByCategory.get(cat.id)!;
@@ -913,42 +941,6 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
             );
           })}
         </div>
-
-        {portionMax > 1 && (
-          <section className="rounded-2xl border border-line bg-surface p-3 shadow-sm">
-            <div className="flex flex-wrap items-baseline justify-between gap-2 px-1 pb-2">
-              <h2 className="text-xs font-semibold uppercase tracking-wider text-muted">
-                How many {chain.portion!.unit}s did you eat?
-              </h2>
-              <span className="text-xs text-muted">
-                {portion === portionMax
-                  ? "the whole thing"
-                  : `of ${portionMax}`}
-              </span>
-            </div>
-            <div className="grid gap-1.5 px-1 [grid-template-columns:repeat(auto-fit,minmax(3rem,1fr))]">
-              {Array.from({ length: portionMax }, (_, i) => i + 1).map((n) => (
-                <button
-                  key={n}
-                  type="button"
-                  aria-pressed={n === portion}
-                  onClick={() => setPortion(n)}
-                  className={`h-11 rounded-lg border text-sm font-semibold tabular-nums transition-colors ${
-                    n === portion
-                      ? "border-accent bg-accent text-on-accent"
-                      : "border-line bg-surface text-muted hover:border-accent hover:text-accent-strong"
-                  }`}
-                >
-                  {n}
-                </button>
-              ))}
-            </div>
-            <p className="px-1 pt-2 text-xs text-muted">
-              Ingredients above are per {chain.portion!.unit}. The label counts{" "}
-              {portion} of {portionMax}.
-            </p>
-          </section>
-        )}
 
         {featured.length > 0 && (
           <section className="rounded-2xl border border-line bg-surface p-3 shadow-sm">
