@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import ChainPicker from "@/components/ChainPicker";
 import CompareCard from "@/components/CompareCard";
+import { listChains } from "@/lib/data";
 import { listComparePairs } from "@/lib/meals";
 
 export const metadata: Metadata = {
@@ -10,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default async function CompareIndex() {
-  const pairs = await listComparePairs();
+  const [pairs, chains] = await Promise.all([listComparePairs(), listChains()]);
 
   return (
     <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8 sm:py-12">
@@ -23,10 +25,22 @@ export default async function CompareIndex() {
         difference is part of the answer.
       </p>
 
+      <div className="mt-6">
+        <ChainPicker
+          chains={chains.map((c) => ({ slug: c.slug, name: c.name, glyph: c.glyph }))}
+        />
+      </div>
+
+      <h2 className="mt-10 text-lg font-bold tracking-tight">Recommended</h2>
+      <p className="mt-1 text-sm text-muted">
+        These open with the same order already built at both, so there is
+        something to read before you touch anything.
+      </p>
+
       {pairs.length === 0 ? (
         <p className="mt-8 text-sm text-muted">No comparisons yet.</p>
       ) : (
-        <ul className="mt-8 grid gap-3 sm:grid-cols-2 sm:gap-4">
+        <ul className="mt-5 grid gap-3 sm:grid-cols-2 sm:gap-4">
           {pairs.map((p) => (
             <li key={p.slug}>
               <CompareCard pair={p} />

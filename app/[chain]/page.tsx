@@ -57,7 +57,8 @@ export default async function ChainPage(props: PageProps<"/[chain]">) {
 
   // Narrowed here rather than in the component: CompareStrip is a client
   // component, so whatever it takes is serialised into the page.
-  const links: CompareLink[] = (await pairsWith(slug)).map((p) => {
+  const recommended = await pairsWith(slug);
+  const links: CompareLink[] = recommended.map((p) => {
     const isFirst = p.chains[0].slug === slug;
     const other = isFirst ? p.chains[1] : p.chains[0];
     return {
@@ -66,6 +67,10 @@ export default async function ChainPage(props: PageProps<"/[chain]">) {
       other: { slug: other.slug, name: other.name, glyph: other.glyph },
     };
   });
+  const suggested = new Set([slug, ...links.map((l) => l.other.slug)]);
+  const others = (await listChains())
+    .filter((c) => !suggested.has(c.slug))
+    .map((c) => ({ slug: c.slug, name: c.name }));
   const sourceUrl = chain.source.pdf_url ?? chain.source.html_url!;
 
   return (
@@ -118,7 +123,11 @@ export default async function ChainPage(props: PageProps<"/[chain]">) {
 
       <MealBuilder chain={chain} />
 
-      <CompareStrip chainName={chain.name} links={links} />
+      <CompareStrip
+        chain={{ slug: chain.slug, name: chain.name }}
+        links={links}
+        others={others}
+      />
 
       <NutritionTable chain={chain} />
 
