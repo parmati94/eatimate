@@ -3,7 +3,8 @@
   "slug": "qdoba",
   "source": {
     "pdf_url": "https://assets.ctfassets.net/0tc4847zqy12/bQFJBCmsAk4ww4qzdfAOm/27c88d608796913d6a47899ecffb6a3c/Nutrition_8.5.26.pdf",
-    "retrieved": "2026-08-30"
+    "retrieved": "2026-08-30",
+    "format": "pdf"
   },
   "disclaimer_extra": "Qdoba nutrition chart dated August 5, 2026. Items marked Canada / select locations / limited time are as printed on the chart.",
   "blurb": "Build any Qdoba order — burrito, bowl, tacos, or salad — from the proteins, quesos, salsas and toppings on Qdoba's official nutrition chart (August 2026), and watch calories, protein, carbs and fat add up as you pick.",

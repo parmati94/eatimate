@@ -3,7 +3,8 @@
   "slug": "fiveguys",
   "source": {
     "pdf_url": "https://www.fiveguys.com/wp-content/uploads/2026/08/Five-Guys-US-Nutrition-Allergen-Guide-English-June-2026.pdf",
-    "retrieved": "2026-08-30"
+    "retrieved": "2026-08-30",
+    "format": "pdf"
   },
   "disclaimer_extra": "Five Guys' guide (June 2026) lists some items per supplier with near-identical values; the first-listed supplier's row is used. All toppings are free at the counter — free doesn't mean calorie-free.",
   "blurb": "Build your Five Guys order patty by patty — bun, meat, all the free toppings, fries by size and style, even the milkshake mix-ins — from Five Guys' official June 2026 nutrition guide.",
