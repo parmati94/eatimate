@@ -22,8 +22,8 @@ chain's published data ──▶ ingest pipeline ──▶ data/chains/<slug>.js
 ```
 
 - **The repo is the database.** One JSON file per chain, validated by a zod
-  schema, committed to git — a data update is a reviewable diff. The app reads
-  the data directory at request time; adding a chain is dropping a file.
+  schema, committed to git — a data update is a reviewable diff. The data ships
+  inside the image, so adding a chain is dropping a file and rebuilding.
 - **Config-driven ingestion** (`ingest/`): chains publish as PDF, HTML table,
   transposed HTML matrix, or embedded JSON, and three dumpers normalise those
   four shapes into one intermediate text format. From there a single shared

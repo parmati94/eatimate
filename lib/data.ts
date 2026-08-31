@@ -4,7 +4,8 @@ import { cache } from "react";
 import { Chain, ChainSchema } from "./schema";
 
 // Resolved at request time relative to the server cwd; in the container this is
-// /app/data/chains, which the compose file bind-mounts read-only.
+// /app/data/chains, copied into the image at build time (no bind mount), so a
+// data change means a rebuild.
 const CHAINS_DIR = path.join(process.cwd(), "data", "chains");
 
 export const listChains = cache(async (): Promise<Chain[]> => {

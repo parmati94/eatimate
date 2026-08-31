@@ -21,7 +21,7 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 # Chain data ships in the image; the compose bind mount overlays it so new
-# chains can be dropped in without a rebuild.
+# The chain data ships in the image; there is no runtime mount.
 COPY --from=builder /app/data ./data
 USER nextjs
 EXPOSE 3000
