@@ -379,7 +379,7 @@
       "protein_g": 0
     },
     {
-      "id": "jalape-o-peppers",
+      "id": "jalapeno-peppers",
       "name": "Jalapeño Peppers",
       "category": "toppings",
       "serving_desc": "burger portion",
@@ -799,7 +799,7 @@
       "protein_g": 0.5
     },
     {
-      "id": "oreo-cr-me",
+      "id": "oreo-creme",
       "name": "Oreo® Crème",
       "category": "shake",
       "serving_desc": "1 mix-in",

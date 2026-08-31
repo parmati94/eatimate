@@ -8,7 +8,47 @@
     "https://www.papajohns.com/company/nutritional-details/crust.html",
     "https://www.papajohns.com/company/nutritional-details/sauce.html",
     "https://www.papajohns.com/company/nutritional-details/cheese.html",
-    "https://www.papajohns.com/company/nutritional-details/toppings.html"
+    "https://www.papajohns.com/company/nutritional-details/toppings.html",
+    {
+     "url": "https://www.papajohns.com/company/nutritional-details/sides.html",
+     "mode": "items",
+     "section": "Sides"
+    },
+    {
+     "url": "https://www.papajohns.com/company/nutritional-details/wings.html",
+     "mode": "items",
+     "section": "Wings"
+    },
+    {
+     "url": "https://www.papajohns.com/company/nutritional-details/dipping-sauces.html",
+     "mode": "items",
+     "section": "Dipping Sauces"
+    },
+    {
+     "url": "https://www.papajohns.com/company/nutritional-details/desserts.html",
+     "mode": "items",
+     "section": "Desserts"
+    },
+    {
+     "url": "https://www.papajohns.com/company/nutritional-details/extras.html",
+     "mode": "items",
+     "section": "Seasonings & Extras"
+    },
+    {
+     "url": "https://www.papajohns.com/company/nutritional-details/papadias.html",
+     "mode": "items",
+     "section": "Papadias"
+    },
+    {
+     "url": "https://www.papajohns.com/company/nutritional-details/sandwiches.html",
+     "mode": "items",
+     "section": "Sandwiches"
+    },
+    {
+     "url": "https://www.papajohns.com/company/nutritional-details/drinks.html",
+     "mode": "items",
+     "section": "Drinks"
+    }
    ],
    "retrieved": "2026-08-30",
    "format": "html_matrix",
@@ -145,6 +185,48 @@
    "name": "Toppings",
    "select": "multi",
    "flow": "build"
+  },
+  {
+   "id": "side",
+   "name": "Sides",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "wing",
+   "name": "Wings",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "dip",
+   "name": "Dipping Sauces",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "dessert",
+   "name": "Desserts",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "extra",
+   "name": "Seasonings & Extras",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "entree",
+   "name": "Papadias & Sandwiches",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "drink",
+   "name": "Drinks",
+   "select": "multi",
+   "flow": "extras"
   }
  ],
  "layout": {
@@ -163,13 +245,23 @@
   ],
   "allergen": false,
   "serving": null,
-  "sections": "^(Original\\ Crust\\ Pizza\\ for\\ One|Original\\ Crust\\ Small|Original\\ Crust\\ Medium|Original\\ Crust\\ Large|Original\\ Crust\\ Extra\\ Large|Thin\\ Crust|Gluten\\ Free)$",
+  "sections": "^(Original\\ Crust\\ Pizza\\ for\\ One|Original\\ Crust\\ Small|Original\\ Crust\\ Medium|Original\\ Crust\\ Large|Original\\ Crust\\ Extra\\ Large|Thin\\ Crust|Gluten\\ Free|Sides|Wings|Dipping\\ Sauces|Desserts|Seasonings\\ &\\ Extras|Papadias|Sandwiches|Drinks)$",
   "pre_replace": [
    [
     "^Gluten Pizza$",
     "Gluten Free"
+   ],
+   [
+    "^Dipping Sauces / ",
+    ""
+   ],
+   [
+    "^Papa Dippa Sauces / ",
+    ""
    ]
-  ]
+  ],
+  "serving_brackets": true,
+  "skip": "(?i).*\\(no longer available\\)"
  },
  "section_modes": {
   "Original Crust Pizza for One": "original-one",
@@ -388,5 +480,94 @@
   "original-xl": "1 slice (10 per pizza)",
   "thin": "1 slice (8 per pizza)",
   "gluten-free": "1 slice (6 per pizza)"
+ },
+ "section_categories": {
+  "Sides": {
+   "cat": "side",
+   "strict": true
+  },
+  "Wings": {
+   "cat": "wing",
+   "strict": true
+  },
+  "Dipping Sauces": {
+   "cat": "dip",
+   "strict": true
+  },
+  "Desserts": {
+   "cat": "dessert",
+   "strict": true
+  },
+  "Seasonings & Extras": {
+   "cat": "extra",
+   "strict": true
+  },
+  "Papadias": {
+   "cat": "entree",
+   "strict": true
+  },
+  "Sandwiches": {
+   "cat": "entree",
+   "strict": true
+  },
+  "Drinks": {
+   "cat": "drink",
+   "strict": true,
+   "only": [
+    "Pepsi",
+    "Diet Pepsi",
+    "Pepsi Zero Sugar",
+    "Wild Cherry Pepsi",
+    "Mountain Dew",
+    "Diet Mountain Dew",
+    "Mug Root Beer",
+    "Starry",
+    "Starry Zero Sugar",
+    "Dr Pepper",
+    "Diet Dr Pepper",
+    "Seven Up",
+    "Schweppes Ginger Ale",
+    "Crush Orange",
+    "Brisk Sweet Tea Lemon",
+    "Brisk Lemonade",
+    "Coke",
+    "Diet Coke",
+    "Coke Zero",
+    "Sprite",
+    "Aquafina",
+    "Dasani Water"
+   ]
+  }
+ },
+ "variant_split": " / ",
+ "corrections": {
+  "coke-zero-20-oz": [
+   {
+    "field": "carbs_g",
+    "used": 0,
+    "reason": "Papa John's prints 66 g carbohydrate against 0 kcal and 0 g sugar in the same row -- 66 g of carbohydrate is about 264 kcal, so the row contradicts itself. Its own calorie and sugar figures both imply 0 g. The printed value repeats the carbohydrate published for regular Coke at the same size."
+   }
+  ],
+  "coke-zero-2-liter": [
+   {
+    "field": "carbs_g",
+    "used": 0,
+    "reason": "Papa John's prints 222 g carbohydrate against 0 kcal and 0 g sugar in the same row -- 222 g of carbohydrate is about 888 kcal, so the row contradicts itself. Its own calorie and sugar figures both imply 0 g. The printed value repeats the carbohydrate published for regular Coke at the same size."
+   }
+  ],
+  "diet-coke-20-oz": [
+   {
+    "field": "carbs_g",
+    "used": 0,
+    "reason": "Papa John's prints 86 g carbohydrate against 0 kcal and 0 g sugar in the same row -- 86 g of carbohydrate is about 344 kcal, so the row contradicts itself. Its own calorie and sugar figures both imply 0 g. The printed value repeats the carbohydrate published for regular Coke at the same size."
+   }
+  ],
+  "diet-coke-2-liter": [
+   {
+    "field": "carbs_g",
+    "used": 0,
+    "reason": "Papa John's prints 291 g carbohydrate against 0 kcal and 0 g sugar in the same row -- 291 g of carbohydrate is about 1164 kcal, so the row contradicts itself. Its own calorie and sugar figures both imply 0 g. The printed value repeats the carbohydrate published for regular Coke at the same size."
+   }
+  ]
  }
 }

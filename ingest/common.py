@@ -37,12 +37,21 @@ Config (ingest/chains/<slug>.json):
                size/format rather than the category (transposed sources):
                each row becomes one component per mode, id suffixed with the
                mode and only_modes set to it.
+  variant_split: separator in a printed name ("Cheesesticks / 10\"") that marks
+               a size family. First size seen heads it; the rest point at it.
   section_categories: "SECTION" or "SECTION/SUB" -> default category, or
                {"cat": ..., "suffix": "Salad"} to append " (Salad)" to every
                derived name/id in that section (same ingredient, per-format
-               portions) (optional)
+               portions), or {"cat": ..., "strict": true} so the section keeps
+               its own default even when another section's items entry shares
+               the printed name, or {"cat": ..., "only": [names]} to keep only
+               those items from a section (optional)
+  corrections: component id -> [{field, used, reason}] for a cell the source
+               contradicts within its own row (optional)
+  layout.serving_brackets: lift a trailing "[...]" off the printed name into
+               serving_desc (dump_html "items" mode carries it there)
 """
-import json, re, sys
+import json, re, sys, unicodedata
 from pathlib import Path
 
 FIELDS = ["calories", "fat_g", "sat_fat_g", "trans_fat_g", "cholesterol_mg",
@@ -51,6 +60,8 @@ TOK = r"(?:-|<1|\d+(?:\.\d+)?)"
 
 def slug(s):
     s = s.lower().replace("’", "").replace("'", "").replace("™", "").replace("®", "")
+    # Fold accents so "Jalapeño" ids as jalapeno, not jalape-o.
+    s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
     return re.sub(r"[^a-z0-9]+", "-", s).strip("-")
 
 def num(x):
@@ -75,6 +86,7 @@ class Row:
     def __init__(self, section, sub, printed, cells, dashes):
         self.section, self.sub, self.printed, self.cells, self.dashes = section, sub, printed, cells, dashes
         self.used = False
+        self.serving_desc = None
     def nutrients(self):
         return {f: self.cells[f] for f in FIELDS}
 
@@ -122,8 +134,17 @@ def parse_dump(path, layout):
         if m:
             toks = m.group("toks").split()
             cells = dict(zip(cols, [num(t) for t in toks]))
-            rows.append(Row(section, sub, m.group("name").strip(), cells,
-                            [cols[i] for i, t in enumerate(toks) if t == "-"]))
+            printed, serving_desc = m.group("name").strip(), None
+            # dump_html "items" mode carries the source's own serving size in
+            # brackets. It is not decoration: a Papa Bite row is per bite.
+            if layout.get("serving_brackets"):
+                b = re.search(r"\s*\[([^\]]+)\]$", printed)
+                if b:
+                    printed, serving_desc = printed[:b.start()].strip(), b.group(1)
+            r = Row(section, sub, printed, cells,
+                    [cols[i] for i, t in enumerate(toks) if t == "-"])
+            r.serving_desc = serving_desc
+            rows.append(r)
         elif sec_re.match(line):
             section, sub = sec_re.match(line).group(0), None
         else:
@@ -148,7 +169,8 @@ def make_component(row, layout, cat, id=None, name=None, desc=None):
     else:
         serving_g = None
     c = {"id": id or slug(n2), "name": name or n2, "category": cat,
-         "serving_desc": desc or d2 or "1 serving", "serving_g": serving_g}
+         "serving_desc": desc or row.serving_desc or d2 or "1 serving",
+         "serving_g": serving_g}
     c.update(row.nutrients())
     row.used = True
     return c
@@ -185,6 +207,27 @@ def cff_corrections(components, rows):
             c["fat_g"] = alt; fixed.append(c["id"])
     return fixed
 
+def manual_corrections(cfg, components):
+    """Config-declared fixes, for a cell the source contradicts elsewhere in its
+    OWN row. Only use where the chain's other figures settle it -- never to
+    substitute an outside source. Records what was printed next to what we used."""
+    by_id = {c["id"]: c for c in components}
+    fixed = []
+    for cid, entries in cfg.get("corrections", {}).items():
+        c = by_id.get(cid)
+        if c is None:
+            sys.exit(f"ERROR: correction targets unknown component {cid!r}")
+        for e in entries:
+            printed = c[e["field"]]
+            if printed == e["used"]:
+                continue
+            c.setdefault("corrections", []).append(
+                {"field": e["field"], "printed": printed,
+                 "used": e["used"], "reason": e["reason"]})
+            c[e["field"]] = e["used"]
+            fixed.append(f"{cid}.{e['field']}")
+    return fixed
+
 def load_config(slug_):
     return json.load(open(Path(__file__).parent / "chains" / f"{slug_}.json"))
 
@@ -195,21 +238,39 @@ def build(cfg, rows, extra=None):
     items = cfg.get("items", {})
     sec_cats = cfg.get("section_categories", {})
     layout = cfg["layout"]
-    comps, seen, order_of = [], {}, {}
+    comps, seen, order_of, families = [], {}, {}, {}
     keys = list(items)
     for r in rows:
         seen[r.printed] = seen.get(r.printed, 0) + 1
-        k = f"{r.printed} [#{seen[r.printed]}]"
-        k = k if k in items else r.printed
-        spec = items.get(k)
+        sec_cat = sec_cats.get(f"{r.section}/{r.sub}") or sec_cats.get(r.section or "")
+        # The items map is keyed on the printed name, which is only unique
+        # within a section: Papa John's sells a "BBQ Sauce" as both a pizza
+        # sauce and a dipping cup. A strict section takes its own default
+        # unless an entry names the section explicitly.
+        strict = isinstance(sec_cat, dict) and sec_cat.get("strict")
+        cands = [f"{r.section}/{r.printed}"]
+        if not strict:
+            cands += [f"{r.printed} [#{seen[r.printed]}]", r.printed]
+        k = next((c for c in cands if c in items), None)
+        spec = items.get(k) if k else None
         if spec is not None: order_of[id(r)] = keys.index(k)
         if spec is None and extra:
             out = extra(r)
             if out is False: r.used = True; continue
             if out: comps.append(out); continue
         if spec is None:
-            cat = sec_cats.get(f"{r.section}/{r.sub}") or sec_cats.get(r.section or "")
+            cat = sec_cat
             if not cat: continue
+            # An "only" list trims a section down to a named set. Papa John's
+            # publishes its bottler's whole catalogue -- 153 drinks, most of
+            # which no store stocks -- and the long tail is noise, not data.
+            only = cat.get("only") if isinstance(cat, dict) else None
+            if only is not None:
+                base = r.printed.split(cfg.get("variant_split") or "\x00")[0].strip()
+                if base not in only:
+                    r.used = True
+                    r.trimmed = True
+                    continue
             r.defaulted = True
             spec = dict(cat) if isinstance(cat, dict) else {"cat": cat}
             if "suffix" in spec:
@@ -218,6 +279,20 @@ def build(cfg, rows, extra=None):
             elif "id_suffix" in spec:
                 n2, _ = split_serving(r.printed)
                 spec.setdefault("id", slug(f"{n2} {spec['id_suffix']}"))
+            sep = cfg.get("variant_split")
+            if sep and sep in r.printed:
+                # The source lists each size as its own row ("Cheesesticks / 10"").
+                # That is the variant-family shape: one visible row plus a size
+                # selector. First size seen heads the family.
+                head, label = r.printed.split(sep, 1)
+                spec.setdefault("id", slug(r.printed))
+                spec.setdefault("name", head.strip())
+                spec["variant_label"] = label.strip()
+                fam = slug(head)
+                if fam in families:
+                    spec["variant_of"] = families[fam]
+                else:
+                    families[fam] = spec["id"]
         if "skip" in spec: r.used = True; continue
         mode = cfg.get("section_modes", {}).get(r.section or "")
         base_ord = order_of.get(id(r), len(keys) + len(comps))
@@ -278,6 +353,9 @@ def finish(cfg, components, rows, pending, out_dir="data/chains"):
     # errors -- that is how section_categories chains stay current when a chain
     # adds an item. But they took a GUESSED category, so say how many, or a new
     # menu item can slip in unreviewed.
+    trimmed = [r.printed for r in rows if getattr(r, "trimmed", False)]
+    if trimmed:
+        print(f"  note: {len(trimmed)} rows dropped by a section 'only' list")
     defaulted = [r.printed for r in rows if getattr(r, "defaulted", False)]
     if defaulted:
         print(f"  note: {len(defaulted)} rows took a section default (no items entry); "

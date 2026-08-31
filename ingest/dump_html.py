@@ -18,6 +18,15 @@ Two sources of HTML:
 Section headings come from the nearest preceding h1-h6/caption, or from a
 single-cell row inside the table (chains often use those as group headers).
 
+Three table shapes, one raw_dump:
+  plain     rows are items, columns are nutrients (the common case)
+  --matrix  transposed: nutrients down the side, columns are the chain-wide
+            size mode (Papa John's crust x size)
+  "items"   transposed, but each column is a size or flavour of the ONE item
+            the table is about (sides, wings, drinks). Set per page in
+            meta.source.html_urls as {"url":..., "mode":"items", "section":...};
+            a page list may mix "items" pages with --matrix ones.
+
 --min-nums N  how many numeric cells a row needs to count as data (default 4)
 --all-rows    also emit rows that fell below that threshold, prefixed "?? ",
               so nothing is silently dropped while you tune a new chain
@@ -67,6 +76,9 @@ def load(src, plain_ua=False):
         headers = None if plain_ua else BROWSER_HEADERS
         r = requests.get(src, headers=headers, timeout=60)
         r.raise_for_status()
+        # requests falls back to latin-1 when a page declares no charset, which
+        # turns "Jalapeño" into "JalapeÃ±o". These pages are all utf-8.
+        r.encoding = r.apparent_encoding or "utf-8"
         return r.text
     return Path(src).read_text(encoding="utf-8", errors="replace")
 
@@ -120,6 +132,17 @@ def section_for(table):
 
 SKIP_HEADINGS = re.compile(r"^(serving size|nutritional information)$", re.I)
 UNIT = re.compile(r"(?<=[\d.])\s*(g|mg|mcg|kcal|cal)\b", re.I)
+# Papa John's prints a missing value as "--" or "--g" -- no digit, so UNIT
+# leaves the unit attached. Both mean the same as a single "-".
+BLANK = re.compile(r"^-+\s*(?:g|mg|mcg|kcal|cal)?$", re.I)
+
+
+def cell(text):
+    """One table cell as a bare number, or '-' when the source has no value."""
+    v = UNIT.sub("", text).strip()
+    if not v or v.upper() in ("N/A", "NA") or BLANK.match(v):
+        return "-"
+    return v
 
 
 def _cells(tr):
@@ -171,12 +194,84 @@ def matrix_rows(soup, min_nums):
                 label = f"{group} {sub}"
             if not label:
                 continue
-            vals = []
-            for r in body:
-                v = UNIT.sub("", r[i]).strip() if i < len(r) else ""
-                vals.append(v if v and v.upper() not in ("N/A", "NA") else "-")
+            vals = [cell(r[i]) if i < len(r) else "-" for r in body]
             out.append((label, name, vals))
     return out
+
+
+# --- per-item tables ("items" mode) ----------------------------------------
+# Sides, wings, dipping sauces and friends publish one table per item with the
+# nutrients down the side and each COLUMN a size or flavour of that item. That
+# is the transpose of --matrix, where the columns are the chain-wide size mode.
+# Emitting column-per-row under a configured section heading turns them into
+# ordinary rows, so section_categories/items handle them like any other chain.
+
+CALORIES = re.compile(r"^total calories$", re.I)
+
+
+SERVING = re.compile(r"^serving size$", re.I)
+
+
+def item_rows(soup, section):
+    """[(section, name, values)] -- one row per data column.
+
+    The serving size sits in its own small table above the nutrients, and it is
+    load-bearing: a Papa Bite row is per BITE with 8 to an order. Carry it into
+    the emitted name as "[...]" so the extractor can lift it out."""
+    out, servings = [], {}
+    for table in soup.find_all("table"):
+        rows = [_cells(tr) for tr in table.find_all("tr")]
+        rows = [r for r in rows if any(r)]
+        if not rows:
+            continue
+        name = _item_name(table) or "UNKNOWN"
+        serving = next((r for r in rows if SERVING.match(r[0])), None)
+        if serving:
+            servings[name] = serving
+            continue
+        # A nutrition table is the one whose left column starts the nutrient
+        # list; the serving-size table that precedes it does not.
+        if not any(CALORIES.match(r[0]) for r in rows):
+            continue
+        head = None if CALORIES.match(rows[0][0]) else rows[0]
+        body = rows[1:] if head else rows
+        width = max(len(r) for r in body)
+        serving = servings.get(name, [])
+        for i in range(1, width):
+            col = head[i] if head and i < len(head) else ""
+            vals = [cell(r[i]) if i < len(r) else "-" for r in body]
+            label = f"{name} / {col}" if col else name
+            # One serving cell may cover every column ("1 cup" for all sauces).
+            sv = serving[i] if i < len(serving) else (serving[-1] if len(serving) > 1 else "")
+            # "1 Papa Bite 8 Papa Bites per order" -> "1 Papa Bite (8 ... order)"
+            sv = re.sub(r"^(.+?) (\d+ .*per order)$", r"\1 (\2)", sv)
+            out.append((section, f"{label} [{sv}]" if sv else label, vals))
+    return out
+
+
+def emit_items(entries, plain_ua, min_nums):
+    """Lines for every 'items'-mode page, grouped under its configured section."""
+    lines, count = [], 0
+    for e in entries:
+        soup = BeautifulSoup(load(e["url"], plain_ua), "lxml")
+        for junk in soup(["script", "style", "noscript"]):
+            junk.decompose()
+        section = e.get("section") or Path(e["url"]).stem.title()
+        found = item_rows(soup, section)
+        if not found:
+            print(f"  WARNING no nutrition tables found on {e['url']}")
+            continue
+        lines.append(f"\n===== {section} =====")
+        lines.append(section)
+        widths = set()
+        for _, name, vals in found:
+            lines.append(f"{name} {' '.join(vals)}")
+            widths.add(len(vals))
+        count += len(found)
+        print(f"  {section}: {len(found)} rows")
+        if len(widths) > 1:
+            print(f"  WARNING {section}: inconsistent value counts {sorted(widths)}")
+    return lines, count
 
 
 def main():
@@ -200,15 +295,27 @@ def main():
         min_nums = int(sys.argv[sys.argv.index("--min-nums") + 1])
     all_rows = "--all-rows" in sys.argv
 
-    # A chain may publish one item type per page; concatenating the documents
-    # keeps a single raw dump, which is what the extractor expects.
-    html = "\n".join(load(u, plain_ua) for u in (src if isinstance(src, list) else [src]))
-    soup = BeautifulSoup(html, "lxml")
-    for junk in soup(["script", "style", "noscript"]):
-        junk.decompose()
+    # A page list may mix modes: a chain can publish its build-your-own tables
+    # transposed by size (--matrix) and its sides one table per item ("items").
+    entries = src if isinstance(src, list) else [src]
+    items = [e for e in entries if isinstance(e, dict) and e.get("mode") == "items"]
+    rest = [e["url"] if isinstance(e, dict) else e for e in entries if e not in items]
 
     out = Path(f"data/raw/{slug}/raw_dump.txt")
     out.parent.mkdir(parents=True, exist_ok=True)
+    item_lines, item_count = emit_items(items, plain_ua, min_nums) if items else ([], 0)
+
+    if not rest:
+        out.write_text("\n".join(item_lines) + "\n")
+        print(f"{item_count} item rows -> {out}")
+        return
+
+    # A chain may publish one item type per page; concatenating the documents
+    # keeps a single raw dump, which is what the extractor expects.
+    html = "\n".join(load(u, plain_ua) for u in rest)
+    soup = BeautifulSoup(html, "lxml")
+    for junk in soup(["script", "style", "noscript"]):
+        junk.decompose()
 
     if matrix:
         found = matrix_rows(soup, min_nums)
@@ -223,7 +330,7 @@ def main():
             lines.append(label)
             for name, vals in rows:
                 lines.append(f"{name} {' '.join(vals)}")
-        out.write_text("\n".join(lines) + "\n")
+        out.write_text("\n".join(lines + item_lines) + "\n")
         print(f"{len(by_col)} column groups, {len(found)} rows -> {out}")
         widths = {len(v) for _, _, v in found}
         if len(widths) > 1:
@@ -280,7 +387,7 @@ def main():
         if len(widths) > 1:
             ragged.append((n, sorted(widths.items(), key=lambda kv: -kv[1])))
 
-    out.write_text("\n".join(lines) + "\n")
+    out.write_text("\n".join(lines + item_lines) + "\n")
     print(f"{len(tables)} tables, {kept} data rows kept, {skipped} skipped -> {out}")
     if skipped and not all_rows:
         print("  re-run with --all-rows to see what was skipped before trusting this")
