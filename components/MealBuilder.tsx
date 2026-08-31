@@ -23,6 +23,9 @@ import {
 
 // Extended so per-piece items (wings, tenders) can reach real order sizes.
 const QTY_STEPS = [0.5, 1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 15, 20];
+// Where a portion control carries "how much did you eat", a component's own
+// quantity means coverage instead, and 20x pepperoni is not a coverage.
+const COVERAGE_STEPS = [0.5, 1, 2];
 const SEARCH_THRESHOLD = 14;
 /** Quiet period before mirroring selections into the URL (see the sync effect). */
 const URL_SYNC_DELAY_MS = 600;
@@ -76,11 +79,13 @@ function decodeMeal(raw: string, chain: Chain): Selections {
 function QtyStepper({
   qty,
   onChange,
+  steps = QTY_STEPS,
 }: {
   qty: number;
   onChange: (q: number) => void;
+  steps?: number[];
 }) {
-  const i = QTY_STEPS.indexOf(qty);
+  const i = steps.indexOf(qty);
   const btn =
     "flex h-9 w-9 items-center justify-center text-accent-strong transition-colors hover:bg-accent-soft disabled:opacity-30 disabled:hover:bg-transparent";
   return (
@@ -93,7 +98,7 @@ function QtyStepper({
         type="button"
         aria-label="Less"
         disabled={i <= 0}
-        onClick={() => onChange(QTY_STEPS[i - 1])}
+        onClick={() => onChange(steps[i - 1])}
         className={btn}
       >
         <IconMinus className="h-4 w-4" />
@@ -104,8 +109,8 @@ function QtyStepper({
       <button
         type="button"
         aria-label="More"
-        disabled={i >= QTY_STEPS.length - 1}
-        onClick={() => onChange(QTY_STEPS[i + 1])}
+        disabled={i >= steps.length - 1}
+        onClick={() => onChange(steps[i + 1])}
         className={btn}
       >
         <IconPlus className="h-4 w-4" />
@@ -123,6 +128,7 @@ function ComponentRow({
   onQty,
   variants,
   onVariant,
+  qtySteps,
 }: {
   comp: Component;
   qty: number | undefined;
@@ -133,6 +139,7 @@ function ComponentRow({
   /** All members of this size family, head first. Absent when there is only one. */
   variants?: Component[];
   onVariant?: (next: Component) => void;
+  qtySteps?: number[];
 }) {
   const selected = !!qty;
   return (
@@ -205,7 +212,7 @@ function ComponentRow({
           )}
         </span>
         {selected ? (
-          <QtyStepper qty={qty} onChange={onQty} />
+          <QtyStepper qty={qty} onChange={onQty} steps={qtySteps} />
         ) : (
           <span className="text-xs tabular-nums text-muted">
             {Math.round(comp.calories * qmult)} cal
@@ -220,6 +227,7 @@ function CategoryBody({
   cat,
   comps,
   selections,
+  qtySteps,
   qmultFor = () => 1,
   toggle,
   setQty,
@@ -227,6 +235,7 @@ function CategoryBody({
   cat: Category;
   comps: Component[];
   selections: Selections;
+  qtySteps?: number[];
   qmultFor?: (comp: Component) => number;
   toggle: (comp: Component, single: boolean) => void;
   setQty: (id: string, q: number) => void;
@@ -276,6 +285,7 @@ function CategoryBody({
               qty={selections[active.id]}
               single={single}
               qmult={qmultFor(active)}
+              qtySteps={qtySteps}
               onToggle={() => toggle(active, single)}
               onQty={(q) => setQty(active.id, q)}
               variants={members.length > 1 ? members : undefined}
@@ -892,6 +902,7 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
                       cat={cat}
                       comps={comps}
                       selections={selections}
+                      qtySteps={portionCats.has(cat.id) ? COVERAGE_STEPS : undefined}
                       qmultFor={rowMult}
                       toggle={toggle}
                       setQty={setQty}
@@ -915,14 +926,14 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
                   : `of ${portionMax}`}
               </span>
             </div>
-            <div className="flex flex-wrap gap-1.5 px-1">
+            <div className="grid gap-1.5 px-1 [grid-template-columns:repeat(auto-fit,minmax(3rem,1fr))]">
               {Array.from({ length: portionMax }, (_, i) => i + 1).map((n) => (
                 <button
                   key={n}
                   type="button"
                   aria-pressed={n === portion}
                   onClick={() => setPortion(n)}
-                  className={`h-9 min-w-9 rounded-lg border px-2.5 text-sm font-medium tabular-nums transition-colors ${
+                  className={`h-11 rounded-lg border text-sm font-semibold tabular-nums transition-colors ${
                     n === portion
                       ? "border-accent bg-accent text-on-accent"
                       : "border-line bg-surface text-muted hover:border-accent hover:text-accent-strong"
