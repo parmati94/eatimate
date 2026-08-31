@@ -1,6 +1,7 @@
 """Check whether a chain's published source has moved or changed.
 
 Usage: refresh.py <slug> | --all [--json]
+       refresh.py --record <slug>   after a re-ingest, re-pin hashes + date
 
 Reads meta.source from ingest/chains/<slug>.json and reports one of:
 
@@ -171,8 +172,35 @@ def check(slug):
     return out
 
 
+def record(slug):
+    """Re-pin a chain's hashes and retrieved date after a re-ingest.
+
+    Doing this by hand is the step that gets forgotten, and forgetting it
+    makes refresh.py cry "changed" forever until you stop believing it."""
+    import datetime, glob, os
+    cp = CHAINS / f"{slug}.json"
+    cfg = json.loads(cp.read_text()); src = cfg["meta"]["source"]
+    src["dump_sha256"] = norm_hash((RAW / slug / "raw_dump.txt").read_text())
+    assets = [f for f in glob.glob(str(RAW / slug / "*"))
+              if not re.search(r"raw_dump|report|\.txt$", os.path.basename(f))]
+    if assets:
+        newest = max(assets, key=os.path.getmtime)
+        src["asset_sha256"] = hashlib.sha256(Path(newest).read_bytes()).hexdigest()
+    src["retrieved"] = datetime.date.today().isoformat()
+    cp.write_text(json.dumps(cfg, indent=1, ensure_ascii=False) + "\n")
+    print(f"  {slug}: hashes re-pinned, retrieved={src['retrieved']}"
+          f"{' (no source file kept)' if not assets else ''}")
+    print("  now re-run extract.py so the shipped retrieved date matches")
+
+
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    if "--record" in sys.argv:
+        if not args:
+            sys.exit("usage: refresh.py --record <slug>")
+        for slug in args:
+            record(slug)
+        return
     as_json = "--json" in sys.argv
     slugs = sorted(p.stem for p in CHAINS.glob("*.json")) if "--all" in sys.argv else args
     if not slugs:

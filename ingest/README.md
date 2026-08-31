@@ -163,10 +163,38 @@ footlong multiplying every filling. A second pizza chain starts from
 8. Load `/<slug>`, hand-check a real order against the PDF.
 
 ## Re-ingesting (seasonal menus, new chart)
-Re-fetch → `dump.py` → `extract.py`. New items show up as unconsumed rows; removed
-items just disappear from the diff; changed values show in `git diff`. Update
-`meta.source` (url + retrieved date). Keep the previous JSON in `data/raw/<slug>/`
-for reference.
+
+Nothing watches for this yet — scheduled checking and alerting are deliberately
+deferred (see PLAN.md). Keeping the data current is a manual habit, and these
+two commands are the whole of it:
+
+```bash
+ingest/.venv/bin/python ingest/refresh.py --all   # has any source moved or changed?
+PYTHONPATH=ingest ingest/.venv/bin/python ingest/overview.py   # how old is each chain?
+```
+
+`overview.py` ends with a FRESHNESS table — age of every chain's source, oldest
+first, flagged past 90 and 180 days. DIG and Just Salad rotate seasonally, so
+they age fastest.
+
+When a chain does need re-ingesting:
+
+1. **Fetch the current source** from the URL `refresh.py` reported, into
+   `data/raw/<slug>/`. Keep the old one alongside it — that archive is the only
+   record of what the chain published before, and it is gitignored, so nothing
+   else keeps it.
+2. `dump.py` / `dump_html.py` / `dump_json.py`, then `extract.py`.
+   **Expect extraction to fail if the chain added items** — that is the design.
+   Add the new rows to `items` until it passes; a section with a blanket default
+   absorbs them silently instead, and only reports a count.
+3. `validate.py`, then **read `git diff data/chains/<slug>.json`**. This is the
+   real review: values that moved, items added, items withdrawn. For chains with
+   blanket section defaults it is the only place a new item surfaces at all.
+4. **`refresh.py --record <slug>`** — re-pins `asset_sha256`, `dump_sha256` and
+   `retrieved`. Skipping this is the easy mistake: `refresh.py` then reports
+   "changed" on every future run until you stop believing it.
+5. Re-run `extract.py` so the shipped `retrieved` date matches, then
+   `rebuild.py --check` and `npm test`.
 
 Provenance is mandatory: `source.pdf_url` + `source.retrieved` (the date YOU
 fetched it, not the PDF's internal date).

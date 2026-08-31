@@ -66,7 +66,31 @@ def uniformity():
           + (f" (MISSING in {sorted(missing)})" if missing else ""))
 
 
+def freshness():
+    """How old each chain's data is. Refresh detection is deferred, so this is
+    the thing that makes staleness visible without anyone remembering to look:
+    a chain can sit on a quietly superseded guide for years (Qdoba's did)."""
+    import datetime
+    today = datetime.date.today()
+    rows = []
+    for f in sorted(glob.glob("data/chains/*.json")):
+        c = json.load(open(f))
+        got = datetime.date.fromisoformat(c["source"]["retrieved"])
+        rows.append((c["slug"], got, (today - got).days))
+    print("\n\nFRESHNESS — age of each chain's source (source.retrieved)\n")
+    print(f"  {'chain':14}{'retrieved':12}{'age':>7}")
+    print("  " + "-" * 40)
+    for slug, got, age in sorted(rows, key=lambda r: -r[2]):
+        mark = "  STALE" if age > 180 else ("  ageing" if age > 90 else "")
+        print(f"  {slug:14}{got.isoformat():12}{age:>5}d{mark}")
+    old = [r for r in rows if r[2] > 180]
+    print(f"\n  oldest {max(r[2] for r in rows)}d"
+          + (f"; past 180d: {', '.join(r[0] for r in old)}" if old
+             else "; nothing past 180d"))
+
+
 if __name__ == "__main__":
     presentation()
     extraction()
     uniformity()
+    freshness()
