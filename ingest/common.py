@@ -133,6 +133,11 @@ def make_component(row, layout, cat, id=None, name=None, desc=None):
         serving_g, d2 = None, f"{serving:g} fl oz"
     elif unit == "g":
         serving_g = round(serving) if serving else None
+        # Prefer the printed gram weight over a bare "1 serving" -- it is the
+        # only portion information these chains publish, and it is what makes a
+        # row comparable to the next one.
+        if serving_g and not d2:
+            d2 = f"{serving_g} g"
     elif unit == "oz":
         serving_g, d2 = round(serving * 28.35), f"{serving:g} oz"
     else:

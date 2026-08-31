@@ -167,22 +167,43 @@ def main():
             print(f"  {i:>2}. {l}")
         return
 
-    lines, n = [], 0
+    lines, n, dropped = [], 0, 0
     for name, records in gs:
         lines.append(f"\n===== {name} =====")
         lines.append(name)
+        emitted = set()
         for rec in records:
-            for r in [rec] + (rec.get("sub_items") or []):
+            subs = rec.get("sub_items") or []
+            # A parent whose values match one of its own sub-items is that
+            # sub-item printed again as the group's default, and its title is
+            # then misleading: Chick-fil-A's "Iced Coffee" parent carries the
+            # CARAMEL values, while the real plain Iced Coffee is a sub-item.
+            # Emit the sub-items alone in that case.
+            pv = [value(f.get("value")) for f in rec.get("fields", [])]
+            twin = any(
+                [value(f.get("value")) for f in s.get("fields", [])] == pv
+                for s in subs
+            )
+            for r in (subs if twin else [rec] + subs):
                 title = re.sub(r"\s+", " ", str(r.get("title", ""))).strip()
                 vals = [value(f.get("value")) for f in r.get("fields", [])]
-                if title and vals:
-                    lines.append(f"{title} {' '.join(vals)}")
-                    n += 1
+                if not (title and vals):
+                    continue
+                # A sub-item that restates its parent verbatim carries no extra
+                # information -- emitting it would just collide on id later.
+                key = (title, tuple(vals))
+                if key in emitted:
+                    dropped += 1
+                    continue
+                emitted.add(key)
+                lines.append(f"{title} {' '.join(vals)}")
+                n += 1
 
     out = Path(f"data/raw/{a.slug}/raw_dump.txt")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text("\n".join(lines) + "\n")
-    print(f"{len(gs)} groups, {n} records -> {out}")
+    print(f"{len(gs)} groups, {n} records -> {out}"
+          + (f"  ({dropped} exact repeats within a group dropped)" if dropped else ""))
     widths = {}
     for l in lines:
         if l.startswith("=====") or not l.strip():

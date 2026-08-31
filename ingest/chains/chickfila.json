@@ -16,10 +16,13 @@
     "Soup Toppings",
     "Dipping Sauces",
     "Dressings",
-    "Sides"
+    "Sides",
+    "Drinks",
+    "Coffee",
+    "Treats"
    ]
   },
-  "disclaimer_extra": "Chick-fil-A publishes its buns, proteins, toppings, sauces and dressings as separate component tables alongside its finished menu items; this builder uses those component tables, so a sandwich you assemble here may differ slightly from the published total for a comparable menu item. Drinks, coffee, treats, catering and whole menu items are published but not included. One known gap: Chick-fil-A's sandwiches are served with pickles, but pickles are not published as a separate topping — a sandwich built here reads roughly 100 mg lower in sodium than the equivalent published menu item.",
+  "disclaimer_extra": "Chick-fil-A publishes its buns, proteins, toppings, sauces and dressings as separate component tables alongside its finished menu items; this builder uses those component tables, so a sandwich you assemble here may differ slightly from the published total for a comparable menu item. Catering items are not included. One known gap: Chick-fil-A's sandwiches are served with pickles, but pickles are not published as a separate topping — a sandwich built here reads roughly 100 mg lower in sodium than the equivalent published menu item.",
   "blurb": "Start from a Chick-fil-A menu item at its published nutrition — swap the cheese or the chicken and the numbers stay Chick-fil-A's own — or build a sandwich from their bun, filet and topping tables.",
   "glyph": "burger"
  },
@@ -72,6 +75,18 @@
    "name": "Sides",
    "select": "multi",
    "flow": "extras"
+  },
+  {
+   "id": "drink",
+   "name": "Drinks & Coffee",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "treat",
+   "name": "Treats",
+   "select": "multi",
+   "flow": "extras"
   }
  ],
  "layout": {
@@ -90,7 +105,7 @@
   ],
   "allergen": false,
   "serving": "g",
-  "sections": "^(Entrées|Breakfast|Salads|Buns|Proteins|Sandwich Toppings|Salad Toppings|Soup Toppings|Dipping Sauces|Dressings|Sides)$"
+  "sections": "^(Entrées|Breakfast|Salads|Buns|Proteins|Sandwich Toppings|Salad Toppings|Soup Toppings|Dipping Sauces|Dressings|Sides|Drinks|Coffee|Treats)$"
  },
  "section_categories": {
   "Buns": "bun",
@@ -103,7 +118,10 @@
   "Sides": "side",
   "Entrées": "preset",
   "Breakfast": "preset",
-  "Salads": "preset"
+  "Salads": "preset",
+  "Drinks": "drink",
+  "Coffee": "drink",
+  "Treats": "treat"
  },
  "items": {
   "Berry Parfait [#1]": {
@@ -760,6 +778,236 @@
    "name": "Market Salad",
    "variant_of": "market-salad",
    "variant_label": "No Chicken"
+  },
+  "S’mores Frosted Coffee [#1]": {
+   "skip": "also printed under Coffee, kept there"
+  },
+  "Frosted Coffee [#1]": {
+   "skip": "also printed under Coffee, kept there"
+  },
+  "Caramel Frosted Coffee [#1]": {
+   "skip": "also printed under Coffee, kept there"
+  },
+  "Mocha Frosted Coffee [#1]": {
+   "skip": "also printed under Coffee, kept there"
+  },
+  "Vanilla Frosted Coffee [#1]": {
+   "skip": "also printed under Coffee, kept there"
+  },
+  "Iced Coffee [#1]": {
+   "skip": "also printed under Coffee, kept there"
+  },
+  "Toasted Marshmallow Hot Coffee [#1]": {
+   "skip": "also printed under Coffee, kept there"
+  },
+  "Toasted Marshmallow Iced Coffee [#1]": {
+   "skip": "also printed under Coffee, kept there"
+  },
+  "Toasted Marshmallow Cream Cold Brew [#1]": {
+   "skip": "also printed under Coffee, kept there"
+  },
+  "Small Freshly-Brewed Sweetened Iced Tea": {
+   "cat": "drink",
+   "id": "freshly-brewed-sweetened-iced-tea-small",
+   "name": "Freshly-Brewed Sweetened Iced Tea",
+   "variant_label": "Small",
+   "variant_of": "freshly-brewed-sweetened-iced-tea"
+  },
+  "Medium Freshly-Brewed Sweetened Iced Tea": {
+   "cat": "drink",
+   "id": "freshly-brewed-sweetened-iced-tea",
+   "name": "Freshly-Brewed Sweetened Iced Tea",
+   "variant_label": "Medium",
+   "feature": true
+  },
+  "Large Freshly-Brewed Sweetened Iced Tea": {
+   "cat": "drink",
+   "id": "freshly-brewed-sweetened-iced-tea-large",
+   "name": "Freshly-Brewed Sweetened Iced Tea",
+   "variant_label": "Large",
+   "variant_of": "freshly-brewed-sweetened-iced-tea"
+  },
+  "Small Freshly-Brewed Unsweetened Iced Tea": {
+   "cat": "drink",
+   "id": "freshly-brewed-unsweetened-iced-tea-small",
+   "name": "Freshly-Brewed Unsweetened Iced Tea",
+   "variant_label": "Small",
+   "variant_of": "freshly-brewed-unsweetened-iced-tea"
+  },
+  "Medium Freshly-Brewed Unsweetened Iced Tea": {
+   "cat": "drink",
+   "id": "freshly-brewed-unsweetened-iced-tea",
+   "name": "Freshly-Brewed Unsweetened Iced Tea",
+   "variant_label": "Medium",
+   "feature": true
+  },
+  "Large Freshly-Brewed Unsweetened Iced Tea": {
+   "cat": "drink",
+   "id": "freshly-brewed-unsweetened-iced-tea-large",
+   "name": "Freshly-Brewed Unsweetened Iced Tea",
+   "variant_label": "Large",
+   "variant_of": "freshly-brewed-unsweetened-iced-tea"
+  },
+  "Small Chick-fil-A® Lemonade": {
+   "cat": "drink",
+   "id": "chick-fil-a-lemonade-small",
+   "name": "Chick-fil-A® Lemonade",
+   "variant_label": "Small",
+   "variant_of": "chick-fil-a-lemonade"
+  },
+  "Medium Chick-fil-A® Lemonade": {
+   "cat": "drink",
+   "id": "chick-fil-a-lemonade",
+   "name": "Chick-fil-A® Lemonade",
+   "variant_label": "Medium",
+   "feature": true
+  },
+  "Large Chick-fil-A® Lemonade": {
+   "cat": "drink",
+   "id": "chick-fil-a-lemonade-large",
+   "name": "Chick-fil-A® Lemonade",
+   "variant_label": "Large",
+   "variant_of": "chick-fil-a-lemonade"
+  },
+  "Small Chick-fil-A® Diet Lemonade": {
+   "cat": "drink",
+   "id": "chick-fil-a-diet-lemonade-small",
+   "name": "Chick-fil-A® Diet Lemonade",
+   "variant_label": "Small",
+   "variant_of": "chick-fil-a-diet-lemonade"
+  },
+  "Medium Chick-fil-A® Diet Lemonade": {
+   "cat": "drink",
+   "id": "chick-fil-a-diet-lemonade",
+   "name": "Chick-fil-A® Diet Lemonade",
+   "variant_label": "Medium"
+  },
+  "Large Chick-fil-A® Diet Lemonade": {
+   "cat": "drink",
+   "id": "chick-fil-a-diet-lemonade-large",
+   "name": "Chick-fil-A® Diet Lemonade",
+   "variant_label": "Large",
+   "variant_of": "chick-fil-a-diet-lemonade"
+  },
+  "Small Sunjoy® (1/2 Sweet Tea, 1/2 Lemonade)": {
+   "cat": "drink",
+   "id": "sunjoy-1-2-sweet-tea-1-2-lemonade-small",
+   "name": "Sunjoy® (1/2 Sweet Tea, 1/2 Lemonade)",
+   "variant_label": "Small",
+   "variant_of": "sunjoy-1-2-sweet-tea-1-2-lemonade"
+  },
+  "Medium Sunjoy® (1/2 Sweet Tea, 1/2 Lemonade)": {
+   "cat": "drink",
+   "id": "sunjoy-1-2-sweet-tea-1-2-lemonade",
+   "name": "Sunjoy® (1/2 Sweet Tea, 1/2 Lemonade)",
+   "variant_label": "Medium"
+  },
+  "Large Sunjoy® (1/2 Sweet Tea, 1/2 Lemonade)": {
+   "cat": "drink",
+   "id": "sunjoy-1-2-sweet-tea-1-2-lemonade-large",
+   "name": "Sunjoy® (1/2 Sweet Tea, 1/2 Lemonade)",
+   "variant_label": "Large",
+   "variant_of": "sunjoy-1-2-sweet-tea-1-2-lemonade"
+  },
+  "Small Sunjoy® (1/2 Sweet Tea, 1/2 Diet Lemonade)": {
+   "cat": "drink",
+   "id": "sunjoy-1-2-sweet-tea-1-2-diet-lemonade-small",
+   "name": "Sunjoy® (1/2 Sweet Tea, 1/2 Diet Lemonade)",
+   "variant_label": "Small",
+   "variant_of": "sunjoy-1-2-sweet-tea-1-2-diet-lemonade"
+  },
+  "Medium Sunjoy® (1/2 Sweet Tea, 1/2 Diet Lemonade)": {
+   "cat": "drink",
+   "id": "sunjoy-1-2-sweet-tea-1-2-diet-lemonade",
+   "name": "Sunjoy® (1/2 Sweet Tea, 1/2 Diet Lemonade)",
+   "variant_label": "Medium"
+  },
+  "Large Sunjoy® (1/2 Sweet Tea, 1/2 Diet Lemonade)": {
+   "cat": "drink",
+   "id": "sunjoy-1-2-sweet-tea-1-2-diet-lemonade-large",
+   "name": "Sunjoy® (1/2 Sweet Tea, 1/2 Diet Lemonade)",
+   "variant_label": "Large",
+   "variant_of": "sunjoy-1-2-sweet-tea-1-2-diet-lemonade"
+  },
+  "Small Sunjoy® (1/2 Unsweet Tea, 1/2 Lemonade)": {
+   "cat": "drink",
+   "id": "sunjoy-1-2-unsweet-tea-1-2-lemonade-small",
+   "name": "Sunjoy® (1/2 Unsweet Tea, 1/2 Lemonade)",
+   "variant_label": "Small",
+   "variant_of": "sunjoy-1-2-unsweet-tea-1-2-lemonade"
+  },
+  "Medium Sunjoy® (1/2 Unsweet Tea, 1/2 Lemonade)": {
+   "cat": "drink",
+   "id": "sunjoy-1-2-unsweet-tea-1-2-lemonade",
+   "name": "Sunjoy® (1/2 Unsweet Tea, 1/2 Lemonade)",
+   "variant_label": "Medium"
+  },
+  "Large Sunjoy® (1/2 Unsweet Tea, 1/2 Lemonade)": {
+   "cat": "drink",
+   "id": "sunjoy-1-2-unsweet-tea-1-2-lemonade-large",
+   "name": "Sunjoy® (1/2 Unsweet Tea, 1/2 Lemonade)",
+   "variant_label": "Large",
+   "variant_of": "sunjoy-1-2-unsweet-tea-1-2-lemonade"
+  },
+  "Small Sunjoy® (1/2 Unsweet Tea, 1/2 Diet Lemonade)": {
+   "cat": "drink",
+   "id": "sunjoy-1-2-unsweet-tea-1-2-diet-lemonade-small",
+   "name": "Sunjoy® (1/2 Unsweet Tea, 1/2 Diet Lemonade)",
+   "variant_label": "Small",
+   "variant_of": "sunjoy-1-2-unsweet-tea-1-2-diet-lemonade"
+  },
+  "Medium Sunjoy® (1/2 Unsweet Tea, 1/2 Diet Lemonade)": {
+   "cat": "drink",
+   "id": "sunjoy-1-2-unsweet-tea-1-2-diet-lemonade",
+   "name": "Sunjoy® (1/2 Unsweet Tea, 1/2 Diet Lemonade)",
+   "variant_label": "Medium"
+  },
+  "Large Sunjoy® (1/2 Unsweet Tea, 1/2 Diet Lemonade)": {
+   "cat": "drink",
+   "id": "sunjoy-1-2-unsweet-tea-1-2-diet-lemonade-large",
+   "name": "Sunjoy® (1/2 Unsweet Tea, 1/2 Diet Lemonade)",
+   "variant_label": "Large",
+   "variant_of": "sunjoy-1-2-unsweet-tea-1-2-diet-lemonade"
+  },
+  "Small Coca-Cola®": {
+   "cat": "drink",
+   "id": "coca-cola-small",
+   "name": "Coca-Cola®",
+   "variant_label": "Small",
+   "variant_of": "coca-cola"
+  },
+  "Medium Coca-Cola®": {
+   "cat": "drink",
+   "id": "coca-cola",
+   "name": "Coca-Cola®",
+   "variant_label": "Medium"
+  },
+  "Large Coca-Cola®": {
+   "cat": "drink",
+   "id": "coca-cola-large",
+   "name": "Coca-Cola®",
+   "variant_label": "Large",
+   "variant_of": "coca-cola"
+  },
+  "Small Dr Pepper®": {
+   "cat": "drink",
+   "id": "dr-pepper-small",
+   "name": "Dr Pepper®",
+   "variant_label": "Small",
+   "variant_of": "dr-pepper"
+  },
+  "Medium Dr Pepper®": {
+   "cat": "drink",
+   "id": "dr-pepper",
+   "name": "Dr Pepper®",
+   "variant_label": "Medium"
+  },
+  "Large Dr Pepper®": {
+   "cat": "drink",
+   "id": "dr-pepper-large",
+   "name": "Dr Pepper®",
+   "variant_label": "Large",
+   "variant_of": "dr-pepper"
   }
  }
 }
