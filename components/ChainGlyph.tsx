@@ -1,6 +1,9 @@
-// Flat food illustrations for chain tiles (tinted-ground treatment): main
-// shapes draw in currentColor (the chain hue), cut-out details in the surface
-// color. Add a case here when a new chain's config declares a new glyph id.
+// Flat food illustrations for chain tiles: main shapes draw in currentColor
+// (the chain hue), cut-out details in --glyph-detail. That defaults to the
+// surface colour, which is right on the tinted-ground treatment; a solid-filled
+// mark sets it to the ground it is sitting on so the details still read as
+// holes rather than disappearing. Add a case here when a new chain's config
+// declares a new glyph id.
 export default function ChainGlyph({
   glyph,
   className = "h-11 w-11",
@@ -8,14 +11,14 @@ export default function ChainGlyph({
   glyph: string;
   className?: string;
 }) {
-  const detail = "var(--surface)";
+  const detail = "var(--glyph-detail, var(--surface))";
   const body = {
     burger: (
       <g>
         <path d="M12 30a20 14 0 0 1 40 0v2H12Z" fill="currentColor" />
-        <circle cx="24" cy="24" r="1.6" fill="var(--surface)" />
-        <circle cx="32" cy="21" r="1.6" fill="var(--surface)" />
-        <circle cx="40" cy="24" r="1.6" fill="var(--surface)" />
+        <circle cx="24" cy="24" r="1.6" fill={detail} />
+        <circle cx="32" cy="21" r="1.6" fill={detail} />
+        <circle cx="40" cy="24" r="1.6" fill={detail} />
         <path d="M11 36h42a3 3 0 0 1 0 6H11a3 3 0 0 1 0-6Z" fill="currentColor" opacity=".8" />
         <path d="M13 46h38v2a6 6 0 0 1-6 6H19a6 6 0 0 1-6-6Z" fill="currentColor" />
       </g>

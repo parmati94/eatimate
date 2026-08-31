@@ -144,12 +144,34 @@ export default function MealCompare({
 
   return (
     <div>
+      {/*
+        The starting point, as one object.
+
+        This used to be three stacked strata -- a 12px inline label, a row of
+        40px pills, then five lines of rule prose -- sandwiched between the page
+        intro and the builder. On a phone that put about nine lines of text
+        between you and the thing you came to use, and the label read as an
+        orphan hanging off the pills rather than as their heading (it was
+        centred to the pixel; the problem was hierarchy, not alignment).
+
+        Now: label above its control, both in one bordered block, with the rule
+        collapsed behind a summary that names the build. Every word stays in the
+        DOM -- it is the honest account of what the preset contains, and it is
+        the only per-pair prose on the page.
+      */}
       {presets.length > 0 && (
-        <div className="mb-5">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-muted">
-              Start from
-            </span>
+        <div className="mb-5 max-w-2xl rounded-2xl border border-line bg-surface-2 p-3">
+          <p
+            id="start-from"
+            className="px-1 text-xs font-semibold uppercase tracking-wider text-muted"
+          >
+            Start from
+          </p>
+          <div
+            role="group"
+            aria-labelledby="start-from"
+            className="mt-2 flex flex-wrap gap-2"
+          >
             {presets.map((p) => (
               <button
                 key={p.id}
@@ -159,7 +181,7 @@ export default function MealCompare({
                 className={`flex min-h-10 items-center rounded-full border px-3.5 text-xs transition-colors ${
                   p.id === presetId
                     ? "border-brand bg-surface font-semibold text-fg"
-                    : "border-line text-muted hover:border-fg/30 hover:text-fg"
+                    : "border-line bg-surface text-muted hover:border-fg/30 hover:text-fg"
                 }`}
               >
                 {p.name}
@@ -167,9 +189,20 @@ export default function MealCompare({
             ))}
           </div>
           {preset && (
-            <p className="mt-2 max-w-2xl text-xs leading-relaxed text-muted">
-              {preset.rule}
-            </p>
+            <details className="group mt-2.5">
+              <summary className="inline-flex min-h-8 cursor-pointer list-none items-center px-1 text-xs text-muted underline decoration-line underline-offset-2 hover:text-fg">
+                What&rsquo;s in this order?
+                <span className="ml-1 group-open:hidden" aria-hidden>
+                  &#9656;
+                </span>
+                <span className="ml-1 hidden group-open:inline" aria-hidden>
+                  &#9662;
+                </span>
+              </summary>
+              <p className="mt-1 max-w-2xl border-l border-line px-1 pl-3 text-xs leading-relaxed text-muted">
+                {preset.rule}
+              </p>
+            </details>
           )}
         </div>
       )}
@@ -194,6 +227,7 @@ export default function MealCompare({
               glyph={c.glyph}
               name={c.name}
               tint={tints[i]}
+              emphasis="solid"
               className="h-7 w-7 rounded-lg"
               iconClassName="h-5 w-5"
             />
@@ -241,6 +275,7 @@ export default function MealCompare({
                 glyph={chain.glyph}
                 name={chain.name}
                 tint={tints[i]}
+                emphasis="solid"
               />
               <p className="text-sm font-semibold">{chain.name}</p>
             </div>
