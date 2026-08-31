@@ -152,7 +152,8 @@
    "cat": "side",
    "id": "waffle-fries",
    "name": "Chick-fil-A® Waffle Potato Fries",
-   "variant_label": "Medium"
+   "variant_label": "Medium",
+   "feature": true
   },
   "Small Chick-fil-A Waffle Potato Fries®": {
    "cat": "side",
@@ -172,7 +173,8 @@
    "cat": "side",
    "id": "fruit-cup",
    "name": "Fruit Cup",
-   "variant_label": "Medium"
+   "variant_label": "Medium",
+   "feature": true
   },
   "Small Fruit Cup": {
    "cat": "side",
@@ -192,7 +194,8 @@
    "cat": "side",
    "id": "mac-and-cheese",
    "name": "Mac & Cheese",
-   "variant_label": "Medium"
+   "variant_label": "Medium",
+   "feature": true
   },
   "Small Mac & Cheese": {
    "cat": "side",

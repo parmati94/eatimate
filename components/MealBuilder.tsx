@@ -617,6 +617,20 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
       : mode === "scratch"
         ? scratchCats
         : [];
+  // "Make it a meal": the handful of items most orders actually include, lifted
+  // out of the extras accordions. Same component ids, so selecting here and
+  // selecting below are the same act.
+  const featured = useMemo(() => {
+    const out: { cat: Category; comps: Component[] }[] = [];
+    for (const cat of chain.categories) {
+      const comps = (visibleByCategory.get(cat.id) ?? []).filter(
+        (c) => c.feature && !c.variant_of,
+      );
+      if (comps.length) out.push({ cat, comps });
+    }
+    return out;
+  }, [chain, visibleByCategory]);
+
   const plainExtras = chain.categories.filter(
     (c) => c.flow === "extras" && visibleByCategory.has(c.id),
   );
@@ -858,6 +872,53 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
             );
           })}
         </div>
+
+        {featured.length > 0 && (
+          <section className="rounded-2xl border border-line bg-surface p-3 shadow-sm">
+            <h2 className="px-1 pb-2 text-xs font-semibold uppercase tracking-wider text-muted">
+              Make it a meal
+            </h2>
+            <div className="space-y-3">
+              {featured.map(({ cat, comps }) => (
+                <div key={cat.id}>
+                  <p className="px-1 pb-1 text-xs text-muted">{cat.name}</p>
+                  <ul className="space-y-0.5">
+                    {comps.map((head) => {
+                      const members = [
+                        head,
+                        ...(visibleByCategory.get(cat.id) ?? []).filter(
+                          (c) => c.variant_of === head.id,
+                        ),
+                      ];
+                      const active =
+                        members.find((m) => selections[m.id]) ?? head;
+                      return (
+                        <ComponentRow
+                          key={head.id}
+                          comp={active}
+                          qty={selections[active.id]}
+                          single={cat.select === "single"}
+                          qmult={rowMult(active)}
+                          onToggle={() => toggle(active, cat.select === "single")}
+                          onQty={(q) => setQty(active.id, q)}
+                          variants={members.length > 1 ? members : undefined}
+                          onVariant={(next) => {
+                            if (next.id === active.id) return;
+                            const q = selections[active.id];
+                            if (q) {
+                              setQty(active.id, 0);
+                              setQty(next.id, q);
+                            }
+                          }}
+                        />
+                      );
+                    })}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {extraCats.length > 0 && (
           <>

@@ -40,6 +40,11 @@ export const ComponentSchema = z.object({
   // The group head carries only variant_label; its siblings point at it.
   variant_of: z.string().optional(),
   variant_label: z.string().optional(),
+  // Surfaced in the "Make it a meal" step instead of being buried in a long
+  // extras list. EDITORIAL: nothing in a nutrition document says fries are
+  // ordered more than kale, so this is our judgement, set by hand per chain.
+  // It affects ordering and prominence only — never a number.
+  feature: z.boolean().optional(),
 });
 
 // Chain-wide size scaling (e.g. Subway 6" vs Footlong): the active mode

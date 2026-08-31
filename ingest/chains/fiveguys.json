@@ -239,7 +239,8 @@
    "cat": "fries",
    "id": "regular-five-guys-style",
    "name": "Five Guys Style Fries",
-   "variant_label": "Regular"
+   "variant_label": "Regular",
+   "feature": true
   },
   "Little Five Guys Style": {
    "cat": "fries",
@@ -259,7 +260,8 @@
    "cat": "fries",
    "id": "regular-cajun-style",
    "name": "Cajun Style Fries",
-   "variant_label": "Regular"
+   "variant_label": "Regular",
+   "feature": true
   },
   "Little Cajun Style": {
    "cat": "fries",

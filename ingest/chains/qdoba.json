@@ -20,14 +20,16 @@
   {
    "id": "rice",
    "name": "Rice",
-   "select": "single",
-   "flow": "build"
+   "select": "multi",
+   "flow": "build",
+   "note": "Going half-and-half? Pick both and set each to ½ — otherwise you're counting two full portions."
   },
   {
    "id": "beans",
    "name": "Beans",
-   "select": "single",
-   "flow": "build"
+   "select": "multi",
+   "flow": "build",
+   "note": "Going half-and-half? Pick both and set each to ½ — otherwise you're counting two full portions."
   },
   {
    "id": "proteins",

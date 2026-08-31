@@ -215,6 +215,7 @@ def build(cfg, rows, extra=None):
             if sp.get("only_modes"): c["only_modes"] = sp["only_modes"]
             if sp.get("variant_of"): c["variant_of"] = sp["variant_of"]
             if sp.get("variant_label"): c["variant_label"] = sp["variant_label"]
+            if sp.get("feature"): c["feature"] = True
             c["_ord"] = base_ord + 0.001 * n
             comps.append(c)
     # reverse so a synthetic may sit "before" a later-listed synthetic

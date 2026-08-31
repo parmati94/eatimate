@@ -2571,7 +2571,8 @@
       "fiber_g": 5,
       "sugars_g": 1,
       "protein_g": 5,
-      "variant_label": "Medium"
+      "variant_label": "Medium",
+      "feature": true
     },
     {
       "id": "waffle-fries-small",
@@ -2627,7 +2628,8 @@
       "fiber_g": 2,
       "sugars_g": 12,
       "protein_g": 1,
-      "variant_label": "Medium"
+      "variant_label": "Medium",
+      "feature": true
     },
     {
       "id": "fruit-cup-small",
@@ -2683,7 +2685,8 @@
       "fiber_g": 3,
       "sugars_g": 3,
       "protein_g": 20,
-      "variant_label": "Medium"
+      "variant_label": "Medium",
+      "feature": true
     },
     {
       "id": "mac-and-cheese-small",

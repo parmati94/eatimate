@@ -580,7 +580,8 @@
       "fiber_g": 15,
       "sugars_g": 4,
       "protein_g": 15,
-      "variant_label": "Regular"
+      "variant_label": "Regular",
+      "feature": true
     },
     {
       "id": "little-five-guys-style",
@@ -636,7 +637,8 @@
       "fiber_g": 15,
       "sugars_g": 4,
       "protein_g": 15,
-      "variant_label": "Regular"
+      "variant_label": "Regular",
+      "feature": true
     },
     {
       "id": "little-cajun-style",
