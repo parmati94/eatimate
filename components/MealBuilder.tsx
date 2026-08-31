@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Category, Chain, Component, Totals } from "@/lib/schema";
-import { NUTRIENT_FIELDS } from "@/lib/schema";
 import {
   roundCalories,
   roundCholesterol,
@@ -10,6 +9,14 @@ import {
   roundGrams,
   roundSodium,
 } from "@/lib/rounding";
+import {
+  COVERAGE_STEPS,
+  QTY_STEPS,
+  Selections,
+  decodeMeal,
+  encodeMeal,
+  mealTotals,
+} from "@/lib/meal";
 import NutritionLabel from "./NutritionLabel";
 import {
   IconCheck,
@@ -21,20 +28,9 @@ import {
   IconX,
 } from "./icons";
 
-// Extended so per-piece items (wings, tenders) can reach real order sizes.
-const QTY_STEPS = [0.5, 1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 15, 20];
-// Where a portion control carries "how much did you eat", a component's own
-// quantity means coverage instead, and 20x pepperoni is not a coverage.
-const COVERAGE_STEPS = [0.5, 1, 2];
 const SEARCH_THRESHOLD = 14;
 /** Quiet period before mirroring selections into the URL (see the sync effect). */
 const URL_SYNC_DELAY_MS = 600;
-
-type Selections = Record<string, number>; // component id -> qty multiplier
-
-function emptyTotals(): Totals {
-  return Object.fromEntries(NUTRIENT_FIELDS.map((f) => [f, 0])) as Totals;
-}
 
 function fmtQty(q: number): string {
   return q === 0.5 ? "½×" : `${q}×`;
@@ -55,23 +51,6 @@ function mealUrl(sel: Selections, portion = 1): string {
   if (portion > 1) url.searchParams.set("p", String(portion));
   else url.searchParams.delete("p");
   return url.href;
-}
-
-function encodeMeal(sel: Selections): string {
-  return Object.entries(sel)
-    .map(([id, q]) => (q === 1 ? id : `${id}:${q}`))
-    .join(",");
-}
-
-function decodeMeal(raw: string, chain: Chain): Selections {
-  const valid = new Map(chain.components.map((c) => [c.id, c]));
-  const sel: Selections = {};
-  for (const part of raw.split(",")) {
-    const [id, qRaw] = part.split(":");
-    const q = qRaw === undefined ? 1 : Number(qRaw);
-    if (valid.has(id) && QTY_STEPS.includes(q)) sel[id] = q;
-  }
-  return sel;
 }
 
 // ---------------------------------------------------------------------------
@@ -782,18 +761,10 @@ export default function MealBuilder({ chain }: { chain: Chain }) {
     return () => clearTimeout(t);
   }, [selections, portion]);
 
-  const totals = useMemo(() => {
-    const t = emptyTotals();
-    for (const c of chain.components) {
-      const qty = selections[c.id];
-      if (!qty) continue;
-      const scale = portionCats.has(c.category) ? portion : 1;
-      const k = qty * (activeMode?.multipliers[c.category] ?? 1) * scale;
-      for (const f of NUTRIENT_FIELDS) t[f] += c[f] * k;
-    }
-    return t;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [chain, selections, activeMode, portion, portionCats]);
+  const totals = useMemo(
+    () => mealTotals(chain, selections, activeMode, portion),
+    [chain, selections, activeMode, portion],
+  );
 
   const selectedCount = Object.keys(selections).length;
 
