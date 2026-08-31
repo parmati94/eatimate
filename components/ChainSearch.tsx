@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import ChainGlyph from "./ChainGlyph";
+import { tileHue } from "@/lib/brand";
 import { IconSearch } from "./icons";
 
 export type ChainCard = {
@@ -12,25 +13,6 @@ export type ChainCard = {
   componentCount: number;
   retrieved: string;
 };
-
-// Deterministic tile hue per chain (no trademarked logos/colors); rendered
-// as a tinted ground with the hue carried by the food glyph.
-const PALETTE = [
-  "#0d9488",
-  "#0284c7",
-  "#d97706",
-  "#e11d48",
-  "#7c3aed",
-  "#65a30d",
-  "#ea580c",
-  "#4f46e5",
-];
-
-function tileHue(slug: string): string {
-  let h = 0;
-  for (const ch of slug) h = (h * 31 + ch.charCodeAt(0)) % 997;
-  return PALETTE[h % PALETTE.length];
-}
 
 export default function ChainSearch({ chains }: { chains: ChainCard[] }) {
   const [q, setQ] = useState("");

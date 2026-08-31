@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     "Free nutrition calculators for build-your-own restaurant meals — pick your ingredients, get exact calories and macros.",
   applicationName: "Eatimate",
   appleWebApp: { capable: true, title: "Eatimate", statusBarStyle: "default" },
-  openGraph: { siteName: "Eatimate", type: "website" },
-  twitter: { card: "summary" },
+  openGraph: { siteName: "Eatimate", type: "website", url: "/" },
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = {

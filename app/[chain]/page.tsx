@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CorrectionsNote from "@/components/CorrectionsNote";
+import NutritionTable from "@/components/NutritionTable";
 import { notFound } from "next/navigation";
 import MealBuilder from "@/components/MealBuilder";
 import { IconExternal } from "@/components/icons";
@@ -18,16 +19,32 @@ export async function generateMetadata(
   const { chain: slug } = await props.params;
   const chain = await getChain(slug);
   if (!chain) return {};
-  const title = `${chain.name} nutrition calculator`;
+  // Targets the informational query ("wingstop nutrition facts") as well as the
+  // calculator one. Set absolute so the "· Eatimate" template doesn't push the
+  // longest chain names past what search results actually show.
+  const title = `${chain.name} Nutrition Facts & Calorie Calculator`;
   const description =
     chain.blurb ??
     `Build your ${chain.name} meal ingredient by ingredient and get calories, protein, carbs, fat, and sodium totals.`;
+  const url = `/${chain.slug}`;
+  // openGraph/twitter replace the parent object rather than merging into it, so
+  // type, siteName and card have to be repeated here.
   return {
-    title,
+    title: { absolute: title },
     description,
-    alternates: { canonical: `/${chain.slug}` },
-    openGraph: { title: `${title} · Eatimate`, description },
-    twitter: { title: `${title} · Eatimate`, description },
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${title} · Eatimate`,
+      description,
+      url,
+      type: "website",
+      siteName: "Eatimate",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} · Eatimate`,
+      description,
+    },
   };
 }
 
@@ -88,7 +105,9 @@ export default async function ChainPage(props: PageProps<"/[chain]">) {
 
       <MealBuilder chain={chain} />
 
-      <footer className="mt-12 space-y-1 border-t border-line pt-4 text-xs leading-relaxed text-muted">
+      <NutritionTable chain={chain} />
+
+      <footer className="mt-6 space-y-1 border-t border-line pt-4 text-xs leading-relaxed text-muted">
         <p>
           Not affiliated with or endorsed by {chain.name}. Nutrition values are
           approximations derived from{" "}
