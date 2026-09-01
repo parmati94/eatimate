@@ -69,6 +69,7 @@ export function ComponentRow({
   onVariant,
   qtySteps,
   addons,
+  rangeHint,
 }: {
   comp: Component;
   qty: number | undefined;
@@ -83,6 +84,8 @@ export function ComponentRow({
   /** Extras that ride along with this row, rendered beneath it inside the same
    *  list item so they read as belonging to it rather than as siblings. */
   addons?: ReactNode;
+  /** What the sizes span, for a row whose chips are hidden until it is picked. */
+  rangeHint?: string;
 }) {
   const selected = !!qty;
   const hasVariants = !!variants && variants.length > 1;
@@ -126,6 +129,10 @@ export function ComponentRow({
           </span>
           <span className="block text-xs text-muted">
             {comp.serving_desc}
+            {/* The chain's own serving text is left exactly as written; the
+                span is appended, never substituted into it. "6 boneless wings"
+                is BWW's sentence, "6-30" is ours. */}
+            {rangeHint && <span className="text-muted/80"> · {rangeHint}</span>}
             {comp.derived && (
               <span
                 className="ml-1 rounded bg-surface-2 px-1 py-px text-[10px] font-medium uppercase tracking-wide"
@@ -241,6 +248,37 @@ export function ComponentRow({
 }
 
 /**
+ * What a hidden size family spans, said in its own labels.
+ *
+ * Only the labels are read -- never the chain's serving text. "6 boneless
+ * wings" is BWW's sentence about the six; turning it into "6-30 boneless
+ * wings" would put words in their mouth. So the span is appended as its own
+ * clause instead, built from the variant labels we assigned.
+ *
+ * A numeric family gets a real range with whatever unit its largest label
+ * carries. Anything else gets a plain count, because an unordered set has no
+ * range to state -- Chick-fil-A's twelve are proteins and a hash-brown toggle,
+ * and "Nuggets-No Meat" would be nonsense.
+ */
+function rangeOf(members: Component[]): string | undefined {
+  if (members.length < 2) return undefined;
+  const parts = members.map((m) => /^([\d.]+)\s*(.*)$/.exec(m.variant_label ?? ""));
+  if (parts.every(Boolean)) {
+    const nums = parts.map((p) => Number(p![1]));
+    const lo = Math.min(...nums);
+    const hi = Math.max(...nums);
+    if (lo !== hi) {
+      const unit = parts[nums.indexOf(hi)]![2].trim();
+      // A space before a word, none before a mark: 20-30 fl oz, but 5.5-12.5"
+      // rather than 5.5-12.5 ".
+      const sep = /^[a-z]/i.test(unit) ? " " : "";
+      return `${lo}\u2013${hi}${unit ? sep + unit : ""}`;
+    }
+  }
+  return `${members.length} options`;
+}
+
+/**
  * One size family: the row, its size chips and anything that rides along.
  *
  * Owns the "size picked but item not selected yet" state, which is why it is a
@@ -310,6 +348,11 @@ export function FamilyRow({
         members.length > 1 && (!chipsOnPick || !!selections[active.id])
           ? members
           : undefined
+      }
+      rangeHint={
+        // Only while they are hidden. Once the chips are on screen they say
+        // this better than a sentence can.
+        chipsOnPick && !selections[active.id] ? rangeOf(members) : undefined
       }
       addons={
         showAddons ? (
