@@ -12,6 +12,11 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // The ingest virtualenv ships Playwright's bundled browser JS, some of it
+    // over 500KB on one line. Linting it crashed `npm run lint` outright with
+    // "RangeError: Invalid string length", so the whole repo lint was dead --
+    // unnoticed because CI runs tsc and vitest, not lint.
+    "ingest/.venv/**",
   ]),
 ]);
 

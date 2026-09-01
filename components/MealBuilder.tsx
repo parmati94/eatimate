@@ -1059,7 +1059,6 @@ export default function MealBuilder({
   // Changing the format prunes picks that are no longer offered (switching
   // to Wrap drops a selected loaf, etc.).
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- reconcile after mode change
     setSelections((prev) => {
       let changed = false;
       const next: Selections = {};
@@ -1097,22 +1096,26 @@ export default function MealBuilder({
       hydrated.current = true;
       return;
     }
+    // A shared link is restored once, on mount. The rule wants this in a lazy
+    // initialiser, which cannot read window during SSR without a hydration
+    // mismatch -- so the exception is scoped to the effect rather than chased
+    // onto whichever setState the rule names.
+    /* eslint-disable react-hooks/set-state-in-effect */
     const q = new URLSearchParams(window.location.search);
     const p = Number(q.get("p"));
     if (Number.isInteger(p) && p > 1) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time restore from URL after mount
       setPortion(p);
     }
     const m = q.get("m");
     if (m) {
       const sel = decodeMeal(m, chain);
       if (Object.keys(sel).length > 0) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time restore from URL after mount
         setSelections(sel);
         setOpenCat(null);
       }
     }
     hydrated.current = true;
+    /* eslint-enable react-hooks/set-state-in-effect */
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
