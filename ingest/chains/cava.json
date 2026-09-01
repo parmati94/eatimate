@@ -18,9 +18,18 @@
   "formats": [
    "Bowl",
    "Pita"
-  ]
+  ],
+  "consistency": {
+   "extras_kids": "The kids meal is a separate, smaller build with its own portions, not a version of the bowl this page builds."
+  }
  },
  "categories": [
+  {
+   "id": "curated",
+   "name": "Curated Bowls & Pitas",
+   "select": "single",
+   "flow": "preset"
+  },
   {
    "id": "format",
    "name": "Bowl or Pita",
@@ -37,7 +46,7 @@
    "id": "dips",
    "name": "Dips & Spreads",
    "select": "multi",
-   "flow": "build"
+   "flow": "both"
   },
   {
    "id": "mains",
@@ -49,29 +58,17 @@
    "id": "toppings",
    "name": "Toppings",
    "select": "multi",
-   "flow": "build"
+   "flow": "both"
   },
   {
    "id": "dressings",
    "name": "Dressings",
    "select": "multi",
-   "flow": "build"
+   "flow": "both"
   },
   {
    "id": "sides",
    "name": "Sides",
-   "select": "multi",
-   "flow": "extras"
-  },
-  {
-   "id": "curated-bowls",
-   "name": "Curated Bowls",
-   "select": "multi",
-   "flow": "extras"
-  },
-  {
-   "id": "curated-pitas",
-   "name": "Curated Pitas",
    "select": "multi",
    "flow": "extras"
   },
@@ -115,8 +112,8 @@
   "stop": "^Allergen Guide$"
  },
  "section_categories": {
-  "CURATED BOWLS": "curated-bowls",
-  "CURATED PITAS": "curated-pitas",
+  "CURATED BOWLS": "curated",
+  "CURATED PITAS": "curated",
   "BASES": "base",
   "MAINS": "mains",
   "KIDS MEAL": "kids",

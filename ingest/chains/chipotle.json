@@ -45,6 +45,9 @@
     "Side of Beef Barbacoa": "Barbacoa",
     "Soft Flour Tortilla": "Flour Tortilla (taco)"
    }
+  },
+  "consistency": {
+   "no_presets": "Chipotle publishes per-ingredient figures only and no whole-burrito row -- the absence of that row is the reason this calculator exists."
   }
  },
  "categories": [

@@ -82,7 +82,13 @@
     "name": "Large Cauliflower",
     "multipliers": {}
    }
-  ]
+  ],
+  "consistency": {
+   "extras_apps": "Appetizers are shared plates ordered alongside wings, not a wings order this page can build.",
+   "extras_mains": "Burgers, sandwiches and salads are a different centre of the plate from the wings this page builds.",
+   "extras_kids": "The kids menu is a separate, smaller build with its own portions.",
+   "extras_party": "Party platters are catering sizes, ordered instead of an individual wings order."
+  }
  },
  "categories": [
   {

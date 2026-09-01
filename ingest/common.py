@@ -583,6 +583,11 @@ def build(cfg, rows, extra=None):
                 # everything would turn Potbelly's BIGS into Bigs and 2 FL OZ
                 # into 2 Fl Oz.
                 c["variant_label"] = got.capitalize() if got.islower() else got
+                # Remember which end it came off, so a label that has to be put
+                # back goes back where it was: Subway prints '6" Buffalo
+                # Chicken', and restoring that as 'Buffalo Chicken, 6"' is worse
+                # than never having trimmed it.
+                c["_label_pre"] = t["pattern"].startswith("^")
                 # A size that is itself a measurement answers "how much?" too,
                 # so a row still sitting on "1 serving" may as well say it.
                 if (re.match(r"^\d", got)
@@ -669,8 +674,9 @@ def build(cfg, rows, extra=None):
         for c in comps:
             if c.get("variant_label") and not c.get("variant_of") and \
                     not any(m.get("variant_of") == c["id"] for m in comps):
-                c["name"] = f"{c['name']}, {c['variant_label']}"
-                c.pop("variant_label")
+                lbl = c.pop("variant_label")
+                c["name"] = (f"{lbl} {c['name']}" if c.get("_label_pre")
+                             else f"{c['name']}, {lbl}")
 
     # Sections whose rows already BUNDLE a base component, named per section:
     # Potbelly's sandwich totals include white bread at that size, so the row as
@@ -703,7 +709,7 @@ def build(cfg, rows, extra=None):
 
     order = {c["id"]: i for i, c in enumerate(cfg["categories"])}
     comps.sort(key=lambda c: (order[c["category"]], c["_ord"]))  # category order, then items-table order
-    for c in comps: c.pop("_ord", None); c.pop("_sec", None)
+    for c in comps: c.pop("_ord", None); c.pop("_sec", None); c.pop("_label_pre", None)
     return comps
 
 def finish(cfg, components, rows, pending, out_dir="data/chains"):

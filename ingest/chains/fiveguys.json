@@ -19,7 +19,10 @@
    "Burger",
    "Hot dog",
    "Fries"
-  ]
+  ],
+  "consistency": {
+   "no_presets": "Five Guys publishes per-ingredient figures only -- bun, patties and toppings -- and no whole-burger row, so there is no published menu item to start from."
+  }
  },
  "categories": [
   {

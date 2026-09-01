@@ -17,7 +17,10 @@
    "Bowl",
    "Plate",
    "Bigger Plate"
-  ]
+  ],
+  "consistency": {
+   "no_presets": "Panda Express publishes each entree and side on its own. A plate IS one side plus two entrees, so the build path already expresses every menu item; there is no separate whole-plate row."
+  }
  },
  "categories": [
   {

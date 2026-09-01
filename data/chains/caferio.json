@@ -14,6 +14,9 @@
     "Salad",
     "Tacos"
   ],
+  "consistency": {
+    "no_presets": "Cafe Rio publishes per-ingredient figures only; there is no whole-burrito or whole-salad row to start from."
+  },
   "categories": [
     {
       "id": "base",

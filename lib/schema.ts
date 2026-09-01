@@ -131,6 +131,12 @@ export const ChainSchema = z
     // picks a restaurant by ingredient count, and 784 vs 35 made the better
     // covered chain look worse.
     formats: z.array(z.string().min(1)).min(1).max(5).optional(),
+    // Deliberate departures from what the chain's cuisine peers do, each with
+    // the reason. lib/consistency.test.ts fails CI on an UNDECLARED departure,
+    // so the only way past it is to fix the chain or write down why it differs
+    // -- which is the point: with seventeen chains and more coming, drift is
+    // found by a reader noticing, and readers stop noticing.
+    consistency: z.record(z.string(), z.string().min(20)).optional(),
     categories: z.array(CategorySchema).min(1),
     size_modes: z.array(SizeModeSchema).min(2).optional(),
     portion: PortionSchema.optional(),
