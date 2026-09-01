@@ -36,6 +36,7 @@
     "Warm bowl",
     "Wrap"
   ],
+  "default_flow": "build",
   "categories": [
     {
       "id": "signature",

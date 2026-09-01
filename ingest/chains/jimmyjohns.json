@@ -56,7 +56,8 @@
     "name": "Flour Wrap",
     "multipliers": {}
    }
-  ]
+  ],
+  "default_flow": "menu"
  },
  "layout": {
   "columns": [

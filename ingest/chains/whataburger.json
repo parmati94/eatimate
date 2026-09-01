@@ -1,0 +1,363 @@
+{
+ "meta": {
+  "name": "Whataburger",
+  "slug": "whataburger",
+  "source": {
+   "html_url": "https://whataburger.com/menu",
+   "page_url": "https://whataburger.com/menu",
+   "api_base": "https://api.whataburger.com",
+   "menu_path": "/v2.4/menu",
+   "headers": {
+    "x-api-key": "E08F3550-23FE-4360-BD6C-08314E6C3E2F",
+    "x-device-platform": "dotcom",
+    "x-client": "SPA",
+    "x-device-appversion": "6.0.23",
+    "accept": "application/json",
+    "origin": "https://whataburger.com",
+    "referer": "https://whataburger.com/",
+    "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36"
+   },
+   "skip_categories": [
+    "Three BIG Deals",
+    "Group Ordering"
+   ],
+   "skip_ingredients": [
+    "bun-oil",
+    "special-seasoning",
+    "Five-Calories-Increment",
+    "grilled-chicken-5-calories"
+   ],
+   "retrieved": "2026-09-01",
+   "format": "json",
+   "fetch": "plain"
+  },
+  "disclaimer_extra": "Whataburger publishes each ingredient with its own weight and each menu item as a recipe of those ingredients, so every figure here is their arithmetic on their numbers — the same sum their own app makes. It reproduces what they print: a Whataburger comes to 589.5 against a published 590. Their recipes also count the seasoned oil the buns are griddled in, which is not something you order, so a burger you build here runs a few calories under the same one on the menu.",
+  "glyph": "burger",
+  "formats": [
+   "Burger",
+   "Chicken",
+   "Breakfast"
+  ],
+  "blurb": "Whataburger is composed from parts more completely than any other chain here: it publishes a weight and a full label for every ingredient, down to a single 15-gram tomato slice, and builds its own menu by counting them. That means you can add a third slice of cheese and get a number Whataburger would agree with.",
+  "default_flow": "menu"
+ },
+ "layout": {
+  "columns": [
+   "serving",
+   "calories",
+   "cff",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g"
+  ],
+  "serving": "g",
+  "sections": "^(INGREDIENTS|MENU: .+)$",
+  "skip": "^$"
+ },
+ "categories": [
+  {
+   "id": "item",
+   "name": "Menu Items",
+   "select": "single",
+   "flow": "preset"
+  },
+  {
+   "id": "bread",
+   "name": "Bun & Bread",
+   "select": "multi",
+   "flow": "both"
+  },
+  {
+   "id": "protein",
+   "name": "Patties & Protein",
+   "select": "multi",
+   "flow": "both"
+  },
+  {
+   "id": "cheese",
+   "name": "Cheese",
+   "select": "multi",
+   "flow": "both"
+  },
+  {
+   "id": "veg",
+   "name": "Produce & Toppings",
+   "select": "multi",
+   "flow": "both"
+  },
+  {
+   "id": "sauce",
+   "name": "Sauces & Spreads",
+   "select": "multi",
+   "flow": "both"
+  },
+  {
+   "id": "build",
+   "name": "Other Ingredients",
+   "select": "multi",
+   "flow": "extras",
+   "note": "Each row is one of what Whataburger counts — one patty, one slice, one squirt of mustard. Use the quantity control for more."
+  },
+  {
+   "id": "sides",
+   "name": "Sides",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "drinks",
+   "name": "Drinks & Shakes",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "sweets",
+   "name": "Desserts & Snacks",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "kids",
+   "name": "Kids",
+   "select": "multi",
+   "flow": "extras"
+  }
+ ],
+ "section_categories": {
+  "INGREDIENTS": {
+   "cat": "build",
+   "id_suffix": "ingredient"
+  },
+  "MENU: Whatadeals": {
+   "skip": "bundles of items already listed on their own"
+  },
+  "MENU: All-Time Favorites & Limited Time Offers": "item",
+  "MENU: Burgers": "item",
+  "MENU: Chicken": "item",
+  "MENU: Jr. Meals": "item",
+  "MENU: Kids": "kids",
+  "MENU: Sides": "sides",
+  "MENU: Desserts & Snacks": "sweets",
+  "MENU: Drinks & Shakes": "drinks",
+  "MENU: Breakfast (Available 11pm-11am)": "item"
+ },
+ "items": {
+  "Whataburger Jr.®": {
+   "skip": "Whataburger's own recipe for this item omits its beef patty -- bun, pickles, tomato, mustard, lettuce and onions, and nothing else -- so it composes to 194 against a published ~310. Its Double Meat sibling counts two small patties correctly, so the gap is one patty. Left out rather than published wrong, or repaired by hand into a figure the chain never printed."
+  },
+  "French Fries": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Dr Pepper®": {
+   "cat": "drinks",
+   "feature": true
+  },
+  "Sprite®": {
+   "cat": "drinks",
+   "feature": true
+  },
+  "Milk Low Fat 1%": {
+   "cat": "drinks",
+   "feature": true
+  },
+  "Tea, Unsweetened (Small)": {
+   "cat": "drinks",
+   "feature": true
+  },
+  "Onion Rings (Medium)": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Large White Bun": {
+   "cat": "bread",
+   "id_suffix": "ingredient"
+  },
+  "Small White Bun": {
+   "cat": "bread",
+   "id_suffix": "ingredient"
+  },
+  "Wheat Bun": {
+   "cat": "bread",
+   "id_suffix": "ingredient"
+  },
+  "Texas Toast": {
+   "cat": "bread",
+   "id_suffix": "ingredient"
+  },
+  "Biscuit Buttermilk": {
+   "cat": "bread",
+   "id_suffix": "ingredient"
+  },
+  "Flour Tortilla": {
+   "cat": "bread",
+   "id_suffix": "ingredient"
+  },
+  "Pancake": {
+   "cat": "bread",
+   "id_suffix": "ingredient"
+  },
+  "Large Beef Patty": {
+   "cat": "protein",
+   "id_suffix": "ingredient"
+  },
+  "Small Beef Patty": {
+   "cat": "protein",
+   "id_suffix": "ingredient"
+  },
+  "Grilled Chicken": {
+   "cat": "protein",
+   "id_suffix": "ingredient"
+  },
+  "Whatachickn Filet": {
+   "cat": "protein",
+   "id_suffix": "ingredient"
+  },
+  "Whatachickn Bites": {
+   "cat": "protein",
+   "id_suffix": "ingredient"
+  },
+  "Chicken Strips": {
+   "cat": "protein",
+   "id_suffix": "ingredient"
+  },
+  "Bacon": {
+   "cat": "protein",
+   "id_suffix": "ingredient"
+  },
+  "Pork Sausage Patty": {
+   "cat": "protein",
+   "id_suffix": "ingredient"
+  },
+  "Pork Sausage Crumbles": {
+   "cat": "protein",
+   "id_suffix": "ingredient"
+  },
+  "Round Egg": {
+   "cat": "protein",
+   "id_suffix": "ingredient"
+  },
+  "Large American Cheese Slice": {
+   "cat": "cheese",
+   "id_suffix": "ingredient"
+  },
+  "Small American Cheese Slice": {
+   "cat": "cheese",
+   "id_suffix": "ingredient"
+  },
+  "Monterey Jack Cheese": {
+   "cat": "cheese",
+   "id_suffix": "ingredient"
+  },
+  "Tomato": {
+   "cat": "veg",
+   "id_suffix": "ingredient"
+  },
+  "Iceberg Lettuce": {
+   "cat": "veg",
+   "id_suffix": "ingredient"
+  },
+  "Green Leaf": {
+   "cat": "veg",
+   "id_suffix": "ingredient"
+  },
+  "Diced Onions": {
+   "cat": "veg",
+   "id_suffix": "ingredient"
+  },
+  "Pickles": {
+   "cat": "veg",
+   "id_suffix": "ingredient"
+  },
+  "Jalapeño": {
+   "cat": "veg",
+   "id_suffix": "ingredient"
+  },
+  "Green Chiles": {
+   "cat": "veg",
+   "id_suffix": "ingredient"
+  },
+  "Chunky Avocado": {
+   "cat": "veg",
+   "id_suffix": "ingredient"
+  },
+  "Fire Roasted Vegetable Blend": {
+   "cat": "veg",
+   "id_suffix": "ingredient"
+  },
+  "Onion Rings": {
+   "cat": "veg",
+   "id_suffix": "ingredient"
+  },
+  "Mustard": {
+   "cat": "sauce",
+   "id_suffix": "ingredient"
+  },
+  "Honey Butter Sauce": {
+   "cat": "sauce",
+   "id_suffix": "ingredient"
+  },
+  "Honey Bbq Sauce": {
+   "cat": "sauce",
+   "id_suffix": "ingredient"
+  },
+  "Creamy Pepper Sauce": {
+   "cat": "sauce",
+   "id_suffix": "ingredient"
+  },
+  "Jalapeno Ranch": {
+   "cat": "sauce",
+   "id_suffix": "ingredient"
+  },
+  "Sweet And Spicy Pepper Sauce": {
+   "cat": "sauce",
+   "id_suffix": "ingredient"
+  },
+  "Zesty Whatasauce": {
+   "cat": "sauce",
+   "id_suffix": "ingredient"
+  },
+  "Savory Whatasauce": {
+   "cat": "sauce",
+   "id_suffix": "ingredient"
+  },
+  "Gravy": {
+   "cat": "sauce",
+   "id_suffix": "ingredient"
+  },
+  "Liquid Margarine For Biscuit": {
+   "cat": "sauce",
+   "id_suffix": "ingredient"
+  },
+  "Sugar": {
+   "cat": "sauce",
+   "id_suffix": "ingredient"
+  }
+ },
+ "corrections": {
+  "honey-butter-sauce-ingredient": [
+   {
+    "field": "sugars_g",
+    "used": 7,
+    "reason": "The API lists 9.38 g sugar against 7 g total carbohydrate, and sugar is part of the carbohydrate it cannot exceed. Capped at the carbohydrate figure, which is the most this ingredient can contain by the chain's own numbers."
+   }
+  ]
+ },
+ "name_trim": [
+  {
+   "pattern": "\\s*\\((Small|Medium|Large)\\)\\s*$",
+   "into": "size",
+   "labels": [
+    "Small",
+    "Medium",
+    "Large"
+   ]
+  }
+ ]
+}

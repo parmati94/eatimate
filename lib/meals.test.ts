@@ -13,6 +13,35 @@ async function dishes() {
 }
 
 describe("data/meals.json", () => {
+  it("builds a meal that one path can actually show", async () => {
+    // modeOf picks the path from the selections, so a build that mixes a
+    // preset-only category with a build-only one has no path that renders all
+    // of it: the missing half still counts toward the total, and the card
+    // reports calories for something nothing on screen says was chosen.
+    for (const dish of await dishes()) {
+      for (const build of dish.builds) {
+        const chain = ChainSchema.parse(
+          JSON.parse(
+            await fs.readFile(
+              path.join(ROOT, "data", "chains", `${build.chain}.json`),
+              "utf8",
+            ),
+          ),
+        );
+        const flow = new Map(chain.categories.map((c) => [c.id, c.flow ?? "build"]));
+        const flows = new Set(
+          chain.components
+            .filter((c) => build.items.includes(c.id))
+            .map((c) => flow.get(c.category)),
+        );
+        expect(
+          flows.has("preset") && flows.has("build"),
+          `${dish.id}/${build.chain} needs both paths at once`,
+        ).toBe(false);
+      }
+    }
+  });
+
   it("names only components the chains still publish", async () => {
     // The whole feature rests on hand-written component ids, so this is the
     // one thing that can rot silently: a chain drops an item, and a comparison

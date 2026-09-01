@@ -13,6 +13,7 @@
     "Nuggets",
     "Salad"
   ],
+  "default_flow": "menu",
   "categories": [
     {
       "id": "preset",

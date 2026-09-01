@@ -2,7 +2,7 @@
 
 /** Everything that draws a category: its header, its rows, and the size chips
  *  and add-ons that hang off a row. */
-import { ReactNode, useMemo, useState } from "react";
+import { CSSProperties, ReactNode, useMemo, useState } from "react";
 import type { Category, Component } from "@/lib/schema";
 import { QTY_STEPS, Selections } from "@/lib/meal";
 import { IconCheck, IconChevron, IconMinus, IconPlus, IconSearch } from "../icons";
@@ -29,7 +29,7 @@ export function QtyStepper({
     "flex h-9 w-9 items-center justify-center text-accent-strong transition-colors hover:bg-accent-soft disabled:opacity-30 disabled:hover:bg-transparent";
   return (
     <span
-      className="inline-flex items-center overflow-hidden rounded-full border border-line bg-surface shadow-sm"
+      className="inline-flex items-center overflow-hidden rounded-lg border border-line bg-surface shadow-sm"
       onClick={(e) => e.stopPropagation()}
       onKeyDown={(e) => e.stopPropagation()}
     >
@@ -69,6 +69,7 @@ export function ComponentRow({
   onVariant,
   qtySteps,
   addons,
+  rangeHint,
 }: {
   comp: Component;
   qty: number | undefined;
@@ -83,6 +84,8 @@ export function ComponentRow({
   /** Extras that ride along with this row, rendered beneath it inside the same
    *  list item so they read as belonging to it rather than as siblings. */
   addons?: ReactNode;
+  /** What the sizes span, for a row whose chips are hidden until it is picked. */
+  rangeHint?: string;
 }) {
   const selected = !!qty;
   const hasVariants = !!variants && variants.length > 1;
@@ -126,6 +129,10 @@ export function ComponentRow({
           </span>
           <span className="block text-xs text-muted">
             {comp.serving_desc}
+            {/* The chain's own serving text is left exactly as written; the
+                span is appended, never substituted into it. "6 boneless wings"
+                is BWW's sentence, "6-30" is ours. */}
+            {rangeHint && <span className="text-muted/80"> · {rangeHint}</span>}
             {comp.derived && (
               <span
                 className="ml-1 rounded bg-surface-2 px-1 py-px text-[10px] font-medium uppercase tracking-wide"
@@ -162,37 +169,113 @@ export function ComponentRow({
           // they must not share width with the quantity stepper. pl-8 clears
           // the radio (w-5) plus the row's gap-x-3. Clicks must not bubble to
           // the row's own toggle handler.
-          <span
-            className="mt-1.5 flex basis-full flex-wrap gap-1.5 pl-8"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {variants.map((v) => {
-              const active = v.id === comp.id;
-              return (
-                // 44px: on Buffalo Wild Wings these size chips ARE the
-                // order -- picking 6 wings or 20 -- and at their old 23px
-                // they were the smallest targets on the site.
-                <button
-                  key={v.id}
-                  type="button"
-                  aria-pressed={active}
-                  onClick={() => onVariant?.(v)}
-                  className={`num flex min-h-11 items-center justify-center rounded-lg border px-3 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
-                    active
-                      ? "border-accent bg-accent text-on-accent"
-                      : "border-line bg-surface text-muted hover:border-accent hover:text-accent-strong"
-                  }`}
-                >
-                  {v.variant_label}
-                </button>
-              );
-            })}
+          <span className="mt-1.5 basis-full pl-8" onClick={(e) => e.stopPropagation()}>
+            {/*
+              One segmented control, not a row of loose pills.
+
+              The grid is what makes it survive a wide set: `auto-fit` wraps to
+              as many lines as it needs while a single outer border and radius
+              keep it reading as ONE object, so there is no per-line border
+              maths and nothing can run off the side. Chick-fil-A's twelve-way
+              rows overflowed a phone as a single line and simply put their
+              tail out of reach. Long labels truncate rather than push.
+
+              The hairlines are the 1px grid gap showing the container's
+              background through, which is why the cells carry bg-surface.
+
+              36px rather than the 44px these were: the cells are contiguous
+              and full-width, so the whole strip is tappable with no dead space
+              between targets -- the thing 44px was protecting against when
+              they were 23px pills with gaps.
+            */}
+            <span
+              // No outer border on purpose. With one, the strip carries a
+              // border AND a background and reads as a card inside a card --
+              // three of them stacked compete with the rows they belong to.
+              // The hairlines are still the 1px gaps showing bg-line through,
+              // so the control keeps its structure without announcing itself
+              // as a container.
+              className="flex flex-wrap gap-px overflow-hidden rounded-lg bg-line"
+              // Column width follows the longest label rather than sitting at
+              // one figure for every chain: a fixed minimum wide enough for
+              // Domino's "16\" Extra Large" pushed BWW's 6 / 10 / 15 / 20 / 30
+              // onto two lines for no reason.
+              //
+              // In px, deliberately. `ch` resolves against the grid's inherited
+              // 15px body font rather than the 12px chip font, which made one
+              // long label demand a column wider than the phone and gave every
+              // chip a line of its own. Floored at 56 so a two-character label
+              // is still a comfortable target, capped at 110 so a long label
+              // truncates -- which is what `truncate` is there for -- instead
+              // of collapsing the strip to a single column.
+              style={
+                {
+                  "--chip": `${Math.max(
+                    48,
+                    Math.min(
+                      92,
+                      Math.max(...variants.map((v) => (v.variant_label ?? "").length)) * 7 + 20,
+                    ),
+                  )}px`,
+                } as CSSProperties
+              }
+            >
+              {variants.map((v) => {
+                const active = v.id === comp.id;
+                return (
+                  <button
+                    key={v.id}
+                    type="button"
+                    aria-pressed={active}
+                    onClick={() => onVariant?.(v)}
+                    className={`num min-h-9 flex-1 basis-[var(--chip)] truncate px-2 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent ${
+                      active
+                        ? "bg-accent text-on-accent"
+                        : "bg-surface text-muted hover:text-accent-strong"
+                    }`}
+                  >
+                    {v.variant_label}
+                  </button>
+                );
+              })}
+            </span>
           </span>
         )}
       </div>
       {addons}
     </li>
   );
+}
+
+/**
+ * What a hidden size family spans, said in its own labels.
+ *
+ * Only the labels are read -- never the chain's serving text. "6 boneless
+ * wings" is BWW's sentence about the six; turning it into "6-30 boneless
+ * wings" would put words in their mouth. So the span is appended as its own
+ * clause instead, built from the variant labels we assigned.
+ *
+ * A numeric family gets a real range with whatever unit its largest label
+ * carries. Anything else gets a plain count, because an unordered set has no
+ * range to state -- Chick-fil-A's twelve are proteins and a hash-brown toggle,
+ * and "Nuggets-No Meat" would be nonsense.
+ */
+function rangeOf(members: Component[]): string | undefined {
+  if (members.length < 2) return undefined;
+  const parts = members.map((m) => /^([\d.]+)\s*(.*)$/.exec(m.variant_label ?? ""));
+  if (parts.every(Boolean)) {
+    const nums = parts.map((p) => Number(p![1]));
+    const lo = Math.min(...nums);
+    const hi = Math.max(...nums);
+    if (lo !== hi) {
+      const unit = parts[nums.indexOf(hi)]![2].trim();
+      // A space before a word, none before a mark: 20-30 fl oz, but 5.5-12.5"
+      // rather than 5.5-12.5 ".
+      const sep = /^[a-z]/i.test(unit) ? " " : "";
+      return `${lo}\u2013${hi}${unit ? sep + unit : ""}`;
+    }
+  }
+  return `${members.length} options`;
 }
 
 /**
@@ -214,6 +297,7 @@ export function FamilyRow({
   toggle,
   setQty,
   addonsOf,
+  chipsOnPick = false,
 }: {
   head: Component;
   /** The family, head first. Length 1 for a row with no sizes. */
@@ -225,6 +309,15 @@ export function FamilyRow({
   toggle: (comp: Component, single: boolean) => void;
   setQty: (id: string, q: number) => void;
   addonsOf?: Map<string, Component[]>;
+  /** Hold the size chips back until the row is picked.
+   *
+   *  For a list where the choice is WHICH ITEM, chips on every row are the
+   *  whole cost of the list: Chick-fil-A's fourteen shown menu items ran
+   *  3,219px against Burger King's 851px for the same fourteen, and 2,987px of
+   *  that was chip rows. The size is a second question and can wait for it.
+   *  Left off where the size IS the question -- drinks in the extras, the meal
+   *  shelf -- because comparing sizes before committing is the point there. */
+  chipsOnPick?: boolean;
 }) {
   // A size chosen before the row is selected, so the chips work while you are
   // still comparing and the calorie figure moves with them.
@@ -251,7 +344,16 @@ export function FamilyRow({
       qtySteps={qtySteps}
       onToggle={() => toggle(active, single)}
       onQty={(q) => setQty(active.id, q)}
-      variants={members.length > 1 ? members : undefined}
+      variants={
+        members.length > 1 && (!chipsOnPick || !!selections[active.id])
+          ? members
+          : undefined
+      }
+      rangeHint={
+        // Only while they are hidden. Once the chips are on screen they say
+        // this better than a sentence can.
+        chipsOnPick && !selections[active.id] ? rangeOf(members) : undefined
+      }
       addons={
         showAddons ? (
           // Indented under a rule that starts at the parent's radio, so the
@@ -526,6 +628,7 @@ export function CategoryBody({
             toggle={toggle}
             setQty={setQty}
             addonsOf={addonsOf}
+            chipsOnPick={(cat.flow ?? "build") !== "extras"}
           />
         ))}
         {shown.length === 0 && (

@@ -392,6 +392,21 @@ def cff_corrections(components, rows):
             c["fat_g"] = alt; fixed.append(c["id"])
     return fixed
 
+def apply_suffix(spec, row):
+    """Fill in the id (and name) a `suffix` / `id_suffix` implies.
+
+    `suffix` appends " (X)" to both; `id_suffix` touches only the id, for a row
+    whose name is fine but whose id would clash with another section's."""
+    if "suffix" in spec:
+        n2, _ = split_serving(row.printed)
+        spec.setdefault("name", f"{n2} ({spec['suffix']})")
+        spec.setdefault("id", slug(f"{n2} {spec['suffix']}"))
+    elif "id_suffix" in spec:
+        n2, _ = split_serving(row.printed)
+        spec.setdefault("id", slug(f"{n2} {spec['id_suffix']}"))
+    return spec
+
+
 def manual_corrections(cfg, components):
     """Config-declared fixes, for a cell the source contradicts elsewhere in its
     OWN row. Only use where the chain's other figures settle it -- never to
@@ -442,7 +457,9 @@ def build(cfg, rows, extra=None):
             cands += [f"{r.printed} [#{seen[r.printed]}]", r.printed]
         k = next((c for c in cands if c in items), None)
         spec = items.get(k) if k else None
-        if spec is not None: order_of[id(r)] = keys.index(k)
+        if spec is not None:
+            order_of[id(r)] = keys.index(k)
+            spec = apply_suffix(dict(spec), r)
         if spec is None and extra:
             out = extra(r)
             if out is False: r.used = True; continue
@@ -462,12 +479,7 @@ def build(cfg, rows, extra=None):
                     continue
             r.defaulted = True
             spec = dict(cat) if isinstance(cat, dict) else {"cat": cat}
-            if "suffix" in spec:
-                n2, _ = split_serving(r.printed)
-                spec.setdefault("name", f"{n2} ({spec['suffix']})"); spec.setdefault("id", slug(f"{n2} {spec['suffix']}"))
-            elif "id_suffix" in spec:
-                n2, _ = split_serving(r.printed)
-                spec.setdefault("id", slug(f"{n2} {spec['id_suffix']}"))
+            spec = apply_suffix(spec, r)
             # A size family the source spells out in the row name itself
             # ("2 count Original Chicken Dippers") rather than with a separator.
             # Grouping by pattern instead of by literal name means a re-ingest
@@ -793,6 +805,37 @@ def build(cfg, rows, extra=None):
                             f"including that bread, so it is subtracted here and "
                             f"you pick the bread yourself; both figures are the "
                             f"chain's own.")
+
+    # A chain that publishes the WHOLE item where the builder wants a share of
+    # it. `portion` in the schema MULTIPLIES a per-slice component up to the
+    # slices eaten -- Papa John's prints "1 slice (4 per pizza)" and four
+    # slices is the pizza. Little Caesars prints the whole pizza, so the same
+    # control read 1950 kcal as one slice of eight and all eight as 15,600.
+    #
+    # Dividing here puts them on the same footing: arithmetic on the chain's
+    # own figure, by the slice count the chain itself states, which is the
+    # standing `derived` exists for. It also makes the chain comparable -- a
+    # pizza page whose numbers are per pizza cannot sit next to two whose
+    # numbers are per slice.
+    ps = cfg.get("portion_split")
+    if ps:
+        per, unit = ps["per"], ps.get("unit", "serving")
+        cats = set(ps["categories"])
+        n = 0
+        for c in comps:
+            if c["category"] not in cats:
+                continue
+            for f in FIELDS:
+                if c.get(f) is not None:
+                    c[f] = round(c[f] / per, 2)
+            if c.get("serving_g"):
+                c["serving_g"] = round(c["serving_g"] / per) or None
+            c["serving_desc"] = f"1 {unit} ({per} per {ps.get('whole', 'item')})"
+            c["derived"] = ps["reason"]
+            n += 1
+        if n:
+            print(f"  portion_split: {n} rows divided by {per} into single {unit}s",
+                  file=sys.stderr)
 
     order = {c["id"]: i for i, c in enumerate(cfg["categories"])}
     comps.sort(key=lambda c: (order[c["category"]], c["_ord"]))  # category order, then items-table order

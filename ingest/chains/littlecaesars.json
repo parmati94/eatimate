@@ -1,0 +1,219 @@
+{
+ "meta": {
+  "name": "Little Caesars",
+  "slug": "littlecaesars",
+  "source": {
+   "pdf_url": "https://www.datocms-assets.com/95658/1779298904-cr0027232_lj_nutri-info-allergen-ingredient_flyer_mgjur_minew-page-001.jpg",
+   "page_url": "https://littlecaesars.com/en-us/menu/nutrition/",
+   "retrieved": "2026-09-01",
+   "format": "jpg",
+   "fetch": "plain",
+   "link_pattern": "nutri-info-allergen-ingredient_flyer"
+  },
+  "disclaimer_extra": "Little Caesars publishes its nutrition as a scanned flyer, not a data file, so these figures were read off it by hand. It publishes whole pizzas; every pizza row here is that figure divided by the eight slices they cut, and toppings are the chain's own note: \"amounts shown are the highest count for each topping\".",
+  "glyph": "pizza",
+  "formats": [
+   "Round",
+   "Deep Dish",
+   "Thin Crust"
+  ],
+  "blurb": "Little Caesars is the one big pizza chain that still publishes nutrition as a scanned flyer, which is why almost nobody has put its numbers in a calculator. Its per-topping table adds onto a cheese base, so a Detroit-Style deep dish can be built topping by topping and then cut into the slices you actually eat.",
+  "size_modes": [
+   {
+    "id": "round",
+    "name": "Round",
+    "default": true,
+    "multipliers": {
+     "base": 1,
+     "topping": 1
+    },
+    "portion_count": 8,
+    "note": "8 slices"
+   },
+   {
+    "id": "detroit",
+    "name": "Detroit-Style Deep Dish",
+    "multipliers": {
+     "base": 1,
+     "topping": 1
+    },
+    "portion_count": 8,
+    "note": "8 slices"
+   }
+  ],
+  "default_flow": "build",
+  "portion": {
+   "unit": "slice",
+   "categories": [
+    "item",
+    "base",
+    "topping"
+   ]
+  }
+ },
+ "layout": {
+  "columns": [
+   "calories",
+   "cff",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g"
+  ],
+  "serving": null,
+  "sections": "^[A-Z0-9][A-Z0-9 &'\\-]+$",
+  "skip": "^$"
+ },
+ "categories": [
+  {
+   "id": "item",
+   "name": "Menu Pizzas",
+   "select": "single",
+   "flow": "preset"
+  },
+  {
+   "id": "base",
+   "name": "Pizza Base",
+   "select": "single",
+   "flow": "build",
+   "in_preset": true,
+   "note": "A base is the cheese pizza — sauce and cheese included. Only these two crusts have a published topping table; thin and pretzel are whole pizzas under menu items."
+  },
+  {
+   "id": "topping",
+   "name": "Toppings",
+   "select": "multi",
+   "flow": "both",
+   "note": "These are the largest portion Little Caesars puts on, so a pizza built here can come out above the same one on their menu."
+  },
+  {
+   "id": "sides",
+   "name": "Sides & Breads",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "wings",
+   "name": "Caesar Wings",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "dips",
+   "name": "Caesar Dips",
+   "select": "multi",
+   "flow": "extras"
+  }
+ ],
+ "section_modes": {
+  "TOPPINGS ROUND": "round",
+  "TOPPINGS DETROIT": "detroit"
+ },
+ "section_categories": {
+  "LARGE EXTRAMOSTBESTEST PIZZAS": {
+   "cat": "item",
+   "suffix": "ExtraMostBestest",
+   "desc": "one whole pizza"
+  },
+  "LARGE SPECIALTY PIZZAS": {
+   "cat": "item",
+   "desc": "one whole pizza"
+  },
+  "LARGE CLASSIC PIZZAS": {
+   "cat": "item",
+   "suffix": "Classic",
+   "desc": "one whole pizza"
+  },
+  "DETROIT-STYLE DEEP DISH PIZZAS": {
+   "cat": "item",
+   "suffix": "Deep Dish",
+   "desc": "one whole pizza"
+  },
+  "DETROIT-STYLE DEEP DISH PIZZAS SPECIALTY": {
+   "cat": "item",
+   "suffix": "Deep Dish",
+   "desc": "one whole pizza"
+  },
+  "THIN CRUST PIZZAS": {
+   "cat": "item",
+   "suffix": "Thin Crust",
+   "desc": "one whole pizza"
+  },
+  "SIDES": {
+   "cat": "sides"
+  },
+  "CAESAR WINGS": {
+   "cat": "wings",
+   "suffix": "Wings",
+   "desc": "8 piece order"
+  },
+  "CAESAR DIPS": {
+   "cat": "dips",
+   "desc": "1 container"
+  },
+  "MAKE IT STUFFED CRUST": {
+   "cat": "base"
+  },
+  "TOPPINGS ROUND": {
+   "cat": "topping"
+  },
+  "TOPPINGS DETROIT": {
+   "cat": "topping"
+  }
+ },
+ "items": {
+  "TOPPINGS ROUND/Base Pizza": {
+   "cat": "base",
+   "mode_selector": true,
+   "name": "Classic Round"
+  },
+  "TOPPINGS DETROIT/Base Pizza": {
+   "cat": "base",
+   "mode_selector": true,
+   "name": "Detroit-Style Deep Dish"
+  },
+  "MAKE IT STUFFED CRUST/Add Stuffed Crust to any round pizza": {
+   "cat": "base",
+   "name": "Make it stuffed crust",
+   "addon_of": "base-pizza-round",
+   "only_modes": [
+    "round"
+   ],
+   "desc": "added to a whole round pizza"
+  },
+  "MAKE IT STUFFED CRUST/Add Stuffed Crust to any Detroit-Style Deep Dish": {
+   "cat": "base",
+   "name": "Make it stuffed crust",
+   "addon_of": "base-pizza-detroit",
+   "only_modes": [
+    "detroit"
+   ],
+   "desc": "added to a whole deep dish"
+  }
+ },
+ "corrections": {
+  "ranch": [
+   {
+    "field": "sugars_g",
+    "used": 3,
+    "reason": "The flyer prints 32 g sugar against 4 g total carbohydrate for this dip, and sugar cannot exceed the carbohydrate it is part of. Buffalo Ranch — the same dressing with hot sauce — prints 3 g against the same 4 g of carbohydrate, so that is the figure used. Its 48 mg sodium is left exactly as printed: low for a dressing, but nothing in the row contradicts it."
+   }
+  ]
+ },
+ "portion_split": {
+  "categories": [
+   "item",
+   "base",
+   "topping"
+  ],
+  "per": 8,
+  "unit": "slice",
+  "whole": "pizza",
+  "reason": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
+ }
+}
