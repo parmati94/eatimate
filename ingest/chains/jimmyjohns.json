@@ -235,6 +235,54 @@
   "Garlic & Herb Wrap": {
    "cat": "bread",
    "size_mode": "garlic-wrap"
+  },
+  "SLIM 1": {
+   "cat": "sandwich",
+   "name": "SLIM 1 (Ham & Provolone)"
+  },
+  "SLIM 2": {
+   "cat": "sandwich",
+   "name": "SLIM 2 (Roast Beef)"
+  },
+  "SLIM 3": {
+   "cat": "sandwich",
+   "name": "SLIM 3 (Tuna Salad)"
+  },
+  "SLIM 4": {
+   "cat": "sandwich",
+   "name": "SLIM 4 (Turkey)"
+  },
+  "SLIM 5": {
+   "cat": "sandwich",
+   "name": "SLIM 5 (Salami, Capocollo & Provolone)"
+  },
+  "SLIM 6": {
+   "cat": "sandwich",
+   "name": "SLIM 6 (Provolone)"
+  },
+  "Little John 1": {
+   "cat": "sandwich",
+   "name": "Little John 1 (Ham & Provolone)"
+  },
+  "Little John 2": {
+   "cat": "sandwich",
+   "name": "Little John 2 (Roast Beef)"
+  },
+  "Little John 3": {
+   "cat": "sandwich",
+   "name": "Little John 3 (Tuna Salad)"
+  },
+  "Little John 4": {
+   "cat": "sandwich",
+   "name": "Little John 4 (Turkey)"
+  },
+  "Little John 5": {
+   "cat": "sandwich",
+   "name": "Little John 5 (Salami & Capocollo)"
+  },
+  "Little John 6": {
+   "cat": "sandwich",
+   "name": "Little John 6 (Provolone & Avocado)"
   }
  },
  "section_modes": {
