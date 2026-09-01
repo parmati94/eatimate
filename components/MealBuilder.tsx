@@ -1297,7 +1297,12 @@ export default function MealBuilder({
           })}
         </div>
 
-        {featured.length > 0 && (
+        {/* Only once something is picked. "Make it a meal" has nothing to
+            attach to before there IS a meal, and on Chick-fil-A -- where the
+            menu path is one step -- this block rendered second on the page,
+            986px tall on a 390px phone, before the visitor had even chosen
+            between starting from a menu item and building one. */}
+        {featured.length > 0 && selectedCount > 0 && (
           <section className="rounded-2xl border border-line bg-surface p-3 shadow-sm">
             <h2 className="px-1 pb-2 text-xs font-semibold uppercase tracking-wider text-muted">
               Make it a meal

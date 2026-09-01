@@ -2638,8 +2638,7 @@
       "fiber_g": 3,
       "sugars_g": 3,
       "protein_g": 20,
-      "variant_label": "Medium",
-      "feature": true
+      "variant_label": "Medium"
     },
     {
       "id": "mac-and-cheese-small",
@@ -2908,8 +2907,7 @@
       "fiber_g": 0,
       "sugars_g": 0,
       "protein_g": 0,
-      "variant_label": "Medium",
-      "feature": true
+      "variant_label": "Medium"
     },
     {
       "id": "freshly-brewed-unsweetened-iced-tea-large",
@@ -3359,8 +3357,7 @@
       "fiber_g": 0,
       "sugars_g": 44,
       "protein_g": 0,
-      "variant_label": "Medium",
-      "feature": true
+      "variant_label": "Medium"
     },
     {
       "id": "dr-pepper-large",
