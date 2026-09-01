@@ -71,7 +71,7 @@
       "name": "Bread",
       "select": "single",
       "flow": "build",
-      "note": "Building from scratch: this is the bread on its own. A named sandwich already includes it.",
+      "note": "Building from scratch: this is the bread on its own. A named sandwich already includes it. Jimmy John's scoops the middle out of its French loaf as standard (their \"TBO\", take bread out); ask to leave it in and the loaf is the heavier row.",
       "in_preset": true
     },
     {
@@ -3736,7 +3736,7 @@
     },
     {
       "id": "8-french-tbo",
-      "name": "French TBO",
+      "name": "French Bread (bread scooped out)",
       "category": "bread",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -3755,7 +3755,7 @@
     },
     {
       "id": "8-french-lbi",
-      "name": "French LBI",
+      "name": "French Bread (bread left in)",
       "category": "bread",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -3774,7 +3774,7 @@
     },
     {
       "id": "16-french-tbo",
-      "name": "French TBO",
+      "name": "French Bread (bread scooped out)",
       "category": "bread",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -3794,7 +3794,7 @@
     },
     {
       "id": "16-french-lbi",
-      "name": "French LBI",
+      "name": "French Bread (bread left in)",
       "category": "bread",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -3850,7 +3850,7 @@
     },
     {
       "id": "little-john-french-tbo-standard",
-      "name": "French TBO",
+      "name": "French Bread (bread scooped out)",
       "category": "bread",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -3870,7 +3870,7 @@
     },
     {
       "id": "little-john-french-lbi-by-request",
-      "name": "French LBI",
+      "name": "French Bread (bread left in)",
       "category": "bread",
       "serving_desc": "1 serving",
       "serving_g": null,

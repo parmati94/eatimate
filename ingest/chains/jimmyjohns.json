@@ -168,7 +168,7 @@
    "name": "Bread",
    "select": "single",
    "flow": "build",
-   "note": "Building from scratch: this is the bread on its own. A named sandwich already includes it.",
+   "note": "Building from scratch: this is the bread on its own. A named sandwich already includes it. Jimmy John's scoops the middle out of its French loaf as standard (their \"TBO\", take bread out); ask to leave it in and the loaf is the heavier row.",
    "in_preset": true
   },
   {
@@ -201,28 +201,28 @@
   "8\" French TBO": {
    "cat": "bread",
    "size_mode": "french-8",
-   "name": "French TBO",
+   "name": "French Bread (bread scooped out)",
    "variant_family": "french-tbo",
    "variant_label": "8\""
   },
   "8\" French LBI": {
    "cat": "bread",
    "size_mode": "french-8",
-   "name": "French LBI",
+   "name": "French Bread (bread left in)",
    "variant_family": "french-lbi",
    "variant_label": "8\""
   },
   "16\" French TBO": {
    "cat": "bread",
    "size_mode": "french-16",
-   "name": "French TBO",
+   "name": "French Bread (bread scooped out)",
    "variant_family": "french-tbo",
    "variant_label": "16\""
   },
   "16\" French LBI": {
    "cat": "bread",
    "size_mode": "french-16",
-   "name": "French LBI",
+   "name": "French Bread (bread left in)",
    "variant_family": "french-lbi",
    "variant_label": "16\""
   },
@@ -237,14 +237,14 @@
   "Little John French TBO (Standard)": {
    "cat": "bread",
    "size_mode": "little-johns",
-   "name": "French TBO",
+   "name": "French Bread (bread scooped out)",
    "variant_family": "french-tbo",
    "variant_label": "Little John"
   },
   "Little John French LBI (By Request)": {
    "cat": "bread",
    "size_mode": "little-johns",
-   "name": "French LBI",
+   "name": "French Bread (bread left in)",
    "variant_family": "french-lbi",
    "variant_label": "Little John"
   },
