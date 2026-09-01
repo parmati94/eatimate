@@ -146,6 +146,30 @@
   },
   "BUILD: Whopper/BBQ Sauce": {
    "cat": "sauces"
+  },
+  "Small French Fries": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Small Onion Rings": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Small Coca-Cola": {
+   "cat": "drinks",
+   "feature": true
+  },
+  "Small Diet Coke": {
+   "cat": "drinks",
+   "feature": true
+  },
+  "Simply® Orange Juice": {
+   "cat": "drinks",
+   "feature": true
+  },
+  "Fat Free Milk": {
+   "cat": "drinks",
+   "feature": true
   }
  },
  "corrections": {

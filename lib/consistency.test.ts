@@ -127,6 +127,33 @@ describe("cross-chain consistency", () => {
     expect(bad).toEqual([]);
   });
 
+  it("offers a quick-add shelf wherever a cuisine peer does", async () => {
+    // "Make it a meal" renders from components flagged `feature`. Burger King
+    // shipped with none while both its burger peers had one, and none of the
+    // four checks above noticed -- a consistency test only covers the
+    // dimensions someone thought to write down, so this is the fifth.
+    const all = await chains();
+    const byGlyph = new Map<string, Chain[]>();
+    for (const c of all) {
+      if (!c.glyph) continue;
+      byGlyph.set(c.glyph, [...(byGlyph.get(c.glyph) ?? []), c]);
+    }
+    const featured = (c: Chain) => c.components.some((x) => x.feature);
+    const missing: string[] = [];
+    for (const [glyph, peers] of byGlyph) {
+      if (peers.length < 2 || !peers.some(featured)) continue;
+      for (const c of peers) {
+        if (featured(c) || c.consistency?.no_meal_shelf) continue;
+        missing.push(
+          `${c.slug} sells ${glyph} like ${peers.filter(featured).map((p) => p.slug).join(", ")}, ` +
+            `which offer "Make it a meal", but nothing in it is flagged \`feature\`. ` +
+            `Flag a side and a drink, or add meta.consistency.no_meal_shelf with the reason.`,
+        );
+      }
+    }
+    expect(missing).toEqual([]);
+  });
+
   it("gives every chain the fields a tile and a comparison need", async () => {
     const bad: string[] = [];
     for (const c of await chains()) {
