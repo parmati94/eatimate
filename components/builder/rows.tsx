@@ -29,7 +29,7 @@ export function QtyStepper({
     "flex h-9 w-9 items-center justify-center text-accent-strong transition-colors hover:bg-accent-soft disabled:opacity-30 disabled:hover:bg-transparent";
   return (
     <span
-      className="inline-flex items-center overflow-hidden rounded-full border border-line bg-surface shadow-sm"
+      className="inline-flex items-center overflow-hidden rounded-lg border border-line bg-surface shadow-sm"
       onClick={(e) => e.stopPropagation()}
       onKeyDown={(e) => e.stopPropagation()}
     >
@@ -182,7 +182,13 @@ export function ComponentRow({
               they were 23px pills with gaps.
             */}
             <span
-              className="flex flex-wrap gap-px overflow-hidden rounded-lg border border-line bg-line"
+              // No outer border on purpose. With one, the strip carries a
+              // border AND a background and reads as a card inside a card --
+              // three of them stacked compete with the rows they belong to.
+              // The hairlines are still the 1px gaps showing bg-line through,
+              // so the control keeps its structure without announcing itself
+              // as a container.
+              className="flex flex-wrap gap-px overflow-hidden rounded-lg bg-line"
               // Column width follows the longest label rather than sitting at
               // one figure for every chain: a fixed minimum wide enough for
               // Domino's "16\" Extra Large" pushed BWW's 6 / 10 / 15 / 20 / 30
@@ -579,7 +585,7 @@ export function CategoryBody({
             toggle={toggle}
             setQty={setQty}
             addonsOf={addonsOf}
-            chipsOnPick={cat.flow === "preset"}
+            chipsOnPick={(cat.flow ?? "build") !== "extras"}
           />
         ))}
         {shown.length === 0 && (
