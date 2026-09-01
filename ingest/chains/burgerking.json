@@ -178,7 +178,7 @@
    {
     "field": "calories",
     "used": 0,
-    "reason": "Burger King publishes two documents for this item, one at 0 kcal and one at 190. The 190 contradicts its own row -- 0 g carbohydrate, 0 g fat, 0 g protein -- and every other size of the same drink is 0."
+    "reason": "Burger King publishes two documents for this item, one at 0 kcal and one at 190. The 190 contradicts its own row — 0 g carbohydrate, 0 g fat, 0 g protein — and every other size of the same drink is 0."
    }
   ]
  },

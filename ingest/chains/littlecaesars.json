@@ -10,7 +10,7 @@
    "fetch": "plain",
    "link_pattern": "nutri-info-allergen-ingredient_flyer"
   },
-  "disclaimer_extra": "Little Caesars publishes its nutrition as a seven-page scanned flyer, not a data file, so these figures were read off pages 1 to 3 by hand. Every pizza figure is for a WHOLE pizza -- unlike Domino's and Papa John's, who publish per slice -- so divide by eight for one slice of a large. Topping figures are the chain's own note: \"amounts shown are the highest count for each topping\".",
+  "disclaimer_extra": "Little Caesars publishes its nutrition as a scanned flyer, not a data file, so these figures were read off it by hand. It publishes whole pizzas; every pizza row here is that figure divided by the eight slices they cut, and toppings are the chain's own note: \"amounts shown are the highest count for each topping\".",
   "glyph": "pizza",
   "formats": [
    "Round",
@@ -82,14 +82,14 @@
    "select": "single",
    "flow": "build",
    "in_preset": true,
-   "note": "Every figure here is for a WHOLE pizza -- Little Caesars publishes per pizza, not per slice. They sell six crusts but publish a per-topping table for two, so those are the two you can build on; stuffed crust is here because they publish what adding it costs. Thin crust appears only as finished pizzas under menu items -- its toppings are not the round ones (their thin pepperoni is 150 calories over a thin cheese, against 350 on a round) -- and Crazy Crust and Stuffed Crazy Crust are on their menu but in neither the nutrition nor the ingredient pages of their guide."
+   "note": "A base is the cheese pizza — sauce and cheese included. Only these two crusts have a published topping table; thin and pretzel are whole pizzas under menu items."
   },
   {
    "id": "topping",
    "name": "Toppings",
    "select": "multi",
    "flow": "both",
-   "note": "Little Caesars publishes the highest count for each topping, so a topping here is the most they put on. Building a pizza this way can come out above the same pizza on the menu -- base plus pepperoni lands exactly on the Classic Pepperoni, but base plus Italian sausage runs about 110 calories over it. Both figures are theirs."
+   "note": "These are the largest portion Little Caesars puts on, so a pizza built here can come out above the same one on their menu."
   },
   {
    "id": "sides",
@@ -170,18 +170,12 @@
   "TOPPINGS ROUND/Base Pizza": {
    "cat": "base",
    "mode_selector": true,
-   "mode_names": {
-    "round": "Round cheese pizza"
-   },
-   "name": "Cheese pizza"
+   "name": "Classic Round"
   },
   "TOPPINGS DETROIT/Base Pizza": {
    "cat": "base",
    "mode_selector": true,
-   "mode_names": {
-    "detroit": "Detroit-Style deep dish cheese pizza"
-   },
-   "name": "Cheese pizza"
+   "name": "Detroit-Style Deep Dish"
   },
   "MAKE IT STUFFED CRUST/Add Stuffed Crust to any round pizza": {
    "cat": "base",
@@ -207,7 +201,7 @@
    {
     "field": "sugars_g",
     "used": 3,
-    "reason": "The flyer prints 32 g sugar against 4 g total carbohydrate for this dip, and sugar cannot exceed the carbohydrate it is part of. Buffalo Ranch -- the same dressing with hot sauce -- prints 3 g against the same 4 g of carbohydrate, so that is the figure used. Its 48 mg sodium is left exactly as printed: low for a dressing, but nothing in the row contradicts it."
+    "reason": "The flyer prints 32 g sugar against 4 g total carbohydrate for this dip, and sugar cannot exceed the carbohydrate it is part of. Buffalo Ranch — the same dressing with hot sauce — prints 3 g against the same 4 g of carbohydrate, so that is the figure used. Its 48 mg sodium is left exactly as printed: low for a dressing, but nothing in the row contradicts it."
    }
   ]
  },
@@ -220,6 +214,6 @@
   "per": 8,
   "unit": "slice",
   "whole": "pizza",
-  "reason": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+  "reason": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
  }
 }

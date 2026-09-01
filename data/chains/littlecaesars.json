@@ -5,7 +5,7 @@
     "pdf_url": "https://www.datocms-assets.com/95658/1779298904-cr0027232_lj_nutri-info-allergen-ingredient_flyer_mgjur_minew-page-001.jpg",
     "retrieved": "2026-09-01"
   },
-  "disclaimer_extra": "Little Caesars publishes its nutrition as a seven-page scanned flyer, not a data file, so these figures were read off pages 1 to 3 by hand. Every pizza figure is for a WHOLE pizza -- unlike Domino's and Papa John's, who publish per slice -- so divide by eight for one slice of a large. Topping figures are the chain's own note: \"amounts shown are the highest count for each topping\".",
+  "disclaimer_extra": "Little Caesars publishes its nutrition as a scanned flyer, not a data file, so these figures were read off it by hand. It publishes whole pizzas; every pizza row here is that figure divided by the eight slices they cut, and toppings are the chain's own note: \"amounts shown are the highest count for each topping\".",
   "glyph": "pizza",
   "formats": [
     "Round",
@@ -58,14 +58,14 @@
       "select": "single",
       "flow": "build",
       "in_preset": true,
-      "note": "Every figure here is for a WHOLE pizza -- Little Caesars publishes per pizza, not per slice. They sell six crusts but publish a per-topping table for two, so those are the two you can build on; stuffed crust is here because they publish what adding it costs. Thin crust appears only as finished pizzas under menu items -- its toppings are not the round ones (their thin pepperoni is 150 calories over a thin cheese, against 350 on a round) -- and Crazy Crust and Stuffed Crazy Crust are on their menu but in neither the nutrition nor the ingredient pages of their guide."
+      "note": "A base is the cheese pizza — sauce and cheese included. Only these two crusts have a published topping table; thin and pretzel are whole pizzas under menu items."
     },
     {
       "id": "topping",
       "name": "Toppings",
       "select": "multi",
       "flow": "both",
-      "note": "Little Caesars publishes the highest count for each topping, so a topping here is the most they put on. Building a pizza this way can come out above the same pizza on the menu -- base plus pepperoni lands exactly on the Classic Pepperoni, but base plus Italian sausage runs about 110 calories over it. Both figures are theirs."
+      "note": "These are the largest portion Little Caesars puts on, so a pizza built here can come out above the same one on their menu."
     },
     {
       "id": "sides",
@@ -103,7 +103,7 @@
       "fiber_g": 1.62,
       "sugars_g": 2.38,
       "protein_g": 15.25,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "cheese-extramostbestest",
@@ -121,7 +121,7 @@
       "fiber_g": 1.62,
       "sugars_g": 2.12,
       "protein_g": 14.62,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "italian-sausage-extramostbestest",
@@ -139,7 +139,7 @@
       "fiber_g": 1.62,
       "sugars_g": 2.38,
       "protein_g": 16.12,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "5-meat-feast",
@@ -157,7 +157,7 @@
       "fiber_g": 1.62,
       "sugars_g": 2.5,
       "protein_g": 17.38,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "ultimate-supreme",
@@ -175,7 +175,7 @@
       "fiber_g": 1.88,
       "sugars_g": 2.88,
       "protein_g": 14.75,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "3-meat-treat",
@@ -193,7 +193,7 @@
       "fiber_g": 1.62,
       "sugars_g": 2.5,
       "protein_g": 16.88,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "hula-hawaiian",
@@ -211,7 +211,7 @@
       "fiber_g": 1.62,
       "sugars_g": 4.38,
       "protein_g": 15.12,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "veggie",
@@ -229,7 +229,7 @@
       "fiber_g": 2.5,
       "sugars_g": 3.12,
       "protein_g": 12.5,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "slices-n-stix",
@@ -247,7 +247,7 @@
       "fiber_g": 1.62,
       "sugars_g": 2.5,
       "protein_g": 13.38,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "slices-n-stix-bacon",
@@ -265,7 +265,7 @@
       "fiber_g": 1.62,
       "sugars_g": 2.38,
       "protein_g": 14.5,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "slices-n-stix-jalapeno",
@@ -283,7 +283,7 @@
       "fiber_g": 1.88,
       "sugars_g": 2.5,
       "protein_g": 13.38,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "stuffed-crust-pepperoni",
@@ -301,7 +301,7 @@
       "fiber_g": 1.62,
       "sugars_g": 2.5,
       "protein_g": 18.0,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "pretzel-crust-pizza-with-pizza-sauce",
@@ -319,7 +319,7 @@
       "fiber_g": 1.38,
       "sugars_g": 1.75,
       "protein_g": 11.38,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "cheese-pretzel-crust-pizza-with-cheese-sauce",
@@ -337,7 +337,7 @@
       "fiber_g": 1.12,
       "sugars_g": 1.5,
       "protein_g": 10.62,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "pretzel-crust-pizza-with-cheese-sauce",
@@ -355,7 +355,7 @@
       "fiber_g": 1.12,
       "sugars_g": 1.62,
       "protein_g": 11.75,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "pepperoni-classic",
@@ -373,7 +373,7 @@
       "fiber_g": 1.62,
       "sugars_g": 2.38,
       "protein_g": 13.62,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "cheese-classic",
@@ -391,7 +391,7 @@
       "fiber_g": 1.5,
       "sugars_g": 2.12,
       "protein_g": 11.88,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "italian-sausage-classic",
@@ -409,7 +409,7 @@
       "fiber_g": 1.62,
       "sugars_g": 2.12,
       "protein_g": 13.88,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "pepperoni-deep-dish",
@@ -427,7 +427,7 @@
       "fiber_g": 2.0,
       "sugars_g": 2.5,
       "protein_g": 16.12,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "cheese-deep-dish",
@@ -445,7 +445,7 @@
       "fiber_g": 2.0,
       "sugars_g": 2.38,
       "protein_g": 14.75,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "italian-sausage-deep-dish",
@@ -463,7 +463,7 @@
       "fiber_g": 2.0,
       "sugars_g": 2.5,
       "protein_g": 16.62,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "ultimate-supreme-deep-dish",
@@ -481,7 +481,7 @@
       "fiber_g": 2.5,
       "sugars_g": 3.38,
       "protein_g": 17.62,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "3-meat-treat-deep-dish",
@@ -499,7 +499,7 @@
       "fiber_g": 2.0,
       "sugars_g": 2.75,
       "protein_g": 19.88,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "hula-hawaiian-deep-dish",
@@ -517,7 +517,7 @@
       "fiber_g": 2.12,
       "sugars_g": 4.62,
       "protein_g": 17.12,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "veggie-deep-dish",
@@ -535,7 +535,7 @@
       "fiber_g": 2.75,
       "sugars_g": 3.25,
       "protein_g": 15.38,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "5-meat-feast-deep-dish",
@@ -553,7 +553,7 @@
       "fiber_g": 2.0,
       "sugars_g": 2.88,
       "protein_g": 21.38,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "pepperoni-thin-crust",
@@ -571,7 +571,7 @@
       "fiber_g": 1.12,
       "sugars_g": 0.62,
       "protein_g": 11.75,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "cheese-thin-crust",
@@ -589,11 +589,11 @@
       "fiber_g": 1.25,
       "sugars_g": 0.38,
       "protein_g": 12.38,
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "base-pizza-round",
-      "name": "Round cheese pizza",
+      "name": "Classic Round",
       "category": "base",
       "serving_desc": "1 slice (8 per pizza)",
       "serving_g": null,
@@ -608,11 +608,11 @@
       "sugars_g": 2.12,
       "protein_g": 11.88,
       "size_mode": "round",
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "base-pizza-detroit",
-      "name": "Detroit-Style deep dish cheese pizza",
+      "name": "Detroit-Style Deep Dish",
       "category": "base",
       "serving_desc": "1 slice (8 per pizza)",
       "serving_g": null,
@@ -627,7 +627,7 @@
       "sugars_g": 2.38,
       "protein_g": 14.75,
       "size_mode": "detroit",
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "add-stuffed-crust-to-any-round-pizza",
@@ -649,7 +649,7 @@
         "round"
       ],
       "addon_of": "base-pizza-round",
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "add-stuffed-crust-to-any-detroit-style-deep-dish",
@@ -671,7 +671,7 @@
         "detroit"
       ],
       "addon_of": "base-pizza-detroit",
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "pepperoni-round",
@@ -692,7 +692,7 @@
       "only_modes": [
         "round"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "bacon-round",
@@ -713,7 +713,7 @@
       "only_modes": [
         "round"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "seasoned-beef-round",
@@ -734,7 +734,7 @@
       "only_modes": [
         "round"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "italian-sausage-round",
@@ -755,7 +755,7 @@
       "only_modes": [
         "round"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "smoky-ham-round",
@@ -776,7 +776,7 @@
       "only_modes": [
         "round"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "green-peppers-round",
@@ -797,7 +797,7 @@
       "only_modes": [
         "round"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "onions-round",
@@ -818,7 +818,7 @@
       "only_modes": [
         "round"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "mushrooms-canned-round",
@@ -839,7 +839,7 @@
       "only_modes": [
         "round"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "mushrooms-fresh-round",
@@ -860,7 +860,7 @@
       "only_modes": [
         "round"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "black-olives-round",
@@ -881,7 +881,7 @@
       "only_modes": [
         "round"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "jalapeno-peppers-round",
@@ -902,7 +902,7 @@
       "only_modes": [
         "round"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "mild-banana-peppers-round",
@@ -923,7 +923,7 @@
       "only_modes": [
         "round"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "pineapple-round",
@@ -944,7 +944,7 @@
       "only_modes": [
         "round"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "extra-cheese-round",
@@ -965,7 +965,7 @@
       "only_modes": [
         "round"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "fresh-mozzarella-round",
@@ -986,7 +986,7 @@
       "only_modes": [
         "round"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "pepperoni-detroit",
@@ -1007,7 +1007,7 @@
       "only_modes": [
         "detroit"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "bacon-detroit",
@@ -1028,7 +1028,7 @@
       "only_modes": [
         "detroit"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "seasoned-beef-detroit",
@@ -1049,7 +1049,7 @@
       "only_modes": [
         "detroit"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "italian-sausage-detroit",
@@ -1070,7 +1070,7 @@
       "only_modes": [
         "detroit"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "smoky-ham-detroit",
@@ -1091,7 +1091,7 @@
       "only_modes": [
         "detroit"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "green-peppers-detroit",
@@ -1112,7 +1112,7 @@
       "only_modes": [
         "detroit"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "onions-detroit",
@@ -1133,7 +1133,7 @@
       "only_modes": [
         "detroit"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "mushrooms-canned-detroit",
@@ -1154,7 +1154,7 @@
       "only_modes": [
         "detroit"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "mushrooms-fresh-detroit",
@@ -1175,7 +1175,7 @@
       "only_modes": [
         "detroit"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "black-olives-detroit",
@@ -1196,7 +1196,7 @@
       "only_modes": [
         "detroit"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "jalapeno-peppers-detroit",
@@ -1217,7 +1217,7 @@
       "only_modes": [
         "detroit"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "mild-banana-peppers-detroit",
@@ -1238,7 +1238,7 @@
       "only_modes": [
         "detroit"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "pineapple-detroit",
@@ -1259,7 +1259,7 @@
       "only_modes": [
         "detroit"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "extra-cheese-detroit",
@@ -1280,7 +1280,7 @@
       "only_modes": [
         "detroit"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "fresh-mozzarella-detroit",
@@ -1301,7 +1301,7 @@
       "only_modes": [
         "detroit"
       ],
-      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
+      "derived": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs — eight of these is the pizza they print."
     },
     {
       "id": "crazy-combo",
@@ -1596,7 +1596,7 @@
           "field": "sugars_g",
           "printed": 32,
           "used": 3,
-          "reason": "The flyer prints 32 g sugar against 4 g total carbohydrate for this dip, and sugar cannot exceed the carbohydrate it is part of. Buffalo Ranch -- the same dressing with hot sauce -- prints 3 g against the same 4 g of carbohydrate, so that is the figure used. Its 48 mg sodium is left exactly as printed: low for a dressing, but nothing in the row contradicts it."
+          "reason": "The flyer prints 32 g sugar against 4 g total carbohydrate for this dip, and sugar cannot exceed the carbohydrate it is part of. Buffalo Ranch — the same dressing with hot sauce — prints 3 g against the same 4 g of carbohydrate, so that is the figure used. Its 48 mg sodium is left exactly as printed: low for a dressing, but nothing in the row contradicts it."
         }
       ]
     },

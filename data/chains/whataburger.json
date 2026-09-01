@@ -5,7 +5,7 @@
     "html_url": "https://whataburger.com/menu",
     "retrieved": "2026-09-01"
   },
-  "disclaimer_extra": "Whataburger publishes each ingredient with its own weight and each menu item as a recipe of those ingredients, so every figure here is their arithmetic on their numbers -- the same sum their own app makes. It reproduces what they print: a Whataburger comes to 589.5 against a published 590. Their recipes also count the seasoned oil the buns are griddled in, which is not something you order, so a burger you build here runs a few calories under the same one on the menu.",
+  "disclaimer_extra": "Whataburger publishes each ingredient with its own weight and each menu item as a recipe of those ingredients, so every figure here is their arithmetic on their numbers — the same sum their own app makes. It reproduces what they print: a Whataburger comes to 589.5 against a published 590. Their recipes also count the seasoned oil the buns are griddled in, which is not something you order, so a burger you build here runs a few calories under the same one on the menu.",
   "glyph": "burger",
   "formats": [
     "Burger",
@@ -55,7 +55,7 @@
       "name": "Other Ingredients",
       "select": "multi",
       "flow": "extras",
-      "note": "Each row is one of what Whataburger counts -- one patty, one slice, one squirt of mustard. Use the quantity control for more."
+      "note": "Each row is one of what Whataburger counts — one patty, one slice, one squirt of mustard. Use the quantity control for more."
     },
     {
       "id": "sides",
