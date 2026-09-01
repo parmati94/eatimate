@@ -119,6 +119,59 @@ def dupes(comps):
     return [v for v in g.values() if len(v) > 1]
 
 
+# A suffix on a size label is a second question smuggled into the first.
+SUFFIX_SPLIT = re.compile(r"\s+[-\u2013]\s+(.+)$")
+
+
+def norm_suffix(t):
+    """Fold a suffix to something comparable.
+
+    Chick-fil-A's own chart prints "- no hash browns" five times and "- no hash
+    brown" once, so exact matching splits one group of six into 5 + 1 and a
+    threshold test quietly misses it. Singular/plural is the only difference
+    seen, and it is the difference worth folding."""
+    t = " ".join(t.lower().split())
+    return re.sub(r"s\b", "", t)
+
+
+def multiplied(comps):
+    """Families that are two choices flattened into one list.
+
+    Chick-fil-A's Hash Brown Scramble Bowl carries six proteins and then the
+    same six again suffixed "- no hash browns": a protein choice multiplied by
+    a hash-brown toggle. A chip row can hold one question, not two, so no
+    styling rescues it -- it wants splitting in the data.
+
+    The signal is a suffix shared by a large minority of the members. Measured
+    across all 384 families in the set, it matched those two rows and nothing
+    else -- Subway's 6"/Wrap/Salad/Protein Bowl and Chick-fil-A's cheese
+    choices are each ONE question, however un-sizelike their labels read, and
+    are correctly left alone."""
+    kids = collections.defaultdict(list)
+    for c in comps:
+        if c.get("variant_of"):
+            kids[c["variant_of"]].append(c)
+    out = []
+    for c in comps:
+        members = [c] + kids.get(c["id"], [])
+        if len(members) < 4:
+            continue
+        labels = [str(m.get("variant_label") or "") for m in members]
+        sufs = collections.Counter()
+        for l in labels:
+            m = SUFFIX_SPLIT.search(l)
+            if m:
+                sufs[norm_suffix(m.group(1))] += 1
+        if not sufs:
+            continue
+        suffix, n = sufs.most_common(1)[0]
+        # A large minority, not a majority: the suffixed half is the second
+        # answer, so it is at most half the list and often just under.
+        if n >= 2 and n * 3 >= len(members):
+            out.append((c, suffix, n, len(members)))
+    return out
+
+
 def suggest(fams, ports, nots):
     """The name_trim rules that would fold what was found, outermost suffix
     first -- a note sits outside a portion sits outside the name."""
@@ -140,7 +193,8 @@ def report(slug):
     comps = d["components"]
     fams, ports, nots, dup = families(comps), portions(comps), notes(comps), dupes(comps)
     saved = sum(len(v) - 1 for _, _, v in fams) + sum(len(v) - 1 for v in dup)
-    if not (fams or ports or nots or dup):
+    mult = multiplied(comps)
+    if not (fams or ports or nots or dup or mult):
         return 0
     print(f"\n{slug}  ({len(comps)} components)")
     if fams:
@@ -161,6 +215,11 @@ def report(slug):
         print(f"  {len(dup)} rows printed in more than one table (add \"dedupe\": true)")
         for v in dup[:3]:
             print(f"      {v[0]['name']!r} x{len(v)} in [{v[0]['category']}]")
+    for c, suffix, n, total in multiplied(comps):
+        print(f"  {c['name']!r} is TWO questions in one list: {total} members, "
+              f"{n} of them suffixed \"- {suffix}\"")
+        print(f"      A chip row holds one question. Split it in the data -- the "
+              f"suffix is a separate choice -- or accept the long list knowingly.")
     rules = suggest(fams, ports, nots)
     if rules:
         print(f'  suggested for ingest/chains/{slug}.json:')
