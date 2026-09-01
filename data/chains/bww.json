@@ -616,7 +616,7 @@
     },
     {
       "id": "black-garlic-glaze-limited-time-at-select-locations-boneless-6",
-      "name": "Black Garlic Glaze - limited time, at select locations",
+      "name": "Black Garlic Glaze",
       "category": "sauce",
       "serving_desc": "6 boneless wings",
       "serving_g": null,
@@ -776,7 +776,7 @@
     },
     {
       "id": "hot-bbq-limited-time-boneless-6",
-      "name": "Hot BBQ - limited time",
+      "name": "Hot BBQ",
       "category": "sauce",
       "serving_desc": "6 boneless wings",
       "serving_g": null,
@@ -836,7 +836,7 @@
     },
     {
       "id": "lemon-pepper-hot-limited-time-boneless-6",
-      "name": "Lemon Pepper Hot - limited time",
+      "name": "Lemon Pepper Hot",
       "category": "sauce",
       "serving_desc": "6 boneless wings",
       "serving_g": null,
@@ -1176,7 +1176,7 @@
     },
     {
       "id": "black-garlic-glaze-limited-time-at-select-locations-boneless-10",
-      "name": "Black Garlic Glaze - limited time, at select locations",
+      "name": "Black Garlic Glaze",
       "category": "sauce",
       "serving_desc": "10 boneless wings",
       "serving_g": null,
@@ -1336,7 +1336,7 @@
     },
     {
       "id": "hot-bbq-limited-time-boneless-10",
-      "name": "Hot BBQ - limited time",
+      "name": "Hot BBQ",
       "category": "sauce",
       "serving_desc": "10 boneless wings",
       "serving_g": null,
@@ -1396,7 +1396,7 @@
     },
     {
       "id": "lemon-pepper-hot-limited-time-boneless-10",
-      "name": "Lemon Pepper Hot - limited time",
+      "name": "Lemon Pepper Hot",
       "category": "sauce",
       "serving_desc": "10 boneless wings",
       "serving_g": null,
@@ -1736,7 +1736,7 @@
     },
     {
       "id": "black-garlic-glaze-limited-time-at-select-locations-boneless-15",
-      "name": "Black Garlic Glaze - limited time, at select locations",
+      "name": "Black Garlic Glaze",
       "category": "sauce",
       "serving_desc": "15 boneless wings",
       "serving_g": null,
@@ -1896,7 +1896,7 @@
     },
     {
       "id": "hot-bbq-limited-time-boneless-15",
-      "name": "Hot BBQ - limited time",
+      "name": "Hot BBQ",
       "category": "sauce",
       "serving_desc": "15 boneless wings",
       "serving_g": null,
@@ -1956,7 +1956,7 @@
     },
     {
       "id": "lemon-pepper-hot-limited-time-boneless-15",
-      "name": "Lemon Pepper Hot - limited time",
+      "name": "Lemon Pepper Hot",
       "category": "sauce",
       "serving_desc": "15 boneless wings",
       "serving_g": null,
@@ -2296,7 +2296,7 @@
     },
     {
       "id": "black-garlic-glaze-limited-time-at-select-locations-boneless-20",
-      "name": "Black Garlic Glaze - limited time, at select locations",
+      "name": "Black Garlic Glaze",
       "category": "sauce",
       "serving_desc": "20 boneless wings",
       "serving_g": null,
@@ -2456,7 +2456,7 @@
     },
     {
       "id": "hot-bbq-limited-time-boneless-20",
-      "name": "Hot BBQ - limited time",
+      "name": "Hot BBQ",
       "category": "sauce",
       "serving_desc": "20 boneless wings",
       "serving_g": null,
@@ -2516,7 +2516,7 @@
     },
     {
       "id": "lemon-pepper-hot-limited-time-boneless-20",
-      "name": "Lemon Pepper Hot - limited time",
+      "name": "Lemon Pepper Hot",
       "category": "sauce",
       "serving_desc": "20 boneless wings",
       "serving_g": null,
@@ -2856,7 +2856,7 @@
     },
     {
       "id": "black-garlic-glaze-limited-time-at-select-locations-boneless-30",
-      "name": "Black Garlic Glaze - limited time, at select locations",
+      "name": "Black Garlic Glaze",
       "category": "sauce",
       "serving_desc": "30 boneless wings",
       "serving_g": null,
@@ -3016,7 +3016,7 @@
     },
     {
       "id": "hot-bbq-limited-time-boneless-30",
-      "name": "Hot BBQ - limited time",
+      "name": "Hot BBQ",
       "category": "sauce",
       "serving_desc": "30 boneless wings",
       "serving_g": null,
@@ -3076,7 +3076,7 @@
     },
     {
       "id": "lemon-pepper-hot-limited-time-boneless-30",
-      "name": "Lemon Pepper Hot - limited time",
+      "name": "Lemon Pepper Hot",
       "category": "sauce",
       "serving_desc": "30 boneless wings",
       "serving_g": null,
@@ -3416,7 +3416,7 @@
     },
     {
       "id": "black-garlic-glaze-limited-time-at-select-locations-bonein-6",
-      "name": "Black Garlic Glaze - limited time, at select locations",
+      "name": "Black Garlic Glaze",
       "category": "sauce",
       "serving_desc": "6 bone-in wings",
       "serving_g": null,
@@ -3576,7 +3576,7 @@
     },
     {
       "id": "hot-bbq-limited-time-bonein-6",
-      "name": "Hot BBQ - limited time",
+      "name": "Hot BBQ",
       "category": "sauce",
       "serving_desc": "6 bone-in wings",
       "serving_g": null,
@@ -3636,7 +3636,7 @@
     },
     {
       "id": "lemon-pepper-hot-limited-time-bonein-6",
-      "name": "Lemon Pepper Hot - limited time",
+      "name": "Lemon Pepper Hot",
       "category": "sauce",
       "serving_desc": "6 bone-in wings",
       "serving_g": null,
@@ -3976,7 +3976,7 @@
     },
     {
       "id": "black-garlic-glaze-limited-time-at-select-locations-bonein-10",
-      "name": "Black Garlic Glaze - limited time, at select locations",
+      "name": "Black Garlic Glaze",
       "category": "sauce",
       "serving_desc": "10 bone-in wings",
       "serving_g": null,
@@ -4136,7 +4136,7 @@
     },
     {
       "id": "hot-bbq-limited-time-bonein-10",
-      "name": "Hot BBQ - limited time",
+      "name": "Hot BBQ",
       "category": "sauce",
       "serving_desc": "10 bone-in wings",
       "serving_g": null,
@@ -4196,7 +4196,7 @@
     },
     {
       "id": "lemon-pepper-hot-limited-time-bonein-10",
-      "name": "Lemon Pepper Hot - limited time",
+      "name": "Lemon Pepper Hot",
       "category": "sauce",
       "serving_desc": "10 bone-in wings",
       "serving_g": null,
@@ -4536,7 +4536,7 @@
     },
     {
       "id": "black-garlic-glaze-limited-time-at-select-locations-bonein-15",
-      "name": "Black Garlic Glaze - limited time, at select locations",
+      "name": "Black Garlic Glaze",
       "category": "sauce",
       "serving_desc": "15 bone-in wings",
       "serving_g": null,
@@ -4696,7 +4696,7 @@
     },
     {
       "id": "hot-bbq-limited-time-bonein-15",
-      "name": "Hot BBQ - limited time",
+      "name": "Hot BBQ",
       "category": "sauce",
       "serving_desc": "15 bone-in wings",
       "serving_g": null,
@@ -4756,7 +4756,7 @@
     },
     {
       "id": "lemon-pepper-hot-limited-time-bonein-15",
-      "name": "Lemon Pepper Hot - limited time",
+      "name": "Lemon Pepper Hot",
       "category": "sauce",
       "serving_desc": "15 bone-in wings",
       "serving_g": null,
@@ -5096,7 +5096,7 @@
     },
     {
       "id": "black-garlic-glaze-limited-time-at-select-locations-bonein-20",
-      "name": "Black Garlic Glaze - limited time, at select locations",
+      "name": "Black Garlic Glaze",
       "category": "sauce",
       "serving_desc": "20 bone-in wings",
       "serving_g": null,
@@ -5256,7 +5256,7 @@
     },
     {
       "id": "hot-bbq-limited-time-bonein-20",
-      "name": "Hot BBQ - limited time",
+      "name": "Hot BBQ",
       "category": "sauce",
       "serving_desc": "20 bone-in wings",
       "serving_g": null,
@@ -5316,7 +5316,7 @@
     },
     {
       "id": "lemon-pepper-hot-limited-time-bonein-20",
-      "name": "Lemon Pepper Hot - limited time",
+      "name": "Lemon Pepper Hot",
       "category": "sauce",
       "serving_desc": "20 bone-in wings",
       "serving_g": null,
@@ -5656,7 +5656,7 @@
     },
     {
       "id": "black-garlic-glaze-limited-time-at-select-locations-bonein-30",
-      "name": "Black Garlic Glaze - limited time, at select locations",
+      "name": "Black Garlic Glaze",
       "category": "sauce",
       "serving_desc": "30 bone-in wings",
       "serving_g": null,
@@ -5816,7 +5816,7 @@
     },
     {
       "id": "hot-bbq-limited-time-bonein-30",
-      "name": "Hot BBQ - limited time",
+      "name": "Hot BBQ",
       "category": "sauce",
       "serving_desc": "30 bone-in wings",
       "serving_g": null,
@@ -5876,7 +5876,7 @@
     },
     {
       "id": "lemon-pepper-hot-limited-time-bonein-30",
-      "name": "Lemon Pepper Hot - limited time",
+      "name": "Lemon Pepper Hot",
       "category": "sauce",
       "serving_desc": "30 bone-in wings",
       "serving_g": null,
@@ -6216,7 +6216,7 @@
     },
     {
       "id": "black-garlic-glaze-limited-time-at-select-locations-cauliflower-small",
-      "name": "Black Garlic Glaze - limited time, at select locations",
+      "name": "Black Garlic Glaze",
       "category": "sauce",
       "serving_desc": "small cauliflower wings",
       "serving_g": null,
@@ -6376,7 +6376,7 @@
     },
     {
       "id": "hot-bbq-limited-time-cauliflower-small",
-      "name": "Hot BBQ - limited time",
+      "name": "Hot BBQ",
       "category": "sauce",
       "serving_desc": "small cauliflower wings",
       "serving_g": null,
@@ -6436,7 +6436,7 @@
     },
     {
       "id": "lemon-pepper-hot-limited-time-cauliflower-small",
-      "name": "Lemon Pepper Hot - limited time",
+      "name": "Lemon Pepper Hot",
       "category": "sauce",
       "serving_desc": "small cauliflower wings",
       "serving_g": null,
@@ -6776,7 +6776,7 @@
     },
     {
       "id": "black-garlic-glaze-limited-time-at-select-locations-cauliflower-large",
-      "name": "Black Garlic Glaze - limited time, at select locations",
+      "name": "Black Garlic Glaze",
       "category": "sauce",
       "serving_desc": "large cauliflower wings",
       "serving_g": null,
@@ -6936,7 +6936,7 @@
     },
     {
       "id": "hot-bbq-limited-time-cauliflower-large",
-      "name": "Hot BBQ - limited time",
+      "name": "Hot BBQ",
       "category": "sauce",
       "serving_desc": "large cauliflower wings",
       "serving_g": null,
@@ -6996,7 +6996,7 @@
     },
     {
       "id": "lemon-pepper-hot-limited-time-cauliflower-large",
-      "name": "Lemon Pepper Hot - limited time",
+      "name": "Lemon Pepper Hot",
       "category": "sauce",
       "serving_desc": "large cauliflower wings",
       "serving_g": null,
@@ -7369,7 +7369,7 @@
       "id": "bleu-cheese-dressing-veggies-dips",
       "name": "Bleu Cheese Dressing",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 280,
       "fat_g": 29,
@@ -7380,11 +7380,12 @@
       "carbs_g": 2,
       "fiber_g": 0,
       "sugars_g": 2,
-      "protein_g": 2
+      "protein_g": 2,
+      "variant_label": "Regular"
     },
     {
       "id": "bleu-cheese-dressing-large-veggies-dips",
-      "name": "Bleu Cheese Dressing - Large",
+      "name": "Bleu Cheese Dressing",
       "category": "dips",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -7397,13 +7398,15 @@
       "carbs_g": 9,
       "fiber_g": 1,
       "sugars_g": 7,
-      "protein_g": 8
+      "protein_g": 8,
+      "variant_label": "Large",
+      "variant_of": "bleu-cheese-dressing-veggies-dips"
     },
     {
       "id": "ranch-dressing-veggies-dips",
       "name": "Ranch Dressing",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 320,
       "fat_g": 34,
@@ -7414,11 +7417,12 @@
       "carbs_g": 2,
       "fiber_g": 0,
       "sugars_g": 2,
-      "protein_g": 1
+      "protein_g": 1,
+      "variant_label": "Regular"
     },
     {
       "id": "ranch-dressing-large-veggies-dips",
-      "name": "Ranch Dressing - Large",
+      "name": "Ranch Dressing",
       "category": "dips",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -7431,7 +7435,9 @@
       "carbs_g": 9,
       "fiber_g": 1,
       "sugars_g": 7,
-      "protein_g": 2
+      "protein_g": 2,
+      "variant_label": "Large",
+      "variant_of": "ranch-dressing-veggies-dips"
     },
     {
       "id": "honey-mustard-veggies-dips",
@@ -7448,11 +7454,12 @@
       "carbs_g": 11,
       "fiber_g": 1,
       "sugars_g": 9,
-      "protein_g": 1
+      "protein_g": 1,
+      "variant_label": "Regular"
     },
     {
       "id": "honey-mustard-large-veggies-dips",
-      "name": "Honey Mustard - Large",
+      "name": "Honey Mustard",
       "category": "dips",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -7465,7 +7472,9 @@
       "carbs_g": 43,
       "fiber_g": 2,
       "sugars_g": 35,
-      "protein_g": 6
+      "protein_g": 6,
+      "variant_label": "Large",
+      "variant_of": "honey-mustard-veggies-dips"
     },
     {
       "id": "southwestern-ranch-veggies-dips",
@@ -7482,11 +7491,12 @@
       "carbs_g": 2,
       "fiber_g": 0,
       "sugars_g": 1,
-      "protein_g": 1
+      "protein_g": 1,
+      "variant_label": "Regular"
     },
     {
       "id": "southwestern-ranch-large-veggies-dips",
-      "name": "Southwestern Ranch - Large",
+      "name": "Southwestern Ranch",
       "category": "dips",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -7499,13 +7509,15 @@
       "carbs_g": 9,
       "fiber_g": 1,
       "sugars_g": 6,
-      "protein_g": 3
+      "protein_g": 3,
+      "variant_label": "Large",
+      "variant_of": "southwestern-ranch-veggies-dips"
     },
     {
       "id": "asian-zing-2-fl-oz-sauces-dry-rubs-extras",
-      "name": "Asian Zing® - 2 fl oz",
+      "name": "Asian Zing®",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 170,
       "fat_g": 0,
@@ -7520,9 +7532,9 @@
     },
     {
       "id": "black-garlic-glaze-2-fl-oz-limited-time-at-select-locations-sauces-dry-rubs-extras",
-      "name": "Black Garlic Glaze - 2 fl oz - limited time, at select locations",
+      "name": "Black Garlic Glaze",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 120,
       "fat_g": 0,
@@ -7537,9 +7549,9 @@
     },
     {
       "id": "blazin-knockout-2-fl-oz-sauces-dry-rubs-extras",
-      "name": "Blazin'® Knockout - 2 fl oz",
+      "name": "Blazin'® Knockout",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 100,
       "fat_g": 4,
@@ -7554,9 +7566,9 @@
     },
     {
       "id": "buffalo-ranch-2-fl-oz-sauces-dry-rubs-extras",
-      "name": "Buffalo Ranch - 2 fl oz",
+      "name": "Buffalo Ranch",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 110,
       "fat_g": 10,
@@ -7571,9 +7583,9 @@
     },
     {
       "id": "caribbean-jerk-2-fl-oz-sauces-dry-rubs-extras",
-      "name": "Caribbean Jerk - 2 fl oz",
+      "name": "Caribbean Jerk",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 150,
       "fat_g": 5,
@@ -7588,9 +7600,9 @@
     },
     {
       "id": "golden-fire-2-fl-oz-sauces-dry-rubs-extras",
-      "name": "Golden Fire - 2 fl oz",
+      "name": "Golden Fire",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 130,
       "fat_g": 2.5,
@@ -7605,9 +7617,9 @@
     },
     {
       "id": "honey-bbq-2-fl-oz-sauces-dry-rubs-extras",
-      "name": "Honey BBQ - 2 fl oz",
+      "name": "Honey BBQ",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 140,
       "fat_g": 0,
@@ -7622,9 +7634,9 @@
     },
     {
       "id": "honey-garlic-2-fl-oz-sauces-dry-rubs-extras",
-      "name": "Honey Garlic - 2 fl oz",
+      "name": "Honey Garlic",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 160,
       "fat_g": 1,
@@ -7639,9 +7651,9 @@
     },
     {
       "id": "hot-2-fl-oz-sauces-dry-rubs-extras",
-      "name": "Hot - 2 fl oz",
+      "name": "Hot",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 90,
       "fat_g": 8,
@@ -7656,9 +7668,9 @@
     },
     {
       "id": "hot-bbq-2-fl-oz-limited-time-sauces-dry-rubs-extras",
-      "name": "Hot BBQ - 2 fl oz - limited time",
+      "name": "Hot BBQ",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 70,
       "fat_g": 3.5,
@@ -7673,9 +7685,9 @@
     },
     {
       "id": "jammin-jalapeno-2-fl-oz-sauces-dry-rubs-extras",
-      "name": "Jammin' Jalapeño - 2 fl oz",
+      "name": "Jammin' Jalapeño",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 180,
       "fat_g": 0,
@@ -7690,9 +7702,9 @@
     },
     {
       "id": "lemon-pepper-2-fl-oz-sauces-dry-rubs-extras",
-      "name": "Lemon Pepper - 2 fl oz",
+      "name": "Lemon Pepper",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 300,
       "fat_g": 31,
@@ -7707,9 +7719,9 @@
     },
     {
       "id": "mango-habanero-2-fl-oz-sauces-dry-rubs-extras",
-      "name": "Mango Habanero™ - 2 fl oz",
+      "name": "Mango Habanero™",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 160,
       "fat_g": 1,
@@ -7724,9 +7736,9 @@
     },
     {
       "id": "medium-2-fl-oz-sauces-dry-rubs-extras",
-      "name": "Medium - 2 fl oz",
+      "name": "Medium",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 60,
       "fat_g": 6,
@@ -7741,9 +7753,9 @@
     },
     {
       "id": "mild-2-fl-oz-sauces-dry-rubs-extras",
-      "name": "Mild - 2 fl oz",
+      "name": "Mild",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 100,
       "fat_g": 9,
@@ -7758,9 +7770,9 @@
     },
     {
       "id": "original-buffalo-2-fl-oz-sauces-dry-rubs-extras",
-      "name": "Original Buffalo - 2 fl oz",
+      "name": "Original Buffalo",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 220,
       "fat_g": 24,
@@ -7775,9 +7787,9 @@
     },
     {
       "id": "parmesan-garlic-2-fl-oz-sauces-dry-rubs-extras",
-      "name": "Parmesan Garlic - 2 fl oz",
+      "name": "Parmesan Garlic",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 260,
       "fat_g": 25,
@@ -7792,9 +7804,9 @@
     },
     {
       "id": "spicy-garlic-2-fl-oz-sauces-dry-rubs-extras",
-      "name": "Spicy Garlic - 2 fl oz",
+      "name": "Spicy Garlic",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 90,
       "fat_g": 8,
@@ -7809,9 +7821,9 @@
     },
     {
       "id": "sweet-bbq-2-fl-oz-sauces-dry-rubs-extras",
-      "name": "Sweet BBQ - 2 fl oz",
+      "name": "Sweet BBQ",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 100,
       "fat_g": 0,
@@ -7826,9 +7838,9 @@
     },
     {
       "id": "teriyaki-2-fl-oz-sauces-dry-rubs-extras",
-      "name": "Teriyaki - 2 fl oz",
+      "name": "Teriyaki",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 130,
       "fat_g": 0,
@@ -7843,9 +7855,9 @@
     },
     {
       "id": "thai-curry-2-fl-oz-sauces-dry-rubs-extras",
-      "name": "Thai Curry - 2 fl oz",
+      "name": "Thai Curry",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 290,
       "fat_g": 29,
@@ -7860,9 +7872,9 @@
     },
     {
       "id": "wild-2-fl-oz-sauces-dry-rubs-extras",
-      "name": "Wild® - 2 fl oz",
+      "name": "Wild®",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 100,
       "fat_g": 8,
@@ -7877,9 +7889,9 @@
     },
     {
       "id": "buffalo-dry-rub-1-tsp-sauces-dry-rubs-extras",
-      "name": "Buffalo Dry Rub - 1 tsp",
+      "name": "Buffalo Dry Rub",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 tsp",
       "serving_g": null,
       "calories": 10,
       "fat_g": 0,
@@ -7894,9 +7906,9 @@
     },
     {
       "id": "desert-heat-dry-rub-1-tsp-sauces-dry-rubs-extras",
-      "name": "Desert Heat® Dry Rub - 1 tsp",
+      "name": "Desert Heat® Dry Rub",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 tsp",
       "serving_g": null,
       "calories": 10,
       "fat_g": 0,
@@ -7911,9 +7923,9 @@
     },
     {
       "id": "chipotle-bbq-dry-rub-1-tsp-sauces-dry-rubs-extras",
-      "name": "Chipotle BBQ Dry Rub - 1 tsp",
+      "name": "Chipotle BBQ Dry Rub",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 tsp",
       "serving_g": null,
       "calories": 5,
       "fat_g": 0,
@@ -7928,9 +7940,9 @@
     },
     {
       "id": "lemon-pepper-dry-rub-1-tsp-sauces-dry-rubs-extras",
-      "name": "Lemon Pepper Dry Rub - 1 tsp",
+      "name": "Lemon Pepper Dry Rub",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 tsp",
       "serving_g": null,
       "calories": 5,
       "fat_g": 0,
@@ -7945,9 +7957,9 @@
     },
     {
       "id": "salt-vinegar-dry-rub-1-tsp-sauces-dry-rubs-extras",
-      "name": "Salt & Vinegar Dry Rub - 1 tsp",
+      "name": "Salt & Vinegar Dry Rub",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 tsp",
       "serving_g": null,
       "calories": 5,
       "fat_g": 0,
@@ -8233,27 +8245,10 @@
       "protein_g": 1
     },
     {
-      "id": "bleu-cheese-dressing-2-fl-oz-dressings",
-      "name": "Bleu Cheese Dressing - 2 fl oz",
-      "category": "dips",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 280,
-      "fat_g": 29,
-      "sat_fat_g": 6,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 35,
-      "sodium_mg": 550,
-      "carbs_g": 2,
-      "fiber_g": 0,
-      "sugars_g": 2,
-      "protein_g": 2
-    },
-    {
       "id": "caesar-dressing-2-fl-oz-dressings",
-      "name": "Caesar Dressing - 2 fl oz",
+      "name": "Caesar Dressing",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 260,
       "fat_g": 26,
@@ -8268,9 +8263,9 @@
     },
     {
       "id": "lite-balsamic-with-olive-oil-vinaigrette-2-fl-oz-dressings",
-      "name": "Lite Balsamic with Olive Oil Vinaigrette - 2 fl oz",
+      "name": "Lite Balsamic with Olive Oil Vinaigrette",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 140,
       "fat_g": 12,
@@ -8284,27 +8279,10 @@
       "protein_g": 0
     },
     {
-      "id": "ranch-dressing-2-fl-oz-dressings",
-      "name": "Ranch Dressing - 2 fl oz",
-      "category": "dips",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 320,
-      "fat_g": 34,
-      "sat_fat_g": 5,
-      "trans_fat_g": 0.5,
-      "cholesterol_mg": 10,
-      "sodium_mg": 510,
-      "carbs_g": 2,
-      "fiber_g": 0,
-      "sugars_g": 2,
-      "protein_g": 1
-    },
-    {
       "id": "southwestern-ranch-dressing-2-fl-oz-dressings",
-      "name": "Southwestern Ranch Dressing - 2 fl oz",
+      "name": "Southwestern Ranch Dressing",
       "category": "dips",
-      "serving_desc": "1 serving",
+      "serving_desc": "2 fl oz",
       "serving_g": null,
       "calories": 340,
       "fat_g": 37,
@@ -8638,7 +8616,7 @@
     },
     {
       "id": "black-garlic-glaze-limited-time-at-select-locations-3-count-make-em-saucy",
-      "name": "Black Garlic Glaze - limited time, at select locations",
+      "name": "Black Garlic Glaze",
       "category": "dippers",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -8934,7 +8912,7 @@
     },
     {
       "id": "hot-bbq-limited-time-3-count-make-em-saucy",
-      "name": "Hot BBQ - limited time",
+      "name": "Hot BBQ",
       "category": "dippers",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -9719,7 +9697,7 @@
     },
     {
       "id": "beef-on-weck-sliders-with-au-jus-limited-time-appetizers",
-      "name": "Beef on Weck Sliders, with Au Jus - limited time",
+      "name": "Beef on Weck Sliders, with Au Jus",
       "category": "apps",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -9770,7 +9748,7 @@
     },
     {
       "id": "cheeseburger-fries-at-select-locations-appetizers",
-      "name": "Cheeseburger Fries - at select locations",
+      "name": "Cheeseburger Fries",
       "category": "apps",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -9838,7 +9816,7 @@
     },
     {
       "id": "chips-house-made-guacamole-at-select-locations-appetizers",
-      "name": "Chips & House-made Guacamole - at select locations",
+      "name": "Chips & House-made Guacamole",
       "category": "apps",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -9855,7 +9833,7 @@
     },
     {
       "id": "chips-salsa-at-select-locations-appetizers",
-      "name": "Chips & Salsa - at select locations",
+      "name": "Chips & Salsa",
       "category": "apps",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -9906,7 +9884,7 @@
     },
     {
       "id": "mini-corn-dogs-with-honey-mustard-limited-time-appetizers",
-      "name": "Mini Corn Dogs, with Honey Mustard - limited time",
+      "name": "Mini Corn Dogs, with Honey Mustard",
       "category": "apps",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -9923,7 +9901,7 @@
     },
     {
       "id": "mini-corn-dogs-with-ranch-limited-time-appetizers",
-      "name": "Mini Corn Dogs, with Ranch - limited time",
+      "name": "Mini Corn Dogs, with Ranch",
       "category": "apps",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -10501,7 +10479,7 @@
     },
     {
       "id": "all-american-single-cheeseburger-at-select-locations-burgers",
-      "name": "All-American Single Cheeseburger - at select locations",
+      "name": "All-American Single Cheeseburger",
       "category": "mains",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -10535,7 +10513,7 @@
     },
     {
       "id": "b-dubs-signature-smasher-at-select-locations-burgers",
-      "name": "B-Dubs Signature Smasher - at select locations",
+      "name": "B-Dubs Signature Smasher",
       "category": "mains",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -10552,7 +10530,7 @@
     },
     {
       "id": "b-dubs-signature-single-smasher-at-select-locations-burgers",
-      "name": "B-Dubs Signature Single Smasher - at select locations",
+      "name": "B-Dubs Signature Single Smasher",
       "category": "mains",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -10620,7 +10598,7 @@
     },
     {
       "id": "blackjack-burger-at-select-locations-burgers",
-      "name": "Blackjack Burger - at select locations",
+      "name": "Blackjack Burger",
       "category": "mains",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -10637,7 +10615,7 @@
     },
     {
       "id": "mushroom-swiss-burger-at-select-locations-burgers",
-      "name": "Mushroom Swiss Burger - at select locations",
+      "name": "Mushroom Swiss Burger",
       "category": "mains",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -11329,9 +11307,9 @@
     },
     {
       "id": "mayo-1-tbsp-toppings",
-      "name": "Mayo - 1 tbsp",
+      "name": "Mayo",
       "category": "addons",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 tbsp",
       "serving_g": null,
       "calories": 120,
       "fat_g": 13,
@@ -11346,9 +11324,9 @@
     },
     {
       "id": "ketchup-1-tbsp-toppings",
-      "name": "Ketchup - 1 tbsp",
+      "name": "Ketchup",
       "category": "addons",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 tbsp",
       "serving_g": null,
       "calories": 20,
       "fat_g": 0,
@@ -11363,9 +11341,9 @@
     },
     {
       "id": "yellow-mustard-1-tsp-toppings",
-      "name": "Yellow Mustard - 1 tsp",
+      "name": "Yellow Mustard",
       "category": "addons",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 tsp",
       "serving_g": null,
       "calories": 0,
       "fat_g": 0,
@@ -11570,7 +11548,7 @@
     },
     {
       "id": "new-buffalo-loaded-fries-at-select-locations-sides-substitutions",
-      "name": "NEW Buffalo Loaded Fries - at select locations",
+      "name": "NEW Buffalo Loaded Fries",
       "category": "sides",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -11692,7 +11670,7 @@
     },
     {
       "id": "new-hatch-queso-bacon-fries-at-select-locations-sides-substitutions",
-      "name": "NEW Hatch Queso Bacon Fries - at select locations",
+      "name": "NEW Hatch Queso Bacon Fries",
       "category": "sides",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -12425,7 +12403,7 @@
     },
     {
       "id": "deluxe-shirley-temple-at-select-locations-handcrafted-zero-proof",
-      "name": "Deluxe Shirley Temple - at select locations",
+      "name": "Deluxe Shirley Temple",
       "category": "drinks",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -12442,7 +12420,7 @@
     },
     {
       "id": "orange-cream-at-select-locations-handcrafted-zero-proof",
-      "name": "Orange Cream - at select locations",
+      "name": "Orange Cream",
       "category": "drinks",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -12476,7 +12454,7 @@
     },
     {
       "id": "peach-tea-at-select-locations-handcrafted-zero-proof",
-      "name": "Peach Tea - at select locations",
+      "name": "Peach Tea",
       "category": "drinks",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -12527,7 +12505,7 @@
     },
     {
       "id": "strawberry-dirty-soda-at-select-locations-handcrafted-zero-proof",
-      "name": "Strawberry Dirty Soda - at select locations",
+      "name": "Strawberry Dirty Soda",
       "category": "drinks",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -12714,7 +12692,7 @@
     },
     {
       "id": "sweet-tea-at-select-locations-sodas-more",
-      "name": "Sweet Tea - at select locations",
+      "name": "Sweet Tea",
       "category": "drinks",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -12731,7 +12709,7 @@
     },
     {
       "id": "lipton-brisk-iced-tea-at-select-locations-sodas-more",
-      "name": "Lipton Brisk® Iced Tea - at select locations",
+      "name": "Lipton Brisk® Iced Tea",
       "category": "drinks",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -12782,7 +12760,7 @@
     },
     {
       "id": "bubly-sparkling-water-at-select-locations-sodas-more",
-      "name": "bubly™ sparkling water - at select locations",
+      "name": "bubly™ sparkling water",
       "category": "drinks",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -12816,7 +12794,7 @@
     },
     {
       "id": "lowfat-milk-at-select-locations-sodas-more",
-      "name": "Lowfat Milk - at select locations",
+      "name": "Lowfat Milk",
       "category": "drinks",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -12833,7 +12811,7 @@
     },
     {
       "id": "chocolate-milk-at-select-locations-sodas-more",
-      "name": "Chocolate Milk - at select locations",
+      "name": "Chocolate Milk",
       "category": "drinks",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -12850,7 +12828,7 @@
     },
     {
       "id": "apple-juice-at-select-locations-sodas-more",
-      "name": "Apple Juice - at select locations",
+      "name": "Apple Juice",
       "category": "drinks",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -12867,7 +12845,7 @@
     },
     {
       "id": "orange-juice-at-select-locations-sodas-more",
-      "name": "Orange Juice - at select locations",
+      "name": "Orange Juice",
       "category": "drinks",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -13190,9 +13168,9 @@
     },
     {
       "id": "b-dubs-dip-8oz-party",
-      "name": "B-Dubs Dip - 8 fl oz",
+      "name": "B-Dubs Dip",
       "category": "party",
-      "serving_desc": "1 serving",
+      "serving_desc": "8 fl oz",
       "serving_g": null,
       "calories": 1050,
       "fat_g": 103,
@@ -14223,7 +14201,7 @@
     },
     {
       "id": "b-dubs-bloody-mary-at-select-locations-cocktails",
-      "name": "B-Dubs Bloody Mary - at select locations",
+      "name": "B-Dubs Bloody Mary",
       "category": "bar",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -14291,7 +14269,7 @@
     },
     {
       "id": "bourbon-old-fashioned-at-select-locations-cocktails",
-      "name": "Bourbon Old Fashioned - at select locations",
+      "name": "Bourbon Old Fashioned",
       "category": "bar",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -14308,7 +14286,7 @@
     },
     {
       "id": "buffalo-trace-old-fashioned-at-select-locations-cocktails",
-      "name": "Buffalo Trace Old Fashioned - at select locations",
+      "name": "Buffalo Trace Old Fashioned",
       "category": "bar",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -14325,7 +14303,7 @@
     },
     {
       "id": "buffalo-zoo-limited-time-cocktails",
-      "name": "Buffalo Zoo - limited time",
+      "name": "Buffalo Zoo",
       "category": "bar",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -14461,7 +14439,7 @@
     },
     {
       "id": "red-white-booze-at-select-locations-cocktails",
-      "name": "Red, White & Booze - at select locations",
+      "name": "Red, White & Booze",
       "category": "bar",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -14597,7 +14575,7 @@
     },
     {
       "id": "barefoot-pinot-grigio-6-7-fl-oz-wine",
-      "name": "Barefoot, Pinot Grigio",
+      "name": "Barefoot, Pinot Grigio, 6.7 fl oz",
       "category": "bar",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -14610,12 +14588,11 @@
       "carbs_g": 4,
       "fiber_g": 0,
       "sugars_g": 6,
-      "protein_g": 0,
-      "variant_label": "6.7 fl oz"
+      "protein_g": 0
     },
     {
       "id": "butter-chardonnay-8-4-fl-oz-wine",
-      "name": "Butter, Chardonnay",
+      "name": "Butter, Chardonnay, 8.4 fl oz",
       "category": "bar",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -14628,12 +14605,11 @@
       "carbs_g": 5,
       "fiber_g": 0,
       "sugars_g": 2,
-      "protein_g": 0,
-      "variant_label": "8.4 fl oz"
+      "protein_g": 0
     },
     {
       "id": "josh-chardonnay-12-7-fl-oz-wine",
-      "name": "Josh, Chardonnay",
+      "name": "Josh, Chardonnay, 12.7 fl oz",
       "category": "bar",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -14646,12 +14622,11 @@
       "carbs_g": 8,
       "fiber_g": 0,
       "sugars_g": 4,
-      "protein_g": 0,
-      "variant_label": "12.7 fl oz"
+      "protein_g": 0
     },
     {
       "id": "barefoot-cabernet-sauvignon-6-7-fl-oz-wine",
-      "name": "Barefoot, Cabernet Sauvignon",
+      "name": "Barefoot, Cabernet Sauvignon, 6.7 fl oz",
       "category": "bar",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -14664,12 +14639,11 @@
       "carbs_g": 5,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 0,
-      "variant_label": "6.7 fl oz"
+      "protein_g": 0
     },
     {
       "id": "archer-roose-pinot-noir-8-4-fl-oz-wine",
-      "name": "Archer Roose, Pinot Noir",
+      "name": "Archer Roose, Pinot Noir, 8.4 fl oz",
       "category": "bar",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -14682,12 +14656,11 @@
       "carbs_g": 6,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 0,
-      "variant_label": "8.4 fl oz"
+      "protein_g": 0
     },
     {
       "id": "josh-cabernet-sauvignon-12-7-fl-oz-wine",
-      "name": "Josh, Cabernet Sauvignon",
+      "name": "Josh, Cabernet Sauvignon, 12.7 fl oz",
       "category": "bar",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -14700,12 +14673,11 @@
       "carbs_g": 10,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 0,
-      "variant_label": "12.7 fl oz"
+      "protein_g": 0
     },
     {
       "id": "francis-coppola-prosecco-187-ml-wine",
-      "name": "Francis Coppola, Prosecco",
+      "name": "Francis Coppola, Prosecco, 187 mL",
       "category": "bar",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -14718,12 +14690,11 @@
       "carbs_g": 2,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 0,
-      "variant_label": "187 mL"
+      "protein_g": 0
     },
     {
       "id": "graham-fish-moscato-w-bubbles-250-ml-wine",
-      "name": "Graham & Fish, Moscato w/ Bubbles",
+      "name": "Graham & Fish, Moscato w/ Bubbles, 250 mL",
       "category": "bar",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -14736,8 +14707,7 @@
       "carbs_g": 3,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 0,
-      "variant_label": "250 mL"
+      "protein_g": 0
     }
   ]
 }

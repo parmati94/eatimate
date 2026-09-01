@@ -499,11 +499,12 @@
       "carbs_g": 8,
       "fiber_g": 6,
       "sugars_g": 1,
-      "protein_g": 2
+      "protein_g": 2,
+      "variant_label": "Regular"
     },
     {
       "id": "guacamole-large",
-      "name": "Guacamole (large)",
+      "name": "Guacamole",
       "category": "toppings",
       "serving_desc": "8 oz",
       "serving_g": null,
@@ -516,7 +517,9 @@
       "carbs_g": 16,
       "fiber_g": 12,
       "sugars_g": 2,
-      "protein_g": 4
+      "protein_g": 4,
+      "variant_label": "Large",
+      "variant_of": "guacamole-topping-side"
     },
     {
       "id": "queso-blanco-entree",
@@ -592,7 +595,7 @@
     },
     {
       "id": "queso-blanco-side",
-      "name": "Queso Blanco (side)",
+      "name": "Queso Blanco",
       "category": "sides",
       "serving_desc": "4 oz",
       "serving_g": null,
@@ -605,11 +608,12 @@
       "carbs_g": 7,
       "fiber_g": 0,
       "sugars_g": 2,
-      "protein_g": 10
+      "protein_g": 10,
+      "variant_label": "Side"
     },
     {
       "id": "queso-blanco-large",
-      "name": "Queso Blanco (large)",
+      "name": "Queso Blanco",
       "category": "sides",
       "serving_desc": "8 oz",
       "serving_g": null,
@@ -622,7 +626,9 @@
       "carbs_g": 14,
       "fiber_g": 0.5,
       "sugars_g": 5,
-      "protein_g": 20
+      "protein_g": 20,
+      "variant_label": "Large",
+      "variant_of": "queso-blanco-side"
     },
     {
       "id": "chips-regular",
@@ -639,11 +645,12 @@
       "carbs_g": 73,
       "fiber_g": 7,
       "sugars_g": 1,
-      "protein_g": 7
+      "protein_g": 7,
+      "variant_label": "Regular"
     },
     {
       "id": "chips-large",
-      "name": "Chips (large)",
+      "name": "Chips",
       "category": "sides",
       "serving_desc": "6 oz",
       "serving_g": null,
@@ -656,7 +663,9 @@
       "carbs_g": 110,
       "fiber_g": 11,
       "sugars_g": 2,
-      "protein_g": 11
+      "protein_g": 11,
+      "variant_label": "Large",
+      "variant_of": "chips-regular"
     },
     {
       "id": "chipotle-honey-vinaigrette",

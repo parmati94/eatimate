@@ -337,6 +337,10 @@ def build(cfg, rows, extra=None):
     sec_cats = cfg.get("section_categories", {})
     layout = cfg["layout"]
     comps, seen, order_of, families = [], {}, {}, {}
+    # Display names for the size modes, so a row joining a size family
+    # can label its chip with the chain's own word for that size without
+    # repeating it in every items entry.
+    mode_names = {m["id"]: m["name"] for m in cfg["meta"].get("size_modes", [])}
     keys = list(items)
     for r in rows:
         seen[r.printed] = seen.get(r.printed, 0) + 1
@@ -485,6 +489,30 @@ def build(cfg, rows, extra=None):
             if sp.get("variant_of"): c["variant_of"] = sp["variant_of"]
             if sp.get("addon_of"): c["addon_of"] = sp["addon_of"]
             if sp.get("variant_label"): c["variant_label"] = sp["variant_label"]
+            # A size family the row names for itself.
+            #
+            # `mode_variants` above only works where the source reprints a row
+            # under ONE name in every size's table -- Papa John's calls it
+            # "Original Crust" whatever the size, so a single items entry can
+            # map mode -> family. Potbelly prints "Bread - White",
+            # "Bread - White, BIGS" and "Bread - White, Skinny": three separate
+            # items entries that can never see each other, so instead each row
+            # names the family it joins and they share a `name`, which is what
+            # the collapsed row displays.
+            #
+            # Deliberately down here rather than in the mode_selector branch:
+            # the size can come from a section mode (Potbelly) or straight off
+            # the row (Jimmy John's 8"/16"/Little John), and both need it. Ids
+            # are final by this point in either path, so the family head is a
+            # reference that still resolves.
+            if sp.get("variant_family") and not c.get("variant_of"):
+                if not c.get("variant_label"):
+                    c["variant_label"] = mode_names.get(c.get("size_mode"), c.get("size_mode"))
+                fam = f"{c['category']}/{sp['variant_family']}"
+                if fam in families:
+                    c["variant_of"] = families[fam]
+                else:
+                    families[fam] = c["id"]
             if sp.get("feature"): c["feature"] = True
             c["_ord"] = base_ord + 0.001 * n
             c["_sec"] = r.section
@@ -514,24 +542,161 @@ def build(cfg, rows, extra=None):
         target = next((x for x in comps if x["id"] == s.get("before")), None)
         c["_ord"] = (target["_ord"] - 0.5 + 0.001 * n) if target else (10**6 + n)
         comps.append(c)
+    # A name should be the FOOD. Sources routinely cram three other things into
+    # it -- the portion ("Asian Zing - 2 fl oz"), the size ("Ranch Dressing -
+    # Large") and availability ("Black Garlic Glaze - limited time, at select
+    # locations") -- while serving_desc sits on "1 serving" saying nothing. Each
+    # rule lifts one of those out of the name and into the field it belongs to.
+    #
+    # Declared per chain rather than sniffed: a detector that guesses families
+    # from name shape reads Domino's thirteen per-size cheese rows, all printed
+    # "Regular", as one family of thirteen. `ingest/families.py` proposes these
+    # rules; a person confirms them; the config records the outcome, so a
+    # re-ingest stays byte-identical. Run AFTER the row loop so it sees the
+    # finished names, and before section_subtract so its note reads the tidy one.
+    #
+    #   into="serving"  captured text becomes serving_desc
+    #   into="drop"     captured text is discarded
+    #   into="size"     captured text becomes the size chip, and rows sharing
+    #                   the trimmed name become one row carrying those chips.
+    #                   `base_label` names the chip for the row that carries no
+    #                   suffix, which is how a source says "regular".
+    trims = [dict(t, re=re.compile(t["pattern"], re.I)) for t in cfg.get("name_trim", [])]
+    for c in comps:
+        if c.get("variant_of") or c.get("addon_of"):
+            continue
+        # Every rule gets a turn, in config order, because a source stacks them:
+        # "Hot BBQ - 2 fl oz - limited time" is a note on a portion on a name.
+        # Each pattern anchors at the end, so peeling the note off first exposes
+        # the portion to the next rule. List them outermost suffix first.
+        for t in trims:
+            m = t["re"].search(c["name"])
+            if not m:
+                continue
+            got = (m.group(1) if m.groups() else m.group(0)).strip(" -–,")
+            c["name"] = t["re"].sub("", c["name"]).strip(" -–,")
+            if t["into"] == "serving" and got:
+                c["serving_desc"] = got
+            elif t["into"] == "size":
+                # Capitalise an all-lowercase label so "(cup)" and ", Cup" read
+                # as the same chip. Only when it IS all lowercase: title-casing
+                # everything would turn Potbelly's BIGS into Bigs and 2 FL OZ
+                # into 2 Fl Oz.
+                c["variant_label"] = got.capitalize() if got.islower() else got
+                # A size that is itself a measurement answers "how much?" too,
+                # so a row still sitting on "1 serving" may as well say it.
+                if (re.match(r"^\d", got)
+                        and c["serving_desc"] in ("1 serving", "", None)):
+                    c["serving_desc"] = got
+
+    # Rows that became identical once the name was tidied. A source prints the
+    # same dressing in its dips table and again in its dressings table; before
+    # the trim above they read as different rows only because one name carried
+    # "- 2 fl oz". Same category, same name, same numbers, same mode gating is
+    # not two choices, it is one choice printed twice.
+    #
+    # Gating is part of the key on purpose: BWW republishes every sauce once per
+    # wing tier with identical values and different `only_modes`, and collapsing
+    # those would take the mode system with it.
+    #
+    # Runs BEFORE families are joined: a duplicate left in the list looks like a
+    # third member with no size, and the family declines to form.
+    if cfg.get("dedupe"):
+        keep, first_of = [], {}
+        for c in comps:
+            k = (c["category"], c["name"].lower(),
+                 tuple(sorted(c.get("only_modes") or [])), c.get("size_mode"),
+                 c.get("variant_label"), tuple(c.get(f) for f in FIELDS))
+            first = first_of.get(k)
+            if first is None:
+                first_of[k] = c
+                keep.append(c)
+                continue
+            # The duplicate usually states the portion the first row left as
+            # "1 serving"; that is the one fact it adds, so take it.
+            if (first["serving_desc"] in ("1 serving", "", None)
+                    and c["serving_desc"] not in ("1 serving", "", None)):
+                first["serving_desc"] = c["serving_desc"]
+        if len(keep) != len(comps):
+            print(f"  dedupe: dropped {len(comps) - len(keep)} rows printed twice",
+                  file=sys.stderr)
+        comps = keep
+
+    # Rows left sharing a name differ only by the size lifted out of it, so they
+    # become one row carrying chips.
+    if any(t["into"] == "size" for t in trims):
+        base_label = next((t.get("base_label") for t in trims
+                           if t["into"] == "size" and t.get("base_label")), None)
+        sized = {}
+        for c in comps:
+            if c.get("variant_of") or c.get("addon_of"):
+                continue
+            sized.setdefault((c["category"], c["name"].lower()), []).append(c)
+        # Which size heads the family, and the order its chips read in. Dump
+        # order is not good enough: CAVA prints Kids first, so the family would
+        # head on the kids cup and an unselected lemonade would quote 200
+        # calories for a drink that is 260 as normally sold. Understating a
+        # total by default is the one thing this site cannot do.
+        order = next((t.get("labels") for t in trims
+                      if t["into"] == "size" and t.get("labels")), None)
+        for members in sized.values():
+            # A family needs a real alternative: one row with a size suffix and
+            # one without is Regular vs Large, but a lone row that happened to
+            # carry a suffix is just a row.
+            if len(members) < 2 or not any(m.get("variant_label") for m in members):
+                continue
+            if len({m.get("variant_label") for m in members}) != len(members):
+                continue  # repeated labels mean these are separated by a mode
+            for m in members:
+                if not m.get("variant_label") and base_label:
+                    m["variant_label"] = base_label
+            if order:
+                rank = {l.lower(): i for i, l in enumerate(order)}
+                members.sort(key=lambda m: rank.get(
+                    (m.get("variant_label") or "").lower(), len(rank)))
+                # Rewrite the sort keys too, or the final sort puts them back.
+                base_ord = min(m["_ord"] for m in members)
+                for i, m in enumerate(members):
+                    m["_ord"] = base_ord + 0.0001 * i
+            head = members[0]
+            for m in members:
+                if m is not head:
+                    m["variant_of"] = head["id"]
+
+        # A size lifted off a row that turned out to have no siblings. The chip
+        # would render alone, or not at all, and either way "Seasoned Rice"
+        # silently stops saying it is a bowl. Put it back.
+        for c in comps:
+            if c.get("variant_label") and not c.get("variant_of") and \
+                    not any(m.get("variant_of") == c["id"] for m in comps):
+                c["name"] = f"{c['name']}, {c['variant_label']}"
+                c.pop("variant_label")
+
     # Sections whose rows already BUNDLE a base component, named per section:
     # Potbelly's sandwich totals include white bread at that size, so the row as
     # published cannot be added to a bread the user picked without counting the
     # loaf twice. Subtracting the base leaves the fillings, which is arithmetic
     # on two of the chain's own figures -- the same standing as `derived`.
-    for sec, base_name in (cfg.get("section_subtract") or {}).items():
-        base = next((c for c in comps if c["name"] == base_name), None)
+    # Keyed on the component's id, not its name: once sizes collapse into a
+    # family every member shares one name, so a name lookup would return the
+    # first size for all three sections and quietly subtract an Originals
+    # bread from a BIGS sandwich. Ids stay unique per size.
+    for sec, base_id in (cfg.get("section_subtract") or {}).items():
+        base = next((c for c in comps if c["id"] == base_id), None)
         if base is None:
-            print(f"  WARNING: section_subtract names unknown component {base_name!r}",
+            print(f"  WARNING: section_subtract names unknown component {base_id!r}",
                   file=sys.stderr)
             continue
+        label = base["name"]
+        if base.get("variant_label"):
+            label += f" ({base['variant_label']})"
         for c in comps:
             if c.get("_sec") != sec:
                 continue
             for f in FIELDS:
                 if c.get(f) is not None and base.get(f) is not None:
                     c[f] = max(0, round(c[f] - base[f], 2))
-            c["derived"] = (f"{base_name} removed. The chain publishes this item "
+            c["derived"] = (f"{label} removed. The chain publishes this item "
                             f"including that bread, so it is subtracted here and "
                             f"you pick the bread yourself; both figures are the "
                             f"chain's own.")

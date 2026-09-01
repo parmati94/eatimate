@@ -53,7 +53,12 @@
    }
   ],
   "glyph": "taco",
-  "formats": ["Burrito", "Bowl", "Taco", "Salad"]
+  "formats": [
+   "Burrito",
+   "Bowl",
+   "Taco",
+   "Salad"
+  ]
  },
  "categories": [
   {
@@ -617,6 +622,25 @@
    "name": "Water",
    "cat": "drinks",
    "desc": "any size"
+  }
+ ],
+ "name_trim": [
+  {
+   "pattern": "\\s*[-–,]\\s*(Side|Cup|Bowl)\\s*$",
+   "into": "size",
+   "base_label": "Regular",
+   "labels": [
+    "Side",
+    "Cup",
+    "Bowl",
+    "Regular",
+    "Large",
+    "Kids"
+   ]
+  },
+  {
+   "pattern": "\\s*\\((Kids|Regular|Large)\\)\\s*$",
+   "into": "size"
   }
  ]
 }

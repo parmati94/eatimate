@@ -348,5 +348,17 @@
     "cholesterol_mg"
    ]
   }
+ ],
+ "name_trim": [
+  {
+   "pattern": "\\s*\\((side|large)\\)\\s*$",
+   "into": "size",
+   "base_label": "Regular",
+   "labels": [
+    "Regular",
+    "Side",
+    "Large"
+   ]
+  }
  ]
 }

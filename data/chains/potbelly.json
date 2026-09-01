@@ -97,62 +97,8 @@
   ],
   "components": [
     {
-      "id": "bread-flat-originals",
-      "name": "Bread - FLAT",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 230,
-      "fat_g": 3,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 410,
-      "carbs_g": 43,
-      "fiber_g": 1,
-      "sugars_g": 3,
-      "protein_g": 0,
-      "size_mode": "originals"
-    },
-    {
-      "id": "bread-multigrain-originals",
-      "name": "Bread - Multigrain",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 310.24,
-      "fat_g": 3.54,
-      "sat_fat_g": 0.82,
-      "trans_fat_g": 0.01,
-      "cholesterol_mg": 0,
-      "sodium_mg": 457.13,
-      "carbs_g": 61.71,
-      "fiber_g": 5.6,
-      "sugars_g": 2.84,
-      "protein_g": 12.51,
-      "size_mode": "originals"
-    },
-    {
-      "id": "bread-multigrain-thin-cut-originals",
-      "name": "Bread - Multigrain, Thin-Cut",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 210,
-      "fat_g": 3,
-      "sat_fat_g": 1,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 300,
-      "carbs_g": 41,
-      "fiber_g": 4,
-      "sugars_g": 2,
-      "protein_g": 8,
-      "size_mode": "originals"
-    },
-    {
       "id": "bread-white-originals",
-      "name": "Bread - White",
+      "name": "White Bread",
       "category": "bread",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -166,11 +112,52 @@
       "fiber_g": 3.84,
       "sugars_g": 2.3,
       "protein_g": 12.45,
-      "size_mode": "originals"
+      "size_mode": "originals",
+      "variant_label": "Original"
+    },
+    {
+      "id": "bread-white-bigs-bigs",
+      "name": "White Bread",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 450.09,
+      "fat_g": 4.24,
+      "sat_fat_g": 0.84,
+      "trans_fat_g": 0.02,
+      "cholesterol_mg": 0,
+      "sodium_mg": 652.25,
+      "carbs_g": 89.22,
+      "fiber_g": 5.64,
+      "sugars_g": 3.38,
+      "protein_g": 18.26,
+      "size_mode": "bigs",
+      "variant_label": "BIGS",
+      "variant_of": "bread-white-originals"
+    },
+    {
+      "id": "bread-white-skinny-skinnys",
+      "name": "White Bread",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 222.04,
+      "fat_g": 2.12,
+      "sat_fat_g": 0.42,
+      "trans_fat_g": 0.01,
+      "cholesterol_mg": 0,
+      "sodium_mg": 326.13,
+      "carbs_g": 44.61,
+      "fiber_g": 2.82,
+      "sugars_g": 1.69,
+      "protein_g": 9.13,
+      "size_mode": "skinnys",
+      "variant_label": "Skinny",
+      "variant_of": "bread-white-originals"
     },
     {
       "id": "bread-white-thin-cut-originals",
-      "name": "Bread - White, Thin-Cut",
+      "name": "White Bread, Thin-Cut",
       "category": "bread",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -184,7 +171,205 @@
       "fiber_g": 1,
       "sugars_g": 1,
       "protein_g": 8,
-      "size_mode": "originals"
+      "size_mode": "originals",
+      "variant_label": "Original"
+    },
+    {
+      "id": "bread-white-bigs-thin-cut-bigs",
+      "name": "White Bread, Thin-Cut",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 320,
+      "fat_g": 3,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 460,
+      "carbs_g": 64,
+      "fiber_g": 2,
+      "sugars_g": 2,
+      "protein_g": 13,
+      "size_mode": "bigs",
+      "variant_label": "BIGS",
+      "variant_of": "bread-white-thin-cut-originals"
+    },
+    {
+      "id": "bread-white-skinny-thin-cut-skinnys",
+      "name": "White Bread, Thin-Cut",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 160,
+      "fat_g": 1,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 230,
+      "carbs_g": 32,
+      "fiber_g": 1,
+      "sugars_g": 0.5,
+      "protein_g": 7,
+      "size_mode": "skinnys",
+      "variant_label": "Skinny",
+      "variant_of": "bread-white-thin-cut-originals"
+    },
+    {
+      "id": "bread-multigrain-originals",
+      "name": "Multigrain Bread",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 310.24,
+      "fat_g": 3.54,
+      "sat_fat_g": 0.82,
+      "trans_fat_g": 0.01,
+      "cholesterol_mg": 0,
+      "sodium_mg": 457.13,
+      "carbs_g": 61.71,
+      "fiber_g": 5.6,
+      "sugars_g": 2.84,
+      "protein_g": 12.51,
+      "size_mode": "originals",
+      "variant_label": "Original"
+    },
+    {
+      "id": "bread-multigrain-bigs-bigs",
+      "name": "Multigrain Bread",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 455.01,
+      "fat_g": 5.2,
+      "sat_fat_g": 1.2,
+      "trans_fat_g": 0.02,
+      "cholesterol_mg": 0,
+      "sodium_mg": 670.44,
+      "carbs_g": 90.51,
+      "fiber_g": 8.22,
+      "sugars_g": 4.17,
+      "protein_g": 18.34,
+      "size_mode": "bigs",
+      "variant_label": "BIGS",
+      "variant_of": "bread-multigrain-originals"
+    },
+    {
+      "id": "bread-multigrain-skinny-skinnys",
+      "name": "Multigrain Bread",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 227.5,
+      "fat_g": 2.6,
+      "sat_fat_g": 0.6,
+      "trans_fat_g": 0.01,
+      "cholesterol_mg": 0,
+      "sodium_mg": 335.22,
+      "carbs_g": 45.26,
+      "fiber_g": 4.11,
+      "sugars_g": 2.09,
+      "protein_g": 9.17,
+      "size_mode": "skinnys",
+      "variant_label": "Skinny",
+      "variant_of": "bread-multigrain-originals"
+    },
+    {
+      "id": "bread-multigrain-thin-cut-originals",
+      "name": "Multigrain Bread, Thin-Cut",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 210,
+      "fat_g": 3,
+      "sat_fat_g": 1,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 300,
+      "carbs_g": 41,
+      "fiber_g": 4,
+      "sugars_g": 2,
+      "protein_g": 8,
+      "size_mode": "originals",
+      "variant_label": "Original"
+    },
+    {
+      "id": "bread-multigrain-bigs-thin-cut-bigs",
+      "name": "Multigrain Bread, Thin-Cut",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 330,
+      "fat_g": 4,
+      "sat_fat_g": 1,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 490,
+      "carbs_g": 66,
+      "fiber_g": 6,
+      "sugars_g": 3,
+      "protein_g": 13,
+      "size_mode": "bigs",
+      "variant_label": "BIGS",
+      "variant_of": "bread-multigrain-thin-cut-originals"
+    },
+    {
+      "id": "bread-multigrain-skinny-thin-cut-skinnys",
+      "name": "Multigrain Bread, Thin-Cut",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 170,
+      "fat_g": 2,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 240,
+      "carbs_g": 33,
+      "fiber_g": 3,
+      "sugars_g": 2,
+      "protein_g": 7,
+      "size_mode": "skinnys",
+      "variant_label": "Skinny",
+      "variant_of": "bread-multigrain-thin-cut-originals"
+    },
+    {
+      "id": "bread-flat-originals",
+      "name": "Flat Bread",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 230,
+      "fat_g": 3,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 410,
+      "carbs_g": 43,
+      "fiber_g": 1,
+      "sugars_g": 3,
+      "protein_g": 0,
+      "size_mode": "originals",
+      "variant_label": "Original"
+    },
+    {
+      "id": "bread-flat-skinnys",
+      "name": "Flat Bread",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 115,
+      "fat_g": 1.5,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 205,
+      "carbs_g": 21.5,
+      "fiber_g": 0.5,
+      "sugars_g": 1.5,
+      "protein_g": 0,
+      "size_mode": "skinnys",
+      "variant_label": "Skinny",
+      "variant_of": "bread-flat-originals"
     },
     {
       "id": "damascus-flaxseed-wrap-originals",
@@ -205,168 +390,6 @@
       "size_mode": "originals"
     },
     {
-      "id": "bread-flat-skinnys",
-      "name": "Bread - FLAT",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 115,
-      "fat_g": 1.5,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 205,
-      "carbs_g": 21.5,
-      "fiber_g": 0.5,
-      "sugars_g": 1.5,
-      "protein_g": 0,
-      "size_mode": "skinnys"
-    },
-    {
-      "id": "bread-multigrain-skinny-skinnys",
-      "name": "Bread - Multigrain, Skinny",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 227.5,
-      "fat_g": 2.6,
-      "sat_fat_g": 0.6,
-      "trans_fat_g": 0.01,
-      "cholesterol_mg": 0,
-      "sodium_mg": 335.22,
-      "carbs_g": 45.26,
-      "fiber_g": 4.11,
-      "sugars_g": 2.09,
-      "protein_g": 9.17,
-      "size_mode": "skinnys"
-    },
-    {
-      "id": "bread-multigrain-skinny-thin-cut-skinnys",
-      "name": "Bread - Multigrain, Skinny, Thin-Cut",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 170,
-      "fat_g": 2,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 240,
-      "carbs_g": 33,
-      "fiber_g": 3,
-      "sugars_g": 2,
-      "protein_g": 7,
-      "size_mode": "skinnys"
-    },
-    {
-      "id": "bread-white-skinny-skinnys",
-      "name": "Bread - White, Skinny",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 222.04,
-      "fat_g": 2.12,
-      "sat_fat_g": 0.42,
-      "trans_fat_g": 0.01,
-      "cholesterol_mg": 0,
-      "sodium_mg": 326.13,
-      "carbs_g": 44.61,
-      "fiber_g": 2.82,
-      "sugars_g": 1.69,
-      "protein_g": 9.13,
-      "size_mode": "skinnys"
-    },
-    {
-      "id": "bread-white-skinny-thin-cut-skinnys",
-      "name": "Bread - White, Skinny, Thin-Cut",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 160,
-      "fat_g": 1,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 230,
-      "carbs_g": 32,
-      "fiber_g": 1,
-      "sugars_g": 0.5,
-      "protein_g": 7,
-      "size_mode": "skinnys"
-    },
-    {
-      "id": "bread-multigrain-bigs-bigs",
-      "name": "Bread - Multigrain, BIGS",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 455.01,
-      "fat_g": 5.2,
-      "sat_fat_g": 1.2,
-      "trans_fat_g": 0.02,
-      "cholesterol_mg": 0,
-      "sodium_mg": 670.44,
-      "carbs_g": 90.51,
-      "fiber_g": 8.22,
-      "sugars_g": 4.17,
-      "protein_g": 18.34,
-      "size_mode": "bigs"
-    },
-    {
-      "id": "bread-multigrain-bigs-thin-cut-bigs",
-      "name": "Bread - Multigrain, BIGS, Thin-Cut",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 330,
-      "fat_g": 4,
-      "sat_fat_g": 1,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 490,
-      "carbs_g": 66,
-      "fiber_g": 6,
-      "sugars_g": 3,
-      "protein_g": 13,
-      "size_mode": "bigs"
-    },
-    {
-      "id": "bread-white-bigs-bigs",
-      "name": "Bread - White, BIGS",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 450.09,
-      "fat_g": 4.24,
-      "sat_fat_g": 0.84,
-      "trans_fat_g": 0.02,
-      "cholesterol_mg": 0,
-      "sodium_mg": 652.25,
-      "carbs_g": 89.22,
-      "fiber_g": 5.64,
-      "sugars_g": 3.38,
-      "protein_g": 18.26,
-      "size_mode": "bigs"
-    },
-    {
-      "id": "bread-white-bigs-thin-cut-bigs",
-      "name": "Bread - White, BIGS, Thin-Cut",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 320,
-      "fat_g": 3,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 460,
-      "carbs_g": 64,
-      "fiber_g": 2,
-      "sugars_g": 2,
-      "protein_g": 13,
-      "size_mode": "bigs"
-    },
-    {
       "id": "a-wreck-originals-originals",
       "name": "A Wreck, Originals",
       "category": "item",
@@ -385,7 +408,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "avo-turkey-originals-originals",
@@ -406,7 +429,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "bacon-egg-cheddar-originals-originals",
@@ -427,7 +450,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "barnyard-originals-originals",
@@ -448,7 +471,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "blta-originals-originals",
@@ -469,7 +492,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "chicken-cordon-bleu-originals-originals",
@@ -490,7 +513,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "chicken-salad-provolone-originals-originals",
@@ -511,7 +534,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "clubby-originals-originals",
@@ -532,7 +555,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "cubano-originals-originals",
@@ -553,7 +576,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "fiery-island-chicken-originals-originals",
@@ -574,7 +597,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "fireball-originals-originals",
@@ -595,7 +618,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "grilled-cheese-originals-originals",
@@ -616,7 +639,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "grilled-chicken-cheddar-originals-originals",
@@ -637,7 +660,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "grilled-chicken-club-originals-originals",
@@ -658,7 +681,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "ham-mushroom-egg-swiss-originals-originals",
@@ -679,7 +702,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "italian-originals-originals",
@@ -700,7 +723,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "lucky-7-originals-originals",
@@ -721,7 +744,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "mamas-meatball-originals-originals",
@@ -742,7 +765,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "mediterranean-no-chicken-originals-originals",
@@ -763,7 +786,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "mediterranean-originals-originals",
@@ -784,7 +807,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "pizza-melt-originals-originals",
@@ -805,7 +828,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "prime-rib-steak-sandwich-originals-originals",
@@ -826,7 +849,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "roast-beef-provolone-originals-originals",
@@ -847,7 +870,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "sausage-egg-cheddar-originals-originals",
@@ -868,7 +891,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "sicilian-originals-originals",
@@ -889,7 +912,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "smoked-ham-swiss-originals-originals",
@@ -910,7 +933,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "smokestack-pork-mac-originals-originals",
@@ -931,7 +954,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "sweet-heat-pork-bbq-originals-originals",
@@ -952,7 +975,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "tuna-salad-swiss-originals-originals",
@@ -973,7 +996,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "turkey-breast-swiss-originals-originals",
@@ -994,7 +1017,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "veggie-melt-originals-originals",
@@ -1015,7 +1038,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "wrecking-ball-originals-originals",
@@ -1036,7 +1059,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "a-wreck-bigs-bigs",
@@ -1057,7 +1080,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "avo-turkey-bigs-bigs",
@@ -1078,7 +1101,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "bacon-egg-cheddar-bigs-bigs",
@@ -1099,7 +1122,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "barnyard-bigs-bigs",
@@ -1120,7 +1143,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "blta-bigs-bigs",
@@ -1141,7 +1164,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "chicken-cordon-bleu-bigs-bigs",
@@ -1162,7 +1185,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "chicken-salad-provolone-bigs-bigs",
@@ -1183,7 +1206,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "clubby-bigs-bigs",
@@ -1204,7 +1227,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "cubano-bigs-bigs",
@@ -1225,7 +1248,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "fiery-island-chicken-bigs-bigs",
@@ -1246,7 +1269,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "fireball-bigs-bigs",
@@ -1267,7 +1290,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "grilled-cheese-bigs-bigs",
@@ -1288,7 +1311,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "grilled-chicken-cheddar-bigs-bigs",
@@ -1309,7 +1332,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "grilled-chicken-club-bigs-bigs",
@@ -1330,7 +1353,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "ham-mushroom-egg-swiss-bigs-bigs",
@@ -1351,7 +1374,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "italian-bigs-bigs",
@@ -1372,7 +1395,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "lucky-7-bigs-bigs",
@@ -1393,7 +1416,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "mamas-meatball-bigs-bigs",
@@ -1414,7 +1437,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "mediterranean-no-chicken-bigs-bigs",
@@ -1435,7 +1458,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "mediterranean-bigs-bigs",
@@ -1456,7 +1479,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "pizza-melt-bigs-bigs",
@@ -1477,7 +1500,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "prime-rib-steak-sandwich-bigs-bigs",
@@ -1498,7 +1521,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "roast-beef-provolone-bigs-bigs",
@@ -1519,7 +1542,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "sausage-egg-cheddar-bigs-bigs",
@@ -1540,7 +1563,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "sicilian-bigs-bigs",
@@ -1561,7 +1584,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "smoked-ham-swiss-bigs-bigs",
@@ -1582,7 +1605,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "smokestack-pork-mac-bigs-bigs",
@@ -1603,7 +1626,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "sweet-heat-pork-bbq-bigs-bigs",
@@ -1624,7 +1647,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "tuna-salad-swiss-bigs-bigs",
@@ -1645,7 +1668,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "turkey-breast-swiss-bigs-bigs",
@@ -1666,7 +1689,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "veggie-melt-bigs-bigs",
@@ -1687,7 +1710,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "wrecking-ball-bigs-bigs",
@@ -1708,7 +1731,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "a-wreck-skinny-skinnys",
@@ -1729,7 +1752,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "avo-turkey-skinny-skinnys",
@@ -1750,7 +1773,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "bacon-egg-cheddar-skinny-skinnys",
@@ -1771,7 +1794,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "barnyard-skinny-skinnys",
@@ -1792,7 +1815,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "blta-skinny-skinnys",
@@ -1813,7 +1836,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "chicken-cordon-bleu-skinny-skinnys",
@@ -1834,7 +1857,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "chicken-salad-provolone-skinny-skinnys",
@@ -1855,7 +1878,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "clubby-skinny-skinnys",
@@ -1876,7 +1899,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "cubano-skinny-skinnys",
@@ -1897,7 +1920,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "fiery-island-chicken-skinny-skinnys",
@@ -1918,7 +1941,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "fireball-skinny-skinnys",
@@ -1939,7 +1962,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "grilled-cheese-skinny-skinnys",
@@ -1960,7 +1983,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "grilled-chicken-cheddar-skinny-skinnys",
@@ -1981,7 +2004,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "grilled-chicken-club-skinny-skinnys",
@@ -2002,7 +2025,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "ham-mushroom-egg-swiss-skinny-skinnys",
@@ -2023,7 +2046,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "italian-skinny-skinnys",
@@ -2044,7 +2067,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "lucky-7-skinny-skinnys",
@@ -2065,7 +2088,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "mamas-meatball-skinny-skinnys",
@@ -2086,7 +2109,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "mediterranean-no-chicken-skinny-skinnys",
@@ -2107,7 +2130,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "mediterranean-skinny-skinnys",
@@ -2128,7 +2151,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "pizza-melt-skinny-skinnys",
@@ -2149,7 +2172,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "prime-rib-steak-sandwich-skinny-skinnys",
@@ -2170,7 +2193,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "roast-beef-provolone-skinny-skinnys",
@@ -2191,7 +2214,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "sausage-egg-cheddar-skinny-skinnys",
@@ -2212,7 +2235,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "sicilian-skinny-skinnys",
@@ -2233,7 +2256,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "smoked-ham-swiss-skinny-skinnys",
@@ -2254,7 +2277,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "smokestack-pork-mac-skinny-skinnys",
@@ -2275,7 +2298,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "sweet-heat-pork-bbq-skinny-skinnys",
@@ -2296,7 +2319,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "tuna-salad-swiss-skinny-skinnys",
@@ -2317,7 +2340,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "turkey-breast-swiss-skinny-skinnys",
@@ -2338,7 +2361,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "veggie-melt-skinny-skinnys",
@@ -2359,7 +2382,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "wrecking-ball-skinny-skinnys",
@@ -2380,7 +2403,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "a-wreck-salad-salads",
@@ -2400,7 +2423,30 @@
       "protein_g": 30.41,
       "only_modes": [
         "salads"
-      ]
+      ],
+      "variant_label": "Regular"
+    },
+    {
+      "id": "a-wreck-salad-half-salads",
+      "name": "A Wreck Salad",
+      "category": "item",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 249.35,
+      "fat_g": 16.85,
+      "sat_fat_g": 6.68,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 121.65,
+      "sodium_mg": 879.62,
+      "carbs_g": 5.13,
+      "fiber_g": 1.09,
+      "sugars_g": 2.23,
+      "protein_g": 20.78,
+      "only_modes": [
+        "salads"
+      ],
+      "variant_label": "Half",
+      "variant_of": "a-wreck-salad-salads"
     },
     {
       "id": "apple-walnut-salads",
@@ -2420,7 +2466,30 @@
       "protein_g": 37.59,
       "only_modes": [
         "salads"
-      ]
+      ],
+      "variant_label": "Regular"
+    },
+    {
+      "id": "apple-walnut-half-salads",
+      "name": "Apple Walnut",
+      "category": "item",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 539.32,
+      "fat_g": 38.49,
+      "sat_fat_g": 6.94,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 46.25,
+      "sodium_mg": 594.8,
+      "carbs_g": 29.32,
+      "fiber_g": 3.46,
+      "sugars_g": 23.22,
+      "protein_g": 18.99,
+      "only_modes": [
+        "salads"
+      ],
+      "variant_label": "Half",
+      "variant_of": "apple-walnut-salads"
     },
     {
       "id": "chicken-salad-salad-salads",
@@ -2440,7 +2509,30 @@
       "protein_g": 22.77,
       "only_modes": [
         "salads"
-      ]
+      ],
+      "variant_label": "Regular"
+    },
+    {
+      "id": "chicken-salad-salad-half-salads",
+      "name": "Chicken Salad Salad",
+      "category": "item",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 436.93,
+      "fat_g": 30.05,
+      "sat_fat_g": 5.95,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 39.31,
+      "sodium_mg": 520.79,
+      "carbs_g": 29.71,
+      "fiber_g": 2.85,
+      "sugars_g": 23.12,
+      "protein_g": 11.38,
+      "only_modes": [
+        "salads"
+      ],
+      "variant_label": "Half",
+      "variant_of": "chicken-salad-salad-salads"
     },
     {
       "id": "farmhouse-salads",
@@ -2460,7 +2552,30 @@
       "protein_g": 45.58,
       "only_modes": [
         "salads"
-      ]
+      ],
+      "variant_label": "Regular"
+    },
+    {
+      "id": "farmhouse-half-salads",
+      "name": "Farmhouse",
+      "category": "item",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 395.2,
+      "fat_g": 30.56,
+      "sat_fat_g": 7.01,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 147.15,
+      "sodium_mg": 913.72,
+      "carbs_g": 6.68,
+      "fiber_g": 1.47,
+      "sugars_g": 3.84,
+      "protein_g": 22.99,
+      "only_modes": [
+        "salads"
+      ],
+      "variant_label": "Half",
+      "variant_of": "farmhouse-salads"
     },
     {
       "id": "powerhouse-salads",
@@ -2480,91 +2595,12 @@
       "protein_g": 29.78,
       "only_modes": [
         "salads"
-      ]
-    },
-    {
-      "id": "a-wreck-salad-half-salads",
-      "name": "A Wreck Salad, Half",
-      "category": "item",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 249.35,
-      "fat_g": 16.85,
-      "sat_fat_g": 6.68,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 121.65,
-      "sodium_mg": 879.62,
-      "carbs_g": 5.13,
-      "fiber_g": 1.09,
-      "sugars_g": 2.23,
-      "protein_g": 20.78,
-      "only_modes": [
-        "salads"
-      ]
-    },
-    {
-      "id": "apple-walnut-half-salads",
-      "name": "Apple Walnut, Half",
-      "category": "item",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 539.32,
-      "fat_g": 38.49,
-      "sat_fat_g": 6.94,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 46.25,
-      "sodium_mg": 594.8,
-      "carbs_g": 29.32,
-      "fiber_g": 3.46,
-      "sugars_g": 23.22,
-      "protein_g": 18.99,
-      "only_modes": [
-        "salads"
-      ]
-    },
-    {
-      "id": "chicken-salad-salad-half-salads",
-      "name": "Chicken Salad Salad, Half",
-      "category": "item",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 436.93,
-      "fat_g": 30.05,
-      "sat_fat_g": 5.95,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 39.31,
-      "sodium_mg": 520.79,
-      "carbs_g": 29.71,
-      "fiber_g": 2.85,
-      "sugars_g": 23.12,
-      "protein_g": 11.38,
-      "only_modes": [
-        "salads"
-      ]
-    },
-    {
-      "id": "farmhouse-half-salads",
-      "name": "Farmhouse, Half",
-      "category": "item",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 395.2,
-      "fat_g": 30.56,
-      "sat_fat_g": 7.01,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 147.15,
-      "sodium_mg": 913.72,
-      "carbs_g": 6.68,
-      "fiber_g": 1.47,
-      "sugars_g": 3.84,
-      "protein_g": 22.99,
-      "only_modes": [
-        "salads"
-      ]
+      ],
+      "variant_label": "Regular"
     },
     {
       "id": "powerhouse-half-salads",
-      "name": "Powerhouse, Half",
+      "name": "Powerhouse",
       "category": "item",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -2580,7 +2616,9 @@
       "protein_g": 15.09,
       "only_modes": [
         "salads"
-      ]
+      ],
+      "variant_label": "Half",
+      "variant_of": "powerhouse-salads"
     },
     {
       "id": "a-wreck-wrap-wraps",
@@ -6193,25 +6231,8 @@
       ]
     },
     {
-      "id": "mac-cheese-bowl-mac-cheese",
-      "name": "Mac & Cheese, Bowl",
-      "category": "sides",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 457.14,
-      "fat_g": 20,
-      "sat_fat_g": 10,
-      "trans_fat_g": 1.43,
-      "cholesterol_mg": 42.86,
-      "sodium_mg": 1657.14,
-      "carbs_g": 51.43,
-      "fiber_g": 2.86,
-      "sugars_g": 8.57,
-      "protein_g": 17.14
-    },
-    {
       "id": "mac-cheese-cup-mac-cheese",
-      "name": "Mac & Cheese, Cup",
+      "name": "Mac & Cheese",
       "category": "sides",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -6224,7 +6245,27 @@
       "carbs_g": 33.43,
       "fiber_g": 1.86,
       "sugars_g": 5.57,
-      "protein_g": 11.14
+      "protein_g": 11.14,
+      "variant_label": "Cup"
+    },
+    {
+      "id": "mac-cheese-bowl-mac-cheese",
+      "name": "Mac & Cheese",
+      "category": "sides",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 457.14,
+      "fat_g": 20,
+      "sat_fat_g": 10,
+      "trans_fat_g": 1.43,
+      "cholesterol_mg": 42.86,
+      "sodium_mg": 1657.14,
+      "carbs_g": 51.43,
+      "fiber_g": 2.86,
+      "sugars_g": 8.57,
+      "protein_g": 17.14,
+      "variant_label": "Bowl",
+      "variant_of": "mac-cheese-cup-mac-cheese"
     },
     {
       "id": "chili-for-mac",
@@ -6312,8 +6353,26 @@
       "protein_g": 0.67
     },
     {
+      "id": "broccoli-cheddar-cup",
+      "name": "Broccoli Cheddar",
+      "category": "sides",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 233.33,
+      "fat_g": 16,
+      "sat_fat_g": 10,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 53.33,
+      "sodium_mg": 996.67,
+      "carbs_g": 11.33,
+      "fiber_g": 1.33,
+      "sugars_g": 3.33,
+      "protein_g": 8,
+      "variant_label": "Cup"
+    },
+    {
       "id": "broccoli-cheddar-bowl",
-      "name": "Broccoli Cheddar (bowl)",
+      "name": "Broccoli Cheddar",
       "category": "sides",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -6326,11 +6385,31 @@
       "carbs_g": 14.17,
       "fiber_g": 1.67,
       "sugars_g": 4.17,
-      "protein_g": 10
+      "protein_g": 10,
+      "variant_label": "Bowl",
+      "variant_of": "broccoli-cheddar-cup"
+    },
+    {
+      "id": "chicken-pot-pie-cup",
+      "name": "Chicken Pot Pie",
+      "category": "sides",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 280,
+      "fat_g": 19,
+      "sat_fat_g": 9,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 55,
+      "sodium_mg": 740,
+      "carbs_g": 12,
+      "fiber_g": 1,
+      "sugars_g": 2,
+      "protein_g": 8,
+      "variant_label": "Cup"
     },
     {
       "id": "chicken-pot-pie-bowl",
-      "name": "Chicken Pot Pie (bowl)",
+      "name": "Chicken Pot Pie",
       "category": "sides",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -6343,11 +6422,31 @@
       "carbs_g": 15,
       "fiber_g": 1.25,
       "sugars_g": 2.5,
-      "protein_g": 10
+      "protein_g": 10,
+      "variant_label": "Bowl",
+      "variant_of": "chicken-pot-pie-cup"
+    },
+    {
+      "id": "chili-cup",
+      "name": "Chili",
+      "category": "sides",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 246.67,
+      "fat_g": 10.67,
+      "sat_fat_g": 4,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 40,
+      "sodium_mg": 933.33,
+      "carbs_g": 20,
+      "fiber_g": 4,
+      "sugars_g": 6.67,
+      "protein_g": 15.33,
+      "variant_label": "Cup"
     },
     {
       "id": "chili-bowl",
-      "name": "Chili (bowl)",
+      "name": "Chili",
       "category": "sides",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -6360,11 +6459,31 @@
       "carbs_g": 25,
       "fiber_g": 5,
       "sugars_g": 8.33,
-      "protein_g": 19.17
+      "protein_g": 19.17,
+      "variant_label": "Bowl",
+      "variant_of": "chili-cup"
+    },
+    {
+      "id": "garden-vegetable-cup",
+      "name": "Garden Vegetable",
+      "category": "sides",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 73.33,
+      "fat_g": 0,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 800,
+      "carbs_g": 15.33,
+      "fiber_g": 2.67,
+      "sugars_g": 4,
+      "protein_g": 2.67,
+      "variant_label": "Cup"
     },
     {
       "id": "garden-vegetable-bowl",
-      "name": "Garden Vegetable (bowl)",
+      "name": "Garden Vegetable",
       "category": "sides",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -6377,11 +6496,31 @@
       "carbs_g": 19.17,
       "fiber_g": 3.33,
       "sugars_g": 5,
-      "protein_g": 3.33
+      "protein_g": 3.33,
+      "variant_label": "Bowl",
+      "variant_of": "garden-vegetable-cup"
+    },
+    {
+      "id": "loaded-baked-potato-cup",
+      "name": "Loaded Baked Potato",
+      "category": "sides",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 206.67,
+      "fat_g": 13.33,
+      "sat_fat_g": 7.33,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 33.33,
+      "sodium_mg": 786.67,
+      "carbs_g": 16,
+      "fiber_g": 1.33,
+      "sugars_g": 3.33,
+      "protein_g": 4.67,
+      "variant_label": "Cup"
     },
     {
       "id": "loaded-baked-potato-bowl",
-      "name": "Loaded Baked Potato (bowl)",
+      "name": "Loaded Baked Potato",
       "category": "sides",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -6394,11 +6533,31 @@
       "carbs_g": 20,
       "fiber_g": 1.67,
       "sugars_g": 4.17,
-      "protein_g": 5.83
+      "protein_g": 5.83,
+      "variant_label": "Bowl",
+      "variant_of": "loaded-baked-potato-cup"
+    },
+    {
+      "id": "southwest-corn-chowder-cup",
+      "name": "Southwest Corn Chowder",
+      "category": "sides",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 180,
+      "fat_g": 7.33,
+      "sat_fat_g": 2.33,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 13.33,
+      "sodium_mg": 1400,
+      "carbs_g": 24.67,
+      "fiber_g": 2.67,
+      "sugars_g": 10,
+      "protein_g": 4.67,
+      "variant_label": "Cup"
     },
     {
       "id": "southwest-corn-chowder-bowl",
-      "name": "Southwest Corn Chowder (bowl)",
+      "name": "Southwest Corn Chowder",
       "category": "sides",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -6411,7 +6570,9 @@
       "carbs_g": 30.83,
       "fiber_g": 3.33,
       "sugars_g": 12.5,
-      "protein_g": 5.83
+      "protein_g": 5.83,
+      "variant_label": "Bowl",
+      "variant_of": "southwest-corn-chowder-cup"
     },
     {
       "id": "avocado-for-soup",
@@ -6686,112 +6847,10 @@
       "protein_g": 3
     },
     {
-      "id": "broccoli-cheddar-cup",
-      "name": "Broccoli Cheddar (cup)",
-      "category": "sides",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 233.33,
-      "fat_g": 16,
-      "sat_fat_g": 10,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 53.33,
-      "sodium_mg": 996.67,
-      "carbs_g": 11.33,
-      "fiber_g": 1.33,
-      "sugars_g": 3.33,
-      "protein_g": 8
-    },
-    {
-      "id": "chicken-pot-pie-cup",
-      "name": "Chicken Pot Pie (cup)",
-      "category": "sides",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 280,
-      "fat_g": 19,
-      "sat_fat_g": 9,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 55,
-      "sodium_mg": 740,
-      "carbs_g": 12,
-      "fiber_g": 1,
-      "sugars_g": 2,
-      "protein_g": 8
-    },
-    {
-      "id": "chili-cup",
-      "name": "Chili (cup)",
-      "category": "sides",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 246.67,
-      "fat_g": 10.67,
-      "sat_fat_g": 4,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 40,
-      "sodium_mg": 933.33,
-      "carbs_g": 20,
-      "fiber_g": 4,
-      "sugars_g": 6.67,
-      "protein_g": 15.33
-    },
-    {
-      "id": "garden-vegetable-cup",
-      "name": "Garden Vegetable (cup)",
-      "category": "sides",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 73.33,
-      "fat_g": 0,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 800,
-      "carbs_g": 15.33,
-      "fiber_g": 2.67,
-      "sugars_g": 4,
-      "protein_g": 2.67
-    },
-    {
-      "id": "loaded-baked-potato-cup",
-      "name": "Loaded Baked Potato (cup)",
-      "category": "sides",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 206.67,
-      "fat_g": 13.33,
-      "sat_fat_g": 7.33,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 33.33,
-      "sodium_mg": 786.67,
-      "carbs_g": 16,
-      "fiber_g": 1.33,
-      "sugars_g": 3.33,
-      "protein_g": 4.67
-    },
-    {
-      "id": "southwest-corn-chowder-cup",
-      "name": "Southwest Corn Chowder (cup)",
-      "category": "sides",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 180,
-      "fat_g": 7.33,
-      "sat_fat_g": 2.33,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 13.33,
-      "sodium_mg": 1400,
-      "carbs_g": 24.67,
-      "fiber_g": 2.67,
-      "sugars_g": 10,
-      "protein_g": 4.67
-    },
-    {
       "id": "coke-20-fl-oz",
-      "name": "Coke (20 fl oz)",
+      "name": "Coke",
       "category": "drinks",
-      "serving_desc": "1 serving",
+      "serving_desc": "20 fl oz",
       "serving_g": null,
       "calories": 265.9,
       "fat_g": 0,
@@ -6802,183 +6861,14 @@
       "carbs_g": 72.59,
       "fiber_g": 0,
       "sugars_g": 72.59,
-      "protein_g": 0
-    },
-    {
-      "id": "coke-zero-sugar-20-fl-oz",
-      "name": "Coke Zero Sugar (20 fl oz)",
-      "category": "drinks",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 0,
-      "fat_g": 0,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 70,
-      "carbs_g": 0,
-      "fiber_g": 0,
-      "sugars_g": 0,
-      "protein_g": 0
-    },
-    {
-      "id": "diet-coca-cola-20-fl-oz",
-      "name": "Diet Coca Cola (20 fl oz)",
-      "category": "drinks",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 1.8,
-      "fat_g": 0,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 84.48,
-      "carbs_g": 0.54,
-      "fiber_g": 0,
-      "sugars_g": 0.04,
-      "protein_g": 0
-    },
-    {
-      "id": "diet-dr-pepper-20-fl-oz",
-      "name": "Diet Dr. Pepper (20 fl oz)",
-      "category": "drinks",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 1.82,
-      "fat_g": 0,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 120.41,
-      "carbs_g": 0.37,
-      "fiber_g": 0,
-      "sugars_g": 0.05,
-      "protein_g": 0.13
-    },
-    {
-      "id": "dr-pepper-20-fl-oz",
-      "name": "Dr. Pepper (20 fl oz)",
-      "category": "drinks",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 240.36,
-      "fat_g": 0,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 73.65,
-      "carbs_g": 65.38,
-      "fiber_g": 0,
-      "sugars_g": 64.14,
-      "protein_g": 0
-    },
-    {
-      "id": "fanta-orange-20-fl-oz",
-      "name": "Fanta Orange (20 fl oz)",
-      "category": "drinks",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 263.64,
-      "fat_g": 0,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 68.18,
-      "carbs_g": 72.73,
-      "fiber_g": 0,
-      "sugars_g": 71.82,
-      "protein_g": 0
-    },
-    {
-      "id": "fuze-raspberry-tea-20-fl-oz",
-      "name": "Fuze Raspberry Tea (20 fl oz)",
-      "category": "drinks",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 136.36,
-      "fat_g": 0,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 81.82,
-      "carbs_g": 38.18,
-      "fiber_g": 0,
-      "sugars_g": 37.27,
-      "protein_g": 0
-    },
-    {
-      "id": "minute-maid-lemonade-20-fl-oz",
-      "name": "Minute Maid Lemonade (20 fl oz)",
-      "category": "drinks",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 227.27,
-      "fat_g": 0,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 163.64,
-      "carbs_g": 62.73,
-      "fiber_g": 0,
-      "sugars_g": 60,
-      "protein_g": 0
-    },
-    {
-      "id": "sprite-20-fl-oz",
-      "name": "Sprite (20 fl oz)",
-      "category": "drinks",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 240,
-      "fat_g": 0,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 110,
-      "carbs_g": 64,
-      "fiber_g": 0,
-      "sugars_g": 64,
-      "protein_g": 0
-    },
-    {
-      "id": "sweetened-iced-tea-20-fl-oz",
-      "name": "Sweetened Iced Tea (20 fl oz)",
-      "category": "drinks",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 281.82,
-      "fat_g": 0,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 0,
-      "carbs_g": 70.91,
-      "fiber_g": 0,
-      "sugars_g": 70.91,
-      "protein_g": 0
-    },
-    {
-      "id": "unsweetened-iced-tea-20-fl-oz",
-      "name": "Unsweetened Iced Tea (20 fl oz)",
-      "category": "drinks",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 4.55,
-      "fat_g": 0,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 0,
-      "carbs_g": 0,
-      "fiber_g": 0,
-      "sugars_g": 0,
-      "protein_g": 0
+      "protein_g": 0,
+      "variant_label": "20 fl oz"
     },
     {
       "id": "coke-30-fl-oz",
-      "name": "Coke (30 fl oz)",
+      "name": "Coke",
       "category": "drinks",
-      "serving_desc": "1 serving",
+      "serving_desc": "30 fl oz",
       "serving_g": null,
       "calories": 398.85,
       "fat_g": 0,
@@ -6989,13 +6879,33 @@
       "carbs_g": 108.88,
       "fiber_g": 0,
       "sugars_g": 108.88,
-      "protein_g": 0
+      "protein_g": 0,
+      "variant_label": "30 fl oz",
+      "variant_of": "coke-20-fl-oz"
+    },
+    {
+      "id": "coke-zero-sugar-20-fl-oz",
+      "name": "Coke Zero Sugar",
+      "category": "drinks",
+      "serving_desc": "20 fl oz",
+      "serving_g": null,
+      "calories": 0,
+      "fat_g": 0,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 70,
+      "carbs_g": 0,
+      "fiber_g": 0,
+      "sugars_g": 0,
+      "protein_g": 0,
+      "variant_label": "20 fl oz"
     },
     {
       "id": "coke-zero-sugar-30-fl-oz",
-      "name": "Coke Zero Sugar (30 fl oz)",
+      "name": "Coke Zero Sugar",
       "category": "drinks",
-      "serving_desc": "1 serving",
+      "serving_desc": "30 fl oz",
       "serving_g": null,
       "calories": 0,
       "fat_g": 0,
@@ -7006,13 +6916,33 @@
       "carbs_g": 0,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 0
+      "protein_g": 0,
+      "variant_label": "30 fl oz",
+      "variant_of": "coke-zero-sugar-20-fl-oz"
+    },
+    {
+      "id": "diet-coca-cola-20-fl-oz",
+      "name": "Diet Coca Cola",
+      "category": "drinks",
+      "serving_desc": "20 fl oz",
+      "serving_g": null,
+      "calories": 1.8,
+      "fat_g": 0,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 84.48,
+      "carbs_g": 0.54,
+      "fiber_g": 0,
+      "sugars_g": 0.04,
+      "protein_g": 0,
+      "variant_label": "20 fl oz"
     },
     {
       "id": "diet-coca-cola-30-fl-oz",
-      "name": "Diet Coca Cola (30 fl oz)",
+      "name": "Diet Coca Cola",
       "category": "drinks",
-      "serving_desc": "1 serving",
+      "serving_desc": "30 fl oz",
       "serving_g": null,
       "calories": 2.7,
       "fat_g": 0,
@@ -7023,13 +6953,33 @@
       "carbs_g": 0.8,
       "fiber_g": 0,
       "sugars_g": 0.07,
-      "protein_g": 0
+      "protein_g": 0,
+      "variant_label": "30 fl oz",
+      "variant_of": "diet-coca-cola-20-fl-oz"
+    },
+    {
+      "id": "diet-dr-pepper-20-fl-oz",
+      "name": "Diet Dr. Pepper",
+      "category": "drinks",
+      "serving_desc": "20 fl oz",
+      "serving_g": null,
+      "calories": 1.82,
+      "fat_g": 0,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 120.41,
+      "carbs_g": 0.37,
+      "fiber_g": 0,
+      "sugars_g": 0.05,
+      "protein_g": 0.13,
+      "variant_label": "20 fl oz"
     },
     {
       "id": "diet-dr-pepper-30-fl-oz",
-      "name": "Diet Dr. Pepper (30 fl oz)",
+      "name": "Diet Dr. Pepper",
       "category": "drinks",
-      "serving_desc": "1 serving",
+      "serving_desc": "30 fl oz",
       "serving_g": null,
       "calories": 2.73,
       "fat_g": 0,
@@ -7040,13 +6990,33 @@
       "carbs_g": 0.56,
       "fiber_g": 0,
       "sugars_g": 0.07,
-      "protein_g": 0.19
+      "protein_g": 0.19,
+      "variant_label": "30 fl oz",
+      "variant_of": "diet-dr-pepper-20-fl-oz"
+    },
+    {
+      "id": "dr-pepper-20-fl-oz",
+      "name": "Dr. Pepper",
+      "category": "drinks",
+      "serving_desc": "20 fl oz",
+      "serving_g": null,
+      "calories": 240.36,
+      "fat_g": 0,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 73.65,
+      "carbs_g": 65.38,
+      "fiber_g": 0,
+      "sugars_g": 64.14,
+      "protein_g": 0,
+      "variant_label": "20 fl oz"
     },
     {
       "id": "dr-pepper-30-fl-oz",
-      "name": "Dr. Pepper (30 fl oz)",
+      "name": "Dr. Pepper",
       "category": "drinks",
-      "serving_desc": "1 serving",
+      "serving_desc": "30 fl oz",
       "serving_g": null,
       "calories": 360.55,
       "fat_g": 0,
@@ -7057,13 +7027,33 @@
       "carbs_g": 98.07,
       "fiber_g": 0,
       "sugars_g": 96.2,
-      "protein_g": 0
+      "protein_g": 0,
+      "variant_label": "30 fl oz",
+      "variant_of": "dr-pepper-20-fl-oz"
+    },
+    {
+      "id": "fanta-orange-20-fl-oz",
+      "name": "Fanta Orange",
+      "category": "drinks",
+      "serving_desc": "20 fl oz",
+      "serving_g": null,
+      "calories": 263.64,
+      "fat_g": 0,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 68.18,
+      "carbs_g": 72.73,
+      "fiber_g": 0,
+      "sugars_g": 71.82,
+      "protein_g": 0,
+      "variant_label": "20 fl oz"
     },
     {
       "id": "fanta-orange-30-fl-oz",
-      "name": "Fanta Orange (30 fl oz)",
+      "name": "Fanta Orange",
       "category": "drinks",
-      "serving_desc": "1 serving",
+      "serving_desc": "30 fl oz",
       "serving_g": null,
       "calories": 395.45,
       "fat_g": 0,
@@ -7074,13 +7064,33 @@
       "carbs_g": 109.09,
       "fiber_g": 0,
       "sugars_g": 107.73,
-      "protein_g": 0
+      "protein_g": 0,
+      "variant_label": "30 fl oz",
+      "variant_of": "fanta-orange-20-fl-oz"
+    },
+    {
+      "id": "fuze-raspberry-tea-20-fl-oz",
+      "name": "Fuze Raspberry Tea",
+      "category": "drinks",
+      "serving_desc": "20 fl oz",
+      "serving_g": null,
+      "calories": 136.36,
+      "fat_g": 0,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 81.82,
+      "carbs_g": 38.18,
+      "fiber_g": 0,
+      "sugars_g": 37.27,
+      "protein_g": 0,
+      "variant_label": "20 fl oz"
     },
     {
       "id": "fuze-raspberry-tea-30-fl-oz",
-      "name": "Fuze Raspberry Tea (30 fl oz)",
+      "name": "Fuze Raspberry Tea",
       "category": "drinks",
-      "serving_desc": "1 serving",
+      "serving_desc": "30 fl oz",
       "serving_g": null,
       "calories": 204.55,
       "fat_g": 0,
@@ -7091,13 +7101,33 @@
       "carbs_g": 57.27,
       "fiber_g": 0,
       "sugars_g": 55.91,
-      "protein_g": 0
+      "protein_g": 0,
+      "variant_label": "30 fl oz",
+      "variant_of": "fuze-raspberry-tea-20-fl-oz"
+    },
+    {
+      "id": "minute-maid-lemonade-20-fl-oz",
+      "name": "Minute Maid Lemonade",
+      "category": "drinks",
+      "serving_desc": "20 fl oz",
+      "serving_g": null,
+      "calories": 227.27,
+      "fat_g": 0,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 163.64,
+      "carbs_g": 62.73,
+      "fiber_g": 0,
+      "sugars_g": 60,
+      "protein_g": 0,
+      "variant_label": "20 fl oz"
     },
     {
       "id": "minute-maid-lemonade-30-fl-oz",
-      "name": "Minute Maid Lemonade (30 fl oz)",
+      "name": "Minute Maid Lemonade",
       "category": "drinks",
-      "serving_desc": "1 serving",
+      "serving_desc": "30 fl oz",
       "serving_g": null,
       "calories": 340.91,
       "fat_g": 0,
@@ -7108,13 +7138,33 @@
       "carbs_g": 94.09,
       "fiber_g": 0,
       "sugars_g": 90,
-      "protein_g": 0
+      "protein_g": 0,
+      "variant_label": "30 fl oz",
+      "variant_of": "minute-maid-lemonade-20-fl-oz"
+    },
+    {
+      "id": "sprite-20-fl-oz",
+      "name": "Sprite",
+      "category": "drinks",
+      "serving_desc": "20 fl oz",
+      "serving_g": null,
+      "calories": 240,
+      "fat_g": 0,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 110,
+      "carbs_g": 64,
+      "fiber_g": 0,
+      "sugars_g": 64,
+      "protein_g": 0,
+      "variant_label": "20 fl oz"
     },
     {
       "id": "sprite-30-fl-oz",
-      "name": "Sprite (30 fl oz)",
+      "name": "Sprite",
       "category": "drinks",
-      "serving_desc": "1 serving",
+      "serving_desc": "30 fl oz",
       "serving_g": null,
       "calories": 360,
       "fat_g": 0,
@@ -7125,13 +7175,33 @@
       "carbs_g": 96,
       "fiber_g": 0,
       "sugars_g": 96,
-      "protein_g": 0
+      "protein_g": 0,
+      "variant_label": "30 fl oz",
+      "variant_of": "sprite-20-fl-oz"
+    },
+    {
+      "id": "sweetened-iced-tea-20-fl-oz",
+      "name": "Sweetened Iced Tea",
+      "category": "drinks",
+      "serving_desc": "20 fl oz",
+      "serving_g": null,
+      "calories": 281.82,
+      "fat_g": 0,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 0,
+      "carbs_g": 70.91,
+      "fiber_g": 0,
+      "sugars_g": 70.91,
+      "protein_g": 0,
+      "variant_label": "20 fl oz"
     },
     {
       "id": "sweetened-iced-tea-30-fl-oz",
-      "name": "Sweetened Iced Tea (30 fl oz)",
+      "name": "Sweetened Iced Tea",
       "category": "drinks",
-      "serving_desc": "1 serving",
+      "serving_desc": "30 fl oz",
       "serving_g": null,
       "calories": 422.73,
       "fat_g": 0,
@@ -7142,13 +7212,33 @@
       "carbs_g": 106.36,
       "fiber_g": 0,
       "sugars_g": 106.36,
-      "protein_g": 0
+      "protein_g": 0,
+      "variant_label": "30 fl oz",
+      "variant_of": "sweetened-iced-tea-20-fl-oz"
+    },
+    {
+      "id": "unsweetened-iced-tea-20-fl-oz",
+      "name": "Unsweetened Iced Tea",
+      "category": "drinks",
+      "serving_desc": "20 fl oz",
+      "serving_g": null,
+      "calories": 4.55,
+      "fat_g": 0,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 0,
+      "carbs_g": 0,
+      "fiber_g": 0,
+      "sugars_g": 0,
+      "protein_g": 0,
+      "variant_label": "20 fl oz"
     },
     {
       "id": "unsweetened-iced-tea-30-fl-oz",
-      "name": "Unsweetened Iced Tea (30 fl oz)",
+      "name": "Unsweetened Iced Tea",
       "category": "drinks",
-      "serving_desc": "1 serving",
+      "serving_desc": "30 fl oz",
       "serving_g": null,
       "calories": 6.82,
       "fat_g": 0,
@@ -7159,7 +7249,9 @@
       "carbs_g": 0,
       "fiber_g": 0,
       "sugars_g": 0,
-      "protein_g": 0
+      "protein_g": 0,
+      "variant_label": "30 fl oz",
+      "variant_of": "unsweetened-iced-tea-20-fl-oz"
     },
     {
       "id": "avocado-shakes-extras",

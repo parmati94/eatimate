@@ -546,25 +546,8 @@
       "protein_g": 4
     },
     {
-      "id": "hot-sour-soup-bowl",
-      "name": "Hot & Sour Soup (Bowl)",
-      "category": "soup",
-      "serving_desc": "17.4 oz",
-      "serving_g": 493,
-      "calories": 170,
-      "fat_g": 6,
-      "sat_fat_g": 1,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 90,
-      "sodium_mg": 1260,
-      "carbs_g": 20,
-      "fiber_g": 1,
-      "sugars_g": 6,
-      "protein_g": 10
-    },
-    {
       "id": "hot-sour-soup-cup",
-      "name": "Hot & Sour Soup (Cup)",
+      "name": "Hot & Sour Soup",
       "category": "soup",
       "serving_desc": "12.2 oz",
       "serving_g": 346,
@@ -577,7 +560,27 @@
       "carbs_g": 14,
       "fiber_g": 1,
       "sugars_g": 4,
-      "protein_g": 7
+      "protein_g": 7,
+      "variant_label": "Cup"
+    },
+    {
+      "id": "hot-sour-soup-bowl",
+      "name": "Hot & Sour Soup",
+      "category": "soup",
+      "serving_desc": "17.4 oz",
+      "serving_g": 493,
+      "calories": 170,
+      "fat_g": 6,
+      "sat_fat_g": 1,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 90,
+      "sodium_mg": 1260,
+      "carbs_g": 20,
+      "fiber_g": 1,
+      "sugars_g": 6,
+      "protein_g": 10,
+      "variant_label": "Bowl",
+      "variant_of": "hot-sour-soup-cup"
     },
     {
       "id": "chili-sauce",

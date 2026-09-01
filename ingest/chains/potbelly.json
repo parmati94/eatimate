@@ -421,10 +421,132 @@
    "flow": "extras"
   }
  ],
- "items": {},
+ "items": {
+  "Bread - Originals/Bread - White": {
+   "cat": "bread",
+   "mode_selector": true,
+   "name": "White Bread",
+   "variant_family": "white",
+   "variant_label": "Original"
+  },
+  "Bread - BIGS/Bread - White, BIGS": {
+   "cat": "bread",
+   "mode_selector": true,
+   "name": "White Bread",
+   "variant_family": "white",
+   "variant_label": "BIGS"
+  },
+  "Bread - SKINNYS/Bread - White, Skinny": {
+   "cat": "bread",
+   "mode_selector": true,
+   "name": "White Bread",
+   "variant_family": "white",
+   "variant_label": "Skinny"
+  },
+  "Bread - Originals/Bread - White, Thin-Cut": {
+   "cat": "bread",
+   "mode_selector": true,
+   "name": "White Bread, Thin-Cut",
+   "variant_family": "white-thin",
+   "variant_label": "Original"
+  },
+  "Bread - BIGS/Bread - White, BIGS, Thin-Cut": {
+   "cat": "bread",
+   "mode_selector": true,
+   "name": "White Bread, Thin-Cut",
+   "variant_family": "white-thin",
+   "variant_label": "BIGS"
+  },
+  "Bread - SKINNYS/Bread - White, Skinny, Thin-Cut": {
+   "cat": "bread",
+   "mode_selector": true,
+   "name": "White Bread, Thin-Cut",
+   "variant_family": "white-thin",
+   "variant_label": "Skinny"
+  },
+  "Bread - Originals/Bread - Multigrain": {
+   "cat": "bread",
+   "mode_selector": true,
+   "name": "Multigrain Bread",
+   "variant_family": "multigrain",
+   "variant_label": "Original"
+  },
+  "Bread - BIGS/Bread - Multigrain, BIGS": {
+   "cat": "bread",
+   "mode_selector": true,
+   "name": "Multigrain Bread",
+   "variant_family": "multigrain",
+   "variant_label": "BIGS"
+  },
+  "Bread - SKINNYS/Bread - Multigrain, Skinny": {
+   "cat": "bread",
+   "mode_selector": true,
+   "name": "Multigrain Bread",
+   "variant_family": "multigrain",
+   "variant_label": "Skinny"
+  },
+  "Bread - Originals/Bread - Multigrain, Thin-Cut": {
+   "cat": "bread",
+   "mode_selector": true,
+   "name": "Multigrain Bread, Thin-Cut",
+   "variant_family": "multigrain-thin",
+   "variant_label": "Original"
+  },
+  "Bread - BIGS/Bread - Multigrain, BIGS, Thin-Cut": {
+   "cat": "bread",
+   "mode_selector": true,
+   "name": "Multigrain Bread, Thin-Cut",
+   "variant_family": "multigrain-thin",
+   "variant_label": "BIGS"
+  },
+  "Bread - SKINNYS/Bread - Multigrain, Skinny, Thin-Cut": {
+   "cat": "bread",
+   "mode_selector": true,
+   "name": "Multigrain Bread, Thin-Cut",
+   "variant_family": "multigrain-thin",
+   "variant_label": "Skinny"
+  },
+  "Bread - Originals/Bread - FLAT": {
+   "cat": "bread",
+   "mode_selector": true,
+   "name": "Flat Bread",
+   "variant_family": "flat",
+   "variant_label": "Original"
+  },
+  "Bread - SKINNYS/Bread - FLAT": {
+   "cat": "bread",
+   "mode_selector": true,
+   "name": "Flat Bread",
+   "variant_family": "flat",
+   "variant_label": "Skinny"
+  }
+ },
  "section_subtract": {
-  "MENU: Sandwiches - Originals": "Bread - White",
-  "MENU: Sandwiches - BIGS": "Bread - White, BIGS",
-  "MENU: Sandwiches - Skinnys": "Bread - White, Skinny"
- }
+  "MENU: Sandwiches - Originals": "bread-white-originals",
+  "MENU: Sandwiches - BIGS": "bread-white-bigs-bigs",
+  "MENU: Sandwiches - Skinnys": "bread-white-skinny-skinnys"
+ },
+ "name_trim": [
+  {
+   "pattern": "\\s*[-–,]\\s*(Half|Cup|Bowl)\\s*$",
+   "into": "size",
+   "base_label": "Regular",
+   "labels": [
+    "Regular",
+    "Cup",
+    "Bowl",
+    "Half",
+    "20 fl oz",
+    "30 fl oz"
+   ]
+  },
+  {
+   "pattern": "\\s*\\((cup|bowl)\\)\\s*$",
+   "into": "size"
+  },
+  {
+   "pattern": "\\s*\\((\\d+(?:\\.\\d+)?\\s*fl\\s*oz)\\)\\s*$",
+   "into": "size"
+  }
+ ]
 }

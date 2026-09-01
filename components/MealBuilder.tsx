@@ -1,6 +1,14 @@
 "use client";
 
-import { Dispatch, SetStateAction, useEffect, useMemo, useRef, useState } from "react";
+import {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import type { Category, Chain, Component, Totals } from "@/lib/schema";
 import {
   show,
@@ -116,6 +124,7 @@ function ComponentRow({
   variants,
   onVariant,
   qtySteps,
+  addons,
 }: {
   comp: Component;
   qty: number | undefined;
@@ -127,6 +136,9 @@ function ComponentRow({
   variants?: Component[];
   onVariant?: (next: Component) => void;
   qtySteps?: number[];
+  /** Extras that ride along with this row, rendered beneath it inside the same
+   *  list item so they read as belonging to it rather than as siblings. */
+  addons?: ReactNode;
 }) {
   const selected = !!qty;
   const hasVariants = !!variants && variants.length > 1;
@@ -143,18 +155,20 @@ function ComponentRow({
             onToggle();
           }
         }}
-        // A row carrying size chips is two lines taller than one without, so it
-        // aligns to the top: centring put the radio halfway down the chips,
-        // level with nothing.
-        className={`flex min-h-12 cursor-pointer gap-3 rounded-xl px-3 py-1.5 outline-none transition-colors focus-visible:ring-2 focus-visible:ring-accent ${
-          hasVariants ? "items-start py-2" : "items-center"
+        // Wraps so the size chips can take a line of their own. They used to
+        // sit inside the name column, which meant selecting the row summoned
+        // the quantity stepper, narrowed that column and bumped the last chip
+        // ("16\" Extra Large") onto a second line -- the row reflowed as a
+        // side effect of being picked.
+        className={`flex min-h-12 cursor-pointer flex-wrap items-center gap-x-3 rounded-xl px-3 py-1.5 outline-none transition-colors focus-visible:ring-2 focus-visible:ring-accent ${
+          hasVariants ? "py-2" : ""
         } ${selected ? "bg-accent-soft" : "hover:bg-surface-2"}`}
       >
         <span
           aria-hidden
           className={`flex h-5 w-5 shrink-0 items-center justify-center border-2 transition-colors ${
-            hasVariants ? "mt-0.5" : ""
-          } ${single ? "rounded-full" : "rounded-md"} ${
+            single ? "rounded-full" : "rounded-md"
+          } ${
             selected
               ? "border-accent bg-accent text-on-accent"
               : "border-line bg-surface"
@@ -190,46 +204,150 @@ function ComponentRow({
               </span>
             )}
           </span>
-          {hasVariants && (
-            // Sizes sit inside the row, so a family reads as one choice. Clicks
-            // must not bubble to the row's own toggle handler.
-            <span
-              className="mt-1.5 flex flex-wrap gap-1.5"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {variants.map((v) => {
-                const active = v.id === comp.id;
-                return (
-                  // 44px: on Buffalo Wild Wings these size chips ARE the
-                  // order -- picking 6 wings or 20 -- and at their old 23px
-                  // they were the smallest targets on the site.
-                  <button
-                    key={v.id}
-                    type="button"
-                    aria-pressed={active}
-                    onClick={() => onVariant?.(v)}
-                    className={`num flex min-h-11 items-center justify-center rounded-lg border px-3 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
-                      active
-                        ? "border-accent bg-accent text-on-accent"
-                        : "border-line bg-surface text-muted hover:border-accent hover:text-accent-strong"
-                    }`}
-                  >
-                    {v.variant_label}
-                  </button>
-                );
-              })}
-            </span>
-          )}
         </span>
         {selected && <QtyStepper qty={qty} onChange={onQty} steps={qtySteps} />}
         {/* Always shown: comparing sizes is the whole point of the size
             buttons, and it is the selected row you are comparing. Stays last
             so the calorie column lines up whether or not a row is selected. */}
-        <span className={`num w-12 shrink-0 text-right text-xs text-muted ${hasVariants ? "mt-0.5" : ""}`}>
+        <span className="num w-12 shrink-0 text-right text-xs text-muted">
           {Math.round(comp.calories * qmult)} cal
         </span>
+        {hasVariants && (
+          // A full-width line of its own, indented to the name above it: the
+          // sizes belong to this row, so they read as one choice with it, but
+          // they must not share width with the quantity stepper. pl-8 clears
+          // the radio (w-5) plus the row's gap-x-3. Clicks must not bubble to
+          // the row's own toggle handler.
+          <span
+            className="mt-1.5 flex basis-full flex-wrap gap-1.5 pl-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {variants.map((v) => {
+              const active = v.id === comp.id;
+              return (
+                // 44px: on Buffalo Wild Wings these size chips ARE the
+                // order -- picking 6 wings or 20 -- and at their old 23px
+                // they were the smallest targets on the site.
+                <button
+                  key={v.id}
+                  type="button"
+                  aria-pressed={active}
+                  onClick={() => onVariant?.(v)}
+                  className={`num flex min-h-11 items-center justify-center rounded-lg border px-3 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                    active
+                      ? "border-accent bg-accent text-on-accent"
+                      : "border-line bg-surface text-muted hover:border-accent hover:text-accent-strong"
+                  }`}
+                >
+                  {v.variant_label}
+                </button>
+              );
+            })}
+          </span>
+        )}
       </div>
+      {addons}
     </li>
+  );
+}
+
+/**
+ * One size family: the row, its size chips and anything that rides along.
+ *
+ * Owns the "size picked but item not selected yet" state, which is why it is a
+ * component rather than inline JSX. That state used to live in CategoryBody,
+ * so the SAME family rendered from the "Make it a meal" block -- which builds
+ * its rows directly -- had chips that did nothing until the item was selected.
+ * Two call sites, two behaviours, from one concept. Now there is one.
+ */
+function FamilyRow({
+  head,
+  members,
+  selections,
+  single,
+  qtySteps,
+  qmultFor,
+  toggle,
+  setQty,
+  addonsOf,
+}: {
+  head: Component;
+  /** The family, head first. Length 1 for a row with no sizes. */
+  members: Component[];
+  selections: Selections;
+  single: boolean;
+  qtySteps?: number[];
+  qmultFor: (comp: Component) => number;
+  toggle: (comp: Component, single: boolean) => void;
+  setQty: (id: string, q: number) => void;
+  addonsOf?: Map<string, Component[]>;
+}) {
+  // A size chosen before the row is selected, so the chips work while you are
+  // still comparing and the calorie figure moves with them.
+  const [preview, setPreview] = useState<string | null>(null);
+  // The row shows whichever size is selected, else the previewed one, else the
+  // default size.
+  const active =
+    members.find((m) => selections[m.id]) ??
+    members.find((m) => m.id === preview) ??
+    head;
+  // Only once the parent is picked -- an add-on reads as "and on that,
+  // also...", which is nonsense before there is a that. Kept open while an
+  // add-on is still selected so nothing can be checked and invisible at once.
+  const addons = addonsOf?.get(active.id) ?? [];
+  const showAddons =
+    addons.length > 0 &&
+    (!!selections[active.id] || addons.some((a) => selections[a.id]));
+  return (
+    <ComponentRow
+      comp={active}
+      qty={selections[active.id]}
+      single={single}
+      qmult={qmultFor(active)}
+      qtySteps={qtySteps}
+      onToggle={() => toggle(active, single)}
+      onQty={(q) => setQty(active.id, q)}
+      variants={members.length > 1 ? members : undefined}
+      addons={
+        showAddons ? (
+          // Indented under a rule that starts at the parent's radio, so the
+          // nesting is read from the same left edge the choice was made on.
+          // Deliberately NOT chips: the size selector picks WHICH of one
+          // thing, these add a second thing, so they stay checkboxes and keep
+          // their own calorie column.
+          <div className="ml-3 border-l-2 border-accent/40 pb-1 pl-2">
+            <p className="px-3 pb-0.5 pt-1 text-[11px] font-medium text-muted">
+              Add to your {active.name.toLowerCase()}
+            </p>
+            <ul className="space-y-0.5">
+              {addons.map((a) => (
+                <ComponentRow
+                  key={a.id}
+                  comp={a}
+                  qty={selections[a.id]}
+                  single={false}
+                  qmult={qmultFor(a)}
+                  qtySteps={qtySteps}
+                  onToggle={() => toggle(a, false)}
+                  onQty={(q) => setQty(a.id, q)}
+                />
+              ))}
+            </ul>
+          </div>
+        ) : undefined
+      }
+      onVariant={(next) => {
+        if (next.id === active.id) return;
+        setPreview(next.id);
+        const qty = selections[active.id];
+        // Switching size moves the selection rather than adding a second row,
+        // and carries the quantity across.
+        if (qty) {
+          setQty(active.id, 0);
+          setQty(next.id, qty);
+        }
+      }}
+    />
   );
 }
 
@@ -252,20 +370,31 @@ function CategoryBody({
 }) {
   const [filter, setFilter] = useState("");
   const [expanded, setExpanded] = useState(false);
-  // Size chosen on a row that is not selected yet, so the buttons work before
-  // you commit to the item and the calories update as you compare.
-  const [preview, setPreview] = useState<Record<string, string>>({});
   const single = cat.select === "single";
+  // Extras belonging to one specific row (Domino's garlic oil, which exists
+  // only on Hand Tossed). Keyed by the exact component they attach to, not by
+  // its family: the parent is already size-resolved, so garlic oil on a medium
+  // is a different row from garlic oil on a large.
+  const addonsOf = useMemo(() => {
+    const m = new Map<string, Component[]>();
+    for (const c of comps) {
+      if (!c.addon_of) continue;
+      m.set(c.addon_of, [...(m.get(c.addon_of) ?? []), c]);
+    }
+    return m;
+  }, [comps]);
   // Collapse size families ("Small/Medium/Large Fries") into one row carrying a
   // size selector. Members share a name, so filtering keeps a family together.
+  // Add-ons are pulled out here and re-rendered under their parent below;
+  // leaving them in would list them as alternatives to the thing they extend.
   const families = useMemo(() => {
     const kids = new Map<string, Component[]>();
     for (const c of comps) {
-      if (!c.variant_of) continue;
+      if (!c.variant_of || c.addon_of) continue;
       kids.set(c.variant_of, [...(kids.get(c.variant_of) ?? []), c]);
     }
     return comps
-      .filter((c) => !c.variant_of)
+      .filter((c) => !c.variant_of && !c.addon_of)
       .map((head) => ({ head, members: [head, ...(kids.get(head.id) ?? [])] }));
   }, [comps]);
   const matched = filter
@@ -300,37 +429,20 @@ function CategoryBody({
         </label>
       )}
       <ul className="space-y-0.5">
-        {shown.map(({ head, members }) => {
-          // The row shows whichever size is selected, else the default size.
-          const active =
-            members.find((m) => selections[m.id]) ??
-            members.find((m) => m.id === preview[head.id]) ??
-            head;
-          return (
-            <ComponentRow
-              key={head.id}
-              comp={active}
-              qty={selections[active.id]}
-              single={single}
-              qmult={qmultFor(active)}
-              qtySteps={qtySteps}
-              onToggle={() => toggle(active, single)}
-              onQty={(q) => setQty(active.id, q)}
-              variants={members.length > 1 ? members : undefined}
-              onVariant={(next) => {
-                if (next.id === active.id) return;
-                setPreview((p) => ({ ...p, [head.id]: next.id }));
-                const qty = selections[active.id];
-                // Switching size moves the selection rather than adding a second
-                // row, and carries the quantity across.
-                if (qty) {
-                  setQty(active.id, 0);
-                  setQty(next.id, qty);
-                }
-              }}
-            />
-          );
-        })}
+        {shown.map(({ head, members }) => (
+          <FamilyRow
+            key={head.id}
+            head={head}
+            members={members}
+            selections={selections}
+            single={single}
+            qtySteps={qtySteps}
+            qmultFor={qmultFor}
+            toggle={toggle}
+            setQty={setQty}
+            addonsOf={addonsOf}
+          />
+        ))}
         {shown.length === 0 && (
           <li className="px-3 py-2 text-sm text-muted">No matches.</li>
         )}
@@ -346,6 +458,17 @@ function CategoryBody({
       )}
     </div>
   );
+}
+
+/**
+ * How many choices a category actually offers.
+ *
+ * Not comps.length: sizes collapse into one row carrying chips, and add-ons
+ * render inside their parent's row. Potbelly's bread is 15 components and 6
+ * choices, and a header reading "15" over six rows is just wrong.
+ */
+function choiceCount(comps: Component[]): number {
+  return comps.filter((c) => !c.variant_of && !c.addon_of).length;
 }
 
 /** Display name including its size, so "Fries" never loses which one. */
@@ -677,7 +800,7 @@ function ExtrasSection({
     >
       <SectionHeader
         name={cat.name}
-        count={comps.length}
+        count={choiceCount(comps)}
         summary={picksSummary(comps, selections)}
         open={open}
       />
@@ -1111,7 +1234,7 @@ export default function MealBuilder({
                 <SectionHeader
                   index={idx + 1}
                   name={cat.name}
-                  count={comps.length}
+                  count={choiceCount(comps)}
                   summary={picksSummary(comps, selections)}
                   open={open}
                   onClick={() => setOpenCat(open ? null : cat.id)}
@@ -1149,36 +1272,23 @@ export default function MealBuilder({
                 <div key={cat.id}>
                   <p className="px-1 pb-1 text-xs text-muted">{cat.name}</p>
                   <ul className="space-y-0.5">
-                    {comps.map((head) => {
-                      const members = [
-                        head,
-                        ...(visibleByCategory.get(cat.id) ?? []).filter(
-                          (c) => c.variant_of === head.id,
-                        ),
-                      ];
-                      const active =
-                        members.find((m) => selections[m.id]) ?? head;
-                      return (
-                        <ComponentRow
-                          key={head.id}
-                          comp={active}
-                          qty={selections[active.id]}
-                          single={cat.select === "single"}
-                          qmult={rowMult(active)}
-                          onToggle={() => toggle(active, cat.select === "single")}
-                          onQty={(q) => setQty(active.id, q)}
-                          variants={members.length > 1 ? members : undefined}
-                          onVariant={(next) => {
-                            if (next.id === active.id) return;
-                            const q = selections[active.id];
-                            if (q) {
-                              setQty(active.id, 0);
-                              setQty(next.id, q);
-                            }
-                          }}
-                        />
-                      );
-                    })}
+                    {comps.map((head) => (
+                      <FamilyRow
+                        key={head.id}
+                        head={head}
+                        members={[
+                          head,
+                          ...(visibleByCategory.get(cat.id) ?? []).filter(
+                            (c) => c.variant_of === head.id,
+                          ),
+                        ]}
+                        selections={selections}
+                        single={cat.select === "single"}
+                        qmultFor={rowMult}
+                        toggle={toggle}
+                        setQty={setQty}
+                      />
+                    ))}
                   </ul>
                 </div>
               ))}
