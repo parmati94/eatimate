@@ -150,6 +150,13 @@
  ],
  "categories": [
   {
+   "id": "size",
+   "name": "Bread & Size",
+   "select": "single",
+   "flow": "preset",
+   "note": "Jimmy John's publishes a separate set of figures for each bread, so this decides which sandwiches and which add-on portions apply."
+  },
+  {
    "id": "sandwich",
    "name": "Sandwiches",
    "select": "single",
@@ -159,20 +166,21 @@
    "id": "bread",
    "name": "Bread",
    "select": "single",
-   "flow": "build"
+   "flow": "build",
+   "note": "Building from scratch: this is the bread on its own. A named sandwich already includes it."
   },
   {
    "id": "addons",
    "name": "Add-ons",
    "select": "multi",
-   "flow": "build",
-   "note": "Jimmy John's publishes every add-on at three portions - EZ, regular and XTRA - and the values differ by bread size."
+   "flow": "extras",
+   "note": "Every add-on is published at three portions - EZ, regular and XTRA - and the figures differ by bread size."
   },
   {
    "id": "freebies",
    "name": "Freebies",
    "select": "multi",
-   "flow": "build"
+   "flow": "extras"
   },
   {
    "id": "sides",
@@ -261,5 +269,56 @@
    ]
   },
   "FREEBIES - 16\" FRENCH": "french-16"
- }
+ },
+ "synthetic": [
+  {
+   "id": "size-little-johns",
+   "name": "Little John",
+   "cat": "size",
+   "desc": "the small one",
+   "size_mode": "little-johns"
+  },
+  {
+   "id": "size-french-8",
+   "name": "8\" French",
+   "cat": "size",
+   "desc": "the standard sub",
+   "size_mode": "french-8"
+  },
+  {
+   "id": "size-french-16",
+   "name": "16\" French",
+   "cat": "size",
+   "desc": "the big one",
+   "size_mode": "french-16"
+  },
+  {
+   "id": "size-unwich",
+   "name": "Unwich (Lettuce Wrap)",
+   "cat": "size",
+   "desc": "no bread",
+   "size_mode": "unwich"
+  },
+  {
+   "id": "size-wheat",
+   "name": "Thick-Sliced Wheat",
+   "cat": "size",
+   "desc": "sliced bread",
+   "size_mode": "wheat"
+  },
+  {
+   "id": "size-garlic-wrap",
+   "name": "Garlic & Herb Wrap",
+   "cat": "size",
+   "desc": "wrap",
+   "size_mode": "garlic-wrap"
+  },
+  {
+   "id": "size-flour-wrap",
+   "name": "Flour Wrap",
+   "cat": "size",
+   "desc": "wrap",
+   "size_mode": "flour-wrap"
+  }
+ ]
 }
