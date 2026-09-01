@@ -26,7 +26,9 @@
     "multipliers": {
      "base": 1,
      "topping": 1
-    }
+    },
+    "portion_count": 8,
+    "note": "8 slices"
    },
    {
     "id": "detroit",
@@ -34,10 +36,20 @@
     "multipliers": {
      "base": 1,
      "topping": 1
-    }
+    },
+    "portion_count": 8,
+    "note": "8 slices"
    }
   ],
-  "default_flow": "build"
+  "default_flow": "build",
+  "portion": {
+   "unit": "slice",
+   "categories": [
+    "item",
+    "base",
+    "topping"
+   ]
+  }
  },
  "layout": {
   "columns": [
@@ -198,5 +210,16 @@
     "reason": "The flyer prints 32 g sugar against 4 g total carbohydrate for this dip, and sugar cannot exceed the carbohydrate it is part of. Buffalo Ranch -- the same dressing with hot sauce -- prints 3 g against the same 4 g of carbohydrate, so that is the figure used. Its 48 mg sodium is left exactly as printed: low for a dressing, but nothing in the row contradicts it."
    }
   ]
+ },
+ "portion_split": {
+  "categories": [
+   "item",
+   "base",
+   "topping"
+  ],
+  "per": 8,
+  "unit": "slice",
+  "whole": "pizza",
+  "reason": "Little Caesars publishes this per whole pizza; divided by the eight slices they cut it into, so a slice can be added to a meal the way Domino's and Papa John's already are. Both figures are theirs -- eight of these is the pizza they print."
  }
 }

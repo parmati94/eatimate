@@ -356,10 +356,27 @@ export default function MealBuilder({
           chain.components.some((c) => c.category === cat.id && vis(c)),
       );
       const idx = cats.findIndex((c) => c.id === comp.category);
-      // Stay put when the row carries a size selector: advancing would collapse
-      // the step before the size has been chosen, so getting it wrong means
-      // going back. Rows without a size still advance as before.
-      if (idx >= 0 && !comp.variant_label) {
+      // Stay put when picking this row OPENS something on it.
+      //
+      // A size selector is one such thing: advancing collapses the step before
+      // the size is chosen, so getting it wrong means going back. Add-ons are
+      // another, and worse -- they only exist once their parent is picked, so
+      // advancing shows them and hides them in the same frame. Little Caesars'
+      // stuffed crust and Domino's garlic oil both appeared and vanished on
+      // the click that revealed them.
+      const opens =
+        // A LABEL is not a selector. Domino's Pan carries '12" Medium' and has
+        // no siblings, so no chips render and there is nothing to hold the
+        // step open for -- what matters is whether the row is actually part of
+        // a family.
+        !!comp.variant_of ||
+        chain.components.some((c) => c.variant_of === comp.id) ||
+        // `vis`, not isVisible: the add-on is gated on the mode this pick
+        // ACTIVATES, which isVisible cannot know because it reads the mode
+        // still in effect. Domino's parmesan dusting is only_modes
+        // ["md-stuffed"], invisible until the stuffed crust is chosen.
+        chain.components.some((c) => c.addon_of === comp.id && vis(c));
+      if (idx >= 0 && !opens) {
         setOpenCat(cats[idx + 1]?.id ?? null);
       }
     }

@@ -806,6 +806,37 @@ def build(cfg, rows, extra=None):
                             f"you pick the bread yourself; both figures are the "
                             f"chain's own.")
 
+    # A chain that publishes the WHOLE item where the builder wants a share of
+    # it. `portion` in the schema MULTIPLIES a per-slice component up to the
+    # slices eaten -- Papa John's prints "1 slice (4 per pizza)" and four
+    # slices is the pizza. Little Caesars prints the whole pizza, so the same
+    # control read 1950 kcal as one slice of eight and all eight as 15,600.
+    #
+    # Dividing here puts them on the same footing: arithmetic on the chain's
+    # own figure, by the slice count the chain itself states, which is the
+    # standing `derived` exists for. It also makes the chain comparable -- a
+    # pizza page whose numbers are per pizza cannot sit next to two whose
+    # numbers are per slice.
+    ps = cfg.get("portion_split")
+    if ps:
+        per, unit = ps["per"], ps.get("unit", "serving")
+        cats = set(ps["categories"])
+        n = 0
+        for c in comps:
+            if c["category"] not in cats:
+                continue
+            for f in FIELDS:
+                if c.get(f) is not None:
+                    c[f] = round(c[f] / per, 2)
+            if c.get("serving_g"):
+                c["serving_g"] = round(c["serving_g"] / per) or None
+            c["serving_desc"] = f"1 {unit} ({per} per {ps.get('whole', 'item')})"
+            c["derived"] = ps["reason"]
+            n += 1
+        if n:
+            print(f"  portion_split: {n} rows divided by {per} into single {unit}s",
+                  file=sys.stderr)
+
     order = {c["id"]: i for i, c in enumerate(cfg["categories"])}
     comps.sort(key=lambda c: (order[c["category"]], c["_ord"]))  # category order, then items-table order
     for c in comps: c.pop("_ord", None); c.pop("_sec", None); c.pop("_label_pre", None)
