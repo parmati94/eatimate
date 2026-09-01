@@ -57,7 +57,10 @@ from pathlib import Path
 
 FIELDS = ["calories", "fat_g", "sat_fat_g", "trans_fat_g", "cholesterol_mg",
           "sodium_mg", "carbs_g", "fiber_g", "sugars_g", "protein_g"]
-TOK = r"(?:-|<1|\d+(?:\.\d+)?)"
+# "<5" as well as "<1": Jimmy John's declares cholesterol under the FDA's
+# 5 mg threshold that way. Any bound is read as its midpoint, which is what
+# "<1 -> 0.5" already did.
+TOK = r"(?:-|<\d+(?:\.\d+)?|\d+(?:\.\d+)?)"
 
 def slug(s):
     s = s.lower().replace("’", "").replace("'", "").replace("™", "").replace("®", "")
@@ -67,7 +70,7 @@ def slug(s):
 
 def num(x):
     if x == "-": return 0
-    if x == "<1": return 0.5
+    if x.startswith("<"): return float(x[1:]) / 2
     return int(x) if re.fullmatch(r"\d+", x) else float(x)
 
 SERV = re.compile(r"\((\.?\d+(?:\.\d+)?)\s*(oz\.?|\")\s*\)")
@@ -137,6 +140,51 @@ def parse_dump(path, layout):
         if not line or line.startswith("=====") or (skip_re and skip_re.match(line)):
             continue
         lines.append(line)
+    # Portion-tier tables (Jimmy John's ADD-ONS / FREEBIES): the chain prints
+    # one block per item, one line per portion, and puts the item's name on
+    # only ONE line of the block -- the middle one:
+    #     EZ    15 0 0 ...
+    #     Ham   REG   35 10 1 ...
+    #     XTRA  70 15 1.5 ...
+    # Give every line the block's name and its own tier, so each becomes an
+    # ordinary "<name> <tier> <numbers>" row. `name_variants` then collapses
+    # the three into one row with an EZ/REG/XTRA selector, exactly as it does
+    # for a size family -- the tiers ARE portion sizes of one ingredient.
+    tier_cfg = layout.get("tier_rows")
+    if tier_cfg:
+        tier_sec = re.compile(tier_cfg["sections"])
+        tiers = tier_cfg["tiers"]
+        alt = "|".join(re.escape(t) for t in tiers)
+        tier_re = re.compile(rf"^(?P<name>.*?)\s*\b(?P<tier>{alt})\b\s+(?P<nums>[<\d].*)$")
+        out, i, in_tier = [], 0, False
+        while i < len(lines):
+            if sec_re.match(lines[i]):
+                in_tier = bool(tier_sec.match(lines[i]))
+                out.append(lines[i]); i += 1; continue
+            if not in_tier or not tier_re.match(lines[i]):
+                out.append(lines[i]); i += 1; continue
+            block = []
+            while i < len(lines):
+                m = tier_re.match(lines[i])
+                if not m:
+                    break
+                block.append(m); i += 1
+                # The last tier closes the block, so an item whose name sits on
+                # a later line cannot absorb the next item's rows.
+                if m.group("tier") == tiers[-1]:
+                    break
+            name = next((m.group("name").strip() for m in block if m.group("name").strip()), "")
+            # Emit the default portion first so it becomes the variant family's
+            # head: tapping the row should give you what the shop actually puts
+            # on the sandwich, not the lightest option, which would understate
+            # every meal built from it.
+            head = tier_cfg.get("head")
+            if head:
+                block.sort(key=lambda m: m.group("tier") != head)
+            for m in block:
+                out.append(f"{name} {m.group('tier')} {m.group('nums')}".strip())
+        lines = out
+
     # join wrapped names: "<name part>" / "<numbers>" / "<name rest>"
     joined, i = [], 0
     while i < len(lines):
@@ -342,10 +390,18 @@ def build(cfg, rows, extra=None):
                 if not mv:
                     continue
                 fam_txt, label = mv.group("family").strip(), mv.group("label").strip()
+                # Qualify the family by the section's mode. Jimmy John's prints
+                # the same add-on ladder once per bread size, so a single global
+                # "addons/ham" family would make every later size point at the
+                # first size's head -- and the head at itself.
+                fam_mode = (cfg.get("section_modes", {}).get(f"{r.section}/{r.sub}")
+                            or cfg.get("section_modes", {}).get(r.section or ""))
+                if isinstance(fam_mode, dict):
+                    fam_mode = fam_mode["id"]
                 spec.setdefault("name", fam_txt)
                 spec.setdefault("id", slug(r.printed))
                 spec["variant_label"] = label
-                fam = f"{spec.get('cat')}/{slug(fam_txt)}"
+                fam = f"{spec.get('cat')}/{fam_mode or ''}/{slug(fam_txt)}"
                 if fam in families:
                     spec["variant_of"] = families[fam]
                 else:
@@ -371,6 +427,15 @@ def build(cfg, rows, extra=None):
         if "skip" in spec: r.used = True; continue
         sec_modes = cfg.get("section_modes", {})
         mode = sec_modes.get(f"{r.section}/{r.sub}") or sec_modes.get(r.section or "")
+        # A section may serve SEVERAL formats at once: Jimmy John's publishes
+        # one add-on table for 8" French, Unwich, sliced wheat and both wraps,
+        # because the portion is the same on all of them. Then the row is
+        # visible under every one of those modes but its id is qualified by the
+        # group, so the five formats do not each mint a duplicate.
+        modes_visible = None
+        if isinstance(mode, dict):
+            modes_visible = list(mode["modes"])
+            mode = mode["id"]
         base_ord = order_of.get(id(r), len(keys) + len(comps))
         for n, sp in enumerate([spec] + spec.get("copies", [])):
             c = make_component(r, layout, sp.get("cat", spec["cat"]), sp.get("id"), sp.get("name"), sp.get("desc"))
@@ -405,7 +470,7 @@ def build(cfg, rows, extra=None):
                 # gates visibility, and the values are the chain's own for that
                 # crust-and-size, not a multiplier applied to a base.
                 c["id"] = f"{c['id']}-{mode}"
-                c["only_modes"] = [mode]
+                c["only_modes"] = list(modes_visible or [mode])
                 # A variant's head is per-mode too, so the reference has to be
                 # qualified the same way or it points at a component that the
                 # mode suffix has renamed out from under it.

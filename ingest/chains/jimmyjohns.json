@@ -1,0 +1,373 @@
+{
+ "meta": {
+  "name": "Jimmy John's",
+  "slug": "jimmyjohns",
+  "source": {
+   "pdf_url": "https://resources.jimmyjohns.com/downloadable-files/NutritionGuide.pdf",
+   "retrieved": "2026-08-31",
+   "format": "pdf",
+   "fetch": "asset",
+   "dump_sha256": "18e554af0033a9622a70dccaafb48bf9c52f04302606e660c9bac7f3a2883341",
+   "asset_sha256": "d2ab129cf78853ee68814e9ca448dd05b20e77ecf7d5dfd9634165137f584eb1"
+  },
+  "disclaimer_extra": "Jimmy John's publishes each add-on and freebie at three portion levels — EZ, regular and XTRA — and republishes the whole set for each bread size, because the same topping is portioned differently on a Little John than on a 16\" French. Pick your sandwich first and the add-on list shows the values for that size.",
+  "blurb": "Start from any Jimmy John's sandwich — Little John, 8\" or 16\" French, Unwich, sliced wheat or a wrap — then add meats, cheese and freebies at the EZ, regular or XTRA portion the chain actually publishes.",
+  "glyph": "sub",
+  "formats": [
+   "Sub",
+   "Unwich",
+   "Wrap",
+   "Little John"
+  ],
+  "size_modes": [
+   {
+    "id": "little-johns",
+    "name": "Little John",
+    "multipliers": {}
+   },
+   {
+    "id": "french-8",
+    "name": "8\" French",
+    "default": true,
+    "multipliers": {}
+   },
+   {
+    "id": "french-16",
+    "name": "16\" French",
+    "multipliers": {}
+   },
+   {
+    "id": "unwich",
+    "name": "Unwich",
+    "multipliers": {}
+   },
+   {
+    "id": "wheat",
+    "name": "Sliced Wheat",
+    "multipliers": {}
+   },
+   {
+    "id": "garlic-wrap",
+    "name": "Garlic Herb Wrap",
+    "multipliers": {}
+   },
+   {
+    "id": "flour-wrap",
+    "name": "Flour Wrap",
+    "multipliers": {}
+   }
+  ]
+ },
+ "layout": {
+  "columns": [
+   "calories",
+   "cff",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g"
+  ],
+  "allergen": false,
+  "serving": null,
+  "sections": "^(SANDWICHES - .+|ADD-ONS - .+|FREEBIES - .+|BREAD / .+|FOUNTAIN DRINKS.*|DESSERTS & SIDES|BOTTLED DRINKS)$",
+  "pre_replace": [
+   [
+    "<\\s+(\\d)",
+    "<\\1"
+   ],
+   [
+    "\\s*\\(C[0O]NT\\.\\)\\s*$",
+    ""
+   ],
+   [
+    "\\u00ae",
+    ""
+   ],
+   [
+    "[\\u2018\\u2019]",
+    "'"
+   ],
+   [
+    "[\\u201c\\u201d]",
+    "\""
+   ],
+   [
+    "\\u2013",
+    "-"
+   ],
+   [
+    "(?<=\\s)(\\.\\d)",
+    "0\\1"
+   ]
+  ],
+  "skip": "^(NUTRITION INFORMATION|ALLERGEN INFORMATION|Calories|Portion|Fat \\(g\\)|Total Fat|Saturated Fat|Trans Fat|Cholesterol|Sodium|Carbohydrates|Dietary|Sugars|Protein|Calories from|2,000 CALORIES A DAY|MENU ITEMS VARY BY LOCATION|Effective \\d|Standard Menu Item|Shellfish|\\u221a|[A-Z0-9\" ]+ Calories Total Fat)",
+  "tier_rows": {
+   "sections": "^(ADD-ONS|FREEBIES|SEASONAL ADD-ONS)",
+   "tiers": [
+    "EZ",
+    "REG",
+    "XTRA"
+   ],
+   "head": "REG"
+  },
+  "start": "^SANDWICHES - LITTLE JOHNS$",
+  "stop": "^BREAKFAST MENU ITEMS"
+ },
+ "section_categories": {
+  "SANDWICHES - LITTLE JOHNS": "sandwich",
+  "SANDWICHES - 8\" FRENCH": "sandwich",
+  "SANDWICHES - 16\" FRENCH": "sandwich",
+  "SANDWICHES - UNWICH": "sandwich",
+  "SANDWICHES - SLICED WHEAT": "sandwich",
+  "SANDWICHES - GARLIC HERB WRAP": "sandwich",
+  "SANDWICHES - FLOUR WRAP": "sandwich",
+  "BREAD / UNWICH / WRAPS": "bread",
+  "ADD-ONS - LITTLE JOHNS": "addons",
+  "ADD-ONS - 8\" FRENCH / UNWICH / SLICED WHEAT / WRAPS": "addons",
+  "ADD-ONS - 16\" FRENCH": "addons",
+  "FREEBIES - LITTLE JOHNS": "freebies",
+  "FREEBIES - 8\" FRENCH / UNWICH / SLICED WHEAT / WRAPS": "freebies",
+  "FREEBIES - 16\" FRENCH": "freebies",
+  "DESSERTS & SIDES": "sides",
+  "BOTTLED DRINKS": "drinks",
+  "FOUNTAIN DRINKS - 22 OZ": {
+   "cat": "drinks",
+   "suffix": "22 oz",
+   "id_suffix": "22oz"
+  },
+  "FOUNTAIN DRINKS - 30/32 OZ": {
+   "skip": "prints 30 oz and 32 oz column-by-column in one row with no separator, so the pair cannot be told from two ordinary cells; the same drinks are ingested at 22 oz"
+  }
+ },
+ "name_variants": [
+  {
+   "pattern": "^(?P<family>.+?) (?P<label>EZ|REG|XTRA)$"
+  }
+ ],
+ "categories": [
+  {
+   "id": "size",
+   "name": "Bread & Size",
+   "select": "single",
+   "flow": "preset",
+   "note": "Jimmy John's publishes a separate set of figures for each bread, so this decides which sandwiches and which add-on portions apply."
+  },
+  {
+   "id": "sandwich",
+   "name": "Sandwiches",
+   "select": "single",
+   "flow": "preset"
+  },
+  {
+   "id": "bread",
+   "name": "Bread",
+   "select": "single",
+   "flow": "build",
+   "note": "Building from scratch: this is the bread on its own. A named sandwich already includes it."
+  },
+  {
+   "id": "addons",
+   "name": "Add-ons",
+   "select": "multi",
+   "flow": "extras",
+   "note": "Every add-on is published at three portions - EZ, regular and XTRA - and the figures differ by bread size."
+  },
+  {
+   "id": "freebies",
+   "name": "Freebies",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "sides",
+   "name": "Sides & Desserts",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "drinks",
+   "name": "Drinks",
+   "select": "multi",
+   "flow": "extras"
+  }
+ ],
+ "items": {
+  "8\" French TBO": {
+   "cat": "bread",
+   "size_mode": "french-8"
+  },
+  "8\" French LBI": {
+   "cat": "bread",
+   "size_mode": "french-8"
+  },
+  "16\" French TBO": {
+   "cat": "bread",
+   "size_mode": "french-16"
+  },
+  "16\" French LBI": {
+   "cat": "bread",
+   "size_mode": "french-16"
+  },
+  "Thick-Sliced Wheat": {
+   "cat": "bread",
+   "size_mode": "wheat"
+  },
+  "Unwich (Lettuce Wrap)": {
+   "cat": "bread",
+   "size_mode": "unwich"
+  },
+  "Little John French TBO (Standard)": {
+   "cat": "bread",
+   "size_mode": "little-johns"
+  },
+  "Little John French LBI (By Request)": {
+   "cat": "bread",
+   "size_mode": "little-johns"
+  },
+  "Flour Wrap": {
+   "cat": "bread",
+   "size_mode": "flour-wrap"
+  },
+  "Garlic & Herb Wrap": {
+   "cat": "bread",
+   "size_mode": "garlic-wrap"
+  },
+  "SLIM 1": {
+   "cat": "sandwich",
+   "name": "Ham & Provolone"
+  },
+  "SLIM 2": {
+   "cat": "sandwich",
+   "name": "Roast Beef"
+  },
+  "SLIM 3": {
+   "cat": "sandwich",
+   "name": "Tuna Salad"
+  },
+  "SLIM 4": {
+   "cat": "sandwich",
+   "name": "Turkey"
+  },
+  "SLIM 5": {
+   "cat": "sandwich",
+   "name": "Salami, Capocollo & Provolone"
+  },
+  "SLIM 6": {
+   "cat": "sandwich",
+   "name": "Provolone"
+  },
+  "Little John 1": {
+   "cat": "sandwich",
+   "name": "Ham & Provolone"
+  },
+  "Little John 2": {
+   "cat": "sandwich",
+   "name": "Roast Beef"
+  },
+  "Little John 3": {
+   "cat": "sandwich",
+   "name": "Tuna Salad"
+  },
+  "Little John 4": {
+   "cat": "sandwich",
+   "name": "Turkey"
+  },
+  "Little John 5": {
+   "cat": "sandwich",
+   "name": "Salami & Capocollo"
+  },
+  "Little John 6": {
+   "cat": "sandwich",
+   "name": "Provolone & Avocado"
+  }
+ },
+ "section_modes": {
+  "SANDWICHES - LITTLE JOHNS": "little-johns",
+  "SANDWICHES - 8\" FRENCH": "french-8",
+  "SANDWICHES - 16\" FRENCH": "french-16",
+  "SANDWICHES - UNWICH": "unwich",
+  "SANDWICHES - SLICED WHEAT": "wheat",
+  "SANDWICHES - GARLIC HERB WRAP": "garlic-wrap",
+  "SANDWICHES - FLOUR WRAP": "flour-wrap",
+  "ADD-ONS - LITTLE JOHNS": "little-johns",
+  "ADD-ONS - 8\" FRENCH / UNWICH / SLICED WHEAT / WRAPS": {
+   "id": "std",
+   "modes": [
+    "french-8",
+    "unwich",
+    "wheat",
+    "garlic-wrap",
+    "flour-wrap"
+   ]
+  },
+  "ADD-ONS - 16\" FRENCH": "french-16",
+  "FREEBIES - LITTLE JOHNS": "little-johns",
+  "FREEBIES - 8\" FRENCH / UNWICH / SLICED WHEAT / WRAPS": {
+   "id": "std",
+   "modes": [
+    "french-8",
+    "unwich",
+    "wheat",
+    "garlic-wrap",
+    "flour-wrap"
+   ]
+  },
+  "FREEBIES - 16\" FRENCH": "french-16"
+ },
+ "synthetic": [
+  {
+   "id": "size-little-johns",
+   "name": "Little John",
+   "cat": "size",
+   "desc": "the small one",
+   "size_mode": "little-johns"
+  },
+  {
+   "id": "size-french-8",
+   "name": "8\" French",
+   "cat": "size",
+   "desc": "the standard sub",
+   "size_mode": "french-8"
+  },
+  {
+   "id": "size-french-16",
+   "name": "16\" French",
+   "cat": "size",
+   "desc": "the big one",
+   "size_mode": "french-16"
+  },
+  {
+   "id": "size-unwich",
+   "name": "Unwich (Lettuce Wrap)",
+   "cat": "size",
+   "desc": "no bread",
+   "size_mode": "unwich"
+  },
+  {
+   "id": "size-wheat",
+   "name": "Thick-Sliced Wheat",
+   "cat": "size",
+   "desc": "sliced bread",
+   "size_mode": "wheat"
+  },
+  {
+   "id": "size-garlic-wrap",
+   "name": "Garlic & Herb Wrap",
+   "cat": "size",
+   "desc": "wrap",
+   "size_mode": "garlic-wrap"
+  },
+  {
+   "id": "size-flour-wrap",
+   "name": "Flour Wrap",
+   "cat": "size",
+   "desc": "wrap",
+   "size_mode": "flour-wrap"
+  }
+ ]
+}

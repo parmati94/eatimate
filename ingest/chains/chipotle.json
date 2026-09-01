@@ -7,12 +7,19 @@
    "retrieved": "2026-08-31",
    "format": "pdf",
    "page_url": "https://www.chipotle.com/nutrition-calculator",
-   "fetch": "manual"
+   "fetch": "manual",
+   "dump_sha256": "5d6080a0749e43da3303c4f1bebe05581618417e3bc920843dc3a40185308aa0",
+   "asset_sha256": "b1836d0f05a41ca8b5e17e16f2dc571c0cc10756b7fc098c29660f6d1e5d5d0c"
   },
   "disclaimer_extra": "Chipotle's printed nutrition chart is dated March 2025. Items it predates — Chicken Tinga, Chipotle Honey Chicken, Crispy Chicken, Pollo Asado and Cilantro Lime Sauce — come from Chipotle's live online menu, which publishes every nutrient except cholesterol. Those rows are marked, and their cholesterol is our estimate, scaled from Chipotle's own printed figures for comparable items; the workings are listed below. Every other number on them is Chipotle's.",
   "blurb": "Build your Chipotle burrito, bowl, salad or tacos ingredient by ingredient — rice, beans, every protein including the newer ones, salsas, guac and queso.",
   "glyph": "burrito",
-  "formats": ["Burrito", "Bowl", "Salad", "Tacos"],
+  "formats": [
+   "Burrito",
+   "Bowl",
+   "Salad",
+   "Tacos"
+  ],
   "menu_check": {
    "items_url": "https://services.chipotle.com/menu-metadata/v1/menu-metadata/nutrition?channel=web&region=US",
    "names_url": "https://services.chipotle.com/menuinnovation/v1/universalmenus/menurules?country=US",

@@ -3,19 +3,23 @@
   "name": "Five Guys",
   "slug": "fiveguys",
   "source": {
-   "pdf_url": "https://www.fiveguys.com/wp-content/uploads/2026/08/Five-Guys-US-Nutrition-Allergen-Guide-English-June-2026.pdf",
-   "retrieved": "2026-08-30",
+   "pdf_url": "https://www.fiveguys.com/wp-content/uploads/2026/08/Five-Guys-US-Nutrition-Allergen-Guide-English-August-2026.pdf",
+   "retrieved": "2026-08-31",
    "format": "pdf",
    "page_url": "https://www.fiveguys.com/nutritional-information",
    "link_pattern": "Nutrition-Allergen-Guide",
    "fetch": "plain",
-   "dump_sha256": "08f45a3de0e2fdbc05b6a68d1a8039ae0257a33a2adbb6730cfb2ac89e2a4c8f",
-   "asset_sha256": "835116e2aef59945ac403faaced3d56db685344d19166682d75a2d2a78764d4d"
+   "dump_sha256": "ee5bfdb3c735d4be76b9ff0925bbf49bd22d67884dcc10078f1f31421d89a162",
+   "asset_sha256": "21a61297f7ece4627c31528f78436cb40327473d2308ef4d9ceaa58ae295c4e0"
   },
   "disclaimer_extra": "Five Guys' guide (June 2026) lists some items per supplier with near-identical values; the first-listed supplier's row is used. All toppings are free at the counter — free doesn't mean calorie-free.",
   "blurb": "Build your Five Guys order patty by patty — bun, meat, all the free toppings, fries by size and style, even the milkshake mix-ins.",
   "glyph": "burger",
-  "formats": ["Burger", "Hot dog", "Fries"]
+  "formats": [
+   "Burger",
+   "Hot dog",
+   "Fries"
+  ]
  },
  "categories": [
   {
@@ -80,7 +84,7 @@
   "serving": "g",
   "sections": "^[A-Z][A-Z0-9 %'&-]+$",
   "stop": "^INGREDIENT LISTING$",
-  "skip": "^(Nutrition & Allergen Guide|USA$|Five Guys Enterprises|manufacturers of|assume any liability|Nutritional information provided|applicable regulations|nutrition values for each|Recommended limits|NUTRITION ALLERGENS|Serving Calories|Size \\(g\\))",
+  "skip": "^(Nutrition & Allergen Guide|USA$|Five Guys Enterprises|manufacturers of|assume any liability|Nutritional information provided|applicable regulations|nutrition values for each|Recommended limits|NUTRITION ALLERGENS|Serving Calories|Size \\(g\\)|Your safety matters|crustacean shellfish, tree nuts|is made to order by hand|changes to their ingredients|adverse reactions to foods|our suppliers, published|sizes can vary slightly|allows about 20 grams)",
   "pre_replace": [
    [
     "^MIX-INS \\(.*$",
