@@ -141,6 +141,9 @@
     "cheese",
     "topping"
    ]
+  },
+  "consistency": {
+   "no_presets": "Domino's publishes per-component figures only -- crust, sauce, cheese and each topping, per size -- and no whole specialty-pizza row. Assembling one is the reason this page exists. Little Caesars differs only because it prints finished pizzas in its flyer as well as a topping table."
   }
  },
  "categories": [

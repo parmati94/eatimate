@@ -117,7 +117,8 @@
   },
   "consistency": {
     "extras_wing": "Wings are a side ordered alongside a pizza, not a pizza this page can build.",
-    "extras_entree": "Papadias and sandwiches are a different centre of the plate from the pizza this page builds."
+    "extras_entree": "Papadias and sandwiches are a different centre of the plate from the pizza this page builds.",
+    "no_presets": "Papa John's publishes per-component figures only -- crust and size, sauce, cheese and each topping -- and no whole specialty-pizza row. Its Papadias and wings are whole items but a different centre of the plate from the pizza this page builds."
   },
   "categories": [
     {
