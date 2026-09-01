@@ -2,6 +2,7 @@
 
 import {
   Dispatch,
+  Fragment,
   ReactNode,
   SetStateAction,
   useEffect,
@@ -911,6 +912,20 @@ export default function MealBuilder({
       : mode === "scratch"
         ? scratchCats
         : [];
+  // On the menu path, where the numbered run stops being a sequence of choices
+  // and becomes a list of things you may add.
+  //
+  // Everything AFTER the last `preset` category is additive: Potbelly's bread
+  // is `both` and comes first because a sandwich has no size until you pick
+  // one, but its toppings come after the sandwich and are extra. Without the
+  // break, "2 Protein" under a chosen B.M.T. reads as "now choose your meat",
+  // which is the opposite of what starting from a menu item means.
+  const lastPreset = buildCats.map((c) => c.flow).lastIndexOf("preset");
+  const firstAdd =
+    mode === "menu" && lastPreset >= 0 && lastPreset + 1 < buildCats.length
+      ? lastPreset + 1
+      : -1;
+
   // "Make it a meal": the handful of items most orders actually include, lifted
   // out of the extras accordions. Same component ids, so selecting here and
   // selecting below are the same act.
@@ -1218,21 +1233,40 @@ export default function MealBuilder({
           {buildCats.map((cat, idx) => {
             const comps = visibleByCategory.get(cat.id)!;
             const open = openCat === cat.id;
+            const isAdd = firstAdd >= 0 && idx >= firstAdd;
             return (
+              <Fragment key={cat.id}>
+                {idx === firstAdd && (
+                  <div className="px-1 pb-1 pt-3">
+                    <h2 className="text-xs font-semibold uppercase tracking-wider text-muted">
+                      Add to it
+                    </h2>
+                    {/* Not a hedge -- the honest statement. These charts give a
+                        figure for the whole item and never say which
+                        ingredients are in it, so hiding the ones we guessed are
+                        "already included" would be inventing the very thing
+                        that is missing. Everything stays listed, and the line
+                        says what adding one means. */}
+                    <p className="mt-0.5 text-xs leading-relaxed text-muted">
+                      Your pick above is already complete. {chain.name} does not
+                      publish which ingredients are in it, so everything stays
+                      listed here — anything you add counts on top.
+                    </p>
+                  </div>
+                )}
               <section
-                key={cat.id}
                 className={`relative rounded-2xl border bg-surface transition-all ${
                   open
                     ? "border-accent/60 shadow-md ring-1 ring-accent/15"
                     : "border-line shadow-sm"
                 } ${
-                  idx > 0
+                  idx > 0 && idx !== firstAdd
                     ? "before:absolute before:-top-2 before:left-[29px] before:h-2 before:w-0.5 before:bg-line before:content-['']"
                     : ""
                 }`}
               >
                 <SectionHeader
-                  index={idx + 1}
+                  index={isAdd ? undefined : idx + 1}
                   name={cat.name}
                   count={choiceCount(comps)}
                   summary={picksSummary(comps, selections)}
@@ -1258,6 +1292,7 @@ export default function MealBuilder({
                   </>
                 )}
               </section>
+              </Fragment>
             );
           })}
         </div>
