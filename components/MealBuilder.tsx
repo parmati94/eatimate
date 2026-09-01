@@ -132,6 +132,26 @@ export default function MealBuilder({
       visibleByCategory.has(c.id),
   );
   const hasPresets = presetCats.length > 0;
+  /**
+   * Which path a ready-made set of selections belongs to.
+   *
+   * A comparison preloads a build, and a shared ?m= link restores one, but
+   * neither carried a mode -- so a chain that asks "how do you want to start?"
+   * showed that question with the meal already selected behind it and the
+   * total already counting it. If anything picked is preset-only, the meal came
+   * off the menu; otherwise it was built.
+   */
+  const modeOf = (sel: Selections) => {
+    const ids = Object.keys(sel);
+    if (!ids.length) return null;
+    const flow = new Map(chain.categories.map((c) => [c.id, c.flow ?? "build"]));
+    return chain.components.some(
+      (c) => sel[c.id] && flow.get(c.category) === "preset",
+    )
+      ? ("menu" as const)
+      : ("scratch" as const);
+  };
+
   const [mode, setMode] = useState<"menu" | "scratch" | null>(
     chain.default_flow === "build"
       ? "scratch"
@@ -139,6 +159,15 @@ export default function MealBuilder({
         ? "menu"
         : null,
   );
+  // A preloaded comparison never mounts empty, so this settles it before paint
+  // rather than in an effect that would flash the chooser first.
+  const [modeSettled, setModeSettled] = useState(false);
+  if (!modeSettled && mode === null && hasPresets) {
+    const m = modeOf(selections);
+    if (m) setMode(m);
+    setModeSettled(true);
+  }
+
   const buildCats = !hasPresets
     ? scratchCats
     : mode === "menu"
@@ -270,6 +299,7 @@ export default function MealBuilder({
       const sel = decodeMeal(m, chain);
       if (Object.keys(sel).length > 0) {
         setSelections(sel);
+        setMode(modeOf(sel));
         setOpenCat(null);
       }
     }

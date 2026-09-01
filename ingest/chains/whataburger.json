@@ -38,7 +38,8 @@
    "Chicken",
    "Breakfast"
   ],
-  "blurb": "Whataburger is composed from parts more completely than any other chain here: it publishes a weight and a full label for every ingredient, down to a single 15-gram tomato slice, and builds its own menu by counting them. That means you can add a third slice of cheese and get a number Whataburger would agree with."
+  "blurb": "Whataburger is composed from parts more completely than any other chain here: it publishes a weight and a full label for every ingredient, down to a single 15-gram tomato slice, and builds its own menu by counting them. That means you can add a third slice of cheese and get a number Whataburger would agree with.",
+  "default_flow": "menu"
  },
  "layout": {
   "columns": [

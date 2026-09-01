@@ -1,104 +1,285 @@
 {
-  "dishes": [
+ "dishes": [
+  {
+   "id": "chicken-bowl",
+   "name": "Chicken bowl",
+   "rule": "One base, one grain, one grilled chicken, one fresh vegetable topping and one cheese, plus whatever each chain treats as its own standard extra step — beans where the menu has a bean step, a dip where it has one. No guacamole, no chips, no extra dressing, no double protein.",
+   "builds": [
     {
-      "id": "chicken-bowl",
-      "name": "Chicken bowl",
-      "rule": "One base, one grain, one grilled chicken, one fresh vegetable topping and one cheese, plus whatever each chain treats as its own standard extra step — beans where the menu has a bean step, a dip where it has one. No guacamole, no chips, no extra dressing, no double protein.",
-      "builds": [
-        {
-          "chain": "cava",
-          "name": "Grilled Chicken Bowl",
-          "items": ["bowl", "brown-rice", "grilled-chicken", "tzatziki", "tomato-onion", "crumbled-feta"]
-        },
-        {
-          "chain": "chipotle",
-          "name": "Chicken Burrito Bowl",
-          "items": ["no-tortilla", "cilantro-lime-white-rice", "black-beans", "chicken", "fresh-tomato-salsa", "cheese"]
-        },
-        {
-          "chain": "qdoba",
-          "name": "Grilled Adobo Chicken Bowl",
-          "items": ["bowl", "cilantro-lime-rice", "black-beans", "chicken-grilled-adobo", "pico-de-gallo", "cheese-shredded"]
-        },
-        {
-          "chain": "moes",
-          "name": "Adobo Chicken Burrito Bowl",
-          "items": ["bowl", "cilantro-lime-rice-bowl", "black-beans", "adobo-chicken", "house-made-salsa", "oaxaca-cheese"]
-        },
-        {
-          "chain": "caferio",
-          "name": "Fire-Grilled Chicken Salad Bowl",
-          "items": ["no-tortilla", "cilantro-lime-rice", "black-beans", "fire-grilled-chicken", "pico-de-gallo", "shredded-jack-cheese"]
-        }
-      ]
+     "chain": "cava",
+     "name": "Grilled Chicken Bowl",
+     "items": [
+      "bowl",
+      "brown-rice",
+      "grilled-chicken",
+      "tzatziki",
+      "tomato-onion",
+      "crumbled-feta"
+     ]
     },
     {
-      "id": "steak-bowl",
-      "name": "Steak bowl",
-      "rule": "The same build as the chicken bowl with the chain's standard grilled steak in place of the chicken. Nothing else changes.",
-      "builds": [
-        {
-          "chain": "cava",
-          "name": "Grilled Steak Bowl",
-          "items": ["bowl", "brown-rice", "grilled-steak", "tzatziki", "tomato-onion", "crumbled-feta"]
-        },
-        {
-          "chain": "chipotle",
-          "name": "Steak Burrito Bowl",
-          "items": ["no-tortilla", "cilantro-lime-white-rice", "black-beans", "steak", "fresh-tomato-salsa", "cheese"]
-        },
-        {
-          "chain": "qdoba",
-          "name": "Grilled Steak Bowl",
-          "items": ["bowl", "cilantro-lime-rice", "black-beans", "steak-grilled", "pico-de-gallo", "cheese-shredded"]
-        },
-        {
-          "chain": "moes",
-          "name": "Steak Burrito Bowl",
-          "items": ["bowl", "cilantro-lime-rice-bowl", "black-beans", "hand-cut-steak", "house-made-salsa", "oaxaca-cheese"]
-        },
-        {
-          "chain": "caferio",
-          "name": "Fire-Grilled Steak Salad Bowl",
-          "items": ["no-tortilla", "cilantro-lime-rice", "black-beans", "fire-grilled-steak", "pico-de-gallo", "shredded-jack-cheese"]
-        }
-      ]
+     "chain": "chipotle",
+     "name": "Chicken Burrito Bowl",
+     "items": [
+      "no-tortilla",
+      "cilantro-lime-white-rice",
+      "black-beans",
+      "chicken",
+      "fresh-tomato-salsa",
+      "cheese"
+     ]
     },
     {
-      "id": "pepperoni-pizza",
-      "name": "Two slices of pepperoni",
-      "rule": "Two slices of a large hand-tossed pepperoni pizza: the chain's standard large crust, its standard red pizza sauce, its regular cheese and pepperoni — nothing else, and no extra or light portions of any of them. Two slices because that is how a pizza is eaten, not how it is sold.",
-      "builds": [
-        {
-          "chain": "papajohns",
-          "name": "Large Original Crust Pepperoni",
-          "items": ["crust-original-large", "original-sauce-original-large", "cheese-original-large", "pepperoni-original-large"],
-          "portion": 2
-        },
-        {
-          "chain": "dominos",
-          "name": "Large Hand Tossed Pepperoni",
-          "items": ["hand-tossed-lg-hand", "pizza-sauce-lg-hand", "regular-cheese-with-other-toppings-lg-hand", "pepperoni-lg-hand"],
-          "portion": 2
-        }
-      ]
+     "chain": "qdoba",
+     "name": "Grilled Adobo Chicken Bowl",
+     "items": [
+      "bowl",
+      "cilantro-lime-rice",
+      "black-beans",
+      "chicken-grilled-adobo",
+      "pico-de-gallo",
+      "cheese-shredded"
+     ]
     },
     {
-      "id": "boneless-wings",
-      "name": "10 boneless wings",
-      "rule": "Ten boneless wings in the chain's standard hot sauce. Wingstop sauces the wing itself, so the sauce is part of the item; Buffalo Wild Wings sauces separately, so the order is ten wings plus a sauce. No fries, no dip, no celery.",
-      "builds": [
-        {
-          "chain": "wingstop",
-          "name": "10 Original Hot Boneless Wings",
-          "items": ["original-hot-boneless:10"]
-        },
-        {
-          "chain": "bww",
-          "name": "10 Boneless Wings, Hot",
-          "items": ["wings-boneless-10", "hot-boneless-10"]
-        }
-      ]
+     "chain": "moes",
+     "name": "Adobo Chicken Burrito Bowl",
+     "items": [
+      "bowl",
+      "cilantro-lime-rice-bowl",
+      "black-beans",
+      "adobo-chicken",
+      "house-made-salsa",
+      "oaxaca-cheese"
+     ]
+    },
+    {
+     "chain": "caferio",
+     "name": "Fire-Grilled Chicken Salad Bowl",
+     "items": [
+      "no-tortilla",
+      "cilantro-lime-rice",
+      "black-beans",
+      "fire-grilled-chicken",
+      "pico-de-gallo",
+      "shredded-jack-cheese"
+     ]
     }
-  ]
+   ]
+  },
+  {
+   "id": "steak-bowl",
+   "name": "Steak bowl",
+   "rule": "The same build as the chicken bowl with the chain's standard grilled steak in place of the chicken. Nothing else changes.",
+   "builds": [
+    {
+     "chain": "cava",
+     "name": "Grilled Steak Bowl",
+     "items": [
+      "bowl",
+      "brown-rice",
+      "grilled-steak",
+      "tzatziki",
+      "tomato-onion",
+      "crumbled-feta"
+     ]
+    },
+    {
+     "chain": "chipotle",
+     "name": "Steak Burrito Bowl",
+     "items": [
+      "no-tortilla",
+      "cilantro-lime-white-rice",
+      "black-beans",
+      "steak",
+      "fresh-tomato-salsa",
+      "cheese"
+     ]
+    },
+    {
+     "chain": "qdoba",
+     "name": "Grilled Steak Bowl",
+     "items": [
+      "bowl",
+      "cilantro-lime-rice",
+      "black-beans",
+      "steak-grilled",
+      "pico-de-gallo",
+      "cheese-shredded"
+     ]
+    },
+    {
+     "chain": "moes",
+     "name": "Steak Burrito Bowl",
+     "items": [
+      "bowl",
+      "cilantro-lime-rice-bowl",
+      "black-beans",
+      "hand-cut-steak",
+      "house-made-salsa",
+      "oaxaca-cheese"
+     ]
+    },
+    {
+     "chain": "caferio",
+     "name": "Fire-Grilled Steak Salad Bowl",
+     "items": [
+      "no-tortilla",
+      "cilantro-lime-rice",
+      "black-beans",
+      "fire-grilled-steak",
+      "pico-de-gallo",
+      "shredded-jack-cheese"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pepperoni-pizza",
+   "name": "Two slices of pepperoni",
+   "rule": "Two slices of a large hand-tossed pepperoni pizza: the chain's standard large crust, its standard red pizza sauce, its regular cheese and pepperoni — nothing else, and no extra or light portions of any of them. Two slices because that is how a pizza is eaten, not how it is sold.",
+   "builds": [
+    {
+     "chain": "papajohns",
+     "name": "Large Original Crust Pepperoni",
+     "items": [
+      "crust-original-large",
+      "original-sauce-original-large",
+      "cheese-original-large",
+      "pepperoni-original-large"
+     ],
+     "portion": 2
+    },
+    {
+     "chain": "dominos",
+     "name": "Large Hand Tossed Pepperoni",
+     "items": [
+      "hand-tossed-lg-hand",
+      "pizza-sauce-lg-hand",
+      "regular-cheese-with-other-toppings-lg-hand",
+      "pepperoni-lg-hand"
+     ],
+     "portion": 2
+    },
+    {
+     "chain": "littlecaesars",
+     "name": "Large Classic Pepperoni",
+     "items": [
+      "pepperoni-classic"
+     ],
+     "portion": 2
+    }
+   ]
+  },
+  {
+   "id": "boneless-wings",
+   "name": "10 boneless wings",
+   "rule": "Ten boneless wings in the chain's standard hot sauce. Wingstop sauces the wing itself, so the sauce is part of the item; Buffalo Wild Wings sauces separately, so the order is ten wings plus a sauce. No fries, no dip, no celery.",
+   "builds": [
+    {
+     "chain": "wingstop",
+     "name": "10 Original Hot Boneless Wings",
+     "items": [
+      "original-hot-boneless:10"
+     ]
+    },
+    {
+     "chain": "bww",
+     "name": "10 Boneless Wings, Hot",
+     "items": [
+      "wings-boneless-10",
+      "hot-boneless-10"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cheeseburger",
+   "name": "Cheeseburger",
+   "rule": "One beef patty with one slice of cheese on the chain's standard bun. Burger King and Whataburger publish their burgers built, so the Whopper's mayo and the Whataburger's mustard are in these figures. Five Guys publishes parts only and treats every topping as a free extra, so it is shown bare — which is why its sodium is a third of the others'. Single patty everywhere.",
+   "builds": [
+    {
+     "chain": "burgerking",
+     "name": "Whopper with Cheese",
+     "items": [
+      "whopper-with-cheese"
+     ]
+    },
+    {
+     "chain": "whataburger",
+     "name": "Whataburger with cheese",
+     "items": [
+      "whataburger",
+      "large-american-cheese-slice-ingredient"
+     ]
+    },
+    {
+     "chain": "fiveguys",
+     "name": "Little Cheeseburger",
+     "items": [
+      "bun",
+      "hamburger-patty",
+      "cheese-slice"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chicken-sandwich",
+   "name": "Fried chicken sandwich",
+   "rule": "Each chain's original fried chicken sandwich as it is sold — a breaded fillet on its own bun with whatever the chain puts on it as standard. Not the spicy version, not the deluxe, no cheese or bacon added.",
+   "builds": [
+    {
+     "chain": "chickfila",
+     "name": "Chick-fil-A® Chicken Sandwich",
+     "items": [
+      "chick-fil-a-chicken-sandwich"
+     ]
+    },
+    {
+     "chain": "burgerking",
+     "name": "Original Chicken Sandwich",
+     "items": [
+      "original-chicken-sandwich"
+     ]
+    },
+    {
+     "chain": "whataburger",
+     "name": "Whatachick'n® Sandwich",
+     "items": [
+      "whatachickn-sandwich"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "turkey-sub",
+   "name": "Turkey sub",
+   "rule": "The chain's standard turkey sandwich at its standard size — Subway's 6\", Jimmy John's 8\" French, Potbelly's Original — on white bread with what that chain puts on as standard. Potbelly's comes with Swiss, which is why its protein runs higher; the others are turkey only. Potbelly publishes its sandwiches with the bread removed, so the loaf is added back here.",
+   "builds": [
+    {
+     "chain": "subway",
+     "name": "6\" Oven-Roasted Turkey",
+     "items": [
+      "6-oven-roasted-turkey"
+     ]
+    },
+    {
+     "chain": "jimmyjohns",
+     "name": "Turkey Tom, 8\" French",
+     "items": [
+      "turkey-tom-french-8"
+     ]
+    },
+    {
+     "chain": "potbelly",
+     "name": "Turkey Breast & Swiss, Original",
+     "items": [
+      "turkey-breast-swiss-originals-originals",
+      "bread-white-originals"
+     ]
+    }
+   ]
+  }
+ ]
 }
