@@ -15,7 +15,12 @@
   "disclaimer_extra": "Qdoba nutrition chart dated August 5, 2026. Items marked Canada / select locations / limited time are as printed on the chart.",
   "blurb": "Build any Qdoba order — burrito, bowl, tacos, or salad — from the proteins, quesos, salsas and toppings, and watch calories, protein, carbs and fat add up as you pick.",
   "glyph": "burrito",
-  "formats": ["Burrito", "Bowl", "Tacos", "Salad"]
+  "formats": [
+   "Burrito",
+   "Bowl",
+   "Tacos",
+   "Salad"
+  ]
  },
  "categories": [
   {
@@ -740,6 +745,19 @@
    "cat": "base",
    "desc": "1 bowl",
    "before": "bacon-1oz"
+  }
+ ],
+ "name_trim": [
+  {
+   "pattern": "\\s*\\((\\d+(?:\\.\\d+)?\\s*(?:oz|\\\"))\\)\\s*$",
+   "into": "size",
+   "labels": [
+    "2 oz",
+    "4 oz",
+    "12.5\"",
+    "10\"",
+    "5.5\""
+   ]
   }
  ]
 }

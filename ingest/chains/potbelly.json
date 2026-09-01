@@ -525,5 +525,28 @@
   "MENU: Sandwiches - Originals": "bread-white-originals",
   "MENU: Sandwiches - BIGS": "bread-white-bigs-bigs",
   "MENU: Sandwiches - Skinnys": "bread-white-skinny-skinnys"
- }
+ },
+ "name_trim": [
+  {
+   "pattern": "\\s*[-–,]\\s*(Half|Cup|Bowl)\\s*$",
+   "into": "size",
+   "base_label": "Regular",
+   "labels": [
+    "Regular",
+    "Cup",
+    "Bowl",
+    "Half",
+    "20 fl oz",
+    "30 fl oz"
+   ]
+  },
+  {
+   "pattern": "\\s*\\((cup|bowl)\\)\\s*$",
+   "into": "size"
+  },
+  {
+   "pattern": "\\s*\\((\\d+(?:\\.\\d+)?\\s*fl\\s*oz)\\)\\s*$",
+   "into": "size"
+  }
+ ]
 }

@@ -1003,7 +1003,7 @@
     },
     {
       "id": "tortilla-chips-side",
-      "name": "Tortilla Chips, Side",
+      "name": "Tortilla Chips",
       "category": "sides",
       "serving_desc": "side size",
       "serving_g": null,
@@ -1016,11 +1016,12 @@
       "carbs_g": 45,
       "fiber_g": 3,
       "sugars_g": 0,
-      "protein_g": 5
+      "protein_g": 5,
+      "variant_label": "Side"
     },
     {
       "id": "tortilla-chips-cup",
-      "name": "Tortilla Chips, Cup",
+      "name": "Tortilla Chips",
       "category": "sides",
       "serving_desc": "cup size",
       "serving_g": null,
@@ -1033,11 +1034,13 @@
       "carbs_g": 90,
       "fiber_g": 5,
       "sugars_g": 0,
-      "protein_g": 10
+      "protein_g": 10,
+      "variant_label": "Cup",
+      "variant_of": "tortilla-chips-side"
     },
     {
       "id": "tortilla-chips-bowl",
-      "name": "Tortilla Chips, Bowl",
+      "name": "Tortilla Chips",
       "category": "sides",
       "serving_desc": "bowl size",
       "serving_g": null,
@@ -1050,11 +1053,13 @@
       "carbs_g": 135,
       "fiber_g": 8,
       "sugars_g": 0,
-      "protein_g": 15
+      "protein_g": 15,
+      "variant_label": "Bowl",
+      "variant_of": "tortilla-chips-side"
     },
     {
       "id": "queso-side",
-      "name": "Queso, Side",
+      "name": "Queso",
       "category": "sides",
       "serving_desc": "side size",
       "serving_g": null,
@@ -1067,11 +1072,12 @@
       "carbs_g": 5,
       "fiber_g": 0,
       "sugars_g": 1,
-      "protein_g": 8
+      "protein_g": 8,
+      "variant_label": "Side"
     },
     {
       "id": "queso-cup",
-      "name": "Queso, Cup",
+      "name": "Queso",
       "category": "sides",
       "serving_desc": "cup size",
       "serving_g": null,
@@ -1084,11 +1090,13 @@
       "carbs_g": 11,
       "fiber_g": 0,
       "sugars_g": 2,
-      "protein_g": 17
+      "protein_g": 17,
+      "variant_label": "Cup",
+      "variant_of": "queso-side"
     },
     {
       "id": "queso-bowl",
-      "name": "Queso, Bowl",
+      "name": "Queso",
       "category": "sides",
       "serving_desc": "bowl size",
       "serving_g": null,
@@ -1101,11 +1109,13 @@
       "carbs_g": 20,
       "fiber_g": 0,
       "sugars_g": 3,
-      "protein_g": 31
+      "protein_g": 31,
+      "variant_label": "Bowl",
+      "variant_of": "queso-side"
     },
     {
       "id": "guac-side",
-      "name": "Guac, Side",
+      "name": "Guac",
       "category": "sides",
       "serving_desc": "side size",
       "serving_g": null,
@@ -1118,11 +1128,12 @@
       "carbs_g": 7,
       "fiber_g": 5,
       "sugars_g": 1,
-      "protein_g": 2
+      "protein_g": 2,
+      "variant_label": "Side"
     },
     {
       "id": "guac-cup",
-      "name": "Guac, Cup",
+      "name": "Guac",
       "category": "sides",
       "serving_desc": "cup size",
       "serving_g": null,
@@ -1135,11 +1146,13 @@
       "carbs_g": 15,
       "fiber_g": 10,
       "sugars_g": 2,
-      "protein_g": 3
+      "protein_g": 3,
+      "variant_label": "Cup",
+      "variant_of": "guac-side"
     },
     {
       "id": "guac-bowl",
-      "name": "Guac, Bowl",
+      "name": "Guac",
       "category": "sides",
       "serving_desc": "bowl size",
       "serving_g": null,
@@ -1152,7 +1165,9 @@
       "carbs_g": 26,
       "fiber_g": 17,
       "sugars_g": 3,
-      "protein_g": 6
+      "protein_g": 6,
+      "variant_label": "Bowl",
+      "variant_of": "guac-side"
     },
     {
       "id": "seasoned-rice-side-bowl",
@@ -1190,7 +1205,7 @@
     },
     {
       "id": "black-beans-cup",
-      "name": "Black Beans, Cup",
+      "name": "Black Beans",
       "category": "sides",
       "serving_desc": "side cup",
       "serving_g": null,
@@ -1203,11 +1218,12 @@
       "carbs_g": 24,
       "fiber_g": 6,
       "sugars_g": 0,
-      "protein_g": 6
+      "protein_g": 6,
+      "variant_label": "Cup"
     },
     {
       "id": "black-beans-side-bowl",
-      "name": "Black Beans, Bowl",
+      "name": "Black Beans",
       "category": "sides",
       "serving_desc": "side bowl",
       "serving_g": null,
@@ -1220,11 +1236,13 @@
       "carbs_g": 40,
       "fiber_g": 10,
       "sugars_g": 0,
-      "protein_g": 10
+      "protein_g": 10,
+      "variant_label": "Bowl",
+      "variant_of": "black-beans-cup"
     },
     {
       "id": "pinto-beans-cup",
-      "name": "Pinto Beans, Cup",
+      "name": "Pinto Beans",
       "category": "sides",
       "serving_desc": "side cup",
       "serving_g": null,
@@ -1237,11 +1255,12 @@
       "carbs_g": 24,
       "fiber_g": 6,
       "sugars_g": 0,
-      "protein_g": 6
+      "protein_g": 6,
+      "variant_label": "Cup"
     },
     {
       "id": "pinto-beans-side-bowl",
-      "name": "Pinto Beans, Bowl",
+      "name": "Pinto Beans",
       "category": "sides",
       "serving_desc": "side bowl",
       "serving_g": null,
@@ -1254,7 +1273,9 @@
       "carbs_g": 40,
       "fiber_g": 10,
       "sugars_g": 0,
-      "protein_g": 10
+      "protein_g": 10,
+      "variant_label": "Bowl",
+      "variant_of": "pinto-beans-cup"
     },
     {
       "id": "chocolate-chunk-cookie",
@@ -1274,25 +1295,8 @@
       "protein_g": 2
     },
     {
-      "id": "coca-cola-zero-kids",
-      "name": "Coca Cola Zero (Kids)",
-      "category": "drinks",
-      "serving_desc": "kids fountain",
-      "serving_g": null,
-      "calories": 5,
-      "fat_g": 0,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 65,
-      "carbs_g": 1,
-      "fiber_g": 1,
-      "sugars_g": 1,
-      "protein_g": 0
-    },
-    {
       "id": "coca-cola-zero-regular",
-      "name": "Coca Cola Zero (Regular)",
+      "name": "Coca Cola Zero",
       "category": "drinks",
       "serving_desc": "regular fountain",
       "serving_g": null,
@@ -1305,11 +1309,12 @@
       "carbs_g": 1,
       "fiber_g": 1,
       "sugars_g": 1,
-      "protein_g": 0
+      "protein_g": 0,
+      "variant_label": "Regular"
     },
     {
       "id": "coca-cola-zero-large",
-      "name": "Coca Cola Zero (Large)",
+      "name": "Coca Cola Zero",
       "category": "drinks",
       "serving_desc": "large fountain",
       "serving_g": null,
@@ -1322,28 +1327,32 @@
       "carbs_g": 2,
       "fiber_g": 1,
       "sugars_g": 2,
-      "protein_g": 1
+      "protein_g": 1,
+      "variant_label": "Large",
+      "variant_of": "coca-cola-zero-regular"
     },
     {
-      "id": "sprite-kids",
-      "name": "Sprite (Kids)",
+      "id": "coca-cola-zero-kids",
+      "name": "Coca Cola Zero",
       "category": "drinks",
       "serving_desc": "kids fountain",
       "serving_g": null,
-      "calories": 140,
+      "calories": 5,
       "fat_g": 0,
       "sat_fat_g": 0,
       "trans_fat_g": 0,
       "cholesterol_mg": 0,
-      "sodium_mg": 70,
-      "carbs_g": 36,
+      "sodium_mg": 65,
+      "carbs_g": 1,
       "fiber_g": 1,
-      "sugars_g": 36,
-      "protein_g": 0
+      "sugars_g": 1,
+      "protein_g": 0,
+      "variant_label": "Kids",
+      "variant_of": "coca-cola-zero-regular"
     },
     {
       "id": "sprite-regular",
-      "name": "Sprite (Regular)",
+      "name": "Sprite",
       "category": "drinks",
       "serving_desc": "regular fountain",
       "serving_g": null,
@@ -1356,11 +1365,12 @@
       "carbs_g": 49,
       "fiber_g": 1,
       "sugars_g": 49,
-      "protein_g": 0
+      "protein_g": 0,
+      "variant_label": "Regular"
     },
     {
       "id": "sprite-large",
-      "name": "Sprite (Large)",
+      "name": "Sprite",
       "category": "drinks",
       "serving_desc": "large fountain",
       "serving_g": null,
@@ -1373,28 +1383,32 @@
       "carbs_g": 91,
       "fiber_g": 1,
       "sugars_g": 91,
-      "protein_g": 0
+      "protein_g": 0,
+      "variant_label": "Large",
+      "variant_of": "sprite-regular"
     },
     {
-      "id": "diet-coke-kids",
-      "name": "Diet Coke (Kids)",
+      "id": "sprite-kids",
+      "name": "Sprite",
       "category": "drinks",
       "serving_desc": "kids fountain",
       "serving_g": null,
-      "calories": 5,
+      "calories": 140,
       "fat_g": 0,
       "sat_fat_g": 0,
       "trans_fat_g": 0,
       "cholesterol_mg": 0,
-      "sodium_mg": 115,
-      "carbs_g": 1,
+      "sodium_mg": 70,
+      "carbs_g": 36,
       "fiber_g": 1,
-      "sugars_g": 1,
-      "protein_g": 0
+      "sugars_g": 36,
+      "protein_g": 0,
+      "variant_label": "Kids",
+      "variant_of": "sprite-regular"
     },
     {
       "id": "diet-coke-regular",
-      "name": "Diet Coke (Regular)",
+      "name": "Diet Coke",
       "category": "drinks",
       "serving_desc": "regular fountain",
       "serving_g": null,
@@ -1407,11 +1421,12 @@
       "carbs_g": 1,
       "fiber_g": 1,
       "sugars_g": 1,
-      "protein_g": 0
+      "protein_g": 0,
+      "variant_label": "Regular"
     },
     {
       "id": "diet-coke-large",
-      "name": "Diet Coke (Large)",
+      "name": "Diet Coke",
       "category": "drinks",
       "serving_desc": "large fountain",
       "serving_g": null,
@@ -1424,28 +1439,32 @@
       "carbs_g": 2,
       "fiber_g": 1,
       "sugars_g": 2,
-      "protein_g": 1
+      "protein_g": 1,
+      "variant_label": "Large",
+      "variant_of": "diet-coke-regular"
     },
     {
-      "id": "coca-cola-kids",
-      "name": "Coca-Cola (Kids)",
+      "id": "diet-coke-kids",
+      "name": "Diet Coke",
       "category": "drinks",
       "serving_desc": "kids fountain",
       "serving_g": null,
-      "calories": 140,
+      "calories": 5,
       "fat_g": 0,
       "sat_fat_g": 0,
       "trans_fat_g": 0,
       "cholesterol_mg": 0,
-      "sodium_mg": 40,
-      "carbs_g": 39,
+      "sodium_mg": 115,
+      "carbs_g": 1,
       "fiber_g": 1,
-      "sugars_g": 39,
-      "protein_g": 0
+      "sugars_g": 1,
+      "protein_g": 0,
+      "variant_label": "Kids",
+      "variant_of": "diet-coke-regular"
     },
     {
       "id": "coca-cola-regular",
-      "name": "Coca-Cola (Regular)",
+      "name": "Coca-Cola",
       "category": "drinks",
       "serving_desc": "regular fountain",
       "serving_g": null,
@@ -1458,11 +1477,12 @@
       "carbs_g": 52,
       "fiber_g": 1,
       "sugars_g": 52,
-      "protein_g": 0
+      "protein_g": 0,
+      "variant_label": "Regular"
     },
     {
       "id": "coca-cola-large",
-      "name": "Coca-Cola (Large)",
+      "name": "Coca-Cola",
       "category": "drinks",
       "serving_desc": "large fountain",
       "serving_g": null,
@@ -1475,7 +1495,28 @@
       "carbs_g": 97,
       "fiber_g": 1,
       "sugars_g": 97,
-      "protein_g": 0
+      "protein_g": 0,
+      "variant_label": "Large",
+      "variant_of": "coca-cola-regular"
+    },
+    {
+      "id": "coca-cola-kids",
+      "name": "Coca-Cola",
+      "category": "drinks",
+      "serving_desc": "kids fountain",
+      "serving_g": null,
+      "calories": 140,
+      "fat_g": 0,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 40,
+      "carbs_g": 39,
+      "fiber_g": 1,
+      "sugars_g": 39,
+      "protein_g": 0,
+      "variant_label": "Kids",
+      "variant_of": "coca-cola-regular"
     },
     {
       "id": "water",

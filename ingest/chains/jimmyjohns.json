@@ -387,5 +387,11 @@
    "desc": "wrap",
    "size_mode": "flour-wrap"
   }
+ ],
+ "name_trim": [
+  {
+   "pattern": "\\s*\\((\\d+(?:\\.\\d+)?\\s*oz)\\)\\s*$",
+   "into": "serving"
+  }
  ]
 }

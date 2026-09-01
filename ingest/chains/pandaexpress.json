@@ -253,5 +253,15 @@
    "cat": "soup",
    "name": "Hot & Sour Soup (Cup)"
   }
- }
+ },
+ "name_trim": [
+  {
+   "pattern": "\\s*\\((Bowl|Cup)\\)\\s*$",
+   "into": "size",
+   "labels": [
+    "Cup",
+    "Bowl"
+   ]
+  }
+ ]
 }

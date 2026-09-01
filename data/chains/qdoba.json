@@ -144,42 +144,8 @@
       "protein_g": 7
     },
     {
-      "id": "flour-tortilla-5-5",
-      "name": "Flour Tortilla (5.5\")",
-      "category": "base",
-      "serving_desc": "1 tortilla (5.5\")",
-      "serving_g": 24,
-      "calories": 70,
-      "fat_g": 1.5,
-      "sat_fat_g": 0.5,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 170,
-      "carbs_g": 12,
-      "fiber_g": 1,
-      "sugars_g": 0,
-      "protein_g": 2
-    },
-    {
-      "id": "flour-tortilla-10",
-      "name": "Flour Tortilla (10\")",
-      "category": "base",
-      "serving_desc": "1 tortilla (10\")",
-      "serving_g": 71,
-      "calories": 210,
-      "fat_g": 5,
-      "sat_fat_g": 2,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 490,
-      "carbs_g": 36,
-      "fiber_g": 2,
-      "sugars_g": 1,
-      "protein_g": 6
-    },
-    {
       "id": "flour-tortilla-12-5",
-      "name": "Flour Tortilla (12.5\")",
+      "name": "Flour Tortilla",
       "category": "base",
       "serving_desc": "1 tortilla (12.5\")",
       "serving_g": 102,
@@ -192,7 +158,46 @@
       "carbs_g": 52,
       "fiber_g": 3,
       "sugars_g": 2,
-      "protein_g": 8
+      "protein_g": 8,
+      "variant_label": "12.5\""
+    },
+    {
+      "id": "flour-tortilla-10",
+      "name": "Flour Tortilla",
+      "category": "base",
+      "serving_desc": "1 tortilla (10\")",
+      "serving_g": 71,
+      "calories": 210,
+      "fat_g": 5,
+      "sat_fat_g": 2,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 490,
+      "carbs_g": 36,
+      "fiber_g": 2,
+      "sugars_g": 1,
+      "protein_g": 6,
+      "variant_label": "10\"",
+      "variant_of": "flour-tortilla-12-5"
+    },
+    {
+      "id": "flour-tortilla-5-5",
+      "name": "Flour Tortilla",
+      "category": "base",
+      "serving_desc": "1 tortilla (5.5\")",
+      "serving_g": 24,
+      "calories": 70,
+      "fat_g": 1.5,
+      "sat_fat_g": 0.5,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 170,
+      "carbs_g": 12,
+      "fiber_g": 1,
+      "sugars_g": 0,
+      "protein_g": 2,
+      "variant_label": "5.5\"",
+      "variant_of": "flour-tortilla-12-5"
     },
     {
       "id": "cilantro-lime-rice",
@@ -536,7 +541,7 @@
     },
     {
       "id": "queso-diablo",
-      "name": "Queso Diablo (2 oz)",
+      "name": "Queso Diablo",
       "category": "queso-sauces",
       "serving_desc": "2 oz",
       "serving_g": 57,
@@ -549,11 +554,12 @@
       "carbs_g": 3,
       "fiber_g": 0,
       "sugars_g": 1,
-      "protein_g": 2
+      "protein_g": 2,
+      "variant_label": "2 oz"
     },
     {
       "id": "queso-diablo-4oz",
-      "name": "Queso Diablo (4 oz)",
+      "name": "Queso Diablo",
       "category": "queso-sauces",
       "serving_desc": "4 oz",
       "serving_g": 113,
@@ -566,11 +572,13 @@
       "carbs_g": 6,
       "fiber_g": 0,
       "sugars_g": 2,
-      "protein_g": 5
+      "protein_g": 5,
+      "variant_label": "4 oz",
+      "variant_of": "queso-diablo"
     },
     {
       "id": "three-cheese-queso-2oz",
-      "name": "3-Cheese Queso (2 oz)",
+      "name": "3-Cheese Queso",
       "category": "queso-sauces",
       "serving_desc": "2 oz",
       "serving_g": 57,
@@ -583,11 +591,12 @@
       "carbs_g": 3,
       "fiber_g": 0,
       "sugars_g": 1,
-      "protein_g": 3
+      "protein_g": 3,
+      "variant_label": "2 oz"
     },
     {
       "id": "three-cheese-queso-4oz",
-      "name": "3-Cheese Queso (4 oz)",
+      "name": "3-Cheese Queso",
       "category": "queso-sauces",
       "serving_desc": "4 oz",
       "serving_g": 113,
@@ -600,7 +609,9 @@
       "carbs_g": 5,
       "fiber_g": 0,
       "sugars_g": 2,
-      "protein_g": 6
+      "protein_g": 6,
+      "variant_label": "4 oz",
+      "variant_of": "three-cheese-queso-2oz"
     },
     {
       "id": "chile-corn-salsa",
@@ -757,7 +768,7 @@
     },
     {
       "id": "hand-smashed-guac-2oz",
-      "name": "Hand Crafted Guacamole (2 oz)",
+      "name": "Hand Crafted Guacamole",
       "category": "toppings",
       "serving_desc": "2 oz",
       "serving_g": 57,
@@ -770,11 +781,12 @@
       "carbs_g": 5,
       "fiber_g": 4,
       "sugars_g": 0,
-      "protein_g": 1
+      "protein_g": 1,
+      "variant_label": "2 oz"
     },
     {
       "id": "hand-smashed-guac-4oz",
-      "name": "Hand Crafted Guacamole (4 oz)",
+      "name": "Hand Crafted Guacamole",
       "category": "toppings",
       "serving_desc": "4 oz",
       "serving_g": 113,
@@ -787,7 +799,9 @@
       "carbs_g": 9,
       "fiber_g": 7,
       "sugars_g": 1,
-      "protein_g": 2
+      "protein_g": 2,
+      "variant_label": "4 oz",
+      "variant_of": "hand-smashed-guac-2oz"
     },
     {
       "id": "pickled-red-onion",
