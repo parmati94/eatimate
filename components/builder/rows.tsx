@@ -2,7 +2,7 @@
 
 /** Everything that draws a category: its header, its rows, and the size chips
  *  and add-ons that hang off a row. */
-import { ReactNode, useMemo, useState } from "react";
+import { CSSProperties, ReactNode, useMemo, useState } from "react";
 import type { Category, Component } from "@/lib/schema";
 import { QTY_STEPS, Selections } from "@/lib/meal";
 import { IconCheck, IconChevron, IconMinus, IconPlus, IconSearch } from "../icons";
@@ -162,31 +162,70 @@ export function ComponentRow({
           // they must not share width with the quantity stepper. pl-8 clears
           // the radio (w-5) plus the row's gap-x-3. Clicks must not bubble to
           // the row's own toggle handler.
-          <span
-            className="mt-1.5 flex basis-full flex-wrap gap-1.5 pl-8"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {variants.map((v) => {
-              const active = v.id === comp.id;
-              return (
-                // 44px: on Buffalo Wild Wings these size chips ARE the
-                // order -- picking 6 wings or 20 -- and at their old 23px
-                // they were the smallest targets on the site.
-                <button
-                  key={v.id}
-                  type="button"
-                  aria-pressed={active}
-                  onClick={() => onVariant?.(v)}
-                  className={`num flex min-h-11 items-center justify-center rounded-lg border px-3 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
-                    active
-                      ? "border-accent bg-accent text-on-accent"
-                      : "border-line bg-surface text-muted hover:border-accent hover:text-accent-strong"
-                  }`}
-                >
-                  {v.variant_label}
-                </button>
-              );
-            })}
+          <span className="mt-1.5 basis-full pl-8" onClick={(e) => e.stopPropagation()}>
+            {/*
+              One segmented control, not a row of loose pills.
+
+              The grid is what makes it survive a wide set: `auto-fit` wraps to
+              as many lines as it needs while a single outer border and radius
+              keep it reading as ONE object, so there is no per-line border
+              maths and nothing can run off the side. Chick-fil-A's twelve-way
+              rows overflowed a phone as a single line and simply put their
+              tail out of reach. Long labels truncate rather than push.
+
+              The hairlines are the 1px grid gap showing the container's
+              background through, which is why the cells carry bg-surface.
+
+              36px rather than the 44px these were: the cells are contiguous
+              and full-width, so the whole strip is tappable with no dead space
+              between targets -- the thing 44px was protecting against when
+              they were 23px pills with gaps.
+            */}
+            <span
+              className="flex flex-wrap gap-px overflow-hidden rounded-lg border border-line bg-line"
+              // Column width follows the longest label rather than sitting at
+              // one figure for every chain: a fixed minimum wide enough for
+              // Domino's "16\" Extra Large" pushed BWW's 6 / 10 / 15 / 20 / 30
+              // onto two lines for no reason.
+              //
+              // In px, deliberately. `ch` resolves against the grid's inherited
+              // 15px body font rather than the 12px chip font, which made one
+              // long label demand a column wider than the phone and gave every
+              // chip a line of its own. Floored at 56 so a two-character label
+              // is still a comfortable target, capped at 110 so a long label
+              // truncates -- which is what `truncate` is there for -- instead
+              // of collapsing the strip to a single column.
+              style={
+                {
+                  "--chip": `${Math.max(
+                    48,
+                    Math.min(
+                      92,
+                      Math.max(...variants.map((v) => (v.variant_label ?? "").length)) * 7 + 20,
+                    ),
+                  )}px`,
+                } as CSSProperties
+              }
+            >
+              {variants.map((v) => {
+                const active = v.id === comp.id;
+                return (
+                  <button
+                    key={v.id}
+                    type="button"
+                    aria-pressed={active}
+                    onClick={() => onVariant?.(v)}
+                    className={`num min-h-9 flex-1 basis-[var(--chip)] truncate px-2 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent ${
+                      active
+                        ? "bg-accent text-on-accent"
+                        : "bg-surface text-muted hover:text-accent-strong"
+                    }`}
+                  >
+                    {v.variant_label}
+                  </button>
+                );
+              })}
+            </span>
           </span>
         )}
       </div>
