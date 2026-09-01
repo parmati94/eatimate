@@ -52,6 +52,7 @@
       "multipliers": {}
     }
   ],
+  "default_flow": "menu",
   "categories": [
     {
       "id": "size",

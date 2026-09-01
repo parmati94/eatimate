@@ -214,6 +214,7 @@ export function FamilyRow({
   toggle,
   setQty,
   addonsOf,
+  chipsOnPick = false,
 }: {
   head: Component;
   /** The family, head first. Length 1 for a row with no sizes. */
@@ -225,6 +226,15 @@ export function FamilyRow({
   toggle: (comp: Component, single: boolean) => void;
   setQty: (id: string, q: number) => void;
   addonsOf?: Map<string, Component[]>;
+  /** Hold the size chips back until the row is picked.
+   *
+   *  For a list where the choice is WHICH ITEM, chips on every row are the
+   *  whole cost of the list: Chick-fil-A's fourteen shown menu items ran
+   *  3,219px against Burger King's 851px for the same fourteen, and 2,987px of
+   *  that was chip rows. The size is a second question and can wait for it.
+   *  Left off where the size IS the question -- drinks in the extras, the meal
+   *  shelf -- because comparing sizes before committing is the point there. */
+  chipsOnPick?: boolean;
 }) {
   // A size chosen before the row is selected, so the chips work while you are
   // still comparing and the calorie figure moves with them.
@@ -251,7 +261,11 @@ export function FamilyRow({
       qtySteps={qtySteps}
       onToggle={() => toggle(active, single)}
       onQty={(q) => setQty(active.id, q)}
-      variants={members.length > 1 ? members : undefined}
+      variants={
+        members.length > 1 && (!chipsOnPick || !!selections[active.id])
+          ? members
+          : undefined
+      }
       addons={
         showAddons ? (
           // Indented under a rule that starts at the parent's radio, so the
@@ -526,6 +540,7 @@ export function CategoryBody({
             toggle={toggle}
             setQty={setQty}
             addonsOf={addonsOf}
+            chipsOnPick={cat.flow === "preset"}
           />
         ))}
         {shown.length === 0 && (

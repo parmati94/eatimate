@@ -13,6 +13,7 @@
     "Breakfast"
   ],
   "blurb": "Burger King is one of the few chains that publishes a figure for every topping as well as every sandwich, which is why you can take the mayo off a Whopper here and watch 158 calories leave with it. Start from a menu item for the sandwich as it is sold, or build one from the bun up.",
+  "default_flow": "menu",
   "categories": [
     {
       "id": "item",
