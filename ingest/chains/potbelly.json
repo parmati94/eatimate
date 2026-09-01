@@ -393,7 +393,8 @@
    "id": "cheese",
    "name": "Cheese",
    "select": "single",
-   "flow": "build"
+   "flow": "build",
+   "in_preset": true
   },
   {
    "id": "toppings",

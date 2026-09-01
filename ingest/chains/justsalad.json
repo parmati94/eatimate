@@ -54,7 +54,8 @@
    "id": "format",
    "name": "Format",
    "select": "single",
-   "flow": "build"
+   "flow": "build",
+   "in_preset": true
   },
   {
    "id": "base",
@@ -67,7 +68,8 @@
    "id": "bread",
    "name": "Wrap / Bread",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "in_preset": true
   },
   {
    "id": "essentials",

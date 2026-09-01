@@ -33,7 +33,8 @@
    "id": "base",
    "name": "Base / Format",
    "select": "single",
-   "flow": "build"
+   "flow": "build",
+   "in_preset": true
   },
   {
    "id": "rice",

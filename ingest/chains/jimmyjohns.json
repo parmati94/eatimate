@@ -168,7 +168,8 @@
    "name": "Bread",
    "select": "single",
    "flow": "build",
-   "note": "Building from scratch: this is the bread on its own. A named sandwich already includes it."
+   "note": "Building from scratch: this is the bread on its own. A named sandwich already includes it.",
+   "in_preset": true
   },
   {
    "id": "addons",

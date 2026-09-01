@@ -91,6 +91,16 @@ export const CategorySchema = z.object({
   // the same act whether you started from a Wreck or built one, and burying
   // them under "add to it" misreads how a sandwich shop is ordered.
   flow: z.enum(["preset", "build", "extras", "both"]).optional(),
+  // A named menu item already comes with one of these, so the menu path does
+  // not offer it. A `build` category otherwise appears on BOTH paths -- as a
+  // numbered step when building from scratch, and under "Add to it" when
+  // starting from a menu item -- which had Jimmy John's offering a second loaf
+  // of bread under a sandwich whose bread you picked in step 1.
+  //
+  // Declared rather than inferred from `select: "single"`, which gets seven of
+  // the eight cases right and then misses Just Salad's "Wrap / Bread": two
+  // rows, multi-select, and every bit as structural as a size.
+  in_preset: z.boolean().optional(),
   // Optional explanatory line shown under the category heading.
   note: z.string().optional(),
 }).strict();

@@ -99,6 +99,34 @@ describe("cross-chain consistency", () => {
     expect(bad).toEqual([]);
   });
 
+  it("does not offer, on the menu path, what a menu item already includes", async () => {
+    // A `build` category shows on BOTH paths: a numbered step when building
+    // from scratch, and under "Add to it" when starting from a menu item. For
+    // an ingredient that is right -- extra cheese is a real order. For a
+    // STRUCTURAL choice it is not: Jimmy John's offered a second loaf under a
+    // sandwich whose bread was picked in step 1, and its own category note
+    // said "A named sandwich already includes it".
+    //
+    // Single-select is the signal, not the rule: you get exactly one bun, one
+    // size, one bread, and a preset already decided which. Flagging it demands
+    // `in_preset` or a waiver, so the next chain cannot quietly reintroduce it.
+    const bad: string[] = [];
+    for (const c of await chains()) {
+      if (!hasPresets(c)) continue;
+      for (const cat of c.categories) {
+        if ((cat.flow ?? "build") !== "build") continue;
+        if (cat.select !== "single" || cat.in_preset) continue;
+        if (c.consistency?.[`menu_${cat.id}`]) continue;
+        bad.push(
+          `${c.slug}.${cat.id} is a single choice offered on the menu path, ` +
+            `where the menu item already has one. Mark it in_preset, or add ` +
+            `meta.consistency.menu_${cat.id} with the reason it belongs there.`,
+        );
+      }
+    }
+    expect(bad).toEqual([]);
+  });
+
   it("gives every chain the fields a tile and a comparison need", async () => {
     const bad: string[] = [];
     for (const c of await chains()) {

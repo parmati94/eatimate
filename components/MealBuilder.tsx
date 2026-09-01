@@ -950,7 +950,10 @@ export default function MealBuilder({
   // the "both" ones, which are already numbered steps of this path.
   const extraCats =
     mode === "menu"
-      ? [...scratchCats.filter((c) => c.flow !== "both"), ...plainExtras]
+      ? [
+          ...scratchCats.filter((c) => c.flow !== "both" && !c.in_preset),
+          ...plainExtras,
+        ]
       : plainExtras;
 
   const [openCat, setOpenCat] = useState<string | null>(
