@@ -392,6 +392,21 @@ def cff_corrections(components, rows):
             c["fat_g"] = alt; fixed.append(c["id"])
     return fixed
 
+def apply_suffix(spec, row):
+    """Fill in the id (and name) a `suffix` / `id_suffix` implies.
+
+    `suffix` appends " (X)" to both; `id_suffix` touches only the id, for a row
+    whose name is fine but whose id would clash with another section's."""
+    if "suffix" in spec:
+        n2, _ = split_serving(row.printed)
+        spec.setdefault("name", f"{n2} ({spec['suffix']})")
+        spec.setdefault("id", slug(f"{n2} {spec['suffix']}"))
+    elif "id_suffix" in spec:
+        n2, _ = split_serving(row.printed)
+        spec.setdefault("id", slug(f"{n2} {spec['id_suffix']}"))
+    return spec
+
+
 def manual_corrections(cfg, components):
     """Config-declared fixes, for a cell the source contradicts elsewhere in its
     OWN row. Only use where the chain's other figures settle it -- never to
@@ -442,7 +457,9 @@ def build(cfg, rows, extra=None):
             cands += [f"{r.printed} [#{seen[r.printed]}]", r.printed]
         k = next((c for c in cands if c in items), None)
         spec = items.get(k) if k else None
-        if spec is not None: order_of[id(r)] = keys.index(k)
+        if spec is not None:
+            order_of[id(r)] = keys.index(k)
+            spec = apply_suffix(dict(spec), r)
         if spec is None and extra:
             out = extra(r)
             if out is False: r.used = True; continue
@@ -462,12 +479,7 @@ def build(cfg, rows, extra=None):
                     continue
             r.defaulted = True
             spec = dict(cat) if isinstance(cat, dict) else {"cat": cat}
-            if "suffix" in spec:
-                n2, _ = split_serving(r.printed)
-                spec.setdefault("name", f"{n2} ({spec['suffix']})"); spec.setdefault("id", slug(f"{n2} {spec['suffix']}"))
-            elif "id_suffix" in spec:
-                n2, _ = split_serving(r.printed)
-                spec.setdefault("id", slug(f"{n2} {spec['id_suffix']}"))
+            spec = apply_suffix(spec, r)
             # A size family the source spells out in the row name itself
             # ("2 count Original Chicken Dippers") rather than with a separator.
             # Grouping by pattern instead of by literal name means a re-ingest
