@@ -161,10 +161,15 @@ export default function MealBuilder({
   );
   // A preloaded comparison never mounts empty, so this settles it before paint
   // rather than in an effect that would flash the chooser first.
+  //
+  // A meal in hand BEATS default_flow, which is only a guess at what someone
+  // arriving cold would want. Little Caesars defaults to building, so the pizza
+  // comparison mounted it on the build path where its preset pepperoni does not
+  // render -- the calories counted while nothing on screen looked chosen.
   const [modeSettled, setModeSettled] = useState(false);
-  if (!modeSettled && mode === null && hasPresets) {
+  if (!modeSettled && hasPresets) {
     const m = modeOf(selections);
-    if (m) setMode(m);
+    if (m && m !== mode) setMode(m);
     setModeSettled(true);
   }
 
