@@ -199,19 +199,31 @@
  "items": {
   "8\" French TBO": {
    "cat": "bread",
-   "size_mode": "french-8"
+   "size_mode": "french-8",
+   "name": "French TBO",
+   "variant_family": "french-tbo",
+   "variant_label": "8\""
   },
   "8\" French LBI": {
    "cat": "bread",
-   "size_mode": "french-8"
+   "size_mode": "french-8",
+   "name": "French LBI",
+   "variant_family": "french-lbi",
+   "variant_label": "8\""
   },
   "16\" French TBO": {
    "cat": "bread",
-   "size_mode": "french-16"
+   "size_mode": "french-16",
+   "name": "French TBO",
+   "variant_family": "french-tbo",
+   "variant_label": "16\""
   },
   "16\" French LBI": {
    "cat": "bread",
-   "size_mode": "french-16"
+   "size_mode": "french-16",
+   "name": "French LBI",
+   "variant_family": "french-lbi",
+   "variant_label": "16\""
   },
   "Thick-Sliced Wheat": {
    "cat": "bread",
@@ -223,11 +235,17 @@
   },
   "Little John French TBO (Standard)": {
    "cat": "bread",
-   "size_mode": "little-johns"
+   "size_mode": "little-johns",
+   "name": "French TBO",
+   "variant_family": "french-tbo",
+   "variant_label": "Little John"
   },
   "Little John French LBI (By Request)": {
    "cat": "bread",
-   "size_mode": "little-johns"
+   "size_mode": "little-johns",
+   "name": "French LBI",
+   "variant_family": "french-lbi",
+   "variant_label": "Little John"
   },
   "Flour Wrap": {
    "cat": "bread",

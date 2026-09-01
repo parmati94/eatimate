@@ -3735,7 +3735,7 @@
     },
     {
       "id": "8-french-tbo",
-      "name": "8\" French TBO",
+      "name": "French TBO",
       "category": "bread",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -3749,11 +3749,12 @@
       "fiber_g": 3,
       "sugars_g": 0,
       "protein_g": 9,
-      "size_mode": "french-8"
+      "size_mode": "french-8",
+      "variant_label": "8\""
     },
     {
       "id": "8-french-lbi",
-      "name": "8\" French LBI",
+      "name": "French LBI",
       "category": "bread",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -3767,11 +3768,12 @@
       "fiber_g": 4,
       "sugars_g": 0,
       "protein_g": 13,
-      "size_mode": "french-8"
+      "size_mode": "french-8",
+      "variant_label": "8\""
     },
     {
       "id": "16-french-tbo",
-      "name": "16\" French TBO",
+      "name": "French TBO",
       "category": "bread",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -3785,11 +3787,13 @@
       "fiber_g": 6,
       "sugars_g": 0,
       "protein_g": 17,
-      "size_mode": "french-16"
+      "size_mode": "french-16",
+      "variant_label": "16\"",
+      "variant_of": "8-french-tbo"
     },
     {
       "id": "16-french-lbi",
-      "name": "16\" French LBI",
+      "name": "French LBI",
       "category": "bread",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -3803,7 +3807,9 @@
       "fiber_g": 9,
       "sugars_g": 0,
       "protein_g": 27,
-      "size_mode": "french-16"
+      "size_mode": "french-16",
+      "variant_label": "16\"",
+      "variant_of": "8-french-lbi"
     },
     {
       "id": "thick-sliced-wheat",
@@ -3843,7 +3849,7 @@
     },
     {
       "id": "little-john-french-tbo-standard",
-      "name": "Little John French TBO (Standard)",
+      "name": "French TBO",
       "category": "bread",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -3857,11 +3863,13 @@
       "fiber_g": 1,
       "sugars_g": 0,
       "protein_g": 4,
-      "size_mode": "little-johns"
+      "size_mode": "little-johns",
+      "variant_label": "Little John",
+      "variant_of": "8-french-tbo"
     },
     {
       "id": "little-john-french-lbi-by-request",
-      "name": "Little John French LBI (By Request)",
+      "name": "French LBI",
       "category": "bread",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -3875,7 +3883,9 @@
       "fiber_g": 2,
       "sugars_g": 0,
       "protein_g": 7,
-      "size_mode": "little-johns"
+      "size_mode": "little-johns",
+      "variant_label": "Little John",
+      "variant_of": "8-french-lbi"
     },
     {
       "id": "flour-wrap",

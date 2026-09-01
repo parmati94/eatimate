@@ -97,62 +97,8 @@
   ],
   "components": [
     {
-      "id": "bread-flat-originals",
-      "name": "Bread - FLAT",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 230,
-      "fat_g": 3,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 410,
-      "carbs_g": 43,
-      "fiber_g": 1,
-      "sugars_g": 3,
-      "protein_g": 0,
-      "size_mode": "originals"
-    },
-    {
-      "id": "bread-multigrain-originals",
-      "name": "Bread - Multigrain",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 310.24,
-      "fat_g": 3.54,
-      "sat_fat_g": 0.82,
-      "trans_fat_g": 0.01,
-      "cholesterol_mg": 0,
-      "sodium_mg": 457.13,
-      "carbs_g": 61.71,
-      "fiber_g": 5.6,
-      "sugars_g": 2.84,
-      "protein_g": 12.51,
-      "size_mode": "originals"
-    },
-    {
-      "id": "bread-multigrain-thin-cut-originals",
-      "name": "Bread - Multigrain, Thin-Cut",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 210,
-      "fat_g": 3,
-      "sat_fat_g": 1,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 300,
-      "carbs_g": 41,
-      "fiber_g": 4,
-      "sugars_g": 2,
-      "protein_g": 8,
-      "size_mode": "originals"
-    },
-    {
       "id": "bread-white-originals",
-      "name": "Bread - White",
+      "name": "White Bread",
       "category": "bread",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -166,11 +112,52 @@
       "fiber_g": 3.84,
       "sugars_g": 2.3,
       "protein_g": 12.45,
-      "size_mode": "originals"
+      "size_mode": "originals",
+      "variant_label": "Original"
+    },
+    {
+      "id": "bread-white-bigs-bigs",
+      "name": "White Bread",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 450.09,
+      "fat_g": 4.24,
+      "sat_fat_g": 0.84,
+      "trans_fat_g": 0.02,
+      "cholesterol_mg": 0,
+      "sodium_mg": 652.25,
+      "carbs_g": 89.22,
+      "fiber_g": 5.64,
+      "sugars_g": 3.38,
+      "protein_g": 18.26,
+      "size_mode": "bigs",
+      "variant_label": "BIGS",
+      "variant_of": "bread-white-originals"
+    },
+    {
+      "id": "bread-white-skinny-skinnys",
+      "name": "White Bread",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 222.04,
+      "fat_g": 2.12,
+      "sat_fat_g": 0.42,
+      "trans_fat_g": 0.01,
+      "cholesterol_mg": 0,
+      "sodium_mg": 326.13,
+      "carbs_g": 44.61,
+      "fiber_g": 2.82,
+      "sugars_g": 1.69,
+      "protein_g": 9.13,
+      "size_mode": "skinnys",
+      "variant_label": "Skinny",
+      "variant_of": "bread-white-originals"
     },
     {
       "id": "bread-white-thin-cut-originals",
-      "name": "Bread - White, Thin-Cut",
+      "name": "White Bread, Thin-Cut",
       "category": "bread",
       "serving_desc": "1 serving",
       "serving_g": null,
@@ -184,7 +171,205 @@
       "fiber_g": 1,
       "sugars_g": 1,
       "protein_g": 8,
-      "size_mode": "originals"
+      "size_mode": "originals",
+      "variant_label": "Original"
+    },
+    {
+      "id": "bread-white-bigs-thin-cut-bigs",
+      "name": "White Bread, Thin-Cut",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 320,
+      "fat_g": 3,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 460,
+      "carbs_g": 64,
+      "fiber_g": 2,
+      "sugars_g": 2,
+      "protein_g": 13,
+      "size_mode": "bigs",
+      "variant_label": "BIGS",
+      "variant_of": "bread-white-thin-cut-originals"
+    },
+    {
+      "id": "bread-white-skinny-thin-cut-skinnys",
+      "name": "White Bread, Thin-Cut",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 160,
+      "fat_g": 1,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 230,
+      "carbs_g": 32,
+      "fiber_g": 1,
+      "sugars_g": 0.5,
+      "protein_g": 7,
+      "size_mode": "skinnys",
+      "variant_label": "Skinny",
+      "variant_of": "bread-white-thin-cut-originals"
+    },
+    {
+      "id": "bread-multigrain-originals",
+      "name": "Multigrain Bread",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 310.24,
+      "fat_g": 3.54,
+      "sat_fat_g": 0.82,
+      "trans_fat_g": 0.01,
+      "cholesterol_mg": 0,
+      "sodium_mg": 457.13,
+      "carbs_g": 61.71,
+      "fiber_g": 5.6,
+      "sugars_g": 2.84,
+      "protein_g": 12.51,
+      "size_mode": "originals",
+      "variant_label": "Original"
+    },
+    {
+      "id": "bread-multigrain-bigs-bigs",
+      "name": "Multigrain Bread",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 455.01,
+      "fat_g": 5.2,
+      "sat_fat_g": 1.2,
+      "trans_fat_g": 0.02,
+      "cholesterol_mg": 0,
+      "sodium_mg": 670.44,
+      "carbs_g": 90.51,
+      "fiber_g": 8.22,
+      "sugars_g": 4.17,
+      "protein_g": 18.34,
+      "size_mode": "bigs",
+      "variant_label": "BIGS",
+      "variant_of": "bread-multigrain-originals"
+    },
+    {
+      "id": "bread-multigrain-skinny-skinnys",
+      "name": "Multigrain Bread",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 227.5,
+      "fat_g": 2.6,
+      "sat_fat_g": 0.6,
+      "trans_fat_g": 0.01,
+      "cholesterol_mg": 0,
+      "sodium_mg": 335.22,
+      "carbs_g": 45.26,
+      "fiber_g": 4.11,
+      "sugars_g": 2.09,
+      "protein_g": 9.17,
+      "size_mode": "skinnys",
+      "variant_label": "Skinny",
+      "variant_of": "bread-multigrain-originals"
+    },
+    {
+      "id": "bread-multigrain-thin-cut-originals",
+      "name": "Multigrain Bread, Thin-Cut",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 210,
+      "fat_g": 3,
+      "sat_fat_g": 1,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 300,
+      "carbs_g": 41,
+      "fiber_g": 4,
+      "sugars_g": 2,
+      "protein_g": 8,
+      "size_mode": "originals",
+      "variant_label": "Original"
+    },
+    {
+      "id": "bread-multigrain-bigs-thin-cut-bigs",
+      "name": "Multigrain Bread, Thin-Cut",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 330,
+      "fat_g": 4,
+      "sat_fat_g": 1,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 490,
+      "carbs_g": 66,
+      "fiber_g": 6,
+      "sugars_g": 3,
+      "protein_g": 13,
+      "size_mode": "bigs",
+      "variant_label": "BIGS",
+      "variant_of": "bread-multigrain-thin-cut-originals"
+    },
+    {
+      "id": "bread-multigrain-skinny-thin-cut-skinnys",
+      "name": "Multigrain Bread, Thin-Cut",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 170,
+      "fat_g": 2,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 240,
+      "carbs_g": 33,
+      "fiber_g": 3,
+      "sugars_g": 2,
+      "protein_g": 7,
+      "size_mode": "skinnys",
+      "variant_label": "Skinny",
+      "variant_of": "bread-multigrain-thin-cut-originals"
+    },
+    {
+      "id": "bread-flat-originals",
+      "name": "Flat Bread",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 230,
+      "fat_g": 3,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 410,
+      "carbs_g": 43,
+      "fiber_g": 1,
+      "sugars_g": 3,
+      "protein_g": 0,
+      "size_mode": "originals",
+      "variant_label": "Original"
+    },
+    {
+      "id": "bread-flat-skinnys",
+      "name": "Flat Bread",
+      "category": "bread",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 115,
+      "fat_g": 1.5,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 205,
+      "carbs_g": 21.5,
+      "fiber_g": 0.5,
+      "sugars_g": 1.5,
+      "protein_g": 0,
+      "size_mode": "skinnys",
+      "variant_label": "Skinny",
+      "variant_of": "bread-flat-originals"
     },
     {
       "id": "damascus-flaxseed-wrap-originals",
@@ -205,168 +390,6 @@
       "size_mode": "originals"
     },
     {
-      "id": "bread-flat-skinnys",
-      "name": "Bread - FLAT",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 115,
-      "fat_g": 1.5,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 205,
-      "carbs_g": 21.5,
-      "fiber_g": 0.5,
-      "sugars_g": 1.5,
-      "protein_g": 0,
-      "size_mode": "skinnys"
-    },
-    {
-      "id": "bread-multigrain-skinny-skinnys",
-      "name": "Bread - Multigrain, Skinny",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 227.5,
-      "fat_g": 2.6,
-      "sat_fat_g": 0.6,
-      "trans_fat_g": 0.01,
-      "cholesterol_mg": 0,
-      "sodium_mg": 335.22,
-      "carbs_g": 45.26,
-      "fiber_g": 4.11,
-      "sugars_g": 2.09,
-      "protein_g": 9.17,
-      "size_mode": "skinnys"
-    },
-    {
-      "id": "bread-multigrain-skinny-thin-cut-skinnys",
-      "name": "Bread - Multigrain, Skinny, Thin-Cut",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 170,
-      "fat_g": 2,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 240,
-      "carbs_g": 33,
-      "fiber_g": 3,
-      "sugars_g": 2,
-      "protein_g": 7,
-      "size_mode": "skinnys"
-    },
-    {
-      "id": "bread-white-skinny-skinnys",
-      "name": "Bread - White, Skinny",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 222.04,
-      "fat_g": 2.12,
-      "sat_fat_g": 0.42,
-      "trans_fat_g": 0.01,
-      "cholesterol_mg": 0,
-      "sodium_mg": 326.13,
-      "carbs_g": 44.61,
-      "fiber_g": 2.82,
-      "sugars_g": 1.69,
-      "protein_g": 9.13,
-      "size_mode": "skinnys"
-    },
-    {
-      "id": "bread-white-skinny-thin-cut-skinnys",
-      "name": "Bread - White, Skinny, Thin-Cut",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 160,
-      "fat_g": 1,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 230,
-      "carbs_g": 32,
-      "fiber_g": 1,
-      "sugars_g": 0.5,
-      "protein_g": 7,
-      "size_mode": "skinnys"
-    },
-    {
-      "id": "bread-multigrain-bigs-bigs",
-      "name": "Bread - Multigrain, BIGS",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 455.01,
-      "fat_g": 5.2,
-      "sat_fat_g": 1.2,
-      "trans_fat_g": 0.02,
-      "cholesterol_mg": 0,
-      "sodium_mg": 670.44,
-      "carbs_g": 90.51,
-      "fiber_g": 8.22,
-      "sugars_g": 4.17,
-      "protein_g": 18.34,
-      "size_mode": "bigs"
-    },
-    {
-      "id": "bread-multigrain-bigs-thin-cut-bigs",
-      "name": "Bread - Multigrain, BIGS, Thin-Cut",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 330,
-      "fat_g": 4,
-      "sat_fat_g": 1,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 490,
-      "carbs_g": 66,
-      "fiber_g": 6,
-      "sugars_g": 3,
-      "protein_g": 13,
-      "size_mode": "bigs"
-    },
-    {
-      "id": "bread-white-bigs-bigs",
-      "name": "Bread - White, BIGS",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 450.09,
-      "fat_g": 4.24,
-      "sat_fat_g": 0.84,
-      "trans_fat_g": 0.02,
-      "cholesterol_mg": 0,
-      "sodium_mg": 652.25,
-      "carbs_g": 89.22,
-      "fiber_g": 5.64,
-      "sugars_g": 3.38,
-      "protein_g": 18.26,
-      "size_mode": "bigs"
-    },
-    {
-      "id": "bread-white-bigs-thin-cut-bigs",
-      "name": "Bread - White, BIGS, Thin-Cut",
-      "category": "bread",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 320,
-      "fat_g": 3,
-      "sat_fat_g": 0,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 460,
-      "carbs_g": 64,
-      "fiber_g": 2,
-      "sugars_g": 2,
-      "protein_g": 13,
-      "size_mode": "bigs"
-    },
-    {
       "id": "a-wreck-originals-originals",
       "name": "A Wreck, Originals",
       "category": "item",
@@ -385,7 +408,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "avo-turkey-originals-originals",
@@ -406,7 +429,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "bacon-egg-cheddar-originals-originals",
@@ -427,7 +450,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "barnyard-originals-originals",
@@ -448,7 +471,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "blta-originals-originals",
@@ -469,7 +492,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "chicken-cordon-bleu-originals-originals",
@@ -490,7 +513,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "chicken-salad-provolone-originals-originals",
@@ -511,7 +534,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "clubby-originals-originals",
@@ -532,7 +555,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "cubano-originals-originals",
@@ -553,7 +576,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "fiery-island-chicken-originals-originals",
@@ -574,7 +597,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "fireball-originals-originals",
@@ -595,7 +618,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "grilled-cheese-originals-originals",
@@ -616,7 +639,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "grilled-chicken-cheddar-originals-originals",
@@ -637,7 +660,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "grilled-chicken-club-originals-originals",
@@ -658,7 +681,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "ham-mushroom-egg-swiss-originals-originals",
@@ -679,7 +702,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "italian-originals-originals",
@@ -700,7 +723,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "lucky-7-originals-originals",
@@ -721,7 +744,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "mamas-meatball-originals-originals",
@@ -742,7 +765,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "mediterranean-no-chicken-originals-originals",
@@ -763,7 +786,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "mediterranean-originals-originals",
@@ -784,7 +807,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "pizza-melt-originals-originals",
@@ -805,7 +828,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "prime-rib-steak-sandwich-originals-originals",
@@ -826,7 +849,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "roast-beef-provolone-originals-originals",
@@ -847,7 +870,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "sausage-egg-cheddar-originals-originals",
@@ -868,7 +891,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "sicilian-originals-originals",
@@ -889,7 +912,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "smoked-ham-swiss-originals-originals",
@@ -910,7 +933,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "smokestack-pork-mac-originals-originals",
@@ -931,7 +954,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "sweet-heat-pork-bbq-originals-originals",
@@ -952,7 +975,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "tuna-salad-swiss-originals-originals",
@@ -973,7 +996,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "turkey-breast-swiss-originals-originals",
@@ -994,7 +1017,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "veggie-melt-originals-originals",
@@ -1015,7 +1038,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "wrecking-ball-originals-originals",
@@ -1036,7 +1059,7 @@
       "only_modes": [
         "originals"
       ],
-      "derived": "Bread - White removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Original) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "a-wreck-bigs-bigs",
@@ -1057,7 +1080,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "avo-turkey-bigs-bigs",
@@ -1078,7 +1101,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "bacon-egg-cheddar-bigs-bigs",
@@ -1099,7 +1122,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "barnyard-bigs-bigs",
@@ -1120,7 +1143,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "blta-bigs-bigs",
@@ -1141,7 +1164,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "chicken-cordon-bleu-bigs-bigs",
@@ -1162,7 +1185,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "chicken-salad-provolone-bigs-bigs",
@@ -1183,7 +1206,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "clubby-bigs-bigs",
@@ -1204,7 +1227,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "cubano-bigs-bigs",
@@ -1225,7 +1248,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "fiery-island-chicken-bigs-bigs",
@@ -1246,7 +1269,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "fireball-bigs-bigs",
@@ -1267,7 +1290,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "grilled-cheese-bigs-bigs",
@@ -1288,7 +1311,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "grilled-chicken-cheddar-bigs-bigs",
@@ -1309,7 +1332,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "grilled-chicken-club-bigs-bigs",
@@ -1330,7 +1353,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "ham-mushroom-egg-swiss-bigs-bigs",
@@ -1351,7 +1374,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "italian-bigs-bigs",
@@ -1372,7 +1395,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "lucky-7-bigs-bigs",
@@ -1393,7 +1416,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "mamas-meatball-bigs-bigs",
@@ -1414,7 +1437,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "mediterranean-no-chicken-bigs-bigs",
@@ -1435,7 +1458,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "mediterranean-bigs-bigs",
@@ -1456,7 +1479,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "pizza-melt-bigs-bigs",
@@ -1477,7 +1500,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "prime-rib-steak-sandwich-bigs-bigs",
@@ -1498,7 +1521,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "roast-beef-provolone-bigs-bigs",
@@ -1519,7 +1542,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "sausage-egg-cheddar-bigs-bigs",
@@ -1540,7 +1563,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "sicilian-bigs-bigs",
@@ -1561,7 +1584,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "smoked-ham-swiss-bigs-bigs",
@@ -1582,7 +1605,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "smokestack-pork-mac-bigs-bigs",
@@ -1603,7 +1626,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "sweet-heat-pork-bbq-bigs-bigs",
@@ -1624,7 +1647,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "tuna-salad-swiss-bigs-bigs",
@@ -1645,7 +1668,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "turkey-breast-swiss-bigs-bigs",
@@ -1666,7 +1689,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "veggie-melt-bigs-bigs",
@@ -1687,7 +1710,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "wrecking-ball-bigs-bigs",
@@ -1708,7 +1731,7 @@
       "only_modes": [
         "bigs"
       ],
-      "derived": "Bread - White, BIGS removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (BIGS) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "a-wreck-skinny-skinnys",
@@ -1729,7 +1752,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "avo-turkey-skinny-skinnys",
@@ -1750,7 +1773,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "bacon-egg-cheddar-skinny-skinnys",
@@ -1771,7 +1794,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "barnyard-skinny-skinnys",
@@ -1792,7 +1815,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "blta-skinny-skinnys",
@@ -1813,7 +1836,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "chicken-cordon-bleu-skinny-skinnys",
@@ -1834,7 +1857,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "chicken-salad-provolone-skinny-skinnys",
@@ -1855,7 +1878,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "clubby-skinny-skinnys",
@@ -1876,7 +1899,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "cubano-skinny-skinnys",
@@ -1897,7 +1920,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "fiery-island-chicken-skinny-skinnys",
@@ -1918,7 +1941,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "fireball-skinny-skinnys",
@@ -1939,7 +1962,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "grilled-cheese-skinny-skinnys",
@@ -1960,7 +1983,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "grilled-chicken-cheddar-skinny-skinnys",
@@ -1981,7 +2004,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "grilled-chicken-club-skinny-skinnys",
@@ -2002,7 +2025,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "ham-mushroom-egg-swiss-skinny-skinnys",
@@ -2023,7 +2046,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "italian-skinny-skinnys",
@@ -2044,7 +2067,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "lucky-7-skinny-skinnys",
@@ -2065,7 +2088,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "mamas-meatball-skinny-skinnys",
@@ -2086,7 +2109,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "mediterranean-no-chicken-skinny-skinnys",
@@ -2107,7 +2130,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "mediterranean-skinny-skinnys",
@@ -2128,7 +2151,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "pizza-melt-skinny-skinnys",
@@ -2149,7 +2172,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "prime-rib-steak-sandwich-skinny-skinnys",
@@ -2170,7 +2193,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "roast-beef-provolone-skinny-skinnys",
@@ -2191,7 +2214,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "sausage-egg-cheddar-skinny-skinnys",
@@ -2212,7 +2235,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "sicilian-skinny-skinnys",
@@ -2233,7 +2256,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "smoked-ham-swiss-skinny-skinnys",
@@ -2254,7 +2277,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "smokestack-pork-mac-skinny-skinnys",
@@ -2275,7 +2298,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "sweet-heat-pork-bbq-skinny-skinnys",
@@ -2296,7 +2319,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "tuna-salad-swiss-skinny-skinnys",
@@ -2317,7 +2340,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "turkey-breast-swiss-skinny-skinnys",
@@ -2338,7 +2361,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "veggie-melt-skinny-skinnys",
@@ -2359,7 +2382,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "wrecking-ball-skinny-skinnys",
@@ -2380,7 +2403,7 @@
       "only_modes": [
         "skinnys"
       ],
-      "derived": "Bread - White, Skinny removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
+      "derived": "White Bread (Skinny) removed. The chain publishes this item including that bread, so it is subtracted here and you pick the bread yourself; both figures are the chain's own."
     },
     {
       "id": "a-wreck-salad-salads",

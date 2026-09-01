@@ -337,6 +337,10 @@ def build(cfg, rows, extra=None):
     sec_cats = cfg.get("section_categories", {})
     layout = cfg["layout"]
     comps, seen, order_of, families = [], {}, {}, {}
+    # Display names for the size modes, so a row joining a size family
+    # can label its chip with the chain's own word for that size without
+    # repeating it in every items entry.
+    mode_names = {m["id"]: m["name"] for m in cfg["meta"].get("size_modes", [])}
     keys = list(items)
     for r in rows:
         seen[r.printed] = seen.get(r.printed, 0) + 1
@@ -485,6 +489,30 @@ def build(cfg, rows, extra=None):
             if sp.get("variant_of"): c["variant_of"] = sp["variant_of"]
             if sp.get("addon_of"): c["addon_of"] = sp["addon_of"]
             if sp.get("variant_label"): c["variant_label"] = sp["variant_label"]
+            # A size family the row names for itself.
+            #
+            # `mode_variants` above only works where the source reprints a row
+            # under ONE name in every size's table -- Papa John's calls it
+            # "Original Crust" whatever the size, so a single items entry can
+            # map mode -> family. Potbelly prints "Bread - White",
+            # "Bread - White, BIGS" and "Bread - White, Skinny": three separate
+            # items entries that can never see each other, so instead each row
+            # names the family it joins and they share a `name`, which is what
+            # the collapsed row displays.
+            #
+            # Deliberately down here rather than in the mode_selector branch:
+            # the size can come from a section mode (Potbelly) or straight off
+            # the row (Jimmy John's 8"/16"/Little John), and both need it. Ids
+            # are final by this point in either path, so the family head is a
+            # reference that still resolves.
+            if sp.get("variant_family") and not c.get("variant_of"):
+                if not c.get("variant_label"):
+                    c["variant_label"] = mode_names.get(c.get("size_mode"), c.get("size_mode"))
+                fam = f"{c['category']}/{sp['variant_family']}"
+                if fam in families:
+                    c["variant_of"] = families[fam]
+                else:
+                    families[fam] = c["id"]
             if sp.get("feature"): c["feature"] = True
             c["_ord"] = base_ord + 0.001 * n
             c["_sec"] = r.section
@@ -519,19 +547,26 @@ def build(cfg, rows, extra=None):
     # published cannot be added to a bread the user picked without counting the
     # loaf twice. Subtracting the base leaves the fillings, which is arithmetic
     # on two of the chain's own figures -- the same standing as `derived`.
-    for sec, base_name in (cfg.get("section_subtract") or {}).items():
-        base = next((c for c in comps if c["name"] == base_name), None)
+    # Keyed on the component's id, not its name: once sizes collapse into a
+    # family every member shares one name, so a name lookup would return the
+    # first size for all three sections and quietly subtract an Originals
+    # bread from a BIGS sandwich. Ids stay unique per size.
+    for sec, base_id in (cfg.get("section_subtract") or {}).items():
+        base = next((c for c in comps if c["id"] == base_id), None)
         if base is None:
-            print(f"  WARNING: section_subtract names unknown component {base_name!r}",
+            print(f"  WARNING: section_subtract names unknown component {base_id!r}",
                   file=sys.stderr)
             continue
+        label = base["name"]
+        if base.get("variant_label"):
+            label += f" ({base['variant_label']})"
         for c in comps:
             if c.get("_sec") != sec:
                 continue
             for f in FIELDS:
                 if c.get(f) is not None and base.get(f) is not None:
                     c[f] = max(0, round(c[f] - base[f], 2))
-            c["derived"] = (f"{base_name} removed. The chain publishes this item "
+            c["derived"] = (f"{label} removed. The chain publishes this item "
                             f"including that bread, so it is subtracted here and "
                             f"you pick the bread yourself; both figures are the "
                             f"chain's own.")
