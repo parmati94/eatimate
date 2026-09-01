@@ -41,7 +41,8 @@
    "Salad",
    "Warm bowl",
    "Wrap"
-  ]
+  ],
+  "default_flow": "build"
  },
  "categories": [
   {

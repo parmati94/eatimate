@@ -20,7 +20,8 @@
    "Bowl",
    "Tacos",
    "Salad"
-  ]
+  ],
+  "default_flow": "build"
  },
  "categories": [
   {

@@ -47,7 +47,8 @@
     },
     "portion_count": 8
    }
-  ]
+  ],
+  "default_flow": "build"
  },
  "layout": {
   "columns": [

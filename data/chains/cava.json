@@ -15,6 +15,7 @@
   "consistency": {
     "extras_kids": "The kids meal is a separate, smaller build with its own portions, not a version of the bowl this page builds."
   },
+  "default_flow": "build",
   "categories": [
     {
       "id": "curated",

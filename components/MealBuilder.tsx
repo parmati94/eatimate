@@ -132,7 +132,13 @@ export default function MealBuilder({
       visibleByCategory.has(c.id),
   );
   const hasPresets = presetCats.length > 0;
-  const [mode, setMode] = useState<"menu" | "scratch" | null>(null);
+  const [mode, setMode] = useState<"menu" | "scratch" | null>(
+    chain.default_flow === "build"
+      ? "scratch"
+      : chain.default_flow === "menu"
+        ? "menu"
+        : null,
+  );
   const buildCats = !hasPresets
     ? scratchCats
     : mode === "menu"

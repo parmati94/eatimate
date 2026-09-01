@@ -15,6 +15,7 @@
   "consistency": {
     "extras_kids": "Little Digs is a kids portion with its own smaller build, not a size of the bowl this page builds."
   },
+  "default_flow": "build",
   "categories": [
     {
       "id": "signature",

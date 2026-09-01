@@ -141,6 +141,12 @@ export const ChainSchema = z
     // picks a restaurant by ingredient count, and 784 vs 35 made the better
     // covered chain look worse.
     formats: z.array(z.string().min(1)).min(1).max(5).optional(),
+    // Which path the page opens on, for a chain where one of them is plainly
+    // the common order. Pizza is built far more often than a whole specialty
+    // pizza is picked off the list, so making everyone answer "how do you want
+    // to start?" first spends a click on a question with a usual answer. The
+    // chooser is not removed -- "Change" still switches paths.
+    default_flow: z.enum(["menu", "build"]).optional(),
     // Deliberate departures from what the chain's cuisine peers do, each with
     // the reason. lib/consistency.test.ts fails CI on an UNDECLARED departure,
     // so the only way past it is to fix the chain or write down why it differs

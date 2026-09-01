@@ -14,6 +14,7 @@
     "Tacos",
     "Salad"
   ],
+  "default_flow": "build",
   "categories": [
     {
       "id": "signature-eats",
