@@ -36,7 +36,7 @@ describe("data/meals.json", () => {
         );
         expect(
           flows.has("preset") && flows.has("build"),
-          `${dish.slug}/${build.chain} needs both paths at once`,
+          `${dish.id}/${build.chain} needs both paths at once`,
         ).toBe(false);
       }
     }
