@@ -487,6 +487,7 @@ def build(cfg, rows, extra=None):
             if sp.get("variant_label"): c["variant_label"] = sp["variant_label"]
             if sp.get("feature"): c["feature"] = True
             c["_ord"] = base_ord + 0.001 * n
+            c["_sec"] = r.section
             comps.append(c)
     # Components declared in the config rather than read from the dump: either
     # worked out from figures the chain publishes (`reason` set, shown as
@@ -513,9 +514,31 @@ def build(cfg, rows, extra=None):
         target = next((x for x in comps if x["id"] == s.get("before")), None)
         c["_ord"] = (target["_ord"] - 0.5 + 0.001 * n) if target else (10**6 + n)
         comps.append(c)
+    # Sections whose rows already BUNDLE a base component, named per section:
+    # Potbelly's sandwich totals include white bread at that size, so the row as
+    # published cannot be added to a bread the user picked without counting the
+    # loaf twice. Subtracting the base leaves the fillings, which is arithmetic
+    # on two of the chain's own figures -- the same standing as `derived`.
+    for sec, base_name in (cfg.get("section_subtract") or {}).items():
+        base = next((c for c in comps if c["name"] == base_name), None)
+        if base is None:
+            print(f"  WARNING: section_subtract names unknown component {base_name!r}",
+                  file=sys.stderr)
+            continue
+        for c in comps:
+            if c.get("_sec") != sec:
+                continue
+            for f in FIELDS:
+                if c.get(f) is not None and base.get(f) is not None:
+                    c[f] = max(0, round(c[f] - base[f], 2))
+            c["derived"] = (f"{base_name} removed. The chain publishes this item "
+                            f"including that bread, so it is subtracted here and "
+                            f"you pick the bread yourself; both figures are the "
+                            f"chain's own.")
+
     order = {c["id"]: i for i, c in enumerate(cfg["categories"])}
     comps.sort(key=lambda c: (order[c["category"]], c["_ord"]))  # category order, then items-table order
-    for c in comps: c.pop("_ord", None)
+    for c in comps: c.pop("_ord", None); c.pop("_sec", None)
     return comps
 
 def finish(cfg, components, rows, pending, out_dir="data/chains"):

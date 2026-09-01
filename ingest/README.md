@@ -21,6 +21,20 @@ so nothing downstream knows where the data came from.
 With no source argument the dumpers read `meta.source` from the chain's own
 config, so a refresh is just `dump_html.py <slug>`. A page list may mix modes.
 
+**Finding the source in the first place.** Many chains render nutrition in the
+browser from an XHR, so `curl` gets an empty shell and the payload is invisible:
+
+```
+ingest/.venv/bin/python ingest/capture.py <url> --slug <slug>
+```
+
+Opens the page in Chromium, saves every JSON response it makes to
+`data/raw/<slug>/`, and reports which ones carry POPULATED nutrient values --
+not merely nutrient-shaped keys. That distinction is the whole point: Potbelly's
+ordering menu advertises `basecalories` on all 233 items and every one is null.
+It reports and writes to data/raw only; nothing is ingested until a human looks.
+It also prints the site's robots.txt rules first, for `*` and for named agents.
+
 ```
 ingest/.venv/bin/python ingest/dump_html.py <slug>                 # -> data/raw/<slug>/raw_dump.txt
 PYTHONPATH=ingest ingest/.venv/bin/python ingest/extract.py <slug>  # -> data/chains/<slug>.json

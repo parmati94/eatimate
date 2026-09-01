@@ -1,0 +1,430 @@
+{
+ "meta": {
+  "name": "Potbelly",
+  "slug": "potbelly",
+  "source": {
+   "html_url": "https://restaurant.nutritionix.com/potbelly/landing",
+   "retrieved": "2026-08-31",
+   "format": "nutritionix",
+   "page_url": "https://www.potbelly.com/nutrition-calculator",
+   "fetch": "manual"
+  },
+  "disclaimer_extra": "Potbelly does not publish nutrition itself -- it hands the job to Nutritionix and embeds that calculator on its own site, so these figures come from the export Potbelly points its customers at. They are computed sums over each ingredient rather than the rounded per-item figures most chains print, which is why a sandwich totals 928 rather than a tidy 930. Every named sandwich already includes white bread at its size, which is the assumption Nutritionix states, so there is no bread step when you start from one. Multigrain is within a few calories of white, but a thin-cut loaf is around a hundred less -- build from scratch to pick the bread yourself. Portions are Potbelly's own multipliers: an ingredient is stated once and served at 1.5x on a BIGS and half on a Skinny.",
+  "blurb": "Build a Potbelly sandwich the way you order it -- start from A Wreck, a Turkey Breast or any Original, BIGS or Skinny, then pile on the works: hot peppers, oil, cheese and every topping, each with its real per-size portion.",
+  "glyph": "sub",
+  "formats": [
+   "Original",
+   "BIGS",
+   "Skinny",
+   "Wrap",
+   "Salad"
+  ],
+  "size_modes": [
+   {
+    "id": "originals",
+    "name": "Originals",
+    "default": true,
+    "multipliers": {}
+   },
+   {
+    "id": "bigs",
+    "name": "BIGS",
+    "multipliers": {}
+   },
+   {
+    "id": "skinnys",
+    "name": "Skinnys",
+    "multipliers": {}
+   },
+   {
+    "id": "wraps",
+    "name": "Wrap",
+    "multipliers": {}
+   },
+   {
+    "id": "salads",
+    "name": "Salad",
+    "multipliers": {}
+   }
+  ]
+ },
+ "layout": {
+  "columns": [
+   "calories",
+   "cff",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g"
+  ],
+  "allergen": false,
+  "serving": null,
+  "sections": "^(MENU: .+|[A-Z].*)$"
+ },
+ "section_categories": {
+  "MENU: Sandwiches - Originals": "item",
+  "MENU: Sandwiches - BIGS": "item",
+  "MENU: Sandwiches - Skinnys": "item",
+  "MENU: Salads": "item",
+  "MENU: Salads - Half Sizes": "item",
+  "MENU: Mac & Soups": {
+   "skip": "the modifier groups already carry these items"
+  },
+  "MENU: Sides & Chips": {
+   "skip": "the modifier groups already carry these items"
+  },
+  "MENU: Kids": {
+   "skip": "kids menu; a separate build"
+  },
+  "MENU: Desserts & Shakes": {
+   "skip": "the modifier groups already carry these items"
+  },
+  "MENU: Wraps": "item",
+  "Beverages - 20 fl oz Fountain": {
+   "cat": "drinks",
+   "suffix": "20 fl oz",
+   "id_suffix": "20 fl oz"
+  },
+  "Beverages - 30 fl oz Fountain": {
+   "cat": "drinks",
+   "suffix": "30 fl oz",
+   "id_suffix": "30 fl oz"
+  },
+  "Bread - BIGS - Lunch": {
+   "skip": "same four breads as Bread - BIGS"
+  },
+  "Meat - BIGS": "meat",
+  "Extra Meat": {
+   "skip": "unscoped extras table; the sized ones already cover these"
+  },
+  "Cheese - BIGS": "cheese",
+  "Extra Cheese": {
+   "skip": "unscoped extras table; the sized ones already cover these"
+  },
+  "Toppings - BIGS": "toppings",
+  "Premium Toppings - BIGS": "premium",
+  "LTOs (Hidden)": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Bread - Originals": {
+   "cat": "bread",
+   "mode_selector": true
+  },
+  "Meat - Originals & FLATS": "meat",
+  "Cheese - Originals & FLATS": "cheese",
+  "Toppings - Originals & Wraps": "toppings",
+  "Premium Toppings - Originals & Wraps": "premium",
+  "Bread - SKINNYS": {
+   "cat": "bread",
+   "mode_selector": true
+  },
+  "Meat - SKINNYS": "meat",
+  "Cheese - SKINNYS": "cheese",
+  "Toppings - Skinnys": "toppings",
+  "Premium Toppings - Skinnys": "premium",
+  "Skinny Pair - Side Soup or Mac": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Bread - BIGS": {
+   "cat": "bread",
+   "mode_selector": true
+  },
+  "Butter - Breakfast - Hidden": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Meat & Egg - BIGS - Breakfast": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Extra Meat - Breakfast": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Cheese - BIGS - Breakfast": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Premium Toppings - BIGS - Breakfast": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Bread - Originals - Breakfast": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Meat & Egg - Originals & FLATS - Breakfast": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Extra Meat - Originals, FLATS, & SKINNYS - Breakfast": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Cheese - Originals & FLATS - Breakfast": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Premium Toppings - Originals, FLATS, & SKINNYS - Breakfast": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Mac & Cheese": {
+   "cat": "sides",
+   "id_suffix": "mac-cheese"
+  },
+  "Mac - Extras": {
+   "cat": "sides",
+   "suffix": "for mac",
+   "id_suffix": "for mac"
+  },
+  "Soups - Bowl": {
+   "cat": "sides",
+   "suffix": "bowl",
+   "id_suffix": "bowl"
+  },
+  "Tortilla Crisps (Hidden)": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Soup - Extras": {
+   "cat": "sides",
+   "suffix": "for soup",
+   "id_suffix": "for soup"
+  },
+  "Sides & Chips": {
+   "cat": "sides",
+   "id_suffix": "sides-chips"
+  },
+  "Shakes & Smoothies (hidden)": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Shakes - Second Flavor Addition": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Shakes - Extras": {
+   "cat": "drinks",
+   "id_suffix": "shakes-extras"
+  },
+  "Desserts - Hidden": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Bread - Kids": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Meat - Kids": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Cheese - Kids": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Toppings - Kids (Calc)": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Premium Toppings - Kids": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Sides - Kids": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Beverages - Kids": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Soups - Cup": {
+   "cat": "sides",
+   "suffix": "cup",
+   "id_suffix": "cup"
+  },
+  "Bottled Beverages": {
+   "cat": "drinks",
+   "id_suffix": "bottled-beverages"
+  },
+  "Mac - Kids": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Meat - Originals & FLATS (Pizza Melt)": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Toppings + Marinara Sauce - Originals, FLATS, & SKINNYS": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Toppings + Ranch Dressing - Originals, FLATS, & SKINNYS": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Toppings Hidden - BIGS": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Toppings + Chili - Originals, FLATS, & SKINNYS": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Meat - BIGS (Pizza Melt)": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Toppings + Marinara Sauce - BIGS": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Toppings + Chili - BIGS": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Toppings + Ranch Dressing - BIGS": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "PB & J - Originals, FLATS, & SKINNYS": {
+   "skip": "not part of the build"
+  },
+  "Ice Cream Sandwich - Ice Cream": {
+   "skip": "not part of the build"
+  },
+  "Ice Cream Sandwich": {
+   "skip": "not part of the build"
+  },
+  "Greens - Salad": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Meat - Salad": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Extra Meat - Salad": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Cheese - Salad": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Extra Cheese - Salad": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Toppings - Salad": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Premium Toppings - Salad": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Salad Dressing Calc": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Extra Cheese - Half Salad": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Meat & Egg - Skinny - Breakfast": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Premium Toppings - Skinnys - Breakfast": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Meat - Cubano": {
+   "skip": "no size in the table name"
+  },
+  "Meat - SKINNYS (Pizza Melt)": {
+   "skip": "breakfast, kids, hidden or a combo variant of a table already read"
+  },
+  "Chili Mac (Hidden)": {
+   "skip": "variant of a table already read"
+  },
+  "Chili Mac - Extras": {
+   "skip": "variant of a table already read"
+  },
+  "Wrap": {
+   "skip": "not part of the build"
+  }
+ },
+ "section_modes": {
+  "MENU: Sandwiches - Originals": "originals",
+  "MENU: Sandwiches - BIGS": "bigs",
+  "MENU: Sandwiches - Skinnys": "skinnys",
+  "MENU: Salads": "salads",
+  "MENU: Salads - Half Sizes": "salads",
+  "MENU: Wraps": "wraps",
+  "Bread - BIGS - Lunch": "bigs",
+  "Meat - BIGS": "bigs",
+  "Cheese - BIGS": "bigs",
+  "Toppings - BIGS": "bigs",
+  "Premium Toppings - BIGS": "bigs",
+  "Bread - Originals": "originals",
+  "Meat - Originals & FLATS": {
+   "id": "orig",
+   "modes": [
+    "originals",
+    "wraps"
+   ]
+  },
+  "Cheese - Originals & FLATS": {
+   "id": "orig",
+   "modes": [
+    "originals",
+    "wraps"
+   ]
+  },
+  "Toppings - Originals & Wraps": {
+   "id": "orig",
+   "modes": [
+    "originals",
+    "wraps"
+   ]
+  },
+  "Premium Toppings - Originals & Wraps": {
+   "id": "orig",
+   "modes": [
+    "originals",
+    "wraps"
+   ]
+  },
+  "Bread - SKINNYS": "skinnys",
+  "Meat - SKINNYS": "skinnys",
+  "Cheese - SKINNYS": "skinnys",
+  "Toppings - Skinnys": "skinnys",
+  "Premium Toppings - Skinnys": "skinnys",
+  "Bread - BIGS": "bigs"
+ },
+ "categories": [
+  {
+   "id": "bread",
+   "name": "Bread & Size",
+   "select": "single",
+   "flow": "both",
+   "note": "Potbelly publishes a separate figure for every size, so the bread decides which sandwiches and which portions apply. A named sandwich is listed here with its bread removed, so the loaf you pick is the one you get."
+  },
+  {
+   "id": "item",
+   "name": "Sandwiches & Salads",
+   "select": "single",
+   "flow": "preset"
+  },
+  {
+   "id": "meat",
+   "name": "Meat",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "cheese",
+   "name": "Cheese",
+   "select": "single",
+   "flow": "build"
+  },
+  {
+   "id": "toppings",
+   "name": "Toppings",
+   "select": "multi",
+   "flow": "both",
+   "note": "Potbelly serves each topping at a set portion; use the quantity control for Light (half) or Extra."
+  },
+  {
+   "id": "premium",
+   "name": "Premium Toppings",
+   "select": "multi",
+   "flow": "both"
+  },
+  {
+   "id": "sides",
+   "name": "Sides, Soups & Desserts",
+   "select": "multi",
+   "flow": "extras"
+  },
+  {
+   "id": "drinks",
+   "name": "Drinks",
+   "select": "multi",
+   "flow": "extras"
+  }
+ ],
+ "items": {},
+ "section_subtract": {
+  "MENU: Sandwiches - Originals": "Bread - White",
+  "MENU: Sandwiches - BIGS": "Bread - White, BIGS",
+  "MENU: Sandwiches - Skinnys": "Bread - White, Skinny"
+ }
+}

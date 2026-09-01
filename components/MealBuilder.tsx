@@ -772,10 +772,12 @@ export default function MealBuilder({
   // either start from a published menu item OR compose one from parts. Stacking
   // them in one numbered flow reads as building a second sandwich.
   const presetCats = chain.categories.filter(
-    (c) => c.flow === "preset" && visibleByCategory.has(c.id),
+    (c) => (c.flow === "preset" || c.flow === "both") && visibleByCategory.has(c.id),
   );
   const scratchCats = chain.categories.filter(
-    (c) => (c.flow ?? "build") === "build" && visibleByCategory.has(c.id),
+    (c) =>
+      ((c.flow ?? "build") === "build" || c.flow === "both") &&
+      visibleByCategory.has(c.id),
   );
   const hasPresets = presetCats.length > 0;
   const [mode, setMode] = useState<"menu" | "scratch" | null>(null);
@@ -806,8 +808,12 @@ export default function MealBuilder({
   // Started from a menu item? Everything else becomes something you can add.
   // Which of those are "already in it" is not published, so the page shows the
   // full list and says so, rather than us guessing on the customer's behalf.
+  // Starting from a menu item, the build steps become "add to it" -- except
+  // the "both" ones, which are already numbered steps of this path.
   const extraCats =
-    mode === "menu" ? [...scratchCats, ...plainExtras] : plainExtras;
+    mode === "menu"
+      ? [...scratchCats.filter((c) => c.flow !== "both"), ...plainExtras]
+      : plainExtras;
 
   const [openCat, setOpenCat] = useState<string | null>(
     buildCats[0]?.id ?? null,

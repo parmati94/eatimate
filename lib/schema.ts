@@ -87,7 +87,10 @@ export const CategorySchema = z.object({
   // "build" categories form the numbered build-your-own flow; "extras" render
   // as collapsed add-on sections (drinks, kids, signature items...). Absent = build.
   // "preset" opens the flow: pick a published menu item as a starting point.
-  flow: z.enum(["preset", "build", "extras"]).optional(),
+  // "both" is a numbered step in EITHER path -- the toppings you pile on are
+  // the same act whether you started from a Wreck or built one, and burying
+  // them under "add to it" misreads how a sandwich shop is ordered.
+  flow: z.enum(["preset", "build", "extras", "both"]).optional(),
   // Optional explanatory line shown under the category heading.
   note: z.string().optional(),
 }).strict();

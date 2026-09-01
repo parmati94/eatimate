@@ -77,14 +77,14 @@
       "id": "addons",
       "name": "Add-ons",
       "select": "multi",
-      "flow": "extras",
+      "flow": "build",
       "note": "Every add-on is published at three portions - EZ, regular and XTRA - and the figures differ by bread size."
     },
     {
       "id": "freebies",
       "name": "Freebies",
       "select": "multi",
-      "flow": "extras"
+      "flow": "both"
     },
     {
       "id": "sides",
