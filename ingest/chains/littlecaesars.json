@@ -10,7 +10,7 @@
    "fetch": "plain",
    "link_pattern": "nutri-info-allergen-ingredient_flyer"
   },
-  "disclaimer_extra": "Little Caesars publishes its nutrition as a seven-page scanned flyer, not a data file, so these figures were read off pages 1 to 3 by hand. Every pizza figure is for the WHOLE pizza; use the slices control to take a share of it. Topping figures are the chain's own note: \"amounts shown are the highest count for each topping\".",
+  "disclaimer_extra": "Little Caesars publishes its nutrition as a seven-page scanned flyer, not a data file, so these figures were read off pages 1 to 3 by hand. Every pizza figure is for a WHOLE pizza -- unlike Domino's and Papa John's, who publish per slice -- so divide by eight for one slice of a large. Topping figures are the chain's own note: \"amounts shown are the highest count for each topping\".",
   "glyph": "pizza",
   "formats": [
    "Round",
@@ -18,34 +18,23 @@
    "Thin Crust"
   ],
   "blurb": "Little Caesars is the one big pizza chain that still publishes nutrition as a scanned flyer, which is why almost nobody has put its numbers in a calculator. Its per-topping table adds onto a cheese base, so a Detroit-Style deep dish can be built topping by topping and then cut into the slices you actually eat.",
-  "portion": {
-   "unit": "slice",
-   "categories": [
-    "base",
-    "topping"
-   ]
-  },
   "size_modes": [
    {
     "id": "round",
     "name": "Round",
     "default": true,
-    "note": "8 slices",
     "multipliers": {
      "base": 1,
      "topping": 1
-    },
-    "portion_count": 8
+    }
    },
    {
     "id": "detroit",
     "name": "Detroit-Style Deep Dish",
-    "note": "8 slices",
     "multipliers": {
      "base": 1,
      "topping": 1
-    },
-    "portion_count": 8
+    }
    }
   ],
   "default_flow": "build"
@@ -81,7 +70,7 @@
    "select": "single",
    "flow": "build",
    "in_preset": true,
-   "note": "Every figure here is for a whole pizza. Pick the slices you are eating below."
+   "note": "Every figure here is for a WHOLE pizza -- Little Caesars publishes per pizza, not per slice. They sell six crusts but publish a per-topping table for two, so those are the two you can build on; stuffed crust is here because they publish what adding it costs. Thin crust appears only as finished pizzas under menu items -- its toppings are not the round ones (their thin pepperoni is 150 calories over a thin cheese, against 350 on a round) -- and Crazy Crust and Stuffed Crazy Crust are on their menu but in neither the nutrition nor the ingredient pages of their guide."
   },
   {
    "id": "topping",
@@ -156,7 +145,7 @@
    "desc": "1 container"
   },
   "MAKE IT STUFFED CRUST": {
-   "cat": "sides"
+   "cat": "base"
   },
   "TOPPINGS ROUND": {
    "cat": "topping"
@@ -181,6 +170,24 @@
     "detroit": "Detroit-Style deep dish cheese pizza"
    },
    "name": "Cheese pizza"
+  },
+  "MAKE IT STUFFED CRUST/Add Stuffed Crust to any round pizza": {
+   "cat": "base",
+   "name": "Make it stuffed crust",
+   "addon_of": "base-pizza-round",
+   "only_modes": [
+    "round"
+   ],
+   "desc": "added to a whole round pizza"
+  },
+  "MAKE IT STUFFED CRUST/Add Stuffed Crust to any Detroit-Style Deep Dish": {
+   "cat": "base",
+   "name": "Make it stuffed crust",
+   "addon_of": "base-pizza-detroit",
+   "only_modes": [
+    "detroit"
+   ],
+   "desc": "added to a whole deep dish"
   }
  },
  "corrections": {
