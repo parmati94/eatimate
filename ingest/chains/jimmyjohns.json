@@ -6,8 +6,9 @@
    "pdf_url": "https://resources.jimmyjohns.com/downloadable-files/NutritionGuide.pdf",
    "retrieved": "2026-08-31",
    "format": "pdf",
-   "page_url": "https://www.jimmyjohns.com/nutrition",
-   "fetch": "plain"
+   "fetch": "asset",
+   "dump_sha256": "18e554af0033a9622a70dccaafb48bf9c52f04302606e660c9bac7f3a2883341",
+   "asset_sha256": "d2ab129cf78853ee68814e9ca448dd05b20e77ecf7d5dfd9634165137f584eb1"
   },
   "disclaimer_extra": "Jimmy John's publishes each add-on and freebie at three portion levels — EZ, regular and XTRA — and republishes the whole set for each bread size, because the same topping is portioned differently on a Little John than on a 16\" French. Pick your sandwich first and the add-on list shows the values for that size.",
   "blurb": "Start from any Jimmy John's sandwich — Little John, 8\" or 16\" French, Unwich, sliced wheat or a wrap — then add meats, cheese and freebies at the EZ, regular or XTRA portion the chain actually publishes.",
