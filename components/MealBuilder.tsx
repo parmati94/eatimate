@@ -2,7 +2,6 @@
 
 import {
   Dispatch,
-  Fragment,
   ReactNode,
   SetStateAction,
   useEffect,
@@ -349,6 +348,82 @@ function FamilyRow({
         }
       }}
     />
+  );
+}
+
+/**
+ * One category as a card: header, optional note, body.
+ *
+ * Shared by the numbered build steps and by the "Add to it" group beneath
+ * them. Those differ only in whether the header carries a number and whether a
+ * rule joins it to the card above -- everything else was duplicated markup, and
+ * duplicated markup is how the two "Add to it" headings happened.
+ */
+function StepSection({
+  cat,
+  comps,
+  index,
+  connect,
+  open,
+  onToggle,
+  selections,
+  qtySteps,
+  qmultFor,
+  toggle,
+  setQty,
+}: {
+  cat: Category;
+  comps: Component[];
+  /** Omitted for a card that is not a step you owe. */
+  index?: number;
+  connect: boolean;
+  open: boolean;
+  onToggle: () => void;
+  selections: Selections;
+  qtySteps?: number[];
+  qmultFor: (comp: Component) => number;
+  toggle: (comp: Component, single: boolean) => void;
+  setQty: (id: string, q: number) => void;
+}) {
+  return (
+    <section
+      className={`relative rounded-2xl border bg-surface transition-all ${
+        open
+          ? "border-accent/60 shadow-md ring-1 ring-accent/15"
+          : "border-line shadow-sm"
+      } ${
+        connect
+          ? "before:absolute before:-top-2 before:left-[29px] before:h-2 before:w-0.5 before:bg-line before:content-['']"
+          : ""
+      }`}
+    >
+      <SectionHeader
+        index={index}
+        name={cat.name}
+        count={choiceCount(comps)}
+        summary={picksSummary(comps, selections)}
+        open={open}
+        onClick={onToggle}
+      />
+      {open && (
+        <>
+          {cat.note && (
+            <p className="px-4 pb-1 text-xs leading-relaxed text-muted">
+              {cat.note}
+            </p>
+          )}
+          <CategoryBody
+            cat={cat}
+            comps={comps}
+            selections={selections}
+            qtySteps={qtySteps}
+            qmultFor={qmultFor}
+            toggle={toggle}
+            setQty={setQty}
+          />
+        </>
+      )}
+    </section>
   );
 }
 
@@ -921,10 +996,12 @@ export default function MealBuilder({
   // break, "2 Protein" under a chosen B.M.T. reads as "now choose your meat",
   // which is the opposite of what starting from a menu item means.
   const lastPreset = buildCats.map((c) => c.flow).lastIndexOf("preset");
-  const firstAdd =
-    mode === "menu" && lastPreset >= 0 && lastPreset + 1 < buildCats.length
-      ? lastPreset + 1
-      : -1;
+  const splitAt =
+    mode === "menu" && lastPreset >= 0 ? lastPreset + 1 : buildCats.length;
+  /** The steps you owe: on the menu path, up to and including the menu item. */
+  const stepCats = buildCats.slice(0, splitAt);
+  /** Promoted categories that are only ever additive once a menu item is picked. */
+  const addCats = buildCats.slice(splitAt);
 
   // "Make it a meal": the handful of items most orders actually include, lifted
   // out of the extras accordions. Same component ids, so selecting here and
@@ -1233,71 +1310,22 @@ export default function MealBuilder({
             joins each badge to the one above it, so the counter line reads as
             a line. The open step carries the weight. */}
         <div className="space-y-2">
-          {buildCats.map((cat, idx) => {
-            const comps = visibleByCategory.get(cat.id)!;
-            const open = openCat === cat.id;
-            const isAdd = firstAdd >= 0 && idx >= firstAdd;
-            return (
-              <Fragment key={cat.id}>
-                {idx === firstAdd && (
-                  <div className="px-1 pb-1 pt-3">
-                    <h2 className="text-xs font-semibold uppercase tracking-wider text-muted">
-                      Add to it
-                    </h2>
-                    {/* Not a hedge -- the honest statement. These charts give a
-                        figure for the whole item and never say which
-                        ingredients are in it, so hiding the ones we guessed are
-                        "already included" would be inventing the very thing
-                        that is missing. Everything stays listed, and the line
-                        says what adding one means. */}
-                    <p className="mt-0.5 text-xs leading-relaxed text-muted">
-                      Your pick above is already complete. {chain.name} does not
-                      publish which ingredients are in it, so everything stays
-                      listed here — anything you add counts on top.
-                    </p>
-                  </div>
-                )}
-              <section
-                className={`relative rounded-2xl border bg-surface transition-all ${
-                  open
-                    ? "border-accent/60 shadow-md ring-1 ring-accent/15"
-                    : "border-line shadow-sm"
-                } ${
-                  idx > 0 && idx !== firstAdd
-                    ? "before:absolute before:-top-2 before:left-[29px] before:h-2 before:w-0.5 before:bg-line before:content-['']"
-                    : ""
-                }`}
-              >
-                <SectionHeader
-                  index={isAdd ? undefined : idx + 1}
-                  name={cat.name}
-                  count={choiceCount(comps)}
-                  summary={picksSummary(comps, selections)}
-                  open={open}
-                  onClick={() => setOpenCat(open ? null : cat.id)}
-                />
-                {open && (
-                  <>
-                    {cat.note && (
-                      <p className="px-4 pb-1 text-xs leading-relaxed text-muted">
-                        {cat.note}
-                      </p>
-                    )}
-                    <CategoryBody
-                      cat={cat}
-                      comps={comps}
-                      selections={selections}
-                      qtySteps={portionCats.has(cat.id) ? COVERAGE_STEPS : undefined}
-                      qmultFor={rowMult}
-                      toggle={toggle}
-                      setQty={setQty}
-                    />
-                  </>
-                )}
-              </section>
-              </Fragment>
-            );
-          })}
+          {stepCats.map((cat, idx) => (
+            <StepSection
+              key={cat.id}
+              cat={cat}
+              comps={visibleByCategory.get(cat.id)!}
+              index={idx + 1}
+              connect={idx > 0}
+              open={openCat === cat.id}
+              onToggle={() => setOpenCat(openCat === cat.id ? null : cat.id)}
+              selections={selections}
+              qtySteps={portionCats.has(cat.id) ? COVERAGE_STEPS : undefined}
+              qmultFor={rowMult}
+              toggle={toggle}
+              setQty={setQty}
+            />
+          ))}
         </div>
 
         {/* Only once something is picked. "Make it a meal" has nothing to
@@ -1339,14 +1367,50 @@ export default function MealBuilder({
           </section>
         )}
 
-        {extraCats.length > 0 && (
+        {/* One heading over everything additive.
+
+            There used to be two "Add to it" headings 140px apart: the promoted
+            categories got one and the extras below got another, so the page
+            announced the same thing twice and the only difference between them
+            -- step-style card versus accordion -- is an implementation detail.
+            Renaming one was not an option either: "Sides, drinks & more" would
+            mislabel Jimmy John's Add-ons, which really are things you add. So
+            they share a heading and sit next to each other. */}
+        {(addCats.length > 0 || extraCats.length > 0) && (
           <>
             <h2 className="px-1 pt-1 text-xs font-semibold uppercase tracking-wider text-muted">
               {mode === "menu"
                 ? "Add to it"
                 : "Sides, drinks & other menu items"}
             </h2>
+            {mode === "menu" && (
+              // Not a hedge -- the honest statement. These charts give a figure
+              // for the whole item and never say which ingredients are in it,
+              // so hiding the ones we guessed were "already included" would
+              // invent the very fact that is missing. Everything stays listed,
+              // and this says what adding one means.
+              <p className="px-1 pb-1 text-xs leading-relaxed text-muted">
+                Your pick above is already complete. {chain.name} does not
+                publish which ingredients are in it, so everything stays listed
+                here — anything you add counts on top.
+              </p>
+            )}
             <div className="space-y-2">
+              {addCats.map((cat) => (
+                <StepSection
+                  key={cat.id}
+                  cat={cat}
+                  comps={visibleByCategory.get(cat.id)!}
+                  connect={false}
+                  open={openCat === cat.id}
+                  onToggle={() => setOpenCat(openCat === cat.id ? null : cat.id)}
+                  selections={selections}
+                  qtySteps={portionCats.has(cat.id) ? COVERAGE_STEPS : undefined}
+                  qmultFor={rowMult}
+                  toggle={toggle}
+                  setQty={setQty}
+                />
+              ))}
               {extraCats.map((cat) => (
                 <ExtrasSection
                   key={cat.id}
