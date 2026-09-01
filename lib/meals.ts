@@ -12,7 +12,7 @@ import { promises as fs } from "fs";
 import path from "path";
 import { cache } from "react";
 import { z } from "zod";
-import { compareRows, pairSlug, type CompareRow, type MealFacts } from "./compare";
+import { compareRows, pairSlug, type MealFacts } from "./compare";
 import { getChain } from "./data";
 import { decodeMeal, encodeMeal, estimatedNutrients, mealTotals, unknownNutrients, Selections } from "./meal";
 import { Chain, Component, NutrientField, Totals } from "./schema";

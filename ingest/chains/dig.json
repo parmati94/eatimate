@@ -15,9 +15,21 @@
   "disclaimer_extra": "DIG's chart lists single bowl-portion servings (Summer 2026 menu, updated July 9, 2026); a la carte vegetable sides are 1.5 servings. Menu rotates seasonally.",
   "blurb": "Build a DIG bowl the way the market line works — base, market sides, a main and sauces — including every seasonal plate and bowl.",
   "glyph": "grainbowl",
-  "formats": ["Bowl", "Plate"]
+  "formats": [
+   "Bowl",
+   "Plate"
+  ],
+  "consistency": {
+   "extras_kids": "Little Digs is a kids portion with its own smaller build, not a size of the bowl this page builds."
+  }
  },
  "categories": [
+  {
+   "id": "signature",
+   "name": "Bowls, Plates & Salads",
+   "select": "single",
+   "flow": "preset"
+  },
   {
    "id": "base",
    "name": "Base",
@@ -41,19 +53,13 @@
    "id": "extras",
    "name": "Extras",
    "select": "multi",
-   "flow": "build"
+   "flow": "both"
   },
   {
    "id": "sauces",
    "name": "Sauces",
    "select": "multi",
-   "flow": "build"
-  },
-  {
-   "id": "signature",
-   "name": "Bowls, Plates & Salads",
-   "select": "multi",
-   "flow": "extras"
+   "flow": "both"
   },
   {
    "id": "kids",

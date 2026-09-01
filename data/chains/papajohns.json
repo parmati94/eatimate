@@ -115,6 +115,10 @@
       "topping"
     ]
   },
+  "consistency": {
+    "extras_wing": "Wings are a side ordered alongside a pizza, not a pizza this page can build.",
+    "extras_entree": "Papadias and sandwiches are a different centre of the plate from the pizza this page builds."
+  },
   "categories": [
     {
       "id": "crust",

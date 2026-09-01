@@ -51,6 +51,93 @@ Config (ingest/chains/<slug>.json):
                contradicts within its own row (optional)
   layout.serving_brackets: lift a trailing "[...]" off the printed name into
                serving_desc (dump_html "items" mode carries it there)
+
+  --- more layout keys ---
+  layout.row_sections / subsections: see above.
+  layout.dual_split: two columns of the same table read as two rows each,
+               tagged with the section's labels so variant_split can collapse
+               them into a size selector.
+  layout.tier_rows + head: a table printing one line per portion with the name
+               on only the first. `head` names the tier that heads the family,
+               and it matters: EZ heading a family made every meal built from
+               it understate, because tapping the row gave the light portion.
+  layout.dash_rows_are_data: a row of all "-" is real zeroes, not a spacer.
+
+  --- more top-level keys ---
+  derived:     [{id, name, cat, values, reason?, estimated?, after?}] a
+               component computed from figures the chain publishes (shown as
+               "derived") or published somewhere the main source does not
+               reach. Never inferred at run time.
+  section_subtract: "SECTION" -> component ID whose values are subtracted from
+               every row in that section. Potbelly's sandwich totals include
+               white bread at that size, so the row as published cannot be
+               added to a bread the user picked without counting the loaf
+               twice. Keyed on ID, not name: once sizes collapse into a family
+               every member shares one name, and a name lookup would subtract
+               an Originals bread from a BIGS sandwich.
+  name_variants: [{pattern, sections?}] regex with named groups `family` and
+               `label`, for a size family the source spells out in the row name
+               ("2 count Original Chicken Dippers") rather than with a
+               separator. Matching by pattern means a reworded row still groups.
+  name_trim:   [{pattern, into, base_label?, labels?}] lift out of the printed
+               name whatever is not the food. `into` is "serving" (the captured
+               text becomes serving_desc), "drop" (discarded), or "size" (it
+               becomes the size chip, and rows sharing the trimmed name collapse
+               into one row carrying those chips).
+               `base_label` names the chip for a row carrying no suffix, which
+               is how a source says "regular". `labels` sets the chip ORDER and
+               therefore the family HEAD -- and the head is what an unselected
+               row quotes, so CAVA printing Kids first had a lemonade
+               advertising 200 cal for a drink sold at 260. Always check it.
+               Rules run in config order and each is anchored at the end, so
+               list the outermost suffix first: "Hot BBQ - 2 fl oz - limited
+               time" is a note on a portion on a name.
+               Spell the alternatives out; never match "any parenthetical". One
+               Potbelly table carries "(cup)" and "(for mac)", one Qdoba table
+               "(4 oz)" and "(kids)".
+  dedupe:      true to drop rows that became identical once the name was tidied
+               -- a source printing the same dressing in its dips table and
+               again in its dressings table. Same category, name, values, mode
+               gating AND size chip; the survivor takes any portion the
+               duplicate stated. The gating is part of the key on purpose:
+               BWW republishes every sauce per wing tier with identical values.
+  energy_exempt: validate.py only; components allowed to fail the
+               calories-vs-macros check.
+
+  --- items spec keys ---
+  Beyond {cat, id, name, desc, skip, copies}:
+    suffix / id_suffix   append " (X)" to the derived name / id
+    size_mode            the mode this row activates when picked
+    only_modes           the modes this row is visible under
+    mode_selector        this row IS the format choice: one per mode, always
+                         visible, and picking it activates its mode
+    mode_names           mode id -> display name for a mode_selector row
+    mode_variants        mode id -> {family, label}; collapses the modes of one
+                         crust into a single row with a size selector. Works
+                         only where the source reprints the row under ONE name
+                         in every size's table (Papa John's "Original Crust").
+    variant_family       the row names the family it joins, for sources that
+                         name each size differently ("Bread - White",
+                         "Bread - White, BIGS"). Members share `name`, which is
+                         what the collapsed row displays.
+    variant_of / variant_label  join a family explicitly / name this size chip
+    addon_of             this row rides along with the component named, rather
+                         than being an alternative to it (Domino's garlic oil
+                         on a Hand Tossed crust). Stops a single-select
+                         category from clearing its own parent.
+    feature              lift into the "Make it a meal" shelf
+
+  --- meta keys (copied wholesale to the output; see lib/schema.ts) ---
+    size_modes, portion, glyph, formats, blurb, disclaimer_extra, menu_check
+    consistency          per-check waivers for lib/consistency.test.ts, value
+                         being the REASON. Undeclared drift from what a chain's
+                         cuisine peers do fails CI; a declared difference
+                         passes.
+
+  --- category keys (lib/schema.ts) ---
+    flow                 "preset" | "build" | "extras" | "both"
+    in_preset            a named menu item already includes this, so the menu
+                         path does not offer it (a bread, a bun, a size)
 """
 import json, re, sys, unicodedata
 from pathlib import Path
@@ -583,6 +670,11 @@ def build(cfg, rows, extra=None):
                 # everything would turn Potbelly's BIGS into Bigs and 2 FL OZ
                 # into 2 Fl Oz.
                 c["variant_label"] = got.capitalize() if got.islower() else got
+                # Remember which end it came off, so a label that has to be put
+                # back goes back where it was: Subway prints '6" Buffalo
+                # Chicken', and restoring that as 'Buffalo Chicken, 6"' is worse
+                # than never having trimmed it.
+                c["_label_pre"] = t["pattern"].startswith("^")
                 # A size that is itself a measurement answers "how much?" too,
                 # so a row still sitting on "1 serving" may as well say it.
                 if (re.match(r"^\d", got)
@@ -669,8 +761,9 @@ def build(cfg, rows, extra=None):
         for c in comps:
             if c.get("variant_label") and not c.get("variant_of") and \
                     not any(m.get("variant_of") == c["id"] for m in comps):
-                c["name"] = f"{c['name']}, {c['variant_label']}"
-                c.pop("variant_label")
+                lbl = c.pop("variant_label")
+                c["name"] = (f"{lbl} {c['name']}" if c.get("_label_pre")
+                             else f"{c['name']}, {lbl}")
 
     # Sections whose rows already BUNDLE a base component, named per section:
     # Potbelly's sandwich totals include white bread at that size, so the row as
@@ -703,7 +796,7 @@ def build(cfg, rows, extra=None):
 
     order = {c["id"]: i for i, c in enumerate(cfg["categories"])}
     comps.sort(key=lambda c: (order[c["category"]], c["_ord"]))  # category order, then items-table order
-    for c in comps: c.pop("_ord", None); c.pop("_sec", None)
+    for c in comps: c.pop("_ord", None); c.pop("_sec", None); c.pop("_label_pre", None)
     return comps
 
 def finish(cfg, components, rows, pending, out_dir="data/chains"):

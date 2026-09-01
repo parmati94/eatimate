@@ -37,14 +37,25 @@
    }
   ],
   "glyph": "salad",
-  "formats": ["Salad", "Warm bowl", "Wrap"]
+  "formats": [
+   "Salad",
+   "Warm bowl",
+   "Wrap"
+  ]
  },
  "categories": [
+  {
+   "id": "signature",
+   "name": "Menu Salads, Bowls, Plates & Wraps",
+   "select": "single",
+   "flow": "preset"
+  },
   {
    "id": "format",
    "name": "Format",
    "select": "single",
-   "flow": "build"
+   "flow": "build",
+   "in_preset": true
   },
   {
    "id": "base",
@@ -57,7 +68,8 @@
    "id": "bread",
    "name": "Wrap / Bread",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "in_preset": true
   },
   {
    "id": "essentials",
@@ -87,17 +99,11 @@
    "id": "dressings",
    "name": "Dressings",
    "select": "multi",
-   "flow": "build"
+   "flow": "both"
   },
   {
    "id": "combos",
    "name": "Curated Combos",
-   "select": "multi",
-   "flow": "extras"
-  },
-  {
-   "id": "signature",
-   "name": "Menu Salads, Bowls, Plates & Wraps",
    "select": "multi",
    "flow": "extras"
   },

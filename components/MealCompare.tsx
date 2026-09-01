@@ -64,6 +64,10 @@ export default function MealCompare({
   // single-chain builder restores ?m=. SSR renders the preset, which is what
   // gets indexed; a pasted link then replaces it on the client.
   useEffect(() => {
+    // Same exception as the single-chain builder: restoring a shared link once
+    // on mount is the one thing this rule cannot express, because a lazy
+    // initialiser cannot read window during SSR without a hydration mismatch.
+    /* eslint-disable react-hooks/set-state-in-effect */
     const q = new URLSearchParams(window.location.search);
     const [a, b] = [q.get("a"), q.get("b")];
     if (a || b) {
@@ -82,6 +86,7 @@ export default function MealCompare({
       ]);
     }
     hydrated.current = true;
+    /* eslint-enable react-hooks/set-state-in-effect */
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

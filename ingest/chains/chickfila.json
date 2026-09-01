@@ -47,7 +47,8 @@
    "id": "bun",
    "name": "Bun",
    "select": "single",
-   "flow": "build"
+   "flow": "build",
+   "in_preset": true
   },
   {
    "id": "protein",
@@ -221,8 +222,7 @@
    "cat": "side",
    "id": "mac-and-cheese",
    "name": "Mac & Cheese",
-   "variant_label": "Medium",
-   "feature": true
+   "variant_label": "Medium"
   },
   "Small Mac & Cheese": {
    "cat": "side",
@@ -847,8 +847,7 @@
    "cat": "drink",
    "id": "freshly-brewed-unsweetened-iced-tea",
    "name": "Freshly-Brewed Unsweetened Iced Tea",
-   "variant_label": "Medium",
-   "feature": true
+   "variant_label": "Medium"
   },
   "Large Freshly-Brewed Unsweetened Iced Tea": {
    "cat": "drink",
@@ -1010,8 +1009,7 @@
    "cat": "drink",
    "id": "dr-pepper",
    "name": "Dr Pepper®",
-   "variant_label": "Medium",
-   "feature": true
+   "variant_label": "Medium"
   },
   "Large Dr Pepper®": {
    "cat": "drink",

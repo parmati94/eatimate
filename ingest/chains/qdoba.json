@@ -24,10 +24,17 @@
  },
  "categories": [
   {
+   "id": "signature-eats",
+   "name": "Signature Eats",
+   "select": "single",
+   "flow": "preset"
+  },
+  {
    "id": "base",
    "name": "Base / Format",
    "select": "single",
-   "flow": "build"
+   "flow": "build",
+   "in_preset": true
   },
   {
    "id": "rice",
@@ -53,29 +60,23 @@
    "id": "queso-sauces",
    "name": "Queso, Sauces & Dressings",
    "select": "multi",
-   "flow": "build"
+   "flow": "both"
   },
   {
    "id": "salsas",
    "name": "Salsas",
    "select": "multi",
-   "flow": "build"
+   "flow": "both"
   },
   {
    "id": "toppings",
    "name": "Toppings",
    "select": "multi",
-   "flow": "build"
+   "flow": "both"
   },
   {
    "id": "sides",
    "name": "Sides",
-   "select": "multi",
-   "flow": "extras"
-  },
-  {
-   "id": "signature-eats",
-   "name": "Signature Eats",
    "select": "multi",
    "flow": "extras"
   },

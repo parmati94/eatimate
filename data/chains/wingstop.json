@@ -13,6 +13,9 @@
     "Boneless",
     "Tenders"
   ],
+  "consistency": {
+    "extras_sandwiches": "A chicken sandwich is a different centre of the plate from the wings this page builds."
+  },
   "categories": [
     {
       "id": "classic",

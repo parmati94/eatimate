@@ -122,27 +122,44 @@ the data carries, so a chain's shape is emergent — which means the fastest way
 to add one is to copy the config of the chain that already looks like it, not to
 start from scratch. `validate.py` prints the resulting shape back at you.
 
+Every config key is documented in `common.py`'s module docstring — that is the
+reference, and it is kept complete. This table is only what each one *looks*
+like on the page.
+
 | Field | Where | What appears |
 | --- | --- | --- |
 | `size_modes` | `meta` | format selector (Subway 6" / Footlong) |
 | `size_modes[].portion_count` + `portion` | `meta` | "slices eaten" stepper |
 | `flow: "preset"` on a category | `categories` | menu-item / build-your-own fork |
-| `flow: "extras"` on a category | `categories` | collapsed add-on section |
-| `feature` on components | set per chain | "Make it a meal" step |
+| `flow: "both"` | `categories` | a numbered step on EITHER path |
+| `flow: "extras"` | `categories` | collapsed add-on section |
+| `in_preset` on a category | `categories` | hidden on the menu path — a named item already has one |
+| `feature` on components | set per chain | "Make it a meal" shelf |
 | `variant_of` / `variant_label` | components | one row with a size selector |
+| `addon_of` | components | nested under the row it extends |
+| `name_trim` + `dedupe` | top level | the two above, derived from tidy names |
 
 | Shape | Copy from | Chains |
 | --- | --- | --- |
-| plain ingredient list | `cava.json` | CAVA, DIG, Panda Express, Qdoba, Wingstop |
-| format-first | `subway.json` | Subway, Moe's, Just Salad |
-| format-first + per-portion | `papajohns.json` | Papa John's |
-| meal step only | `fiveguys.json` | Five Guys |
-| preset fork + meal step | `chickfila.json` | Chick-fil-A |
+| plain ingredient list | `cava.json` | Chipotle, Cafe Rio, Panda Express, Wingstop |
+| format-first, no published whole items | `moes.json` | Moe's |
+| preset fork + formats as chips | `subway.json` | Subway, Just Salad, Qdoba, CAVA, DIG |
+| preset fork, size chosen first | `potbelly.json` | Potbelly, Jimmy John's |
+| format-first + per-portion | `papajohns.json` | Papa John's, Domino's |
+| preset fork + meal shelf | `chickfila.json` | Chick-fil-A |
+| meal shelf only | `fiveguys.json` | Five Guys |
+| per-tier values by mode | `bww.json` | Buffalo Wild Wings |
 
-Note the grouping is structural, not culinary: Papa John's sits with Subway
-because a crust x size multiplying every topping is the same problem as a
-footlong multiplying every filling. A second pizza chain starts from
-`papajohns.json`; a second sandwich chain probably does too.
+Note the grouping is structural, not culinary: Papa John's sits with Domino's
+because a crust x size multiplying every topping is the same problem twice. The
+split inside the sandwich chains is real though — Subway publishes each named
+item complete at its own format, so the format is a chip on the item; Potbelly
+and Jimmy John's publish per-size figures, so the size has to be chosen before
+the sandwich list means anything.
+
+Whichever you copy, `lib/consistency.test.ts` will fail the build if the new
+chain drifts from what its cuisine peers do without saying why in
+`meta.consistency`.
 
 ## Runbook for a new chain
 1. **Fetch the official PDF** from the chain's own site. Many sites Cloudflare-403

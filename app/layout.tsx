@@ -68,6 +68,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           and every hit is counted twice.
         */}
         {beaconToken ? (
+          /* type="module" is deferred by definition, so this never blocks
+             parsing; the rule does not read the type attribute. */
+          // eslint-disable-next-line @next/next/no-sync-scripts
           <script
             type="module"
             src="https://static.cloudflareinsights.com/beacon.min.js"

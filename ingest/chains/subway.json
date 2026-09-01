@@ -58,74 +58,58 @@
    }
   ],
   "glyph": "sub",
-  "formats": ["6\" Sub", "Footlong", "Wrap", "Salad"]
+  "formats": [
+   "6\" Sub",
+   "Footlong",
+   "Wrap",
+   "Salad"
+  ]
  },
  "categories": [
+  {
+   "id": "menu",
+   "name": "Menu Items",
+   "select": "single",
+   "flow": "preset",
+   "note": "Subway publishes each named item complete. Pick the format on the row; anything you add below is on top of what is published."
+  },
   {
    "id": "format",
    "name": "Size",
    "select": "single",
-   "flow": "build"
+   "flow": "build",
+   "in_preset": true
   },
   {
    "id": "bread",
    "name": "Bread",
    "select": "single",
-   "flow": "build"
+   "flow": "build",
+   "in_preset": true
   },
   {
    "id": "protein",
    "name": "Protein",
    "select": "multi",
-   "flow": "build"
+   "flow": "both"
   },
   {
    "id": "cheese",
    "name": "Cheese",
    "select": "multi",
-   "flow": "build"
+   "flow": "both"
   },
   {
    "id": "veggies",
    "name": "Veggies",
    "select": "multi",
-   "flow": "build"
+   "flow": "both"
   },
   {
    "id": "sauces",
    "name": "Sauces & Seasonings",
    "select": "multi",
-   "flow": "build"
-  },
-  {
-   "id": "sandwiches",
-   "name": "Menu Sandwiches (6\")",
-   "select": "multi",
-   "flow": "extras"
-  },
-  {
-   "id": "wraps",
-   "name": "Menu Wraps",
-   "select": "multi",
-   "flow": "extras"
-  },
-  {
-   "id": "salads",
-   "name": "Menu Salads",
-   "select": "multi",
-   "flow": "extras"
-  },
-  {
-   "id": "protein-bowls",
-   "name": "Protein Bowls",
-   "select": "multi",
-   "flow": "extras"
-  },
-  {
-   "id": "breakfast-pizza",
-   "name": "Breakfast, Pizza & Sliders",
-   "select": "multi",
-   "flow": "extras"
+   "flow": "both"
   },
   {
    "id": "desserts-sides",
@@ -161,50 +145,50 @@
  },
  "section_categories": {
   "SANDWICHES": {
-   "cat": "sandwiches",
+   "cat": "menu",
    "desc": "one 6\" sub"
   },
   "SANDWICHES/Kids' Mini Sub": {
-   "cat": "sandwiches",
+   "cat": "menu",
    "suffix": "Kids Mini",
    "desc": "one kids mini sub"
   },
   "WRAPS": {
-   "cat": "wraps",
+   "cat": "menu",
    "suffix": "Wrap",
    "desc": "one wrap"
   },
   "WRAPS/Protein Pockets": {
-   "cat": "wraps",
+   "cat": "menu",
    "suffix": "Protein Pocket",
    "desc": "one 9\" pocket"
   },
   "SALADS": {
-   "cat": "salads",
+   "cat": "menu",
    "suffix": "Salad",
    "desc": "one salad, no dressing unless noted"
   },
   "PROTEIN BOWLS": {
-   "cat": "protein-bowls",
+   "cat": "menu",
    "suffix": "Protein Bowl",
    "desc": "one bowl, no dressing or cheese unless noted"
   },
   "BREAKFAST & PIZZA & SLIDERS": {
-   "cat": "breakfast-pizza",
+   "cat": "menu",
    "desc": "one 6\" breakfast sub"
   },
   "BREAKFAST & PIZZA & SLIDERS/Egg Patty on 12\" Wrap": {
-   "cat": "breakfast-pizza",
+   "cat": "menu",
    "suffix": "Breakfast Wrap",
    "desc": "one breakfast wrap"
   },
   "BREAKFAST & PIZZA & SLIDERS/8\" Pizza": {
-   "cat": "breakfast-pizza",
+   "cat": "menu",
    "suffix": "8\" Pizza",
    "desc": "one 8\" pizza"
   },
   "BREAKFAST & PIZZA & SLIDERS/Sliders": {
-   "cat": "breakfast-pizza",
+   "cat": "menu",
    "suffix": "Slider",
    "desc": "one slider"
   },
@@ -344,6 +328,28 @@
    "cat": "format",
    "desc": "no bread",
    "size_mode": "no-bread"
+  }
+ ],
+ "name_trim": [
+  {
+   "pattern": "^(6\")\\s+",
+   "into": "size"
+  },
+  {
+   "pattern": "\\s*\\((Wrap|Protein Pocket|Salad|Protein Bowl|Kids Mini|Breakfast Wrap|8\\\" Pizza|Slider|Soup)\\)\\s*$",
+   "into": "size",
+   "labels": [
+    "6\"",
+    "Wrap",
+    "Protein Pocket",
+    "Salad",
+    "Protein Bowl",
+    "Kids Mini",
+    "Breakfast Wrap",
+    "8\" Pizza",
+    "Slider",
+    "Soup"
+   ]
   }
  ]
 }
