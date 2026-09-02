@@ -55,9 +55,8 @@ def extraction():
 
 def uniformity():
     chains = [json.load(open(f)) for f in sorted(glob.glob("data/chains/*.json"))]
-    req = ["id", "name", "category", "serving_desc", "serving_g", "calories", "fat_g",
-           "sat_fat_g", "trans_fat_g", "cholesterol_mg", "sodium_mg", "carbs_g",
-           "fiber_g", "sugars_g", "protein_g"]
+    fields = [n["field"] for n in json.load(open("lib/nutrients.json"))["fields"]]
+    req = ["id", "name", "category", "serving_desc", "serving_g"] + fields
     missing = {c["slug"] for c in chains
                for comp in c["components"] if any(k not in comp for k in req)}
     print(f"\n\n{len(chains)} chains, "
@@ -76,15 +75,20 @@ def freshness():
     for f in sorted(glob.glob("data/chains/*.json")):
         c = json.load(open(f))
         got = datetime.date.fromisoformat(c["source"]["retrieved"])
-        rows.append((c["slug"], got, (today - got).days))
-    print("\n\nFRESHNESS — age of each chain's source (source.retrieved)\n")
-    print(f"  {'chain':14}{'retrieved':12}{'age':>7}")
-    print("  " + "-" * 40)
-    for slug, got, age in sorted(rows, key=lambda r: -r[2]):
+        # `verified` is the last time refresh.py --touch found the source
+        # unchanged; a chain checked every week is not a year old because it
+        # was fetched a year ago.
+        seen = c["source"].get("verified")
+        seen = datetime.date.fromisoformat(seen) if seen else got
+        rows.append((c["slug"], got, seen, (today - max(got, seen)).days))
+    print("\n\nFRESHNESS — age since the source was fetched (retrieved) or last found unchanged (verified)\n")
+    print(f"  {'chain':14}{'retrieved':12}{'verified':12}{'age':>7}")
+    print("  " + "-" * 52)
+    for slug, got, seen, age in sorted(rows, key=lambda r: -r[3]):
         mark = "  STALE" if age > 180 else ("  ageing" if age > 90 else "")
-        print(f"  {slug:14}{got.isoformat():12}{age:>5}d{mark}")
-    old = [r for r in rows if r[2] > 180]
-    print(f"\n  oldest {max(r[2] for r in rows)}d"
+        print(f"  {slug:14}{got.isoformat():12}{(seen.isoformat() if seen != got else '-'):12}{age:>5}d{mark}")
+    old = [r for r in rows if r[3] > 180]
+    print(f"\n  oldest {max(r[3] for r in rows)}d"
           + (f"; past 180d: {', '.join(r[0] for r in old)}" if old
              else "; nothing past 180d"))
 

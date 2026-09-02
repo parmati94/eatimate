@@ -19,62 +19,72 @@
       "id": "item",
       "name": "Menu Items",
       "select": "single",
-      "flow": "preset"
+      "flow": "preset",
+      "role": "preset"
     },
     {
       "id": "base",
       "name": "Bun & Base",
       "select": "single",
       "flow": "build",
+      "role": "format",
       "in_preset": true
     },
     {
       "id": "patty",
       "name": "Patty",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "protein"
     },
     {
       "id": "cheese",
       "name": "Cheese",
       "select": "multi",
-      "flow": "both"
+      "flow": "both",
+      "role": "cheese"
     },
     {
       "id": "toppings",
       "name": "Toppings",
       "select": "multi",
-      "flow": "both"
+      "flow": "both",
+      "role": "topping"
     },
     {
       "id": "sauces",
       "name": "Sauces",
       "select": "multi",
-      "flow": "both"
+      "flow": "both",
+      "role": "sauce"
     },
     {
       "id": "sides",
       "name": "Sides",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "side"
     },
     {
       "id": "drinks",
       "name": "Drinks & Coffee",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "drink"
     },
     {
       "id": "sweets",
       "name": "Sweets",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "dessert"
     },
     {
       "id": "condiments",
       "name": "Condiments",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "sauce"
     }
   ],
   "components": [
@@ -4962,6 +4972,40 @@
       "protein_g": 4
     },
     {
+      "id": "hot-caramel-sundae",
+      "name": "Hot Caramel Sundae",
+      "category": "sweets",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 260,
+      "fat_g": 6,
+      "sat_fat_g": 4,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 25,
+      "sodium_mg": 300,
+      "carbs_g": 45,
+      "fiber_g": 0,
+      "sugars_g": 35,
+      "protein_g": 5
+    },
+    {
+      "id": "hot-fudge-sundae",
+      "name": "Hot Fudge Sundae",
+      "category": "sweets",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 270,
+      "fat_g": 6,
+      "sat_fat_g": 4,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 25,
+      "sodium_mg": 200,
+      "carbs_g": 44,
+      "fiber_g": 1,
+      "sugars_g": 38,
+      "protein_g": 5
+    },
+    {
       "id": "oreo-sundae",
       "name": "OREO® Sundae",
       "category": "sweets",
@@ -4994,6 +5038,40 @@
       "fiber_g": 0,
       "sugars_g": 31,
       "protein_g": 5
+    },
+    {
+      "id": "strawberry-cake-shake",
+      "name": "Strawberry Cake Shake",
+      "category": "sweets",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 660,
+      "fat_g": 22,
+      "sat_fat_g": 11,
+      "trans_fat_g": 0.5,
+      "cholesterol_mg": 55,
+      "sodium_mg": 470,
+      "carbs_g": 101,
+      "fiber_g": 0,
+      "sugars_g": 79,
+      "protein_g": 12
+    },
+    {
+      "id": "dr-pepper-shake",
+      "name": "Dr Pepper® Shake",
+      "category": "sweets",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 540,
+      "fat_g": 13,
+      "sat_fat_g": 9,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 55,
+      "sodium_mg": 400,
+      "carbs_g": 93,
+      "fiber_g": 1,
+      "sugars_g": 78,
+      "protein_g": 11
     },
     {
       "id": "soft-serve-cup",

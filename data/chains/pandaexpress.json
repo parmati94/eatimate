@@ -21,37 +21,43 @@
       "id": "side",
       "name": "Sides",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "base"
     },
     {
       "id": "entree",
       "name": "Entrées",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "entree"
     },
     {
       "id": "appetizer",
       "name": "Appetizers",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "side"
     },
     {
       "id": "soup",
       "name": "Soup",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "side"
     },
     {
       "id": "sauce",
       "name": "Sauces",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "sauce"
     },
     {
       "id": "treat",
       "name": "Sweets",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "dessert"
     }
   ],
   "components": [

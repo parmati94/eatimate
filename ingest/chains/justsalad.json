@@ -9,7 +9,8 @@
    "fetch": "redirect",
    "dump_sha256": "96993f85ab9b0878740d7d1d01f8832f6b86cf6e9bd17d917c9c0a5778bebaf1",
    "asset_sha256": "f775337a73a9d92b190d0319d334ceab71767c79b00845718503c122de47bf67",
-   "page_url": "https://www.justsalad.com/allergens"
+   "page_url": "https://www.justsalad.com/allergens",
+   "tables": true
   },
   "disclaimer_extra": "Just Salad's guide (July 2026) states that its menu items do NOT include dressing in their nutrition or allergens, so a named salad here needs a dressing added the same way a built one does. Portions are standard, without serving weights; base greens/grains are listed per format (salad, warm bowl, market plate, wrap). Dressing values are the 1 oz 'light' serving. Menu rotates seasonally.",
   "blurb": "Assemble any Just Salad order — pick your format (salad, warm bowl, market plate or wrap), then build it from bases, essentials, premiums, proteins and every dressing at the 1 oz pour.",
@@ -49,13 +50,15 @@
    "id": "signature",
    "name": "Menu Salads, Bowls, Plates & Wraps",
    "select": "single",
-   "flow": "preset"
+   "flow": "preset",
+   "role": "preset"
   },
   {
    "id": "format",
    "name": "Format",
    "select": "single",
    "flow": "build",
+   "role": "format",
    "in_preset": true
   },
   {
@@ -63,6 +66,7 @@
    "name": "Base",
    "select": "multi",
    "flow": "build",
+   "role": "base",
    "note": "Going half-and-half? Pick both and set each to ½ — otherwise you're counting two full portions."
   },
   {
@@ -70,61 +74,71 @@
    "name": "Wrap / Bread",
    "select": "multi",
    "flow": "build",
+   "role": "format",
    "in_preset": true
   },
   {
    "id": "essentials",
    "name": "Essentials",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "topping"
   },
   {
    "id": "premiums",
    "name": "Premiums",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "topping"
   },
   {
    "id": "cheese",
    "name": "Cheese",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "cheese"
   },
   {
    "id": "protein",
    "name": "Protein",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "protein"
   },
   {
    "id": "dressings",
    "name": "Dressings",
    "select": "multi",
-   "flow": "both"
+   "flow": "both",
+   "role": "sauce"
   },
   {
    "id": "combos",
    "name": "Curated Combos",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "entree"
   },
   {
    "id": "soups",
    "name": "Soups",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "side"
   },
   {
    "id": "snacks",
    "name": "Snacks",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "side"
   },
   {
    "id": "drinks",
    "name": "Drinks & Smoothies",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "drink"
   }
  ],
  "layout": {

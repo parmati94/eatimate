@@ -1,25 +1,44 @@
 # Ingesting a chain
 
 Admin-only. Output contract: `data/chains/<slug>.json` passing `lib/schema.ts`.
-Raw artifacts (source PDF, text dump, report) go to `data/raw/<slug>/` (gitignored).
-Python deps live in `ingest/.venv` (`python3 -m venv ingest/.venv && ingest/.venv/bin/pip install pdfplumber cloudscraper pillow beautifulsoup4 lxml`). The last two are for `dump_html.py`.
+Raw artifacts go to `data/raw/<slug>/`: the source document and report are gitignored, the text dump (`raw_dump.txt`) is tracked.
+Python deps live in `ingest/.venv`, pinned in `requirements.txt` (pinned on
+purpose: a pdfplumber change reads as a source change):
+
+```
+python3 -m venv ingest/.venv && ingest/.venv/bin/python -m pip install -r ingest/requirements.txt
+```
 
 ## Pipeline (deterministic — same dump in, byte-identical JSON out)
 
-Four dumpers, one intermediate. Whatever the source looks like, it becomes the
+Six dumpers, one intermediate. Whatever the source looks like, it becomes the
 same `raw_dump.txt` — section headings followed by `name <numeric cells>` rows —
-so nothing downstream knows where the data came from.
+so nothing downstream knows where the data came from. `raw_dump.txt` is
+tracked in git (the source documents are not), so `rebuild.py --check` can
+prove on any machine, and in CI, that `data/chains` matches the configs.
 
-| Source shape | Dumper |
-| --- | --- |
-| PDF | `dump.py <slug> <file>.pdf` |
-| HTML table, one row per item | `dump_html.py <slug>` |
-| HTML transposed, columns are the chain-wide size | `dump_html.py <slug> --matrix` |
-| HTML transposed, columns are sizes of one item | `dump_html.py <slug>`, page tagged `"mode": "items"` |
-| Embedded / API JSON | `dump_json.py <slug>` |
+`meta.source.format` names the shape, and `formats.py` is the one table that
+says what each shape means: which dumper, which config keys it needs, which
+flags it reads from the config, and how `refresh.py` checks it for change.
+
+| `format` | Source shape | Dumper | Refresh |
+| --- | --- | --- | --- |
+| `pdf` | PDF (`tables: true` for ruled-table mode) | `dump.py <slug> <file>.pdf` | resolve link, hash bytes, re-dump text |
+| `image` | page images, transcribed by hand (`transcribed: true`) | none | resolve link, hash bytes |
+| `html_table` | HTML table, one row per item | `dump_html.py <slug>` | re-dump, compare text |
+| `html_matrix` | HTML transposed, columns are the chain-wide size | `dump_html.py <slug>` (`matrix: true`) | re-dump |
+| `html_items` | HTML transposed, columns are sizes of one item | `dump_html.py <slug>`, page tagged `"mode": "items"` | re-dump |
+| `json` | embedded / API JSON | `dump_json.py <slug>` | re-dump |
+| `sanity` | Sanity CMS dataset (GROQ) | `dump_sanity.py <slug>` | re-dump |
+| `compose` | ordering API publishing ingredients and recipes | `dump_compose.py <slug>` | re-dump |
+| `nutritionix` | Nutritionix calculator export, captured by hand | `dump_nutritionix.py <slug>` | manual |
 
 With no source argument the dumpers read `meta.source` from the chain's own
 config, so a refresh is just `dump_html.py <slug>`. A page list may mix modes.
+Every config is checked against the key vocabulary in `config_check.py` before
+it is read; an unknown key fails with a hint. `extract.py` also prints the ids
+it added or withdrew against HEAD, which is where a row a section default
+absorbed, or an id a reworded row minted, becomes visible.
 
 **Finding the source in the first place.** Many chains render nutrition in the
 browser from an XHR, so `curl` gets an empty shell and the payload is invisible:
@@ -78,6 +97,11 @@ Two hashes, because one cannot tell these apart:
 Page-sourced chains (Chick-fil-A, Panda, Papa John's) have no asset to
 resolve, so they are re-dumped and compared on `dump_sha256` instead.
 
+`refresh.py --all --touch` additionally stamps `source.verified` on every chain
+that came back unchanged, so the freshness table measures time since the source
+was last found current rather than since it was fetched. Follow it with
+`rebuild.py` so the date reaches `data/chains`.
+
 `ingest/overview.py` prints two tables: which optional presentation fields each
 chain uses (and therefore what shape it renders as), and each chain's
 extraction knobs — including whether a new row ERRORs or is absorbed.
@@ -91,8 +115,10 @@ All chain-specific knowledge is **data** in `ingest/chains/<slug>.json`:
   Category is the one thing a human must decide (the PDF has no idea what a
   "base" is). id/name/serving_desc are derived from the printed row unless
   overridden; keep ids stable across re-ingests so bookmarked `?m=` links survive.
-  Table order = display order within a category. Repeated printed names are
-  addressed as `"<name> [#2]"`.
+  Table order = display order within a category. A printed name that repeats
+  across sections is best addressed as `"SECTION/<name>"`; the older
+  `"<name> [#2]"` form (2nd occurrence in the dump) silently points at a
+  different row the moment the chain inserts one above it.
 - `synthetic` — zero-nutrient menu structure the PDF can't express (plain bowl,
   water). Editorial; flagged `synthetic: true` in the output.
 - `section_categories` — `"SECTION" -> cat`, a default for a whole section, so a

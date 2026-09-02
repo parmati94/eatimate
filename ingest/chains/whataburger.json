@@ -28,8 +28,10 @@
     "grilled-chicken-5-calories"
    ],
    "retrieved": "2026-09-01",
-   "format": "json",
-   "fetch": "plain"
+   "format": "compose",
+   "fetch": "plain",
+   "dump_sha256": "5263d23cc8958bf2d3fad05cb008d62cf76ac9e98a2498e8b2f27ce939640214",
+   "asset_sha256": "67d4a50f27070b9e0bf3fddb6efbdca0d981de9b1bb55defaedbe6d0fcc85d19"
   },
   "disclaimer_extra": "Whataburger publishes each ingredient with its own weight and each menu item as a recipe of those ingredients, so every figure here is their arithmetic on their numbers — the same sum their own app makes. It reproduces what they print: a Whataburger comes to 589.5 against a published 590. Their recipes also count the seasoned oil the buns are griddled in, which is not something you order, so a burger you build here runs a few calories under the same one on the menu.",
   "glyph": "burger",
@@ -65,68 +67,79 @@
    "id": "item",
    "name": "Menu Items",
    "select": "single",
-   "flow": "preset"
+   "flow": "preset",
+   "role": "preset"
   },
   {
    "id": "bread",
    "name": "Bun & Bread",
    "select": "multi",
-   "flow": "both"
+   "flow": "both",
+   "role": "format"
   },
   {
    "id": "protein",
    "name": "Patties & Protein",
    "select": "multi",
-   "flow": "both"
+   "flow": "both",
+   "role": "protein"
   },
   {
    "id": "cheese",
    "name": "Cheese",
    "select": "multi",
-   "flow": "both"
+   "flow": "both",
+   "role": "cheese"
   },
   {
    "id": "veg",
    "name": "Produce & Toppings",
    "select": "multi",
-   "flow": "both"
+   "flow": "both",
+   "role": "topping"
   },
   {
    "id": "sauce",
    "name": "Sauces & Spreads",
    "select": "multi",
-   "flow": "both"
+   "flow": "both",
+   "role": "sauce"
   },
   {
    "id": "build",
    "name": "Other Ingredients",
    "select": "multi",
    "flow": "extras",
+   "role": "other",
    "note": "Each row is one of what Whataburger counts — one patty, one slice, one squirt of mustard. Use the quantity control for more."
   },
   {
    "id": "sides",
    "name": "Sides",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "side"
   },
   {
    "id": "drinks",
    "name": "Drinks & Shakes",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "drink"
   },
   {
    "id": "sweets",
    "name": "Desserts & Snacks",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "dessert"
   },
   {
    "id": "kids",
    "name": "Kids",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "kids"
   }
  ],
  "section_categories": {

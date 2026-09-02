@@ -57,13 +57,15 @@
       "id": "base",
       "name": "Format",
       "select": "single",
-      "flow": "build"
+      "flow": "build",
+      "role": "format"
     },
     {
       "id": "rice",
       "name": "Rice",
       "select": "multi",
       "flow": "build",
+      "role": "base",
       "note": "Going half-and-half? Pick both and set each to ½ — otherwise you're counting two full portions."
     },
     {
@@ -71,49 +73,57 @@
       "name": "Beans",
       "select": "multi",
       "flow": "build",
+      "role": "base",
       "note": "Going half-and-half? Pick both and set each to ½ — otherwise you're counting two full portions."
     },
     {
       "id": "proteins",
       "name": "Proteins",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "protein"
     },
     {
       "id": "queso-guac",
       "name": "Queso & Guac",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "sauce"
     },
     {
       "id": "sauces-salsas",
       "name": "Sauces & Salsas",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "sauce"
     },
     {
       "id": "toppings",
       "name": "Toppings",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "topping"
     },
     {
       "id": "sides",
       "name": "Sides",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "side"
     },
     {
       "id": "desserts",
       "name": "Desserts",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "dessert"
     },
     {
       "id": "drinks",
       "name": "Drinks",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "drink"
     }
   ],
   "components": [

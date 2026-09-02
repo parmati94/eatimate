@@ -15,7 +15,10 @@ Reads meta.source from ingest/chains/<slug>.json and reports one of:
   error     could not reach or resolve the source
 
 Exit code 0 when every chain is ok/reexport, 1 otherwise, so a cron can
-branch on it. Nothing is written: this only reports.
+branch on it. Nothing is written: this only reports -- except with --touch,
+which stamps source.verified with today's date on every chain that came back
+ok or reexport, so overview.py's freshness table measures how long since the
+source was last found unchanged rather than how long since it was fetched.
 
 `source.fetch` picks how to reach the source, because no single client
 works everywhere -- Five Guys 403s the scraper but answers plain requests,
@@ -29,16 +32,23 @@ CAVA and Moe's are the reverse:
                 edition, so neither the page nor the asset can be diffed
                 without a browser (Domino's). overview.py's freshness table
                 is what catches these, by age rather than by change.
+
+`source.format` picks the strategy, via formats.py: an "asset" format (pdf,
+image) is resolved and hashed; a "redump" format (html, json, sanity,
+compose) is re-parsed and its text compared; a "manual" one is reported.
 """
 import hashlib, json, re, subprocess, sys, tempfile, warnings
 from pathlib import Path
+
+from formats import dump_args, dumper_path, spec
 
 warnings.filterwarnings("ignore")
 CHAINS = Path(__file__).parent / "chains"
 RAW = Path(__file__).parent.parent / "data" / "raw"
 # Pages link assets protocol-relative as often as absolutely; Qdoba's whole
-# nutrition guide was invisible to a pattern that insisted on a scheme.
-PDF_RE = re.compile(r'(?:https?:)?//[^"\'\\ )<>]+\.pdf')
+# nutrition guide was invisible to a pattern that insisted on a scheme. Images
+# count too: Little Caesars publishes its chart as a JPG flyer.
+PDF_RE = re.compile(r'(?:https?:)?//[^"\'\\ )<>]+\.(?:pdf|jpe?g|png)', re.I)
 
 
 def norm_hash(text: str) -> str:
@@ -71,18 +81,15 @@ def get(url, how, tries=3):
     raise last
 
 
-DUMPERS = {"json": "dump_json.py", "html_table": "dump_html.py",
-           "html_matrix": "dump_html.py", "html_items": "dump_html.py"}
-
-
-def redump(slug, fmt, args=None):
+def redump(slug, src, args=None):
     """Re-run the chain's own dumper and hash what it produced, restoring the
     working copy afterwards. The dumpers already know each chain's fetch
-    quirks, so this reuses them rather than re-implementing the fetch."""
+    quirks, so this reuses them rather than re-implementing the fetch. Which
+    dumper, and which flags, come from the registry and the config."""
     keep = RAW / slug / "raw_dump.txt"
     saved = keep.read_text() if keep.exists() else None
     try:
-        subprocess.run([sys.executable, str(Path(__file__).parent / DUMPERS[fmt])] + [slug] + (args or []),
+        subprocess.run([sys.executable, str(dumper_path(src)), slug] + dump_args(src) + (args or []),
                        check=True, capture_output=True)
         return norm_hash(keep.read_text())
     finally:
@@ -122,7 +129,7 @@ def resolve(src):
         hits = [u for u in found if re.search(pat, u)]
         if not hits:
             raise RuntimeError(f"no link matching {pat!r} among {len(found)}")
-        return hits[0], f"{len(found)} pdfs on page, matched {pat!r}"
+        return hits[0], f"{len(found)} assets on page, matched {pat!r}"
     return (src["pdf_url"] if src["pdf_url"] in found else found[0]), f"{len(found)} pdfs on page"
 
 
@@ -130,13 +137,29 @@ def check(slug):
     src = json.loads((CHAINS / f"{slug}.json").read_text())["meta"]["source"]
     out = {"chain": slug, "state": "error", "note": ""}
     recorded = src.get("pdf_url") or src.get("html_url")
-    fmt = src.get("format", "pdf")
-    if fmt in DUMPERS:
+    try:
+        entry = spec(src)
+    except KeyError as e:
+        out["note"] = str(e)
+        return out
+    if entry["refresh"] == "manual" or src.get("fetch") == "manual":
+        out.update(state="manual", note="cannot be checked without a person "
+                   "(see overview.py freshness)")
+        return out
+    if entry["refresh"] == "redump":
         try:
-            same = redump(slug, fmt) == src.get("dump_sha256")
+            live = redump(slug, src)
+        except subprocess.CalledProcessError as e:
+            err = (e.stderr or b"").decode(errors="replace").strip().splitlines()
+            out["note"] = f"re-dump failed: {err[-1][:80] if err else e}"
+            return out
         except Exception as e:
             out["note"] = f"re-dump failed: {type(e).__name__}: {str(e)[:60]}"
             return out
+        if not src.get("dump_sha256"):
+            out.update(state="unpinned", note="re-parsed; no hash recorded -- run --record")
+            return out
+        same = live == src["dump_sha256"]
         out.update(state="ok" if same else "changed",
                    note="page re-parsed; text " + ("identical" if same else "DIFFERS"))
         return out
@@ -171,8 +194,9 @@ def check(slug):
         return out
 
     # Bytes differ. That is usually a re-export, so compare what we actually
-    # parse before calling it a change (Qdoba re-exports without editing).
-    if not src.get("dump_sha256") or src.get("format") != "pdf":
+    # parse before calling it a change (Qdoba re-exports without editing). A
+    # transcribed source has no dumper to do that with, so bytes are the word.
+    if not src.get("dump_sha256") or entry["dumper"] is None:
         out.update(state="changed", note=f"{how}; bytes differ")
         return out
     with tempfile.TemporaryDirectory() as td:
@@ -181,7 +205,7 @@ def check(slug):
         keep = RAW / slug / "raw_dump.txt"
         saved = keep.read_text() if keep.exists() else None
         try:
-            subprocess.run([sys.executable, str(Path(__file__).parent / "dump.py"), slug, str(pdf)],
+            subprocess.run([sys.executable, str(dumper_path(src)), slug, str(pdf)] + dump_args(src),
                            check=True, capture_output=True)
             live_dump = norm_hash(keep.read_text())
         finally:
@@ -212,7 +236,10 @@ def record(slug):
         # guide) -- so "newest by mtime" can pin a hash for a file this chain
         # never parses, and refresh.py then cries "changed" forever.
         want = os.path.basename(urlparse(src.get("pdf_url") or "").path)
-        named = [f for f in assets if os.path.basename(f) == want]
+        # By name, or by suffix: a CDN prefixes the file it serves with an
+        # upload id ("1779298904-...-page-001.jpg") that the local copy drops.
+        named = [f for f in assets if os.path.basename(f) == want
+                 or (want and want.endswith(os.path.basename(f)))]
         pick = named[0] if named else max(assets, key=os.path.getmtime)
         src["asset_sha256"] = hashlib.sha256(Path(pick).read_bytes()).hexdigest()
     src["retrieved"] = datetime.date.today().isoformat()
@@ -220,6 +247,23 @@ def record(slug):
     print(f"  {slug}: hashes re-pinned, retrieved={src['retrieved']}"
           f"{' (no source file kept)' if not assets else ''}")
     print("  now re-run extract.py so the shipped retrieved date matches")
+
+
+def touch(slugs):
+    """Stamp source.verified = today on chains found unchanged. The date is
+    carried into data/chains by the next extract, so it has to be followed by
+    rebuild.py -- which --check will insist on."""
+    import datetime
+    today = datetime.date.today().isoformat()
+    for slug in slugs:
+        cp = CHAINS / f"{slug}.json"
+        cfg = json.loads(cp.read_text())
+        if cfg["meta"]["source"].get("verified") == today:
+            continue
+        cfg["meta"]["source"]["verified"] = today
+        cp.write_text(json.dumps(cfg, indent=1, ensure_ascii=False) + "\n")
+    if slugs:
+        print(f"  verified={today} stamped on {len(slugs)} chains; run rebuild.py to carry it into data/chains")
 
 
 def main():
@@ -235,6 +279,8 @@ def main():
     if not slugs:
         sys.exit(__doc__)
     rows = [check(s) for s in slugs]
+    if "--touch" in sys.argv:
+        touch([r["chain"] for r in rows if r["state"] in ("ok", "reexport")])
     if as_json:
         print(json.dumps(rows, indent=1))
     else:

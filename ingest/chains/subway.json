@@ -74,6 +74,7 @@
    "name": "Menu Items",
    "select": "single",
    "flow": "preset",
+   "role": "preset",
    "note": "Subway publishes each named item complete. Pick the format on the row; anything you add below is on top of what is published."
   },
   {
@@ -81,6 +82,7 @@
    "name": "Size",
    "select": "single",
    "flow": "build",
+   "role": "format",
    "in_preset": true
   },
   {
@@ -88,37 +90,43 @@
    "name": "Bread",
    "select": "single",
    "flow": "build",
+   "role": "format",
    "in_preset": true
   },
   {
    "id": "protein",
    "name": "Protein",
    "select": "multi",
-   "flow": "both"
+   "flow": "both",
+   "role": "protein"
   },
   {
    "id": "cheese",
    "name": "Cheese",
    "select": "multi",
-   "flow": "both"
+   "flow": "both",
+   "role": "cheese"
   },
   {
    "id": "veggies",
    "name": "Veggies",
    "select": "multi",
-   "flow": "both"
+   "flow": "both",
+   "role": "topping"
   },
   {
    "id": "sauces",
    "name": "Sauces & Seasonings",
    "select": "multi",
-   "flow": "both"
+   "flow": "both",
+   "role": "sauce"
   },
   {
    "id": "desserts-sides",
    "name": "Desserts, Sides & Soup",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "other"
   }
  ],
  "layout": {

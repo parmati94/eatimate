@@ -49,25 +49,29 @@
       "name": "Bread & Size",
       "select": "single",
       "flow": "both",
+      "role": "format",
       "note": "Potbelly publishes a separate figure for every size, so the bread decides which sandwiches and which portions apply. A named sandwich is listed here with its bread removed, so the loaf you pick is the one you get."
     },
     {
       "id": "item",
       "name": "Sandwiches & Salads",
       "select": "single",
-      "flow": "preset"
+      "flow": "preset",
+      "role": "preset"
     },
     {
       "id": "meat",
       "name": "Meat",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "protein"
     },
     {
       "id": "cheese",
       "name": "Cheese",
       "select": "single",
       "flow": "build",
+      "role": "cheese",
       "in_preset": true
     },
     {
@@ -75,25 +79,29 @@
       "name": "Toppings",
       "select": "multi",
       "flow": "both",
+      "role": "topping",
       "note": "Potbelly serves each topping at a set portion; use the quantity control for Light (half) or Extra."
     },
     {
       "id": "premium",
       "name": "Premium Toppings",
       "select": "multi",
-      "flow": "both"
+      "flow": "both",
+      "role": "topping"
     },
     {
       "id": "sides",
       "name": "Sides, Soups & Desserts",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "side"
     },
     {
       "id": "drinks",
       "name": "Drinks",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "drink"
     }
   ],
   "components": [

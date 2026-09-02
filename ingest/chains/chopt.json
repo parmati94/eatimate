@@ -10,7 +10,8 @@
    "link_pattern": "chopt_nutrition_allergen_guide",
    "fetch": "plain",
    "dump_sha256": "d36e56c1f24673230a1f942468d7f4285f2d7b92d0c53f3d9c2cc6f04ebf93cb",
-   "asset_sha256": "b69a2a5fcfbf3d35f6df71d9d9ee83589dbae70713dab2c4cf9e6ffe940fa369"
+   "asset_sha256": "b69a2a5fcfbf3d35f6df71d9d9ee83589dbae70713dab2c4cf9e6ffe940fa369",
+   "tables": true
   },
   "disclaimer_extra": "Chopt's Spring 2026 guide prints every chopping, green, grain and protein at one standard portion, and states that its salads and bowls do NOT include dressing — so a menu item here needs a dressing added the same way a built one does. Dressings are published twice, at the 30 g salad pour and the 22 g bowl pour; the format chip picks which. Some items are marked select-locations-only.",
   "blurb": "Build a Chopt salad, bowl or wrap chopping by chopping — greens, core choppings, grains and beans, cheese, crunch, the goods, and every housemade dressing at its published pour.",
@@ -29,6 +30,7 @@
    "name": "Menu Salads, Wraps, Bowls & Sandwiches",
    "select": "single",
    "flow": "preset",
+   "role": "preset",
    "note": "Chopt's salads and bowls are published without dressing. Add one below — the guide's own numbers do not include it."
   },
   {
@@ -36,43 +38,50 @@
    "name": "Greens",
    "select": "multi",
    "flow": "build",
+   "role": "base",
    "note": "Splitting your base? Pick both and set each to ½ — otherwise you're counting two full portions."
   },
   {
    "id": "choppings",
    "name": "Core Choppings",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "topping"
   },
   {
    "id": "grains",
    "name": "Grains & Beans",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "base"
   },
   {
    "id": "cheese",
    "name": "Cheese & Dairy",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "cheese"
   },
   {
    "id": "crunch",
    "name": "Crunch",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "topping"
   },
   {
    "id": "protein",
    "name": "The Goods",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "protein"
   },
   {
    "id": "dressings",
    "name": "Housemade Dressings",
    "select": "multi",
    "flow": "both",
+   "role": "sauce",
    "note": "Chopt pours 30 g of dressing on a salad and 22 g in a bowl, and publishes both. Pick the one you ordered — the chain's own numbers, not a scaled guess."
   },
   {
@@ -80,6 +89,7 @@
    "name": "Wrap",
    "select": "single",
    "flow": "build",
+   "role": "format",
    "in_preset": true
   },
   {
@@ -87,6 +97,7 @@
    "name": "Sandwich Ingredients",
    "select": "multi",
    "flow": "build",
+   "role": "topping",
    "in_preset": true,
    "note": "Chopt publishes these at their sandwich portions, which are not the salad portions above."
   },
@@ -94,7 +105,8 @@
    "id": "extras",
    "name": "Soups, Sweets & Drinks",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "other"
   }
  ],
  "layout": {

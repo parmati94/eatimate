@@ -10,8 +10,10 @@
    "menu_id": "menu_5492",
    "build_item": "Whopper",
    "retrieved": "2026-09-01",
-   "format": "json",
-   "fetch": "plain"
+   "format": "sanity",
+   "fetch": "plain",
+   "dump_sha256": "06c9408ee39a9f6020fee86ec5da6c4f8802bc1d17c65349a98f914a9d7d97e0",
+   "asset_sha256": "c00ba71475b376f288e3f52a45576fe5e97dc9d86efbb28ad0078878200a64c5"
   },
   "disclaimer_extra": "Burger King publishes each menu item as sold and each topping as its own figure. The build-your-own portions are the ones Burger King lists for the Whopper: a slice of cheese on a Whopper is not the same slice as on a Jr., so pooling them would invent a portion the chain does not serve.",
   "glyph": "burger",
@@ -46,62 +48,72 @@
    "id": "item",
    "name": "Menu Items",
    "select": "single",
-   "flow": "preset"
+   "flow": "preset",
+   "role": "preset"
   },
   {
    "id": "base",
    "name": "Bun & Base",
    "select": "single",
    "flow": "build",
+   "role": "format",
    "in_preset": true
   },
   {
    "id": "patty",
    "name": "Patty",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "protein"
   },
   {
    "id": "cheese",
    "name": "Cheese",
    "select": "multi",
-   "flow": "both"
+   "flow": "both",
+   "role": "cheese"
   },
   {
    "id": "toppings",
    "name": "Toppings",
    "select": "multi",
-   "flow": "both"
+   "flow": "both",
+   "role": "topping"
   },
   {
    "id": "sauces",
    "name": "Sauces",
    "select": "multi",
-   "flow": "both"
+   "flow": "both",
+   "role": "sauce"
   },
   {
    "id": "sides",
    "name": "Sides",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "side"
   },
   {
    "id": "drinks",
    "name": "Drinks & Coffee",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "drink"
   },
   {
    "id": "sweets",
    "name": "Sweets",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "dessert"
   },
   {
    "id": "condiments",
    "name": "Condiments",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "sauce"
   }
  ],
  "section_categories": {
@@ -116,7 +128,7 @@
   "MENU: Drinks & Coffee": "drinks",
   "MENU: Sweets": "sweets",
   "MENU: Condiments": "condiments",
-  "MENU: Dragon Ball Super": {
+  "MENU: Dragon Ball Super Menu": {
    "skip": "a themed drinks promotion; the same cups are in Drinks & Coffee"
   },
   "BUILD: Whopper": "toppings"

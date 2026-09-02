@@ -21,50 +21,58 @@
       "id": "signature",
       "name": "Bowls, Plates & Salads",
       "select": "single",
-      "flow": "preset"
+      "flow": "preset",
+      "role": "preset"
     },
     {
       "id": "base",
       "name": "Base",
       "select": "multi",
       "flow": "build",
+      "role": "base",
       "note": "Going half-and-half? Pick both and set each to ½ — otherwise you're counting two full portions."
     },
     {
       "id": "sides",
       "name": "Market Sides",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "side"
     },
     {
       "id": "mains",
       "name": "Mains",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "protein"
     },
     {
       "id": "extras",
       "name": "Extras",
       "select": "multi",
-      "flow": "both"
+      "flow": "both",
+      "role": "topping"
     },
     {
       "id": "sauces",
       "name": "Sauces",
       "select": "multi",
-      "flow": "both"
+      "flow": "both",
+      "role": "sauce"
     },
     {
       "id": "kids",
       "name": "Little Digs (Kids)",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "kids"
     },
     {
       "id": "desserts",
       "name": "Desserts",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "dessert"
     }
   ],
   "components": [

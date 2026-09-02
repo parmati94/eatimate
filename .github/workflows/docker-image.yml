@@ -34,9 +34,38 @@ jobs:
       - name: Test
         run: npm test
 
+  # The data side: every config passes the key check, every parser mechanism
+  # passes its fixture, every committed chain file validates, and every chain
+  # re-extracts byte-identical from its tracked dump. A config edited without
+  # re-extracting fails here instead of shipping stale data.
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: ingest/requirements.txt
+
+      - run: python -m pip install -r ingest/requirements.txt
+
+      - name: Config vocabulary
+        run: python ingest/config_check.py
+
+      - name: Parser tests
+        run: PYTHONPATH=ingest python -m pytest -q ingest/tests
+
+      - name: Validate every chain
+        run: for f in data/chains/*.json; do python ingest/validate.py "$f" > /dev/null || exit 1; done
+
+      - name: Data matches configs
+        run: PYTHONPATH=ingest python ingest/rebuild.py --check
+
   # Only publish once the checks pass, and never from a pull request.
   build:
-    needs: check
+    needs: [check, ingest]
     if: github.event_name != 'pull_request'
     strategy:
       matrix:

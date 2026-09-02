@@ -55,43 +55,50 @@
    "id": "base",
    "name": "Tortilla or Bowl",
    "select": "single",
-   "flow": "build"
+   "flow": "build",
+   "role": "format"
   },
   {
    "id": "rice",
    "name": "Rice",
    "select": "single",
-   "flow": "build"
+   "flow": "build",
+   "role": "base"
   },
   {
    "id": "beans",
    "name": "Beans",
    "select": "single",
-   "flow": "build"
+   "flow": "build",
+   "role": "base"
   },
   {
    "id": "protein",
    "name": "Protein",
    "select": "single",
-   "flow": "build"
+   "flow": "build",
+   "role": "protein"
   },
   {
    "id": "salsa",
    "name": "Salsa",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "sauce"
   },
   {
    "id": "toppings",
    "name": "Toppings",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "topping"
   },
   {
    "id": "sides",
    "name": "Sides",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "side"
   }
  ],
  "layout": {

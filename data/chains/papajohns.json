@@ -125,67 +125,78 @@
       "id": "crust",
       "name": "Crust & Size",
       "select": "single",
-      "flow": "build"
+      "flow": "build",
+      "role": "format"
     },
     {
       "id": "sauce",
       "name": "Sauce",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "sauce"
     },
     {
       "id": "cheese",
       "name": "Cheese",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "cheese"
     },
     {
       "id": "topping",
       "name": "Toppings",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "topping"
     },
     {
       "id": "side",
       "name": "Sides",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "side"
     },
     {
       "id": "wing",
       "name": "Wings",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "entree"
     },
     {
       "id": "dip",
       "name": "Dipping Sauces",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "sauce"
     },
     {
       "id": "dessert",
       "name": "Desserts",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "dessert"
     },
     {
       "id": "extra",
       "name": "Seasonings & Extras",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "sauce"
     },
     {
       "id": "entree",
       "name": "Papadias & Sandwiches",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "entree"
     },
     {
       "id": "drink",
       "name": "Drinks",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "drink"
     }
   ],
   "components": [

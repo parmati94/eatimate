@@ -19,68 +19,79 @@
       "id": "item",
       "name": "Menu Items",
       "select": "single",
-      "flow": "preset"
+      "flow": "preset",
+      "role": "preset"
     },
     {
       "id": "bread",
       "name": "Bun & Bread",
       "select": "multi",
-      "flow": "both"
+      "flow": "both",
+      "role": "format"
     },
     {
       "id": "protein",
       "name": "Patties & Protein",
       "select": "multi",
-      "flow": "both"
+      "flow": "both",
+      "role": "protein"
     },
     {
       "id": "cheese",
       "name": "Cheese",
       "select": "multi",
-      "flow": "both"
+      "flow": "both",
+      "role": "cheese"
     },
     {
       "id": "veg",
       "name": "Produce & Toppings",
       "select": "multi",
-      "flow": "both"
+      "flow": "both",
+      "role": "topping"
     },
     {
       "id": "sauce",
       "name": "Sauces & Spreads",
       "select": "multi",
-      "flow": "both"
+      "flow": "both",
+      "role": "sauce"
     },
     {
       "id": "build",
       "name": "Other Ingredients",
       "select": "multi",
       "flow": "extras",
+      "role": "other",
       "note": "Each row is one of what Whataburger counts — one patty, one slice, one squirt of mustard. Use the quantity control for more."
     },
     {
       "id": "sides",
       "name": "Sides",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "side"
     },
     {
       "id": "drinks",
       "name": "Drinks & Shakes",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "drink"
     },
     {
       "id": "sweets",
       "name": "Desserts & Snacks",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "dessert"
     },
     {
       "id": "kids",
       "name": "Kids",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "kids"
     }
   ],
   "components": [

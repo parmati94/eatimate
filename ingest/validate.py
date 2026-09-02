@@ -4,7 +4,8 @@ Flags (printed): energy math off by > max(25% of calories, 20 kcal).
 """
 import json, sys
 from pathlib import Path
-FIELDS = ["calories","fat_g","sat_fat_g","trans_fat_g","cholesterol_mg","sodium_mg","carbs_g","fiber_g","sugars_g","protein_g"]
+# The label nutrients, from the one list both sides of the repo read.
+FIELDS = [n["field"] for n in json.load(open(Path(__file__).parent.parent / "lib" / "nutrients.json"))["fields"]]
 d = json.load(open(sys.argv[1]))
 # The energy check assumes calories come from protein/carbs/fat. Alcohol is
 # 7 kcal/g and is not one of the label nutrients, so a chain may declare

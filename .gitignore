@@ -42,7 +42,16 @@ next-env.d.ts
 
 # mealmath
 PLAN.md
-data/raw/
+# Source documents stay out (PDFs, API exports, page images), but the text dump
+# each chain is parsed from is tracked: it is small, derived from a public
+# document, and it is the input rebuild.py --check needs to prove that the
+# committed data matches the configs -- on any machine, not just the one that
+# fetched the source.
+data/raw/*
+!data/raw/*/
+data/raw/*/*
+!data/raw/*/raw_dump.txt
+data/raw/condado/
 CLAUDE.md
 AGENTS.md
 ingest/.venv/

@@ -25,8 +25,8 @@ RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-# Chain data ships in the image; the compose bind mount overlays it so new
-# The chain data ships in the image; there is no runtime mount.
+# The chain data ships in the image; there is no runtime mount, so a data
+# change is a rebuild and a redeploy.
 COPY --from=builder /app/data ./data
 USER nextjs
 EXPOSE 3000

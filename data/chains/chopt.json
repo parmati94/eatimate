@@ -21,6 +21,7 @@
       "name": "Menu Salads, Wraps, Bowls & Sandwiches",
       "select": "single",
       "flow": "preset",
+      "role": "preset",
       "note": "Chopt's salads and bowls are published without dressing. Add one below — the guide's own numbers do not include it."
     },
     {
@@ -28,43 +29,50 @@
       "name": "Greens",
       "select": "multi",
       "flow": "build",
+      "role": "base",
       "note": "Splitting your base? Pick both and set each to ½ — otherwise you're counting two full portions."
     },
     {
       "id": "choppings",
       "name": "Core Choppings",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "topping"
     },
     {
       "id": "grains",
       "name": "Grains & Beans",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "base"
     },
     {
       "id": "cheese",
       "name": "Cheese & Dairy",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "cheese"
     },
     {
       "id": "crunch",
       "name": "Crunch",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "topping"
     },
     {
       "id": "protein",
       "name": "The Goods",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "protein"
     },
     {
       "id": "dressings",
       "name": "Housemade Dressings",
       "select": "multi",
       "flow": "both",
+      "role": "sauce",
       "note": "Chopt pours 30 g of dressing on a salad and 22 g in a bowl, and publishes both. Pick the one you ordered — the chain's own numbers, not a scaled guess."
     },
     {
@@ -72,6 +80,7 @@
       "name": "Wrap",
       "select": "single",
       "flow": "build",
+      "role": "format",
       "in_preset": true
     },
     {
@@ -79,6 +88,7 @@
       "name": "Sandwich Ingredients",
       "select": "multi",
       "flow": "build",
+      "role": "topping",
       "in_preset": true,
       "note": "Chopt publishes these at their sandwich portions, which are not the salad portions above."
     },
@@ -86,7 +96,8 @@
       "id": "extras",
       "name": "Soups, Sweets & Drinks",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "other"
     }
   ],
   "components": [

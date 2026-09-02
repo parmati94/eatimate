@@ -2,8 +2,8 @@
   "name": "Qdoba",
   "slug": "qdoba",
   "source": {
-    "pdf_url": "https://assets.ctfassets.net/0tc4847zqy12/bQFJBCmsAk4ww4qzdfAOm/27c88d608796913d6a47899ecffb6a3c/Nutrition_8.5.26.pdf",
-    "retrieved": "2026-08-30"
+    "pdf_url": "https://assets.ctfassets.net/0tc4847zqy12/bQFJBCmsAk4ww4qzdfAOm/10ad09aaf097d3e9fb10fc4c62af52c3/Nutrition_9.1.26.pdf",
+    "retrieved": "2026-09-01"
   },
   "disclaimer_extra": "Qdoba nutrition chart dated August 5, 2026. Items marked Canada / select locations / limited time are as printed on the chart.",
   "blurb": "Build any Qdoba order — burrito, bowl, tacos, or salad — from the proteins, quesos, salsas and toppings, and watch calories, protein, carbs and fat add up as you pick.",
@@ -20,13 +20,15 @@
       "id": "signature-eats",
       "name": "Signature Eats",
       "select": "single",
-      "flow": "preset"
+      "flow": "preset",
+      "role": "preset"
     },
     {
       "id": "base",
       "name": "Base / Format",
       "select": "single",
       "flow": "build",
+      "role": "format",
       "in_preset": true
     },
     {
@@ -34,6 +36,7 @@
       "name": "Rice",
       "select": "multi",
       "flow": "build",
+      "role": "base",
       "note": "Going half-and-half? Pick both and set each to ½ — otherwise you're counting two full portions."
     },
     {
@@ -41,55 +44,64 @@
       "name": "Beans",
       "select": "multi",
       "flow": "build",
+      "role": "base",
       "note": "Going half-and-half? Pick both and set each to ½ — otherwise you're counting two full portions."
     },
     {
       "id": "proteins",
       "name": "Proteins",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "protein"
     },
     {
       "id": "queso-sauces",
       "name": "Queso, Sauces & Dressings",
       "select": "multi",
-      "flow": "both"
+      "flow": "both",
+      "role": "sauce"
     },
     {
       "id": "salsas",
       "name": "Salsas",
       "select": "multi",
-      "flow": "both"
+      "flow": "both",
+      "role": "sauce"
     },
     {
       "id": "toppings",
       "name": "Toppings",
       "select": "multi",
-      "flow": "both"
+      "flow": "both",
+      "role": "topping"
     },
     {
       "id": "sides",
       "name": "Sides",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "side"
     },
     {
       "id": "kids-ingredients",
       "name": "Kids Ingredients",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "kids"
     },
     {
       "id": "desserts",
       "name": "Desserts",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "dessert"
     },
     {
       "id": "drinks",
       "name": "Drinks",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "drink"
     }
   ],
   "components": [
@@ -1196,6 +1208,23 @@
       "protein_g": 1
     },
     {
+      "id": "pickled-jalapenos",
+      "name": "Pickled Jalapenos",
+      "category": "toppings",
+      "serving_desc": "1 oz",
+      "serving_g": 28,
+      "calories": 15,
+      "fat_g": 0,
+      "sat_fat_g": 0,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 90,
+      "carbs_g": 3,
+      "fiber_g": 0,
+      "sugars_g": 2,
+      "protein_g": 0
+    },
+    {
       "id": "potatoes-seasoned",
       "name": "Seasoned Potatoes",
       "category": "sides",
@@ -1245,6 +1274,23 @@
       "fiber_g": 0,
       "sugars_g": 0,
       "protein_g": 1
+    },
+    {
+      "id": "queso-fundido-w-chips",
+      "name": "Queso Fundido w/ Chips (limited time)",
+      "category": "sides",
+      "serving_desc": "1 serving (364 g)",
+      "serving_g": 364,
+      "calories": 940,
+      "fat_g": 59,
+      "sat_fat_g": 24,
+      "trans_fat_g": 1,
+      "cholesterol_mg": 83,
+      "sodium_mg": 1625,
+      "carbs_g": 86,
+      "fiber_g": 11,
+      "sugars_g": 5,
+      "protein_g": 24
     },
     {
       "id": "apple-sauce",
@@ -1485,23 +1531,6 @@
       "protein_g": 9
     },
     {
-      "id": "churro-chips",
-      "name": "Churro Chips (limited time)",
-      "category": "desserts",
-      "serving_desc": "1 serving (64 g)",
-      "serving_g": 64,
-      "calories": 320,
-      "fat_g": 16,
-      "sat_fat_g": 3,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 110,
-      "carbs_g": 40,
-      "fiber_g": 1,
-      "sugars_g": 10,
-      "protein_g": 5
-    },
-    {
       "id": "double-chocolate-brownie-canada",
       "name": "Double Chocolate Brownie (Canada)",
       "category": "desserts",
@@ -1602,6 +1631,23 @@
       "fiber_g": 0,
       "sugars_g": 8,
       "protein_g": 0
+    },
+    {
+      "id": "churro-chips-w-chocolate-sauce",
+      "name": "Churro Chips w/ Chocolate Sauce (limited time)",
+      "category": "desserts",
+      "serving_desc": "1 serving (114 g)",
+      "serving_g": 114,
+      "calories": 420,
+      "fat_g": 14,
+      "sat_fat_g": 3,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 115,
+      "carbs_g": 72,
+      "fiber_g": 3,
+      "sugars_g": 39,
+      "protein_g": 4
     },
     {
       "id": "barqs-root-beer-reg",

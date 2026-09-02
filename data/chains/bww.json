@@ -88,6 +88,7 @@
       "name": "Wings",
       "select": "single",
       "flow": "build",
+      "role": "protein",
       "note": "Buffalo Wild Wings publishes one finished total per count, so pick the order size you actually ordered."
     },
     {
@@ -95,73 +96,85 @@
       "name": "Sauces & Dry Rubs",
       "select": "multi",
       "flow": "build",
+      "role": "sauce",
       "note": "Scaled to the wing order above — the same sauce is a different number on 6 wings than on 30."
     },
     {
       "id": "dips",
       "name": "Dips, Dressings & Extras",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "sauce"
     },
     {
       "id": "dippers",
       "name": "Chicken Dippers",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "entree"
     },
     {
       "id": "apps",
       "name": "Appetizers",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "side"
     },
     {
       "id": "mains",
       "name": "Burgers, Sandwiches & Salads",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "entree"
     },
     {
       "id": "addons",
       "name": "Burger & Sandwich Add-ons",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "topping"
     },
     {
       "id": "sides",
       "name": "Sides",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "side"
     },
     {
       "id": "kids",
       "name": "Kids",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "kids"
     },
     {
       "id": "desserts",
       "name": "Desserts",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "dessert"
     },
     {
       "id": "drinks",
       "name": "Drinks",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "drink"
     },
     {
       "id": "party",
       "name": "Party Menu",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "other"
     },
     {
       "id": "bar",
       "name": "Cocktails & Wine",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "drink"
     }
   ],
   "components": [

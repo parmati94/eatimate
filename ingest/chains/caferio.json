@@ -30,37 +30,43 @@
    "id": "base",
    "name": "Tortilla",
    "select": "single",
-   "flow": "build"
+   "flow": "build",
+   "role": "format"
   },
   {
    "id": "ricebeans",
    "name": "Rice & Beans",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "base"
   },
   {
    "id": "protein",
    "name": "Meats",
    "select": "single",
-   "flow": "build"
+   "flow": "build",
+   "role": "protein"
   },
   {
    "id": "sauces",
    "name": "Sauces & Dressings",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "sauce"
   },
   {
    "id": "toppings",
    "name": "Toppings & Sides",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "topping"
   },
   {
    "id": "extras",
    "name": "Desserts & Drinks",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "other"
   }
  ],
  "layout": {

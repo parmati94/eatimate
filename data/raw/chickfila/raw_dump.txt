@@ -1,0 +1,322 @@
+
+===== Breakfast =====
+Breakfast
+Spicy Chicken Biscuit 153 450 22 8 0 40 1570 44 3 5 19
+4 ct Chick-fil-A Chick-n-Minis® 127 360 13 4 0 60 1060 41 2 8 20
+10 ct Chick-fil-A Chick-n-Minis® 318 910 34 10 0 150 2640 103 6 19 49
+Egg White Grill 172 300 8 4 0 65 990 29 1 2 27
+Hash Brown Scramble Burrito w/ Nuggets 304 700 40 12 0.5 415 1770 51 3 2 34
+Hash Brown Scramble Burrito w/ Sausage 283 720 47 16 0.5 395 1450 46 3 1 28
+Hash Brown Scramble Burrito w/ Grilled Filet 301 650 36 12 0.5 420 1630 46 3 2 35
+Hash Brown Scramble Burrito w/ Spicy Chicken 322 740 42 13 0.5 420 2020 53 4 2 37
+Hash Brown Scramble Burrito w/ Bacon 271 680 42 14 0.5 395 1630 46 3 2 30
+Hash Brown Scramble Burrito w/ No Meat 251 580 34 11 0.5 330 1200 47 5 1 22
+Hash Brown Scramble Burrito w/ Nuggets - no hash browns 261 550 30 11 0.5 415 1530 38 2 2 33
+Hash Brown Scramble Burrito w/ Sausage - no hash browns 240 570 37 14 0.5 395 1200 34 2 1 26
+Hash Brown Scramble Burrito w/ Grilled Filet - no hash brown 258 500 26 10 0.5 420 1380 34 2 2 34
+Hash Brown Scramble Burrito w/ Spicy Chicken - no hash browns 279 590 32 11 0.5 420 1770 40 2 2 36
+Hash Brown Scramble Burrito w/ Bacon - no hash browns 228 540 32 13 0.5 395 1230 34 2 2 27
+Hash Brown Scramble Burrito w/ No Meat - no hash browns 208 440 24 10 0.5 330 950 35 3 1 21
+Hash Brown Scramble Bowl w/ Nuggets 233 470 30 9 0 415 1350 19 2 2 29
+Hash Brown Scramble Bowl w/ Sausage 212 480 37 12 0 395 1020 15 2 1 23
+Hash Brown Scramble Bowl w/ Grilled Filet 230 410 26 8 0 420 1200 15 2 2 30
+Hash Brown Scramble Bowl w/ Spicy Chicken 251 500 32 9 0 420 1590 21 3 2 32
+Hash Brown Scramble Bowl w/ Bacon 200 450 32 11 0 395 1060 15 2 2 23
+Hash Brown Scramble Bowl w/ No Meat 180 350 24 8 0 330 770 16 3 1 17
+Hash Brown Scramble Bowl w/ Nuggets - no hash browns 190 320 20 8 0 415 1100 7 0 2 28
+Hash Brown Scramble Bowl w/ Sausage - no hash browns 169 340 27 11 0 395 780 2 0 1 21
+Hash Brown Scramble Bowl w/ Grilled Filet - no hash browns 187 270 16 7 0 420 960 2 0 2 29
+Hash Brown Scramble Bowl w/ Spicy Chicken - no hash browns 208 350 22 8 0 420 1340 9 1 2 31
+Hash Brown Scramble Bowl w/ Bacon - no hash browns 158 300 22 10 0 395 810 2 0 2 22
+Hash Brown Scramble Bowl w/ No Meat - no hash browns 137 200 14 6 0 330 530 3 2 1 16
+Chicken, Egg & Cheese Biscuit 211 550 28 12 0 215 1870 48 3 7 27
+Bacon, Egg & Cheese Biscuit 145 420 23 11 0 180 1220 38 2 4 15
+Sausage, Egg & Cheese Biscuit 192 620 42 18 0 205 1510 38 2 4 22
+Chicken, Egg & Cheese Muffin 187 410 18 6 0 215 1320 36 1 4 27
+Bacon, Egg & Cheese Muffin 126 300 13 6 0 180 780 28 1 2 16
+Sausage, Egg & Cheese Muffin 173 490 32 13 0 205 1000 29 1 1 23
+Small Hash Browns 77 270 18 2.5 0 0 440 23 3 0 3
+Large Hash Browns 121 420 29 4 0 0 700 35 4 0 4
+Berry Parfait w/ Cookie Crumbs 195 240 8 3.5 0 20 85 31 1 25 12
+Berry Parfait w/ Granola 206 270 9 3.5 0 20 85 35 1 26 13
+Small Fruit Cup 107 60 0 0 0 0 0 14 2 11 1
+Medium Fruit Cup 125 70 0 0 0 0 0 16 2 12 1
+Large Fruit Cup 215 120 0 0 0 0 0 28 4 21 1
+Buttery Biscuit 81 350 15 6 0 0 760 53 2 16 4
+English Muffin 58 200 1 0 0 0 190 43 1 13 5
+4 ct Mini Yeast Rolls 70 300 8 2.5 0 20 450 52 2 19 6
+Breakfast Waffle 68 320 15 6 0 15 270 46 4 24 4
+Waffle 83 380 18 7 0 20 330 52 5 27 5
+Chick-fil-A® Chicken Biscuit 153 460 23 8 0 45 1510 45 2 6 19
+Chicken & Waffles Breakfast Sandwich w/ Chick-fil-A® Filet 150 530 26 9 0 65 1160 55 4 27 22
+Chicken & Waffles Breakfast Sandwich w/ Spicy Filet 150 530 25 9 0 65 1220 54 5 26 23
+Chicken & Waffles Breakfast Sandwich w/ Grilled Filet 129 440 19 8 0 65 830 47 4 25 20
+
+===== Entrées =====
+Entrées
+Spicy Deluxe Sandwich w/ Pepper Jack 259 540 26 8 0 85 1880 47 2 7 34
+Spicy Deluxe Sandwich w/ American 252 510 23 6 0 80 1970 47 2 7 31
+Spicy Deluxe Sandwich w/ Colby Jack 259 540 26 8 0 85 1880 47 2 7 34
+Spicy Deluxe Sandwich w/ No Cheese 238 460 19 4 0 65 1730 46 2 7 28
+2 ct Chick-fil-A Chick-n-Strips® 91 200 9 2 0 50 580 11 0 1 19
+3 ct Chick-fil-A Chick-n-Strips® 136 310 14 2.5 0 75 870 16 0 2 29
+4 ct Chick-fil-A Chick-n-Strips® 181 410 19 3.5 0 100 1150 22 0 2 39
+10 ct Chick-fil-A Chick-n-Strips® 452 1020 46 9 0 250 2870 54 0 6 96
+8 ct Chick-fil-A® Nuggets 113 250 11 2.5 0 85 1210 11 0 1 27
+12 ct Chick-fil-A® Nuggets 170 380 17 3.5 0 125 1820 16 0 1 40
+30 ct Chick-fil-A® Nuggets 425 950 43 9 0 315 4550 41 0 4 100
+8 ct Grilled Nuggets 95 130 3 0.5 0 85 440 1 0 1 25
+12 ct Grilled Nuggets 142 200 4.5 1 0 130 660 2 0 1 38
+30 ct Grilled Nuggets 369 510 11 3 0 335 1710 4 1 3 98
+Chick-fil-A® Deluxe Sandwich w/ American 247 490 22 6 0 85 1700 43 1 7 32
+Chick-fil-A® Deluxe Sandwich w/ Colby Jack 254 510 24 8 0 90 1610 43 1 7 34
+Chick-fil-A® Deluxe Sandwich w/ Pepper Jack 254 520 24 8 0 90 1610 43 1 7 35
+Chick-fil-A® Deluxe Sandwich w/ No Cheese 233 430 18 3.5 0 70 1470 43 1 7 29
+Spicy Chicken Sandwich 188 450 19 4 0 65 1730 45 1 6 28
+Grilled Chicken Sandwich 206 390 11 2.5 0 75 765 45 3 11 28
+Grilled Chicken Club w/ Colby Jack 237 520 22 8 0 105 1055 45 3 12 37
+Grilled Chicken Club w/ American 230 490 19 6 0 100 1145 45 3 12 34
+Grilled Chicken Club w/ Pepper Jack 237 520 22 8 0 105 1045 45 3 12 37
+Grilled Chicken Club w/ No Cheese 216 440 15 4 0 85 905 45 3 11 31
+Chick-fil-A Cool Wrap® 231 660 45 9 0 110 1420 32 14 5 43
+Chick-fil-A® Chicken Sandwich 183 420 18 3.5 0 70 1460 41 1 6 29
+Chicken & Waffles Sandwich w/ Chick-fil-A® Filet 210 690 34 11 0 100 1600 66 5 29 32
+Chicken & Waffles Sandwich w/ Spicy Filet 215 710 35 12 0 95 1860 70 6 29 31
+Chicken & Waffles Sandwich w/ Grilled Filet 179 540 24 9 0 100 850 55 5 28 29
+
+===== Salads =====
+Salads
+Cobb Salad w/ Nuggets 411 830 60 13 0 225 2180 31 5 8 41
+Cobb Salad w/ Spicy Grilled Filet (Cold) 369 600 45 10 0 205 1610 16 5 8 33
+Cobb Salad w/ Grilled Nuggets 378 630 45 10 0 225 1330 16 5 8 39
+Cobb Salad w/ Chick-fil-A Chick-n-Strips® 420 810 56 12 0 215 1750 31 5 9 43
+Cobb Salad w/ Grilled Filet (Cold) 369 610 44 10 0 210 1260 16 5 8 35
+Cobb Salad w/ Grilled Filet (Warm) 368 600 44 10 0 210 1260 16 5 8 35
+Cobb Salad w/ No Chicken 284 500 42 9.5 0 140 890 15 5 7 14
+Spicy Southwest Salad w/ Spicy Grilled Filet (Cold) 424 680 49 10 0 100 1570 27 7 7 33
+Spicy Southwest Salad w/ Grilled Filet (Cold) 424 680 48 9.5 0 110 1220 26 7 7 35
+Spicy Southwest Salad w/ Nuggets 448 800 56 11 0 120 2050 35 7 7 39
+Spicy Southwest Salad w/ Grilled Nuggets 434 700 49 10 0 125 1290 26 7 7 39
+Spicy Southwest Salad w/ Chick-fil-A Chick-n-Strips® 475 880 60 12 0 115 1710 41 7 8 43
+Spicy Southwest Salad w/ Grilled Filet (Warm) 423 680 48 9.5 0 110 1220 26 7 7 35
+Spicy Southwest Salad w/ No Chicken 339 570 47 9.5 0 35 850 25 7 6 14
+Market Salad w/ Grilled Filet (Cold) 326 550 31 6 0 80 1010 42 5 26 28
+Market Salad w/ Spicy Grilled Filet (Cold) 326 540 31 6 0 70 1360 42 6 27 26
+Market Salad w/ Chick-fil-A Chick-n-Strips® 377 750 43 8 0 85 1500 57 5 27 36
+Market Salad w/ Nuggets 354 700 40 8 0 90 1850 51 5 27 34
+Market Salad w/ Grilled Nuggets 335 570 32 6 0 95 1080 41 6 27 32
+Market Salad w/ Grilled Filet (Warm) 325 550 31 6 0 80 1010 42 5 26 28
+Market Salad w/ No Chicken 241 440 29 5.5 0 10 640 40 5 26 7
+
+===== Sides =====
+Sides
+Kale Crunch Side 112 170 12 1.5 0 0 250 13 4 8 4
+Small Chick-fil-A Waffle Potato Fries® 96 320 19 3 0 0 190 35 4 1 4
+Medium Chick-fil-A Waffle Potato Fries® 125 420 24 4 0 0 240 45 5 1 5
+Large Chick-fil-A Waffle Potato Fries® 179 600 35 5 0 0 340 65 7 1 7
+Berry Parfait w/ Cookie Crumbs 195 240 8 3.5 0 20 85 31 1 25 12
+Berry Parfait w/ Granola 206 270 9 3.5 0 20 85 35 1 26 13
+Small Fruit Cup 107 60 0 0 0 0 0 14 2 11 1
+Medium Fruit Cup 125 70 0 0 0 0 0 16 2 12 1
+Large Fruit Cup 215 120 0 0 0 0 0 28 4 21 1
+Small Mac & Cheese 136 270 17 10 0 40 710 17 2 2 12
+Medium Mac & Cheese 227 450 29 16 0 70 1190 28 3 3 20
+Cup of Chicken Noodle Soup 252 190 4.5 1 0 30 1290 27 2 2 11
+Bowl of Chicken Noodle Soup 476 320 8 2 0 60 2280 42 3 3 20
+Side Salad 166 470 42 8 0 35 700 14 4 5 6
+Chicken Tortilla Soup 265 280 7 2.5 0 50 1060 31 17 4 24
+Original Flavor Waffle Potato Chips 43 220 13 3.5 0 0 250 25 2 0 3
+Buddy Fruits® Apple Sauce 90 45 0 0 0 0 0 12 1 8 0
+Chick-fil-A® Sauce Flavored Waffle Potato Chips 43 210 12 3 0 0 330 26 2 3 3
+
+===== Treats =====
+Treats
+Pineapple Dragonfruit Frosted Lemonade 375 360 7 4.5 0 25 150 70 0 63 7
+Pineapple Dragonfruit Frosted Lemonade w/ Diet Lemonade 375 300 7 4.5 0 25 150 54 0 48 7
+Chocolate Chunk Cookie 78 370 17 9 0 15 230 49 3 26 5
+6 pack Chocolate Chunk Cookie 78 370 17 9 0 15 230 49 3 26 5
+Chocolate Fudge Brownie 85 370 21 8 0 65 140 47 2 35 4
+Frosted Lemonade 383 350 7 4.5 0 25 135 67 0 65 7
+Frosted Lemonade w/ Diet Lemonade 383 280 7 4.5 0 25 140 50 0 48 7
+Frosted Dr Pepper® 369 320 7 4.5 0 25 150 60 0 59 7
+Frosted Diet Dr Pepper® 369 260 7 4.5 0 25 150 45 0 44 7
+Frosted Barq’s® Root Beer 369 320 7 4.5 0 25 160 61 0 60 7
+Frosted Coke® 369 320 7 4.5 0 25 150 60 0 60 7
+Frosted Diet Coke® 369 260 7 4.5 0 25 160 45 0 44 7
+Frosted Coke® Zero Sugar 369 260 7 4.5 0 25 160 45 0 44 7
+Frosted Caffeine Free Diet Coke® 369 260 7 4.5 0 25 160 45 0 44 7
+Frosted Coca-Cola® Cherry 369 320 7 4.5 0 25 150 61 0 60 7
+Frosted Hi-C® Fruit Punch 369 320 7 4.5 0 25 140 61 0 60 7
+Frosted Hi-C® Orange 369 310 7 4.5 0 25 150 58 0 57 7
+Frosted Sprite® 369 320 7 4.5 0 25 160 59 0 59 7
+Frosted Caffeine Free Barq’s® Root Beer 369 320 7 4.5 0 25 160 62 0 61 7
+Frosted Mello Yello® 369 320 7 4.5 0 25 160 62 0 61 7
+Frosted Fanta® Orange 369 320 7 4.5 0 25 150 60 0 60 7
+Frosted Fanta® Strawberry 369 320 7 4.5 0 25 170 61 0 61 7
+Frosted Barq’s® Red Flash 369 320 7 4.5 0 25 150 61 0 60 7
+Frosted Powerade® Mountain Berry Blast 369 290 7 4.5 0 25 180 53 0 52 7
+S’mores Milkshake 411 650 19 12 0.5 70 400 109 1 100 12
+S’mores Frosted Coffee 382 400 8 5 0 25 220 77 1 69 7
+Frosted Coffee 374 260 7 4.5 0 25 140 45 0 44 7
+Cookies & Cream Milkshake 409 630 25 15 1 85 430 91 1 84 13
+Chocolate Milkshake 409 600 22 14 1 85 350 93 1 90 12
+Strawberry Milkshake 409 560 18 11 0.5 70 370 92 1 87 10
+Vanilla Milkshake 409 580 23 15 1 90 390 82 1 80 13
+Chick-fil-A® Icedream® Cone 135 180 4 2.5 0 15 90 32 0 25 4
+Chick-fil-A® Icedream® Cup 122 140 3.5 2.5 0 15 75 24 0 24 4
+Dr Pepper® Float 369 320 7 4.5 0 25 150 60 0 59 7
+Caramel Frosted Coffee 406 370 10 6 0 40 190 63 0 60 7
+Mocha Frosted Coffee 400 330 7 4.5 0 25 150 61 1 59 7
+Vanilla Frosted Coffee 400 330 7 4.5 0 25 140 62 0 60 7
+
+===== Drinks =====
+Drinks
+Pineapple Dragonfruit Lemonade 691 290 0 0 0 0 15 72 0 60 0
+Pineapple Dragonfruit Diet Lemonade 662 90 0 0 0 0 25 21 0 10 0
+Small Freshly-Brewed Sweetened Iced Tea 451 90 0 0 0 0 0 22 0 22 0
+Medium Freshly-Brewed Sweetened Iced Tea 604 120 0 0 0 0 0 31 0 30 0
+Large Freshly-Brewed Sweetened Iced Tea 893 170 0 0 0 0 0 44 0 44 0
+Small Freshly-Brewed Unsweetened Iced Tea 451 0 0 0 0 0 0 0 0 0 0
+Medium Freshly-Brewed Unsweetened Iced Tea 604 0 0 0 0 0 0 0 0 0 0
+Large Freshly-Brewed Unsweetened Iced Tea 893 0 0 0 0 0 0 0 0 0 0
+Small Chick-fil-A® Lemonade 465 190 0 0 0 0 0 49 0 45 0
+Medium Chick-fil-A® Lemonade 612 260 0 0 0 0 0 66 0 60 0
+Large Chick-fil-A® Lemonade 916 380 0 0 0 0 0 98 1 90 1
+Small Chick-fil-A® Diet Lemonade 465 40 0 0 0 0 10 12 0 8 0
+Medium Chick-fil-A® Diet Lemonade 612 60 0 0 0 0 10 15 0 11 0
+Large Chick-fil-A® Diet Lemonade 916 80 0 0 0 0 15 23 0 17 0
+Small Sunjoy® (1/2 Sweet Tea, 1/2 Lemonade) 479 180 0 0 0 0 0 45 0 43 0
+Medium Sunjoy® (1/2 Sweet Tea, 1/2 Lemonade) 641 240 0 0 0 0 0 60 0 57 0
+Large Sunjoy® (1/2 Sweet Tea, 1/2 Lemonade) 944 350 0 0 0 0 0 91 0 85 0
+Small Sunjoy® (1/2 Sweet Tea, 1/2 Diet Lemonade) 479 80 0 0 0 0 5 20 0 18 0
+Medium Sunjoy® (1/2 Sweet Tea, 1/2 Diet Lemonade) 641 110 0 0 0 0 5 29 0 26 0
+Large Sunjoy® (1/2 Sweet Tea, 1/2 Diet Lemonade) 944 150 0 0 0 0 10 40 0 36 0
+Small Sunjoy® (1/2 Unsweet Tea, 1/2 Lemonade) 479 130 0 0 0 0 0 33 0 30 0
+Medium Sunjoy® (1/2 Unsweet Tea, 1/2 Lemonade) 641 160 0 0 0 0 0 41 0 38 0
+Large Sunjoy® (1/2 Unsweet Tea, 1/2 Lemonade) 944 260 0 0 0 0 0 66 0 60 0
+Small Sunjoy® (1/2 Unsweet Tea, 1/2 Diet Lemonade) 479 30 0 0 0 0 5 8 0 6 0
+Medium Sunjoy® (1/2 Unsweet Tea, 1/2 Diet Lemonade) 641 35 0 0 0 0 5 10 0 7 0
+Large Sunjoy® (1/2 Unsweet Tea, 1/2 Diet Lemonade) 944 60 0 0 0 0 10 15 0 11 0
+Iced Coffee 661 200 4 3 0 15 115 34 0 34 7
+Small Coca-Cola® 451 130 0 0 0 0 35 35 0 35 0
+Medium Coca-Cola® 584 170 0 0 0 0 45 46 0 46 0
+Large Coca-Cola® 859 250 0 0 0 0 65 68 0 68 0
+Small Dr Pepper® 451 130 0 0 0 0 40 34 0 34 0
+Medium Dr Pepper® 584 170 0 0 0 0 50 44 0 44 0
+Large Dr Pepper® 859 250 0 0 0 0 75 64 0 64 0
+Gallon Pineapple Dragonfruit Lemonade 340 210 0 0 0 0 10 53 0 44 0
+Gallon Pineapple Dragonfruit Sunjoy® (1/2 Sweet Tea, 1/2 Lemonade) 340 180 0 0 0 0 10 44 0 38 0
+Gallon Pineapple Dragonfruit Sweet Tea 340 150 0 0 0 0 10 37 0 33 0
+Gallon Chick-fil-A® Lemonade 340 190 0 0 0 0 0 49 0 45 0
+Gallon Chick-fil-A® Diet Lemonade 340 40 0 0 0 0 10 12 0 8 0
+Gallon Chick-fil-A® Lemonade (1/2 Lemonade, 1/2 Diet Lemonade) 340 120 0 0 0 0 0 33 0 30 0
+Gallon Freshly-Brewed Iced Tea Sweetened 340 130 0 0 0 0 0 33 0 33 0
+Gallon Freshly-Brewed Iced Tea Unsweetened 340 0 0 0 0 0 0 0 0 0 0
+Gallon Chick-fil-A® Iced Tea (1/2 Sweet Tea, 1/2 Unsweet Tea) 340 70 0 0 0 0 0 18 0 18 0
+Gallon Sunjoy® (1/2 Sweet Tea, 1/2 Lemonade) 340 160 0 0 0 0 0 41 0 39 0
+Gallon Sunjoy® (1/2 Sweet Tea, 1/2 Diet Lemonade) 340 90 0 0 0 0 0 23 0 21 0
+Gallon Sunjoy® (1/2 Unsweet Tea, 1/2 Lemonade) 340 100 0 0 0 0 0 26 0 24 0
+Gallon Sunjoy® (1/2 Unsweet Tea, 1/2 Diet Lemonade) 340 20 0 0 0 0 0 6 0 4 0
+Bag of Ice 28 0 0 0 0 0 0 0 0 0 0
+Gallon Pineapple Dragonfruit Diet Lemonade 340 70 0 0 0 0 20 16 0 8 0
+Gallon Pineapple Dragonfruit Unsweet Tea 340 25 0 0 0 0 10 5 0 0 0
+Gallon Pineapple Dragonfruit Sunjoy® (1/2 Sweet Tea, 1/2 Diet Lemonade) 340 110 0 0 0 0 15 28 0 22 0
+Gallon Pineapple Dragonfruit Sunjoy® (1/2 Unsweet Tea, 1/2 Lemonade) 340 110 0 0 0 0 10 27 0 20 0
+Gallon Pineapple Dragonfruit Sunjoy® (1/2 Unsweet Tea, 1/2 Diet Lemonade) 340 45 0 0 0 0 15 10 0 4 0
+Toasted Marshmallow Hot Coffee 380 110 0 0 0 0 65 26 0 22 0
+Pineapple Dragonfruit Sunjoy® (Sweet Tea, Lemonade) 662 240 0 0 0 0 15 59 0 50 0
+Pineapple Dragonfruit Sunjoy® (Sweet Tea, Diet Lemonade) 662 140 0 0 0 0 20 34 0 25 0
+Pineapple Dragonfruit Sunjoy® (Unsweet Tea, Lemonade) 662 160 0 0 0 0 15 39 0 30 0
+Pineapple Dragonfruit Sunjoy® (Unsweet Tea, Diet Lemonade) 662 60 0 0 0 0 20 14 0 6 0
+Pineapple Dragonfruit Sweet Tea 662 150 0 0 0 0 15 37 0 31 0
+Pineapple Dragonfruit Unsweet Tea 662 35 0 0 0 0 15 7 0 0 0
+DASANI® Bottled Water 479 0 0 0 0 0 0 0 0 0 0
+Honest Kids® Apple Juice 170 35 0 0 0 0 15 9 0 8 0
+Simply Orange® 326 160 0 0 0 0 10 34 0 30 2
+1% Chocolate Milk 198 140 2 1.5 0 10 160 23 0 21 7
+1% Milk 213 90 2 1.5 0 10 105 10 0 10 7
+Pineapple Dragonfruit & Sprite® 662 190 0 0 0 0 100 50 0 43 0
+Toasted Marshmallow Iced Coffee 683 270 4 3 0 15 200 50 0 43 7
+Toasted Marshmallow Cream Cold Brew 712 530 17 10 0.5 65 440 87 0 80 8
+
+===== Coffee =====
+Coffee
+Vanilla Iced Coffee 661 210 4 3 0 15 115 35 0 33 7
+Caramel Iced Coffee 672 260 9 6 0.5 35 190 38 0 34 8
+Mocha Iced Coffee 661 200 4.5 3 0 15 125 34 1 31 8
+Iced Coffee 624 110 4 3 0 15 115 11 0 10 7
+Toasted Marshmallow Iced Coffee 683 270 4 3 0 15 200 50 0 43 7
+Hot Coffee 340 0 0 0 0 0 10 0 0 0 0
+Frosted Coffee 374 260 7 4.5 0 25 140 45 0 44 7
+Caramel Frosted Coffee 406 370 10 6 0 40 190 63 0 60 7
+Mocha Frosted Coffee 400 330 7 4.5 0 25 150 61 1 59 7
+Vanilla Frosted Coffee 400 330 7 4.5 0 25 140 62 0 60 7
+Caramel Cream Cold Brew 700 520 22 14 1 80 440 75 0 71 9
+Mocha Cream Cold Brew 689 460 17 11 0.5 65 370 71 1 68 9
+Vanilla Cream Cold Brew 689 470 17 10 0.5 65 360 72 0 69 8
+Cream Cold Brew 652 370 17 10 0.5 65 360 48 0 47 8
+Toasted Marshmallow Cream Cold Brew 712 530 17 10 0.5 65 440 87 0 80 8
+S’mores Frosted Coffee 382 400 8 5 0 25 220 77 1 69 7
+Toasted Marshmallow Hot Coffee 380 110 0 0 0 0 65 26 0 22 0
+
+===== Dipping Sauces =====
+Dipping Sauces
+Barbeque Sauce 28 45 0 0 0 0 200 11 0 9 0
+Chick-fil-A® Sauce 28 140 13 2 0 10 170 6 0 6 0
+Garden Herb Ranch Sauce 21 100 11 2 0 10 170 1 0 0 0
+Honey Mustard Sauce 28 50 0 0 0 0 160 11 0 10 0
+Polynesian Sauce 28 110 6 1 0 0 210 14 0 13 0
+Sweet & Spicy Sriracha Sauce 28 45 0 0 0 0 380 11 0 10 0
+Zesty Buffalo Sauce 21 25 2.5 0 0 5 570 1 0 0 0
+Honey Roasted BBQ Sauce 12 60 5 1 0 5 75 3 0 2 0
+Classic Syrup 23 60 0 0 0 0 0 16 0 12 0
+
+===== Dressings =====
+Dressings
+Avocado Lime Ranch Dressing 57 310 32 5 0 25 520 3 1 2 1
+Creamy Salsa Dressing 57 290 31 5 0 25 630 2 0 1 1
+Fat-Free Honey Mustard Dressing 57 90 0 0 0 0 330 22 1 18 0
+Garden Herb Ranch Dressing 57 280 29 5 0 25 440 2 0 1 1
+Light Balsamic Vinaigrette Dressing 57 80 4 0.5 0 0 360 10 0 9 0
+Light Italian Dressing 57 25 1 0 0 0 470 3 0 2 0
+Zesty Apple Cider Vinaigrette Dressing 56 230 19 3 0 0 450 16 0 14 0
+
+===== Buns =====
+Buns
+Gluten Free Bun 79 180 3.5 0 0 0 400 37 2 7 3
+Buttery White Bun 60 180 6 1 0 0 240 29 1 4 5
+Multigrain Brioche Bun 71 210 4.5 1 0 0 310 38 3 7 7
+White Bun (Unbuttered) 54 150 1 0 0 0 240 28 1 4 5
+
+===== Proteins =====
+Proteins
+Grilled Breakfast Filet 50 60 1 0 0 40 420 0 0 0 13
+Chick-fil-A® Breakfast Filet 71 160 8 1.5 0 45 750 8 0 2 15
+Spicy Breakfast Filet 71 150 7 1.5 0 40 810 7 1 1 15
+Grilled Filet 84 110 2 0 0 70 370 1 0 1 21
+Spicy Filet 120 280 13 2.5 0 65 1390 16 1 2 23
+Chick-fil-A® Filet 115 250 12 2.5 0 70 1120 12 0 1 24
+Bacon 10 50 3.5 1.5 0 10 210 0 0 0 4
+Sausage 57 240 22 8 0 35 430 1 0 0 11
+
+===== Salad Toppings =====
+Salad Toppings
+Roasted Nut Blend 10 70 6 0.5 0 0 0 2 1 1 1
+Harvest Nut Granola 14 70 2 0 0 0 35 10 0 4 1
+Seasoned Tortilla Strips 14 70 4 0 0 0 55 8 1 0 1
+Blue Cheese Crumbles 9 30 2.5 1.5 0 10 110 0 0 0 2
+Crispy Bell Peppers 14 80 6 0 0 0 75 6 0 0 1
+Chili Lime Pepitas 14 80 7 1 0 0 50 2 1 0 4
+
+===== Sandwich Toppings =====
+Sandwich Toppings
+American Cheese 14 50 4.5 2.5 0 15 230 1 0 0 3
+Colby Jack Cheese 21 80 7 4 0 20 140 0 0 0 5
+Pepper Jack Cheese 21 80 6 4 0 20 140 0 0 0 4
+Bacon 10 50 3.5 1.5 0 10 210 0 0 0 4
+Tomato 30 5 0 0 0 0 0 1 0 1 0
+Lettuce 20 5 0 0 0 0 5 1 0 0 0
+
+===== Soup Toppings =====
+Soup Toppings
+Saltines 12 50 1 0 0 0 180 9 0 0 1
