@@ -40,6 +40,35 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+// Declares, machine-readably, that "Eatimate" is the NAME of a thing rather
+// than a misspelling of "estimate" -- which is what Google currently assumes,
+// silently rewriting the brand query and serving results for the common word.
+// Structured data is not documented as an input to spell correction, so this is
+// not a fix for that; it is the standard entity signal every site should carry,
+// and the only part of the problem that is ours to state rather than wait out.
+// No `logo`: there is no logo asset, and an invented one would be a broken URL.
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "Eatimate",
+      url: SITE_URL,
+      description:
+        "Free nutrition calculators for build-your-own restaurant meals.",
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      name: "Eatimate",
+      url: SITE_URL,
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      inLanguage: "en-US",
+    },
+  ],
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   const beaconToken = process.env.CF_BEACON_TOKEN;
 
@@ -55,6 +84,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           dangerouslySetInnerHTML={{
             __html: `try{var t=localStorage.getItem("eatimate.theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}`,
           }}
+        />
+        {/* Next's Metadata API has no JSON-LD support, so this is a script tag. */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         <Header />
         {children}
