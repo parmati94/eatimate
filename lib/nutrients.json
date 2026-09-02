@@ -1,0 +1,55 @@
+{
+  "_comment": "The label nutrients, in panel order. Read by the Python ingest (common.py, validate.py, overview.py) and asserted equal to lib/schema.ts's constants by lib/schema.test.ts, so adding one (added sugars, potassium) is one edit here plus the schema.",
+  "fields": [
+    {
+      "field": "calories",
+      "label": "calories",
+      "unit": "cal"
+    },
+    {
+      "field": "fat_g",
+      "label": "total fat",
+      "unit": "g"
+    },
+    {
+      "field": "sat_fat_g",
+      "label": "saturated fat",
+      "unit": "g"
+    },
+    {
+      "field": "trans_fat_g",
+      "label": "trans fat",
+      "unit": "g"
+    },
+    {
+      "field": "cholesterol_mg",
+      "label": "cholesterol",
+      "unit": "mg"
+    },
+    {
+      "field": "sodium_mg",
+      "label": "sodium",
+      "unit": "mg"
+    },
+    {
+      "field": "carbs_g",
+      "label": "carbohydrate",
+      "unit": "g"
+    },
+    {
+      "field": "fiber_g",
+      "label": "dietary fibre",
+      "unit": "g"
+    },
+    {
+      "field": "sugars_g",
+      "label": "sugars",
+      "unit": "g"
+    },
+    {
+      "field": "protein_g",
+      "label": "protein",
+      "unit": "g"
+    }
+  ]
+}

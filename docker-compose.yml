@@ -1,9 +1,22 @@
+# Production stack, as Portainer runs it on the OCI box (stack "eatimate").
+# Portainer holds the live copy; this file is the one to send as
+# stackFileContent when the stack changes, so keep the two identical.
+# Caddy owns 80/443 and proxies eatimate.app to 127.0.0.1:8003.
+#
+# No bind mount on purpose: the chain data is baked into the image at build
+# time (pages are prerendered from it), so a data change is a new image.
 services:
   eatimate:
-    build: .
+    image: ghcr.io/parmati94/eatimate:latest
     container_name: eatimate
     restart: unless-stopped
     ports:
-      - "3100:3000"
-    volumes:
-      - ./data/chains:/app/data/chains:ro
+      - "127.0.0.1:8003:3000"
+    environment:
+      SITE_URL: https://eatimate.app
+      NEXT_TELEMETRY_DISABLED: "1"
+      # Cloudflare Web Analytics site token, set in Portainer, never here.
+      # The beacon is embedded by the app with spa:false because CF's
+      # automatic injection counts every History API write as a pageview, so
+      # keep RUM on "Enable with JS Snippet installation" or hits double.
+      CF_BEACON_TOKEN: "${CF_BEACON_TOKEN}"

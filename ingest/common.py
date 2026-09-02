@@ -149,8 +149,8 @@ Config (ingest/chains/<slug>.json):
 import json, re, sys, unicodedata
 from pathlib import Path
 
-FIELDS = ["calories", "fat_g", "sat_fat_g", "trans_fat_g", "cholesterol_mg",
-          "sodium_mg", "carbs_g", "fiber_g", "sugars_g", "protein_g"]
+# The label nutrients, from the one list both sides of the repo read.
+FIELDS = [n["field"] for n in json.load(open(Path(__file__).parent.parent / "lib" / "nutrients.json"))["fields"]]
 # "<5" as well as "<1": Jimmy John's declares cholesterol under the FDA's
 # 5 mg threshold that way. Any bound is read as its midpoint, which is what
 # "<1 -> 0.5" already did.
@@ -916,7 +916,7 @@ def finish(cfg, components, rows, pending, out_dir="data/chains"):
     # Those describe how to READ the source, not the chain, so they stay in
     # ingest/chains and never reach the app -- whose schema is strict.
     chain["source"] = {k: v for k, v in chain["source"].items()
-                       if k in ("pdf_url", "html_url", "retrieved")}
+                       if k in ("pdf_url", "html_url", "retrieved", "verified")}
     # Same for meta-level knobs: menu_check tells menu_check.py where the live
     # menu is; the app has no use for it and its schema would reject it.
     for k in ("menu_check",):

@@ -15,7 +15,10 @@ Reads meta.source from ingest/chains/<slug>.json and reports one of:
   error     could not reach or resolve the source
 
 Exit code 0 when every chain is ok/reexport, 1 otherwise, so a cron can
-branch on it. Nothing is written: this only reports.
+branch on it. Nothing is written: this only reports -- except with --touch,
+which stamps source.verified with today's date on every chain that came back
+ok or reexport, so overview.py's freshness table measures how long since the
+source was last found unchanged rather than how long since it was fetched.
 
 `source.fetch` picks how to reach the source, because no single client
 works everywhere -- Five Guys 403s the scraper but answers plain requests,
@@ -246,6 +249,23 @@ def record(slug):
     print("  now re-run extract.py so the shipped retrieved date matches")
 
 
+def touch(slugs):
+    """Stamp source.verified = today on chains found unchanged. The date is
+    carried into data/chains by the next extract, so it has to be followed by
+    rebuild.py -- which --check will insist on."""
+    import datetime
+    today = datetime.date.today().isoformat()
+    for slug in slugs:
+        cp = CHAINS / f"{slug}.json"
+        cfg = json.loads(cp.read_text())
+        if cfg["meta"]["source"].get("verified") == today:
+            continue
+        cfg["meta"]["source"]["verified"] = today
+        cp.write_text(json.dumps(cfg, indent=1, ensure_ascii=False) + "\n")
+    if slugs:
+        print(f"  verified={today} stamped on {len(slugs)} chains; run rebuild.py to carry it into data/chains")
+
+
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     if "--record" in sys.argv:
@@ -259,6 +279,8 @@ def main():
     if not slugs:
         sys.exit(__doc__)
     rows = [check(s) for s in slugs]
+    if "--touch" in sys.argv:
+        touch([r["chain"] for r in rows if r["state"] in ("ok", "reexport")])
     if as_json:
         print(json.dumps(rows, indent=1))
     else:

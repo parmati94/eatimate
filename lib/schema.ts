@@ -131,6 +131,9 @@ export const ChainSchema = z
         pdf_url: z.string().url().optional(),
         html_url: z.string().url().optional(),
         retrieved: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+        // Last date refresh.py found the source unchanged. Optional: it is
+        // absent until the first --touch, and never earlier than retrieved.
+        verified: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
       })
       .strict()
       .refine((s) => Boolean(s.pdf_url ?? s.html_url), {
