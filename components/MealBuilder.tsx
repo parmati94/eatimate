@@ -8,6 +8,7 @@ import {
   useRef,
   useState
 } from "react";
+import { buildPath, defaultMode as defaultPath, modeOf, owedNote, splitCats } from "@/lib/flow";
 import type { Category, Chain, Component } from "@/lib/schema";
 import {
   show
@@ -120,45 +121,11 @@ export default function MealBuilder({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chain, activeMode]);
 
-  // On a "name and tweak" chain the two paths are mutually exclusive: you
-  // either start from a published menu item OR compose one from parts. Stacking
-  // them in one numbered flow reads as building a second sandwich.
-  const presetCats = chain.categories.filter(
-    (c) => (c.flow === "preset" || c.flow === "both") && visibleByCategory.has(c.id),
-  );
-  const scratchCats = chain.categories.filter(
-    (c) =>
-      ((c.flow ?? "build") === "build" || c.flow === "both") &&
-      visibleByCategory.has(c.id),
-  );
-  const hasPresets = presetCats.length > 0;
-  /**
-   * Which path a ready-made set of selections belongs to.
-   *
-   * A comparison preloads a build, and a shared ?m= link restores one, but
-   * neither carried a mode -- so a chain that asks "how do you want to start?"
-   * showed that question with the meal already selected behind it and the
-   * total already counting it. If anything picked is preset-only, the meal came
-   * off the menu; otherwise it was built.
-   */
-  const modeOf = (sel: Selections) => {
-    const ids = Object.keys(sel);
-    if (!ids.length) return null;
-    const flow = new Map(chain.categories.map((c) => [c.id, c.flow ?? "build"]));
-    return chain.components.some(
-      (c) => sel[c.id] && flow.get(c.category) === "preset",
-    )
-      ? ("menu" as const)
-      : ("scratch" as const);
-  };
+  // The two paths, the numbered steps and the additive rest all come from
+  // lib/flow.ts, which is pure and tested over the real chain files.
+  const { presetCats, scratchCats, hasPresets } = splitCats(chain, visibleByCategory);
 
-  const [mode, setMode] = useState<"menu" | "scratch" | null>(
-    chain.default_flow === "build"
-      ? "scratch"
-      : chain.default_flow === "menu"
-        ? "menu"
-        : null,
-  );
+  const [mode, setMode] = useState<"menu" | "scratch" | null>(defaultPath(chain));
   // A preloaded comparison never mounts empty, so this settles it before paint
   // rather than in an effect that would flash the chooser first.
   //
@@ -168,66 +135,18 @@ export default function MealBuilder({
   // render -- the calories counted while nothing on screen looked chosen.
   const [modeSettled, setModeSettled] = useState(false);
   if (!modeSettled && hasPresets) {
-    const m = modeOf(selections);
+    const m = modeOf(chain, selections);
     if (m && m !== mode) setMode(m);
     setModeSettled(true);
   }
 
-  const buildCats = !hasPresets
-    ? scratchCats
-    : mode === "menu"
-      ? presetCats
-      : mode === "scratch"
-        ? scratchCats
-        : [];
-  // On the menu path, where the numbered run stops being a sequence of choices
-  // and becomes a list of things you may add.
-  //
-  // Everything AFTER the last `preset` category is additive: Potbelly's bread
-  // is `both` and comes first because a sandwich has no size until you pick
-  // one, but its toppings come after the sandwich and are extra. Without the
-  // break, "2 Protein" under a chosen B.M.T. reads as "now choose your meat",
-  // which is the opposite of what starting from a menu item means.
-  const lastPreset = buildCats.map((c) => c.flow).lastIndexOf("preset");
-  const splitAt =
-    mode === "menu" && lastPreset >= 0 ? lastPreset + 1 : buildCats.length;
-  /** The steps you owe: on the menu path, up to and including the menu item. */
-  const stepCats = buildCats.slice(0, splitAt);
-  /** Promoted categories that are only ever additive once a menu item is picked. */
-  const addCats = buildCats.slice(splitAt);
-
-  // A menu item the chain publishes as INCOMPLETE owes one more step. Chopt
-  // and Just Salad both state that a named salad's figures carry no dressing,
-  // so with one picked, dressing is not something you may add but something
-  // the chain says is missing -- and the numbering has to say so too, because
-  // a row note reading "no dressing" under a flow that ends at step 1 is a
-  // caption nobody reads on the way to the total.
-  //
-  // Keyed off the PICK, not the chain: step 1 here is a mixed list, and a
-  // wrap or sandwich from the same chart includes its sauce. Before a pick,
-  // or with a wrap picked, nothing moves.
-  const owedBy =
-    mode === "menu"
-      ? chain.components.find((c) => selections[c.id] && c.needs)
-      : undefined;
-  const owedCat = owedBy ? addCats.find((c) => c.id === owedBy.needs) : undefined;
-  const owedSteps = owedCat
-    ? [
-        ...stepCats,
-        {
-          ...owedCat,
-          note: [
-            // The chain's own words, not a paraphrase: Subway's is "no
-            // dressing unless noted", and "unless noted" is load-bearing.
-            `${chain.name} lists the ${owedBy!.name} as "${owedBy!.serving_desc}". Add one here to count it.`,
-            owedCat.note,
-          ]
-            .filter(Boolean)
-            .join(" "),
-        },
-      ]
-    : stepCats;
-  const owedAdds = owedCat ? addCats.filter((c) => c !== owedCat) : addCats;
+  const path = buildPath(chain, mode, selections, visibleByCategory);
+  const { buildCats, extraCats } = path;
+  /** The steps you owe, the owed one carrying the chain's own words as its note. */
+  const owedSteps = path.owed
+    ? [...path.stepCats.slice(0, -1), { ...path.owed.cat, note: owedNote(chain, path.owed) }]
+    : path.stepCats;
+  const owedAdds = path.addCats;
 
   // "Make it a meal": the handful of items most orders actually include, lifted
   // out of the extras accordions. Same component ids, so selecting here and
@@ -243,21 +162,6 @@ export default function MealBuilder({
     return out;
   }, [chain, visibleByCategory]);
 
-  const plainExtras = chain.categories.filter(
-    (c) => c.flow === "extras" && visibleByCategory.has(c.id),
-  );
-  // Started from a menu item? Everything else becomes something you can add.
-  // Which of those are "already in it" is not published, so the page shows the
-  // full list and says so, rather than us guessing on the customer's behalf.
-  // Starting from a menu item, the build steps become "add to it" -- except
-  // the "both" ones, which are already numbered steps of this path.
-  const extraCats =
-    mode === "menu"
-      ? [
-          ...scratchCats.filter((c) => c.flow !== "both" && !c.in_preset),
-          ...plainExtras,
-        ]
-      : plainExtras;
 
   const [openCat, setOpenCat] = useState<string | null>(
     buildCats[0]?.id ?? null,
@@ -337,7 +241,7 @@ export default function MealBuilder({
       const sel = decodeMeal(m, chain);
       if (Object.keys(sel).length > 0) {
         setSelections(sel);
-        setMode(modeOf(sel));
+        setMode(modeOf(chain, sel));
         setOpenCat(null);
       }
     }
