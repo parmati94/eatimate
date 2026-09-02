@@ -1,0 +1,120 @@
+
+===== PAGE 1 =====
+INGREDIENTS CALS FAT SATFAT TRANSFAT CHOL SOD CARB TOTAL SUGAR PROT
+(KCAL) (G) (G) (G) (MG) (MG) (G) FIBER (G) (G) (G)
+TORTILLA CHIPS
+Tortilla Chips, Side 350 18 3 0 0 188 45 3 0 5
+Tortilla Chips, Cup 700 36 5 0 0 376 90 5 0 10
+Tortilla Chips, Bowl 1050 54 8 0 0 564 135 8 0 15
+PROTEINS
+Adobo Chicken, Small 50 2 1 0 40 255 1 1 0 7
+(Tacos, Kids)
+Adobo Chicken, Medium 100 5 2 0 80 510 1 1 0 14
+Adobo Chicken, Double 200 10 4 0 160 1020 2 2 0 28
+White Meat Chicken, Small 55 2 0 0 40 160 2 0 0 9
+White Meat Chicken, Medium 110 3 1 0 80 320 3 1 0 18
+White Meat Chicken, Double 220 6 1 0 160 640 6 2 0 36
+Hand Cut Steak, Small 65 4 2 0 23 250 2 0 0 6
+Hand Cut Steak, Medium 130 8 4 0 45 500 4 0 0 11
+Hand Cut Steak, Double 260 16 8 0 90 1000 8 0 0 22
+Ground Beef, Small 75 5 2 0 15 250 3 1 1 5
+Ground Beef, Medium 150 9 4 0 30 500 5 2 2 10
+Ground Beef, Double 300 18 8 0 60 1000 10 4 4 20
+Tofu, Small 55 4 1 0 0 130 1 1 1 5
+Tofu, Medium 110 7 1 0 0 260 2 1 1 9
+Tofu, Large 220 14 2 0 0 520 4 2 2 18
+QUESO
+Queso, Side 200 16 10 1 45 770 5 0 1 8
+Queso, Cup 410 32 21 2 95 1590 11 0 2 17
+Queso, Bowl 750 59 40 3 175 2940 20 0 3 31
+Queso, Add-On 130 10 7 0 30 490 3 0 0 5
+Queso, Add-On, Small 50 4 3 0 10 210 1 0 0 2
+GUAC
+Guac, Side 110 10 2 0 0 460 7 5 1 2
+Guac, Cup 250 22 3 0 0 1040 15 10 2 3
+Guac, Bowl 410 36 5 0 0 1730 26 17 3 6
+Guac, Add-On 60 6 1 0 0 270 4 3 1 1
+Guac, Add-On, Small 40 4 1 0 0 170 3 2 0 1
+SEASONED RICE
+Seasoned Rice, Ingredient for Jr. Burrito 94 2 0 0 0 226 18 0 0 2
+Seasoned Rice, Ingredient for Burrito 150 3 0 0 0 339 27 0 0 3
+Seasoned Rice, Cup and Burrito Bowl 300 6 0 0 0 678 54 0 0 6
+Seasoned Rice, Bowl 500 10 0 0 0 1130 90 0 0 10
+CILANTRO LIME RICE
+Cilantro Lime Rice, Ingredient for Jr. Burrito 93 2 0 0 0 154 18 0 0 2
+Cilantro Lime Rice, Ingredient for Burrito 140 3 0 0 0 231 27 0 0 3
+Cilantro Lime Rice, Cup and Burrito Bowl 280 6 0 0 0 462 54 0 0 6
+Cilantro Lime Rice, Bowl 470 10 0 0 0 770 90 0 0 10
+BLACK BEANS
+Black Beans Jr. Ingredient portion/taco fresh 30 0 0 0 0 120 6 2 0 2
+free modifier
+Black Beans, Ingredient portion for Burrito, 60 0 0 0 0 240 12 3 0 3
+Bowl, Nacho, Quesadilla, Stack
+Black Beans, Cup 120 0 0 0 0 480 24 6 0 6
+Black Beans, Bowl 220 0 0 0 0 800 40 10 0 10
+PROTEINS SSMMAALLLL:: TACOS, KIDS MEAL MMEEDDIIUUMM:: BURRITO, BOWLS, SALADS, NACHOS, QUESADILLAS, STACKS DDOOUUBBLLEE:: DOUBLE PROTEIN (PROTEIN CLAIM ITEMS)
+PAGE 1
+
+===== PAGE 2 =====
+INGREDIENTS CALS FAT SATFAT TRANSFAT CHOL SOD CARB TOTAL SUGAR PROT
+(KCAL) (G) (G) (G) (MG) (MG) (G) FIBER (G) (G) (G)
+PINTO BEANS
+Pinto Beans Jr. Ingredient portion/taco fresh 30 0 0 0 0 100 6 2 0 2
+free modifier
+Pinto Beans, Ingredient for Burrito, Bowl, 60 0 0 0 0 200 12 3 0 3
+Nacho, Quesadilla, Stack
+Pinto Beans, Cup 120 0 0 0 0 400 24 6 0 6
+Pinto Beans, Bowl 200 0 0 0 0 670 40 10 0 10
+FRESH INGREDIENTS
+Grilled Onions and Peppers 25 0 0 0 0 0 5 1 3 1
+Roasted Corn Salsa 80 3.5 0 0 0 250 9 2 3 1
+Oaxaca Cheese 130 9 5 0 30 280 2 0 2 10
+New Pico 10 0 0 0 0 190 3 1 2 0
+Guac 80 7 1 0 0 320 5 3 1 1
+Sour Cream 60 5 3.5 0 20 15 1 0 1 1
+Romaine Lettuce 5 0 0 0 0 0 1 1 0 0
+Onions, Diced 10 0 0 0 0 0 3 0 1 0
+Jalapenos, Pickled 5 0 0 0 0 260 1 1 1 0
+Jalapenos, Fresh 10 0 0 0 0 0 2 1 1 0
+Black Olives 40 4 1 0 0 230 0 0 0 0
+Moe’s Sauce 110 11 2 0 15 410 3 0 2 1
+Poblano Crema 40 3 2 0 10 200 2 1 1 1
+Chili Lime Sauce 100 9 2 0 5 330 4 0 3 0
+Hard Rock 10 0 0 0 0 100 1 1 0 0
+Chipotle Ranch 140 15 3 0 5 140 2 0 1 1
+SW Vin 130 13 2 0 0 350 3 0 0 0
+House-Made Salsa 10 0 0 0 0 160 2 0 1 0
+Tomatillo Salsa 10 0 0 0 0 150 1 1 1 0
+12” Flour Tortilla 310 8 3 0 0 320 51 1 1 8
+8” Flour Tortilla 100 3 1 0 0 180 17 0 0 2
+6” Flour Tortilla 70 2 0 0 0 120 11 0 0 2
+6” Crispy Corn Tortilla/Stack Shell 40 3 1 0 0 25 3 0 0 1
+Tortilla Chips 140 7 1 0 0 75 18 1 0 2
+Bacon 180 13 5 0 50 710 0 0 0 17
+Potatoes 200 8 2 0 0 220 29 3 0 3
+Chocolate Chunk Cookie 170 8 4 0 10 140 23 1 15 2
+Spicy Red Salsa 10 0 0 0 0 250 2 0 1 0
+DRINKS
+Coca Cola Zero, Kids 5 0 0 0 0 65 1 1 1 0
+Coca Cola Zero, Regular 10 0 0 0 0 85 1 1 1 0
+Coca Cola Zero, Large 15 0 0 0 0 160 2 1 2 1
+Sprite, Kids 140 0 0 0 0 70 36 1 36 0
+Sprite, Regular 180 0 0 0 0 90 49 1 49 0
+Sprite, Large 340 0 0 0 0 170 91 1 91 0
+Diet Coke, Kids 5 0 0 0 0 115 1 1 1 0
+Diet Coke, Regular 10 0 0 0 0 160 1 1 1 0
+Diet Coke, Large 15 0 0 0 0 290 2 1 2 1
+Coca-Cola, Kids 140 0 0 0 0 40 39 1 39 0
+Coca-Cola, Regular 190 0 0 0 0 55 52 1 52 0
+Coca-Cola, Large 360 0 0 0 0 100 97 1 97 0
+PROTEINS SSMMAALLLL:: TACOS, KIDS MEAL MMEEDDIIUUMM:: BURRITO, BOWLS, SALADS, NACHOS, QUESADILLAS, STACKS DDOOUUBBLLEE:: DOUBLE PROTEIN (PROTEIN CLAIM ITEMS)
+PAGE 2
+
+===== PAGE 3 =====
+OFFERINGS MAY VARY BY LOCATION. SERVING SIZES ARE APPROXIMATIONS ONLY, BASED ON HOW MENU ITEMS ARE TYPICALLY PREPARED, AND MAY VARY FROM ORDER TO ORDER. NUTRITION-
+AL CONTENT MAY VARY DUE TO DIFFERENCES IN PORTION SIZE OR RECIPES, CHANGES IN GROWING SEASONS, OR VARIATIONS IN INGREDIENT SOURCES. WE MAY UPDATE THIS INFORMATION
+FROM TIME TO TIME. A 2,000-CALORIE DAILY INTAKE IS USED FOR GENERAL NUTRITION ADVICE, BUT INDIVIDUAL CALORIE NEEDS MAY VARY.
+PLEASE NOTE THAT SOME PRODUCTS MAY CONTAIN FOOD ALLERGENS AND OTHER INGREDIENTS THAT CAUSE FOOD SENSITIVITIES. ALTHOUGH EFFORTS ARE MADE TO AVOID CROSS-CONTACT OF
+ALLERGENS AND OTHER INGREDIENTS THAT MAY CAUSE FOOD SENSITIVITIES, ALL FOOD AND BEVERAGE ITEMS MAY CONTAIN OR COME INTO CONTACT WITH ONE OR MORE OF THESE SUBSTANC-
+ES. IF YOU HAVE A FOOD ALLERGY, PLEASE NOTIFY STAFF DIRECTLY BEFORE ORDERING. FOR MORE DETAILED ALLERGEN INFORMATION, PLEASE VISIT MOES.COM.
+PAGE 3

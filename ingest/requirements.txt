@@ -1,0 +1,17 @@
+# Exact pins on purpose. pdfplumber's text extraction changes between versions,
+# and a raw dump that changed because the library changed is indistinguishable
+# from a source that changed -- which is the one thing refresh.py exists to tell
+# apart. Bump deliberately, then re-run rebuild.py --check and refresh.py --all
+# and re-pin any dump hashes that moved.
+#
+#   python3 -m venv ingest/.venv && ingest/.venv/bin/pip install -r ingest/requirements.txt
+pdfplumber==0.11.10
+pdfminer.six==20260107
+pypdfium2==5.13.0
+pillow==12.3.0
+beautifulsoup4==4.15.0
+lxml==6.1.2
+requests==2.34.2
+cloudscraper==1.2.71
+playwright==1.62.0
+pytest==9.0.2

@@ -1,0 +1,94 @@
+LARGE EXTRAMOSTBESTEST PIZZAS
+Pepperoni 2500 1000 113 50 3.5 275 5640 252 13 19 122
+Cheese 2220 750 84 42 3 215 4430 252 13 17 117
+Italian Sausage 2660 1130 128 53 2.5 310 5680 252 13 19 129
+LARGE SPECIALTY PIZZAS
+5 Meat Feast 2830 1250 142 58 3.5 345 7120 252 13 20 139
+Ultimate Supreme 2500 990 112 47 3 265 5780 259 15 23 118
+3 Meat Treat 2860 1300 147 61 3 340 6590 252 13 20 135
+Hula Hawaiian 2180 620 70 31 2 220 5570 272 13 35 121
+Veggie 2240 740 84 38 2 155 5430 266 20 25 100
+Slices-N-Stix 2300 860 97 41 2.5 205 5220 253 13 20 107
+Slices-N-Stix Bacon 2980 1020 115 48 3 235 5560 252 13 19 116
+Slices-N-Stix Jalapeno 2330 880 99 41 2.5 205 6000 255 15 20 107
+Stuffed Crust Pepperoni 2980 1350 153 70 4.5 385 7040 259 13 20 144
+Pretzel Crust Pizza with Pizza Sauce 2080 750 85 34 2 170 10500 240 11 14 91
+Cheese Pretzel Crust Pizza with Cheese Sauce 1940 630 71 28 1.5 125 10080 243 9 12 85
+Pretzel Crust Pizza with Cheese Sauce 2190 820 93 36 2 180 10980 244 9 13 94
+LARGE CLASSIC PIZZAS
+Pepperoni 2300 860 97 42 3 230 5050 250 13 19 109
+Cheese 1950 580 65 31 2 150 3740 248 12 17 95
+Italian Sausage 2270 800 91 40 2 225 4480 255 13 17 111
+DETROIT-STYLE DEEP DISH PIZZAS
+Pepperoni 2770 980 111 47 3 240 5280 319 16 20 129
+Cheese 2500 750 85 38 2.5 175 4230 317 16 19 118
+Italian Sausage 2820 1010 114 48 2.5 250 5130 319 16 20 133
+DETROIT-STYLE DEEP DISH PIZZAS SPECIALTY
+Ultimate Supreme 3050 1150 130 54 3 290 6270 332 20 27 141
+3 Meat Treat 3480 1550 175 70 3.5 365 7240 321 16 22 159
+Hula Hawaiian 2690 780 88 38 2.5 230 5610 341 17 37 137
+Veggie 2730 870 99 43 2.5 180 5760 333 22 26 123
+5 Meat Feast 3500 1520 172 69 4 400 8140 322 16 23 171
+SIDES
+Crazy Combo 840 190 22 4.5 0 5 1860 135 6 10 26
+Crazy Bread (8 bread sticks) 800 190 22 4.5 0 5 1290 128 5 6 25
+Crazy Sauce (1 sauce cup) 30 0 0 0 0 0 570 7 2 4 1
+Italian Cheese Bread (10 bread sticks) 1340 480 54 21 1.5 90 2250 156 7 8 59
+Pepperoni Cheese Bread (10 bread sticks) 1520 630 71 27 2 130 2840 155 7 7 66
+Zesty Cheese Bread (10 bread sticks) 1490 630 71 24 1.5 90 2540 158 7 10 55
+Stuffed Crazy Bread (3 bread sticks and Crazy Sauce) 980 330 38 13 1 60 2200 126 6 10 36
+Pepperoni Crazy Puffs 680 320 36 16 1 85 1520 56 3 4 34
+4 Cheese Crazy Puffs 580 230 26 13 1 60 1230 56 3 3 30
+Cookie Dough Brownie with M and M'S MINIS (full package) 840 390 44 22 0 40 300 96 4 68 12
+Cookie Dough Brownie with TWIX Cookie Bar Pieces (full package) 800 390 44 16 0 40 600 120 4 80 8
+CAESAR WINGS
+Oven Roasted 510 310 35 9 0 285 1740 3 0 0 47
+Buffalo 520 310 35 9 0 285 3330 7 0 0 47
+BBQ 620 310 35 9 0 285 2300 32 0 24 48
+Garlic Parmesan 670 450 51 13 0 290 2510 5 0 0 49
+CAESAR DIPS
+Cheezy Jalapeno 210 190 21 3.5 0 15 460 3 0 2 1
+Ranch 230 200 23 3.5 0 20 48 4 0 32 2
+Buffalo Ranch 230 200 23 3.5 0 20 580 4 0 3 1
+Butter Garlic Flavor 370 370 42 8 0 0 330 0 0 0 0
+Cheddar Cheese Sauce 110 70 8 2.5 0 10 770 7 0 2 4
+THIN CRUST PIZZAS
+Pepperoni 2130 1130 128 50 3.5 255 4270 148 9 5 94
+Cheese 1980 960 109 48 3 225 3390 150 10 3 99
+MAKE IT STUFFED CRUST
+Add Stuffed Crust to any round pizza 560 410 46 23 1.5 130 1610 8 0 1 29
+Add Stuffed Crust to any Detroit-Style Deep Dish 530 350 40 24 1.5 145 1710 9 0 1 33
+TOPPINGS ROUND
+Base Pizza 1950 580 65 31 2 150 3740 248 12 17 95
+Pepperoni 350 280 32 12 1 80 1310 2 0 2 13
+Bacon 380 310 35 12 0 55 1060 0 0 0 16
+Seasoned Beef 330 250 28 12 1.5 70 1080 1 0 0 16
+Italian Sausage 430 340 38 13 0 95 1180 2 0 2 19
+Smoky Ham 140 40 4.5 0 0 70 1830 3 0 3 26
+Green Peppers 20 0 0 0 0 0 0 4 2 2 1
+Onions 35 0 0 0 0 0 0 8 2 4 1
+Mushrooms, canned 40 0 0 0 0 0 560 7 3 3 2
+Mushrooms, fresh 35 0 0.5 0 0 0 10 5 2 3 5
+Black Olives 280 210 24 9 0 0 1080 4 4 0 1
+Jalapeno Peppers 80 60 6 0 0 0 2000 4 4 0 0
+Mild Banana Peppers 50 0 0 0 0 0 2840 7 0 5 0
+Pineapple 90 0 0 0 0 0 0 22 0 16 0
+Extra Cheese 270 170 19 12 1 65 690 4 0 0 21
+Fresh Mozzarella 200 130 15 10 0.5 50 360 2 0 0 15
+TOPPINGS DETROIT
+Base Pizza 2500 750 85 38 2.5 175 4230 317 16 19 118
+Pepperoni 280 230 26 9 0.5 65 1050 2 0 2 11
+Bacon 380 310 35 13 0 55 1060 0 0 0 16
+Seasoned Beef 250 190 22 9 1.5 55 830 1 0 0 12
+Italian Sausage 330 260 29 10 0 75 900 2 0 1 15
+Smoky Ham 110 30 3 0 0 55 1380 2 0 2 19
+Green Peppers 15 0 0 0 0 0 0 3 1 2 1
+Onions 25 0 0 0 0 0 0 6 1 3 1
+Mushrooms, canned 40 0 0 0 0 0 560 7 3 3 2
+Mushrooms, fresh 35 0 0.5 0 0 0 10 5 2 3 5
+Black Olives 210 150 17 7 0 0 810 3 3 0 1
+Jalapeno Peppers 60 40 4.5 0 0 0 1460 3 3 0 0
+Mild Banana Peppers 35 0 0 0 0 0 2120 5 0 4 0
+Pineapple 90 0 0 0 0 0 0 22 0 16 0
+Extra Cheese 270 170 19 12 1 65 690 4 0 0 21
+Fresh Mozzarella 200 130 15 10 0.5 50 360 2 0 0 15

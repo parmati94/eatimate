@@ -1,0 +1,668 @@
+
+===== Original Crust Pizza for One =====
+Original Crust Pizza for One
+Crust 120 15 2 0 0 0 230 23 1 2 3
+BBQ Sauce 25 0 0 0 0 0 170 6 0 5 0
+BBQ Sauce-Light 10 0 0 0 0 0 85 3 0 2 0
+BBQ Sauce-Extra 30 0 0 0 0 0 230 8 0 7 0
+Original Sauce 10 5 0 0 0 0 65 1 0 1 0
+Original Sauce-Light 5 0 0 0 0 0 35 1 0 1 0
+Original Sauce-Extra 15 5 0.5 0 0 0 90 2 0 1 0
+Ranch Sauce 35 30 3.5 0.5 0 5 80 1 0 1 0
+Ranch Sauce-Light 25 25 2.5 0 0 0 60 0 0 0 0
+Ranch Sauce-Extra 75 60 7 1 0 5 160 1 0 1 0
+Alfredo Sauce 15 10 1 0.5 0 5 40 0 0 0 0
+Cheese 50 35 4 2.5 0 15 170 1 0 0 3
+Light Cheese 40 25 3 2 0 10 125 1 0 0 2
+Extra Cheese 70 45 5 3 0 20 210 1 0 0 4
+Anchovies 10 5 0 0 0 5 210 0 0 0 1
+Bacon 35 25 2.5 1 0 10 130 1 0 0 2
+Banana Peppers 0 0 0 0 0 0 90 0 0 0 0
+Beef 25 20 2 1 0 5 85 0 0 0 1
+Black Olives 10 10 1 0 0 0 35 0 0 0 0
+Canadian Bacon 10 5 0 0 0 5 105 0 0 0 2
+Chicken 20 5 0 0 0 10 95 0 0 0 4
+Crispy Cuppy Pepperoni 25 - 2 1 0 5 80 0 0 0 1
+Green Olives 10 10 1 0 0 0 0 0 0 0 0
+Green Pepper 0 0 0 0 0 0 0 0 0 0 0
+Italian Sausage 40 30 3.5 1 0 5 90 0 0 0 1
+Jalapeno 0 0 0 0 0 0 50 0 0 0 0
+Meatball 20 15 1.5 0 0.5 5 50 0 0 0 1
+Mushroom 0 0 0 0 0 0 0 0 0 0 0
+Onion 5 0 0 0 0 0 0 1 0 0 0
+Parmesan/Romano 15 10 1 0 0 5 30 0 0 0 1
+Pepperoni 40 30 3.5 1.5 0 10 115 0 0 0 1
+Pineapple 5 0 0 0 0 0 0 2 0 2 1
+Tomatoes 0 0 0 0 0 0 0 0 0 0 0
+Salami 25 20 2.5 1 0 10 120 0 0 0 1
+Steak 25 15 1.5 0.5 0 5 100 0 0 3 3
+Sausage 45 40 4.5 1.5 0 10 115 0 0 0 1
+Spinach 0 0 0 0 0 0 0 0 0 0 0
+Three Cheese Blend 20 10 1.5 1 0 5 35 0 0 0 1
+
+===== Original Crust Small =====
+Original Crust Small
+Crust 130 15 2 0 0 0 230 23 1 2 4
+BBQ Sauce 20 0 0 0 0 0 160 5 0 5 0
+BBQ Sauce-Light 0 0 0 0 0 0 0 0 0 0 0
+BBQ Sauce-Extra 35 0 0 0 0 0 240 8 0 7 0
+Original Sauce 10 5 0 0 0 0 60 1 0 1 0
+Original Sauce-Light 5 0 0 0 0 0 30 1 0 0 0
+Original Sauce-Extra 15 5 0 0 0 0 80 2 0 1 0
+Ranch Sauce 35 30 3.5 0.5 0 5 80 1 0 0 0
+Ranch Sauce-Light 15 15 2 0 0 0 40 0 0 0 0
+Ranch Sauce-Extra 45 40 4.5 0.5 0 5 110 1 0 1 0
+Alfredo Sauce 10 5 1 0 0 0 30 0 0 0 0
+Cheese 45 30 3.5 2 0 15 150 1 0 0 3
+Light Cheese 35 25 2.5 1.5 0 10 110 1 0 0 2
+Extra Cheese 60 40 4.5 2.5 0 15 180 1 0 0 4
+Anchovies 10 5 0 0 0 5 210 0 0 0 1
+Bacon 35 20 2.5 1 0 10 120 1 0 0 2
+Banana Peppers 0 0 0 0 0 0 80 0 0 0 0
+Beef 30 20 2.5 1 0 5 95 0 0 0 1
+Black Olives 10 10 1 0 0 0 30 0 0 0 0
+Canadian Bacon 10 5 0.5 0 0 5 110 0 0 0 2
+Chicken 15 0 0 0 0 10 70 0 0 0 3
+Crispy Cuppy Pepperoni 20 - 2 1 0 5 70 0 0 0 1
+Green Olives 5 5 0.5 0 0 0 0 0 0 0 0
+Green Pepper 0 0 0 0 0 0 0 0 0 0 0
+Italian Sausage 35 30 3.5 1 0 5 85 0 0 0 1
+Jalapeno 0 0 0 0 0 0 45 0 0 0 0
+Meatball 25 20 2 0 1 5 70 0 0 0 2
+Mushroom 0 0 0 0 0 0 0 0 0 0 0
+Onion 5 0 0 0 0 0 0 1 0 0 0
+Parmesan/Romano 15 10 1 0 0 5 35 0 0 0 1
+Pepperoni 30 25 3 1 0 5 95 0 0 0 1
+Pineapple 5 0 0 0 0 0 0 2 0 2 1
+Tomatoes 0 0 0 0 0 0 0 0 0 0 0
+Salami 25 20 2.5 1 0 10 120 0 0 0 1
+Steak 35 15 2.0 1.0 0 5 135 0 0 0 3
+Sausage 40 35 4 1.5 0 5 105 0 0 0 1
+Spinach 0 0 0 0 0 0 0 0 0 0 0
+Three Cheese Blend 20 10 1.5 1 0 5 35 0 0 0 1
+
+===== Original Crust Medium =====
+Original Crust Medium
+Crust 130 15 2 0 0 0 240 24 1 2 4
+BBQ Sauce 25 0 0 0 0 0 180 6 0 5 0
+BBQ Sauce-Light 10 0 0 0 0 0 80 3 0 2 0
+BBQ Sauce-Extra 35 0 0 0 0 0 240 8 0 7 0
+Original Sauce 10 5 0 0 0 0 60 1 0 1 0
+Original Sauce-Light 5 0 0 0 0 0 30 1 0 0 0
+Original Sauce-Extra 15 5 0.5 0 0 0 95 2 0 1 0
+Ranch Sauce 35 30 3.5 0.5 0 5 80 1 0 0 0
+Ranch Sauce-Light 15 15 1.5 0 0 0 40 0 0 0 0
+Ranch Sauce-Extra 50 45 5 1 0 5 125 1 0 1 0
+Alfredo Sauce 10 5 1 0 0 0 30 0 0 0 0
+Cheese 50 35 4 2.5 0 15 160 1 0 0 3
+Light Cheese 35 25 2.5 1.5 0 10 110 1 0 0 2
+Extra Cheese 70 45 5 3 0 20 220 1 0 0 4
+Anchovies 10 5 0 0 0 5 210 0 0 0 1
+Bacon 35 25 3 1 0 10 140 1 0 0 2
+Banana Peppers 0 0 0 0 0 0 90 0 0 0 0
+Beef 30 35 2.5 1 0 5 105 0 0 0 2
+Black Olives 10 10 1 0 0 0 35 0 0 0 0
+Canadian Bacon 15 5 0.5 0 0 5 125 0 0 0 2
+Chicken 15 0 0 0 0 10 80 0 0 0 4
+Crispy Cuppy Pepperoni 25 - 2 1 0 5 80 0 0 0 1
+Green Olives 10 10 1 0 0 0 0 0 0 0 0
+Green Pepper 0 0 0 0 0 0 0 0 0 0 0
+Italian Sausage 40 35 3.5 1.5 0 10 95 0 0 0 2
+Jalapeno 0 0 0 0 0 0 50 0 0 0 0
+Meatball 25 20 2 0 1 5 70 0 0 0 2
+Mushroom 0 0 0 0 0 0 0 0 0 0 0
+Onion 5 0 0 0 0 0 0 1 0 0 0
+Parmesan/Romano 15 10 1 0.5 0 5 40 0 0 0 1
+Pepperoni 35 30 3 1 0 10 100 0 0 0 1
+Pineapple 5 0 0 0 0 0 0 2 0 2 1
+Tomatoes 0 0 0 0 0 0 0 0 0 0 0
+Salami 35 25 3.0 1 0 10 150 0 0 0 2
+Steak 40 20 2.0 1.0 0 5 150 0 0 0 4
+Sausage 45 40 4.5 1.5 0 10 120 0 0 0 1
+Spinach 0 0 0 0 0 0 0 0 0 0 0
+Three Cheese Blend 20 15 1.5 1 0 5 40 0 0 0 2
+
+===== Original Crust Large =====
+Original Crust Large
+Crust 190 25 2.5 0.5 0 0 340 34 1 3 5
+BBQ Sauce 35 0 0 0 0 0 240 8 0 7 0
+BBQ Sauce-Light 15 0 0 0 0 0 120 4 0 3 0
+BBQ Sauce-Extra 45 0 0 0 0 0 320 11 0 9 0
+Cheesy Burger Sauce 60 - 6 0 0 5 95 2 2 1 0
+Original Sauce 15 5 0.5 0 0 0 95 2 0 1 0
+Original Sauce-Light 10 0 0 0 0 0 45 2 0 1 0
+Original Sauce-Extra 20 5 0.5 0 0 0 125 3 0 2 0
+Ranch Sauce 50 45 5 1 0 5 125 1 0 1 0
+Ranch Sauce-Light 25 25 2.5 0 0 0 60 0 0 0 0
+Ranch Sauce-Extra 70 60 7 1 0 5 160 1 0 1 0
+Alfredo Sauce 15 10 1 0.5 0 5 40 0 0 0 0
+Cheese 70 45 5 3 0 20 220 1 0 0 4
+Light Cheese 50 35 4 2.5 0 15 160 1 0 0 3
+Extra Cheese 90 60 6 4 0 25 270 2 0 0 5
+Anchovies 10 5 0 0 0 5 210 0 0 0 1
+Bacon 50 35 3.5 1.5 0 10 180 1 0 0 3
+Banana Peppers 0 0 0 0 0 0 120 0 0 0 0
+Beef 40 30 3.5 1.5 0 10 140 0 0 0 2
+Black Olives 15 15 1.5 0 0 0 45 0 0 0 0
+Canadian Bacon 20 5 1 0 0 10 160 0 0 0 2
+Chicken 20 5 0 0 0 15 105 0 0 0 5
+Crispy Cuppy Pepperoni 35 - 3 1.5 0 5 115 0 0 0 1
+Green Olives 10 10 1 0 0 0 0 0 0 0 0
+Green Pepper 0 0 0 0 0 0 0 0 0 0 0
+Italian Sausage 50 45 5 1.5 0 10 125 0 0 0 2
+Jalapeno 0 0 0 0 0 0 65 0 0 0 0
+Meatball 40 25 3 0 1 10 105 1 0 0 2
+Mushroom 5 0 0 0 0 0 0 1 0 0 0
+Onion 5 0 0 0 0 0 0 1 0 0 0
+Parmesan/Romano 20 15 1.5 0.5 0 5 50 0 0 0 2
+Pepperoni 50 40 4.5 1.5 0 10 150 0 0 0 2
+Pineapple 10 0 0 0 0 0 0 2 0 2 2
+Tomatoes 5 0 0 0 0 0 0 1 0 0 0
+Salami 40 30 3.5 1.5 0 10 180 1 0 0 2
+Steak 50 25 3.0 1.0 0 10 200 1 0 1 5
+Sausage 60 50 6 2 0 10 160 0 0 0 2
+Spinach 0 0 0 0 0 0 5 0 0 0 0
+Three Cheese Blend 25 20 2 1.5 0 5 55 0 0 0 2
+
+===== Original Crust Extra Large =====
+Original Crust Extra Large
+Crust 200 25 3 0.5 0 0 360 36 1 3 6
+BBQ Sauce 35 0 0 0 0 0 260 9 0 7 0
+BBQ Sauce-Light 20 0 0 0 0 0 140 5 0 4 0
+BBQ Sauce-Extra 45 0 0 0 0 0 320 11 0 9 0
+Original Sauce 15 5 0.5 0 0 0 100 2 0 2 0
+Original Sauce-Light 10 5 0 0 0 0 50 2 0 1 0
+Original Sauce-Extra 20 5 0.5 0 0 0 125 3 0 2 0
+Ranch Sauce 60 50 6 1 0 5 130 1 0 1 0
+Ranch Sauce-Light 30 25 3 0 0 0 65 0 0 0 0
+Ranch Sauce-Extra 80 80 8 1.5 0 5 200 1 0 1 0
+Alfredo Sauce 15 10 1.5 1 0 5 50 0 0 0 0
+Cheese 70 45 5 3 0 20 220 1 0 0 4
+Light Cheese 50 35 4 2.5 0 15 180 1 0 0 3
+Extra Cheese 80 60 6 4 0 25 260 2 0 0 5
+Anchovies 10 5 0 0 0 5 210 0 0 0 1
+Bacon 50 35 3.5 1.5 0 10 180 1 0 0 3
+Banana Peppers 0 0 0 0 0 0 120 0 0 0 0
+Beef 40 30 3.5 1.5 0 10 140 0 0 0 2
+Black Olives 15 15 1.5 0 0 0 45 0 0 0 0
+Canadian Bacon 20 5 1 0 0 10 160 0 0 0 2
+Chicken 20 5 0 0 0 15 105 0 0 0 5
+Crispy Cuppy Pepperoni 35 - 3.5 0 0 5 120 0 0 0 2
+Green Olives 10 10 1 0 0 0 0 0 0 0 0
+Green Pepper 0 0 0 0 0 0 0 0 0 0 0
+Italian Sausage 50 45 5 1.5 0 10 125 0 0 0 2
+Jalapeno 0 0 0 0 0 0 65 0 0 0 0
+Meatball 40 30 3 0 1 10 110 1 0 0 3
+Mushroom 5 0 0 0 0 0 0 1 0 0 0
+Onion 5 0 0 0 0 0 0 1 0 0 0
+Parmesan/Romano 20 15 1.5 0.5 0 5 50 0 0 0 2
+Pepperoni 50 45 4.5 1.5 0 10 160 0 0 0 2
+Pineapple 10 0 0 0 0 0 0 2 0 2 2
+Tomatoes 5 0 0 0 0 0 0 1 0 0 0
+Salami 45 35 4.0 1.5 0 10 190 1 0 0 2
+Steak 50 25 3.0 1.0 0 10 200 1 0 1 5
+Sausage 60 50 6 2 0 10 160 0 0 0 2
+Spinach 0 0 0 0 0 0 5 0 0 0 0
+Three Cheese Blend 25 20 2 1.5 0 5 55 0 0 0 2
+
+===== Thin Crust =====
+Thin Crust
+Crust 110 35 4 0.5 0 0 125 16 0 0 3
+BBQ Sauce 35 0 0 0 0 0 240 8 0 7 0
+BBQ Sauce-Light 15 0 0 0 0 0 120 4 0 3 0
+BBQ Sauce-Extra 45 0 0 0 0 0 320 11 0 9 0
+Original Sauce 15 5 0.5 0 0 0 95 2 0 1 0
+Original Sauce-Light 10 0 0 0 0 0 45 2 0 1 0
+Original Sauce-Extra 20 5 0.5 0 0 0 125 3 0 2 0
+Ranch Sauce 50 45 5 1 0 5 125 1 0 1 0
+Ranch Sauce-Light 25 25 2.5 0 0 0 60 0 0 0 0
+Ranch Sauce-Extra 70 60 7 1 0 5 160 1 0 1 0
+Alfredo Sauce 15 10 1 0.5 0 5 40 0 0 0 0
+Cheese 70 45 5 3 0 20 220 1 0 0 4
+Light Cheese 50 35 4 2.5 0 15 160 1 0 0 3
+Extra Cheese 90 60 6 4 0 25 270 2 0 0 5
+Anchovies 10 5 0 0 0 5 210 0 0 0 1
+Bacon 50 35 3.5 1.5 0 10 180 1 0 0 3
+Banana Peppers 0 0 0 0 0 0 120 0 0 0 0
+Beef 40 30 3.5 1.5 0 10 140 0 0 0 2
+Black Olives 15 15 1.5 0 0 0 45 0 0 0 0
+Canadian Bacon 20 5 1 0 0 10 160 0 0 0 2
+Chicken 20 5 0 0 0 15 105 0 0 0 5
+Crispy Cuppy Pepperoni 35 - 3 1.5 0 5 115 0 0 0 1
+Green Olives 10 10 1 0 0 0 0 0 0 0 0
+Green Pepper 0 0 0 0 0 0 0 0 0 0 0
+Italian Sausage 50 45 5 1.5 0 10 125 0 0 0 2
+Jalapeno 0 0 0 0 0 0 65 0 0 0 0
+Meatball 40 25 3 0 1 10 105 1 0 0 2
+Mushroom 5 0 0 0 0 0 0 1 0 0 0
+Onion 5 0 0 0 0 0 0 1 0 0 0
+Parmesan/Romano 20 15 1.5 0.5 0 5 50 0 0 0 2
+Pepperoni 50 40 4.5 1.5 0 10 150 0 0 0 2
+Pineapple 10 0 0 0 0 0 0 2 0 2 2
+Tomatoes 5 0 0 0 0 0 0 1 0 0 0
+Salami 40 30 3.5 1.5 0 10 180 1 0 0 2
+Steak 50 250 3.0 1.0 0 10 200 1 0 1 5
+Sausage 60 50 6 2 0 10 160 0 0 0 2
+Spinach 0 0 0 0 0 0 5 0 0 0 0
+Three Cheese Blend 25 20 2 1.5 0 5 55 0 0 0 2
+
+===== Gluten Free =====
+Gluten Free
+Crust 90 25 2.5 1 0 0 100 17 1 1 2
+BBQ Sauce 25 0 0 0 0 0 160 5 0 5 0
+BBQ Sauce-Light 0 0 0 0 0 0 0 0 0 0 0
+BBQ Sauce-Extra 35 0 0 0 0 0 240 8 0 7 0
+Original Sauce 10 5 0 0 0 0 60 1 0 1 0
+Original Sauce-Light 5 0 0 0 0 0 30 1 0 0 0
+Original Sauce-Extra 15 5 0 0 0 0 80 2 0 1 0
+Ranch Sauce 35 30 3.5 0.5 0 5 80 1 0 0 0
+Ranch Sauce-Light 15 15 2 0 0 0 40 0 0 0 0
+Ranch Sauce-Extra 45 40 4.5 0.5 0 5 110 1 0 1 0
+Alfredo Sauce 10 5 1 0 0 0 30 0 0 0 0
+Cheese 45 30 3.5 2 0 15 150 1 0 0 3
+Light Cheese 35 25 2.5 1.5 0 10 110 1 0 0 2
+Extra Cheese 60 40 4.5 2.5 0 15 180 1 0 0 4
+Anchovies 10 5 0 0 0 5 210 0 0 0 1
+Bacon 35 20 2.5 1 0 10 120 1 0 0 2
+Banana Peppers 0 0 0 0 0 0 80 0 0 0 0
+Beef 30 20 2.5 1 0 5 95 0 0 0 1
+Black Olives 10 10 1 0 0 0 30 0 0 0 0
+Canadian Bacon 10 5 0.5 0 0 5 110 0 0 0 2
+Chicken 15 0 0 0 0 10 70 0 0 0 3
+Crispy Cuppy Pepperoni 25 - 2 1 0 5 80 0 0 0 1
+Green Olives 5 5 0.5 0 0 0 0 0 0 0 0
+Green Pepper 0 0 0 0 0 0 0 0 0 0 0
+Italian Sausage 35 30 3.5 1 0 5 85 0 0 0 1
+Meatball 25 20 2 0 1 5 70 0 0 0 2
+Mushroom 0 0 0 0 0 0 0 0 0 0 0
+Onion 5 0 0 0 0 0 0 1 0 0 0
+Parmesan/Romano 15 10 1 0 0 5 35 0 0 0 1
+Pepperoni 30 25 3 1 0 5 95 0 0 0 1
+Pineapple 5 0 0 0 0 0 0 2 0 2 1
+Tomatoes 0 0 0 0 0 0 0 0 0 0 0
+Salami 25 20 02.5 1 0 10 120 0 0 0 1
+Steak 35 15 2.0 1.0 0 5 135 0 0 0 3
+Sausage 40 35 4 1.5 0 5 105 0 0 0 1
+Spinach 0 0 0 0 0 0 0 0 0 0 0
+Three Cheese Blend 20 10 1.5 1 0 5 35 0 0 0 1
+
+===== Gluten Pizza =====
+Gluten Pizza
+Jalapeno 0 0 0 0 0 0 45 0 0 0 0
+
+===== Sides =====
+Sides
+Bacon Cheesy Burger Papa Bites [1 Papa Bite (8 Papa Bites per order)] 100 - 5 2 0 10 290 10 0 1 4
+Calzones Papa Bites [1 Papa Bite (8 Papa Bites per order)] 110 51 6 3 0 10 280 10 0 1 4
+Chicken Parmesan Papa Bites [1 Papa Bite (8 Papa Bites per order)] 110 40 4.5 2 0 15 280 10 0 1 6
+Jalapeño Papa Bites [1 Papa Bite (8 Papa Bites per order)] 80 - 3 1.5 0 10 220 10 0 1 3
+Cheesesticks / 10" [1 stick (14 sticks per order)] 90 35 4 1.5 0 10 210 10 0 1 3
+Cheesesticks / 12" [1 stick (16 sticks per order)] 110 45 5 2 0 10 260 13 1 1 4
+Bacon Cheesesticks / 10" [1 stick (14 sticks per order)] 110 45 5 2 0 10 260 11 0 1 4
+Bacon Cheesesticks / 12" [1 stick (16 sticks per order)] 130 60 6 2.5 0 15 330 13 1 1 5
+Cheesy Garlic Bread / 12" [1 stick (44g)] 140 72 8 3.5 0 15 460 12 0 1 6
+Tuscan 6-Cheese Cheesesticks / 10" [1 stick (14 sticks per order)] 110 45 5 2.5 0 10 250 11 0 1 4
+Tuscan 6-Cheese Cheesesticks / 12" [1 stick (16 sticks per order)] 130 60 6 3 0 15 310 13 1 1 5
+Breadsticks / 12" [1 stick (8 sticks per order)] 130 15 2 0 0 0 240 24 1 2 4
+Breadsticks / 14" [1 stick (10 sticks per order)] 150 20 2 0.5 0 0 270 27 1 2 4
+Garlic Parmesan Breadsticks / 12" [1 stick (8 sticks per order)] 160 45 5 1 0 0 340 24 1 2 4
+Garlic Parmesan Breadsticks / 14" [1 stick (10 sticks per order)] 170 45 5 1 0 0 360 27 1 2 4
+Garlic Knots [1 knot (8 knots per order)] 110 40 4.5 1 0 0 260 14 0 1 2
+
+===== Wings =====
+Wings
+Unsauced Boneless Wings / 10 wings [1 order] 590 - 26 5 0 145 1930 41 2 1 49
+Unsauced Boneless Wings / 15 wings [1 order] 890 - 38 8 0 220 2900 62 2 2 74
+Unsauced Boneless Wings / 30 wings [1 order] 1910 - 83 17 1 470 6240 133 5 3 159
+Garlic Parmesan Boneless Wings / 10 wings [1 order] 680 - 35 7 0 145 2250 42 2 1 50
+Garlic Parmesan Boneless Wings / 15 wings [1 order] 1070 - 58 12 1 220 3550 63 2 2 76
+Garlic Parmesan Boneless Wings / 30 wings [1 order] 2170 - 119 25 2 440 7230 126 5 3 151
+Hot Lemon Pepper Boneless Wings / 10 wings [1 order] 600 - 27 6 0 140 2830 43 2 3 47
+Hot Lemon Pepper Boneless Wings / 15 wings [1 order] 950 - 43 9 0 220 4580 68 2 4 75
+Hot Lemon Pepper Boneless Wings / 30 wings [1 order] 1810 - 82 17 1 415 8540 128 5 8 142
+Buffalo Boneless Wings / 10 wings [1 order] 630 - 29 6 0 145 2840 44 2 3 50
+Buffalo Boneless Wings / 15 wings [1 order] 1110 - 50 10 1 255 4930 77 3 5 87
+Buffalo Boneless Wings / 30 wings [1 order] 1890 - 85 17 1 435 8520 132 1 8 149
+BBQ Boneless Wings / 10 wings [1 order] 640 - 26 5 0 145 2190 54 1 27 49
+BBQ Boneless Wings / 15 wings [1 order] 1130 - 44 9 0 250 2890 99 3 59 85
+BBQ Boneless Wings / 30 wings [1 order] 1920 - 77 16 1 435 6530 160 5 78 148
+Honey Chipotle Boneless Wings / 10 wings [1 order] 630 - 26 5 0 145 2100 52 2 11 49
+Honey Chipotle Boneless Wings / 15 wings [1 order] 990 - 38 8 0 220 3270 86 2 24 74
+Honey Chipotle Boneless Wings / 30 wings [1 order] 1940 - 77 16 1 435 6410 164 5 40 148
+Unsauced Roasted Wings / 8 wings [1 order] 810 510 57 15 0 205 1460 4 0 0 66
+Unsauced Roasted Wings / 16 wings [1 order] 1620 1020 113 29 0 415 2920 8 0 1 133
+Unsauced Roasted Wings / 24 wings [1 order] 2430 1530 170 44 0 620 4380 12 0 1 199
+Unsauced Roasted Wings / 32 wings [1 order] 3240 2040 226 59 0 825 5830 16 0 1 265
+Unsauced Roasted Wings / 50 wings [1 order] 5060 3180 353 92 0 1295 9120 25 0 2 415
+Buffalo Wings / 8 wings [1 order] 840 520 58 15 0 205 2920 8 1 3 67
+Buffalo Wings / 16 wings [1 order] 1670 1040 115 30 0 415 5840 16 2 6 133
+Buffalo Wings / 24 wings [1 order] 2510 1560 173 45 0 620 8770 24 3 9 200
+Buffalo Wings / 32 wings [1 order] 3340 2070 231 60 0 825 11690 33 4 12 267
+Buffalo Wings / 50 wings [1 order] 5220 3240 360 93 0.5 1295 18260 51 6 18 417
+BBQ Wings / 8 wings [1 order] 880 510 57 15 0 205 1940 20 1 14 67
+BBQ Wings / 16 wings [1 order] 1750 1020 114 29 0 415 3880 40 1 28 134
+BBQ Wings / 24 wings [1 order] 2630 1530 170 44 0 620 5830 60 2 43 200
+BBQ Wings / 32 wings [1 order] 3500 2040 227 59 0 825 7770 80 2 57 267
+BBQ Wings / 50 wings [1 order] 5470 3190 355 92 0 1295 12140 125 4 89 418
+Garlic Parmesan Wings / 8 wings [1 order] 1040 730 81 20 0 210 2290 6 0 0 68
+Garlic Parmesan Wings / 16 wings [1 order] 2080 1460 162 40 1 420 4580 11 1 1 137
+Garlic Parmesan Wings / 24 wings [1 order] 3120 2190 243 60 1.5 630 6870 17 1 1 205
+Garlic Parmesan Wings / 32 wings [1 order] 4160 2320 324 80 2 845 9160 23 1 1 273
+Garlic Parmesan Wings / 50 wings [1 order] 6500 4560 507 125 3 1320 14310 35 2 2 427
+Honey Chipotle Wings / 8 wings [1 order] 900 510 57 15 0 205 1810 27 1 21 67
+Honey Chipotle Wings / 16 wings [1 order] 1800 1020 113 29 0 415 3620 55 1 42 133
+Honey Chipotle Wings / 24 wings [1 order] 2710 1530 170 44 0 620 5430 82 2 64 200
+Honey Chipotle Wings / 32 wings [1 order] 3610 2040 227 59 0 825 7240 109 2 85 267
+Honey Chipotle Wings / 50 wings [1 order] 5640 3190 354 92 0 1295 11320 171 4 132 417
+Hot Lemon Pepper Wings / 8 wings [1 order] 960 - 67 17 0 235 2680 8 0 2 75
+Hot Lemon Pepper Wings / 16 wings [1 order] 1910 - 134 35 0 470 5360 17 0 4 151
+Hot Lemon Pepper Wings / 24 wings [1 order] 2870 - 201 52 0 705 8040 25 0 6 226
+Hot Lemon Pepper Wings / 32 wings [1 order] 3830 - 268 69 1 935 10730 33 0 8 302
+Hot Lemon Pepper Wings / 50 wings [1 order] 5980 - 419 108 1 1465 16760 52 0 12 472
+
+===== Dipping Sauces =====
+Dipping Sauces
+Dipping Sauces / Cheesy Burger Sauce [1 cup] 160 - 16 2.5 0 15 240 4 0 3 0
+Dipping Sauces / Doritos® Cool Ranch® Sauce [1 cup] 180 - 18 1.5 0 0 560 5 - 1 1
+Dipping Sauces / Special Zesty Sauce [1 cup] 150 150 17 3 0 0 310 0 0 0 0
+Dipping Sauces / Special Garlic [1 cup] 140 - - 2.5 0 10 350 2 0 1 0
+Dipping Sauces / Pizza Sauce [1 cup] 20 10 1 0 0 0 230 3 0 1 0
+Dipping Sauces / Cheese Sauce [1 cup] 40 30 3.5 1 0 0 160 2 0 0 1
+Dipping Sauces / Honey Mustard [1 cup] 150 140 15 2.5 0 10 120 5 0 4 0
+Dipping Sauces / BBQ Sauce [1 cup] 45 0 0 0 0 0 240 11 0 10 0
+Dipping Sauces / Buffalo Sauce [1 cup] 15 5 0.5 0 0 0 900 3 1 2 0
+Dipping Sauces / Ranch Sauce [1 cup] 100 90 10 1.5 0 10 240 2 0 1 1
+Dipping Sauces / Blue Cheese [1 cup] 160 150 16 3.5 0 20 250 1 0 1 1
+Dipping Sauces / Cream Cheese Icing [1 cup] 150 25 2.5 1 0 0 85 32 0 31 1
+Dipping Sauces / Rootin' Tootin' Ranch [1 cup] 100 90 10 1.5 0 10 240 2 - 1 0
+Papa Dippa Sauces / Creamy Garlic Parm Dip Cup [37g] 60 - 6 1 0 15 95 0 0 0 0
+Papa Dippa Sauces / Garlic Hot Honey Dip Cup [37g] 25 - 0 0 0 0 50 6 0 4 0
+Papa Dippa Sauces / Roasted Garlic Parm Dip Cup [37g] 60 - 6 3 0 5 110 1 0 0 0
+
+===== Desserts =====
+Desserts
+Salted Caramel Blondie [1 slice (8 slices per order)] 200 90 10 2.5 0 15 170 26 - 15 2
+Chocolate Chip Cookie [1 slice (8 slices per order)] 190 90 9 4.5 0 15 105 26 1 18 2
+Cinnamon Pullaparts [1 tray] 1960 850 94 36 1 60 1660 264 8 150 19
+Double Chocolate Chip Brownie [1 square (9 squares per order)] 240 110 12 3.5 0 15 70 34 1 23 2
+OREO® Cookie Papa Bites [1 Papa Bite (8 Papa Bites per order)] 80 - 2 1 0 0 110 13 0 4 2
+TWIX® Papa Bites (NO LONGER AVAILABLE) [1 Papa Bite (8 Papa Bites per order)] 80 - 3 5 0 0 105 13 0 4 2
+
+===== Seasonings & Extras =====
+Seasonings & Extras
+Parmesan Cheese [1 packet] 15 10 1 0.5 0 5 35 0 0 0 1
+Crushed Red Pepper [1 packet] 0 0 0 0 0 0 0 0 0 0 0
+Special Seasonings [1 packet] 5 0 0 0 0 0 420 1 0 0 0
+Pepperoncinis [10g] 0 0 0 0 0 0 140 0 0 4 0
+Anchovies [14g] 30 10 1.5 0 0 15 750 0 0 0 4
+Banana Peppers [14g] 5 0 0 0 0 0 200 1 0 0 0
+Jalapeno Peppers [14g] 5 0 0 0 0 0 105 1 0 0 0
+
+===== Papadias =====
+Papadias
+Philly Cheesesteak Papadia [1 Papadia 395g] 810 320 35 15 0.5 90 2090 80 4 11 40
+Grilled BBQ Chicken & Bacon Papadia [1 Papadia 388g] 840 260 28 13 0.5 160 2410 85 4 26 60
+Grilled Buffalo Chicken Papadia [1 Papadia 392g] 920 350 39 18 1 165 2860 80 4 9 63
+Meatball Pepperoni Papadia [1 Papadia 352g] 940 440 49 21 1 140 2390 79 4 8 42
+Italian Papadia [1 Papadia 350g] 940 480 53 21 1 135 2670 76 4 8 38
+Doritos® Cool Ranch® Chicken Papadia (NO LONGER AVAILABLE) [1 Papadia 388g] 840 - 32 13 1 140 2330 82 0 10 55
+Doritos® Cool Ranch® Steak Papadia (NO LONGER AVAILABLE) [1 Papadia 384g] 860 - 39 15 1 85 2280 84 0 11 41
+Doritos® Cool Ranch® Beef Papadia (NO LONGER AVAILABLE) [1 Papadia 356g] 870 - 45 18 2 90 2230 82 0 10 35
+Doritos® Cool Ranch® Create Your Own Papadia (NO LONGER AVAILABLE) [1 Papadia 170g] 490 - 15 3 0 5 990 75 0 8 12
+CHEESY BURGER PAPADIA (No Longer Available) [1 Papadia 401g] 840 390 43 18 1.5 95 2350 79 4 9 34
+Parmesan Crusted BBQ Chicken Bacon Papadia (No Longer Available) [1 Papadia 401g] 960 340 38 18 1 180 2740 83 4 24 71
+Parmesan Crusted Grilled Buffalo Chicken Papadia (No Longer Available) [1 Papadia 428g] 1050 430 48 22 2 190 3170 80 4 9 74
+Parmesan Crusted Meatball Pepperoni Papadia (No Longer Available) [1 Papadia 384g] 1060 530 59 26 2 160 2700 79 4 8 53
+Parmesan Crusted Italian Papadia (No Longer Available) [1 Papadia 382g] 1070 560 62 26 2 155 3010 76 4 8 49
+
+===== Sandwiches =====
+Sandwiches
+Philly Cheesesteak Oven-Toasted Sandwich [1 Sandwich 335g] 790 - 37 14 0.5 85 2500 73 1 8 39
+Italian Chicken Bacon Ranch Oven-Toasted Sandwich [1 Sandwich 335g] 780 - 34 12 0.5 140 2770 71 - 7 52
+Steak & Mushroom Oven-Toasted Sandwich [1 Sandwich 345g] 820 - 41 15 0.5 85 2690 74 0 8 41
+
+===== Drinks =====
+Drinks
+Pepsi / 12 Oz [1 bottle] 150 0 0 0 0 0 30 42 0 42 0
+Pepsi / 20 Oz [1 bottle] 250 0 0 0 0 0 55 69 0 69 0
+Pepsi / 1.25 Liter [1 bottle] 530 0 0 0 0 0 115 146 0 146 0
+Pepsi / 2 Liter [1 bottle] 900 0 0 0 0 0 180 246 0 246 0
+Mountain Dew / 12 Oz [1 bottle] 170 0 0 0 0 0 60 47 0 47 0
+Mountain Dew / 20 Oz [1 bottle] 280 0 0 0 0 0 100 78 0 78 0
+Mountain Dew / 1.25 Liter [1 bottle] 600 0 0 0 0 0 210 162 0 162 0
+Mountain Dew / 2 Liter [1 bottle] 930 0 0 0 0 0 340 262 0 262 0
+Diet Mountain Dew / 12 Oz [1 bottle] 5 0 0 0 0 0 50 0 0 0 0
+Diet Mountain Dew / 20 Oz [1 bottle] 10 0 0 0 0 0 85 0 0 0 0
+Diet Mountain Dew / 2 Liter [1 bottle] 35 0 0 0 0 0 290 1 0 1 0
+Dr Pepper / 12 Oz [1 bottle] 150 0 0 0 0 0 55 41 0 41 0
+Dr Pepper / 20 Oz [1 bottle] 250 0 0 0 0 0 90 68 0 68 0
+Dr Pepper / 2 Liter [1 bottle] 850 0 0 0 0 0 300 228 0 228 0
+Starry / 12 Oz [1 bottle] 150 0 0 0 0 0 35 39 0 39 0
+Starry / 20 Oz [1 bottle] 240 0 0 0 0 0 55 65 0 65 0
+Starry Zero Sugar / 12 Oz [1 bottle] 0 0 0 0 0 0 35 0 0 0 0
+Starry Zero Sugar / 20 Oz [1 bottle] 10 0 0 0 0 0 60 0 0 0 0
+Brisk Sweet Tea Lemon / 12 Oz [1 bottle] 130 0 0 0 0 0 75 32 0 32 0
+Brisk Sweet Tea Lemon / 20 Oz [1 bottle] 210 0 0 0 0 0 130 54 0 53 0
+Brisk Sweet Tea Lemon / 2 Liter [1 bottle] 720 0 0 0 0 0 430 182 0 180 0
+Cheerwine / 12 Oz [1 bottle] 150 0 0 0 0 0 25 42 0 42 0
+Cheerwine / 20 Oz [1 bottle] 250 0 0 0 0 0 45 70 0 70 0
+Cheerwine / 2 Liter [1 bottle] 850 0 0 0 0 0 140 237 0 237 0
+Crush Cream Soda / 12 Oz [1 bottle] 170 0 0 0 0 0 65 45 0 44 0
+Crush Cream Soda / 20 Oz [1 bottle] 280 0 0 0 0 0 105 75 0 74 0
+Crush Cream Soda / 2 Liter [1 bottle] 950 0 0 0 0 0 360 254 0 250 0
+Crush Grape / 12 Oz [1 bottle] 160 0 0 0 0 0 65 43 0 43 0
+Crush Grape / 20 Oz [1 bottle] 270 0 0 0 0 0 110 72 0 71 0
+Crush Grape / 2 Liter [1 bottle] 910 0 0 0 0 0 370 243 0 240 0
+Crush Orange / 12 Oz [1 bottle] 180 0 0 0 0 0 45 51 0 51 0
+Crush Orange / 20 Oz [1 bottle] 300 0 0 0 0 0 75 85 0 85 0
+Crush Orange / 1.25 Liter [1 bottle] 630 0 0 0 0 0 160 180 0 180 0
+Crush Orange / 2 Liter [1 bottle] 1010 0 0 0 0 0 250 287 0 287 0
+Crush Strawberry / 12 Oz [1 bottle] 170 0 0 0 0 0 65 46 0 45 0
+Crush Strawberry / 20 Oz [1 bottle] 290 0 0 0 0 0 110 77 0 75 0
+Crush Strawberry / 2 Liter [1 bottle] 980 0 0 0 0 0 370 260 0 254 0
+Diet Pepsi / 12 Oz [1 bottle] 0 0 0 0 0 0 40 0 0 0 0
+Diet Pepsi / 20 Oz [1 bottle] 0 0 0 0 0 0 65 0 0 0 0
+Diet Pepsi / 1.25 Liter [1 bottle] 0 0 0 0 0 0 130 0 0 0 0
+Diet Pepsi / 2 Liter [1 bottle] 0 0 0 0 0 0 210 0 0 0 0
+Hawaiian Punch / 20 Oz [1 bottle] 330 0 0 0 0 0 230 83 0 83 0
+Hawaiian Punch / 2 Liter [1 bottle] 1100 0 0 0 0 0 760 279 0 279 0
+Lipton Sparkling Iced Tea Peach / 12 Oz [1 bottle] 70 0 0 0 0 0 125 18 0 18 0
+Lipton Sparkling Iced Tea Peach / 20 Oz [1 bottle] 120 0 0 0 0 0 220 30 0 30 0
+Manzanita Sol / 12 Oz [1 bottle] 160 0 0 0 0 0 35 42 0 42 0
+Manzanita Sol / 20 Oz [1 bottle] 260 0 0 0 0 0 60 70 0 70 0
+Manzanita Sol / 2 Liter [1 bottle] 890 0 0 0 0 0 200 235 0 235 0
+Mug Root Beer / 12 Oz [1 bottle] 150 0 0 0 0 0 60 44 0 44 0
+Mug Root Beer / 20 Oz [1 bottle] 250 0 0 0 0 0 100 73 0 73 0
+Mug Root Beer / 2 Liter [1 bottle] 850 0 0 0 0 0 340 245 0 245 0
+Pepsi Next / 12 Oz [1 bottle] 100 0 0 0 0 0 5 27 0 26 0
+Pepsi Next / 20 Oz [1 bottle] 170 0 0 0 0 0 10 45 0 43 0
+Pepsi Next / 2 Liter [1 bottle] 560 0 0 0 0 0 30 152 0 147 0
+Schweppes Ginger Ale / 12 Oz [1 bottle] 120 0 0 0 0 0 40 33 0 33 0
+Schweppes Ginger Ale / 20 Oz [1 bottle] 200 0 0 0 0 0 65 55 0 55 0
+Schweppes Ginger Ale / 1.25 Liter [1 bottle] 440 0 0 0 0 0 210 116 0 114 0
+Schweppes Ginger Ale / 2 Liter [1 bottle] 680 0 0 0 0 0 210 186 0 186 0
+Seven Up / 12 Oz [1 bottle] 150 0 0 0 0 0 75 39 0 39 0
+Seven Up / 20 Oz [1 bottle] 250 0 0 0 0 0 125 65 0 65 0
+Seven Up / 2 Liter [1 bottle] 850 0 0 0 0 0 420 220 0 220 0
+Welch's Grape Soda / 12 Oz [1 bottle] 200 0 0 0 0 0 60 51 0 51 0
+Welch's Grape Soda / 20 Oz [1 bottle] 330 0 0 0 0 0 100 85 0 85 0
+Welch's Grape Soda / 2 Liter [1 bottle] 1100 0 0 0 0 0 340 287 0 287 0
+Wild Cherry Pepsi / 12 Oz [1 bottle] 150 0 0 0 0 0 30 42 0 42 0
+Wild Cherry Pepsi / 20 Oz [1 bottle] 250 0 0 0 0 0 50 70 0 70 0
+Wild Cherry Pepsi / 2 Liter [1 bottle] 850 0 0 0 0 0 170 237 0 237 0
+Coffee / 16 Oz [1 bottle] 5 0 0 0 0 0 10 0 0 0 1
+Coffee / 20 Oz [1 bottle] 5 0 0 0 0 0 10 0 0 0 1
+A&W Cream Soda / 20 Oz [1 bottle] 300 0 0 0 0 0 75 78 0 78 0
+A&W Cream Soda / 2 Liter [1 bottle] 1010 0 0 0 0 0 250 262 0 262 0
+A&W Root Beer / 20 Oz [1 bottle] 300 0 0 0 0 0 75 78 0 78 0
+A&W Root Beer / 2 Liter [1 bottle] 1010 0 0 0 0 0 250 262 0 262 0
+Brisk Lemonade / 20 Oz [1 bottle] 180 0 0 0 0 0 160 47 0 47 0
+Brisk Lemonade / 2 Liter [1 bottle] 610 0 0 0 0 0 540 159 0 159 0
+Canada Dry / 20 Oz [1 bottle] 200 0 0 0 0 0 65 55 0 55 0
+Canada Dry / 2 Liter [1 bottle] 680 0 0 0 0 0 210 186 0 186 0
+Cherry Dr Pepper / 20 Oz [1 bottle] 260 0 0 0 0 0 100 71 0 69 0
+Cherry Dr Pepper / 2 Liter [1 bottle] 880 0 0 0 0 0 340 240 0 233 0
+Cherry Seven Up / 20 Oz [1 bottle] 250 0 0 0 0 0 125 65 0 65 0
+Cherry Seven Up / 2 Liter [1 bottle] 850 0 0 0 0 0 420 220 0 220 0
+Cherry Vanilla Dr Pepper / 20 Oz [1 bottle] 240 0 0 0 0 0 100 65 0 63 0
+Cherry Vanilla Dr Pepper / 2 Liter [1 bottle] 810 0 0 0 0 0 340 220 0 213 0
+Coke / 20 Oz [1 bottle] 240 0 0 0 0 0 80 66 0 66 0
+Coke / 2 Liter [1 bottle] 820 0 0 0 0 0 270 222 0 222 0
+Coke Zero / 20 Oz [1 bottle] 0 0 0 0 0 0 65 66 0 0 0
+Coke Zero / 2 Liter [1 bottle] 0 0 0 0 0 0 230 222 0 0 0
+Countrytime Strawberry Lemonade / 20 Oz [1 bottle] 230 0 0 0 0 0 180 60 0 60 0
+Countrytime Strawberry Lemonade / 2 Liter [1 bottle] 760 0 0 0 0 0 590 203 0 203 0
+Crush Cherry / 20 Oz [1 bottle] 290 0 0 0 0 0 115 78 0 75 0
+Crush Cherry / 2 Liter [1 bottle] 980 0 0 0 0 0 390 264 0 254 0
+Crush Peach / 20 Oz [1 bottle] 310 0 0 0 0 0 105 83 0 81 0
+Crush Peach / 2 Liter [1 bottle] 1050 0 0 0 0 0 360 281 0 274 0
+Crush Pineapple / 20 Oz [1 bottle] 320 0 0 0 0 0 110 86 0 84 0
+Crush Pineapple / 2 Liter [1 bottle] 1080 0 0 0 0 0 370 291 0 284 0
+Diet Coke / 20 Oz [1 bottle] 0 0 0 0 0 0 75 86 0 0 0
+Diet Coke / 2 Liter [1 bottle] 0 0 0 0 0 0 250 291 0 0 0
+Diet Dr Pepper / 20 Oz [1 bottle] 0 0 0 0 0 0 90 0 0 0 0
+Diet Dr Pepper / 2 Liter [1 bottle] 0 0 0 0 0 0 300 0 0 0 0
+Diet Mist TWST / 20 Oz [1 bottle] 240 0 0 0 0 0 55 65 0 65 0
+Diet Mist TWST / 1.25 Liter [1 bottle] 530 0 0 0 0 0 105 137 0 137 0
+Diet Mist TWST / 2 Liter [1 bottle] 900 0 0 0 0 0 210 234 0 234 0
+Mountain Dew Baja Blast / 20 Oz [1 bottle] 280 0 0 0 0 0 75 73 0 73 0
+Mountain Dew Code Red / 20 Oz [1 bottle] 280 0 0 0 0 0 170 78 0 78 0
+Mountain Dew Code Red / 2 Liter [1 bottle] 950 0 0 0 0 0 570 260 0 260 0
+Mountain Dew Game Fuel Citrus Cherry / 20 Oz [1 bottle] 170 0 0 0 0 0 105 46 0 46 0
+Mountain Dew Game Fuel Citrus Cherry / 2 Liter [1 bottle] 570 0 0 0 0 0 360 156 0 156 0
+Mountain Dew Livewire / 20 Oz [1 bottle] 290 0 0 0 0 0 105 77 0 77 0
+Mountain Dew Voltage / 20 Oz [1 bottle] 290 0 0 0 0 0 105 76 0 76 0
+Mountain Dew Voltage / 2 Liter [1 bottle] 980 0 0 0 0 0 360 257 0 257 0
+Mug Cream Soda / 20 Oz [1 bottle] 300 0 0 0 0 0 100 80 0 80 0
+Mug Cream Soda / 2 Liter [1 bottle] 1010 0 0 0 0 0 340 271 0 271 0
+Pepsi Real Sugar / 20 Oz [1 bottle] 250 0 0 0 0 0 55 66 0 66 0
+Pepsi Real Sugar / 2 Liter [1 bottle] 850 0 0 0 0 0 190 223 0 223 0
+Diet Seven Up / 20 Oz [1 bottle] 0 0 0 0 0 0 90 0 0 0 0
+Diet Seven Up / 2 Liter [1 bottle] 0 0 0 0 0 0 300 0 0 0 0
+Diet Wild Cherry Pepsi / 20 Oz [1 bottle] 0 0 0 0 0 0 65 0 0 0 0
+Diet Wild Cherry Pepsi / 2 Liter [1 bottle] 0 0 0 0 0 0 210 0 0 0 0
+Doc X / 20 Oz [1 bottle] 250 0 0 0 0 0 90 67 0 67 0
+Doc X / 2 Liter [1 bottle] 850 0 0 0 0 0 310 225 0 225 0
+Dr Pepper 10 / 20 Oz [1 bottle] 20 0 0 0 0 0 100 5 0 4 0
+Dr Pepper 10 / 2 Liter [1 bottle] 70 0 0 0 0 0 340 17 0 14 0
+Dr Wham / 20 Oz [1 bottle] 250 0 0 0 0 0 65 65 0 65 0
+Dr Wham / 2 Liter [1 bottle] 850 0 0 0 0 0 230 220 0 220 0
+Fanta Orange / 2 Liter [1 bottle] 930 0 0 0 0 0 300 254 0 254 0
+Grapico / 20 Oz [1 bottle] 230 0 0 0 0 0 50 58 0 58 0
+Grapico / 2 Liter [1 bottle] 790 0 0 0 0 0 170 197 0 197 0
+Lipton Half & Half / 20 Oz [1 bottle] 120 0 0 0 0 0 260 31 0 31 0
+Lipton Half & Half / 2 Liter [1 bottle] 410 0 0 0 0 0 880 105 0 101 0
+Mist TWST / 20 Oz [1 bottle] 240 0 0 0 0 0 55 65 0 65 0
+Mist TWST / 2 Liter [1 bottle] 810 0 0 0 0 0 190 220 0 220 0
+Mountain Dew Game Fuel / 2 Liter [1 bottle] 570 0 0 0 0 0 360 156 0 156 0
+Pepsi Throwback / 2 Liter [1 bottle] 880 0 0 0 0 0 220 227 0 227 0
+Pepsi Zero Sugar / 20 Oz [1 bottle] 0 0 0 0 0 0 65 0 0 0 0
+Pepsi Zero Sugar / 2 Liter [1 bottle] 0 0 0 0 0 0 220 0 0 0 0
+Schweppes Ginger Ale Raspberry / 20 Oz [1 bottle] 230 0 0 0 0 0 100 63 0 62 0
+Schweppes Ginger Ale Raspberry / 2 Liter [1 bottle] 790 0 0 0 0 0 340 214 0 209 0
+Sprite / 20 Oz [1 bottle] 260 0 0 0 0 0 60 67 0 59 0
+Sprite / 2 Liter [1 bottle] 890 5 0 0 0 0 200 227 0 201 1
+Sunkist Grape / 20 Oz [1 bottle] 280 0 0 0 0 0 100 77 0 73 0
+Sunkist Grape / 2 Liter [1 bottle] 960 0 0 0 0 0 340 259 0 248 0
+Sunkist Orange / 20 Oz [1 bottle] 330 0 0 0 0 0 75 88 0 88 0
+Sunkist Orange / 2 Liter [1 bottle] 1100 0 0 0 0 0 250 296 0 296 0
+Sunkist Peach / 20 Oz [1 bottle] 280 0 0 0 0 0 110 78 0 75 0
+Sunkist Peach / 2 Liter [1 bottle] 960 0 0 0 0 0 370 265 0 254 0
+Sunkist Strawberry / 20 Oz [1 bottle] 280 0 0 0 0 0 110 77 0 73 0
+Sunkist Strawberry / 2 Liter [1 bottle] 960 0 0 0 0 0 370 259 0 248 0
+Tropicana TWST Orange / 20 Oz [1 bottle] 330 0 0 0 0 0 0 83 0 75 0
+Tropicana TWST Orange / 2 Liter [1 bottle] 1100 0 0 0 0 0 0 279 0 254 0
+Wild Cherry Pepsi Real Sugar / 20 Oz [1 bottle] 250 0 0 0 0 0 55 66 0 65 0
+Wild Cherry Pepsi Real Sugar / 2 Liter [1 bottle] 850 0 0 0 0 0 190 223 0 220 0
+Aquafina / 20 Oz [1 bottle] 0 0 0 0 0 0 0 0 0 0 0
+Aquafina Raspberry / 20 Oz [1 bottle] 0 0 0 0 0 0 160 0 0 0 0
+Barq's Root Beer / 20 Oz [1 bottle] 270 0 0 0 0 0 115 75 0 75 0
+Brisk Fruit Punch / 20 Oz [1 bottle] 180 0 0 0 0 0 140 48 0 48 0
+Brisk Pink Lemonade / 20 Oz [1 bottle] 180 0 0 0 0 0 160 45 0 45 0
+Brisk Strawberry Melon / 20 Oz [1 bottle] 120 0 0 0 0 0 90 32 0 32 0
+Brisk Tea Raspberry / 20 Oz [1 bottle] 120 0 0 0 0 0 135 32 0 20 0
+Cherry Coke / 20 Oz [1 bottle] 250 0 0 0 0 0 65 70 0 70 0
+Dasani Water / 20 Oz [1 bottle] 0 0 0 0 0 0 0 0 0 0 0
+Diet Pepsi Max / 20 Oz [1 bottle] 0 0 0 0 0 0 65 0 0 0 0
+Gatorade Cool Blue / 20 Oz [1 bottle] 160 0 0 0 0 0 240 39 0 32 0
+Gatorade Fierce Grape / 20 Oz [1 bottle] 500 0 0 0 0 0 550 125 0 115 0
+Gatorade Fierce Blue Cherry / 20 Oz [1 bottle] 140 0 0 0 0 0 270 36 0 34 0
+Gatorade Fierce Green Apple / 20 Oz [1 bottle] 140 0 0 0 0 0 270 36 0 34 0
+Gatorade Fierce Melon / 20 Oz [1 bottle] 130 0 0 0 0 0 270 35 0 35 0
+Gatorade Fruit Punch / 20 Oz [1 bottle] 140 0 0 0 0 0 270 36 0 34 0
+Gatorade Fruit Punch / 64 Oz [1 bottle] 450 0 0 0 0 0 860 115 0 109 0
+Gatorade G2 Blueberry Pomegranate / 20 Oz [1 bottle] 50 0 0 0 0 0 270 12 0 12 0
+Gatorade G2 Fruit Punch / 20 Oz [1 bottle] 45 0 0 0 0 0 270 11 0 8 0
+Gatorade G2 Grape / 20 Oz [1 bottle] 160 0 0 0 0 0 240 39 0 32 0
+Gatorade G2 Orange / 20 Oz [1 bottle] 50 0 0 0 0 0 270 12 0 12 0
+Gatorade Glacial Cherry / 20 Oz [1 bottle] 130 0 0 0 0 0 270 35 0 35 0
+Gatorade Glacial Freeze / 20 Oz [1 bottle] 160 0 0 0 0 0 240 39 0 32 0
+Gatorade Lemon Lime / 20 Oz [1 bottle] 130 0 0 0 0 0 500 35 0 35 0
+Gatorade Lime Cucumber / 20 Oz [1 bottle] 130 0 0 0 0 0 270 34 0 34 0
+Gatorade Mango Xtreme / 20 Oz [1 bottle] 140 0 0 0 0 0 270 36 0 34 0
+Gatorade Orange / 20 Oz [1 bottle] 140 0 0 0 0 0 35 36 0 34 0
+Gatorade Orange / 64 Oz [1 bottle] 450 0 0 0 0 0 110 115 0 109 0
+Gatorade Raspberry / 20 Oz [1 bottle] 50 0 0 0 0 0 270 12 0 12 0
+Gatorade Riptide Rush / 20 Oz [1 bottle] 130 0 0 0 0 0 270 34 0 34 0
+Gatorade Tropical Mango / 20 Oz [1 bottle] 140 0 0 0 0 0 270 36 0 34 0
+Lipton Green Tea Citrus / 20 Oz [1 bottle] 130 0 0 0 0 0 180 33 0 33 0
+Lipton Green Tea Honey / 20 Oz [1 bottle] 180 0 0 0 0 0 0 48 0 48 0
+Lipton Green Tea Passionfruit Mango / 20 Oz [1 bottle] 130 0 0 0 0 0 50 33 0 33 0
+Lipton Ice Tea Lemon / 20 Oz [1 bottle] 280 0 0 0 0 0 15 65 0 65 0
+Lipton Ice Tea Pomegranate Blueberry / 20 Oz [1 bottle] 130 0 0 0 0 0 125 33 0 33 0
+Mtn Dew Throwback / 20 Oz [1 bottle] 280 0 0 0 0 0 105 73 0 73 0
+Pibb Xtra / 20 Oz [1 bottle] 250 0 0 0 0 0 75 65 0 65 0
+Powerade Mountain Blast / 20 Oz [1 bottle] 130 0 0 0 0 0 250 35 0 33 0
+SoBe Blackberry Blueberry / 20 Oz [1 bottle] 0 0 0 0 0 0 60 8 0 0 0
+SoBe Energize Power Fruit Punch / 20 Oz [1 bottle] 250 0 0 0 0 0 60 65 0 63 0
+SoBe Energy Citrus / 20 Oz [1 bottle] 250 0 0 0 0 0 55 64 0 63 0
+SoBe Fuji Apple / 20 Oz [1 bottle] 0 0 0 0 0 0 60 8 0 0 0
+SoBe Pomegranate Cherry / 20 Oz [1 bottle] 100 0 0 0 0 0 55 26 0 25 0
+SoBe Strawberry Daquiri / 20 Oz [1 bottle] 250 10 1 0 0 0 70 63 0 62 0
+SoBe Strawberry Dragonfruit / 20 Oz [1 bottle] 0 0 0 0 0 0 60 8 0 0 0
+SoBe Strawberry Kiwi / 20 Oz [1 bottle] 100 0 0 0 0 0 55 26 0 26 0
+SoBe Yumberry Pomegranate / 20 Oz [1 bottle] 0 0 0 0 0 0 60 8 0 0 0
+Vanilla Pepsi / 20 Oz [1 bottle] 250 0 0 0 0 0 55 66 0 66 0
+Vanilla Pepsi Real Sugar / 20 Oz [1 bottle] 250 0 0 0 0 0 55 66 0 66 0
+Cherry Vanilla Pepsi / 20 Oz [1 bottle] 220 0 0 0 0 0 55 59 0 59 0
+Cherry Vanilla Pepsi / 2 Liter [1 bottle] 740 0 0 0 0 0 190 200 0 200 0
+Crystal Pepsi / 20 Oz [1 bottle] 250 0 0 0 0 0 90 69 0 69 0
+Crystal Pepsi / 2 Liter [1 bottle] 850 0 0 0 0 0 300 233 0 233 0
+LIFEWTR / 23 Oz [1 bottle] 0 0 0 0 0 0 0 0 0 0 0
+Montellier Sparkling Water / 17 Oz [1 bottle] 0 0 0 0 0 0 150 0 0 0 0
+Starbucks Doubleshot Energy Vanilla / 15 Oz [1 bottle] 210 25 2.5 1.5 0 15 180 34 0 25 10
+Lipton Pure Leaf Half and Half / 18.5 Oz [1 bottle] 160 0 0 0 0 0 15 42 0 42 0
+Lipton Pureleaf Diet Lemon Tea / 18.5 Oz [1 bottle] 10 0 0 0 0 0 0 0 0 0 0
+Lipton Pureleaf Diet Peach Tea / 18.5 Oz [1 bottle] 0 0 0 0 0 0 0 0 0 0 0
+Lipton Pureleaf ExtraSweet Tea / 18.5 Oz [1 bottle] 250 0 0 0 0 0 0 65 0 65 0
+Lipton Pureleaf Green Tea / 18.5 Oz [1 bottle] 100 0 0 0 0 0 0 25 0 25 0
+Lipton Pureleaf Lemon / 18.5 Oz [1 bottle] 160 0 0 0 0 0 0 41 0 41 0
+Lipton Pureleaf NTS Peach Tea / 18.5 Oz [1 bottle] 100 0 0 0 0 0 0 26 0 26 0
+Lipton Pureleaf Peach Tea / 18.5 Oz [1 bottle] 110 0 0 0 0 0 0 29 0 29 0
+Lipton Pureleaf Raspberry Tea / 18.5 Oz [1 bottle] 180 0 0 0 0 0 0 46 0 46 0
+Lipton Pureleaf Sweet Tea / 18.5 Oz [1 bottle] 160 0 0 0 0 0 0 42 0 42 0
+Lipton Pureleaf Unsweet tea / 18.5 Oz [1 bottle] 0 0 0 0 0 0 0 0 0 0 0
+AMP / 16 Oz [1 bottle] 220 5 0 0 0 0 130 58 0 58 1
+Blueberry Pomegranate / 16 Oz [1 bottle] 80 0 0 0 0 0 170 20 0 19 0
+Mountain Dew Kickstart Black Cherry / 16 Oz [1 bottle] 80 0 0 0 0 0 170 20 0 19 0
+Mountain Dew Kickstart Fruit Punch / 16 Oz [1 bottle] 80 0 0 0 0 0 170 20 0 19 0
+Mountain Dew Kickstart Kiwi Strawberry / 12 Oz [1 bottle] 60 0 0 0 0 0 130 15 0 14 0
+Mountain Dew Kickstart Kiwi Strawberry / 16 Oz [1 bottle] 80 0 0 0 0 0 170 20 0 19 0
+Mountain Dew Kickstart Lime / 16 Oz [1 bottle] 80 0 0 0 0 0 250 20 0 19 0
+Mountain Dew Kickstart Orange Citrus / 16 Oz [1 bottle] 80 0 0 0 0 0 180 21 0 20 0
+Rockstar / 16 Oz [1 bottle] 280 10 1 0 0 0 75 61 0 59 2
+Rockstar Fruit Punch / 16 Oz [1 bottle] 260 0 0 0 0 0 110 62 0 62 0
+Rockstar Lemonade / 16 Oz [1 bottle] 20 0 0 0 0 0 220 6 0 6 0
+Rockstar Recovery / 16 Oz [1 bottle] 20 0 0 0 0 0 220 6 0 6 0
+Rockstar Sugar Free / 16 Oz [1 bottle] 20 5 0 0 0 0 230 3 0 0 1
+Rockstar Xtra / 16 Oz [1 bottle] 280 0 0 0 0 0 80 64 0 62 0
+Lipton Sparkling Tea Raspberry / 12 Oz [1 bottle] 70 0 0 0 0 0 125 18 0 18 0
+Mountain Dew Kickstart Blood Orange / 12 Oz [1 bottle] 60 0 0 0 0 0 125 15 0 14 0
+Mountain Dew Kickstart Blueberry Pomegranate / 12 Oz [1 bottle] 60 0 0 0 0 0 125 15 0 14 0
+Mountain Dew Kickstart Energizing Watermelon / 12 Oz [1 bottle] 60 0 0 0 0 0 130 16 0 15 0
+Mountain Dew Kickstart Pineapple Orange / 12 Oz [1 bottle] 60 0 0 0 0 0 130 15 0 14 0
+Mtn Dew Kickstart Pineapple Orange Mango / 12 Oz [1 bottle] 60 0 0 0 0 0 130 15 0 14 0
+Pepsi Max / 12 Oz [1 bottle] 0 0 0 0 0 0 40 0 0 0 0
+Pepsi Mexico / 12 Oz [1 bottle] 220 0 0 0 0 0 50 58 0 58 0
+Starbucks Refreshers Strawberry Lemonade / 12 Oz [1 bottle] 90 0 0 0 0 0 5 27 0 20 0
+Hawaiian Fruit Punch / 12 Oz [1 bottle] 200 0 0 0 0 0 135 50 0 50 0

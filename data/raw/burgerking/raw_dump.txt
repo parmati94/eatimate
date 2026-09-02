@@ -1,0 +1,316 @@
+MENU: Dragon Ball Super
+Kids Dragon Ball Burst Lemonade - 170 0 0 0 0 10 43 0 42 0
+Small Dragon Ball Burst Lemonade - 220 0 0 0 0 10 56 0 55 0
+Medium Dragon Ball Burst Lemonade - 270 0 0 0 0 10 69 0 68 0
+Large Dragon Ball Burst Lemonade - 410 0 0 0 0 20 104 101 0 0
+MENU: Burgers for Breakfast
+Whopper 288.418 710 42 12 1 95 1250 57 4 14 34
+Whopper with Bacon 300.553 770 47 14 1 105 1500 57 4 14 38
+Whopper with Cheese 311.218 790 49 16 1 115 1660 58 4 15 37
+Whopper with Bacon & Cheese 323.353 860 54 19 1 125 1920 58 4 15 42
+Texas Whopper® 335.385 850 54 18 1 125 2130 56 5 12 42
+Impossible™ Whopper 304.374 670 35 9 0 10 1490 64 8 14 32
+Impossible™ Texas Whopper® 347.132 810 47 15 0 40 2370 64 8 13 41
+Double Whopper 374.178 980 62 21 1.5 180 1320 57 5 14 56
+Double Whopper with Bacon 389.413 1040 67 23 1.5 190 1570 57 5 14 60
+Double Whopper with Cheese 400.148 1060 69 25 2 200 1730 59 5 15 60
+Double Whopper with Bacon & Cheese 412.029 1120 74 28 2 210 1890 59 5 15 64
+Texas Double Whopper® 416.425 1120 74 28 2 210 2200 56 5 12 64
+Triple Whopper® 459.938 1250 82 30 2.5 260 1380 57 5 14 78
+Triple Whopper® with Bacon 476.723 1310 87 32 2.5 275 1640 58 5 14 83
+Triple Whopper® with Cheese 482.738 1330 89 34 2.5 280 1800 59 5 15 82
+Triple Whopper with Bacon & Cheese 499.623 1390 94 36 2.5 295 2050 59 5 15 87
+Bacon King 366.13 1260 84 34 2 240 2330 58 4 14 69
+Whopper Jr.® 142.456 340 19 5 0 40 630 30 2 7 15
+Whopper Jr.® with Bacon 150.776 380 23 7 0 45 770 30 2 7 19
+Whopper Jr.® with Cheese 154.116 380 23 7 0 50 810 31 2 7 17
+Whopper Jr.® with Bacon & Cheese 162.226 430 26 9 0 55 980 31 2 7 20
+Texas Whopper® Jr. 167.577 420 26 9 0 55 1080 29 2 6 21
+Bacon Double Cheeseburger 184.204 500 29 13 0.5 95 1210 31 2 7 30
+Bacon Cheeseburger 127.364 350 17 7 0 50 980 30 2 7 19
+Double Cheeseburger 167.984 460 25 12 0.5 90 1040 31 2 7 27
+Cheeseburger 119.254 300 14 6 0 45 810 30 2 7 16
+Hamburger 107.834 260 10 4 0 35 600 29 2 6 14
+Original Chicken Sandwich 213.774 680 39 7 0 65 1380 63 3 7 23
+MENU: Breakfast Meals
+Pancake & Sausage Platter 130.77 580 26 8 0 75 1090 75 1 35 12
+Pancake Platter 82.47 400 9 2.5 0 45 690 74 1 34 5
+MENU: Breakfast Sandwiches
+Fully Loaded Croissan'wich 225.744 620 43 19 1 300 1780 31 3 6 30
+Double Sausage, Egg, & Cheese Croissan'wich 233.284 730 55 23 1 310 1660 30 3 5 28
+Bacon, Sausage, Egg, & Cheese Croissan'wich 193.074 580 41 18 1 285 1420 29 3 5 24
+Sausage, Egg, & Cheese Croissan'wich 173.584 500 34 15 1 270 1040 28 3 4 19
+Bacon, Egg, & Cheese Croissan'wich 133.374 360 21 10 1 245 810 28 3 4 15
+Ham, Egg, & Cheese Croissan'wich 159.284 350 19 9 1 255 1000 29 3 5 18
+Egg & Cheese Croissan'wich 125.284 310 17 9 1 240 640 28 3 4 12
+Fully Loaded Biscuit 244.174 660 45 20 0.5 285 2290 34 2 4 31
+Double Sausage, Egg, & Cheese Biscuit 253.218 790 59 25 0.5 290 2190 33 3 3 29
+Bacon, Sausage, Egg, & Cheese Biscuit 213.008 650 46 20 1 270 1960 33 2 3 25
+Sausage, Egg, & Cheese Biscuit 192.148 560 39 17 0.5 250 1580 32 2 2 20
+Bacon, Egg, & Cheese Biscuit 153.308 420 26 12 0.5 230 1340 31 2 2 16
+Ham, Egg, & Cheese Biscuit 179.218 420 24 11 0.5 235 1530 32 2 3 19
+Egg & Cheese Biscuit 145.218 380 22 11 0.5 220 1180 31 2 2 13
+Sausage Biscuit 124.765 440 30 13 0 35 1150 30 2 2 12
+MENU: Burritos
+Egg-Normous Burrito 310.491 800 44 16 1.5 445 2010 67 3 4 35
+Breakfast Burrito Jr. 161.261 420 26 9 0.5 235 1090 29 1 2 16
+MENU: Breakfast Sides
+Small Hash Browns 93.837 270 16 4 0 0 570 29 3 0 2
+Medium Hash Browns 174.066 510 30 8 0 0 1060 55 5 0 4
+Large Hash Browns 240.971 700 42 10 0 0 1460 76 6 1 6
+3 Pc. French Toast Sticks 105.97 340 13 1.5 0 0 210 52 1 27 4
+5 Pc. French Toast Sticks 154.97 500 21 2.5 0 0 340 71 2 33 6
+Value French Fries 123.32 230 10 2 0 0 200 31 3 0 3
+Small French Fries 160.458 300 13 2.5 0 0 270 40 3 0 4
+Medium French Fries 199.58 370 17 3 0 0 330 50 4 1 5
+Large French Fries 238.703 440 20 4 0 0 400 60 5 1 6
+Value Onion Rings 62.652 170 8 1 0 0 300 22 2 2 2
+Small Onion Rings 85.899 230 11 1.5 0 0 410 31 3 3 3
+Medium Onion Rings 109.146 290 13 2 0 0 530 39 4 4 4
+Large Onion Rings 160.742 430 20 3 0 0 770 57 6 6 5
+Value Have-sies™ 79.152 220 9 1.5 0 0 280 27 2 2 3
+Small Have-sies™ 114.447 280 13 2.5 0 0 390 38 4 2 4
+Medium Have-sies™ 134.036 350 16 3 0 0 490 47 4 3 4
+Large Have-sies™ 177.893 490 23 4 0 0 700 67 6 4 6
+4 Pc. Cheddar Ranch Tots 52 140 6 2 0 5 510 17 1 1 3
+8 Pc. Cheddar Ranch Tots 104 270 12 4 0 15 1020 34 2 1 6
+MENU: Drinks & Coffee
+Small Brewed Coffee 23.53 0 0 0 0 0 0 0 0 0 0
+Medium Brewed Coffee 16.726 0 0 0 0 0 0 0 0 0 0
+Large Brewed Coffee 20.695 0 0 0 0 0 0 0 0 0 0
+Small Decaf Coffee 12.19 0 0 0 0 0 0 0 0 0 0
+Medium Decaf Coffee 16.726 0 0 0 0 0 0 0 0 0 0
+Large Decaf Coffee 20.695 0 0 0 0 0 0 0 0 0 0
+Small Vanilla Iced Coffee 84.934 150 7 4.5 0 20 35 20 0 20 1
+Medium Vanilla Iced Coffee 110.569 200 9 6 0 25 45 27 0 26 2
+Large Vanilla Iced Coffee - 250 12 7 0 35 60 34 0 33 2
+Extra Large Vanilla Iced Coffee - 390 19 12 0.5 55 90 51 0 51 3
+Small Mocha Iced Coffee 76.825 160 7 4.5 0 20 45 21 0 19 2
+Medium Mocha Iced Coffee 100.012 200 10 6 0 25 60 27 1 25 2
+Large Mocha Iced Coffee 126.556 260 12 8 0 35 75 34 1 31 3
+Extra Large Mocha Iced Coffee - 400 19 12 0.5 55 115 52 2 47 4
+Small Plain Iced Coffee 86.911 150 7 4.5 0 20 35 21 0 21 1
+Medium Plain Iced Coffee 113.762 200 9 6 0 25 45 27 0 26 2
+Large Plain Iced Coffee 144.226 260 12 7 0 35 60 35 0 35 2
+Extra Large Plain Iced Coffee 5706.07 390 18 11 0.5 70 70 53 0 53 3
+Small Black Iced Coffee 9.922 0 0 0 0 0 0 0 0 0 0
+Medium Black Iced Coffee 12.757 0 0 0 0 0 0 0 0 0 0
+Large Black Iced Coffee 15.876 0 0 0 0 0 0 0 0 0 0
+Extra Large Black Iced Coffee 25.515 0 0 0 0 0 0 0 0 0 0
+Simply® Orange Juice 283.49 160 1.5 0 0 0 0 35 0 31 2
+Fat Free Milk 246 100 0 0 0 5 140 15 0 14 10
+Chocolate Milk 226.8 170 2.36 1.43 0.09 12.32 184.57 28.06 0.27 26.6 10
+Value Coca-Cola 16 140 0 0 0 0 35 39 0 39 0
+Small Coca-Cola 20 180 0 0 0 0 45 50 0 50 0
+Medium Coca-Cola 29 270 0 0 0 0 65 70 0 70 0
+Large Coca-Cola 38 320 0 0 0 0 80 88 0 88 0
+Small FS Coca-Cola - 180 0 0 0 0 45 50 0 50 0
+Medium FS Coca-Cola - 270 0 0 0 0 65 75 0 75 0
+Large FS Coca-Cola - 320 0 0 0 0 80 88 0 88 0
+Value Diet Coke 16 0 0 0 0 0 35 0 0 0 0
+Small Diet Coke 20 0 0 0 0 0 45 0 0 0 0
+Medium Diet Coke 29 0 0 0 0 0 70 0 0 0 0
+Large Diet Coke 38 0 0 0 0 0 85 0 0 0 0
+Small FS Diet Coke - 0 0 0 0 0 45 0 0 0 0
+Medium FS Diet Coke - 0 0 0 0 0 70 0 0 0 0
+Large FS Diet Coke - 0 0 0 0 0 85 0 0 0 0
+Value Coca-Cola Zero - 0 0 0 0 0 35 0 0 0 0
+Small Coca-Cola Zero - 0 0 0 0 0 50 0 0 0 0
+Medium Coca-Cola Zero 29 0 0 0 0 0 70 0 0 0 0
+Large Coca-Cola Zero 38 0 0 0 0 0 85 0 0 0 0
+Value Dr Pepper® - 130 0 0 0 0 35 36 0 36 0
+Small Dr Pepper® - 170 0 0 0 0 45 46 0 46 0
+Medium Dr Pepper® - 260 0 0 0 0 70 70 0 69 0
+Large Dr Pepper® - 310 0 0 0 0 85 82 0 82 0
+Small FS Dr Pepper® - 170 0 0 0 0 45 46 0 46 0
+Medium FS Dr Pepper® - 260 0 0 0 0 70 70 0 69 0
+Large FS Dr Pepper® - 310 0 0 0 0 85 82 0 82 0
+Value Sprite 16 130 0 0 0 0 35 35 0 35 0
+Small Sprite 20 170 0 0 0 0 45 45 0 45 0
+Medium Sprite 29 260 0 0 0 0 70 68 0 68 0
+Large Sprite 38 310 0 0 0 0 80 81 0 81 0
+Small FS Sprite - 170 0 0 0 0 45 45 0 45 0
+Medium FS Sprite - 260 0 0 0 0 70 68 0 68 0
+Large FS Sprite - 310 0 0 0 0 80 81 0 81 0
+Value Sprite Zero - 0 0 0 0 0 35 0 0 0 0
+Small Sprite Zero - 5 0 0 0 0 50 0 0 0 0
+Medium Sprite Zero 29 10 0 0 0 0 70 0 0 0 0
+Large Sprite Zero 38 10 0 0 0 0 85 0 0 0 0
+Pure Life® Purified Water - 0 0 0 0 0 0 0 0 0 0
+Kids Signature Mango Peach Lemonade 65.06 150 0 0 0 0 0 37 0 37 0
+Small Signature Mango Peach Lemonade - 200 0 0 0 0 0 50 0 50 0
+Medium Signature Mango Peach Lemonade - 250 0 0 0 0 0 63 0 62 0
+Large Signature Mango Peach Lemonade 159.524 360 0 0 0 0 0 92 0 91 0
+Kids Signature Strawberry Lemonade 64.791 150 0 0 0 0 0 38 0 38 0
+Small Signature Strawberry Lemonade - 200 0 0 0 0 0 50 0 50 0
+Medium Signature Strawberry Lemonade 109 250 0 0 0 0 0 63 0 63 0
+Large Signature Strawberry Lemonade - 500 0 0 0 0 20 120 2 114 2
+Small Minute Maid® Lemonade - 190 0 0 0 0 45 50 1 50 0
+Medium Minute Maid® Lemonade - 290 0 0 0 0 70 76 1 76 0
+Large Minute Maid® Lemonade - 340 0 0 0 0 80 90 1 90 0
+Value Sweetened Iced Tea 26.804 90 0 0 0 0 0 22 0 22 0
+Small Sweetened Iced Tea 37.915 130 0 0 0 0 0 32 0 32 0
+Medium Sweetened Iced Tea 29 170 0 0 0 0 0 44 0 44 0
+Large Sweetened Iced Tea 38 240 0 0 0 0 0 59 0 59 0
+Value Unsweetened Iced Tea 1.772 0 0 0 0 0 0 0 0 0 0
+Small Unsweetened Iced Tea 2.228 0 0 0 0 0 0 0 0 0 0
+Medium Unsweetened Iced Tea 3.036 0 0 0 0 0 0 0 0 0 0
+Large Unsweetened Iced Tea 4.448 0 0 0 0 0 0 0 0 0 0
+Value Barqs Root Beer - 150 0 0 0 0 35 42 0 42 0
+Small Barqs Root Beer - 200 0 0 0 0 45 54 0 54 0
+Medium Barq's Root Beer 29 300 0 0 0 0 70 81 0 81 0
+Large Barq's Root Beer 38 350 0 0 0 0 80 96 0 96 0
+Value Diet Barqs Root Beer - 0 0 0 0 0 40 0 0 0 0
+Small Diet Barqs Root Beer - 0 0 0 0 0 50 0 0 0 0
+Medium Diet Barq's Root Beer - 0 0 0 0 0 75 0 0 0 0
+Large Diet Barq's Root Beer - 0 0 0 0 0 85 0 0 0 0
+Value Hi-C Fruit Punch - 160 0 0 0 0 35 41 0 40 0
+Small Hi-C Fruit Punch - 210 0 0 0 0 45 53 0 52 0
+Medium Hi-C Fruit Punch 29 310 0 0 0 0 65 79 0 78 0
+Large Hi-C Fruit Punch 38 370 0 0 0 0 80 94 0 92 0
+Value Hi-C Pink Lemonade - 130 0 0 0 0 95 36 1 34 0
+Small Hi-C Pink Lemonade - 170 0 0 0 0 125 46 1 44 0
+Medium Hi-C Pink Lemonade 29 250 0 0 0 0 180 69 1 66 0
+Large Hi-C Pink Lemonade 38 300 0 0 0 0 220 82 1 78 0
+Value Fanta Orange - 140 0 0 0 0 35 38 0 38 0
+Small Fanta Orange - 180 0 0 0 0 45 49 0 49 0
+Medium Fanta Orange 29 280 0 0 0 0 70 74 0 74 0
+Large Fanta Orange 38 330 0 0 0 0 85 88 0 88 0
+Small FS Fanta Orange - 180 0 0 0 0 45 49 0 49 0
+Medium FS Fanta Orange - 280 0 0 0 0 70 74 0 74 0
+Large FS Fanta Orange - 330 0 0 0 0 85 88 0 88 0
+Value Fanta Strawberry - 150 0 0 0 0 35 41 0 41 0
+Small Fanta Strawberry - 200 0 0 0 0 45 52 0 52 0
+Medium Fanta Strawberry - 300 0 0 0 0 65 78 0 78 0
+Large Fanta Strawberry - 350 0 0 0 0 80 93 0 93 0
+Value Mello Yello 16 120 0 0 0 0 35 33 0 33 0
+Small Mello Yello 20 160 0 0 0 0 45 43 0 43 0
+Medium Mello Yello 29 240 0 0 0 0 70 64 0 64 0
+Large Mello Yello 38 280 0 0 0 0 80 76 0 76 0
+Value Mello Yello Zero - 190 0.002 0 0 0 55.9088 0 0 0 0
+Small Mello Yello Zero - 0 0 0 0 0 50 0 1 0 0
+Medium Mello Yello Zero - 0 0 0 0 0 75 1 1 0 0
+Large Mello Yello Zero - 0 0 0 0 0 90 1 0 0 0
+Value Powerade 16 121 0.027 0.023 0 0 149.12 29.232 0 29.168 0.003
+Small Powerade 20 150 0 0 0 0 170 38 0 38 0
+Medium Powerade 29 220 0.048 0.042 0 0 270.28 52.983 0 52.867 0.006
+Large Powerade 38 288 0.063 0.055 0 0 354.16 69.426 0 69.274 0.008
+Value Powerade Zero - 5 0 0 0 0 110 0 0 0 0
+Small Powerade Zero - 10 0 0 0 0 140 0 0 0 0
+Medium Powerade Zero 29 10 0 0 0 0 210 0 0 0 0
+Large Powerade Zero 38 15 0 0 0 0 250 0 0 0 0
+Honest Kids® Apple Juice Drink 185 35 0 0 0 0 10 9 0 8 0
+Small Hi-C® Orange Freezee King 37.12 140 0 0 0 0 80 38 0 38 0
+Medium Hi-C® Orange Freezee King 49.59 190 0 0 0 0 110 50 0 50 0
+Large Hi-C® Orange Freezee King 60.9 230 0 0 0 0 135 63 0 63 0
+Small Coke® Freezee King - 100 0 0 0 0 40 26 0 26 0
+Medium Coke® Freezee King - 130 0 0 0 0 50 35 0 35 0
+Large Coke® Freezee King - 160 0 0 0 0 65 44 0 44 0
+Small Fanta® Strawberry Freezee King - 100 0 0 0 0 45 26 0 26 0
+Medium Fanta® Strawberry Freezee King - 130 0 0 0 0 60 34 0 34 0
+Large Fanta® Strawberry Freezee King - 160 0 0 0 0 75 43 0 43 0
+Small Fanta® Blue Raspberry Freezee King - 100 0 0 0 0 45 26 0 26 0
+Medium Fanta® Blue Raspberry Freezee King - 130 0 0 0 0 60 34 0 34 0
+Large Fanta® Blue Raspberry Freezee King - 160 0 0 0 0 75 43 0 43 0
+MENU: Sweets
+Cinnamon Apple Pie 82 270 12 5 0 0 280 36 1 9 4
+HERSHEY'S® Sundae Pie 75.7 310 18 12 0 10 230 32 1 22 3
+Chocolate Chip Cookie - 160 8 4 0 10 110 23 0 14 2
+2 Chocolate Chip Cookies 35.44 320 15 8 0 20 220 46 2 28 4
+MENU: Flame Grilled Burgers
+Build Your Own Sandwich - Whopper (Plain) 176.584 500 22 9 0.5 75 590 48 2 8 29
+Build Your Own Sandwich - Impossible™ Whopper (Plain) 191.274 480 16 6 0 0 830 55 5 9 29
+Build Your Own Sandwich - Original Chicken Sandwich (Plain) 171.27 430 15 3.5 0 35 1070 54 3 6 22
+BBQ Bacon Whopper Jr. - 390 23 7 0 45 770 32 2 9 19
+Double Whopper® Jr. 182.846 450 28 9 0.5 75 630 30 2 7 25
+Double Whopper® Jr. with Bacon 188.734 500 31 10 0.5 80 800 30 2 7 28
+Double Whopper® Jr. with Cheese 192.716 540 36 13 0.5 95 1070 33 3 8 30
+Double Whopper Jr.® with Bacon and Cheese 197.946 580 38 15 0.5 100 1240 32 2 8 32
+Rodeo Double Cheeseburger 177.924 530 29 12 0.5 90 900 41 4 10 28
+Rodeo Cheeseburger 129.474 380 17 7 0 45 720 41 3 9 17
+Rodeo Burger 117.814 340 13 4.5 0 35 520 40 3 9 15
+MENU: Chicken & Fish
+Spicy Original Chicken Sandwich 240.009 790 49 9 0 65 1540 64 6 9 23
+Royal Crispy Chicken 247.774 600 31 5 0 80 1330 54 4 9 31
+Spicy Royal Crispy Chicken 269.036 760 47 8 0 80 1580 58 4 11 31
+Bacon and Swiss Royal Crispy Chicken - 740 43 11 0 110 1920 56 4 10 39
+Flame-Grilled Chicken Sandwich - 410 15 3 0 95 940 43 2 7 35
+Spicy Flame-Grilled Chicken Sandwich - 570 31 5 0 95 1200 46 3 10 35
+Bacon and Swiss Flame-Grilled Chicken Sandwich - 560 28 9 0 130 1590 45 2 8 43
+Chicken Jr. 141.543 440 27 5 0 40 700 39 2 5 13
+Royal Crispy Wrap - 310 17 3 0 40 790 28 4 2 15
+Spicy Royal Crispy Wrap - 390 25 5 0 40 920 30 5 3 15
+Honey Mustard Royal Crispy Wrap - 290 14 3 0 35 790 30 4 5 15
+Classic Original Chicken Wrap 129.781 310 17 3.5 0 25 820 31 2 2 13
+Spicy Original Chicken Wrap 141.121 390 26 5 0 25 960 32 2 3 13
+Honey Mustard Original Chicken Wrap 129.781 290 14 3 0 25 830 33 2 5 13
+Classic Flame-Grilled Chicken Wrap - 240 11 3 0 50 640 21 1 2 17
+Spicy Flame-Grilled Chicken Wrap - 320 20 4 0 50 770 23 1 3 17
+Honey Mustard Flame-Grilled Chicken Wrap - 230 9 2 0 45 640 24 1 5 17
+4 Pc. Chicken Fries 42.72 110 6 1.5 0 20 330 8 0 0 7
+8 Pc. Chicken Fries 85.44 220 12 2.5 0 40 680 16 1 0 13
+12 Pc. Chicken Fries 126.72 340 18 4 0 60 1030 25 1 0 20
+4 Pc. Chicken Nuggets - 210 13 2.5 0 30 360 12 4 0 11
+10 Pc. Chicken Nuggets - 520 32 6 0 80 910 31 11 1 26
+20 Pc. Chicken Nuggets - 1030 64 12 0 160 1820 62 21 2 53
+Big Fish 210.564 570 30 5 0 50 1270 58 3 8 19
+MENU: Sides
+4 Pc. Mozzarella Fries - 220 12 4 0 20 790 24 1 2 10
+8 Pc. Mozzarella Fries - 440 24 8 1 40 1570 48 2 4 19
+12 Pc. Mozzarella Fries - 660 36 13 1 60 2270 71 3 5 29
+4 Pc. Jalapeño Cheddar Bites 58.68 230 11 4.5 0 15 700 27 2 1 6
+8 Pc. Jalapeño Cheddar Bites 117.36 460 21 9 0 30 1410 54 4 3 13
+1 Pc. Taco - 210 6 2 0 10 330 24 2 2 6
+2 Pc. Taco 158.849 420 12 4 0 20 660 48 5 4 11
+Mott's® Applesauce - 50 0 0 0 0 0 13 1 11 0
+MENU: Drinks & Coffee
+Classic Oreo® Shake 413.275 640 17 10 0.5 55 460 109 1 86 13
+Chocolate Oreo® Shake 416.017 670 17 10 0.5 55 470 116 2 91 13
+Chocolate Shake 399.008 590 14 9 0.5 55 420 103 1 84 13
+Vanilla Shake 395.904 560 14 9 0.5 55 400 96 0 79 12
+Strawberry Shake 434.262 610 14 9 0 55 420 110 1 92 12
+MENU: Sweets
+OREO® Sundae 154.233 310 9 4.5 0 25 230 51 0 39 6
+HERSHEY'S® Sundae 141.709 230 6 4 0 25 170 38 0 31 5
+Soft Serve Cup 129.843 180 5 3.5 0 20 150 28 0 22 4
+Soft Serve Cone 135.843 200 5 3.5 0 20 150 33 0 22 5
+MENU: Condiments
+Hidden Valley Ranch Dipping Sauce 25.22 110 11 2 0 10 220 1 0 1 0
+Zesty Dipping Sauce 28.33 140 14 2.5 0 15 210 3 0 1 0
+BBQ Dipping Sauce 28.33 35 0 0 0 0 220 8 0 8 0
+Honey Mustard Dipping Sauce 28.33 110 8 1.5 0 30 190 8 0 7 0
+Super Saiyan Dipping Sauce 28.35 54 0.31 0.05 0 0.03 321.06 12.42 0.12 10.8 0.41
+Special Savory Sauce Dipping Sauce 25.2 116 10.87 1.81 0.16 14.76 261.38 4.5 0.22 3.8 0.42
+Sweet & Sour Dipping Sauce 28.2 70 0 0 0 0 310 18 0 16 0
+Buffalo Dipping Sauce 28.33 70 7 1 0 0 510 1 0 0 0
+Marinara Dipping Sauce - 25 1 0 0 0 330 5 1 3 3
+Syrup Packet 32.47 94.57 0 0 0 0 25.27 23.97 0.01 17.06 0
+Ketchup Packet 9 9.59 0.01 0 0 0 88.62 2.17 0.12 1.97 0.09
+Mayo Packet 12 86.95 9.46 1.46 0.37 7.81 66.13 0.26 0.01 0.22 0.14
+Mustard Packet 5.67 5 0.25 0.02 0 0 65.77 0.32 0.18 0 0.26
+Picante Sauce Packet - 10 0 0 0 0 150 1 0 1 0
+Honey Packet 14.18 45 0 0 0 0 0 12 0 12 0
+Salt Packet - 0 0 0 0 0 290 0 0 0 0
+Pepper Packet - 0 0 0 0 0 0 0 0 0 0
+Creamer - 15 1 0.5 0 5 10 0.5 0 0 0
+Pure Sugar Packet - 10 0 0 0 0 0 3 0 3 0
+Sugar Substitute Packet - 3 0 0 0 0 0 0.9 0 0.8 0
+Strawberry Jelly Packet - 25 0 0 0 0 0 7 0 6 0
+Grape Jelly Packet - 25 0 0 0 0 0 7 0 6 0
+Butter Blend 5.67 50 6 1 0 0 45 0 0 0 0
+BUILD: Whopper
+Whopper base 175.061 257 4.75 0 0.5 0 600 51.76 3.67 10.67 12
+American Cheese - 40 3.5 2 - 10 210 - - - 2
+Swiss Cheese - 90 8 5 - 20 400 2 - 1 4
+Whopper® Patty 89.97 270 20 9 0.5 85 70 0.43 0.24 0.15 22
+Bacon - 60 5 2 - 10 250.001 - - - 5
+Jalapeños - 4 0.03 0.01 - 0.03 268.28 0.65 0.29 0.29 0.14
+Onion Rings - 150 7 1 - - 270.001 20 2 2 2
+Tomato 28.3 4 2 0.02 0 0 1.34 1.04 0.32 0.68 0.24
+Onion 9.356 3 0.007 0.037 0 0 0.34 0.99 0.33 0.33 0.096
+Pickle 19 1.12 0 0 0 0.08 320 0.2 0.12 0.16 0.08
+Lettuce 21.263 3 0.045 0 0 0 2.505 0.6 0.255 0.36 0.18
+Ketchup 14.175 15 0.015 0 0 0 140 3.5 0.18 3 0.135
+Mayo - 158 17.25 3 - 15 120 0.75 - - -
+Mustard 9.356 8 0.33 0.01 0.01 0 112.2 0.66 0.33 0.053 0.33
+BBQ Sauce 14.175 25 0.07 0.01 - - 110 6 0.09 5 0.26

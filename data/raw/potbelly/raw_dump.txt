@@ -1,0 +1,898 @@
+MENU: Sandwiches - Originals
+A Wreck, Originals 653.21 219.04 27.8 11.19 0.01 98.58 1729.72 64.77 3.84 4.04 41.91
+Avo Turkey, Originals 642.14 212.76 24.19 8.42 0.01 81.25 1557.63 73.01 10.8 3.14 45.61
+Bacon, Egg & Cheddar, Originals 936.87 476 55.89 25.57 0.01 350 1884.7 66.83 3.84 2.3 43.45
+Barnyard, Originals 1013.21 487.7 57.8 24.53 0.35 168.57 2589.72 69.43 4.5 4.7 57.91
+BLTA, Originals 836.64 412.4 49.29 19.17 0.01 80 1419.27 72.58 9.73 3.92 31.73
+Chicken Cordon Bleu, Originals 713.63 176.67 22.49 10.94 0.01 162.1 2101.22 67.24 4.53 6.27 59.27
+Chicken Salad & Provolone, Originals 761.21 346.41 38.34 9.74 0.01 120.5 954.65 63.81 5.97 3.21 43.95
+Clubby, Originals 851.94 394.72 44.04 14.73 0.01 129.5 2452.92 72.22 6.18 6.22 50.35
+Cubano, Originals 801.87 97.86 37.89 11.83 0.01 117.57 2162.56 63.54 3.84 3.16 46.16
+Fiery Island Chicken, Originals 723.56 178.54 22.88 7.03 0.01 134.89 1867.15 82.59 6.84 17.66 51.58
+Fireball, Originals 1017.74 484.34 54.04 24.34 1.03 135 2717.13 79.19 10.08 7.32 49.26
+Grilled Cheese, Originals 636.87 240 29.89 18.57 0.01 90 984.7 60.83 3.84 2.3 33.45
+Grilled Chicken & Cheddar, Originals 570.06 103.94 14.28 7.53 0.01 144.89 1132.15 61.79 3.84 3.26 50.08
+Grilled Chicken Club, Originals 770.06 265.94 32.28 15.53 0.01 184.89 1612.15 63.79 3.84 3.26 58.08
+Ham, Mushroom, Egg & Swiss, Originals 720.16 226.9 27.89 11.91 0.01 337 2194.66 67.73 5.18 6.21 50.35
+Italian, Originals 772.12 362.5 43.74 14.85 0.01 96.88 2213.95 63.48 3.84 3.95 35.42
+Lucky 7, Originals 1021.83 543.4 61.3 20.71 0.01 170.45 3451.4 67.3 5.6 6.23 56.95
+Mama's Meatball, Originals 924.38 398.14 47.82 20.68 1.03 110 2091.51 76.24 6.87 7.48 44.44
+Mediterranean No Chicken, Originals 521.68 141.86 14.54 3.82 0.01 15 1205.88 79.9 11.04 7.5 23.52
+Mediterranean, Originals 674.87 165.8 16.93 4.78 0.01 129.89 1713.32 80.86 11.04 8.46 54.15
+Pizza Melt, Originals 817.38 336.99 40.62 15.85 0.35 98.75 2493.84 73.09 6.22 8.32 41.1
+Prime Rib Steak Sandwich, Originals 884.37 462.76 54.53 20.44 0.56 109.55 1417.04 66.71 4.1 3.01 38.45
+Roast Beef & Provolone, Originals 609.37 160 21.02 9.07 0.01 76.25 1298.95 64.08 3.84 4.55 41.95
+Sausage, Egg & Cheddar, Originals 1106.87 632 70.89 27.57 0.01 405 2064.7 65.83 3.84 2.3 51.45
+Sicilian, Originals 979 509.85 57.32 20.52 0.35 126.88 2874.52 74.12 7.98 9.01 45.14
+Smoked Ham & Swiss, Originals 588.16 153.57 19.89 8.91 0.01 97 1891.99 64.4 3.84 4.87 41.02
+Smokestack Pork & Mac, Originals 1013.56 93.27 49.05 13.26 0.37 124.95 1790.61 92.06 4.8 12.95 49.12
+Sweet Heat Pork BBQ, Originals 945.7 81.7 48.08 14.29 0.01 132.85 1563.95 77.42 4.25 13.19 47.98
+Tuna Salad & Swiss, Originals 685.48 273.76 31.25 9.84 0.01 79.29 847.03 63.85 5.98 3.22 46.27
+Turkey Breast & Swiss, Originals 522.74 124.36 13.79 5.82 0.01 81.25 1552.13 67.21 5.6 2.84 43.01
+Veggie Melt, Originals 749.24 341.59 38.94 18.42 0.01 75 945 70.24 12.13 4.17 38.44
+Wrecking Ball, Originals 854.1 365.72 41.38 15.87 0.35 123.58 2568.95 74.74 7.31 8.43 49.96
+MENU: Sandwiches - BIGS
+A Wreck, BIGS 928.55 303.71 38.79 15.83 0.02 135.6 2375.61 94.63 5.64 5.69 58.87
+Avo Turkey, BIGS 934.11 314.4 35.8 12.6 0.02 112.5 2148.69 106.71 16.02 4.62 64.24
+Bacon, Egg & Cheddar, BIGS 1395.09 714 83.74 38.34 0.02 525 2812.25 98.22 5.64 3.38 64.76
+Barnyard, BIGS 1468.55 706.7 83.79 35.84 0.53 240.6 3665.61 101.62 6.63 6.68 82.87
+BLTA, BIGS 1244.75 618.6 73.84 28.74 0.02 120 2114.09 106.85 14.46 5.81 47.18
+Chicken Cordon Bleu, BIGS 990.56 235.56 30.37 14.66 0.02 216.13 2806.5 98.19 6.66 8.94 80.8
+Chicken Salad & Provolone, BIGS 1072.97 477.87 52.93 13.76 0.02 164 1373.8 93.48 8.71 4.66 61.43
+Clubby, BIGS 1244.99 583.94 65.2 21.89 0.02 184 3472.06 105.64 9.09 9.09 71.46
+Cubano, BIGS 1123.59 142.14 52.24 16.69 0.02 160.92 2988.4 93 5.64 4.52 64.54
+Fiery Island Chicken, BIGS 1049.6 263.81 33.83 10.37 0.02 183.19 2701.35 121.7 10.14 26.26 71.86
+Fireball, BIGS 1420.84 665.94 74.28 33.56 1.38 185 3812.11 114.15 14.36 10.14 68.51
+Grilled Cheese, BIGS 945.09 360 44.74 27.84 0.02 135 1462.25 89.22 5.64 3.38 49.76
+Grilled Chicken & Cheddar, BIGS 824.27 198.71 21.89 11.48 0.02 198.19 1617.04 91.79 8.22 5.45 69.69
+Grilled Chicken Club, BIGS 1119.35 394.91 47.93 23.12 0.02 258.19 2318.85 93.5 5.64 4.66 81.61
+Ham, Mushroom, Egg & Swiss, BIGS 1039.8 326.43 40.24 17.3 0.02 493.5 3045.96 99.15 7.64 8.81 71.69
+Italian, BIGS 1087.09 495 60.04 20.54 0.02 132.5 3051.25 92.92 5.64 5.58 50.06
+Lucky 7, BIGS 1420.47 740.51 83.55 28.39 0.02 230.6 4702.8 98.12 8.22 8.68 78.75
+Mama's Meatball, BIGS 1290.11 542.52 65.48 28.32 1.38 150 2887.99 109.94 9.68 10.28 62.08
+Mediterranean No Chicken, BIGS 772.17 211.8 21.7 5.7 0.02 22.5 1793.56 117.8 16.38 11.16 34.85
+Mediterranean, BIGS 976.42 243.71 24.89 6.98 0.02 175.69 2470.16 119.07 16.38 12.44 75.7
+Pizza Melt, BIGS 1175.11 478.87 57.88 22.77 0.53 140 3487.99 106.29 9.03 11.63 59.08
+Prime Rib Steak Sandwich, BIGS 1251.6 642.68 75.98 28.46 0.76 151.3 1973.65 97.4 6.01 4.42 54.28
+Roast Beef & Provolone, BIGS 870.09 225 29.74 12.84 0.02 105 1831.25 93.72 5.64 6.38 58.76
+Sausage, Egg & Cheddar, BIGS 1650.09 948 106.24 41.34 0.02 607.5 3082.25 96.72 5.64 3.38 76.76
+Sicilian, BIGS 1391.03 713.67 80.24 29.03 0.53 177.5 3997.18 107.78 11.61 12.62 64.46
+Smoked Ham & Swiss, BIGS 841.8 216.43 28.24 12.8 0.02 133.5 2591.96 94.15 5.64 6.81 57.69
+Smokestack Pork & Mac, BIGS 1427.57 139.77 67.46 18.59 0.56 170.29 2558.07 134.57 7.03 18.45 68.53
+Sweet Heat Pork BBQ, BIGS 1315.45 122.13 65.97 20.14 0.02 182.14 2222.74 110.06 6.15 16.99 66.79
+Tuna Salad & Swiss, BIGS 972 381 43.48 14.06 0.02 109.89 1200.31 93.53 8.73 4.68 64.69
+Turkey Breast & Swiss, BIGS 755.01 181.8 20.2 8.7 0.02 112.5 2140.44 98.01 8.22 4.17 60.34
+Veggie Melt, BIGS 1113.51 511.4 58.3 27.6 0.02 112.5 1402.24 103.31 18.02 6.17 57.24
+Wrecking Ball, BIGS 1223.49 521.38 58.99 22.82 0.53 173.1 3589.53 108.49 10.61 11.73 70.77
+MENU: Sandwiches - Skinnys
+A Wreck, Skinny 436.27 134.36 17.39 6.66 0.01 61.55 1172.81 47.07 2.82 2.85 27.44
+Avo Turkey, Skinny 412.2 94.2 13.3 4.4 0.01 50 1057.97 51.66 6.71 2.24 29.47
+Bacon, Egg & Cheddar, Skinny 537.04 238 28.62 12.92 0.01 175 1046.13 47.61 2.82 1.69 24.63
+Barnyard, Skinny 616.27 268.69 32.4 13.33 0.18 96.55 1602.81 49.4 3.15 3.18 35.44
+BLTA, Skinny 486.93 206.2 25.32 9.72 0.01 40 813.41 50.49 5.76 2.5 18.77
+Chicken Cordon Bleu, Skinny 489.08 117.78 15.18 7.33 0.01 108.06 1400.91 48.46 3.16 4.07 40.23
+Chicken Salad & Provolone, Skinny 511.48 198.03 24.47 5.88 0.01 77 626.9 46.49 4.36 2.34 28.96
+Clubby, Skinny 544.92 210.57 26.1 7.94 0.01 77 1554.19 51.56 4.4 4.22 31.83
+Cubano, Skinny 532.54 53.57 24.12 7.09 0.01 74.21 1341.7 46.25 2.82 2.26 30.27
+Fiery Island Chicken, Skinny 455.92 93.26 12.52 3.81 0.01 86.6 1121.93 55.65 4.32 9.53 33.81
+Fireball, Skinny 676.67 285.82 34.52 15.28 0.69 85 1713.55 56.58 6.93 5.08 32.5
+Grilled Cheese, Skinny 387.04 120 15.62 9.42 0.01 45 596.13 44.61 2.82 1.69 19.63
+Grilled Chicken & Cheddar, Skinny 384.63 55.96 8.7 4.24 0.01 91.6 763.52 45.9 4.11 2.73 33.1
+Grilled Chicken Club, Skinny 479.17 136.96 17.22 8.06 0.01 111.6 994.43 46.25 2.82 2.33 37.06
+Ham, Mushroom, Egg & Swiss, Skinny 458.9 127.38 16.12 6.65 0.01 180.5 1432.32 48.49 3.49 4.07 31.51
+Italian, Skinny 515.54 230 28.02 9.27 0.01 61.25 1465.63 46.21 2.82 2.79 23.28
+Lucky 7, Skinny 685.23 329.36 39.77 13.19 0.01 110.3 2291.4 48.82 4.11 4.35 37.63
+Mama's Meatball, Skinny 617.05 253.76 30.74 13.16 0.69 70 1384 54.72 4.84 5.14 29.29
+Mediterranean No Chicken, Skinny 333.22 55 8.1 2.1 0.01 7.5 709.59 54.35 6.83 4.42 14.67
+Mediterranean, Skinny 435.35 70.96 9.7 2.74 0.01 84.1 1047.89 54.99 6.83 5.06 35.1
+Pizza Melt, Skinny 518.05 195.1 23.94 9.05 0.18 57.5 1588.67 52.06 4.18 5.48 25.62
+Prime Rib Steak Sandwich, Skinny 594.42 301.55 35.74 12.82 0.37 68.73 965.46 48.19 2.97 2.08 25.11
+Roast Beef & Provolone, Skinny 407.04 95 12.87 5.42 0.01 47.5 855.63 46.61 2.82 3.19 27.63
+Sausage, Egg & Cheddar, Skinny 622.04 316 36.12 13.92 0.01 202.5 1136.13 47.11 2.82 1.69 28.63
+Sicilian, Skinny 629.01 289.1 35.12 12.18 0.18 76.25 1843.26 52.81 5.47 5.98 28.31
+Smoked Ham & Swiss, Skinny 392.9 90.71 12.12 5.15 0.01 60.5 1280.99 46.82 2.82 3.4 26.84
+Smokestack Pork & Mac, Skinny 663.36 46.92 31.23 8.05 0.19 79.62 1137.29 62.99 3.36 8.83 32.22
+Sweet Heat Pork BBQ, Skinny 613.68 40.71 30.7 8.57 0.01 83.57 1003.44 51.84 2.99 6.23 31.59
+Tuna Salad & Swiss, Skinny 460.99 149.6 19.74 5.78 0.01 48.69 585.15 46.52 4.36 2.34 30.34
+Turkey Breast & Swiss, Skinny 352.5 50 8.1 3.1 0.01 50 1055.22 48.76 4.11 2.09 28.17
+Veggie Melt, Skinny 447 154.87 20.3 9.4 0.01 37.5 579.15 49.53 7.38 2.76 22.14
+Wrecking Ball, Skinny 546.74 193.13 24.5 9.07 0.18 74.05 1639.77 53.34 5.14 5.71 31.64
+MENU: Salads
+A Wreck Salad 366.67 213.22 24.06 8.98 0 206.28 1320.93 8.8 2.18 3.89 30.41
+Apple Walnut 1073.45 693.86 76.91 13.86 0 92.5 1180.04 57.72 6.26 46.15 37.59
+Chicken Salad Salad 873.86 541.04 60.09 11.9 0 78.62 1041.58 59.42 5.71 46.23 22.77
+Farmhouse 785.21 552.14 61.04 14 0 294.3 1817.87 12.44 2.29 7.4 45.58
+Powerhouse 563.71 141.84 15.19 2.8 0 196.8 1592.47 75.04 7.89 59.9 29.78
+MENU: Salads - Half Sizes
+A Wreck Salad, Half 249.35 148.95 16.85 6.68 0 121.65 879.62 5.13 1.09 2.23 20.78
+Apple Walnut, Half 539.32 347.28 38.49 6.94 0 46.25 594.8 29.32 3.46 23.22 18.99
+Chicken Salad Salad, Half 436.93 270.52 30.05 5.95 0 39.31 520.79 29.71 2.85 23.12 11.38
+Farmhouse, Half 395.2 276.42 30.56 7.01 0 147.15 913.72 6.68 1.47 3.84 22.99
+Powerhouse, Half 284.45 71.27 7.63 1.41 0 98.4 801.02 37.98 4.27 30.09 15.09
+MENU: Mac & Soups
+Broccoli Cheddar, Bowl 350 210 24 15 0 80 1495 17 2 5 12
+Broccoli Cheddar, Cup 233.33 140 16 10 0 53.33 996.67 11.33 1.33 3.33 8
+Chicken Pot Pie, Bowl 420 255 28.5 13.5 0 82.5 1110 18 1.5 3 12
+Chicken Pot Pie, Cup 280 170 19 9 0 55 740 12 1 2 8
+Chili Mac, Bowl 474.25 219.93 23.84 11.19 0.67 60.89 1515.63 41.8 3.13 6.25 22.79
+Chili Mac, Cup 298.79 134.97 14.59 6.59 0.34 40.44 991.15 25.9 2.57 4.79 15.23
+Chili, Bowl 370 150 16 6 0 60 1400 30 6 10 23
+Chili, Cup 246.67 100 10.67 4 0 40 933.33 20 4 6.67 15.33
+Garden Vegetable, Bowl 110 5 0 0 0 0 1200 23 4 6 4
+Garden Vegetable, Cup 73.33 3.33 0 0 0 0 800 15.33 2.67 4 2.67
+Loaded Baked Potato, Bowl 310 180 20 11 0 50 1180 24 2 5 7
+Loaded Baked Potato, Cup 206.67 120 13.33 7.33 0 33.33 786.67 16 1.33 3.33 4.67
+Pork BBQ Mac, Bowl 878.27 256.03 51.88 18.93 1.01 129.9 2126.27 58.77 1.97 11.63 41.71
+Pork BBQ Mac, Cup 599.95 171.07 34.63 12.62 0.67 86.6 1484.65 42.58 1.41 10.17 27.86
+Southwest Corn Chowder, Bowl (at Select Locations) 355.05 142.74 15.86 3.5 0 20 2136.45 46.72 4 15 7
+Southwest Corn Chowder, Cup (at Select Locations) 222.53 87.87 9.76 2.33 0 13.33 1418.23 29.53 2.67 10 4.67
+MENU: Sides & Chips
+Baked Lay's 140 36 4 0.5 0 0 180 24 2 3 2
+Potbelly Whole Pickle 25 0 0 0 0 0 2150 5 4 2 1
+Utz Cheese Curls 230 0 14 4 0 0 450 22 0 3 3
+Zapp's Hot Pepper Chips 220 108 12 1.5 0 0 330 24 2 1 3
+Zapp's Hotter 'N Hot Jalapeno Chips 220 108 12 2 0 0 300 24 1 0 3
+Zapp's Mesquite Bar-B-Que Chips 220 110 12 2 0 0 170 24 1 1 3
+Zapp's Regular Chips 220 110 12 2 0 0 130 25 1 0 3
+Zapp's Salt & Vinegar Chips 220 110 12 2 0 0 380 24 1 0 3
+Zapp's VooDoo Heat Chips 220 110 12 2 0 0 360 25 1 1 3
+Zapp's VooDoo Regular Chips 220 0 12 2 0 0 360 24 1 3 3
+MENU: Kids
+Kids' Combo Ham & Swiss 499.63 112.71 14.59 6.1 0.01 54.3 1094.79 70.63 4.64 21.9 24.07
+Kids' Combo Mac & Cheese 527.71 215.57 24.57 11.56 0 55.29 1423.71 68.14 4.29 25.86 17
+Kids' Combo PB&J 741.97 245 29.99 6.39 0.01 5 610.73 105.32 7.64 51.08 20.06
+Kids' Combo Turkey & Swiss 464.47 81.5 11.14 4.39 0.01 46.25 914.73 71.62 4.64 20.58 25.06
+MENU: Desserts & Shakes
+Banana Pudding Shake 711.06 304.36 35.33 20.45 0 123.4 236.75 87.1 0 74.06 13.6
+Chocolate Brownie Cookie 420 170 19 8 0 35 180 58 4 40 5
+Chocolate Brownie Cookie Ice Cream Sandwich 1083.04 452.17 51.09 23.48 0 116.74 434.78 144.04 8 102.43 13.74
+Chocolate Shake 773.22 311.37 36.43 20.89 0 120.7 256.91 100.72 1 80.67 14.7
+Cold Brew Shake 676.09 306.93 36.04 20.58 0 119.2 242.84 77.9 0 60.24 13.2
+Confetti Cookie Shake 876.24 395.35 45.38 26.9 0.37 147.84 348.7 105.02 0.37 79.41 15.55
+Dozen Mini Oatmeal Chocolate Chip Cookies 1152 420 48 18 0 60 600 168 12 96 12
+Dream Bar 430 210 23 14 0 45 460 51 2 26 4
+English Toffee Shake 702.76 294.15 34.18 19.74 0 119.95 223.29 89.03 0 75.99 12.45
+Ice Cream Sandwich 243.04 112.17 13.09 7.48 0 46.74 74.78 28.04 0 22.43 3.74
+Oatmeal Chocolate Chip Cookie 420 150 17 7 0 30 230 60 3 34 6
+Oatmeal Chocolate Chip Cookie Ice Cream Sandwich 1083.04 412.17 47.09 21.48 0 106.74 534.78 148.04 6 90.43 15.74
+OREO Shake 769.33 345.35 40.21 22.47 0 121.54 336.34 90.47 0.7 68.83 14.68
+S'mores Cookie 430 170 19 8 0 15 490 61 1 37 5
+Strawberry Shake 714.97 302.49 35.43 20.27 0 117.7 241.66 90.29 1.2 73.05 12.7
+Sugar Cookie 515 218.25 24.25 14.12 1 65 280 77 1 50 5
+Sugar Cookie Ice Cream Sandwich 1243.04 512.17 57.09 35.48 2 206.74 694.78 168.04 0 96.43 15.74
+Vanilla Shake 696.9 319.38 37.34 21.45 0 123.4 253.16 78.5 0 62.46 14.6
+MENU: Wraps
+A Wreck Wrap 566.34 291.04 32.91 12.12 0 98.58 1975.02 33.94 15 3.74 49.46
+Avo Turkey Wrap 551.9 252.9 28.65 9.1 0 81.25 1790.5 41.3 20.2 2.3 53.1
+Bacon, Egg & Cheddar Wrap 850 548 61 26.5 0 350 2130 36 15 2 51
+Barnyard Wrap 926.34 559.7 62.91 25.46 0.34 168.57 2835.02 38.6 15.66 4.4 65.46
+BLTA Wrap 749.77 484.4 54.4 20.1 0 80 1664.56 41.75 20.88 3.62 39.28
+Chicken Bacon Ranch Wrap 816.32 457.01 50.62 18.35 0 189.62 2091.61 35.96 15.58 5.22 67.17
+Chicken Cordon Bleu Wrap 626.76 248.67 27.6 11.87 0 162.1 2346.52 36.41 15.68 5.97 66.82
+Chicken Salad & Provolone Wrap 670.97 386.55 42.8 10.42 0 120.5 1187.52 32.1 15.37 2.37 51.44
+Clubby Wrap 761.7 434.86 48.5 15.41 0 129.5 2685.79 40.51 15.58 5.38 57.84
+Cubano Wrap 715 169.86 43 12.76 0 117.57 2407.86 32.71 15 2.86 53.71
+Fiery Island Chicken Wrap 636.69 250.54 27.99 7.96 0 134.89 2112.45 51.76 18 17.36 59.14
+Fireball Wrap 927.5 524.48 58.5 25.02 1.02 135 2950 47.48 19.48 6.48 56.75
+Grilled Cheese Wrap 550 312 35 19.5 0 90 1230 30 15 2 41
+Grilled Chicken & Cheddar Wrap 483.19 175.94 19.39 8.46 0 144.89 1377.45 30.96 15 2.96 57.64
+Grilled Chicken Club Wrap 683.19 337.94 37.39 16.46 0 184.89 1857.45 32.96 15 2.96 65.64
+Ham, Mushroom, Egg & Swiss Wrap 633.29 298.9 33 12.84 0 337 2439.95 36.9 16.33 5.9 57.9
+Italian Wrap 685.25 434.5 48.85 15.78 0 96.88 2459.25 32.65 15 3.65 42.98
+Lucky 7 Wrap 931.59 583.54 65.76 21.39 0 170.45 3684.27 35.59 15 5.39 64.44
+Mama's Meatball Wrap 837.51 470.14 52.93 21.61 1.02 110 2336.8 45.41 18.03 7.17 51.99
+Mediterranean No Chicken Wrap 431.44 182 19 4.5 0 15 1438.75 48.19 20.44 6.66 31.01
+Mediterranean Wrap 584.63 205.94 21.39 5.46 0 129.89 1946.19 49.15 20.44 7.62 61.64
+Pizza Melt Wrap 730.51 408.99 45.73 16.78 0.34 98.75 2739.14 42.26 17.38 8.02 48.66
+Prime Rib Steak Wrap 797.5 534.76 59.64 21.37 0.55 109.55 1662.33 35.88 15.26 2.71 46
+Roast Beef & Provolone Wrap 522.5 232 26.12 10 0 76.25 1544.25 33.25 15 4.25 49.5
+Sausage, Egg & Cheddar Wrap 1020 704 76 28.5 0 405 2310 35 15 2 59
+Sicilian Wrap 888.76 549.99 61.78 21.2 0.34 126.88 3107.39 42.41 17.38 8.17 52.63
+Smoked Ham & Swiss Wrap 501.29 225.57 25 9.84 0 97 2137.29 33.57 15 4.57 48.57
+Smokestack Pork & Mac Wrap 926.69 165.27 54.16 14.19 0.36 124.95 2035.9 61.23 15.95 12.65 56.67
+Southwest Avo Chicken Wrap 706.72 322.34 36.1 9.16 0 141.74 1616.61 48.25 18.92 5.62 60.23
+Sweet Heat Pork BBQ Wrap 858.83 153.7 53.19 15.22 0 132.85 1809.25 46.59 15.41 12.89 55.53
+Tuna Salad & Swiss Wrap 595.24 313.9 35.71 10.52 0 79.29 1079.9 32.14 15.38 2.38 53.76
+Turkey Breast & Swiss Wrap 432.5 164.5 18.25 6.5 0 81.25 1785 35.5 15 2 50.5
+Veggie Melt Wrap 659 381.73 43.4 19.1 0 75 1177.87 38.53 21.53 3.33 45.93
+Wrecking Ball Wrap 763.86 405.86 45.84 16.55 0.34 123.58 2801.82 43.03 16.71 7.59 57.45
+Beverages - 20 fl oz Fountain
+Coke 265.9 0 0 0 0 0 59.46 72.59 0 72.59 0
+Coke Zero Sugar 0 0 0 0 0 0 70 0 0 0 0
+Diet Coca Cola 1.8 0 0 0 0 0 84.48 0.54 0 0.04 0
+Diet Dr. Pepper 1.82 0 0 0 0 0 120.41 0.37 0 0.05 0.13
+Dr. Pepper 240.36 0 0 0 0 0 73.65 65.38 0 64.14 0
+Fanta Orange 263.64 0 0 0 0 0 68.18 72.73 0 71.82 0
+Fuze Raspberry Tea 136.36 0 0 0 0 0 81.82 38.18 0 37.27 0
+Minute Maid Lemonade 227.27 0 0 0 0 0 163.64 62.73 0 60 0
+Sprite 240 0 0 0 0 0 110 64 0 64 0
+Sweetened Iced Tea 281.82 0 0 0 0 0 0 70.91 0 70.91 0
+Unsweetened Iced Tea 4.55 0 0 0 0 0 0 0 0 0 0
+Beverages - 30 fl oz Fountain
+Coke 398.85 0 0 0 0 0 89.19 108.88 0 108.88 0
+Coke Zero Sugar 0 0 0 0 0 0 105 0 0 0 0
+Diet Coca Cola 2.7 0 0 0 0 0 126.72 0.8 0 0.07 0
+Diet Dr. Pepper 2.73 0 0 0 0 0 180.61 0.56 0 0.07 0.19
+Dr. Pepper 360.55 0 0 0 0 0 110.47 98.07 0 96.2 0
+Fanta Orange 395.45 0 0 0 0 0 102.27 109.09 0 107.73 0
+Fuze Raspberry Tea 204.55 0 0 0 0 0 122.73 57.27 0 55.91 0
+Minute Maid Lemonade 340.91 0 0 0 0 0 245.45 94.09 0 90 0
+Sprite 360 0 0 0 0 0 165 96 0 96 0
+Sweetened Iced Tea 422.73 0 0 0 0 0 0 106.36 0 106.36 0
+Unsweetened Iced Tea 6.82 0 0 0 0 0 0 0 0 0 0
+Bread - BIGS - Lunch
+Bread - Multigrain, BIGS 455.01 46.8 5.2 1.2 0.02 0 670.44 90.51 8.22 4.17 18.34
+Bread - Multigrain, BIGS, Thin-Cut 330 0 4 1 0 0 490 66 6 3 13
+Bread - White, BIGS 450.09 0 4.24 0.84 0.02 0 652.25 89.22 5.64 3.38 18.26
+Bread - White, BIGS, Thin-Cut 320 0 3 0 0 0 460 64 2 2 13
+Meat - BIGS
+Capicola 120 70 8 3 0 35 960 2 0 2 10
+Chicken Salad 526.46 366.83 40.2 7.38 0 150.75 386.28 1.65 0.55 0.55 36.66
+Grilled Chicken 255.32 39.89 3.99 1.6 0 191.49 845.74 1.6 0 1.6 51.06
+Grilled Chicken Breast 176 32 3.2 0.8 0 104 56 0 0 0 38.4
+Gyro Meat 666.34 439.63 48.89 20.11 0 152.02 1794 20.44 2.54 2.56 36.18
+Ham 302.14 139.29 15 5.57 0 120 2312.14 4.29 0 4.29 34.29
+Meatballs 720 479.97 54 24.03 1.53 135 1710 11.97 2.97 2.97 36
+Mortadella 220 180 20 5 0 40 780 1 0 1 8
+Pastrami 310.5 161.01 10.35 3.45 0 138 2794.5 6.9 0 0 51.75
+Pepperoni 130 110 12 4 0 25 490 0 0 0 5
+Prime Rib 227.5 81.25 9.75 4.88 0 65 1300 3.25 0 0 32.5
+Pulled Pork 709.71 0 55.2 11.84 0 157.71 808.29 1.96 0 0 43.36
+Roast Beef 337.5 150 16.88 7.5 0 93.75 1023.75 3.75 0 3.75 37.5
+Roasted Turkey 229.5 67.5 6.75 2.7 0 121.5 1026 8.1 1.35 1.35 35.1
+Salami 621 513 59.4 18.9 0 135 2241 2.7 0 2.7 24.3
+Sliced Steak 442.26 336.8 37.42 16.33 0.68 100.36 1032.52 5.1 0.17 0.26 23.81
+Tuna Salad 412.86 257.85 29.57 6.03 0 81.44 494.85 1.71 0.57 0.57 38.64
+Turkey Breast 187.5 37.5 3.75 0 0 93.75 1725 7.5 0 0 37.5
+Turkey Club (Bigs) 579.5 351 38.25 16.7 0 191.5 1866 11.6 1.35 1.35 49.1
+Extra Meat
+Bacon 200 162 18 8 0 40 480 2 0 0 8
+Bacon, Non-Nueske 59.12 40.5 4.5 1.54 0 14.5 190 0 0.12 0 4.76
+Capicola - Extra 60 35 4 1.5 0 17.5 480 1 0 1 5
+Chicken Salad - Extra 58.5 40.76 4.47 0.82 0 16.75 42.92 0.18 0.06 0.06 4.07
+Grilled Chicken - Extra 44.68 5.32 0.53 0.21 0 25.53 112.77 0.21 0 0.21 6.81
+Ham - Extra 40.29 18.57 2 0.74 0 16 308.29 0.57 0 0.57 4.57
+Meatballs - Extra 76.67 53.33 6 2.33 0 23.33 110 1.33 0.33 0.33 5.33
+Mortadella - Extra 110 90 10 2.5 0 20 390 0.5 0 0.5 4
+Pepperoni - Extra 71.5 60.5 6.6 2.2 0 13.75 269.5 0 0 0 2.75
+Roast Beef - Extra 45 20 2.25 1 0 12.5 136.5 0.5 0 0.5 5
+Roasted Turkey - Extra 42.5 12.5 1.25 0.5 0 22.5 190 1.5 0.25 0.25 6.5
+Salami - Extra 115 95 11 3.5 0 25 415 0.5 0 0.5 4.5
+Sausage - Extra 190 160 17 6 0 45 380 1 0 0 8
+Tuna Salad - Extra 45.88 28.65 3.29 0.67 0 9.05 54.99 0.19 0.06 0.06 4.29
+Turkey Breast - Extra 25 5 0.5 0 0 12.5 230 1 0 0 5
+Cheese - BIGS
+*No Cheese 0 0 0 0 0 0 0 0 0 0 0
+Blue Cheese 150 105 12 7.5 0 37.5 570 0 0 0 9
+Cheddar 165 120 13.5 9 0 45 270 0 0 0 10.5
+Feta 105 60 6 4.5 0 22.5 510 3 0 1.5 9
+Provolone Cheese 150 105 12 6 0 30 360 1.5 0 0 10.5
+Swiss Cheese 150 105 12 7.5 0 37.5 90 1.5 0 0 12
+Extra Cheese
+Blue Cheese - Extra 50 35 4 2.5 0 12.5 190 0 0 0 3
+Cheddar - Extra 55 40 4.5 3 0 15 90 0 0 0 3.5
+Feta - Extra 35 20 2 1.5 0 7.5 170 1 0 0.5 3
+Provolone Cheese - Extra 50 35 4 2 0 10 120 0.5 0 0 3.5
+Swiss Cheese - Extra 50 35 4 2.5 0 12.5 30 0.5 0 0 4
+Toppings - BIGS
+Brown Mustard 24 0 0 0 0 0 336 0 0 0 0
+Buttermilk Ranch 156 143 16.25 1.3 0 13 188.5 2.6 0 1.95 0.65
+Caramelized Onions 20.25 13.77 1.53 0.96 0.06 3.99 38.23 1.58 0.2 0.78 0.21
+Hot Pepper Ranch 84.5 81.9 9.1 1.63 0 6.5 201.5 0.66 0 0.66 0
+Hot Peppers 37.5 22.5 2.25 0 0 0 885 3 1.5 0 0
+Italian Seasoning 0 0 0 0 0 0 0 0 0 0 0
+Lettuce 9.64 0 0 0 0 0 6.43 1.93 0.64 1.29 0.64
+Mayo 180 180 19.8 3.6 0 18 117 0 0 0 0
+Oil 96 96 11.2 1.6 0 0 0 0 0 0 0
+Pickles 2 0 0 0 0 0 220 0 0 0 0
+Potbelly Whole Pickle 4.5 0 0 0 0 0 387 0.9 0.72 0.36 0.18
+Red Wine Vinegar 14 0 0 0 0 0 2.4 0 0 0 0
+Roasted Garlic Aioli 207.9 205.82 22.87 3.12 0 10.4 176.72 0 0 0 0
+Sliced Onions 5.14 0 0 0 0 0 0 1.16 0.26 0.51 0.13
+Sweet Heat BBQ 81.22 2.13 0.23 0 0 0 377.63 19.14 0.51 13.61 0.32
+Tomato 9.52 0 0 0 0 0 7.62 1.9 0.38 1.14 0.38
+Premium Toppings - BIGS
+Artichoke Hearts 11.41 0 0 0 0 0 136.96 1.96 1.3 0.33 0.65
+Avocado 175.5 132.6 15.6 3.9 0 0 7.8 7.8 7.8 0 3.9
+Cucumbers 3.6 0 0 0 0 0 0.45 0.9 0 0.45 0
+Egg Patty 60 36 4 1.5 0 120 150 1 0 0 4
+Hummus 180 105 10.5 0 0 0 330 18 6 3 6
+Roasted Red Peppers 17.14 0 0 0 0 0 145.71 3.43 0.86 1.71 0.86
+Sliced Mushrooms 9 1 0 0 0 0 2 1 1 1 1
+LTOs (Hidden)
+Ghost Pepper Sauce 7.5 0 0 0 0 0 71.25 1.5 0 0.75 0
+Jerk Sauce 96 33.6 3.6 0 0 0 672 16.8 0 14.4 0
+Mac & Cheese 151.75 73.48 8 3.97 0.29 17.68 453.6 13.75 0.49 1.26 6.54
+Ranch 122.85 119.07 13.23 1.89 0 4.73 226.8 0.95 0 0.95 0.95
+Tzatziki Sauce 50 35 4.5 3.5 0 0 125 2 0 1 1
+Bread - Originals
+Bread - FLAT 230 27 3 0 0 0 410 43 1 3 0
+Bread - Multigrain 310.24 31.86 3.54 0.82 0.01 0 457.13 61.71 5.6 2.84 12.51
+Bread - Multigrain, Thin-Cut 210 0 3 1 0 0 300 41 4 2 8
+Bread - White 306.87 0 2.89 0.57 0.01 0 444.7 60.83 3.84 2.3 12.45
+Bread - White, Thin-Cut 200 0 2 0 0 0 290 40 1 1 8
+Damascus Flaxseed Wrap 220 72 8 1.5 0 0 690 30 15 2 20
+Meat - Originals & FLATS
+Capicola 120 70 8 3 0 35 960 2 0 2 10
+Chicken Salad 350.97 244.55 26.8 4.92 0 100.5 257.52 1.1 0.37 0.37 24.44
+Grilled Chicken 170.21 26.6 2.66 1.06 0 127.66 563.83 1.06 0 1.06 34.04
+Grilled Chicken Breast 183.33 33.33 3.33 0.83 0 108.33 58.33 0 0 0 40
+Gyro Meat 444.23 293.09 32.59 13.41 0 101.34 1196 13.63 1.7 1.71 24.12
+Ham 201.43 92.86 10 3.71 0 80 1541.43 2.86 0 2.86 22.86
+Meatballs 480 319.98 36 16.02 1.02 90 1140 7.98 1.98 1.98 24
+Mortadella 220 180 20 5 0 40 780 1 0 1 8
+Pastrami 207 107.34 6.9 2.3 0 92 1863 4.6 0 0 34.5
+Pepperoni 71.5 60.5 6.6 2.2 0 13.75 269.5 0 0 0 2.75
+Prime Rib 175 62.5 7.5 3.75 0 50 1000 2.5 0 0 25
+Pulled Pork 473.14 0 36.8 7.89 0 105.14 538.86 1.31 0 0 28.91
+Roast Beef 225 100 11.25 5 0 62.5 682.5 2.5 0 2.5 25
+Roasted Turkey 148.75 43.75 4.38 1.75 0 78.75 665 5.25 0.88 0.88 22.75
+Salami 230 190 22 7 0 50 830 1 0 1 9
+Sliced Steak 331.7 252.6 28.07 12.25 0.51 75.27 774.39 3.83 0.13 0.19 17.86
+Tuna Salad 275.24 171.9 19.71 4.02 0 54.29 329.9 1.14 0.38 0.38 25.76
+Turkey Breast 125 25 2.5 0 0 62.5 1150 5 0 0 25
+Turkey Club 348.75 205.75 22.38 9.75 0 118.75 1145 7.25 0.88 0.88 30.75
+Cheese - Originals & FLATS
+*No Cheese 0 0 0 0 0 0 0 0 0 0 0
+Blue Cheese 100 70 8 5 0 25 380 0 0 0 6
+Cheddar 110 80 9 6 0 30 180 0 0 0 7
+Feta 70 40 4 3 0 15 340 2 0 1 6
+Provolone Cheese 100 70 8 4 0 20 240 1 0 0 7
+Swiss Cheese 100 70 8 5 0 25 60 1 0 0 8
+Toppings - Originals & Wraps
+Brown Mustard 21 0 0 0 0 0 294 0 0 0 0
+Buttermilk Ranch 120 110 12.5 1 0 10 145 2 0 1.5 0.5
+Caramelized Onions 13.5 9.18 1.02 0.64 0.04 2.66 25.49 1.05 0.13 0.52 0.14
+Chipotle Lime 83.46 69.4 7.71 1.2 0 6.85 138.8 2.72 0.23 1.11 0.45
+Hot Pepper Ranch 65 63 7 1.25 0 5 155 0.51 0 0.51 0
+Hot Peppers 25 15 1.5 0 0 0 590 2 1 0 0
+Italian Seasoning 0 0 0 0 0 0 0 0 0 0 0
+Lettuce 6.43 0 0 0 0 0 4.29 1.29 0.43 0.86 0.43
+Mayo 160 160 17.6 3.2 0 16 104 0 0 0 0
+Oil 48 48 5.6 0.8 0 0 0 0 0 0 0
+Pickles 1 0 0 0 0 0 110 0 0 0 0
+Potbelly Whole Pickle 3 0 0 0 0 0 258 0.6 0.48 0.24 0.12
+Red Wine Vinegar 7 0 0 0 0 0 1.2 0 0 0 0
+Roasted Garlic Aioli 189 187.11 20.79 2.84 0 9.45 160.65 0 0 0 0
+Sliced Onions 3.43 0 0 0 0 0 0 0.77 0.17 0.34 0.09
+Sweet Heat BBQ 64.98 1.7 0.19 0 0 0 302.1 15.31 0.41 10.89 0.26
+Tomato 6.35 0 0 0 0 0 5.08 1.27 0.25 0.76 0.25
+Tortilla Crisps 70 36 4 0 0 0 30 8 0 0 0
+Premium Toppings - Originals & Wraps
+Artichoke Hearts 7.61 0 0 0 0 0 91.3 1.3 0.87 0.22 0.43
+Avocado 117 88.4 10.4 2.6 0 0 5.2 5.2 5.2 0 2.6
+Cucumbers 2.4 0 0 0 0 0 0.3 0.6 0 0.3 0
+Egg Patty 60 36 4 1.5 0 120 150 1 0 0 4
+Hummus 120 70 7 0 0 0 220 12 4 2 4
+Roasted Red Peppers 11.43 0 0 0 0 0 97.14 2.29 0.57 1.14 0.57
+Sliced Mushrooms 6 0.67 0 0 0 0 1.33 0.67 0.67 0.67 0.67
+Bread - SKINNYS
+Bread - FLAT 115 13.5 1.5 0 0 0 205 21.5 0.5 1.5 0
+Bread - Multigrain, Skinny 227.5 0 2.6 0.6 0.01 0 335.22 45.26 4.11 2.09 9.17
+Bread - Multigrain, Skinny, Thin-Cut 170 0 2 0 0 0 240 33 3 2 7
+Bread - White, Skinny 222.04 0 2.12 0.42 0.01 0 326.13 44.61 2.82 1.69 9.13
+Bread - White, Skinny, Thin-Cut 160 0 1 0 0 0 230 32 1 0.5 7
+Meat - SKINNYS
+Capicola 120 70 8 3 0 35 960 2 0 2 10
+Chicken Salad 175.49 122.28 13.4 2.46 0 50.25 128.76 0.55 0.18 0.18 12.22
+Grilled Chicken 85.11 13.3 1.33 0.53 0 63.83 281.91 0.53 0 0.53 17.02
+Gyro Meat 222.11 146.54 16.3 6.7 0 50.67 598 6.81 0.85 0.85 12.06
+Ham 100.71 46.43 5 1.86 0 40 770.71 1.43 0 1.43 11.43
+Meatballs 240 159.99 18 8.01 0.51 45 570 3.99 0.99 0.99 12
+Mortadella 220 180 20 5 0 40 780 1 0 1 8
+Pastrami 103.5 53.67 3.45 1.15 0 46 931.5 2.3 0 0 17.25
+Pepperoni 130 110 12 4 0 25 490 0 0 0 5
+Pulled Pork 236.57 0 18.4 3.95 0 52.57 269.43 0.65 0 0 14.45
+Roast Beef 112.5 50 5.62 2.5 0 31.25 341.25 1.25 0 1.25 12.5
+Roasted Turkey 97.75 28.75 2.88 1.15 0 51.75 437 3.45 0.57 0.57 14.95
+Salami 230 190 22 7 0 50 830 1 0 1 9
+Sliced Steak 221.13 168.4 18.71 8.16 0.34 50.18 516.26 2.55 0.09 0.13 11.91
+Tuna Salad 137.62 85.95 9.86 2.01 0 27.14 164.95 0.57 0.19 0.19 12.88
+Turkey Breast 62.5 12.5 1.25 0 0 31.25 575 2.5 0 0 12.5
+Cheese - SKINNYS
+*No Cheese 0 0 0 0 0 0 0 0 0 0 0
+Blue Cheese 50 35 4 2.5 0 12.5 190 0 0 0 3
+Cheddar 55 40 4.5 3 0 15 90 0 0 0 3.5
+Feta 35 20 2 1.5 0 7.5 170 1 0 0.5 3
+Provolone Cheese 50 35 4 2 0 10 120 0.5 0 0 3.5
+Swiss Cheese 50 35 4 2.5 0 12.5 30 0.5 0 0 4
+Toppings - Skinnys
+Brown Mustard 12 0 0 0 0 0 168 0 0 0 0
+Buttermilk Ranch 60 55 6.25 0.5 0 5 72.5 1 0 0.75 0.25
+Caramelized Onions 6.75 4.59 0.51 0.32 0.02 1.33 12.74 0.53 0.07 0.26 0.07
+Hot Pepper Ranch 32.5 31.5 3.5 0.63 0 2.5 77.5 0.25 0 0.25 0
+Hot Peppers 12.5 7.5 0.75 0 0 0 295 1 0.5 0 0
+Italian Seasoning 0 0 0 0 0 0 0 0 0 0 0
+Lettuce 3.21 0 0 0 0 0 2.14 0.64 0.21 0.43 0.21
+Marinara Sauce 12.51 2.72 0.31 0.03 0 0 88.94 2.15 0.35 1.06 0.33
+Mayo 100 100 11 2 0 10 65 0 0 0 0
+Oil 24 24 2.8 0.4 0 0 0 0 0 0 0
+Pickles 1 0 0 0 0 0 110 0 0 0 0
+Potbelly Whole Pickle 1.5 0 0 0 0 0 129 0.3 0.24 0.12 0.06
+Red Wine Vinegar 3.5 0 0 0 0 0 0.6 0 0 0 0
+Roasted Garlic Aioli 75.6 74.84 8.32 1.13 0 3.78 64.26 0 0 0 0
+Sliced Onions 1.71 0 0 0 0 0 0 0.39 0.09 0.17 0.04
+Sweet Heat BBQ 27.07 0.71 0.08 0 0 0 125.87 6.38 0.17 4.54 0.11
+Tomato 3.17 0 0 0 0 0 2.54 0.63 0.13 0.38 0.13
+Premium Toppings - Skinnys
+Artichoke Hearts 3.8 0 0 0 0 0 45.65 0.65 0.43 0.11 0.22
+Avocado 58.5 44.2 5.2 1.3 0 0 2.6 2.6 2.6 0 1.3
+Cucumbers 1.2 0 0 0 0 0 0.15 0.3 0 0.15 0
+Egg Patty 30 18 2 0.75 0 60 75 0.5 0 0 2
+Hummus 60 35 3.5 0 0 0 110 6 2 1 2
+Roasted Red Peppers 5.71 0 0 0 0 0 48.57 1.14 0.29 0.57 0.29
+Sliced Mushrooms 3 0.33 0 0 0 0 0.67 0.33 0.33 0.33 0.33
+Skinny Pair - Side Soup or Mac
+Broccoli Cheddar 175 105 12 7.5 0 40 747.5 8.5 1 2.5 6
+Chicken Pot Pie 210 127.5 14.25 6.75 0 41.25 555 9 0.75 1.5 6
+Chili, Side 185 75 8 3 0 30 700 15 3 5 11.5
+Craft Your Own Mac & Cheese 228.57 85.71 10 5 0.71 21.43 828.57 25.71 1.43 4.29 8.57
+Garden Salad 19.77 0.47 0 0 0 0 16.22 3.78 1.64 1.89 1.17
+Garden Vegetable 55 2.5 0 0 0 0 600 11.5 2 3 2
+Loaded Baked Potato 155 90 10 5.5 0 25 590 12 1 2.5 3.5
+Bread - BIGS
+Bread - Multigrain, BIGS 455.01 46.8 5.2 1.2 0.02 0 670.44 90.51 8.22 4.17 18.34
+Bread - Multigrain, BIGS, Thin-Cut 330 0 4 1 0 0 490 66 6 3 13
+Bread - White, BIGS 450.09 0 4.24 0.84 0.02 0 652.25 89.22 5.64 3.38 18.26
+Bread - White, BIGS, Thin-Cut 320 0 3 0 0 0 460 64 2 2 13
+Butter - Breakfast - Hidden
+Melted Butter 70 70 7.7 4.9 0 21 21 0 0 0 0
+Meat & Egg - BIGS - Breakfast
+Bacon 600 486 54 24 0 120 1440 6 0 0 24
+Egg Patty 180 108 12 4.5 0 360 450 3 0 0 12
+Ham 241.71 111.43 12 4.46 0 96 1849.71 3.43 0 3.43 27.43
+Sausage 855 720 76.5 27 0 202.5 1710 4.5 0 0 36
+Extra Meat - Breakfast
+Bacon - Extra 200 162 18 8 0 40 480 2 0 0 8
+Ham - Extra 40.29 18.57 2 0.74 0 16 308.29 0.57 0 0.57 4.57
+Sausage - Extra 190 160 17 6 0 45 380 1 0 0 8
+Cheese - BIGS - Breakfast
+*No Cheese 0 0 0 0 0 0 0 0 0 0 0
+Blue Cheese 150 105 12 7.5 0 37.5 570 0 0 0 9
+Cheddar 165 120 13.5 9 0 45 270 0 0 0 10.5
+Feta 105 60 6 4.5 0 22.5 510 3 0 1.5 9
+Provolone Cheese 150 105 12 6 0 30 360 1.5 0 0 10.5
+Swiss Cheese 150 105 12 7.5 0 37.5 90 1.5 0 0 12
+Premium Toppings - BIGS - Breakfast
+Artichoke Hearts 11.41 0 0 0 0 0 136.96 1.96 1.3 0.33 0.65
+Avocado 58.5 44.2 5.2 1.3 0 0 2.6 2.6 2.6 0 1.3
+Cucumbers 5.2 0 0 0 0 0 0.65 1.3 0 0.65 0
+Hummus 90 52.5 5.25 0 0 0 165 9 3 1.5 3
+Roasted Red Peppers 13.71 0 0 0 0 0 116.57 2.74 0.69 1.37 0.69
+Sliced Mushrooms 6 0.67 0 0 0 0 1.33 0.67 0.67 0.67 0.67
+Bread - Originals - Breakfast
+Bread - FLAT 230 27 3 0 0 0 410 43 1 3 0
+Bread - Multigrain 310.24 31.86 3.54 0.82 0.01 0 457.13 61.71 5.6 2.84 12.51
+Bread - Multigrain, Thin-Cut 210 0 3 1 0 0 300 41 4 2 8
+Bread - White 306.87 0 2.89 0.57 0.01 0 444.7 60.83 3.84 2.3 12.45
+Bread - White, Thin-Cut 200 0 2 0 0 0 290 40 1 1 8
+Damascus Flaxseed Wrap 220 72 8 1.5 0 0 690 30 15 2 20
+Plain Bagel 320 35 4 0 0 0 670 60 2 2 11
+Meat & Egg - Originals & FLATS - Breakfast
+Bacon 400 324 36 16 0 80 960 4 0 0 16
+Egg Patty 120 72 8 3 0 240 300 2 0 0 8
+Ham 181.29 83.57 9 3.34 0 72 1387.29 2.57 0 2.57 20.57
+Sausage 570 480 51 18 0 135 1140 3 0 0 24
+Extra Meat - Originals, FLATS, & SKINNYS - Breakfast
+Bacon - Extra 200 162 18 8 0 40 480 2 0 0 8
+Ham - Extra 40.29 18.57 2 0.74 0 16 308.29 0.57 0 0.57 4.57
+Sausage - Extra 190 160 17 6 0 45 380 1 0 0 8
+Cheese - Originals & FLATS - Breakfast
+*No Cheese 0 0 0 0 0 0 0 0 0 0 0
+Blue Cheese 100 70 8 5 0 25 380 0 0 0 6
+Cheddar 110 80 9 6 0 30 180 0 0 0 7
+Feta 70 40 4 3 0 15 340 2 0 1 6
+Provolone Cheese 100 70 8 4 0 20 240 1 0 0 7
+Swiss Cheese 100 70 8 5 0 25 60 1 0 0 8
+Premium Toppings - Originals, FLATS, & SKINNYS - Breakfast
+Artichoke Hearts 11.41 0 0 0 0 0 136.96 1.96 1.3 0.33 0.65
+Avocado 58.5 44.2 5.2 1.3 0 0 2.6 2.6 2.6 0 1.3
+Cucumbers 5.2 0 0 0 0 0 0.65 1.3 0 0.65 0
+Hummus 90 52.5 5.25 0 0 0 165 9 3 1.5 3
+Roasted Red Peppers 13.71 0 0 0 0 0 116.57 2.74 0.69 1.37 0.69
+Sliced Mushrooms 6 0.67 0 0 0 0 1.33 0.67 0.67 0.67 0.67
+Mac & Cheese
+Mac & Cheese, Bowl 457.14 171.43 20 10 1.43 42.86 1657.14 51.43 2.86 8.57 17.14
+Mac & Cheese, Cup 297.14 111.43 13 6.5 0.93 27.86 1077.14 33.43 1.86 5.57 11.14
+Mac - Extras
+Chili 30.83 12.5 1.33 0.5 0 5 116.67 2.5 0.5 0.83 1.92
+Chopped Bacon 70 50 5 2 0 20 280 0 0 0 6
+Hot Peppers 25 15 1.5 0 0 0 590 2 1 0 0
+Roasted Red Peppers 11.43 0 0 0 0 0 97.14 2.29 0.57 1.14 0.57
+Sliced Mushrooms 6 0.67 0 0 0 0 1.33 0.67 0.67 0.67 0.67
+Soups - Bowl
+Broccoli Cheddar 291.67 175 20 12.5 0 66.67 1245.83 14.17 1.67 4.17 10
+Chicken Pot Pie 350 212.5 23.75 11.25 0 68.75 925 15 1.25 2.5 10
+Chili 308.33 125 13.33 5 0 50 1166.67 25 5 8.33 19.17
+Garden Vegetable 91.67 4.17 0 0 0 0 1000 19.17 3.33 5 3.33
+Loaded Baked Potato 258.33 150 16.67 9.17 0 41.67 983.33 20 1.67 4.17 5.83
+Southwest Corn Chowder 225 82.5 9.17 2.92 0 16.67 1750 30.83 3.33 12.5 5.83
+Tortilla Crisps (Hidden)
+Tortilla Crisps 42.53 21.87 2.43 0 0 0 18.23 4.86 0 0 0
+Soup - Extras
+Avocado 22.5 17 2 0.5 0 0 1 1 1 0 0.5
+Cheddar 55 40 4.5 3 0 15 90 0 0 0 3.5
+Chopped Bacon 70 50 5 2 0 20 280 0 0 0 6
+Oyster Crackers 66 18 2 0 0 0 60 11 0 0 1
+Pot Pie Topper 142.22 88.89 10.67 4.44 0 0 62.22 5.33 0 0 0.89
+Sliced Onions 2.86 0 0 0 0 0 0 0.64 0.14 0.29 0.07
+Sides & Chips
+Baked Lays 140 36 4 0.5 0 0 180 24 2 3 2
+Potbelly Whole Pickle 25 0 0 0 0 0 2150 5 4 2 1
+Utz Cheese Curls 230 0 14 4 0 0 450 22 0 3 3
+Zapp's Hot Pepper Chips 220 108 12 1.5 0 0 330 24 2 1 3
+Zapp's Hotter 'N Hot Jalapeno Chips 220 108 12 2 0 0 300 24 1 0 3
+Zapp's Mesquite Bar-B-Que Chips 220 110 12 2 0 0 170 24 1 1 3
+Zapp's Regular Chips 220 110 12 2 0 0 130 25 1 0 3
+Zapp's Salt & Vinegar Chips 220 110 12 2 0 0 380 24 1 0 3
+Zapp's VooDoo Heat Chips 220 110 12 2 0 0 360 25 1 1 3
+Zapp's VooDoo Regular Chips 220 0 12 2 0 0 360 24 1 3 3
+Shakes & Smoothies (hidden)
+Apple Syrup 26.25 0 0 0 0 0 0 6.75 0 6.75 0
+Banana Pudding Syrup 56.42 0 0 0 0 0 2.81 13.92 0 13.92 0
+Butter Cookie 14 5 0.5 0 0 0 15 2 0 1 0
+Candied Orange Syrup 112.5 0 0 0 0 0 0 30 0 30 0
+Chocolate Syrup 100 0 0 0 0 0 15 24 1 20 1
+Cinnamon Syrup 37.5 0 0 0 0 0 0 9 0 9 0
+Coffee Syrup 237 1 0 0 0 0 36 59 1 55 1
+Cold Brew Coffee Syrup 8 0 0.07 0 0 0 4.7 1.33 0 0.25 0
+Crushed OREO 130 45 5 2 0 0 130 19 1 11 1
+Cupcake Syrup 90 0 0 0 0 0 100 22 0 22 0
+English Toffee Syrup 69.1 0 0 0 0 0 3.44 17.72 0 17.72 0
+Ice Cream 130 60 7 4 0 25 40 15 0 12 2
+Large Butter Cookie 35 15 2 1 0 0 19 5 0 2 1
+Low-Fat Frozen Yogurt 100 0 0 0 0 0 60 22 0 17 3
+Maraschino Cherry 8 0 0 0 0 0 0 2 0 2 0
+Marshmallow Syrup 68.05 0 0 0 0 0 0 16.73 0 16.44 0
+Mini Oreo Sandwich 31.11 11.11 1.33 0.44 0 0 25.56 4.67 0.22 2.44 0.22
+Nantucket Nectars Lemonade 110 0 0 0 0 0 20 28 0 28 0
+Pepperment Ice Cream 140 60 7 4 0 25 55 18 0 14 2
+Pumpkin Pie Slice 300 100 11 4.5 0 45 370 47 1 20 5
+Raspberry Lemonade Sherbet 132 9.24 1 0.7 0.04 4.24 21.84 30.5 0.17 20.21 0.93
+Red, White & Blue Sprinkles 53.07 20.75 2.27 1.93 0 0 2.04 8.39 0 6.35 0
+Salted Carmel Syrup 100 0 0 0 0 0 100 25 0 24 0
+Sprinkles 60 30 3 0 0 0 0 8 0 8 0
+Strawberry in Syrup 60 0 0 0 0 0 12 15.2 1.2 14 0
+Sugar Cookie 159.7 66.85 7.43 4.46 0.37 24.14 103.99 22.28 0.37 12.26 1.86
+Vanilla Extract 72.58 0.18 0.02 0 0 0 2.27 3.19 0 3.19 0.02
+Whipped Cream 7 5 0 0 0 1 0 0 0 0 0
+Whole Milk 146 71 8 5 0 24 98 13 0 13 8
+Shakes - Second Flavor Addition
+Chocolate Syrup - Second Flavor 100 0 0 0 0 0 15 24 1 20 1
+Coffee Syrup - Second Flavor 67.71 0.29 0 0 0 0 10.29 16.86 0.29 15.71 0.29
+OREO 91 31.5 3.5 1.4 0 0 91 13.3 0.7 7.7 0.7
+Vanilla 7.26 0.02 0 0 0 0 0.23 0.32 0 0.32 0
+Shakes - Extras
+Avocado 58.5 44.2 5.2 1.3 0 0 2.6 2.6 2.6 0 1.3
+Bananas 50 1.5 0.25 0 0 0 0.5 12.75 1.5 7 0.5
+Strawberries 30 0 0 0 0 0 6 7.6 0.6 7 0
+Desserts - Hidden
+Apple Cider Donut 300 200 22 12 0 20 290 24 1 9 3
+Blueberry Muffin Cookie 400 135 15 4.5 0 25 340 62 2 37 5
+Cherry Delight Cookie 420 153 17 6 0 30 340 61 1 35 5
+Chocolate Brownie Cookie 420 170 19 8 0 35 180 58 4 40 5
+Chocolate Syrup 100 0 0 0 0 0 15 24 1 20 1
+Dream Bar 430 210 23 14 0 45 460 51 2 26 4
+Dulce de Leche Cookie 420 153 17 7 0 25 400 60 1 36 5
+Ice Cream 130 60 7 4 0 25 40 15 0 12 2
+Low-Fat Frozen Yogurt 100 0 0 0 0 0 60 22 0 17 3
+Maraschino Cherry 8 0 0 0 0 0 0 2 0 2 0
+Mini Oatmeal Chocolate Chip Cookie 96 35 4 1.5 0 5 50 14 1 8 1
+Mint Chocolate Chip Brownie Cookie 351 142 16 7 0 26 206 50 3 33 4
+Oatmeal Chocolate Chip Cookie 420 150 17 7 0 30 230 60 3 34 6
+Pumpkin Pie Cookie 420 180 20 10 0.5 40 410 60 1 33 3
+Red Velvet Cookie 430 170 19 8 0 20 350 60 1 38 6
+S'mores Cookie 430 170 19 8 0 15 490 61 1 37 5
+Salted Caramel Apple Butter 59.12 6.47 0.72 0.39 0.01 0 81.49 13.37 0.47 10.48 5.22
+Sugar Cookie 430 180 20 12 1 65 280 60 1 33 5
+Sugar Cookie with Sugar Topping 500 200 22 14 1 80 310 70 0 37 6
+Sugar Crystals 85 38.25 4.25 2.12 0 0 0 17 0 17 0
+Whipped Cream 7 5 0 0 0 1 0 0 0 0 0
+Whole Milk 146 71 8 5 0 24 98 13 0 13 8
+Bread - Kids
+Bread - Multigrain 213.29 21.9 2.43 0.56 0.01 0 314.27 42.43 3.85 1.95 8.6
+Bread - Multigrain, Thin-Cut 105 0 1.5 0.5 0 0 150 20.5 2 1 4
+Bread - White 210.97 0 1.99 0.39 0.01 0 305.73 41.82 2.64 1.58 8.56
+Bread - White, Thin-Cut 100 0 1 0 0 0 145 20 0.5 0.5 4
+Meat - Kids
+Ham 92.66 42.71 4.6 1.71 0 36.8 709.06 1.31 0 1.31 10.51
+Pepperoni 36.68 31.04 3.39 1.13 0 7.05 138.27 0 0 0 1.41
+Turkey Breast 57.5 11.5 1.15 0 0 28.75 529 2.3 0 0 11.5
+Cheese - Kids
+*No Cheese 0 0 0 0 0 0 0 0 0 0 0
+Blue Cheese 25 17.5 2 1.25 0 6.25 95 0 0 0 1.5
+Cheddar 55 40 4.5 3 0 15 90 0 0 0 3.5
+Feta 35 20 2 1.5 0 7.5 170 1 0 0.5 3
+Provolone Cheese 50 35 4 2 0 10 120 0.5 0 0 3.5
+Swiss Cheese 50 35 4 2.5 0 12.5 30 0.5 0 0 4
+Toppings - Kids (Calc)
+*No Toppings 0 0 0 0 0 0 0 0 0 0 0
+Brown Mustard 5.7 0 0 0 0 0 79.8 0 0 0 0
+Hot Peppers 12.5 7.5 0.75 0 0 0 295 1 0.5 0 0
+Italian Seasoning 0 0 0 0 0 0 0 0 0 0 0
+Lettuce 2.14 0 0 0 0 0 1.43 0.43 0.14 0.29 0.14
+Mayo 50 50 5.5 1 0 5 32.5 0 0 0 0
+Oil 15.6 15.6 1.82 0.26 0 0 0 0 0 0 0
+Pickles 0.07 0 0 0 0 0 8.25 0 0 0 0
+Sliced Onions 1.43 0 0 0 0 0 0 0.32 0.07 0.14 0.04
+Tomato 2.4 0 0 0 0 0 1.92 0.48 0.1 0.29 0.1
+Premium Toppings - Kids
+Avocado 45 34 4 1 0 0 2 2 2 0 1
+Bacon 100 81 9 4 0 20 240 1 0 0 4
+Sliced Mushrooms 9 1 0 0 0 0 2 1 1 1 1
+Sides - Kids
+Apple Sauce 50 0 0 0 0 0 0 13 1 11 0
+Mini Oatmeal Chocolate Chip Cookie 96 35 4 1.5 0 5 50 14 1 8 1
+Beverages - Kids
+Kids Chocolate Milk 190 25 2.5 1.5 0 15 0 31 1 29 10
+Kids Milk 130 45 5 3 0 20 0 13 0 12 8
+Water Bottle 0 0 0 0 0 0 0 0 0 0 0
+Soups - Cup
+Broccoli Cheddar 233.33 140 16 10 0 53.33 996.67 11.33 1.33 3.33 8
+Chicken Pot Pie 280 170 19 9 0 55 740 12 1 2 8
+Chili 246.67 100 10.67 4 0 40 933.33 20 4 6.67 15.33
+Garden Vegetable 73.33 3.33 0 0 0 0 800 15.33 2.67 4 2.67
+Loaded Baked Potato 206.67 120 13.33 7.33 0 33.33 786.67 16 1.33 3.33 4.67
+Southwest Corn Chowder 180 66 7.33 2.33 0 13.33 1400 24.67 2.67 10 4.67
+Bottled Beverages
+Arizona Tea 180 0 0 0 0 0 20 50 0 46 0
+Cherry Coke 20 oz 260 0 0 0 0 0 60 70 0 70 0
+Coca Zero Sugar 20oz 0 0 0 0 0 0 70 0 0 0 0
+Coke 12oz 140 0 0 0 0 0 45 39 0 39 0
+Coke 20oz 240 0 0 0 0 0 75 65 0 65 0
+Crush 160 0 0 0 0 0 70 43 0 43 0
+Diet Coke 12 oz 0 0 0 0 0 0 40 0 0 0 0
+Diet Coke 20 oz 0 0 0 0 0 0 70 0 0 0 0
+Diet Snapple Half & Half 10 0 0 0 0 0 15 1 0 0 0
+Honest Organic Honey Green Tea 70 0 0 0 0 0 15 19 0 19 0
+Honest Organic Peach Tea 100 0 0 0 0 0 20 25 0 25 0
+IBC Cream Soda 180 0 0 0 0 0 70 44 0 44 0
+IBC Root Beer 160 0 0 0 0 0 60 40 0 40 0
+Nantucket Nectars Lemonade Bottle 180 0 0 0 0 0 45 47 0 43 0
+Nantucket Nectars Orange Mango 220 0 0 0 0 0 55 55 0 53 0
+Powerade Mountain Berry Blast 130 0 0 0 0 0 250 35 0 34 0
+San Pellegrino 0 0 0 0 0 0 20 0 0 0 0
+San Pellegrino Blood Orange 140 0 0 0 0 0 0 33 0 33 0
+Simply Orange 160 0 0 0 0 0 0 37 0 33 2
+Smartwater 0 0 0 0 0 0 0 0 0 0 0
+Sprite 20oz 240 0 0 0 0 0 110 64 0 64 0
+Vitamin Water Squeezed Lemonade 0 0 0 0 0 0 0 5 0 0 0
+Vitamin Water XXX Acai Blue Pom 120 0 0 0 0 0 0 33 0 32 0
+Water Bottle 0 0 0 0 0 0 0 0 0 0 0
+Mac - Kids
+Macaroni & Cheese 381.71 180.57 20.57 10.06 0 50.29 1373.71 41.14 2.29 6.86 16
+Meat - Originals & FLATS (Pizza Melt)
+Capicola 120 70 8 3 0 35 960 2 0 2 10
+Chicken Salad 350.97 244.55 26.8 4.92 0 100.5 257.52 1.1 0.37 0.37 24.44
+Grilled Chicken 170.21 26.6 2.66 1.06 0 127.66 563.83 1.06 0 1.06 34.04
+Grilled Chicken Breast 183.33 33.33 3.33 0.83 0 108.33 58.33 0 0 0 40
+Ham 201.43 92.86 10 3.71 0 80 1541.43 2.86 0 2.86 22.86
+Meatballs 480 319.98 36 16.02 1.02 90 1140 7.98 1.98 1.98 24
+Mortadella 220 180 20 5 0 40 780 1 0 1 8
+Pastrami 202.5 105.01 6.75 2.25 0 90 1822.5 4.5 0 0 33.75
+Pepperoni 71.5 60.5 6.6 2.2 0 13.75 269.5 0 0 0 2.75
+Prime Rib 175 62.5 7.5 3.75 0 50 1000 2.5 0 0 25
+Roast Beef 225 100 11.25 5 0 62.5 682.5 2.5 0 2.5 25
+Roasted Turkey 148.75 43.75 4.38 1.75 0 78.75 665 5.25 0.88 0.88 22.75
+Salami 230 190 22 7 0 50 830 1 0 1 9
+Tuna Salad 275.24 171.9 19.71 4.02 0 54.29 329.9 1.14 0.38 0.38 25.76
+Turkey Breast 125 25 2.5 0 0 62.5 1150 5 0 0 25
+Turkey Club 348.75 205.75 22.38 9.75 0 118.75 1145 7.25 0.88 0.88 30.75
+Toppings + Marinara Sauce - Originals, FLATS, & SKINNYS
+Brown Mustard 21 0 0 0 0 0 294 0 0 0 0
+Hot Pepper Ranch 48.75 47.25 5.25 0.94 0 3.75 116.25 0.38 0 0.38 0
+Hot Peppers 25 15 1.5 0 0 0 590 2 1 0 0
+Italian Seasoning 0 0 0 0 0 0 0 0 0 0 0
+Lettuce 6.43 0 0 0 0 0 4.29 1.29 0.43 0.86 0.43
+Marinara Sauce 25.01 5.44 0.62 0.06 0 0 177.87 4.29 0.7 2.13 0.66
+Mayo 160 160 17.6 3.2 0 16 104 0 0 0 0
+Oil 38.4 38.4 4.48 0.64 0 0 0 0 0 0 0
+Potbelly Whole Pickle 3 0 0 0 0 0 258 0.6 0.48 0.24 0.12
+Red Wine Vinegar 7 0 0 0 0 0 1.2 0 0 0 0
+Roasted Garlic Aioli 189 187.11 20.79 2.84 0 9.45 160.65 0 0 0 0
+Sliced Onions 3.43 0 0 0 0 0 0 0.77 0.17 0.34 0.09
+Sweet Heat BBQ 64.98 1.7 0.19 0 0 0 302.1 15.31 0.41 10.89 0.26
+Tomato 6.35 0 0 0 0 0 5.08 1.27 0.25 0.76 0.25
+Toppings + Ranch Dressing - Originals, FLATS, & SKINNYS
+Brown Mustard 21 0 0 0 0 0 294 0 0 0 0
+Buttermilk Ranch 120 110 12.5 1 0 10 145 2 0 1.5 0.5
+Hot Pepper Ranch 65 63 7 1.25 0 5 155 0.51 0 0.51 0
+Hot Peppers 25 15 1.5 0 0 0 590 2 1 0 0
+Italian Seasoning 0 0 0 0 0 0 0 0 0 0 0
+Lettuce 6.43 0 0 0 0 0 4.29 1.29 0.43 0.86 0.43
+Mayo 160 160 17.6 3.2 0 16 104 0 0 0 0
+Oil 48 48 5.6 0.8 0 0 0 0 0 0 0
+Potbelly Whole Pickle 3 0 0 0 0 0 258 0.6 0.48 0.24 0.12
+Red Wine Vinegar 7 0 0 0 0 0 1.2 0 0 0 0
+Roasted Garlic Aioli 189 187.11 20.79 2.84 0 9.45 160.65 0 0 0 0
+Sliced Onions 3.43 0 0 0 0 0 0 0.77 0.17 0.34 0.09
+Sweet Heat BBQ 64.98 1.7 0.19 0 0 0 302.1 15.31 0.41 10.89 0.26
+Tomato 6.35 0 0 0 0 0 5.08 1.27 0.25 0.76 0.25
+Toppings Hidden - BIGS
+Franks Hot Sauce 0 0 0 0 0 0 190 0 0 0 0
+Toppings + Chili - Originals, FLATS, & SKINNYS
+Brown Mustard 21 0 0 0 0 0 294 0 0 0 0
+Chili 61.67 25 2.67 1 0 10 233.33 5 1 1.67 3.83
+Hot Pepper Ranch 65 63 7 1.25 0 5 155 0.51 0 0.51 0
+Hot Peppers 25 15 1.5 0 0 0 590 2 1 0 0
+Italian Seasoning 0 0 0 0 0 0 0 0 0 0 0
+Lettuce 6.43 0 0 0 0 0 4.29 1.29 0.43 0.86 0.43
+Mayo 160 160 17.6 3.2 0 16 104 0 0 0 0
+Oil 48 48 5.6 0.8 0 0 0 0 0 0 0
+Potbelly Whole Pickle 3 0 0 0 0 0 258 0.6 0.48 0.24 0.12
+Red Wine Vinegar 7 0 0 0 0 0 1.2 0 0 0 0
+Roasted Garlic Aioli 189 187.11 20.79 2.84 0 9.45 160.65 0 0 0 0
+Sliced Onions 3.43 0 0 0 0 0 0 0.77 0.17 0.34 0.09
+Sweet Heat BBQ 64.98 1.7 0.19 0 0 0 302.1 15.31 0.41 10.89 0.26
+Tomato 6.35 0 0 0 0 0 5.08 1.27 0.25 0.76 0.25
+Meat - BIGS (Pizza Melt)
+Capicola 120 70 8 3 0 35 960 2 0 2 10
+Chicken Salad 526.46 366.83 40.2 7.38 0 150.75 386.28 1.65 0.55 0.55 36.66
+Grilled Chicken 255.32 39.89 3.99 1.6 0 191.49 845.74 1.6 0 1.6 51.06
+Grilled Chicken Breast 176 32 3.2 0.8 0 104 56 0 0 0 38.4
+Gyro Meat 434.57 286.71 31.89 13.11 0 99.14 1170 13.33 1.66 1.67 23.59
+Ham 302.14 139.29 15 5.57 0 120 2312.14 4.29 0 4.29 34.29
+Meatballs 720 479.97 54 24.03 1.53 135 1710 11.97 2.97 2.97 36
+Mortadella 220 180 20 5 0 40 780 1 0 1 8
+Pastrami 247.5 128.34 8.25 2.75 0 110 2227.5 5.5 0 0 41.25
+Pepperoni 130 110 12 4 0 25 490 0 0 0 5
+Prime Rib 227.5 81.25 9.75 4.88 0 65 1300 3.25 0 0 32.5
+Roast Beef 337.5 150 16.88 7.5 0 93.75 1023.75 3.75 0 3.75 37.5
+Roasted Turkey 229.5 67.5 6.75 2.7 0 121.5 1026 8.1 1.35 1.35 35.1
+Salami 621 513 59.4 18.9 0 135 2241 2.7 0 2.7 24.3
+Tuna Salad 412.86 257.85 29.57 6.03 0 81.44 494.85 1.71 0.57 0.57 38.64
+Turkey Breast 187.5 37.5 3.75 0 0 93.75 1725 7.5 0 0 37.5
+Turkey Club (Bigs) 579.5 351 38.25 16.7 0 191.5 1866 11.6 1.35 1.35 49.1
+Toppings + Marinara Sauce - BIGS
+Brown Mustard 24 0 0 0 0 0 336 0 0 0 0
+Hot Pepper Ranch 71.5 69.3 7.7 1.38 0 5.5 170.5 0.56 0 0.56 0
+Hot Peppers 37.5 22.5 2.25 0 0 0 885 3 1.5 0 0
+Italian Seasoning 0 0 0 0 0 0 0 0 0 0 0
+Lettuce 9.64 0 0 0 0 0 6.43 1.93 0.64 1.29 0.64
+Marinara Sauce 25.01 5.44 0.62 0.06 0 0 177.87 4.29 0.7 2.13 0.66
+Mayo 180 180 19.8 3.6 0 18 117 0 0 0 0
+Oil 96 96 11.2 1.6 0 0 0 0 0 0 0
+Potbelly Whole Pickle 4.5 0 0 0 0 0 387 0.9 0.72 0.36 0.18
+Red Wine Vinegar 7 0 0 0 0 0 1.2 0 0 0 0
+Roasted Garlic Aioli 207.9 205.82 22.87 3.12 0 10.4 176.72 0 0 0 0
+Sliced Onions 5.14 0 0 0 0 0 0 1.16 0.26 0.51 0.13
+Sweet Heat BBQ 64.98 1.7 0.19 0 0 0 302.1 15.31 0.41 10.89 0.26
+Tomato 9.52 0 0 0 0 0 7.62 1.9 0.38 1.14 0.38
+Toppings + Chili - BIGS
+Brown Mustard 24 0 0 0 0 0 336 0 0 0 0
+Chili 61.67 25 2.67 1 0 10 233.33 5 1 1.67 3.83
+Hot Pepper Ranch 84.5 81.9 9.1 1.63 0 6.5 201.5 0.66 0 0.66 0
+Hot Peppers 37.5 22.5 2.25 0 0 0 885 3 1.5 0 0
+Italian Seasoning 0 0 0 0 0 0 0 0 0 0 0
+Lettuce 9.64 0 0 0 0 0 6.43 1.93 0.64 1.29 0.64
+Mayo 180 180 19.8 3.6 0 18 117 0 0 0 0
+Oil 96 96 11.2 1.6 0 0 0 0 0 0 0
+Potbelly Whole Pickle 4.5 0 0 0 0 0 387 0.9 0.72 0.36 0.18
+Red Wine Vinegar 14 0 0 0 0 0 2.4 0 0 0 0
+Roasted Garlic Aioli 207.9 205.82 22.87 3.12 0 10.4 176.72 0 0 0 0
+Sliced Onions 5.14 0 0 0 0 0 0 1.16 0.26 0.51 0.13
+Sweet Heat BBQ 81.22 2.13 0.23 0 0 0 377.63 19.14 0.51 13.61 0.32
+Tomato 9.52 0 0 0 0 0 7.62 1.9 0.38 1.14 0.38
+Toppings + Ranch Dressing - BIGS
+Brown Mustard 15 0 0 0 0 0 210 0 0 0 0
+Buttermilk Ranch 156 143 16.25 1.3 0 13 188.5 2.6 0 1.95 0.65
+Hot Pepper Ranch 84.5 81.9 9.1 1.63 0 6.5 201.5 0.66 0 0.66 0
+Hot Peppers 37.5 22.5 2.25 0 0 0 885 3 1.5 0 0
+Italian Seasoning 0 0 0 0 0 0 0 0 0 0 0
+Lettuce 9.64 0 0 0 0 0 6.43 1.93 0.64 1.29 0.64
+Mayo 180 180 19.8 3.6 0 18 117 0 0 0 0
+Oil 96 96 11.2 1.6 0 0 0 0 0 0 0
+Potbelly Whole Pickle 4.5 0 0 0 0 0 387 0.9 0.72 0.36 0.18
+Red Wine Vinegar 14 0 0 0 0 0 2.4 0 0 0 0
+Roasted Garlic Aioli 207.9 205.82 22.87 3.12 0 10.4 176.72 0 0 0 0
+Sliced Onions 5.14 0 0 0 0 0 0 1.16 0.26 0.51 0.13
+Sweet Heat BBQ 81.22 2.13 0.23 0 0 0 377.63 19.14 0.51 13.61 0.32
+Tomato 9.52 0 0 0 0 0 7.62 1.9 0.38 1.14 0.38
+PB & J - Originals, FLATS, & SKINNYS
+Grape Jelly 200 0 0 0 0 0 60 52 0 52 0
+Peanut Butter 570 420 48 9 0 0 450 21 6 9 21
+Ice Cream Sandwich - Ice Cream
+Ice Cream 243.04 112.17 13.09 7.48 0 46.74 74.78 28.04 0 22.43 3.74
+Ice Cream Sandwich
+Chocolate Brownie Cookie 840 340 38 16 0 70 360 116 8 80 10
+Oatmeal Chocolate Chip Cookie 840 300 34 14 0 60 460 120 6 68 12
+Sugar Cookie with Sugar Topping 1000 400 44 28 2 160 620 140 0 74 12
+Greens - Salad
+Fresh Romaine, Iceberg and Spinach 25.4 1 0 0 0 0 31 5 3 3 2
+Salad Blend 15.59 2.1 0.23 0.03 0 0 28.71 2.75 1.96 0.86 1.18
+Meat - Salad
+*No Meat 0 0 0 0 0 0 0 0 0 0 0
+Chicken Salad 204.73 142.65 15.63 2.87 0 58.62 150.22 0.64 0.22 0.22 14.26
+Grilled Chicken 102.13 15.96 1.6 0.64 0 76.6 338.3 0.64 0 0.64 20.43
+Grilled Chicken Breast 110 20 2 0.5 0 65 35 0 0 0 24
+Ham 141 65 7 2.6 0 56 1079 2 0 2 16
+Roast Beef 90 40 4.5 2 0 25 273 1 0 1 10
+Salami 230 190 22 7 0 50 830 1 0 1 9
+Tuna Salad 160.56 100.27 11.5 2.34 0 31.67 192.44 0.66 0.22 0.22 15.03
+Turkey Breast 50 10 1 0 0 25 460 2 0 0 10
+Extra Meat - Salad
+Chicken Salad - Extra 58.5 40.76 4.47 0.82 0 16.75 42.92 0.18 0.06 0.06 4.07
+Grilled Chicken - Extra 44.68 5.32 0.53 0.21 0 25.53 112.77 0.21 0 0.21 6.81
+Cheese - Salad
+*No Cheese 0 0 0 0 0 0 0 0 0 0 0
+Blue Cheese 110 77 8.8 5.5 0 27.5 418 0 0 0 6.6
+Cheddar 55 40 4.5 3 0 15 90 0 0 0 3.5
+Feta 70 40 4 3 0 15 340 2 0 1 6
+Provolone Cheese 50 35 4 2 0 10 120 0.5 0 0 3.5
+Swiss Cheese 50 35 4 2.5 0 12.5 30 0.5 0 0 4
+Extra Cheese - Salad
+Blue Cheese - Extra 50 35 4 2.5 0 12.5 190 0 0 0 3
+Cheddar - Extra 55 40 4.5 3 0 15 90 0 0 0 3.5
+Feta - Extra 35 20 2 1.5 0 7.5 170 1 0 0.5 3
+Provolone Cheese - Extra 50 35 4 2 0 10 120 0.5 0 0 3.5
+Swiss Cheese - Extra 50 35 4 2.5 0 12.5 30 0.5 0 0 4
+Toppings - Salad
+Cucumbers 5.2 0 0 0 0 0 0.65 1.3 0 0.65 0
+Grape Tomato 8.33 0 0 0 0 0 2 1.33 0.33 0.33 0.33
+Italian Seasoning 0 0 0 0 0 0 0 0 0 0 0
+Premium Toppings - Salad
+Artichoke Hearts 15.22 0 0 0 0 0 182.61 2.61 1.74 0.43 0.87
+Avocado 58.5 44.2 5.2 1.3 0 0 2.6 2.6 2.6 0 1.3
+Candied Walnuts 140.8 115.2 12.8 1.92 0 0 48 6.4 1.28 4.48 2.56
+Chopped Bacon 140 100 10 4 0 40 560 0 0 0 12
+Diced Apples 16.5 0 0 0 0 0 0 4.4 0.73 3.3 0
+Dried Cranberry 100 1.43 0.14 0 0 0 0 24 2 18.86 0
+Fresh Strawberries 13.6 1.15 0.13 0 0 0 0.42 3.27 0.85 2.08 0.3
+Garbanzo Beans 78.57 14.29 1.43 0.36 0 0 257.14 12.86 5.71 2.14 4.29
+Glazed Walnuts 142.48 117.7 13.01 1.24 0 0 34.07 3.72 0.62 2.48 2.48
+Hard Boiled Egg 43.96 27.08 2.92 0.83 0 120.21 35.21 0.42 0 0.42 3.54
+Hummus 90 52.5 5.25 0 0 0 165 9 3 1.5 3
+Red Grapes 15.7 0.3 0 0 0 0 0.45 4.08 0.15 3.47 0.15
+Roasted Red Peppers 13.71 0 0 0 0 0 116.57 2.74 0.69 1.37 0.69
+Salad Dressing Calc
+*No Dressing 0 0 0 0 0 0 0 0 0 0 0
+Balsamic Vinaigrette 380 324 36 5 0 0 620 14 0 14 0
+Buttermilk Ranch 360 330 37.5 3 0 30 435 6 0 4.5 1.5
+Fat Free Vinaigrette 240 0 0 0 0 0 1020 57 0 55.5 0
+Hot Pepper Ranch 390 378 42 7.52 0 30 930 3.04 0 3.04 0
+Extra Cheese - Half Salad
+Blue Cheese - Extra 50 35 4 2.5 0 12.5 190 0 0 0 3
+Cheddar - Extra 27.5 20 2.25 1.5 0 7.5 45 0 0 0 1.75
+Feta - Extra 35 20 2 1.5 0 7.5 170 1 0 0.5 3
+Provolone Cheese - Extra 25 17.5 2 1 0 5 60 0.25 0 0 1.75
+Swiss Cheese - Extra 25 17.5 2 1.25 0 6.25 15 0.25 0 0 2
+Meat & Egg - Skinny - Breakfast
+Bacon 200 162 18 8 0 40 480 2 0 0 8
+Egg Patty 60 36 4 1.5 0 120 150 1 0 0 4
+Ham 120.86 55.71 6 2.23 0 48 924.86 1.71 0 1.71 13.71
+Sausage 285 240 25.5 9 0 67.5 570 1.5 0 0 12
+Premium Toppings - Skinnys - Breakfast
+Artichoke Hearts 3.8 0 0 0 0 0 45.65 0.65 0.43 0.11 0.22
+Avocado 58.5 44.2 5.2 1.3 0 0 2.6 2.6 2.6 0 1.3
+Cucumbers 1.2 0 0 0 0 0 0.15 0.3 0 0.15 0
+Hummus 60 35 3.5 0 0 0 110 6 2 1 2
+Roasted Red Peppers 5.71 0 0 0 0 0 48.57 1.14 0.29 0.57 0.29
+Sliced Mushrooms 3 0.33 0 0 0 0 0.67 0.33 0.33 0.33 0.33
+Meat - Cubano
+Ham 141 65 7 2.6 0 56 1079 2 0 2 16
+Pulled Pork 329.14 0 25.6 5.49 0 73.14 374.86 0.91 0 0 20.11
+Meat - SKINNYS (Pizza Melt)
+Capicola 120 70 8 3 0 35 960 2 0 2 10
+Chicken Salad 175.49 122.28 13.4 2.46 0 50.25 128.76 0.55 0.18 0.18 12.22
+Grilled Chicken 85.11 13.3 1.33 0.53 0 63.83 281.91 0.53 0 0.53 17.02
+Ham 100.71 46.43 5 1.86 0 40 770.71 1.43 0 1.43 11.43
+Meatballs 240 159.99 18 8.01 0.51 45 570 3.99 0.99 0.99 12
+Mortadella 220 180 20 5 0 40 780 1 0 1 8
+Pastrami 90 46.67 3 1 0 40 810 2 0 0 15
+Pepperoni 130 110 12 4 0 25 490 0 0 0 5
+Roast Beef 112.5 50 5.62 2.5 0 31.25 341.25 1.25 0 1.25 12.5
+Roasted Turkey 97.75 28.75 2.88 1.15 0 51.75 437 3.45 0.57 0.57 14.95
+Salami 230 190 22 7 0 50 830 1 0 1 9
+Tuna Salad 137.62 85.95 9.86 2.01 0 27.14 164.95 0.57 0.19 0.19 12.88
+Turkey Breast 62.5 12.5 1.25 0 0 31.25 575 2.5 0 0 12.5
+Chili Mac (Hidden)
+Chili 246.67 100 10.67 4 0 40 933.33 20 4 6.67 15.33
+Mac & Cheese 142.26 68.89 7.5 3.73 0.27 16.58 425.25 12.89 0.46 1.18 6.13
+Pulled Pork 205.71 0 16 3.43 0 45.71 234.29 0.57 0 0 12.57
+Sweet Heat BBQ 43.32 1.13 0.12 0 0 0 201.4 10.21 0.27 7.26 0.17
+Chili Mac - Extras
+Cheddar 55 40 4.5 3 0 15 90 0 0 0 3.5
+Chopped Bacon 70 50 5 2 0 20 280 0 0 0 6
+Hot Peppers 12.5 7.5 0.75 0 0 0 295 1 0.5 0 0
+Wrap
+Damascus Flaxseed Wrap 220 72 8 1.5 0 0 690 30 15 2 20
