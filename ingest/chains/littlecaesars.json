@@ -77,13 +77,15 @@
    "id": "item",
    "name": "Menu Pizzas",
    "select": "single",
-   "flow": "preset"
+   "flow": "preset",
+   "role": "preset"
   },
   {
    "id": "base",
    "name": "Pizza Base",
    "select": "single",
    "flow": "build",
+   "role": "format",
    "in_preset": true,
    "note": "A base is the cheese pizza — sauce and cheese included. Only these two crusts have a published topping table; thin and pretzel are whole pizzas under menu items."
   },
@@ -92,25 +94,29 @@
    "name": "Toppings",
    "select": "multi",
    "flow": "both",
+   "role": "topping",
    "note": "These are the largest portion Little Caesars puts on, so a pizza built here can come out above the same one on their menu."
   },
   {
    "id": "sides",
    "name": "Sides & Breads",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "side"
   },
   {
    "id": "wings",
    "name": "Caesar Wings",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "entree"
   },
   {
    "id": "dips",
    "name": "Caesar Dips",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "sauce"
   }
  ],
  "section_modes": {

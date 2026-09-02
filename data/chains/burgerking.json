@@ -19,62 +19,72 @@
       "id": "item",
       "name": "Menu Items",
       "select": "single",
-      "flow": "preset"
+      "flow": "preset",
+      "role": "preset"
     },
     {
       "id": "base",
       "name": "Bun & Base",
       "select": "single",
       "flow": "build",
+      "role": "format",
       "in_preset": true
     },
     {
       "id": "patty",
       "name": "Patty",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "protein"
     },
     {
       "id": "cheese",
       "name": "Cheese",
       "select": "multi",
-      "flow": "both"
+      "flow": "both",
+      "role": "cheese"
     },
     {
       "id": "toppings",
       "name": "Toppings",
       "select": "multi",
-      "flow": "both"
+      "flow": "both",
+      "role": "topping"
     },
     {
       "id": "sauces",
       "name": "Sauces",
       "select": "multi",
-      "flow": "both"
+      "flow": "both",
+      "role": "sauce"
     },
     {
       "id": "sides",
       "name": "Sides",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "side"
     },
     {
       "id": "drinks",
       "name": "Drinks & Coffee",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "drink"
     },
     {
       "id": "sweets",
       "name": "Sweets",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "dessert"
     },
     {
       "id": "condiments",
       "name": "Condiments",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "sauce"
     }
   ],
   "components": [

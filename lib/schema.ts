@@ -87,6 +87,12 @@ export const SizeModeSchema = z.object({
   portion_count: z.number().int().positive().optional(),
 }).strict();
 
+export const CATEGORY_ROLES = [
+  "preset", "entree", "format", "base", "protein", "topping", "cheese",
+  "sauce", "side", "drink", "dessert", "kids", "other",
+] as const;
+export type CategoryRole = (typeof CATEGORY_ROLES)[number];
+
 export const CategorySchema = z.object({
   id: z.string().regex(/^[a-z0-9][a-z0-9-]*$/),
   name: z.string().min(1),
@@ -108,6 +114,14 @@ export const CategorySchema = z.object({
   // the eight cases right and then misses Just Salad's "Wrap / Bread": two
   // rows, multi-select, and every bit as structural as a size.
   in_preset: z.boolean().optional(),
+  // What KIND of thing this category holds, from a fixed list, so cross-chain
+  // code can ask "the sauces" or "the proteins" instead of guessing from a
+  // name -- which is what the consistency test did, with a regex over
+  // category names, before this existed. Editorial, set per chain; it never
+  // changes a number. `preset` is a list of published whole items you start
+  // from; `entree` is a whole item filed elsewhere (Domino's pasta under
+  // extras); `format` is the structural pick (bun, crust, size, tortilla).
+  role: z.enum(CATEGORY_ROLES).optional(),
   // Optional explanatory line shown under the category heading.
   note: z.string().optional(),
 }).strict();

@@ -50,13 +50,15 @@
    "id": "signature",
    "name": "Menu Salads, Bowls, Plates & Wraps",
    "select": "single",
-   "flow": "preset"
+   "flow": "preset",
+   "role": "preset"
   },
   {
    "id": "format",
    "name": "Format",
    "select": "single",
    "flow": "build",
+   "role": "format",
    "in_preset": true
   },
   {
@@ -64,6 +66,7 @@
    "name": "Base",
    "select": "multi",
    "flow": "build",
+   "role": "base",
    "note": "Going half-and-half? Pick both and set each to ½ — otherwise you're counting two full portions."
   },
   {
@@ -71,61 +74,71 @@
    "name": "Wrap / Bread",
    "select": "multi",
    "flow": "build",
+   "role": "format",
    "in_preset": true
   },
   {
    "id": "essentials",
    "name": "Essentials",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "topping"
   },
   {
    "id": "premiums",
    "name": "Premiums",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "topping"
   },
   {
    "id": "cheese",
    "name": "Cheese",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "cheese"
   },
   {
    "id": "protein",
    "name": "Protein",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "protein"
   },
   {
    "id": "dressings",
    "name": "Dressings",
    "select": "multi",
-   "flow": "both"
+   "flow": "both",
+   "role": "sauce"
   },
   {
    "id": "combos",
    "name": "Curated Combos",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "entree"
   },
   {
    "id": "soups",
    "name": "Soups",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "side"
   },
   {
    "id": "snacks",
    "name": "Snacks",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "side"
   },
   {
    "id": "drinks",
    "name": "Drinks & Smoothies",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "drink"
   }
  ],
  "layout": {

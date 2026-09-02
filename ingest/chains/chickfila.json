@@ -42,6 +42,7 @@
    "name": "Pick a menu item",
    "select": "multi",
    "flow": "preset",
+   "role": "preset",
    "note": "These are Chick-fil-A's published totals for the item as served, including the cheese and chicken options they publish. Anything you add below is added on top of it."
   },
   {
@@ -49,55 +50,64 @@
    "name": "Bun",
    "select": "single",
    "flow": "build",
+   "role": "format",
    "in_preset": true
   },
   {
    "id": "protein",
    "name": "Protein",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "protein"
   },
   {
    "id": "toppings",
    "name": "Toppings & Cheese",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "topping"
   },
   {
    "id": "sauce",
    "name": "Dipping Sauces",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "sauce"
   },
   {
    "id": "dressing",
    "name": "Dressings",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "sauce"
   },
   {
    "id": "saladtop",
    "name": "Salad & Soup Toppings",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "topping"
   },
   {
    "id": "side",
    "name": "Sides",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "side"
   },
   {
    "id": "drink",
    "name": "Drinks & Coffee",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "drink"
   },
   {
    "id": "treat",
    "name": "Treats",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "dessert"
   }
  ],
  "layout": {

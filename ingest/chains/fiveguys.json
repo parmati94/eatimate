@@ -29,43 +29,50 @@
    "id": "bun",
    "name": "Bun",
    "select": "single",
-   "flow": "build"
+   "flow": "build",
+   "role": "format"
   },
   {
    "id": "meat",
    "name": "Patties & Meat",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "protein"
   },
   {
    "id": "toppings",
    "name": "Toppings & Sauces",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "topping"
   },
   {
    "id": "fries",
    "name": "Fries",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "side"
   },
   {
    "id": "shake",
    "name": "Milkshake Builder",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "drink"
   },
   {
    "id": "snacks",
    "name": "Peanuts",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "side"
   },
   {
    "id": "drinks",
    "name": "Drinks",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "drink"
   }
  ],
  "layout": {

@@ -145,6 +145,12 @@ Config (ingest/chains/<slug>.json):
     flow                 "preset" | "build" | "extras" | "both"
     in_preset            a named menu item already includes this, so the menu
                          path does not offer it (a bread, a bun, a size)
+    role                 what kind of thing the category holds, from the fixed
+                         list in lib/schema.ts CATEGORY_ROLES (preset, entree,
+                         format, base, protein, topping, cheese, sauce, side,
+                         drink, dessert, kids, other). Required by
+                         lib/consistency.test.ts; cross-chain code reads it
+                         instead of guessing from the category name.
 """
 import json, re, sys, unicodedata
 from pathlib import Path

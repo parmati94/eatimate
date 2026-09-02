@@ -21,37 +21,43 @@
       "id": "classic",
       "name": "Classic Wings",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "protein"
     },
     {
       "id": "boneless",
       "name": "Boneless Wings",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "protein"
     },
     {
       "id": "tenders",
       "name": "Crispy Tenders",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "protein"
     },
     {
       "id": "sides",
       "name": "Sides & Dips",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "side"
     },
     {
       "id": "sandwiches",
       "name": "Chicken Sandwiches",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "entree"
     },
     {
       "id": "drinks",
       "name": "Drinks",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "drink"
     }
   ],
   "components": [

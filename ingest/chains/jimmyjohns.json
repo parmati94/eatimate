@@ -156,19 +156,22 @@
    "name": "Bread & Size",
    "select": "single",
    "flow": "preset",
+   "role": "format",
    "note": "Jimmy John's publishes a separate set of figures for each bread, so this decides which sandwiches and which add-on portions apply."
   },
   {
    "id": "sandwich",
    "name": "Sandwiches",
    "select": "single",
-   "flow": "preset"
+   "flow": "preset",
+   "role": "preset"
   },
   {
    "id": "bread",
    "name": "Bread",
    "select": "single",
    "flow": "build",
+   "role": "format",
    "note": "Building from scratch: this is the bread on its own. A named sandwich already includes it. Jimmy John's scoops the middle out of its French loaf as standard (their \"TBO\", take bread out); ask to leave it in and the loaf is the heavier row.",
    "in_preset": true
   },
@@ -177,25 +180,29 @@
    "name": "Add-ons",
    "select": "multi",
    "flow": "build",
+   "role": "topping",
    "note": "Every add-on is published at three portions - EZ, regular and XTRA - and the figures differ by bread size."
   },
   {
    "id": "freebies",
    "name": "Freebies",
    "select": "multi",
-   "flow": "both"
+   "flow": "both",
+   "role": "topping"
   },
   {
    "id": "sides",
    "name": "Sides & Desserts",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "side"
   },
   {
    "id": "drinks",
    "name": "Drinks",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "drink"
   }
  ],
  "items": {

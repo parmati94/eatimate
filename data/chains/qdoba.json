@@ -20,13 +20,15 @@
       "id": "signature-eats",
       "name": "Signature Eats",
       "select": "single",
-      "flow": "preset"
+      "flow": "preset",
+      "role": "preset"
     },
     {
       "id": "base",
       "name": "Base / Format",
       "select": "single",
       "flow": "build",
+      "role": "format",
       "in_preset": true
     },
     {
@@ -34,6 +36,7 @@
       "name": "Rice",
       "select": "multi",
       "flow": "build",
+      "role": "base",
       "note": "Going half-and-half? Pick both and set each to ½ — otherwise you're counting two full portions."
     },
     {
@@ -41,55 +44,64 @@
       "name": "Beans",
       "select": "multi",
       "flow": "build",
+      "role": "base",
       "note": "Going half-and-half? Pick both and set each to ½ — otherwise you're counting two full portions."
     },
     {
       "id": "proteins",
       "name": "Proteins",
       "select": "multi",
-      "flow": "build"
+      "flow": "build",
+      "role": "protein"
     },
     {
       "id": "queso-sauces",
       "name": "Queso, Sauces & Dressings",
       "select": "multi",
-      "flow": "both"
+      "flow": "both",
+      "role": "sauce"
     },
     {
       "id": "salsas",
       "name": "Salsas",
       "select": "multi",
-      "flow": "both"
+      "flow": "both",
+      "role": "sauce"
     },
     {
       "id": "toppings",
       "name": "Toppings",
       "select": "multi",
-      "flow": "both"
+      "flow": "both",
+      "role": "topping"
     },
     {
       "id": "sides",
       "name": "Sides",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "side"
     },
     {
       "id": "kids-ingredients",
       "name": "Kids Ingredients",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "kids"
     },
     {
       "id": "desserts",
       "name": "Desserts",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "dessert"
     },
     {
       "id": "drinks",
       "name": "Drinks",
       "select": "multi",
-      "flow": "extras"
+      "flow": "extras",
+      "role": "drink"
     }
   ],
   "components": [

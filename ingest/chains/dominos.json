@@ -152,68 +152,79 @@
    "name": "Crust",
    "select": "single",
    "flow": "build",
+   "role": "format",
    "note": "Hand tossed crusts are brushed with garlic oil blend as standard, and the parmesan stuffed crust carries both garlic oil and a parmesan dusting. Domino's publishes each as its own line, so add them unless you ordered the crust plain."
   },
   {
    "id": "sauce",
    "name": "Sauce",
    "select": "single",
-   "flow": "build"
+   "flow": "build",
+   "role": "sauce"
   },
   {
    "id": "cheese",
    "name": "Cheese",
    "select": "single",
    "flow": "build",
+   "role": "cheese",
    "note": "Domino's uses less cheese when a pizza also has toppings, and publishes both figures — pick the one matching your order."
   },
   {
    "id": "topping",
    "name": "Toppings",
    "select": "multi",
-   "flow": "build"
+   "flow": "build",
+   "role": "topping"
   },
   {
    "id": "breads",
    "name": "Breads",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "side"
   },
   {
    "id": "chicken",
    "name": "Chicken & Wings",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "entree"
   },
   {
    "id": "desserts",
    "name": "Desserts",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "dessert"
   },
   {
    "id": "dips",
    "name": "Dipping Cups & Dressings",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "sauce"
   },
   {
    "id": "sandwiches",
    "name": "Oven-Baked Sandwiches",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "entree"
   },
   {
    "id": "pasta",
    "name": "Pasta",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "entree"
   },
   {
    "id": "salads",
    "name": "Salads",
    "select": "multi",
-   "flow": "extras"
+   "flow": "extras",
+   "role": "entree"
   }
  ],
  "layout": {

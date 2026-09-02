@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { describe, expect, it } from "vitest";
-import { ChainSchema, type Chain, type Component } from "./schema";
+import { ChainSchema, type Category, type Chain, type Component } from "./schema";
 
 const ROOT = path.join(__dirname, "..");
 const DIR = path.join(ROOT, "data", "chains");
@@ -37,6 +37,10 @@ const hasPresets = (c: Chain) =>
 /** Categories that are a side, a drink or a pudding rather than the meal. */
 const SIDE_WORDS =
   /drink|beverage|shake|dessert|treat|side|chip|cookie|soup|fries|sauce|dip|topping|extra/i;
+const SIDE_ROLES = new Set(["side", "drink", "dessert", "sauce", "topping", "kids", "other", "format", "cheese"]);
+/** Not the meal: by declared role where there is one, by name where not. */
+const isSideLike = (cat: Category) =>
+  cat.role ? SIDE_ROLES.has(cat.role) : SIDE_WORDS.test(cat.name);
 
 function median(xs: number[]) {
   const s = [...xs].sort((a, b) => a - b);
@@ -48,7 +52,7 @@ function mealsFiledAsExtras(c: Chain): string[] {
   const out: string[] = [];
   for (const cat of c.categories) {
     if (flowOf(c, cat.id) !== "extras") continue;
-    if (SIDE_WORDS.test(cat.name)) continue;
+    if (isSideLike(cat)) continue;
     const rows = c.components.filter((x: Component) => x.category === cat.id);
     if (rows.length >= 5 && median(rows.map((r) => r.calories)) >= 300) {
       out.push(cat.id);
@@ -174,6 +178,20 @@ describe("cross-chain consistency", () => {
       }
     }
     expect(missing).toEqual([]);
+  });
+
+  it("declares a role on every category", async () => {
+    // The role is what lets cross-chain code ask "the sauces" without a regex
+    // over names. Optional in the schema so a hand-written file still parses;
+    // required here so a new chain cannot ship without saying what its
+    // categories are.
+    const bad: string[] = [];
+    for (const c of await chains()) {
+      for (const cat of c.categories) {
+        if (!cat.role) bad.push(`${c.slug}.${cat.id} has no role`);
+      }
+    }
+    expect(bad).toEqual([]);
   });
 
   it("gives every chain the fields a tile and a comparison need", async () => {
