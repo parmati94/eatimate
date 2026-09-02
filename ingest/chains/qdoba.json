@@ -3,12 +3,12 @@
   "name": "Qdoba",
   "slug": "qdoba",
   "source": {
-   "pdf_url": "https://assets.ctfassets.net/0tc4847zqy12/bQFJBCmsAk4ww4qzdfAOm/27c88d608796913d6a47899ecffb6a3c/Nutrition_8.5.26.pdf",
-   "retrieved": "2026-08-30",
+   "pdf_url": "https://assets.ctfassets.net/0tc4847zqy12/bQFJBCmsAk4ww4qzdfAOm/10ad09aaf097d3e9fb10fc4c62af52c3/Nutrition_9.1.26.pdf",
+   "retrieved": "2026-09-01",
    "format": "pdf",
    "fetch": "cloudscraper",
-   "dump_sha256": "c20a7870f4bb206c32279438cc049dfe8f40468000287bb5a0688f583bebf145",
-   "asset_sha256": "6b8836622fdbaa07f3b5e1e8deb5558ec8ed4f2add180e75a0f92a7cd34ca17a",
+   "dump_sha256": "1a6722f3ac0d618b70d6938cc6022b03d49a3e0f718d2bfced54cc7da049b216",
+   "asset_sha256": "028ce3a4ae884fa56b1d9d09bec6cb9c4b5c01dd8c7fecc186a3497ad5eac463",
    "page_url": "https://www.qdoba.com/nutrition-allergens",
    "link_pattern": "Nutrition_"
   },
@@ -408,11 +408,6 @@
    "cat": "proteins",
    "name": "Spicy Tequila Lime Steak (limited time)"
   },
-  "Churro Chips": {
-   "cat": "desserts",
-   "name": "Churro Chips (limited time)",
-   "desc": "1 serving (64 g)"
-  },
   "Apple Sauce, Natural": {
    "cat": "kids-ingredients",
    "id": "apple-sauce",
@@ -750,6 +745,19 @@
   },
   "Flour Tortilla (5.5\") [#2]": {
    "skip": "kids row identical to the entrée row"
+  },
+  "Pickled Jalapenos (1 oz.)": {
+   "cat": "toppings"
+  },
+  "Churro Chips w/ Chocolate Sauce": {
+   "cat": "desserts",
+   "name": "Churro Chips w/ Chocolate Sauce (limited time)",
+   "desc": "1 serving (114 g)"
+  },
+  "Queso Fundido w/ Chips": {
+   "cat": "sides",
+   "name": "Queso Fundido w/ Chips (limited time)",
+   "desc": "1 serving (364 g)"
   }
  },
  "synthetic": [

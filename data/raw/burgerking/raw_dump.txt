@@ -1,4 +1,4 @@
-MENU: Dragon Ball Super
+MENU: Dragon Ball Super Menu
 Kids Dragon Ball Burst Lemonade - 170 0 0 0 0 10 43 0 42 0
 Small Dragon Ball Burst Lemonade - 220 0 0 0 0 10 56 0 55 0
 Medium Dragon Ball Burst Lemonade - 270 0 0 0 0 10 69 0 68 0
@@ -270,8 +270,12 @@ Chocolate Shake 399.008 590 14 9 0.5 55 420 103 1 84 13
 Vanilla Shake 395.904 560 14 9 0.5 55 400 96 0 79 12
 Strawberry Shake 434.262 610 14 9 0 55 420 110 1 92 12
 MENU: Sweets
+Hot Caramel Sundae - 260 6 4 0 25 300 45 0 35 5
+Hot Fudge Sundae - 270 6 4 0 25 200 44 1 38 5
 OREO® Sundae 154.233 310 9 4.5 0 25 230 51 0 39 6
 HERSHEY'S® Sundae 141.709 230 6 4 0 25 170 38 0 31 5
+Strawberry Cake Shake - 660 22 11 0.5 55 470 101 0 79 12
+Dr Pepper® Shake - 540 13 9 0 55 400 93 1 78 11
 Soft Serve Cup 129.843 180 5 3.5 0 20 150 28 0 22 4
 Soft Serve Cone 135.843 200 5 3.5 0 20 150 33 0 22 5
 MENU: Condiments
