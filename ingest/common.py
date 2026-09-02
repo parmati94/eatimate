@@ -445,7 +445,32 @@ def manual_corrections(cfg, components):
     return fixed
 
 def load_config(slug_):
-    return json.load(open(Path(__file__).parent / "chains" / f"{slug_}.json"))
+    cfg = json.load(open(Path(__file__).parent / "chains" / f"{slug_}.json"))
+    # A key this module does not read is a typo, not a no-op: "need" for
+    # "needs" would otherwise switch a feature off without a word.
+    from config_check import check
+    check(cfg, slug_)
+    return cfg
+
+
+def changes_since_head(out_path, components):
+    """Ids this extract added or withdrew against the committed file.
+
+    A section with a blanket default absorbs a new row silently, and a chain
+    rewording a row mints a new id that breaks every shared link to the old
+    one. Both only ever showed up in a git diff someone had to read; this says
+    it at the moment it happens. Returns (added, withdrawn) as [(id, name)]."""
+    import subprocess
+    try:
+        old = subprocess.run(["git", "show", f"HEAD:{out_path}"], capture_output=True,
+                             text=True, check=True).stdout
+        before = {c["id"]: c["name"] for c in json.loads(old)["components"]}
+    except (subprocess.CalledProcessError, ValueError, KeyError):
+        return [], []          # new chain, or not a git checkout
+    now = {c["id"]: c["name"] for c in components}
+    added = [(i, now[i]) for i in now if i not in before]
+    gone = [(i, before[i]) for i in before if i not in now]
+    return added, gone
 
 def build(cfg, rows, extra=None):
     """Default mapping: items table + section defaults. Returns components in
@@ -897,7 +922,16 @@ def finish(cfg, components, rows, pending, out_dir="data/chains"):
     for k in ("menu_check",):
         chain.pop(k, None)
     out = Path(out_dir) / f"{slug_}.json"
+    added, gone = changes_since_head(out.as_posix(), components)
     out.write_text(json.dumps(chain, indent=2, ensure_ascii=False) + "\n")
+    if added:
+        print(f"  NEW since HEAD ({len(added)}): " + ", ".join(f"{i} ({n})" for i, n in added[:12])
+              + (" ..." if len(added) > 12 else ""), file=sys.stderr)
+    if gone:
+        print(f"  WITHDRAWN since HEAD ({len(gone)}): " + ", ".join(f"{i} ({n})" for i, n in gone[:12])
+              + (" ..." if len(gone) > 12 else "") + "\n  a withdrawn id breaks shared ?m= links "
+              "and meals.json builds that name it; if the chain merely reworded the row, "
+              "pin the old id with items[...].id", file=sys.stderr)
     dashes = [(r.printed, [d for d in r.dashes if d != "cholesterol_mg"])
               for r in rows if [d for d in r.dashes if d != "cholesterol_mg"]]
     if dashes: print(f"  note: '-' cells read as 0: {dashes}", file=sys.stderr)
