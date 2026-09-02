@@ -280,6 +280,60 @@
      ]
     }
    ]
+  },
+  {
+   "id": "chicken-salad",
+   "name": "Chicken salad",
+   "rule": "One greens base, one grilled or roasted chicken, the chain's standard fresh tomato topping, one cheese and one vinaigrette at the pour the chain publishes. No grains, no beans, no avocado, no crunch, no double protein. Chopt and Just Salad both publish their menu salads without dressing, so every build here adds one the same way.",
+   "builds": [
+    {
+     "chain": "chopt",
+     "name": "Craft Your Own Salad",
+     "items": [
+      "romaine",
+      "grilled-chicken-roasted-chicken-breast",
+      "grape-tomatoes",
+      "feta",
+      "balsamic-vinaigrette"
+     ]
+    },
+    {
+     "chain": "justsalad",
+     "name": "Create Your Own Salad",
+     "items": [
+      "format-salad",
+      "romaine-salad",
+      "roasted-chicken",
+      "grape-tomatoes",
+      "feta",
+      "balsamic-vinaigrette"
+     ]
+    },
+    {
+     "chain": "cava",
+     "name": "Greens Bowl with Grilled Chicken",
+     "items": [
+      "bowl",
+      "romaine",
+      "grilled-chicken",
+      "tomato-onion",
+      "crumbled-feta",
+      "greek-vinaigrette"
+     ]
+    },
+    {
+     "chain": "chipotle",
+     "name": "Chicken Salad",
+     "items": [
+      "no-tortilla",
+      "supergreens-salad-mix",
+      "chicken",
+      "fresh-tomato-salsa",
+      "cheese",
+      "chipotle-honey-vinaigrette"
+     ]
+    }
+   ]
   }
  ]
 }

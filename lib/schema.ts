@@ -64,6 +64,13 @@ export const ComponentSchema = z.object({
   // ordered more than kale, so this is our judgement, set by hand per chain.
   // It affects ordering and prominence only — never a number.
   feature: z.boolean().optional(),
+  // The category this menu item is published WITHOUT, in the chain's own
+  // words: Chopt and Just Salad both state that a named salad's figures carry
+  // no dressing. On the menu path that category is then promoted from "Add to
+  // it" to a numbered step under the pick, because a step you owe and a thing
+  // you may add are different claims, and the first is the one the chain made.
+  // Never inferred from a wrap or sandwich, whose sauce IS in the figure.
+  needs: z.string().optional(),
 }).strict();
 
 // Chain-wide size scaling (e.g. Subway 6" vs Footlong): the active mode
@@ -235,6 +242,29 @@ export const ChainSchema = z
         ctx.addIssue({
           code: "custom",
           message: `add-on "${comp.id}" points at "${parent.id}", which is itself an add-on`,
+        });
+      }
+    }
+
+    const flowOf = new Map(chain.categories.map((c) => [c.id, c.flow ?? "build"]));
+    for (const comp of chain.components) {
+      if (!comp.needs) continue;
+      if (!catIds.has(comp.needs)) {
+        ctx.addIssue({
+          code: "custom",
+          message: `component "${comp.id}" needs unknown category "${comp.needs}"`,
+        });
+      } else if (flowOf.get(comp.needs) !== "both") {
+        // Only a `both` category is on the menu path to be promoted; a `build`
+        // one would sit in an accordion the promotion cannot reach.
+        ctx.addIssue({
+          code: "custom",
+          message: `component "${comp.id}" needs "${comp.needs}", which is not a \`both\` category`,
+        });
+      } else if (flowOf.get(comp.category) !== "preset") {
+        ctx.addIssue({
+          code: "custom",
+          message: `component "${comp.id}" carries \`needs\` but is not a menu item`,
         });
       }
     }

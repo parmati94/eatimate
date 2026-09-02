@@ -5,7 +5,7 @@
     "pdf_url": "https://www.justsalad.com/documents/Just_Salad_Nutrition_Guide_JUL26-C.pdf",
     "retrieved": "2026-08-30"
   },
-  "disclaimer_extra": "Just Salad's guide (July 2026) lists standard portions without serving weights; base greens/grains are listed per format (salad, warm bowl, market plate, wrap). Dressing values are the 1 oz 'light' serving. Menu rotates seasonally.",
+  "disclaimer_extra": "Just Salad's guide (July 2026) states that its menu items do NOT include dressing in their nutrition or allergens, so a named salad here needs a dressing added the same way a built one does. Portions are standard, without serving weights; base greens/grains are listed per format (salad, warm bowl, market plate, wrap). Dressing values are the 1 oz 'light' serving. Menu rotates seasonally.",
   "blurb": "Assemble any Just Salad order — pick your format (salad, warm bowl, market plate or wrap), then build it from bases, essentials, premiums, proteins and every dressing at the 1 oz pour.",
   "size_modes": [
     {
@@ -36,7 +36,7 @@
     "Warm bowl",
     "Wrap"
   ],
-  "default_flow": "build",
+  "default_flow": "menu",
   "categories": [
     {
       "id": "signature",
@@ -125,7 +125,7 @@
       "id": "honey-crispy-chicken-digital",
       "name": "Honey Crispy Chicken (digital exclusive)",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 510,
       "fat_g": 27,
@@ -136,13 +136,14 @@
       "carbs_g": 49,
       "fiber_g": 9,
       "sugars_g": 8,
-      "protein_g": 23
+      "protein_g": 23,
+      "needs": "dressings"
     },
     {
       "id": "buffalo-chicken-wrap",
       "name": "Buffalo Chicken Wrap",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 600,
       "fat_g": 39,
@@ -153,13 +154,14 @@
       "carbs_g": 48,
       "fiber_g": 37,
       "sugars_g": 4,
-      "protein_g": 50
+      "protein_g": 50,
+      "needs": "dressings"
     },
     {
       "id": "crispy-chicken-poblano",
       "name": "Crispy Chicken Poblano",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 530,
       "fat_g": 32,
@@ -170,13 +172,14 @@
       "carbs_g": 47,
       "fiber_g": 9,
       "sugars_g": 5,
-      "protein_g": 21
+      "protein_g": 21,
+      "needs": "dressings"
     },
     {
       "id": "tokyo-supergreens-tofu",
       "name": "Tokyo Supergreens, Tofu",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 320,
       "fat_g": 20,
@@ -187,13 +190,14 @@
       "carbs_g": 23,
       "fiber_g": 13,
       "sugars_g": 5,
-      "protein_g": 18
+      "protein_g": 18,
+      "needs": "dressings"
     },
     {
       "id": "tokyo-supergreens-chicken",
       "name": "Tokyo Supergreens, Chicken",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 350,
       "fat_g": 17,
@@ -204,13 +208,14 @@
       "carbs_g": 21,
       "fiber_g": 11,
       "sugars_g": 5,
-      "protein_g": 32
+      "protein_g": 32,
+      "needs": "dressings"
     },
     {
       "id": "thai-chicken-crunch",
       "name": "Thai Chicken Crunch",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 310,
       "fat_g": 9,
@@ -221,13 +226,14 @@
       "carbs_g": 29,
       "fiber_g": 7,
       "sugars_g": 6,
-      "protein_g": 28
+      "protein_g": 28,
+      "needs": "dressings"
     },
     {
       "id": "balsamic-chicken-avocado",
       "name": "Balsamic Chicken Avocado",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 380,
       "fat_g": 19,
@@ -238,13 +244,14 @@
       "carbs_g": 22,
       "fiber_g": 9,
       "sugars_g": 5,
-      "protein_g": 33
+      "protein_g": 33,
+      "needs": "dressings"
     },
     {
       "id": "chicken-caesar",
       "name": "Chicken Caesar",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 400,
       "fat_g": 18,
@@ -255,13 +262,14 @@
       "carbs_g": 23,
       "fiber_g": 3,
       "sugars_g": 2,
-      "protein_g": 37
+      "protein_g": 37,
+      "needs": "dressings"
     },
     {
       "id": "buffalo-chicken",
       "name": "Buffalo Chicken",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 460,
       "fat_g": 28,
@@ -272,13 +280,14 @@
       "carbs_g": 18,
       "fiber_g": 7,
       "sugars_g": 6,
-      "protein_g": 37
+      "protein_g": 37,
+      "needs": "dressings"
     },
     {
       "id": "mezze-crunch",
       "name": "Mezze Crunch",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 370,
       "fat_g": 17,
@@ -289,13 +298,14 @@
       "carbs_g": 38,
       "fiber_g": 8,
       "sugars_g": 10,
-      "protein_g": 16
+      "protein_g": 16,
+      "needs": "dressings"
     },
     {
       "id": "earth-bowl",
       "name": "Earth Bowl",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 600,
       "fat_g": 33,
@@ -306,13 +316,14 @@
       "carbs_g": 60,
       "fiber_g": 13,
       "sugars_g": 23,
-      "protein_g": 22
+      "protein_g": 22,
+      "needs": "dressings"
     },
     {
       "id": "earth-bowl-w-chicken",
       "name": "Earth Bowl w/ Chicken",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 740,
       "fat_g": 38,
@@ -323,13 +334,14 @@
       "carbs_g": 60,
       "fiber_g": 13,
       "sugars_g": 23,
-      "protein_g": 44
+      "protein_g": 44,
+      "needs": "dressings"
     },
     {
       "id": "southwest-crunch",
       "name": "Southwest Crunch",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 500,
       "fat_g": 25,
@@ -340,13 +352,14 @@
       "carbs_g": 51,
       "fiber_g": 13,
       "sugars_g": 9,
-      "protein_g": 22
+      "protein_g": 22,
+      "needs": "dressings"
     },
     {
       "id": "chicken-fajita",
       "name": "Chicken Fajita",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 790,
       "fat_g": 33,
@@ -357,13 +370,14 @@
       "carbs_g": 89,
       "fiber_g": 13,
       "sugars_g": 8,
-      "protein_g": 40
+      "protein_g": 40,
+      "needs": "dressings"
     },
     {
       "id": "chicken-tzatziki-harvest",
       "name": "Chicken + Tzatziki Harvest",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 830,
       "fat_g": 36,
@@ -374,13 +388,14 @@
       "carbs_g": 85,
       "fiber_g": 11,
       "sugars_g": 5,
-      "protein_g": 45
+      "protein_g": 45,
+      "needs": "dressings"
     },
     {
       "id": "peruvian-chicken",
       "name": "Peruvian Chicken",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 920,
       "fat_g": 39,
@@ -391,13 +406,14 @@
       "carbs_g": 105,
       "fiber_g": 16,
       "sugars_g": 10,
-      "protein_g": 43
+      "protein_g": 43,
+      "needs": "dressings"
     },
     {
       "id": "cilantro-lime-chicken",
       "name": "Cilantro Lime Chicken",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 830,
       "fat_g": 37,
@@ -408,13 +424,14 @@
       "carbs_g": 82,
       "fiber_g": 15,
       "sugars_g": 6,
-      "protein_g": 48
+      "protein_g": 48,
+      "needs": "dressings"
     },
     {
       "id": "hot-honey-harvest",
       "name": "Hot Honey Harvest",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 590,
       "fat_g": 34,
@@ -425,13 +442,14 @@
       "carbs_g": 35,
       "fiber_g": 7,
       "sugars_g": 15,
-      "protein_g": 39
+      "protein_g": 39,
+      "needs": "dressings"
     },
     {
       "id": "edamame-crunch",
       "name": "Edamame Crunch",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 510,
       "fat_g": 27,
@@ -442,13 +460,14 @@
       "carbs_g": 50,
       "fiber_g": 11,
       "sugars_g": 9,
-      "protein_g": 21
+      "protein_g": 21,
+      "needs": "dressings"
     },
     {
       "id": "honey-crispy-chicken",
       "name": "Honey Crispy Chicken",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 660,
       "fat_g": 38,
@@ -459,13 +478,14 @@
       "carbs_g": 81,
       "fiber_g": 39,
       "sugars_g": 7,
-      "protein_g": 37
+      "protein_g": 37,
+      "needs": "dressings"
     },
     {
       "id": "spicy-chicken-caesar",
       "name": "Spicy Chicken Caesar",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 560,
       "fat_g": 29,
@@ -476,13 +496,14 @@
       "carbs_g": 56,
       "fiber_g": 35,
       "sugars_g": 1,
-      "protein_g": 51
+      "protein_g": 51,
+      "needs": "dressings"
     },
     {
       "id": "vegan-chipotle",
       "name": "Vegan Chipotle",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 600,
       "fat_g": 31,
@@ -493,13 +514,14 @@
       "carbs_g": 86,
       "fiber_g": 42,
       "sugars_g": 3,
-      "protein_g": 28
+      "protein_g": 28,
+      "needs": "dressings"
     },
     {
       "id": "chicken-pita",
       "name": "Chicken Pita",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 480,
       "fat_g": 24,
@@ -510,13 +532,14 @@
       "carbs_g": 33,
       "fiber_g": 7,
       "sugars_g": 8,
-      "protein_g": 36
+      "protein_g": 36,
+      "needs": "dressings"
     },
     {
       "id": "plant-power",
       "name": "Plant Power",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 490,
       "fat_g": 26,
@@ -527,13 +550,14 @@
       "carbs_g": 43,
       "fiber_g": 15,
       "sugars_g": 17,
-      "protein_g": 25
+      "protein_g": 25,
+      "needs": "dressings"
     },
     {
       "id": "protein-power",
       "name": "Protein Power",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 770,
       "fat_g": 39,
@@ -544,13 +568,14 @@
       "carbs_g": 55,
       "fiber_g": 23,
       "sugars_g": 7,
-      "protein_g": 55
+      "protein_g": 55,
+      "needs": "dressings"
     },
     {
       "id": "gochujang-chicken-market-plate",
       "name": "Gochujang Chicken Market Plate",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 730,
       "fat_g": 28,
@@ -561,13 +586,14 @@
       "carbs_g": 90,
       "fiber_g": 9,
       "sugars_g": 14,
-      "protein_g": 35
+      "protein_g": 35,
+      "needs": "dressings"
     },
     {
       "id": "backyard-bbq-salad",
       "name": "Backyard BBQ Salad",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 470,
       "fat_g": 29,
@@ -578,13 +604,14 @@
       "carbs_g": 34,
       "fiber_g": 7,
       "sugars_g": 6,
-      "protein_g": 22
+      "protein_g": 22,
+      "needs": "dressings"
     },
     {
       "id": "honey-crispy-chicken-salad",
       "name": "Honey Crispy Chicken Salad",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 510,
       "fat_g": 27,
@@ -595,13 +622,14 @@
       "carbs_g": 49,
       "fiber_g": 9,
       "sugars_g": 8,
-      "protein_g": 23
+      "protein_g": 23,
+      "needs": "dressings"
     },
     {
       "id": "parm-crunch-salad",
       "name": "Parm Crunch Salad",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 540,
       "fat_g": 24,
@@ -612,13 +640,14 @@
       "carbs_g": 33,
       "fiber_g": 7,
       "sugars_g": 7,
-      "protein_g": 50
+      "protein_g": 50,
+      "needs": "dressings"
     },
     {
       "id": "rethink-food-bowl",
       "name": "Rethink Food Bowl",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 520,
       "fat_g": 25,
@@ -629,13 +658,14 @@
       "carbs_g": 40,
       "fiber_g": 5,
       "sugars_g": 5,
-      "protein_g": 37
+      "protein_g": 37,
+      "needs": "dressings"
     },
     {
       "id": "gochujang-chicken-wrap",
       "name": "Gochujang Chicken Wrap",
       "category": "signature",
-      "serving_desc": "1 serving",
+      "serving_desc": "1 serving, no dressing",
       "serving_g": null,
       "calories": 610,
       "fat_g": 28,
@@ -646,7 +676,8 @@
       "carbs_g": 78,
       "fiber_g": 38,
       "sugars_g": 7,
-      "protein_g": 46
+      "protein_g": 46,
+      "needs": "dressings"
     },
     {
       "id": "format-salad",

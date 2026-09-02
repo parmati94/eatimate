@@ -62,6 +62,9 @@ Config (ingest/chains/<slug>.json):
                and it matters: EZ heading a family made every meal built from
                it understate, because tapping the row gave the light portion.
   layout.dash_rows_are_data: a row of all "-" is real zeroes, not a spacer.
+  layout.title_case: the source prints every row in capitals (Chopt), so
+               derived names are recased. Only all-caps words are touched;
+               an explicit `name` in items is never recased.
 
   --- more top-level keys ---
   derived:     [{id, name, cat, values, reason?, estimated?, after?}] a
@@ -126,6 +129,10 @@ Config (ingest/chains/<slug>.json):
                          on a Hand Tossed crust). Stops a single-select
                          category from clearing its own parent.
     feature              lift into the "Make it a meal" shelf
+    needs                category id this menu item is published WITHOUT, in
+                         the chain's own words (a salad's figures carry no
+                         dressing). Promotes that category to a numbered step
+                         under the pick. Usually set per section.
 
   --- meta keys (copied wholesale to the output; see lib/schema.ts) ---
     size_modes, portion, glyph, formats, blurb, disclaimer_extra, menu_check
@@ -154,6 +161,14 @@ def slug(s):
     # Fold accents so "Jalapeño" ids as jalapeno, not jalape-o.
     s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
     return re.sub(r"[^a-z0-9]+", "-", s).strip("-")
+
+def title_case(s):
+    """Recase a SHOUTING source. Only fully-uppercase words are touched, so a
+    guide's own mixed-case wording ("KALE CAESAR with grilled chicken") keeps
+    the case it chose, and hyphen/apostrophe parts recase as separate words."""
+    return re.sub(r"[^\W\d_][^\W\d_'\u2019]*",
+                  lambda m: m.group(0) if not m.group(0).isupper()
+                  else m.group(0)[0] + m.group(0)[1:].lower(), s)
 
 def num(x):
     if x == "-": return 0
@@ -348,6 +363,7 @@ def make_component(row, layout, cat, id=None, name=None, desc=None):
         serving_g, d2 = round(serving * 28.35), f"{serving:g} oz"
     else:
         serving_g = None
+    if name is None and layout.get("title_case"): n2 = title_case(n2)
     c = {"id": id or slug(n2), "name": name or n2, "category": cat,
          "serving_desc": desc or row.serving_desc or d2 or "1 serving",
          "serving_g": serving_g}
@@ -501,7 +517,8 @@ def build(cfg, rows, extra=None):
                             or cfg.get("section_modes", {}).get(r.section or ""))
                 if isinstance(fam_mode, dict):
                     fam_mode = fam_mode["id"]
-                spec.setdefault("name", fam_txt)
+                spec.setdefault("name", title_case(fam_txt)
+                                if layout.get("title_case") else fam_txt)
                 spec.setdefault("id", slug(r.printed))
                 spec["variant_label"] = label
                 fam = f"{spec.get('cat')}/{fam_mode or ''}/{slug(fam_txt)}"
@@ -613,6 +630,7 @@ def build(cfg, rows, extra=None):
                 else:
                     families[fam] = c["id"]
             if sp.get("feature"): c["feature"] = True
+            if sp.get("needs"): c["needs"] = sp["needs"]
             c["_ord"] = base_ord + 0.001 * n
             c["_sec"] = r.section
             comps.append(c)

@@ -196,6 +196,39 @@ export default function MealBuilder({
   /** Promoted categories that are only ever additive once a menu item is picked. */
   const addCats = buildCats.slice(splitAt);
 
+  // A menu item the chain publishes as INCOMPLETE owes one more step. Chopt
+  // and Just Salad both state that a named salad's figures carry no dressing,
+  // so with one picked, dressing is not something you may add but something
+  // the chain says is missing -- and the numbering has to say so too, because
+  // a row note reading "no dressing" under a flow that ends at step 1 is a
+  // caption nobody reads on the way to the total.
+  //
+  // Keyed off the PICK, not the chain: step 1 here is a mixed list, and a
+  // wrap or sandwich from the same chart includes its sauce. Before a pick,
+  // or with a wrap picked, nothing moves.
+  const owedBy =
+    mode === "menu"
+      ? chain.components.find((c) => selections[c.id] && c.needs)
+      : undefined;
+  const owedCat = owedBy ? addCats.find((c) => c.id === owedBy.needs) : undefined;
+  const owedSteps = owedCat
+    ? [
+        ...stepCats,
+        {
+          ...owedCat,
+          note: [
+            // The chain's own words, not a paraphrase: Subway's is "no
+            // dressing unless noted", and "unless noted" is load-bearing.
+            `${chain.name} lists the ${owedBy!.name} as "${owedBy!.serving_desc}". Add one here to count it.`,
+            owedCat.note,
+          ]
+            .filter(Boolean)
+            .join(" "),
+        },
+      ]
+    : stepCats;
+  const owedAdds = owedCat ? addCats.filter((c) => c !== owedCat) : addCats;
+
   // "Make it a meal": the handful of items most orders actually include, lifted
   // out of the extras accordions. Same component ids, so selecting here and
   // selecting below are the same act.
@@ -414,6 +447,9 @@ export default function MealBuilder({
       if (idx >= 0 && !opens) {
         setOpenCat(cats[idx + 1]?.id ?? null);
       }
+      // A menu item the chain publishes without something opens that step,
+      // the same way a build pick advances to the next one.
+      if (comp.needs && mode === "menu") setOpenCat(comp.needs);
     }
   }
 
@@ -524,7 +560,7 @@ export default function MealBuilder({
             joins each badge to the one above it, so the counter line reads as
             a line. The open step carries the weight. */}
         <div className="space-y-2">
-          {stepCats.map((cat, idx) => (
+          {owedSteps.map((cat, idx) => (
             <StepSection
               key={cat.id}
               cat={cat}
@@ -598,7 +634,7 @@ export default function MealBuilder({
             Renaming one was not an option either: "Sides, drinks & more" would
             mislabel Jimmy John's Add-ons, which really are things you add. So
             they share a heading and sit next to each other. */}
-        {(addCats.length > 0 || extraCats.length > 0) && (
+        {(owedAdds.length > 0 || extraCats.length > 0) && (
           <>
             <h2 className="px-1 pt-1 text-xs font-semibold uppercase tracking-wider text-muted">
               {mode === "menu"
@@ -611,14 +647,21 @@ export default function MealBuilder({
               // so hiding the ones we guessed were "already included" would
               // invent the very fact that is missing. Everything stays listed,
               // and this says what adding one means.
+              //
+              // It used to open "Your pick above is already complete", which is
+              // a claim we cannot make for every chain: Chopt and Just Salad
+              // both publish their menu salads WITHOUT dressing and say so, so
+              // the sentence sat directly under a row reading "no dressing" and
+              // contradicted it. Where an item really is incomplete the chain's
+              // own words carry it, on the row and in the category note.
               <p className="px-1 pb-1 text-xs leading-relaxed text-muted">
-                Your pick above is already complete. {chain.name} does not
-                publish which ingredients are in it, so everything stays listed
-                here — anything you add counts on top.
+                {chain.name} does not publish which ingredients are in your
+                pick, so everything stays listed here — anything you add counts
+                on top.
               </p>
             )}
             <div className="space-y-2">
-              {addCats.map((cat) => (
+              {owedAdds.map((cat) => (
                 <StepSection
                   key={cat.id}
                   cat={cat}

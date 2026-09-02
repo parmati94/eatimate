@@ -199,14 +199,22 @@ def record(slug):
     Doing this by hand is the step that gets forgotten, and forgetting it
     makes refresh.py cry "changed" forever until you stop believing it."""
     import datetime, glob, os
+    from urllib.parse import urlparse
     cp = CHAINS / f"{slug}.json"
     cfg = json.loads(cp.read_text()); src = cfg["meta"]["source"]
     src["dump_sha256"] = norm_hash((RAW / slug / "raw_dump.txt").read_text())
     assets = [f for f in glob.glob(str(RAW / slug / "*"))
               if not re.search(r"raw_dump|report|\.txt$", os.path.basename(f))]
     if assets:
-        newest = max(assets, key=os.path.getmtime)
-        src["asset_sha256"] = hashlib.sha256(Path(newest).read_bytes()).hexdigest()
+        # Prefer the file the recorded URL actually names. The runbook says to
+        # keep the previous guide alongside the new one, and some chains publish
+        # a second document (Chopt ships a seasonal insert next to the main
+        # guide) -- so "newest by mtime" can pin a hash for a file this chain
+        # never parses, and refresh.py then cries "changed" forever.
+        want = os.path.basename(urlparse(src.get("pdf_url") or "").path)
+        named = [f for f in assets if os.path.basename(f) == want]
+        pick = named[0] if named else max(assets, key=os.path.getmtime)
+        src["asset_sha256"] = hashlib.sha256(Path(pick).read_bytes()).hexdigest()
     src["retrieved"] = datetime.date.today().isoformat()
     cp.write_text(json.dumps(cfg, indent=1, ensure_ascii=False) + "\n")
     print(f"  {slug}: hashes re-pinned, retrieved={src['retrieved']}"

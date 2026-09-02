@@ -13,9 +13,14 @@ from pathlib import Path
 slug, pdf = sys.argv[1], sys.argv[2]
 tables = "--tables" in sys.argv
 out = Path(f"data/raw/{slug}/raw_dump.txt"); out.parent.mkdir(parents=True, exist_ok=True)
-NUM = re.compile(r"^(?:<1|-|\d+(?:\.\d+)?)$")
+# A "no value" cell is written "-" by most chains and "--" by some (Chopt).
+# Both have to count as a cell: dropping one shifts every later column left,
+# which reads as data rather than as an error.
+DASH = r"[-\u2013\u2014]{1,2}"
+NUM = re.compile(rf"^(?:<1|{DASH}|\d+(?:\.\d+)?)$")
 
 def norm(c): return re.sub(r"\s+", " ", (c or "")).strip()
+def cell(c): return "-" if re.fullmatch(DASH, c) else c
 
 with pdfplumber.open(pdf) as p:
     chunks = []
@@ -36,10 +41,14 @@ with pdfplumber.open(pdf) as p:
             for row in tb.extract():
                 cells = [norm(c) for c in row]
                 if not any(cells): continue
-                name = cells[0]
-                nums = [c for c in cells[1:] if NUM.match(c)]
+                name, rest = cells[0], cells[1:]
+                # a leading non-numeric cell is the source's own serving size;
+                # bracket it so layout.serving_brackets can lift it back off
+                serving = rest[0] if rest and rest[0] and not NUM.match(rest[0]) else None
+                if serving: rest = rest[1:]
+                nums = [cell(c) for c in rest if NUM.match(c)]
                 if len(nums) >= 6:
-                    lines.append(f"{name} {' '.join(nums)}")
+                    lines.append(f"{name}{f' [{serving}]' if serving else ''} {' '.join(nums)}")
                 elif name and not nums and not any(NUM.match(c) for c in cells[1:]):
                     # header row: first cell is the section title (rest are rotated column labels)
                     lines.append(name)

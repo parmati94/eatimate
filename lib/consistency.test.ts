@@ -127,6 +127,28 @@ describe("cross-chain consistency", () => {
     expect(bad).toEqual([]);
   });
 
+  it("says structurally what a row says in words about a missing dressing", async () => {
+    // Chopt and Just Salad both publish a named salad WITHOUT its dressing and
+    // say so. A row that says so in its serving text ("1 salad, no dressing")
+    // but not in `needs` leaves the menu path ending at step 1, with the
+    // caveat as a caption nobody reads on the way to the total. And a row
+    // that carries `needs` without saying so in words has a numbered step
+    // the row itself does not explain. The two have to agree.
+    const bad: string[] = [];
+    for (const c of await chains()) {
+      if (c.consistency?.no_needs) continue;
+      for (const comp of c.components) {
+        const says = /\bno dressing\b/i.test(comp.serving_desc);
+        if (says && !comp.needs) {
+          bad.push(`${c.slug}.${comp.id} says "${comp.serving_desc}" but carries no \`needs\``);
+        } else if (comp.needs && !says) {
+          bad.push(`${c.slug}.${comp.id} needs "${comp.needs}" but its serving text does not say so`);
+        }
+      }
+    }
+    expect(bad).toEqual([]);
+  });
+
   it("offers a quick-add shelf wherever a cuisine peer does", async () => {
     // "Make it a meal" renders from components flagged `feature`. Burger King
     // shipped with none while both its burger peers had one, and none of the

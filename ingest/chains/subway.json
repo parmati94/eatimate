@@ -63,7 +63,10 @@
    "Footlong",
    "Wrap",
    "Salad"
-  ]
+  ],
+  "consistency": {
+   "no_needs": "Subway's salads and protein bowls read \"no dressing unless noted\", a hedge the chart makes per item, and its menu row is one family with the sub, wrap, salad and bowl as size chips. Not promoted to a numbered step; the row's own words carry it."
+  }
  },
  "categories": [
   {

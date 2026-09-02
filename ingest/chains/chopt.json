@@ -1,0 +1,397 @@
+{
+ "meta": {
+  "name": "Chopt",
+  "slug": "chopt",
+  "source": {
+   "pdf_url": "https://assets.choptsalad.com/pdfs/web/chopt_nutrition_allergen_guide.pdf",
+   "retrieved": "2026-09-01",
+   "format": "pdf",
+   "page_url": "https://www.choptsalad.com/nutrition-and-allergens",
+   "link_pattern": "chopt_nutrition_allergen_guide",
+   "fetch": "plain",
+   "dump_sha256": "d36e56c1f24673230a1f942468d7f4285f2d7b92d0c53f3d9c2cc6f04ebf93cb",
+   "asset_sha256": "b69a2a5fcfbf3d35f6df71d9d9ee83589dbae70713dab2c4cf9e6ffe940fa369"
+  },
+  "disclaimer_extra": "Chopt's Spring 2026 guide prints every chopping, green, grain and protein at one standard portion, and states that its salads and bowls do NOT include dressing — so a menu item here needs a dressing added the same way a built one does. Dressings are published twice, at the 30 g salad pour and the 22 g bowl pour; the format chip picks which. Some items are marked select-locations-only.",
+  "blurb": "Build a Chopt salad, bowl or wrap chopping by chopping — greens, core choppings, grains and beans, cheese, crunch, the goods, and every housemade dressing at its published pour.",
+  "glyph": "salad",
+  "formats": [
+   "Salad",
+   "Bowl",
+   "Wrap",
+   "Sandwich"
+  ],
+  "default_flow": "menu"
+ },
+ "categories": [
+  {
+   "id": "menu",
+   "name": "Menu Salads, Wraps, Bowls & Sandwiches",
+   "select": "single",
+   "flow": "preset",
+   "note": "Chopt's salads and bowls are published without dressing. Add one below — the guide's own numbers do not include it."
+  },
+  {
+   "id": "greens",
+   "name": "Greens",
+   "select": "multi",
+   "flow": "build",
+   "note": "Splitting your base? Pick both and set each to ½ — otherwise you're counting two full portions."
+  },
+  {
+   "id": "choppings",
+   "name": "Core Choppings",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "grains",
+   "name": "Grains & Beans",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "cheese",
+   "name": "Cheese & Dairy",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "crunch",
+   "name": "Crunch",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "protein",
+   "name": "The Goods",
+   "select": "multi",
+   "flow": "build"
+  },
+  {
+   "id": "dressings",
+   "name": "Housemade Dressings",
+   "select": "multi",
+   "flow": "both",
+   "note": "Chopt pours 30 g of dressing on a salad and 22 g in a bowl, and publishes both. Pick the one you ordered — the chain's own numbers, not a scaled guess."
+  },
+  {
+   "id": "wrap",
+   "name": "Wrap",
+   "select": "single",
+   "flow": "build",
+   "in_preset": true
+  },
+  {
+   "id": "sandwich",
+   "name": "Sandwich Ingredients",
+   "select": "multi",
+   "flow": "build",
+   "in_preset": true,
+   "note": "Chopt publishes these at their sandwich portions, which are not the salad portions above."
+  },
+  {
+   "id": "extras",
+   "name": "Soups, Sweets & Drinks",
+   "select": "multi",
+   "flow": "extras"
+  }
+ ],
+ "layout": {
+  "columns": [
+   "calories",
+   "cff",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g",
+   "vit_a",
+   "vit_c",
+   "calcium",
+   "iron"
+  ],
+  "allergen": false,
+  "serving": null,
+  "serving_brackets": true,
+  "sections": "^(SALADS|WRAPS|BOWLS|SANDWICHES|SANDWICH INGREDIENTS|GREENS|CORE CHOPPINGS|CHEESE & DAIRY|GRAINS & BEANS|CRUNCH|THE GOODS|HOUSEMADE DRESSINGS SALAD PORTIONS|BOWL PORTIONS|FOUNTAIN BEVERAGES|SWEETS|SOUPS)$",
+  "subsections": "^(CLASSIC|CREATIVE|LIGHT|PANTRY)$",
+  "skip": "^(=====|\\* SELECT LOCATIONS|NUTRITION &$|ALLERGENS$|CRAFT YOUR OWN$|SALADS, WRAPS, BOWLS|HOUSEMADE DRESSINGS$|BEVERAGES & SWEETS$|SEASONAL$)",
+  "title_case": true,
+  "pre_replace": [
+   [
+    "(?<=[A-Za-z])\\*",
+    ""
+   ],
+   [
+    "(?<=[A-Za-z])1(?= \\[)",
+    ""
+   ],
+   [
+    "\\[(\\d+)g\\]",
+    "[\\1 g]"
+   ]
+  ]
+ },
+ "section_categories": {
+  "SALADS": {
+   "cat": "menu",
+   "desc": "1 salad, no dressing",
+   "needs": "dressings"
+  },
+  "WRAPS": "menu",
+  "BOWLS": {
+   "cat": "menu",
+   "desc": "1 bowl, no dressing",
+   "needs": "dressings"
+  },
+  "SANDWICHES": "menu",
+  "SANDWICH INGREDIENTS": "sandwich",
+  "GREENS": "greens",
+  "CORE CHOPPINGS": "choppings",
+  "CHEESE & DAIRY": "cheese",
+  "GRAINS & BEANS": "grains",
+  "CRUNCH": "crunch",
+  "THE GOODS": "protein",
+  "SWEETS": "extras",
+  "HOUSEMADE DRESSINGS SALAD PORTIONS/CLASSIC": {
+   "cat": "dressings"
+  },
+  "HOUSEMADE DRESSINGS SALAD PORTIONS/CREATIVE": {
+   "cat": "dressings"
+  },
+  "HOUSEMADE DRESSINGS SALAD PORTIONS/LIGHT": {
+   "cat": "dressings"
+  },
+  "HOUSEMADE DRESSINGS SALAD PORTIONS/PANTRY": {
+   "cat": "dressings"
+  },
+  "BOWL PORTIONS/CLASSIC": {
+   "cat": "dressings"
+  },
+  "BOWL PORTIONS/CREATIVE": {
+   "cat": "dressings"
+  },
+  "BOWL PORTIONS/LIGHT": {
+   "cat": "dressings"
+  },
+  "FOUNTAIN BEVERAGES": "extras",
+  "SOUPS": "extras"
+ },
+ "items": {
+  "MISSION HEARTY GRAINS WHOLE WHEAT TORTILLA": {
+   "cat": "wrap",
+   "name": "Whole Wheat Tortilla"
+  },
+  "PROTEIN WRAP": {
+   "cat": "wrap",
+   "name": "Protein Wrap"
+  },
+  "HOUSEMADE DRESSINGS SALAD PORTIONS/CHOPT VINAIGRETTE": {
+   "cat": "dressings",
+   "id": "chopt-vinaigrette",
+   "variant_family": "chopt-vinaigrette",
+   "variant_label": "Salad"
+  },
+  "HOUSEMADE DRESSINGS SALAD PORTIONS/BALSAMIC VINAIGRETTE": {
+   "cat": "dressings",
+   "id": "balsamic-vinaigrette",
+   "variant_family": "balsamic-vinaigrette",
+   "variant_label": "Salad"
+  },
+  "HOUSEMADE DRESSINGS SALAD PORTIONS/WHITE BALSAMIC VINAIGRETTE": {
+   "cat": "dressings",
+   "id": "white-balsamic-vinaigrette",
+   "variant_family": "white-balsamic-vinaigrette",
+   "variant_label": "Salad"
+  },
+  "HOUSEMADE DRESSINGS SALAD PORTIONS/BUTTERMILK RANCH": {
+   "cat": "dressings",
+   "id": "buttermilk-ranch",
+   "variant_family": "buttermilk-ranch",
+   "variant_label": "Salad"
+  },
+  "HOUSEMADE DRESSINGS SALAD PORTIONS/CREAMY CAESAR": {
+   "cat": "dressings",
+   "id": "creamy-caesar",
+   "variant_family": "creamy-caesar",
+   "variant_label": "Salad"
+  },
+  "HOUSEMADE DRESSINGS SALAD PORTIONS/MEXICAN CAESAR": {
+   "cat": "dressings",
+   "id": "mexican-caesar-dressing",
+   "variant_family": "mexican-caesar-dressing",
+   "variant_label": "Salad"
+  },
+  "HOUSEMADE DRESSINGS SALAD PORTIONS/SWEET & SMOKY CHIPOTLE VINAIGRETTE": {
+   "cat": "dressings",
+   "id": "sweet-smoky-chipotle-vinaigrette",
+   "variant_family": "sweet-smoky-chipotle-vinaigrette",
+   "variant_label": "Salad"
+  },
+  "HOUSEMADE DRESSINGS SALAD PORTIONS/SMOKY BACON RUSSIAN": {
+   "cat": "dressings",
+   "id": "smoky-bacon-russian",
+   "variant_family": "smoky-bacon-russian",
+   "variant_label": "Salad"
+  },
+  "HOUSEMADE DRESSINGS SALAD PORTIONS/CHIPOTLE RANCH": {
+   "cat": "dressings",
+   "id": "chipotle-ranch",
+   "variant_family": "chipotle-ranch",
+   "variant_label": "Salad"
+  },
+  "HOUSEMADE DRESSINGS SALAD PORTIONS/FIERY FETA": {
+   "cat": "dressings",
+   "id": "fiery-feta",
+   "variant_family": "fiery-feta",
+   "variant_label": "Salad"
+  },
+  "HOUSEMADE DRESSINGS SALAD PORTIONS/CREAMY SESAME": {
+   "cat": "dressings",
+   "id": "creamy-sesame",
+   "variant_family": "creamy-sesame",
+   "variant_label": "Salad"
+  },
+  "HOUSEMADE DRESSINGS SALAD PORTIONS/MEXICAN GODDESS": {
+   "cat": "dressings",
+   "id": "mexican-goddess",
+   "variant_family": "mexican-goddess",
+   "variant_label": "Salad"
+  },
+  "HOUSEMADE DRESSINGS SALAD PORTIONS/YOGURT DILL": {
+   "cat": "dressings",
+   "id": "yogurt-dill",
+   "variant_family": "yogurt-dill",
+   "variant_label": "Salad"
+  },
+  "HOUSEMADE DRESSINGS SALAD PORTIONS/HONEY DIJON": {
+   "cat": "dressings",
+   "id": "honey-dijon",
+   "variant_family": "honey-dijon",
+   "variant_label": "Salad"
+  },
+  "HOUSEMADE DRESSINGS SALAD PORTIONS/LEMON TAHINI": {
+   "cat": "dressings",
+   "id": "lemon-tahini",
+   "variant_family": "lemon-tahini",
+   "variant_label": "Salad"
+  },
+  "HOUSEMADE DRESSINGS SALAD PORTIONS/MISO CARROT": {
+   "cat": "dressings",
+   "id": "miso-carrot",
+   "variant_family": "miso-carrot",
+   "variant_label": "Salad"
+  },
+  "BOWL PORTIONS/CHOPT VINAIGRETTE": {
+   "cat": "dressings",
+   "id": "chopt-vinaigrette-bowl",
+   "variant_family": "chopt-vinaigrette",
+   "variant_label": "Bowl"
+  },
+  "BOWL PORTIONS/BALSAMIC VINAIGRETTE": {
+   "cat": "dressings",
+   "id": "balsamic-vinaigrette-bowl",
+   "variant_family": "balsamic-vinaigrette",
+   "variant_label": "Bowl"
+  },
+  "BOWL PORTIONS/WHITE BALSAMIC VINAIGRETTE": {
+   "cat": "dressings",
+   "id": "white-balsamic-vinaigrette-bowl",
+   "variant_family": "white-balsamic-vinaigrette",
+   "variant_label": "Bowl"
+  },
+  "BOWL PORTIONS/BUTTERMILK RANCH": {
+   "cat": "dressings",
+   "id": "buttermilk-ranch-bowl",
+   "variant_family": "buttermilk-ranch",
+   "variant_label": "Bowl"
+  },
+  "BOWL PORTIONS/CREAMY CAESAR": {
+   "cat": "dressings",
+   "id": "creamy-caesar-bowl",
+   "variant_family": "creamy-caesar",
+   "variant_label": "Bowl"
+  },
+  "BOWL PORTIONS/CREAMY SESAME": {
+   "cat": "dressings",
+   "id": "creamy-sesame-bowl",
+   "variant_family": "creamy-sesame",
+   "variant_label": "Bowl"
+  },
+  "BOWL PORTIONS/MEXICAN CAESAR": {
+   "cat": "dressings",
+   "id": "mexican-caesar-dressing-bowl",
+   "variant_family": "mexican-caesar-dressing",
+   "variant_label": "Bowl"
+  },
+  "BOWL PORTIONS/SWEET & SMOKY CHIPOTLE VINAIGRETTE": {
+   "cat": "dressings",
+   "id": "sweet-smoky-chipotle-vinaigrette-bowl",
+   "variant_family": "sweet-smoky-chipotle-vinaigrette",
+   "variant_label": "Bowl"
+  },
+  "BOWL PORTIONS/SMOKY BACON RUSSIAN": {
+   "cat": "dressings",
+   "id": "smoky-bacon-russian-bowl",
+   "variant_family": "smoky-bacon-russian",
+   "variant_label": "Bowl"
+  },
+  "BOWL PORTIONS/CHIPOTLE RANCH": {
+   "cat": "dressings",
+   "id": "chipotle-ranch-bowl",
+   "variant_family": "chipotle-ranch",
+   "variant_label": "Bowl"
+  },
+  "BOWL PORTIONS/FIERY FETA": {
+   "cat": "dressings",
+   "id": "fiery-feta-bowl",
+   "variant_family": "fiery-feta",
+   "variant_label": "Bowl"
+  },
+  "BOWL PORTIONS/MEXICAN GODDESS": {
+   "cat": "dressings",
+   "id": "mexican-goddess-bowl",
+   "variant_family": "mexican-goddess",
+   "variant_label": "Bowl"
+  },
+  "BOWL PORTIONS/YOGURT DILL": {
+   "cat": "dressings",
+   "id": "yogurt-dill-bowl",
+   "variant_family": "yogurt-dill",
+   "variant_label": "Bowl"
+  },
+  "BOWL PORTIONS/HONEY DIJON": {
+   "cat": "dressings",
+   "id": "honey-dijon-bowl",
+   "variant_family": "honey-dijon",
+   "variant_label": "Bowl"
+  },
+  "BOWL PORTIONS/LEMON TAHINI": {
+   "cat": "dressings",
+   "id": "lemon-tahini-bowl",
+   "variant_family": "lemon-tahini",
+   "variant_label": "Bowl"
+  },
+  "BOWL PORTIONS/CARROT MISO": {
+   "cat": "dressings",
+   "id": "miso-carrot-bowl",
+   "variant_family": "miso-carrot",
+   "variant_label": "Bowl",
+   "name": "Miso Carrot"
+  }
+ },
+ "dedupe": true,
+ "name_variants": [
+  {
+   "pattern": "^(?P<family>.+?)\\s+(?:with\\s+)?(?P<label>brown rice|cauliflower rice)$",
+   "sections": [
+    "BOWLS"
+   ]
+  }
+ ]
+}
