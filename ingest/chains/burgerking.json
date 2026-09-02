@@ -10,8 +10,10 @@
    "menu_id": "menu_5492",
    "build_item": "Whopper",
    "retrieved": "2026-09-01",
-   "format": "json",
-   "fetch": "plain"
+   "format": "sanity",
+   "fetch": "plain",
+   "dump_sha256": "18602f327570132a9c264db331bdb9b9b0c83741607e630bea3748d51feade0c",
+   "asset_sha256": "c00ba71475b376f288e3f52a45576fe5e97dc9d86efbb28ad0078878200a64c5"
   },
   "disclaimer_extra": "Burger King publishes each menu item as sold and each topping as its own figure. The build-your-own portions are the ones Burger King lists for the Whopper: a slice of cheese on a Whopper is not the same slice as on a Jr., so pooling them would invent a portion the chain does not serve.",
   "glyph": "burger",

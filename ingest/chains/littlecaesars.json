@@ -6,9 +6,12 @@
    "pdf_url": "https://www.datocms-assets.com/95658/1779298904-cr0027232_lj_nutri-info-allergen-ingredient_flyer_mgjur_minew-page-001.jpg",
    "page_url": "https://littlecaesars.com/en-us/menu/nutrition/",
    "retrieved": "2026-09-01",
-   "format": "jpg",
+   "format": "image",
    "fetch": "plain",
-   "link_pattern": "nutri-info-allergen-ingredient_flyer"
+   "link_pattern": "nutri-info-allergen-ingredient_flyer",
+   "transcribed": true,
+   "dump_sha256": "80816de494176fed37add1269321d245dd5634589f6337c4e4839023b49cdffb",
+   "asset_sha256": "7e62c1264c5f62a83003356754de958f0c2e03bc18569919515f75164a822a56"
   },
   "disclaimer_extra": "Little Caesars publishes its nutrition as a scanned flyer, not a data file, so these figures were read off it by hand. It publishes whole pizzas; every pizza row here is that figure divided by the eight slices they cut, and toppings are the chain's own note: \"amounts shown are the highest count for each topping\".",
   "glyph": "pizza",

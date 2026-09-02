@@ -11,7 +11,12 @@ import re, sys, pdfplumber
 from pathlib import Path
 
 slug, pdf = sys.argv[1], sys.argv[2]
-tables = "--tables" in sys.argv
+# The flag is recorded in the config (source.tables) so a re-dump by
+# refresh.py or by hand needs nothing remembered from the first one.
+import json
+_cfg = Path(f"ingest/chains/{slug}.json")
+_src = json.loads(_cfg.read_text())["meta"]["source"] if _cfg.exists() else {}
+tables = "--tables" in sys.argv or bool(_src.get("tables"))
 out = Path(f"data/raw/{slug}/raw_dump.txt"); out.parent.mkdir(parents=True, exist_ok=True)
 # A "no value" cell is written "-" by most chains and "--" by some (Chopt).
 # Both have to count as a cell: dropping one shifts every later column left,
