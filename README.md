@@ -10,9 +10,11 @@ line the way you'd order (base → protein → toppings → sauces), watch an
 FDA-style nutrition label total up live, share any meal as a URL, and save the
 label as an image or text for trackers like Lose It!.
 
-Currently covered, 1,672 ingredients across 11 chains: **CAVA · Chick-fil-A ·
-DIG · Five Guys · Just Salad · Moe's Southwest Grill · Panda Express ·
-Papa John's · Qdoba · Subway · Wingstop**
+Currently covered, 4,686 ingredients and menu items across 21 chains:
+**Buffalo Wild Wings · Burger King · CAVA · Cafe Rio · Chick-fil-A · Chipotle ·
+Chopt · DIG · Domino's · Five Guys · Jimmy John's · Just Salad · Little Caesars ·
+Moe's Southwest Grill · Panda Express · Papa John's · Potbelly · Qdoba · Subway ·
+Whataburger · Wingstop**
 
 ## How it works
 
@@ -24,14 +26,18 @@ chain's published data ──▶ ingest pipeline ──▶ data/chains/<slug>.js
 - **The repo is the database.** One JSON file per chain, validated by a zod
   schema, committed to git — a data update is a reviewable diff. The data ships
   inside the image, so adding a chain is dropping a file and rebuilding.
-- **Config-driven ingestion** (`ingest/`): chains publish as PDF, HTML table,
-  transposed HTML matrix, or embedded JSON, and three dumpers normalise those
-  four shapes into one intermediate text format. From there a single shared
+- **Config-driven ingestion** (`ingest/`): chains publish as PDFs, HTML tables,
+  transposed HTML matrices, embedded JSON, CMS and ordering APIs, and one
+  transcribed flyer. Six dumpers normalise those shapes into one intermediate
+  text format, and one registry ([`formats.py`](ingest/formats.py)) says which
+  dumper and which change check each shape gets. From there a single shared
   parser ([`common.py`](ingest/common.py)) is driven by per-chain config
   ([`ingest/chains/*.json`](ingest/chains)) — column order, section regexes,
   and an items table mapping printed rows to builder categories. **No chain has
   its own code path.** Extraction is deterministic: same dump in →
-  byte-identical JSON out, enforced by `rebuild.py --check`.
+  byte-identical JSON out. The dumps are tracked, so `rebuild.py --check`
+  proves it in CI on every push, not just on the machine that fetched the
+  source.
 - **Unrecognised rows fail loudly** — an unparsed line, a duplicate id, or a row
   the config doesn't place aborts the run, so a seasonal menu change can't be
   silently mis-parsed. The exception is a section given a blanket default: there
@@ -88,13 +94,18 @@ docker compose up -d --build                   # or: docker pull ghcr.io/parmati
 See [`ingest/README.md`](ingest/README.md) for the full runbook:
 
 ```bash
-python ingest/dump.py <slug> <pdf>              # PDF  ─┐
-python ingest/dump_html.py <slug>               # HTML ─┼─▶ data/raw/<slug>/raw_dump.txt
-python ingest/dump_json.py <slug>               # JSON ─┘
+python3 -m venv ingest/.venv && ingest/.venv/bin/python -m pip install -r ingest/requirements.txt
+python ingest/dump.py <slug> <pdf>              # PDF, or dump_html.py / dump_json.py /
+                                                # dump_sanity.py / dump_compose.py / dump_nutritionix.py
+                                                # ─▶ data/raw/<slug>/raw_dump.txt
 PYTHONPATH=ingest python ingest/extract.py <slug>
 python ingest/validate.py data/chains/<slug>.json
 python ingest/rebuild.py --check                # every chain still matches its config
+python ingest/refresh.py --all                  # has any chain's source moved or changed?
 ```
+
+Tests for the parser's mechanisms live in `ingest/tests/` (`pytest`); CI runs
+them alongside the config validator, `validate.py` and `rebuild.py --check`.
 
 ## Disclaimers
 
