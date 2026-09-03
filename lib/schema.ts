@@ -125,6 +125,13 @@ export const CategorySchema = z.object({
   // Soft Drinks is `flow: "both"` so it can head the build path, which made it
   // hide its cup sizes while the Limeades beside it showed theirs -- and the
   // cup size is exactly what a Route 44 is chosen by.
+  //
+  // CURRENTLY UNREAD. The size selector is now a pill on the row that opens on
+  // request, and a pill costs no height, so there is nothing left for a
+  // category to opt out of. Kept here rather than deleted because the schema
+  // is strict and two shipped Sonic categories still carry the key; if the new
+  // selector stays, removing it is one edit here, one in
+  // ingest/config_check.py, and a re-ingest of Sonic.
   size_leads: z.boolean().optional(),
 
   // What KIND of thing this category holds, from a fixed list, so cross-chain

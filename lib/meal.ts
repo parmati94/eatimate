@@ -2,6 +2,7 @@
 // Everything here is pure: same selections in, same totals out.
 import {
   Chain,
+  Component,
   NUTRIENT_FIELDS,
   NutrientField,
   SizeMode,
@@ -90,16 +91,57 @@ export function mealTotals(
   activeMode?: SizeMode | null,
   portion = 1,
 ): Totals {
-  const portionCats = new Set(chain.portion?.categories ?? []);
   const t = emptyTotals();
-  for (const c of chain.components) {
-    const qty = selections[c.id];
-    if (!qty) continue;
-    const scale = portionCats.has(c.category) ? portion : 1;
-    const k = qty * (activeMode?.multipliers[c.category] ?? 1) * scale;
-    for (const f of NUTRIENT_FIELDS) t[f] += (c[f] ?? 0) * k;
+  for (const { comp, scale } of scaled(chain, selections, activeMode, portion)) {
+    for (const f of NUTRIENT_FIELDS) t[f] += (comp[f] ?? 0) * scale;
   }
   return t;
+}
+
+/** Everything selected, in chain order, with the factor its figures are
+ *  multiplied by. The one place the three multipliers are stacked. */
+function* scaled(
+  chain: Chain,
+  selections: Selections,
+  activeMode?: SizeMode | null,
+  portion = 1,
+): Generator<{ comp: Component; qty: number; scale: number }> {
+  const portionCats = new Set(chain.portion?.categories ?? []);
+  for (const comp of chain.components) {
+    const qty = selections[comp.id];
+    if (!qty) continue;
+    const share = portionCats.has(comp.category) ? portion : 1;
+    yield {
+      comp,
+      qty,
+      scale: qty * (activeMode?.multipliers[comp.category] ?? 1) * share,
+    };
+  }
+}
+
+export interface MealLine {
+  comp: Component;
+  qty: number;
+  /** What this line contributes to the total, not what the chart prints. */
+  calories: number;
+}
+
+/**
+ * The meal as a list of lines.
+ *
+ * Shares its scaling with mealTotals, so a list of picks and the label under
+ * it cannot drift: a footlong's 2x and half a pizza's 0.5 are applied here for
+ * the same reason and by the same code.
+ */
+export function mealLines(
+  chain: Chain,
+  selections: Selections,
+  activeMode?: SizeMode | null,
+  portion = 1,
+): MealLine[] {
+  return [...scaled(chain, selections, activeMode, portion)].map(
+    ({ comp, qty, scale }) => ({ comp, qty, calories: comp.calories * scale }),
+  );
 }
 
 /**

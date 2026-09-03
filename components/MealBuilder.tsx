@@ -8,7 +8,15 @@ import {
   useRef,
   useState
 } from "react";
-import { buildPath, defaultMode as defaultPath, modeOf, owedNote, splitCats } from "@/lib/flow";
+import {
+  buildPath,
+  defaultMode as defaultPath,
+  mealStarted,
+  modeOf,
+  owedNote,
+  splitCats,
+} from "@/lib/flow";
+import { menuFamilies, reachableCount, searchMenu } from "@/lib/search";
 import type { Category, Chain, Component } from "@/lib/schema";
 import {
   show
@@ -25,6 +33,8 @@ import {
   unknownNutrients
 } from "@/lib/meal";
 import NutritionLabel from "./NutritionLabel";
+import YourPicks from "./builder/picks";
+import { MenuSearch, SearchResults } from "./builder/search";
 import { mealUrl } from "./builder/format";
 import {
   ExtrasSection,
@@ -163,9 +173,60 @@ export default function MealBuilder({
   }, [chain, visibleByCategory]);
 
 
+  // The numbered steps are exclusive: they are a sequence, one question at a
+  // time, and answering one advances to the next.
   const [openCat, setOpenCat] = useState<string | null>(
     buildCats[0]?.id ?? null,
   );
+  // The additive ones are not. They sit under "Add to it" beside the extras
+  // accordions, which have always been independent, and which of the two a
+  // category got was decided by `flow` -- a fact about the build path with no
+  // opinion about accordions. Sonic ended up with three exclusive and seven
+  // independent under one heading, identical to look at, and closing your open
+  // step to glance at the drinks is pure loss when nothing is being sequenced.
+  const [openAdds, setOpenAdds] = useState<string[]>([]);
+  const toggleAdd = (id: string) =>
+    setOpenAdds((p) => (p.includes(id) ? p.filter((x) => x !== id) : [...p, id]));
+
+  // One field over the whole chart. It only appears once a path is in effect:
+  // before that the page is a two-button question, and a result picked with no
+  // path could land in a category this page is not rendering -- checked,
+  // counted and invisible.
+  const [query, setQuery] = useState("");
+  // Not in the comparison view: its two builders are preloaded meals in narrow
+  // columns, and a search field in each would be two boxes competing over one
+  // question nobody asked there.
+  const pathChosen = chrome === "full" && (!hasPresets || mode !== null);
+  const searching = pathChosen && query.trim().length > 0;
+  const families = useMemo(
+    () => menuFamilies(chain, visibleByCategory),
+    [chain, visibleByCategory],
+  );
+  // Only what this path offers. Searching across both would let a menu item be
+  // selected while the build path is on screen, which is the same invisible
+  // selection by another route -- so the ones on the other path are counted
+  // and mentioned rather than listed.
+  //
+  // Not memoised: buildPath rebuilds these arrays every render, so a dependency
+  // list on them memoises nothing and only stops the compiler optimising the
+  // rest of the component. The work is a set of a dozen ids and a pass over the
+  // families, and it only runs while something is typed.
+  const reachable = new Set([...buildCats, ...extraCats].map((c) => c.id));
+  const found = searching
+    ? searchMenu(families, query, reachable)
+    : { hits: [], elsewhere: 0 };
+  // Keyed by the exact component an add-on attaches to, matching CategoryBody:
+  // the parent is already size-resolved, so garlic oil on a medium is a
+  // different row from garlic oil on a large.
+  const addonsOf = useMemo(() => {
+    const m = new Map<string, Component[]>();
+    for (const c of chain.components) {
+      if (!c.addon_of || !isVisible(c)) continue;
+      m.set(c.addon_of, [...(m.get(c.addon_of) ?? []), c]);
+    }
+    return m;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [chain, activeMode]);
 
   /** Choosing a path drops anything picked on the other one, so a hidden
    *  selection can never keep counting toward the totals. */
@@ -181,6 +242,7 @@ export default function MealBuilder({
       return kept;
     });
     setMode(next);
+    setQuery("");
     setOpenCat(
       (next === "menu" ? presetCats : scratchCats)[0]?.id ?? null,
     );
@@ -362,6 +424,15 @@ export default function MealBuilder({
 
   const clearAll = () => setSelections({});
 
+  /** Drop one pick. No confirm: a mis-tap costs one re-add, and a dialog on
+   *  every chip would cost more than the mistake does. */
+  const remove = (id: string) =>
+    setSelections((prev) => {
+      const next = { ...prev };
+      delete next[id];
+      return next;
+    });
+
   return (
     <div
       // No bottom padding for the floating totals bar: the page owns that
@@ -379,7 +450,10 @@ export default function MealBuilder({
         Chick-n-Strips" pushed the mobile layout to 574px in a 390px window.
       */}
       <div className="min-w-0 space-y-5">
-        {hasPresets && (
+        {/* Both of these stand down while searching. Neither belongs to the
+            mode, and together they were ~120px of the screen sitting between
+            the header and a field that is trying to reach the top of it. */}
+        {hasPresets && !searching && (
           <div className="rounded-2xl border border-line bg-surface p-3 shadow-sm">
             {mode === null ? (
               <>
@@ -425,6 +499,7 @@ export default function MealBuilder({
                   onClick={() => {
                     setSelections({});
                     setMode(null);
+                    setQuery("");
                     setOpenCat(null);
                   }}
                   className="text-xs font-medium text-accent-strong underline underline-offset-2"
@@ -435,7 +510,7 @@ export default function MealBuilder({
             )}
           </div>
         )}
-        {portionMax > 1 && (
+        {portionMax > 1 && !searching && (
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-2xl border border-line bg-surface px-3 py-2 shadow-sm">
             <span className="text-sm font-medium">
               {chain.portion!.unit.charAt(0).toUpperCase() +
@@ -460,137 +535,163 @@ export default function MealBuilder({
           </div>
         )}
 
-        {/* The numbered steps are one run, not six loose cards: a short rule
-            joins each badge to the one above it, so the counter line reads as
-            a line. The open step carries the weight. */}
-        <div className="space-y-2">
-          {owedSteps.map((cat, idx) => (
-            <StepSection
-              key={cat.id}
-              cat={cat}
-              comps={visibleByCategory.get(cat.id)!}
-              index={idx + 1}
-              connect={idx > 0}
-              open={openCat === cat.id}
-              onToggle={() => setOpenCat(openCat === cat.id ? null : cat.id)}
-              selections={selections}
-              qtySteps={portionCats.has(cat.id) ? COVERAGE_STEPS : undefined}
-              qmultFor={rowMult}
-              toggle={toggle}
-              setQty={setQty}
-            />
-          ))}
-        </div>
-
-        {/* Only once something is picked. "Make it a meal" has nothing to
-            attach to before there IS a meal, and on Chick-fil-A -- where the
-            menu path is one step -- this block rendered second on the page,
-            986px tall on a 390px phone, before the visitor had even chosen
-            between starting from a menu item and building one. */}
-        {featured.length > 0 && selectedCount > 0 && (
-          <section className="rounded-2xl border border-line bg-surface p-3 shadow-sm">
-            <h2 className="px-1 pb-2 text-xs font-semibold uppercase tracking-wider text-muted">
-              Make it a meal
-            </h2>
-            <div className="space-y-3">
-              {featured.map(({ cat, comps }) => (
-                <div key={cat.id}>
-                  <p className="px-1 pb-1 text-xs text-muted">{cat.name}</p>
-                  <ul className="space-y-0.5">
-                    {comps.map((head) => (
-                      <FamilyRow
-                        key={head.id}
-                        head={head}
-                        members={[
-                          head,
-                          ...(visibleByCategory.get(cat.id) ?? []).filter(
-                            (c) => c.variant_of === head.id,
-                          ),
-                        ]}
-                        selections={selections}
-                        single={cat.select === "single"}
-                        qmultFor={rowMult}
-                        toggle={toggle}
-                        setQty={setQty}
-                        // Live, like the extras accordions and unlike a
-                        // numbered step: a drink on this shelf is chosen BY
-                        // its size, so the sizes have to be visible to choose
-                        // between. Stated rather than left to the default --
-                        // this is the second place that renders a chip row,
-                        // and the last two bugs in this component were one
-                        // concept with two call sites drifting apart.
-                        chipsOnPick={false}
-                      />
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </section>
+        {/* Above the flow, not under "Add to it": it reaches the numbered
+            steps too, and a box under that heading would claim a scope it does
+            not have. The path question still comes first -- somebody arriving
+            cold is answering that, not typing. */}
+        {pathChosen && (
+          <MenuSearch
+            chainName={chain.name}
+            rosterCount={reachableCount(families, reachable)}
+            value={query}
+            onChange={setQuery}
+            searching={searching}
+            matches={found.hits.length}
+          />
         )}
 
-        {/* One heading over everything additive.
-
-            There used to be two "Add to it" headings 140px apart: the promoted
-            categories got one and the extras below got another, so the page
-            announced the same thing twice and the only difference between them
-            -- step-style card versus accordion -- is an implementation detail.
-            Renaming one was not an option either: "Sides, drinks & more" would
-            mislabel Jimmy John's Add-ons, which really are things you add. So
-            they share a heading and sit next to each other. */}
-        {(owedAdds.length > 0 || extraCats.length > 0) && (
+        {searching ? (
+          <SearchResults
+            chain={chain}
+            query={query}
+            result={found}
+            otherPathName={mode === "menu" ? "build-your-own" : "menu-item"}
+            stepCats={new Set(owedSteps.map((c) => c.id))}
+            selections={selections}
+            addonsOf={addonsOf}
+            portionCats={portionCats}
+            qtySteps={COVERAGE_STEPS}
+            qmultFor={rowMult}
+            toggle={toggle}
+            setQty={setQty}
+          />
+        ) : (
           <>
-            <h2 className="px-1 pt-1 text-xs font-semibold uppercase tracking-wider text-muted">
-              {mode === "menu"
-                ? "Add to it"
-                : "Sides, drinks & other menu items"}
-            </h2>
-            {mode === "menu" && (
-              // Not a hedge -- the honest statement. These charts give a figure
-              // for the whole item and never say which ingredients are in it,
-              // so hiding the ones we guessed were "already included" would
-              // invent the very fact that is missing. Everything stays listed,
-              // and this says what adding one means.
-              //
-              // It used to open "Your pick above is already complete", which is
-              // a claim we cannot make for every chain: Chopt and Just Salad
-              // both publish their menu salads WITHOUT dressing and say so, so
-              // the sentence sat directly under a row reading "no dressing" and
-              // contradicted it. Where an item really is incomplete the chain's
-              // own words carry it, on the row and in the category note.
-              <p className="px-1 pb-1 text-xs leading-relaxed text-muted">
-                {chain.name} does not publish which ingredients are in your
-                pick, so everything stays listed here — anything you add counts
-                on top.
-              </p>
-            )}
-            <div className="space-y-2">
-              {owedAdds.map((cat) => (
-                <StepSection
-                  key={cat.id}
-                  cat={cat}
-                  comps={visibleByCategory.get(cat.id)!}
-                  connect={false}
-                  open={openCat === cat.id}
-                  onToggle={() => setOpenCat(openCat === cat.id ? null : cat.id)}
-                  selections={selections}
-                  qtySteps={portionCats.has(cat.id) ? COVERAGE_STEPS : undefined}
-                  qmultFor={rowMult}
-                  toggle={toggle}
-                  setQty={setQty}
-                />
-              ))}
-              {extraCats.map((cat) => (
-                <ExtrasSection
-                  key={cat.id}
-                  cat={cat}
-                  comps={visibleByCategory.get(cat.id)!}
-                  selections={selections}
-                  toggle={toggle}
-                  setQty={setQty}
-                />
-              ))}
-            </div>
+          {/* The numbered steps are one run, not six loose cards: a short rule
+              joins each badge to the one above it, so the counter line reads as
+              a line. The open step carries the weight. */}
+          <div className="space-y-2">
+            {owedSteps.map((cat, idx) => (
+              <StepSection
+                key={cat.id}
+                cat={cat}
+                comps={visibleByCategory.get(cat.id)!}
+                index={idx + 1}
+                connect={idx > 0}
+                open={openCat === cat.id}
+                onToggle={() => setOpenCat(openCat === cat.id ? null : cat.id)}
+                selections={selections}
+                qtySteps={portionCats.has(cat.id) ? COVERAGE_STEPS : undefined}
+                qmultFor={rowMult}
+                toggle={toggle}
+                setQty={setQty}
+              />
+            ))}
+          </div>
+
+          {/* Only once something is picked. "Make it a meal" has nothing to
+              attach to before there IS a meal, and on Chick-fil-A -- where the
+              menu path is one step -- this block rendered second on the page,
+              986px tall on a 390px phone, before the visitor had even chosen
+              between starting from a menu item and building one. */}
+          {featured.length > 0 && mealStarted(chain, selections, owedSteps) && (
+            <section className="rounded-2xl border border-line bg-surface p-3 shadow-sm">
+              <h2 className="px-1 pb-2 text-xs font-semibold uppercase tracking-wider text-muted">
+                Make it a meal
+              </h2>
+              <div className="space-y-3">
+                {featured.map(({ cat, comps }) => (
+                  <div key={cat.id}>
+                    <p className="px-1 pb-1 text-xs text-muted">{cat.name}</p>
+                    <ul className="space-y-0.5">
+                      {comps.map((head) => (
+                        <FamilyRow
+                          key={head.id}
+                          head={head}
+                          members={[
+                            head,
+                            ...(visibleByCategory.get(cat.id) ?? []).filter(
+                              (c) => c.variant_of === head.id,
+                            ),
+                          ]}
+                          selections={selections}
+                          single={cat.select === "single"}
+                          qmultFor={rowMult}
+                          toggle={toggle}
+                          setQty={setQty}
+                        />
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* One heading over everything additive.
+
+              There used to be two "Add to it" headings 140px apart: the promoted
+              categories got one and the extras below got another, so the page
+              announced the same thing twice and the only difference between them
+              -- step-style card versus accordion -- is an implementation detail.
+              Renaming one was not an option either: "Sides, drinks & more" would
+              mislabel Jimmy John's Add-ons, which really are things you add. So
+              they share a heading and sit next to each other. */}
+          {(owedAdds.length > 0 || extraCats.length > 0) && (
+            <>
+              <h2 className="px-1 pt-1 text-xs font-semibold uppercase tracking-wider text-muted">
+                {mode === "menu"
+                  ? "Add to it"
+                  : "Sides, drinks & other menu items"}
+              </h2>
+              {mode === "menu" && (
+                // Not a hedge -- the honest statement. These charts give a figure
+                // for the whole item and never say which ingredients are in it,
+                // so hiding the ones we guessed were "already included" would
+                // invent the very fact that is missing. Everything stays listed,
+                // and this says what adding one means.
+                //
+                // It used to open "Your pick above is already complete", which is
+                // a claim we cannot make for every chain: Chopt and Just Salad
+                // both publish their menu salads WITHOUT dressing and say so, so
+                // the sentence sat directly under a row reading "no dressing" and
+                // contradicted it. Where an item really is incomplete the chain's
+                // own words carry it, on the row and in the category note.
+                <p className="px-1 pb-1 text-xs leading-relaxed text-muted">
+                  {chain.name} does not publish which ingredients are in your
+                  pick, so everything stays listed here — anything you add counts
+                  on top.
+                </p>
+              )}
+              <div className="space-y-2">
+                {owedAdds.map((cat) => (
+                  <StepSection
+                    key={cat.id}
+                    cat={cat}
+                    comps={visibleByCategory.get(cat.id)!}
+                    connect={false}
+                    open={openAdds.includes(cat.id)}
+                    onToggle={() => toggleAdd(cat.id)}
+                    selections={selections}
+                    qtySteps={portionCats.has(cat.id) ? COVERAGE_STEPS : undefined}
+                    qmultFor={rowMult}
+                    toggle={toggle}
+                    setQty={setQty}
+                  />
+                ))}
+                {extraCats.map((cat) => (
+                  <ExtrasSection
+                    key={cat.id}
+                    cat={cat}
+                    comps={visibleByCategory.get(cat.id)!}
+                    selections={selections}
+                    toggle={toggle}
+                    setQty={setQty}
+                  />
+                ))}
+              </div>
+            </>
+          )}
           </>
         )}
       </div>
@@ -598,6 +699,13 @@ export default function MealBuilder({
       {/* Desktop: sticky label column */}
       {chrome === "full" && (
       <aside className="hidden lg:sticky lg:top-[72px] lg:block lg:space-y-2 lg:self-start">
+        <YourPicks
+          chain={chain}
+          selections={selections}
+          activeMode={activeMode}
+          portion={portion}
+          onRemove={remove}
+        />
         <NutritionLabel totals={totals} subtitle={subtitle} missing={missing} estimated={estimated} />
         <ShareMealButton chain={chain} selections={selections} portion={portion} />
         <SaveImageButton
@@ -646,6 +754,13 @@ export default function MealBuilder({
         <div className="pointer-events-auto mx-auto max-w-md px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
           {labelOpen && (
             <div className="mb-2 max-h-[70vh] space-y-2 overflow-y-auto rounded-2xl bg-surface p-3 shadow-2xl ring-1 ring-line">
+              <YourPicks
+                chain={chain}
+                selections={selections}
+                activeMode={activeMode}
+                portion={portion}
+                onRemove={remove}
+              />
               <NutritionLabel totals={totals} subtitle={subtitle} missing={missing} estimated={estimated} />
               <ShareMealButton chain={chain} selections={selections} portion={portion} />
               <SaveImageButton
@@ -735,12 +850,16 @@ export default function MealBuilder({
                   <span className="num shrink-0 text-xl font-extrabold leading-none">
                     {show(totals.calories)} cal
                   </span>
+                  {/* The item count leads, because the sheet this opens now
+                      holds an editable list of those items and nothing else on
+                      the bar hinted that there was anything in there to edit.
+                      The macros keep the wider phones. */}
                   <span className="num min-w-0 truncate text-xs opacity-90">
-                    {show(totals.protein_g, 1)}g protein
+                    {selectedCount} item{selectedCount === 1 ? "" : "s"}
                     <span className="hidden min-[380px]:inline">
                       {" · "}
-                      {show(totals.carbs_g, 1)}g carbs ·{" "}
-                      {show(totals.fat_g, 1)}g fat
+                      {show(totals.protein_g, 1)}g protein ·{" "}
+                      {show(totals.carbs_g, 1)}g carbs
                     </span>
                   </span>
                 </>

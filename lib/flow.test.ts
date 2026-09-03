@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { describe, expect, it } from "vitest";
-import { buildPath, modeOf, owedNote } from "./flow";
+import { buildPath, mealStarted, modeOf, owedNote } from "./flow";
 import { defaultSizeMode } from "./meal";
 import { ChainSchema, type Chain, type Component } from "./schema";
 
@@ -104,5 +104,37 @@ describe("buildPath on the build path", () => {
   it("shows nothing numbered while a preset chain is still asking how to start", async () => {
     const c = await chain("potbelly");
     expect(buildPath(c, null, {}, allVisible(c)).stepCats).toEqual([]);
+  });
+});
+
+describe("mealStarted", () => {
+  it("waits for a menu item, not for anything at all", async () => {
+    const c = await chain("sonic");
+    const vis = allVisible(c);
+    const path = buildPath(c, "menu", {}, vis);
+    // A dipping sauce and a drink add-in are both things you can select from
+    // an accordion or a search result with no meal in hand.
+    expect(mealStarted(c, { bbq: 1 }, path.stepCats)).toBe(false);
+    expect(mealStarted(c, { "cherry-add-in-large": 1 }, path.stepCats)).toBe(false);
+    expect(
+      mealStarted(c, { "sonic-cheeseburger-with-ketchup-mayo": 1 }, path.stepCats),
+    ).toBe(true);
+  });
+
+  it("is empty-handed before a path is chosen", async () => {
+    const c = await chain("sonic");
+    const path = buildPath(c, null, {}, allVisible(c));
+    expect(path.stepCats).toHaveLength(0);
+    expect(mealStarted(c, { "sonic-cheeseburger-with-ketchup-mayo": 1 }, path.stepCats)).toBe(
+      false,
+    );
+  });
+
+  it("counts the first step of a build path", async () => {
+    const c = await chain("chipotle");
+    const vis = allVisible(c);
+    const path = buildPath(c, null, {}, vis);
+    const first = c.components.find((x) => x.category === path.stepCats[0].id)!;
+    expect(mealStarted(c, { [first.id]: 1 }, path.stepCats)).toBe(true);
   });
 });

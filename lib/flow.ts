@@ -134,6 +134,26 @@ export function buildPath(
   return { presetCats, scratchCats, hasPresets, buildCats, stepCats, addCats, extraCats, owed };
 }
 
+/**
+ * Whether a numbered step has been answered.
+ *
+ * "Make it a meal" attaches to a meal, and on the menu path a meal is a menu
+ * item -- but the shelf used to appear on ANY selection, so picking a dipping
+ * sauce from an accordion, or a cherry add-in from a search result, offered to
+ * turn it into a meal. The steps are exactly the categories the path numbers,
+ * which on the menu path is the published item and nothing else, so the
+ * question "has this order got something to build on" is already answered by
+ * the structure.
+ */
+export function mealStarted(
+  chain: Chain,
+  selections: Selections,
+  stepCats: Category[],
+): boolean {
+  const steps = new Set(stepCats.map((c) => c.id));
+  return chain.components.some((c) => selections[c.id] && steps.has(c.category));
+}
+
 /** The line under an owed step: the chain's own words, not a paraphrase.
  *  Subway's is "no dressing unless noted", and "unless noted" is load-bearing. */
 export function owedNote(chain: Chain, owed: NonNullable<BuildPath["owed"]>): string {
