@@ -90,10 +90,12 @@ export default async function ComparePage(props: PageProps<"/compare/[pair]">) {
         {a.name} vs {b.name}{" "}
         <span className="font-semibold text-muted">Nutrition Compared</span>
       </h1>
+      {/* One sentence. The "as served, not per 100 g" clause is method, and it
+          sat here as a second line on every phone between the title and the
+          first control; it lives in the footer now, beside the note about the
+          starting builds, which is the other piece of method on the page. */}
       <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-        Change either order and watch the difference move. Compared as served,
-        not per 100 g — portions differ between chains, and that difference is
-        part of the answer.
+        Change either order and watch the difference move.
       </p>
 
       {!recommended && (
@@ -111,6 +113,8 @@ export default async function ComparePage(props: PageProps<"/compare/[pair]">) {
 
       <footer className="mt-6 space-y-2 border-t border-line pt-4 text-xs leading-relaxed text-muted">
         <p>
+          Compared as served, not per 100 g: portions differ between chains,
+          and that difference is part of the answer.{" "}
           {recommended &&
             "The starting builds are ours, not the chains’. Neither restaurant sells a dish designed to line up against the other, so each one is the closest honest reading of the rule stated above it. "}
           Nutrition figures come from{" "}

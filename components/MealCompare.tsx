@@ -18,7 +18,7 @@ import {
 } from "@/lib/meal";
 import type { Chain } from "@/lib/schema";
 import { show } from "@/lib/rounding";
-import { IconCheck, IconCopy, IconExternal } from "@/components/icons";
+import { IconCheck, IconChevron, IconCopy, IconExternal } from "@/components/icons";
 import { NUTRIENT_LABELS } from "@/lib/schema";
 
 /** A named starting point: the same dish as each chain would build it. */
@@ -58,6 +58,7 @@ export default function MealCompare({
   ]);
   const [tab, setTab] = useState(0);
   const [copied, setCopied] = useState(false);
+  const [diffOpen, setDiffOpen] = useState(false);
   const hydrated = useRef(false);
 
   // Restore a shared comparison from ?a=&b= after mount, the same way the
@@ -146,6 +147,30 @@ export default function MealCompare({
     setSelections([{ ...p.sides[0] }, { ...p.sides[1] }]);
     setPortions([p.portions[0] ?? 1, p.portions[1] ?? 1]);
   };
+
+  const copyButton = (
+    <button
+      type="button"
+      disabled={empty}
+      onClick={async () => {
+        if (await copyText(diffText(names, rows, chains, selections))) {
+          setCopied(true);
+          setTimeout(() => setCopied(false), 1800);
+        }
+      }}
+      className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-xs text-muted transition-colors hover:border-accent hover:text-fg disabled:opacity-50"
+    >
+      {copied ? (
+        <>
+          <IconCheck className="h-3.5 w-3.5" /> Copied
+        </>
+      ) : (
+        <>
+          <IconCopy className="h-3.5 w-3.5" /> Copy comparison
+        </>
+      )}
+    </button>
+  );
 
   return (
     <div>
@@ -307,32 +332,17 @@ export default function MealCompare({
               Both meals as served. Change either side above and these update.
             </p>
           </div>
-          <button
-            type="button"
-            disabled={empty}
-            onClick={async () => {
-              if (await copyText(diffText(names, rows, chains, selections))) {
-                setCopied(true);
-                setTimeout(() => setCopied(false), 1800);
-              }
-            }}
-            className="inline-flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-xs text-muted transition-colors hover:border-accent hover:text-fg disabled:opacity-50"
-          >
-            {copied ? (
-              <>
-                <IconCheck className="h-3.5 w-3.5" /> Copied
-              </>
-            ) : (
-              <>
-                <IconCopy className="h-3.5 w-3.5" /> Copy comparison
-              </>
-            )}
-          </button>
+          {copyButton}
         </div>
         {/* What is actually in each meal, in words. Rendered from live
             selections so it is right after an edit, and present in the server
             HTML so the comparison reads as prose without running any of it. */}
-        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+        {/* Desktop: the ingredient lists and the table side by side. The
+            table alone across an 1,100px section put its four columns 300px
+            apart, and the eye travelled the full width on every row. */}
+        <div className="mt-4 lg:grid lg:grid-cols-2 lg:gap-8">
+        <div>
+        <div className="grid gap-4 sm:grid-cols-2">
           {chains.map((chain, i) => {
             const picked = chain.components.filter((c) => selections[i][c.id]);
             return (
@@ -379,42 +389,86 @@ export default function MealCompare({
           Nutrition labels, saved images and share links live in each
           chain&rsquo;s own calculator — your meal travels with the link.
         </p>
+        </div>
 
-        <div className="mt-4">
+        <div className="mt-4 lg:mt-0">
           <CompareTable rows={rows} names={names} />
+        </div>
         </div>
       </section>
 
       {/* Sticky summary: the two numbers people came for, on screen while
-          they build, on both breakpoints. */}
+          they build, on both breakpoints.
+
+          A control, not a readout. On a chain page the bar of this shape opens
+          the label, so people tap this one too -- and the thing it should open
+          is the table below, which on a phone sits under both builders' full
+          accordion stacks, about 2,000px down on CAVA vs Chipotle. So it gets
+          the same grab handle and turning chevron, and the same slide-up. */}
+      {!empty && diffOpen && (
+        <div
+          className="fixed inset-0 z-20 bg-black/30 backdrop-blur-[2px]"
+          onClick={() => setDiffOpen(false)}
+          aria-hidden
+        />
+      )}
       {!empty && (
         <div className="pointer-events-none fixed inset-x-0 bottom-0 z-20">
           <div className="pointer-events-auto mx-auto max-w-3xl px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
-            <div className="flex items-center justify-between gap-3 rounded-2xl bg-accent px-4 py-3 text-on-accent shadow-lg shadow-accent/30">
-              {chains.map((c, i) => (
-                <span key={c.slug} className="min-w-0">
-                  <span className="block truncate text-[11px] opacity-80">
-                    {c.name}
-                  </span>
-                  <span className="text-lg font-bold tabular-nums">
-                    {show(facts[i].totals.calories)}
-                    <span className="text-xs font-normal opacity-90"> cal</span>
-                  </span>
-                </span>
-              ))}
-              <span className="shrink-0 text-right text-xs tabular-nums">
-                {(["calories", "protein_g"] as const).map((field) => {
-                  const r = rows.find((x) => x.field === field)!;
-                  if (r.spread === null || r.highest === null) return null;
-                  return (
-                    <span key={field} className="block">
-                      {names[r.highest]} +{fmtNutrient(r.spread, field)}
-                      {field === "calories" ? " cal" : "g protein"}
+            {diffOpen && (
+              <div className="mb-2 max-h-[70vh] overflow-y-auto rounded-2xl bg-surface p-4 shadow-2xl ring-1 ring-line">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <h2 className="text-base font-bold tracking-tight">The difference</h2>
+                    <p className="mt-0.5 text-xs text-muted">
+                      Both meals as served. Change either side and this updates.
+                    </p>
+                  </div>
+                  {copyButton}
+                </div>
+                <div className="mt-3">
+                  <CompareTable rows={rows} names={names} />
+                </div>
+              </div>
+            )}
+            <button
+              type="button"
+              onClick={() => setDiffOpen((v) => !v)}
+              aria-expanded={diffOpen}
+              aria-label={diffOpen ? "Hide the full difference" : "Show the full difference"}
+              className="flex w-full flex-col items-center gap-1 rounded-2xl bg-accent px-4 pb-3 pt-2 text-left text-on-accent shadow-lg shadow-accent/30"
+            >
+              <span aria-hidden className="h-1 w-9 shrink-0 rounded-full bg-current opacity-30" />
+              <span className="flex w-full items-center justify-between gap-3">
+                {chains.map((c, i) => (
+                  <span key={c.slug} className="min-w-0">
+                    <span className="block truncate text-[11px] opacity-80">
+                      {c.name}
                     </span>
-                  );
-                })}
+                    <span className="text-lg font-bold tabular-nums">
+                      {show(facts[i].totals.calories)}
+                      <span className="text-xs font-normal opacity-90"> cal</span>
+                    </span>
+                  </span>
+                ))}
+                <span className="min-w-0 flex-1 text-right text-[11px] tabular-nums leading-snug">
+                  {(["calories", "protein_g"] as const).map((field) => {
+                    const r = rows.find((x) => x.field === field)!;
+                    if (r.spread === null || r.highest === null) return null;
+                    return (
+                      <span key={field} className="block truncate">
+                        {names[r.highest]} +{fmtNutrient(r.spread, field)}
+                        {field === "calories" ? " cal" : "g protein"}
+                      </span>
+                    );
+                  })}
+                </span>
+                <IconChevron
+                  aria-hidden
+                  className={`h-5 w-5 shrink-0 transition-transform ${diffOpen ? "rotate-90" : "-rotate-90"}`}
+                />
               </span>
-            </div>
+            </button>
           </div>
         </div>
       )}

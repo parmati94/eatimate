@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import ChainPicker from "@/components/ChainPicker";
-import CompareCard from "@/components/CompareCard";
+import { PairChip } from "@/components/CompareCard";
 import { chainTints, listChains } from "@/lib/data";
-import { listComparePairs } from "@/lib/meals";
+import { listDishGroups } from "@/lib/meals";
 
 export const metadata: Metadata = {
   title: { absolute: "Compare Restaurant Nutrition Side by Side" },
@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 };
 
 export default async function CompareIndex() {
-  const [pairs, chains, tints] = await Promise.all([
-    listComparePairs(),
+  const [groups, chains, tints] = await Promise.all([
+    listDishGroups(),
     listChains(),
     chainTints(),
   ]);
@@ -25,8 +25,7 @@ export default async function CompareIndex() {
       </h1>
       <p className="mt-3 max-w-2xl text-base text-muted">
         Build the same order at both, side by side, and watch the difference
-        move. Compared as served — portions differ between chains, and that
-        difference is part of the answer.
+        move.
       </p>
 
       <div className="mt-6">
@@ -40,30 +39,50 @@ export default async function CompareIndex() {
         />
       </div>
 
-      {/* The explainer that used to sit under this heading ("...so there is
-          something to read before you touch anything") described the reader's
-          experience rather than telling them anything. The heading says it. */}
+      {/* By dish, not by pair. Thirty-three cards in alphabetical order put
+          every "Burger King vs …" first and grew with the square of each
+          cluster; one heading per dish grows by a line per chain and names
+          the question rather than the permutation. */}
       <h2 className="mt-10 text-lg font-bold tracking-tight">
-        Recommended — already built at both
+        Recommended, by dish
       </h2>
+      <p className="mt-1 max-w-2xl text-sm text-muted">
+        Each of these opens with the dish already built at both chains. Pick
+        any two.
+      </p>
 
-      {pairs.length === 0 ? (
+      {groups.length === 0 ? (
         <p className="mt-5 text-sm text-muted">No comparisons yet.</p>
       ) : (
-        <ul className="mt-5 grid gap-3 sm:grid-cols-2 sm:gap-4">
-          {pairs.map((p) => (
-            <li key={p.slug}>
-              <CompareCard pair={p} tints={tints} />
-            </li>
+        <div className="mt-4 divide-y divide-line">
+          {groups.map(({ dishes, chains: at, pairs }) => (
+            <section key={dishes[0].id} className="py-5 first:pt-2">
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h3 className="text-base font-semibold">
+                  {dishes.map((d) => d.name).join(" · ")}
+                </h3>
+                <p className="text-xs text-muted">
+                  at {at.length} chains
+                </p>
+              </div>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {pairs.map((p) => (
+                  <li key={p.slug}>
+                    <PairChip pair={p} tints={tints} />
+                  </li>
+                ))}
+              </ul>
+            </section>
           ))}
-        </ul>
+        </div>
       )}
 
       {/* The pair pages carry the full version of this note against the build
           it actually describes. Here it is one line. */}
       <p className="mt-10 max-w-2xl text-xs leading-relaxed text-muted">
-        Starting builds are ours, not the chains&rsquo; — and every ingredient
-        is yours to change.
+        Compared as served, not per 100 g — portions differ between chains, and
+        that difference is part of the answer. Starting builds are ours, not
+        the chains&rsquo;, and every ingredient is yours to change.
       </p>
     </main>
   );
