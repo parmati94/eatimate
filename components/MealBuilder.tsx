@@ -432,7 +432,10 @@ export default function MealBuilder({
         Chick-n-Strips" pushed the mobile layout to 574px in a 390px window.
       */}
       <div className="min-w-0 space-y-5">
-        {hasPresets && (
+        {/* Both of these stand down while searching. Neither belongs to the
+            mode, and together they were ~120px of the screen sitting between
+            the header and a field that is trying to reach the top of it. */}
+        {hasPresets && !searching && (
           <div className="rounded-2xl border border-line bg-surface p-3 shadow-sm">
             {mode === null ? (
               <>
@@ -489,7 +492,7 @@ export default function MealBuilder({
             )}
           </div>
         )}
-        {portionMax > 1 && (
+        {portionMax > 1 && !searching && (
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-2xl border border-line bg-surface px-3 py-2 shadow-sm">
             <span className="text-sm font-medium">
               {chain.portion!.unit.charAt(0).toUpperCase() +

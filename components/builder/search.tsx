@@ -6,7 +6,7 @@
  *  and a box under that heading would be claiming a scope it does not have.
  *  Somebody looking for Tots does not know, and should not have to know, that
  *  Sonic lists them both on the meal shelf and under Snacks & Sides. */
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { Chain, Component } from "@/lib/schema";
 import type { MenuFamily, MenuSearchResult } from "@/lib/search";
 import { Selections } from "@/lib/meal";
@@ -46,16 +46,21 @@ export function MenuSearch({
   matches: number;
 }) {
   const typed = value.trim().toLowerCase();
+  const box = useRef<HTMLDivElement>(null);
   return (
     <div
+      ref={box}
       // Searching is a mode, so the control that governs it stays on screen
       // for the whole of it. top-14 is the site header, which is sticky too.
       // The bleed and the blur are what let results scroll under it cleanly.
-      className={
+      // scroll-mt-14 is the site header, and it is what the focus handler
+      // below scrolls this box to. Same 14 as the sticky offset, so the field
+      // lands exactly where it will hold.
+      className={`scroll-mt-14 ${
         searching
           ? "sticky top-14 z-10 -mx-2 space-y-1.5 bg-bg/90 px-2 py-2 backdrop-blur"
           : "space-y-1.5"
-      }
+      }`}
     >
       <label className="relative block">
         <IconSearch className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-accent-strong" />
@@ -64,6 +69,15 @@ export function MenuSearch({
           suppressHydrationWarning // Chrome iOS autofill injects __gcruniqueid
           value={value}
           onChange={(e) => onChange(e.target.value)}
+          // The whole point of a mode: bring the field to the top of the
+          // screen before the keyboard takes the bottom half of it.
+          //
+          // Without this the sticky position was unreachable -- the field
+          // stays wherever it sits in the column, roughly 130px down, and on a
+          // phone with the keyboard up that left a band barely one result
+          // tall between it and the totals bar. Sticky only holds a position
+          // something has scrolled to.
+          onFocus={() => box.current?.scrollIntoView({ block: "start" })}
           // Names the chain, because the homepage has a box that looks like
           // this one and searches restaurants; names the count, because a
           // field over Chipotle's 32 rows and one over Buffalo Wild Wings'
@@ -173,7 +187,8 @@ export function SearchResults({
           // a menu it has right.
           <p className="mx-auto mt-2 max-w-sm text-xs leading-relaxed text-muted">
             {elsewhere} match{elsewhere === 1 ? " is" : "es are"} on the{" "}
-            {otherPathName} path. Use Change above to start that way instead.
+            {otherPathName} path. Cancel the search, then use Change to start
+            that way instead.
           </p>
         )}
       </section>
