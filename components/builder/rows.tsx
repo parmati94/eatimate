@@ -178,7 +178,7 @@ export function ComponentRow({
             // Roomier than it looks like it needs: the label is uppercase and
             // often ellipsed, and both push the text visually into the border.
             // pr is lighter than pl because the chevron carries its own gap.
-            className={`num flex min-h-8 max-w-[52%] shrink-0 items-center gap-1.5 rounded-full border py-1 pl-3.5 pr-2.5 text-[11px] font-bold transition-colors ${
+            className={`num flex min-h-8 max-w-[48%] shrink-0 items-center gap-1.5 rounded-full border pl-3 pr-2.5 text-[11px] font-bold transition-colors ${
               open
                 ? "border-accent bg-accent-soft text-accent-strong"
                 : "border-line bg-surface text-muted hover:border-accent hover:text-accent-strong"
