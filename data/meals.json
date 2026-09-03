@@ -196,7 +196,7 @@
   {
    "id": "cheeseburger",
    "name": "Cheeseburger",
-   "rule": "One beef patty with one slice of cheese on the chain's standard bun. Burger King and Whataburger publish their burgers built, so the Whopper's mayo and the Whataburger's mustard are in these figures. Five Guys publishes parts only and treats every topping as a free extra, so it is shown bare — which is why its sodium is a third of the others'. Single patty everywhere.",
+   "rule": "One beef patty with one slice of cheese on the chain's standard bun. Burger King, Whataburger and Sonic publish their burgers built, so the Whopper's mayo, the Whataburger's mustard and Sonic's ketchup and mayo are in these figures. Five Guys publishes parts only and treats every topping as a free extra, so it is shown bare — which is why its sodium is a third of the others'. Single patty everywhere.",
    "builds": [
     {
      "chain": "burgerking",
@@ -220,6 +220,13 @@
       "bun",
       "hamburger-patty",
       "cheese-slice"
+     ]
+    },
+    {
+     "chain": "sonic",
+     "name": "SONIC® Cheeseburger with Ketchup & Mayo",
+     "items": [
+      "sonic-cheeseburger-with-ketchup-mayo"
      ]
     }
    ]
@@ -248,6 +255,13 @@
      "name": "Whatachick'n® Sandwich",
      "items": [
       "whatachickn-sandwich"
+     ]
+    },
+    {
+     "chain": "sonic",
+     "name": "Crispy Chicken Sandwich",
+     "items": [
+      "crispy-chicken-sandwich"
      ]
     }
    ]

@@ -1,0 +1,270 @@
+{
+ "meta": {
+  "name": "Sonic",
+  "slug": "sonic",
+  "source": {
+   "pdf_url": "https://assets.ctfassets.net/whnlxz6bna9d/665Hn9SdgyT53pJgF9cmkK/090ae5fe05d8cd9643fb98fcde32ef1a/61667-1_FEE_0926_NUTBRO_SEPTEMBER_FA_rg_WCAG.pdf",
+   "page_url": "https://www.sonicdrivein.com/nutrition-allergen/",
+   "link_pattern": "NUTBRO",
+   "retrieved": "2026-09-02",
+   "format": "pdf",
+   "fetch": "plain",
+   "dump_sha256": "adcea320b08a0514ff97cd344d542be57d0eb14bbec5405a0629fbe0ba03631b",
+   "asset_sha256": "394bbea0e1120f868747f414558ee3cbfd8ddbfd5111eb7e49fb9ec6b3ba8778"
+  },
+  "disclaimer_extra": "Sonic's September 2026 brochure. Rows marked with a triangle on the chart are, in Sonic's words, \"optional items that may NOT be available in all locations\". Sonic publishes no serving weights, so portions are the cup and count sizes it names. A Cherry Limeade is its own recipe, not a limeade with a cherry add-in -- the two are listed separately here because Sonic lists them separately.",
+  "glyph": "burger",
+  "formats": [
+   "Burger",
+   "Drink",
+   "Shake",
+   "Breakfast"
+  ],
+  "blurb": "Sonic publishes a figure for every drink add-in at every cup size, which is why this is the only place you can price a cherry-vanilla Route 44 exactly. Start from a menu item, or build a drink from the cup up.",
+  "default_flow": "menu"
+ },
+ "layout": {
+  "columns": [
+   "calories",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g"
+  ],
+  "sections": "^(LIMITED\\ TIME\\ ONLY|BURGERS|MAKE\\ IT\\ YOURS|WACKY\\ PACK!®\\ KIDS\\ MEALS|TOASTER®\\ SANDWICHES|CHICKEN|SANDWICHES|HOT\\ DOGS|BREAKFAST|COFFEE|SNACKS\\ \\&\\ SIDES|SONIC\\ BLAST®|HAND\\-MIXED\\ CLASSIC\\ SHAKES|HAND\\-MIXED\\ MASTER\\ SHAKES®|SUNDAES|FLOATS|ALL\\-NATURAL\\ LEMONADE|SOFT\\ DRINKS|REFRESHERS|ICED\\ TEAS|JUICES|SIGNATURE\\ LIMEADES|SPECIALTY\\ SODAS|DRINK\\ ADD\\-INS\\ \\&\\ TOPPINGS|WATER|CONDIMENTS\\ \\&\\ DIPPING\\ SAUCES)$",
+  "skip": "^(?:===== PAGE .*|NAT\\.SUM26\\.BRO|NUTRITIONAL CHOICES|NUTRITIONAL|INFORMATION|SUMMER 2026|SONICDRIVEIN\\.COM|\\)G\\( NIETORP|\\)G ?M?\\(|\\)GM?\\(|(?:LATOT|SEIROLAC|DETARUTAS|SNART|LORETSELOHC|MUIDOS|SETARDYHOBRAC|REBIF|YRATEID|RAGUS|NIETORP|TAF)(?: \\)G M?\\(| \\)GM?\\()?|.*[a-z].*)$"
+ },
+ "categories": [
+  {
+   "id": "item",
+   "name": "Menu Items",
+   "select": "single",
+   "flow": "preset",
+   "role": "preset"
+  },
+  {
+   "id": "toppings",
+   "name": "Make It Yours",
+   "select": "multi",
+   "flow": "both",
+   "role": "topping"
+  },
+  {
+   "id": "drink",
+   "name": "Soft Drinks",
+   "select": "single",
+   "flow": "both",
+   "role": "drink"
+  },
+  {
+   "id": "addins",
+   "name": "Drink Add-Ins",
+   "select": "multi",
+   "flow": "both",
+   "role": "sauce"
+  },
+  {
+   "id": "limeades",
+   "name": "Limeades & Slushes",
+   "select": "multi",
+   "flow": "extras",
+   "role": "drink"
+  },
+  {
+   "id": "teas",
+   "name": "Teas, Lemonade & Refreshers",
+   "select": "multi",
+   "flow": "extras",
+   "role": "drink"
+  },
+  {
+   "id": "coffee",
+   "name": "Coffee",
+   "select": "multi",
+   "flow": "extras",
+   "role": "drink"
+  },
+  {
+   "id": "frozen",
+   "name": "Shakes, Blasts & Sundaes",
+   "select": "multi",
+   "flow": "extras",
+   "role": "dessert"
+  },
+  {
+   "id": "sides",
+   "name": "Snacks & Sides",
+   "select": "multi",
+   "flow": "extras",
+   "role": "side"
+  },
+  {
+   "id": "kids",
+   "name": "Wacky Pack Kids Meals",
+   "select": "multi",
+   "flow": "extras",
+   "role": "kids"
+  },
+  {
+   "id": "condiments",
+   "name": "Condiments & Dipping Sauces",
+   "select": "multi",
+   "flow": "extras",
+   "role": "sauce"
+  }
+ ],
+ "section_categories": {
+  "LIMITED TIME ONLY": "limeades",
+  "BURGERS": "item",
+  "MAKE IT YOURS": "toppings",
+  "WACKY PACK!® KIDS MEALS": "kids",
+  "TOASTER® SANDWICHES": "item",
+  "CHICKEN": "item",
+  "SANDWICHES": "item",
+  "HOT DOGS": "item",
+  "BREAKFAST": "item",
+  "COFFEE": "coffee",
+  "SNACKS & SIDES": "sides",
+  "SONIC BLAST®": "frozen",
+  "HAND-MIXED CLASSIC SHAKES": "frozen",
+  "HAND-MIXED MASTER SHAKES®": "frozen",
+  "SUNDAES": "frozen",
+  "FLOATS": "frozen",
+  "ALL-NATURAL LEMONADE": "teas",
+  "SOFT DRINKS": "drink",
+  "REFRESHERS": "teas",
+  "ICED TEAS": "teas",
+  "JUICES": "teas",
+  "SIGNATURE LIMEADES": "limeades",
+  "SPECIALTY SODAS": "limeades",
+  "DRINK ADD-INS & TOPPINGS": "addins",
+  "WATER": "teas",
+  "CONDIMENTS & DIPPING SAUCES": "condiments"
+ },
+ "name_trim": [
+  {
+   "pattern": "^∆\\s*",
+   "into": "drop"
+  },
+  {
+   "pattern": "[,\\s]+(WACKY PACK!®?|RT 44®|MINI|SMALL|MEDIUM|LARGE|\\d+ OZ)$",
+   "into": "size",
+   "labels": [
+    "SMALL",
+    "MEDIUM",
+    "LARGE",
+    "RT 44®",
+    "WACKY PACK!®",
+    "MINI",
+    "10 OZ"
+   ]
+  }
+ ],
+ "items": {
+  "WACKY PACK!® KIDS MEALS/CORN DOG": {
+   "cat": "sides"
+  },
+  "WACKY PACK!® KIDS MEALS/GROOVY FRIES SMALL": {
+   "cat": "sides"
+  },
+  "WACKY PACK!® KIDS MEALS/TOTS SMALL": {
+   "cat": "sides"
+  },
+  "WACKY PACK!® KIDS MEALS/MINUTE MAID® 100% APPLE JUICE BOX (6 FL. OZ.)": {
+   "cat": "teas"
+  },
+  "LIMITED TIME ONLY/∆ BANANA PUDDING BLAST, MINI": {
+   "cat": "frozen"
+  },
+  "LIMITED TIME ONLY/∆ BANANA PUDDING BLAST, SMALL": {
+   "cat": "frozen"
+  },
+  "LIMITED TIME ONLY/∆ BANANA PUDDING BLAST, MEDIUM": {
+   "cat": "frozen"
+  },
+  "LIMITED TIME ONLY/∆ BANANA PUDDING BLAST, LARGE": {
+   "cat": "frozen"
+  },
+  "LIMITED TIME ONLY/∆ BANANA PUDDING SHAKE, MINI": {
+   "cat": "frozen"
+  },
+  "LIMITED TIME ONLY/∆ BANANA PUDDING SHAKE, SMALL": {
+   "cat": "frozen"
+  },
+  "LIMITED TIME ONLY/∆ BANANA PUDDING SHAKE, MEDIUM": {
+   "cat": "frozen"
+  },
+  "LIMITED TIME ONLY/∆ BANANA PUDDING SHAKE, LARGE": {
+   "cat": "frozen"
+  },
+  "LIMITED TIME ONLY/∆ TWISTED FLAMINGO, 10 OZ": {
+   "skip": "Sonic prints this row at 700 cal with 21 g fat, 13 g saturated fat, 85 mg cholesterol and 9 g protein -- a dairy profile. Every other Twisted Flamingo size, in this same table and again under Specialty Sodas, is 0.5-3 g fat and 0-2 g protein, and the drink is a slush. The row contradicts the five sizes either side of it, and the same figures appear nowhere else in the brochure. Two independent PDF extractors read it identically, so it is Sonic's misprint, not a parse error. Twisted Flamingo ships from the Specialty Sodas table, where it is published complete at all five cup sizes."
+  },
+  "LIMITED TIME ONLY/∆ TWISTED FLAMINGO, 16 OZ": {
+   "cat": "limeades",
+   "name": "TWISTED FLAMINGO SMALL"
+  },
+  "LIMITED TIME ONLY/∆ TWISTED FLAMINGO, 20 OZ": {
+   "cat": "limeades",
+   "name": "TWISTED FLAMINGO MEDIUM"
+  },
+  "LIMITED TIME ONLY/∆ TWISTED FLAMINGO, 32 OZ": {
+   "cat": "limeades",
+   "name": "TWISTED FLAMINGO LARGE"
+  },
+  "LIMITED TIME ONLY/∆ TWISTED FLAMINGO, RT 44®": {
+   "cat": "limeades",
+   "name": "TWISTED FLAMINGO RT 44®"
+  },
+  "LIMITED TIME ONLY/∆ BANANA DIRTY DR PEPPER®, 16 OZ": {
+   "cat": "limeades",
+   "name": "BANANA DIRTY DR PEPPER® SMALL"
+  },
+  "LIMITED TIME ONLY/∆ BANANA DIRTY DR PEPPER®, 20 OZ": {
+   "cat": "limeades",
+   "name": "BANANA DIRTY DR PEPPER® MEDIUM"
+  },
+  "LIMITED TIME ONLY/∆ BANANA DIRTY DR PEPPER®, 32 OZ": {
+   "cat": "limeades",
+   "name": "BANANA DIRTY DR PEPPER® LARGE"
+  },
+  "LIMITED TIME ONLY/∆ BANANA DIRTY DR PEPPER®, 44 OZ": {
+   "cat": "limeades",
+   "name": "BANANA DIRTY DR PEPPER® RT 44®"
+  },
+  "LIMITED TIME ONLY/∆ RAINBOW SLUSH, 20 OZ": {
+   "cat": "limeades",
+   "name": "RAINBOW SLUSH MEDIUM"
+  },
+  "SNACKS & SIDES/TOTS SMALL": {
+   "cat": "sides",
+   "feature": true
+  },
+  "SNACKS & SIDES/GROOVY FRIES SMALL": {
+   "cat": "sides",
+   "feature": true
+  },
+  "SNACKS & SIDES/ONION RINGS SMALL": {
+   "cat": "sides",
+   "feature": true
+  },
+  "SOFT DRINKS/COCA-COLA® SMALL": {
+   "cat": "drink",
+   "feature": true
+  },
+  "SOFT DRINKS/DIET COKE® SMALL": {
+   "cat": "drink",
+   "feature": true
+  },
+  "WACKY PACK!® KIDS MEALS/1% WHITE MILK": {
+   "cat": "kids",
+   "feature": true
+  }
+ },
+ "dedupe": true
+}
