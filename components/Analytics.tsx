@@ -22,10 +22,13 @@ import { pageview } from "@/lib/analytics";
  * cost is that the first pageview is now ours to send, hence onLoad below.
  *
  * The website id arrives as a prop, read from the environment by the server
- * layout, rather than from NEXT_PUBLIC_*: those are inlined at build time, so
- * the id would be baked into the image and changing it would mean a rebuild
- * and a redeploy. This is the same shape CF_BEACON_TOKEN already uses, and it
- * keeps development out of the numbers by simply not setting the variable.
+ * layout -- the same shape CF_BEACON_TOKEN uses, and for the same reason: the
+ * pages are prerendered, so the layout reads the environment at IMAGE BUILD
+ * time and never again. UMAMI_WEBSITE_ID is therefore a build arg (Dockerfile,
+ * and vars.UMAMI_WEBSITE_ID in the workflow), NOT a variable on the running
+ * container -- setting it there looks right, changes nothing, and is worth
+ * knowing before debugging a tracker that never appears. Unset, no tracker is
+ * rendered, which is how development stays out of the numbers.
  */
 export default function Analytics({ id }: { id: string }) {
   const pathname = usePathname();
