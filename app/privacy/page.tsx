@@ -21,9 +21,12 @@ export default function Privacy() {
         </p>
         <h2 className="pt-2 text-lg font-semibold">What the site stores on your device</h2>
         <p>
-          One browser preference (your light/dark theme choice) in
-          localStorage, if you set it. No tracking cookies, no advertising
-          identifiers, no fingerprinting.
+          A few conveniences in localStorage, on your device only: your
+          light/dark theme choice, the last order you built at each chain (so
+          the calculator can offer it back to you), and which macro the totals
+          bar shows. Nothing in it leaves your browser, and clearing site data
+          removes it. No tracking cookies, no advertising identifiers, no
+          fingerprinting.
         </p>
         <h2 className="pt-2 text-lg font-semibold">Infrastructure</h2>
         <p>

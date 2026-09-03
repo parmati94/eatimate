@@ -8,6 +8,17 @@ import {
   useRef,
   useState
 } from "react";
+import { flushSync } from "react-dom";
+import {
+  BAR_MACROS,
+  clearLastOrder,
+  readBarMacro,
+  readLastOrder,
+  writeBarMacro,
+  writeLastOrder,
+  type BarMacro,
+  DEFAULT_BAR_MACRO,
+} from "@/lib/prefs";
 import {
   buildPath,
   defaultMode as defaultPath,
@@ -27,14 +38,16 @@ import {
   activeSizeMode,
   decodeMeal,
   defaultSizeMode,
+  encodeMeal,
   estimatedNutrients,
+  mealLines,
   mealSubtitle,
   mealTotals,
   unknownNutrients
 } from "@/lib/meal";
 import NutritionLabel from "./NutritionLabel";
 import YourPicks from "./builder/picks";
-import { MenuSearch, SearchResults } from "./builder/search";
+import { SearchField, SearchLayer, SearchResults, wide } from "./builder/search";
 import { mealUrl } from "./builder/format";
 import {
   ExtrasSection,
@@ -49,6 +62,7 @@ import {
 } from "./builder/actions";
 import {
   IconChevron,
+  IconSearch,
   IconX
 } from "./icons";
 import { possessive } from "@/lib/text";
@@ -87,6 +101,26 @@ export default function MealBuilder({
   const setSelections = onSelectionsChange ?? setOwnSelections;
   const [labelOpen, setLabelOpen] = useState(false);
   const hydrated = useRef(false);
+
+  // What this device remembers (lib/prefs.ts). Read after mount, like ?m=,
+  // because localStorage does not exist during SSR.
+  const [last, setLast] = useState<{ sel: Selections; p: number } | null>(null);
+  const [barMacro, setBarMacro] = useState<BarMacro>(DEFAULT_BAR_MACRO);
+  const bar = BAR_MACROS.find((b) => b.field === barMacro)!;
+
+  // Search is a screen (see SearchLayer), reached from the field at the top
+  // of the page and from the totals bar. Opened inside the tap handler and
+  // focused there too, which is the one moment iOS will open a keyboard for
+  // a programmatic focus. Nothing here scrolls the page.
+  const [searchOpen, setSearchOpen] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+  // The field and its dropdown on a wide screen, for telling an outside
+  // click from one inside.
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const openSearch = () => {
+    flushSync(() => setSearchOpen(true));
+    inputRef.current?.focus({ preventScroll: true });
+  };
 
   const byCategory = useMemo(() => {
     const m = new Map<string, Component[]>();
@@ -308,6 +342,16 @@ export default function MealBuilder({
         setOpenCat(null);
       }
     }
+    if (chrome === "full") {
+      setBarMacro(readBarMacro());
+      // Offered, never auto-loaded: a shared link must win, and someone
+      // arriving cold expects the empty builder they saw last time.
+      if (!m) {
+        const stored = readLastOrder(chain.slug);
+        const sel = stored ? decodeMeal(stored.m, chain) : {};
+        if (stored && Object.keys(sel).length > 0) setLast({ sel, p: stored.p });
+      }
+    }
     hydrated.current = true;
     /* eslint-enable react-hooks/set-state-in-effect */
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -326,9 +370,46 @@ export default function MealBuilder({
       if (href !== window.location.href) {
         window.history.replaceState(null, "", href);
       }
+      // The same debounce remembers the order on this device. Only a
+      // non-empty meal is written: clearing the builder should not erase
+      // what was there, so that "Your last order" can bring it back.
+      if (chrome === "full" && Object.keys(selections).length > 0) {
+        writeLastOrder(chain.slug, encodeMeal(selections), portion);
+      }
     }, URL_SYNC_DELAY_MS);
     return () => clearTimeout(t);
-  }, [selections, portion, syncUrl]);
+  }, [selections, portion, syncUrl, chrome, chain.slug]);
+
+  // While search is open: Escape closes it. On a phone, where the search
+  // screen covers the page, the page must not scroll behind it (it would
+  // rubber-band under the layer on iOS). On a wide screen search is a
+  // dropdown under the field, so the page keeps its scrollbar and a click
+  // anywhere outside the field and its panel closes it AND still lands where
+  // it was aimed -- "Clear" in the sidebar both ends the search and clears.
+  useEffect(() => {
+    if (!searchOpen) return;
+    const isWide = wide();
+    const prev = document.body.style.overflow;
+    if (!isWide) document.body.style.overflow = "hidden";
+    const close = () => {
+      setSearchOpen(false);
+      setQuery("");
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+    };
+    const onDown = (e: MouseEvent) => {
+      const el = wrapRef.current;
+      if (isWide && el && !el.contains(e.target as Node)) close();
+    };
+    window.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onDown);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onDown);
+    };
+  }, [searchOpen]);
 
   const totals = useMemo(
     () => mealTotals(chain, selections, activeMode, portion),
@@ -434,6 +515,31 @@ export default function MealBuilder({
       return next;
     });
 
+  // One results block, rendered in the phone's search screen or the desktop
+  // dropdown -- never both -- so the two can never disagree.
+  const results = (framed: boolean) => searching ? (
+    <SearchResults
+      framed={framed}
+      chain={chain}
+      query={query}
+      result={found}
+      otherPathName={mode === "menu" ? "build-your-own" : "menu-item"}
+      stepCats={new Set(owedSteps.map((c) => c.id))}
+      selections={selections}
+      addonsOf={addonsOf}
+      portionCats={portionCats}
+      qtySteps={COVERAGE_STEPS}
+      qmultFor={rowMult}
+      toggle={toggle}
+      setQty={setQty}
+    />
+  ) : (
+    <p className="px-1 pt-1 text-xs text-muted">
+      Every row on {possessive(chain.name)} chart, sides and drinks included.
+      Anything you pick here counts in your meal.
+    </p>
+  );
+
   return (
     <div
       // No bottom padding for the floating totals bar: the page owns that
@@ -450,10 +556,40 @@ export default function MealBuilder({
         the viewport. Chick-fil-A's "Spicy Southwest Salad w/ Chick-fil-A
         Chick-n-Strips" pushed the mobile layout to 574px in a 390px window.
       */}
-      <div className="min-w-0 space-y-5">
+      <div className="relative min-w-0 space-y-5">
+        {/* Wide screens, while results are showing: the builder column recedes
+            behind a dim so the dropdown is unmistakably a layer over the list,
+            not one more card in it. The field sits above the dim (its wrapper
+            is z-20); the sidebar is outside the column and stays as it is. A
+            click on the dim is an outside click and closes the search. */}
+        {searchOpen && searching && (
+          <div
+            aria-hidden
+            className="absolute -inset-2 z-10 hidden rounded-3xl bg-bg/70 backdrop-blur-[2px] motion-safe:animate-[fade-in_.2s_ease-out] lg:block"
+          />
+        )}
         {/* Both of these stand down while searching. Neither belongs to the
             mode, and together they were ~120px of the screen sitting between
             the header and a field that is trying to reach the top of it. */}
+        {/* The order this device built here last time, offered back as a one-
+            tap start. Present only while nothing is picked and nothing is
+            typed; loading it takes the same route a shared link does. */}
+        {chrome === "full" && last && selectedCount === 0 && !searching && (
+          <LastOrderCard
+            chain={chain}
+            last={last}
+            onLoad={() => {
+              setSelections(last.sel);
+              setPortion(last.p);
+              setMode(modeOf(chain, last.sel));
+              setOpenCat(null);
+            }}
+            onDismiss={() => {
+              clearLastOrder(chain.slug);
+              setLast(null);
+            }}
+          />
+        )}
         {/* In the comparison (bare chrome) only the QUESTION renders, never the
             answer. The page above it already says "Start from: Chicken bowl",
             so a row under it reading "Building your own" contradicted the
@@ -547,33 +683,25 @@ export default function MealBuilder({
             not have. The path question still comes first -- somebody arriving
             cold is answering that, not typing. */}
         {pathChosen && (
-          <MenuSearch
+          <SearchField
             chainName={chain.name}
             rosterCount={reachableCount(families, reachable)}
             value={query}
             onChange={setQuery}
-            searching={searching}
+            open={searchOpen}
+            onOpen={openSearch}
+            onClose={() => {
+              setSearchOpen(false);
+              setQuery("");
+            }}
             matches={found.hits.length}
-          />
+            wrapRef={wrapRef}
+          >
+            {results(false)}
+          </SearchField>
         )}
 
-        {searching ? (
-          <SearchResults
-            chain={chain}
-            query={query}
-            result={found}
-            otherPathName={mode === "menu" ? "build-your-own" : "menu-item"}
-            stepCats={new Set(owedSteps.map((c) => c.id))}
-            selections={selections}
-            addonsOf={addonsOf}
-            portionCats={portionCats}
-            qtySteps={COVERAGE_STEPS}
-            qmultFor={rowMult}
-            toggle={toggle}
-            setQty={setQty}
-          />
-        ) : (
-          <>
+        <>
           {/* The numbered steps are one run, not six loose cards: a short rule
               joins each badge to the one above it, so the counter line reads as
               a line. The open step carries the weight. */}
@@ -702,8 +830,7 @@ export default function MealBuilder({
               </div>
             </>
           )}
-          </>
-        )}
+        </>
       </div>
 
       {/* Desktop: sticky label column */}
@@ -768,6 +895,27 @@ export default function MealBuilder({
       </aside>
       )}
 
+      {/* The phone's search screen. Rendered before the bar so the bar stays
+          on top of it: results scroll under the running total, same as the
+          page. On a wide screen the same results hang off the field instead
+          (see SearchField), so the screen is not mounted there. */}
+      {chrome === "full" && searchOpen && !wide() && (
+        <SearchLayer
+          chainName={chain.name}
+          rosterCount={reachableCount(families, reachable)}
+          value={query}
+          onChange={setQuery}
+          onClose={() => {
+            setSearchOpen(false);
+            setQuery("");
+          }}
+          matches={found.hits.length}
+          inputRef={inputRef}
+        >
+          {results(true)}
+        </SearchLayer>
+      )}
+
       {/* Mobile: floating totals bar + slide-up label sheet */}
       {chrome === "full" && labelOpen && (
         <div
@@ -806,6 +954,34 @@ export default function MealBuilder({
                 portion={portion}
                 portionMax={portionMax}
               />
+              {/* Which macro rides beside calories on the bar below. Lives in
+                  the sheet the bar opens, so the setting sits next to the
+                  thing it changes. Protein-first people exist; so do
+                  sodium-first ones. */}
+              <div className="flex flex-wrap items-center gap-x-1 px-1 pt-1 text-xs text-muted">
+                <span className="mr-2">Bar shows</span>
+                {/* Words, not bubbles: four pills in a 300px row touched
+                    their own text, and the active one is told by weight and
+                    an underline in the brand colour rather than a border. */}
+                {BAR_MACROS.map((b) => (
+                  <button
+                    key={b.field}
+                    type="button"
+                    aria-pressed={b.field === barMacro}
+                    onClick={() => {
+                      setBarMacro(b.field);
+                      writeBarMacro(b.field);
+                    }}
+                    className={`min-h-9 px-2 underline-offset-[6px] transition-colors ${
+                      b.field === barMacro
+                        ? "font-semibold text-fg underline decoration-brand decoration-2"
+                        : "hover:text-fg"
+                    }`}
+                  >
+                    {b.label}
+                  </button>
+                ))}
+              </div>
               {selectedCount > 0 && (
                 <button
                   type="button"
@@ -833,6 +1009,35 @@ export default function MealBuilder({
             ingredient lands -- that jump, not the colour, was what made the
             empty state read as unfinished.
           */}
+          <div
+            className={`relative flex min-h-14 w-full items-stretch rounded-2xl shadow-lg transition-colors ${
+              selectedCount === 0
+                ? "border border-line bg-surface text-fg"
+                : "bg-brand text-on-brand shadow-brand/30"
+            }`}
+          >
+            <span
+              aria-hidden
+              className="pointer-events-none absolute left-1/2 top-2 h-1 w-9 -translate-x-1/2 rounded-full bg-current opacity-30"
+            />
+            {/* Search rides on the bar: it is the one piece of chrome that is
+                unmistakably about this menu, and the thumb is already there.
+                A header icon was tried first and read as "search the site".
+                Always present, so nothing appears or vanishes as you scroll;
+                a divider keeps the two actions from blurring into one. */}
+            {pathChosen && (
+              <>
+                <button
+                  type="button"
+                  onClick={openSearch}
+                  aria-label={`Search ${possessive(chain.name)} menu`}
+                  className="flex w-12 shrink-0 items-center justify-center rounded-l-2xl transition-colors hover:bg-black/10"
+                >
+                  <IconSearch className="h-5 w-5" />
+                </button>
+                <span aria-hidden className="my-3 w-px self-stretch bg-current opacity-25" />
+              </>
+            )}
           <button
             type="button"
             onClick={() => setLabelOpen((v) => !v)}
@@ -842,16 +1047,8 @@ export default function MealBuilder({
                 ? "Hide the nutrition label"
                 : "Show the nutrition label"
             }
-            className={`flex min-h-14 w-full flex-col items-center justify-center gap-1.5 rounded-2xl px-4 pb-3 pt-2 shadow-lg transition-colors ${
-              selectedCount === 0
-                ? "border border-line bg-surface text-fg"
-                : "bg-brand text-on-brand shadow-brand/30"
-            }`}
+            className="flex min-w-0 flex-1 items-center rounded-r-2xl px-4 pb-3 pt-4 text-left"
           >
-            <span
-              aria-hidden
-              className="h-1 w-9 shrink-0 rounded-full bg-current opacity-30"
-            />
             <span className="flex w-full items-center justify-between gap-3">
               {/*
                 Both states are one line at every width, which is what keeps
@@ -863,15 +1060,14 @@ export default function MealBuilder({
                 moment the first ingredient landed.
               */}
               {selectedCount === 0 ? (
-                <>
-                  <span className="num shrink-0 text-base font-extrabold leading-none">
-                    Nutrition Facts
-                  </span>
-                  <span className="min-w-0 truncate text-xs text-muted">
-                    Pick an ingredient
-                    <span className="hidden min-[380px]:inline"> to start</span>
-                  </span>
-                </>
+                // One phrase, not a heading plus a hint: with the search
+                // button on the bar there is ~260px left on a 390px phone,
+                // and "Nutrition Facts · Pick an ingredient to start" no
+                // longer fits it. The handle and chevron carry "this opens";
+                // the words carry what to do first.
+                <span className="min-w-0 truncate text-sm font-semibold">
+                  Pick an ingredient to start
+                </span>
               ) : (
                 <>
                   <span className="num shrink-0 text-xl font-extrabold leading-none">
@@ -885,8 +1081,8 @@ export default function MealBuilder({
                     {selectedCount} item{selectedCount === 1 ? "" : "s"}
                     <span className="hidden min-[380px]:inline">
                       {" · "}
-                      {show(totals.protein_g, 1)}g protein ·{" "}
-                      {show(totals.carbs_g, 1)}g carbs
+                      {show(totals[barMacro], bar.unit === "mg" ? 0 : 1)}
+                      {bar.unit} {bar.label}
                     </span>
                   </span>
                 </>
@@ -897,9 +1093,62 @@ export default function MealBuilder({
               />
             </span>
           </button>
+          </div>
         </div>
       </div>
       )}
+    </div>
+  );
+}
+
+/**
+ * "Your last order here", as a card with one action.
+ *
+ * Names and a calorie figure, computed from the stored meal against the live
+ * chain file -- so if the chain has since dropped an item, the card shows
+ * what is still there and loading it gives exactly that.
+ */
+function LastOrderCard({
+  chain,
+  last,
+  onLoad,
+  onDismiss,
+}: {
+  chain: Chain;
+  last: { sel: Selections; p: number };
+  onLoad: () => void;
+  onDismiss: () => void;
+}) {
+  const mode = activeSizeMode(chain, last.sel);
+  const lines = mealLines(chain, last.sel, mode, last.p);
+  const totals = mealTotals(chain, last.sel, mode, last.p);
+  if (lines.length === 0) return null;
+  return (
+    <div className="flex items-center gap-3 rounded-2xl border border-line bg-surface p-3 shadow-sm">
+      <div className="min-w-0 flex-1">
+        <p className="text-xs font-semibold">Your last order here</p>
+        <p className="truncate text-xs text-muted">
+          {lines.map((l) => l.comp.name).join(" + ")}
+        </p>
+        <p className="num text-xs text-muted">
+          {show(totals.calories)} cal · {lines.length} item{lines.length === 1 ? "" : "s"}
+        </p>
+      </div>
+      <button
+        type="button"
+        onClick={onLoad}
+        className="min-h-9 shrink-0 rounded-full bg-accent px-4 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-strong"
+      >
+        Load
+      </button>
+      <button
+        type="button"
+        onClick={onDismiss}
+        aria-label="Forget this order"
+        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-muted transition-colors hover:bg-surface-2 hover:text-fg"
+      >
+        <IconX className="h-3.5 w-3.5" />
+      </button>
     </div>
   );
 }

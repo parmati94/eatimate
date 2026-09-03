@@ -157,6 +157,28 @@ body {
   }
 }
 
+/* Desktop search: the results panel settles in under the field and the dim
+ * behind it fades up, so the first keystroke does not snap both into place in
+ * one frame. Kept short: it is there to be felt, not watched. */
+@keyframes drop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
