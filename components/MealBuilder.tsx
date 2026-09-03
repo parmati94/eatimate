@@ -8,7 +8,14 @@ import {
   useRef,
   useState
 } from "react";
-import { buildPath, defaultMode as defaultPath, modeOf, owedNote, splitCats } from "@/lib/flow";
+import {
+  buildPath,
+  defaultMode as defaultPath,
+  mealStarted,
+  modeOf,
+  owedNote,
+  splitCats,
+} from "@/lib/flow";
 import { menuFamilies, reachableCount, roleChips, searchMenu } from "@/lib/search";
 import type { Category, Chain, Component } from "@/lib/schema";
 import {
@@ -577,7 +584,7 @@ export default function MealBuilder({
               menu path is one step -- this block rendered second on the page,
               986px tall on a 390px phone, before the visitor had even chosen
               between starting from a menu item and building one. */}
-          {featured.length > 0 && selectedCount > 0 && (
+          {featured.length > 0 && mealStarted(chain, selections, owedSteps) && (
             <section className="rounded-2xl border border-line bg-surface p-3 shadow-sm">
               <h2 className="px-1 pb-2 text-xs font-semibold uppercase tracking-wider text-muted">
                 Make it a meal
