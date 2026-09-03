@@ -6,6 +6,7 @@ import { CSSProperties, ReactNode, useMemo, useState } from "react";
 import type { Category, Component } from "@/lib/schema";
 import { QTY_STEPS, Selections } from "@/lib/meal";
 import { IconCheck, IconChevron, IconMinus, IconPlus, IconSearch } from "../icons";
+import { familiesOf } from "@/lib/search";
 import { choiceCount, fmtQty, picksSummary } from "./format";
 
 export const SEARCH_THRESHOLD = 14;
@@ -571,19 +572,9 @@ export function CategoryBody({
     return m;
   }, [comps]);
   // Collapse size families ("Small/Medium/Large Fries") into one row carrying a
-  // size selector. Members share a name, so filtering keeps a family together.
-  // Add-ons are pulled out here and re-rendered under their parent below;
-  // leaving them in would list them as alternatives to the thing they extend.
-  const families = useMemo(() => {
-    const kids = new Map<string, Component[]>();
-    for (const c of comps) {
-      if (!c.variant_of || c.addon_of) continue;
-      kids.set(c.variant_of, [...(kids.get(c.variant_of) ?? []), c]);
-    }
-    return comps
-      .filter((c) => !c.variant_of && !c.addon_of)
-      .map((head) => ({ head, members: [head, ...(kids.get(head.id) ?? [])] }));
-  }, [comps]);
+  // size selector. Shared with the whole-chart search, which has to collapse
+  // them the same way or "Coca-Cola" comes back five times.
+  const families = useMemo(() => familiesOf(comps), [comps]);
   const matched = filter
     ? families.filter((f) =>
         f.head.name.toLowerCase().includes(filter.toLowerCase()),
