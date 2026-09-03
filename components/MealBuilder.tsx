@@ -602,14 +602,6 @@ export default function MealBuilder({
                           qmultFor={rowMult}
                           toggle={toggle}
                           setQty={setQty}
-                          // Live, like the extras accordions and unlike a
-                          // numbered step: a drink on this shelf is chosen BY
-                          // its size, so the sizes have to be visible to choose
-                          // between. Stated rather than left to the default --
-                          // this is the second place that renders a chip row,
-                          // and the last two bugs in this component were one
-                          // concept with two call sites drifting apart.
-                          chipsOnPick={false}
                         />
                       ))}
                     </ul>

@@ -268,16 +268,6 @@ function SearchHit({
           toggle={toggle}
           setQty={setQty}
           addonsOf={addonsOf}
-          // Always, whatever the category says.
-          //
-          // The rule elsewhere keys off the category, on the grounds that the
-          // size IS the question for a drink. In a result list it is not: the
-          // question is which of these six rows you meant, and the size can
-          // wait for the answer. This is the case chipsOnPick was measured for
-          // -- Chick-fil-A's fourteen rows ran 3,219px with chips against
-          // Burger King's 851px without -- and search results are the most
-          // scannable list on the site.
-          chipsOnPick
         />
       </ul>
     </li>
