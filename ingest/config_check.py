@@ -32,7 +32,8 @@ LAYOUT = {"columns", "serving", "sections", "subsections", "row_sections", "skip
           "serving_brackets", "dual_split", "tier_rows", "dash_rows_are_data",
           "title_case"}
 
-CATEGORY = {"id", "name", "select", "flow", "in_preset", "note", "role"}
+CATEGORY = {"id", "name", "select", "flow", "in_preset", "note", "role",
+            "size_leads"}
 
 # An items entry, and therefore also a section default (a dict there becomes
 # the spec of every row it covers), plus the section-only knobs.

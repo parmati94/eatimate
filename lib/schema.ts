@@ -114,6 +114,19 @@ export const CategorySchema = z.object({
   // the eight cases right and then misses Just Salad's "Wrap / Bread": two
   // rows, multi-select, and every bit as structural as a size.
   in_preset: z.boolean().optional(),
+  // Whether the SIZE is the question in this category, which decides if the
+  // size chips render before a row is picked or wait for it. Inferred from
+  // `flow` when absent -- extras lead with size, everything else holds it back
+  // -- because on most chains "which item" comes first and chips on every row
+  // are the whole cost of the list (Chick-fil-A's fourteen menu items ran
+  // 3,219px against Burger King's 851px, and 2,987px of that was chip rows).
+  //
+  // Declared here because the inference breaks on a drinks-led chain: Sonic's
+  // Soft Drinks is `flow: "both"` so it can head the build path, which made it
+  // hide its cup sizes while the Limeades beside it showed theirs -- and the
+  // cup size is exactly what a Route 44 is chosen by.
+  size_leads: z.boolean().optional(),
+
   // What KIND of thing this category holds, from a fixed list, so cross-chain
   // code can ask "the sauces" or "the proteins" instead of guessing from a
   // name -- which is what the consistency test did, with a regex over

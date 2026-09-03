@@ -59,14 +59,16 @@
    "name": "Soft Drinks",
    "select": "single",
    "flow": "both",
-   "role": "drink"
+   "role": "drink",
+   "size_leads": true
   },
   {
    "id": "addins",
    "name": "Drink Add-Ins",
    "select": "multi",
    "flow": "both",
-   "role": "sauce"
+   "role": "sauce",
+   "size_leads": true
   },
   {
    "id": "limeades",
@@ -170,10 +172,12 @@
    "cat": "sides"
   },
   "WACKY PACK!® KIDS MEALS/GROOVY FRIES SMALL": {
-   "cat": "sides"
+   "cat": "sides",
+   "feature": true
   },
   "WACKY PACK!® KIDS MEALS/TOTS SMALL": {
-   "cat": "sides"
+   "cat": "sides",
+   "feature": true
   },
   "WACKY PACK!® KIDS MEALS/MINUTE MAID® 100% APPLE JUICE BOX (6 FL. OZ.)": {
    "cat": "teas"

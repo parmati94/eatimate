@@ -628,7 +628,7 @@ export function CategoryBody({
             toggle={toggle}
             setQty={setQty}
             addonsOf={addonsOf}
-            chipsOnPick={(cat.flow ?? "build") !== "extras"}
+            chipsOnPick={!(cat.size_leads ?? (cat.flow ?? "build") === "extras")}
           />
         ))}
         {shown.length === 0 && (
