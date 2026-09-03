@@ -66,6 +66,7 @@ import {
   IconX
 } from "./icons";
 import { possessive } from "@/lib/text";
+import { track } from "@/lib/analytics";
 
 /** Quiet period before mirroring selections into the URL (see the sync effect). */
 const URL_SYNC_DELAY_MS = 600;
@@ -118,6 +119,7 @@ export default function MealBuilder({
   // click from one inside.
   const wrapRef = useRef<HTMLDivElement>(null);
   const openSearch = () => {
+    track("search-opened", { chain: chain.slug });
     flushSync(() => setSearchOpen(true));
     inputRef.current?.focus({ preventScroll: true });
   };
@@ -442,6 +444,12 @@ export default function MealBuilder({
     // to, which then drops that crust's size mode, which then prunes the
     // add-on itself -- two clicks and an empty meal.
     const isAddon = !!comp.addon_of;
+    // The one funnel step worth counting: did this visit become a meal at all.
+    // Fired on the transition out of empty, not per pick, so it stays one
+    // event per built meal however many ingredients follow.
+    if (selectedCount === 0 && !selections[comp.id]) {
+      track("meal-started", { chain: chain.slug });
+    }
     setSelections((prev) => {
       const next = { ...prev };
       const adding = !next[comp.id];
@@ -530,7 +538,13 @@ export default function MealBuilder({
       portionCats={portionCats}
       qtySteps={COVERAGE_STEPS}
       qmultFor={rowMult}
-      toggle={toggle}
+      // Wrapped rather than a flag inside toggle(): "did search lead anywhere"
+      // is a question about this surface, and only this surface can answer it.
+      // Paired with search-opened it is the whole search funnel.
+      toggle={(comp, single) => {
+        track("search-picked", { chain: chain.slug });
+        toggle(comp, single);
+      }}
       setQty={setQty}
     />
   ) : (
@@ -579,6 +593,7 @@ export default function MealBuilder({
             chain={chain}
             last={last}
             onLoad={() => {
+              track("last-order-loaded", { chain: chain.slug });
               setSelections(last.sel);
               setPortion(last.p);
               setMode(modeOf(chain, last.sel));
@@ -1040,7 +1055,12 @@ export default function MealBuilder({
             )}
           <button
             type="button"
-            onClick={() => setLabelOpen((v) => !v)}
+            onClick={() => {
+              if (!labelOpen) {
+                track("label-opened", { chain: chain.slug, items: selectedCount });
+              }
+              setLabelOpen((v) => !v);
+            }}
             aria-expanded={labelOpen}
             aria-label={
               labelOpen

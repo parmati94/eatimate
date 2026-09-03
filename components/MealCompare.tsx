@@ -18,6 +18,7 @@ import {
 } from "@/lib/meal";
 import type { Chain } from "@/lib/schema";
 import { show } from "@/lib/rounding";
+import { track } from "@/lib/analytics";
 import { IconCheck, IconChevron, IconCopy, IconExternal } from "@/components/icons";
 import { NUTRIENT_LABELS } from "@/lib/schema";
 
@@ -433,7 +434,14 @@ export default function MealCompare({
             )}
             <button
               type="button"
-              onClick={() => setDiffOpen((v) => !v)}
+              onClick={() => {
+                if (!diffOpen) {
+                  track("compare-opened", {
+                    pair: chains.map((c) => c.slug).join("-vs-"),
+                  });
+                }
+                setDiffOpen((v) => !v);
+              }}
               aria-expanded={diffOpen}
               aria-label={diffOpen ? "Hide the full difference" : "Show the full difference"}
               className="flex w-full flex-col items-center gap-1 rounded-2xl bg-accent px-4 pb-3 pt-2 text-left text-on-accent shadow-lg shadow-accent/30"
