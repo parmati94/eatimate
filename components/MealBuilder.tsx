@@ -173,9 +173,20 @@ export default function MealBuilder({
   }, [chain, visibleByCategory]);
 
 
+  // The numbered steps are exclusive: they are a sequence, one question at a
+  // time, and answering one advances to the next.
   const [openCat, setOpenCat] = useState<string | null>(
     buildCats[0]?.id ?? null,
   );
+  // The additive ones are not. They sit under "Add to it" beside the extras
+  // accordions, which have always been independent, and which of the two a
+  // category got was decided by `flow` -- a fact about the build path with no
+  // opinion about accordions. Sonic ended up with three exclusive and seven
+  // independent under one heading, identical to look at, and closing your open
+  // step to glance at the drinks is pure loss when nothing is being sequenced.
+  const [openAdds, setOpenAdds] = useState<string[]>([]);
+  const toggleAdd = (id: string) =>
+    setOpenAdds((p) => (p.includes(id) ? p.filter((x) => x !== id) : [...p, id]));
 
   // One field over the whole chart. It only appears once a path is in effect:
   // before that the page is a two-button question, and a result picked with no
@@ -660,8 +671,8 @@ export default function MealBuilder({
                     cat={cat}
                     comps={visibleByCategory.get(cat.id)!}
                     connect={false}
-                    open={openCat === cat.id}
-                    onToggle={() => setOpenCat(openCat === cat.id ? null : cat.id)}
+                    open={openAdds.includes(cat.id)}
+                    onToggle={() => toggleAdd(cat.id)}
                     selections={selections}
                     qtySteps={portionCats.has(cat.id) ? COVERAGE_STEPS : undefined}
                     qmultFor={rowMult}
