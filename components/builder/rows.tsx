@@ -2,7 +2,7 @@
 
 /** Everything that draws a category: its header, its rows, and the size chips
  *  and add-ons that hang off a row. */
-import { ReactNode, useMemo, useState } from "react";
+import { ReactNode, useMemo, useRef, useState } from "react";
 import type { Category, Component } from "@/lib/schema";
 import { QTY_STEPS, Selections } from "@/lib/meal";
 import { IconCheck, IconChevron, IconMinus, IconPlus, IconSearch } from "../icons";
@@ -458,8 +458,35 @@ export function StepSection({
   toggle: (comp: Component, single: boolean) => void;
   setQty: (id: string, q: number) => void;
 }) {
+  const box = useRef<HTMLElement>(null);
+  /**
+   * Open this step without moving it on screen.
+   *
+   * The steps are exclusive -- opening one closes the last -- so tapping a
+   * header BELOW an open step deletes that step's whole body from above the
+   * tap. Sonic's Menu Items is 49 rows, so tapping "Soft Drinks" under it
+   * removed something like 2,400px from above the finger and the page appeared
+   * to teleport, usually landing near the bottom of the section that had just
+   * opened. It read as a scroll bug and was really a layout one: the viewport
+   * never moved, the document moved underneath it.
+   *
+   * So measure the header, let the toggle happen, and give back exactly the
+   * height that vanished. The correction runs before the next paint, so
+   * nothing is drawn in the wrong place.
+   */
+  const holdPlace = () => {
+    const el = box.current;
+    const before = el?.getBoundingClientRect().top;
+    onToggle();
+    if (!el || before == null) return;
+    requestAnimationFrame(() => {
+      const shift = el.getBoundingClientRect().top - before;
+      if (Math.abs(shift) > 1) window.scrollBy(0, shift);
+    });
+  };
   return (
     <section
+      ref={box}
       className={`relative rounded-2xl border bg-surface transition-all ${
         open
           ? "border-accent/60 shadow-md ring-1 ring-accent/15"
@@ -476,7 +503,7 @@ export function StepSection({
         count={choiceCount(comps)}
         summary={picksSummary(comps, selections)}
         open={open}
-        onClick={onToggle}
+        onClick={holdPlace}
       />
       {open && (
         <>
