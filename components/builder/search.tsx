@@ -175,21 +175,39 @@ export function SearchResults({
         </p>
       )}
       <div className="rounded-2xl border border-line bg-surface p-2 shadow-sm">
-        <ul className="space-y-0.5">
-          {shown.map(({ cat, head, members }) => (
-            <SearchHit
-              key={`${cat.id}/${head.id}`}
-              cat={cat}
-              head={head}
-              members={members}
-              isStep={stepCats.has(cat.id)}
-              selections={selections}
-              addonsOf={addonsOf}
-              qtySteps={portionCats.has(cat.id) ? qtySteps : undefined}
-              qmultFor={qmultFor}
-              toggle={toggle}
-              setQty={setQty}
-            />
+        <ul className="space-y-1">
+          {/* One heading per category, not one per row. "chick" on Chipotle
+              returned four proteins, each under its own "PROTEIN · a step in
+              the flow" line -- the same words four times in 300px. Grouped in
+              order of first appearance, so the best match's category still
+              leads. */}
+          {groupByCategory(shown).map(({ cat, families }) => (
+            <li key={cat.id}>
+              <p className="px-3 pt-1.5 text-[10px] font-semibold uppercase tracking-wider text-muted">
+                {cat.name}
+                {stepCats.has(cat.id) && (
+                  <span className="font-medium normal-case tracking-normal">
+                    {" "}&middot; a step in the flow
+                  </span>
+                )}
+              </p>
+              <ul className="space-y-0.5">
+                {families.map(({ head, members }) => (
+                  <FamilyRow
+                    key={head.id}
+                    head={head}
+                    members={members}
+                    selections={selections}
+                    single={cat.select === "single"}
+                    qtySteps={portionCats.has(cat.id) ? qtySteps : undefined}
+                    qmultFor={qmultFor}
+                    toggle={toggle}
+                    setQty={setQty}
+                    addonsOf={addonsOf}
+                  />
+                ))}
+              </ul>
+            </li>
           ))}
         </ul>
         {capped && (
@@ -206,46 +224,13 @@ export function SearchResults({
   );
 }
 
-/** One result: the row it would be in its own category, plus where that is. */
-function SearchHit({
-  cat,
-  head,
-  members,
-  isStep,
-  selections,
-  addonsOf,
-  qtySteps,
-  qmultFor,
-  toggle,
-  setQty,
-}: MenuFamily & {
-  isStep: boolean;
-  selections: Selections;
-  addonsOf: Map<string, Component[]>;
-  qtySteps?: number[];
-  qmultFor: (comp: Component) => number;
-  toggle: (comp: Component, single: boolean) => void;
-  setQty: (id: string, q: number) => void;
-}) {
-  return (
-    <li>
-      <p className="px-3 pt-1.5 text-[10px] font-semibold uppercase tracking-wider text-muted">
-        {cat.name}
-        {isStep && <span className="font-medium normal-case tracking-normal"> &middot; a step in the flow</span>}
-      </p>
-      <ul>
-        <FamilyRow
-          head={head}
-          members={members}
-          selections={selections}
-          single={cat.select === "single"}
-          qtySteps={qtySteps}
-          qmultFor={qmultFor}
-          toggle={toggle}
-          setQty={setQty}
-          addonsOf={addonsOf}
-        />
-      </ul>
-    </li>
-  );
+/** Hits bucketed by category, categories in order of their first hit. */
+function groupByCategory(hits: MenuFamily[]) {
+  const out: { cat: MenuFamily["cat"]; families: MenuFamily[] }[] = [];
+  for (const hit of hits) {
+    const last = out.find((g) => g.cat.id === hit.cat.id);
+    if (last) last.families.push(hit);
+    else out.push({ cat: hit.cat, families: [hit] });
+  }
+  return out;
 }

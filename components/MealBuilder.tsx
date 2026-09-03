@@ -51,6 +51,7 @@ import {
   IconChevron,
   IconX
 } from "./icons";
+import { possessive } from "@/lib/text";
 
 /** Quiet period before mirroring selections into the URL (see the sync effect). */
 const URL_SYNC_DELAY_MS = 600;
@@ -453,7 +454,13 @@ export default function MealBuilder({
         {/* Both of these stand down while searching. Neither belongs to the
             mode, and together they were ~120px of the screen sitting between
             the header and a field that is trying to reach the top of it. */}
-        {hasPresets && !searching && (
+        {/* In the comparison (bare chrome) only the QUESTION renders, never the
+            answer. The page above it already says "Start from: Chicken bowl",
+            so a row under it reading "Building your own" contradicted the
+            preset that had just loaded, its Change link wiped that preset, and
+            since only one of the two chains has the row, the two columns' first
+            steps sat 60px apart on desktop. */}
+        {hasPresets && !searching && (chrome === "full" || mode === null) && (
           <div className="rounded-2xl border border-line bg-surface p-3 shadow-sm">
             {mode === null ? (
               <>
@@ -585,6 +592,7 @@ export default function MealBuilder({
                 qmultFor={rowMult}
                 toggle={toggle}
                 setQty={setQty}
+                filterable={!pathChosen}
               />
             ))}
           </div>
@@ -677,6 +685,7 @@ export default function MealBuilder({
                     qmultFor={rowMult}
                     toggle={toggle}
                     setQty={setQty}
+                    filterable={!pathChosen}
                   />
                 ))}
                 {extraCats.map((cat) => (
@@ -687,6 +696,7 @@ export default function MealBuilder({
                     selections={selections}
                     toggle={toggle}
                     setQty={setQty}
+                    filterable={!pathChosen}
                   />
                 ))}
               </div>
@@ -699,6 +709,21 @@ export default function MealBuilder({
       {/* Desktop: sticky label column */}
       {chrome === "full" && (
       <aside className="hidden lg:sticky lg:top-[72px] lg:block lg:space-y-2 lg:self-start">
+        {selectedCount === 0 ? (
+          // Same reasoning as the mobile bar: a zero is a result, and a label
+          // of nine zeros over three disabled buttons read as a calculation
+          // that had failed rather than one that had not started.
+          <div className="rounded-2xl border-2 border-dashed border-line p-5">
+            <p className="num text-2xl font-extrabold leading-none tracking-tight">
+              Nutrition Facts
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-muted">
+              Pick an ingredient to start. The label builds here as you go,
+              every figure from {possessive(chain.name)} published data.
+            </p>
+          </div>
+        ) : (
+        <>
         <YourPicks
           chain={chain}
           selections={selections}
@@ -738,6 +763,8 @@ export default function MealBuilder({
             </button>
           )}
         </div>
+        </>
+        )}
       </aside>
       )}
 

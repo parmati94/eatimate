@@ -130,10 +130,48 @@ export function ComponentRow({
           {selected && <IconCheck className="h-3 w-3" />}
         </span>
         <span className="min-w-0 flex-1">
-          <span className="block truncate text-[15px] font-medium leading-snug">
+          {/* Two lines, never an ellipsis. Chick-fil-A has 116 names over 24
+              characters and Domino's 131; with one truncating line and a size
+              pill beside it, a phone showed "Hash Brown Sc…" twice in a row
+              with different calories. A second line costs 20px on the rows
+              that need it and nothing on the rows that do not. */}
+          <span className="line-clamp-2 text-[15px] font-medium leading-snug">
             {comp.name}
           </span>
-          <span className="block text-xs text-muted">
+          <span className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-muted">
+            {hasVariants && (
+              // The size, as one word and an arrow, on the serving line.
+              //
+              // It sat beside the name and was allowed 48% of the row, which
+              // on exactly the chains with the longest names left the name a
+              // third of the width. Under the name it competes with nothing:
+              // the serving line is short everywhere, and the size IS part of
+              // the serving. Still a pill rather than a strip -- Sonic's Soft
+              // Drinks carried 25 of those, about 1,150px in one accordion.
+              <button
+                type="button"
+                aria-expanded={open}
+                aria-label={`Change size — currently ${comp.variant_label}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setOpen((v) => !v);
+                }}
+                className={`num inline-flex min-h-6 max-w-full items-center gap-1 rounded-full border pl-2.5 pr-2 text-[11px] font-bold transition-colors ${
+                  open
+                    ? "border-accent bg-accent-soft text-accent-strong"
+                    : "border-line bg-surface text-muted hover:border-accent hover:text-accent-strong"
+                }`}
+              >
+                <span className="min-w-0 truncate">{comp.variant_label}</span>
+                <IconChevron
+                  aria-hidden
+                  className={`h-3 w-3 shrink-0 transition-transform ${
+                    open ? "-rotate-90" : "rotate-90"
+                  }`}
+                />
+              </button>
+            )}
+            <span>
             {comp.serving_desc}
             {comp.derived && (
               <span
@@ -156,48 +194,10 @@ export function ComponentRow({
                 ×{qmult}
               </span>
             )}
+            </span>
           </span>
         </span>
         {selected && <QtyStepper qty={qty} onChange={onQty} steps={qtySteps} />}
-        {hasVariants && (
-          // The size, at rest, as one word and an arrow.
-          //
-          // This replaced a full-width segmented strip on a line of its own:
-          // 34px of control on every row of a list you are scanning, for a
-          // question that is second to "which of these did you mean". Sonic's
-          // Soft Drinks carried 25 of them, about 1,150px of chips in one
-          // accordion. A pill costs no height at all.
-          <button
-            type="button"
-            aria-expanded={open}
-            aria-label={`Change size — currently ${comp.variant_label}`}
-            onClick={(e) => {
-              e.stopPropagation();
-              setOpen((v) => !v);
-            }}
-            // Roomier than it looks like it needs: the label is uppercase and
-            // often ellipsed, and both push the text visually into the border.
-            // pr is lighter than pl because the chevron carries its own gap.
-            className={`num flex min-h-8 max-w-[48%] shrink-0 items-center gap-1.5 rounded-full border pl-3 pr-2.5 text-[11px] font-bold transition-colors ${
-              open
-                ? "border-accent bg-accent-soft text-accent-strong"
-                : "border-line bg-surface text-muted hover:border-accent hover:text-accent-strong"
-            }`}
-          >
-            {/* min-w-0 is what makes truncate work here: a flex child's
-                min-width is auto, so without it the span keeps its full
-                content width and the text runs out past the pill's border
-                instead of ellipsing. "WACKY PACK!®" was the one that showed
-                it. */}
-            <span className="min-w-0 truncate">{comp.variant_label}</span>
-            <IconChevron
-              aria-hidden
-              className={`h-3 w-3 shrink-0 transition-transform ${
-                open ? "-rotate-90" : "rotate-90"
-              }`}
-            />
-          </button>
-        )}
         {/* Stays last so the calorie column lines up whether or not a row is
             selected. */}
         <span className="num w-12 shrink-0 text-right text-xs text-muted">
@@ -444,6 +444,7 @@ export function StepSection({
   qmultFor,
   toggle,
   setQty,
+  filterable,
 }: {
   cat: Category;
   comps: Component[];
@@ -457,6 +458,7 @@ export function StepSection({
   qmultFor: (comp: Component) => number;
   toggle: (comp: Component, single: boolean) => void;
   setQty: (id: string, q: number) => void;
+  filterable?: boolean;
 }) {
   const box = useRef<HTMLElement>(null);
   /**
@@ -520,6 +522,7 @@ export function StepSection({
             qmultFor={qmultFor}
             toggle={toggle}
             setQty={setQty}
+            filterable={filterable}
           />
         </>
       )}
@@ -535,6 +538,7 @@ export function CategoryBody({
   qmultFor = () => 1,
   toggle,
   setQty,
+  filterable = true,
 }: {
   cat: Category;
   comps: Component[];
@@ -543,6 +547,13 @@ export function CategoryBody({
   qmultFor?: (comp: Component) => number;
   toggle: (comp: Component, single: boolean) => void;
   setQty: (id: string, q: number) => void;
+  /** Whether a long list gets its own filter box. Off wherever the whole-menu
+   *  search is on the page: that field is 150px above this one and reaches
+   *  every row this one does, so two boxes were answering one question -- and
+   *  this one's placeholder was built from the category name, which on
+   *  Chick-fil-A produced "Search pick a menu item…". The comparison view has
+   *  no whole-menu field, so its long lists keep this. */
+  filterable?: boolean;
 }) {
   const [filter, setFilter] = useState("");
   const [expanded, setExpanded] = useState(false);
@@ -581,7 +592,7 @@ export function CategoryBody({
       : matched;
   return (
     <div className="px-2 pb-2">
-      {comps.length > SEARCH_THRESHOLD && (
+      {filterable && comps.length > SEARCH_THRESHOLD && (
         <label className="relative mb-1 block">
           <IconSearch className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" />
           <input
@@ -589,7 +600,8 @@ export function CategoryBody({
             suppressHydrationWarning // Chrome iOS autofill injects __gcruniqueid
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
-            placeholder={`Search ${cat.name.toLowerCase()}…`}
+            placeholder="Filter this list…"
+            aria-label={`Filter ${cat.name}`}
             className="w-full rounded-lg border border-line bg-surface-2 py-2 pl-9 pr-3 text-sm outline-none transition-colors placeholder:text-muted focus:border-accent"
           />
         </label>
@@ -632,12 +644,14 @@ export function ExtrasSection({
   selections,
   toggle,
   setQty,
+  filterable,
 }: {
   cat: Category;
   comps: Component[];
   selections: Selections;
   toggle: (comp: Component, single: boolean) => void;
   setQty: (id: string, q: number) => void;
+  filterable?: boolean;
 }) {
   const [open, setOpen] = useState(false);
   return (
@@ -658,6 +672,7 @@ export function ExtrasSection({
         selections={selections}
         toggle={toggle}
         setQty={setQty}
+        filterable={filterable}
       />
     </details>
   );
