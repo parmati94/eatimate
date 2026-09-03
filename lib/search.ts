@@ -13,9 +13,10 @@ import type { Category, Chain, Component } from "./schema";
  * The customer's word for a category's role.
  *
  * The charts are written in the chain's vocabulary -- "Limeades & Slushes",
- * "Shakes, Blasts & Sundaes", "Ched 'R' Peppers" -- and a blank field asks for
- * a word the visitor has no way to know. Folding the role in means one word
- * covers four of Sonic's headings, whether it is typed or tapped.
+ * "Shakes, Blasts & Sundaes", "Ched 'R' Peppers" -- so the word a visitor
+ * reaches for is often on no heading anywhere. Folding the role into the
+ * haystack means "drinks" covers four of Sonic's headings and "sweets" finds
+ * the sundaes.
  *
  * `format` and `other` get none: a bread size is not a food group, and "other"
  * is not a word anyone would search for.
@@ -92,42 +93,6 @@ function norm(s: string): string {
     .replace(/['\u2019]/g, "")
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
-}
-
-/**
- * The handful of words worth offering as a tap, commonest first.
- *
- * They are shortcuts, not a second mechanism: a chip fills the field with its
- * own word and the search runs exactly as if it had been typed.
- *
- * Which is why the number on a chip is the number of rows the SEARCH returns,
- * not the number of rows in those roles. The two differ, sometimes wildly --
- * Subway files 18 rows under Protein, and searching "protein" finds 46,
- * because the word is in the serving text of every sandwich. A chip promising
- * 18 and delivering 46 is a chip that lies on the way to a list you can count.
- */
-export function roleChips(
-  families: MenuFamily[],
-  reachable: Set<string>,
-  limit = 4,
-): { word: string; count: number }[] {
-  const byRole = new Map<string, number>();
-  for (const f of families) {
-    if (!reachable.has(f.cat.id)) continue;
-    const word = f.cat.role ? ROLE_WORDS[f.cat.role] : undefined;
-    if (!word) continue;
-    byRole.set(word, (byRole.get(word) ?? 0) + 1);
-  }
-  // Role frequency picks the candidates -- it is one pass and it is what makes
-  // the words relevant to this chain -- then each survivor is priced properly.
-  return [...byRole]
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, limit)
-    .map(([word]) => ({
-      word,
-      count: searchMenu(families, word, reachable).hits.length,
-    }))
-    .sort((a, b) => b.count - a.count);
 }
 
 /** How many rows the field is offering to search, for it to say so. */

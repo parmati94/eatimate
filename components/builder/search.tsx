@@ -25,12 +25,13 @@ import { FamilyRow, SEARCH_THRESHOLD } from "./rows";
  *     switch, and the loud moment belongs to the active state, not the idle
  *     one -- hence the pin, the running count and Cancel;
  *   - the chart is written in the chain's words. Nobody types "Limeades &
- *     Slushes", so the chips offer the customer's word instead.
+ *     Slushes", so ROLE_WORDS folds "drinks" and "sweets" into what the
+ *     matcher sees -- in the matcher, where it costs no space, rather than as
+ *     a row of chips under the field.
  */
 export function MenuSearch({
   chainName,
   rosterCount,
-  chips,
   value,
   onChange,
   searching,
@@ -39,13 +40,11 @@ export function MenuSearch({
   chainName: string;
   /** Rows this field is offering to search, on the path in effect. */
   rosterCount: number;
-  chips: { word: string; count: number }[];
   value: string;
   onChange: (v: string) => void;
   searching: boolean;
   matches: number;
 }) {
-  const typed = value.trim().toLowerCase();
   return (
     <div
       // Searching is a mode, so the control that governs it stays on screen
@@ -93,34 +92,11 @@ export function MenuSearch({
           </button>
         )}
       </label>
-      {searching ? (
+      {searching && (
         <p className="px-1 text-xs text-muted" aria-live="polite">
           <span className="num font-semibold text-fg">{matches}</span> match
           {matches === 1 ? "" : "es"} across {chainName}
         </p>
-      ) : (
-        chips.length > 0 && (
-          // The chips replace a blank prompt with a demonstration. They are
-          // shortcuts, not a second filter: each one types its own word.
-          <ul className="flex flex-wrap gap-1.5 px-0.5">
-            {chips.map(({ word, count }) => (
-              <li key={word}>
-                <button
-                  type="button"
-                  onClick={() => onChange(word)}
-                  className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs transition-colors ${
-                    typed === word.toLowerCase()
-                      ? "border-accent bg-accent-soft"
-                      : "border-line bg-surface hover:border-accent hover:bg-surface-2"
-                  }`}
-                >
-                  {word}
-                  <span className="num text-[11px] text-muted">{count}</span>
-                </button>
-              </li>
-            ))}
-          </ul>
-        )
       )}
     </div>
   );

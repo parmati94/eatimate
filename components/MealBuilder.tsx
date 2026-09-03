@@ -16,7 +16,7 @@ import {
   owedNote,
   splitCats,
 } from "@/lib/flow";
-import { menuFamilies, reachableCount, roleChips, searchMenu } from "@/lib/search";
+import { menuFamilies, reachableCount, searchMenu } from "@/lib/search";
 import type { Category, Chain, Component } from "@/lib/schema";
 import {
   show
@@ -543,7 +543,6 @@ export default function MealBuilder({
           <MenuSearch
             chainName={chain.name}
             rosterCount={reachableCount(families, reachable)}
-            chips={roleChips(families, reachable)}
             value={query}
             onChange={setQuery}
             searching={searching}
