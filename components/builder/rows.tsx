@@ -181,7 +181,12 @@ export function ComponentRow({
                 : "border-line bg-surface text-muted hover:border-accent hover:text-accent-strong"
             }`}
           >
-            <span className="truncate">{comp.variant_label}</span>
+            {/* min-w-0 is what makes truncate work here: a flex child's
+                min-width is auto, so without it the span keeps its full
+                content width and the text runs out past the pill's border
+                instead of ellipsing. "WACKY PACK!®" was the one that showed
+                it. */}
+            <span className="min-w-0 truncate">{comp.variant_label}</span>
             <IconChevron
               aria-hidden
               className={`h-3 w-3 shrink-0 transition-transform ${
@@ -227,7 +232,9 @@ export function ComponentRow({
                         : "text-muted hover:bg-surface-2 hover:text-fg"
                     }`}
                   >
-                    <span className="max-w-36 truncate">{v.variant_label}</span>
+                    <span className="min-w-0 max-w-36 truncate">
+                      {v.variant_label}
+                    </span>
                     <span className="num tabular-nums">
                       {Math.round(v.calories * variantMult(v))}
                     </span>
