@@ -6,7 +6,7 @@
  *  and a box under that heading would be claiming a scope it does not have.
  *  Somebody looking for Tots does not know, and should not have to know, that
  *  Sonic lists them both on the meal shelf and under Snacks & Sides. */
-import { useRef, useState } from "react";
+import { useState } from "react";
 import type { Chain, Component } from "@/lib/schema";
 import type { MenuFamily, MenuSearchResult } from "@/lib/search";
 import { Selections } from "@/lib/meal";
@@ -46,55 +46,24 @@ export function MenuSearch({
   matches: number;
 }) {
   const typed = value.trim().toLowerCase();
-  const box = useRef<HTMLDivElement>(null);
-  /**
-   * Put the field at the top, twice.
-   *
-   * Once immediately, which is all a desktop or Android needs, and once more
-   * after the visual viewport changes size -- iOS opens the keyboard AFTER the
-   * focus event and runs its own scroll to reveal the input, which lands
-   * somewhere of its own choosing. scroll-padding-top in globals.css keeps
-   * that one out from under the header; this puts it at the top rather than
-   * merely visible.
-   *
-   * The ref is on the OUTER, static box, never on the sticky one. Scrolling to
-   * a stuck element chases its own position: it already renders at 56px, so
-   * the scroll meant to reveal it moves its container instead, and the field
-   * lands anywhere between slightly low and entirely behind the header
-   * depending on how far the page was already scrolled. The static space the
-   * sticky element leaves behind is the honest target.
-   */
-  const seat = () =>
-    box.current?.scrollIntoView({ block: "start", inline: "nearest" });
-  const bring = () => {
-    seat();
-    const vv = window.visualViewport;
-    if (!vv) return;
-    const again = () => {
-      vv.removeEventListener("resize", again);
-      requestAnimationFrame(seat);
-    };
-    vv.addEventListener("resize", again);
-    // No keyboard ever arrived (a desktop, a hardware keyboard): stop waiting,
-    // so a later unrelated resize cannot yank the page.
-    setTimeout(() => vv.removeEventListener("resize", again), 1200);
-  };
   return (
-    // Two boxes on purpose. The outer one stays in the flow and is what the
-    // focus handler scrolls to; the inner one is the thing that sticks.
-    // scroll-mt-14 is the site header and matches the sticky offset, so the
-    // field lands exactly where it will hold.
-    <div ref={box} className="scroll-mt-14">
-      <div
-        // Searching is a mode, so the control that governs it stays on screen
-        // for the whole of it. top-14 is the site header, which is sticky too.
-        // The bleed and the blur are what let results scroll under it cleanly.
-        className={
-          searching
-            ? "sticky top-14 z-10 -mx-2 space-y-1.5 bg-bg/90 px-2 py-2 backdrop-blur"
-            : "space-y-1.5"
-        }
-      >
+    <div
+      // Searching is a mode, so the control that governs it stays on screen
+      // for the whole of it: top-14 is the site header, which is sticky too,
+      // and the bleed and blur let results scroll under it cleanly.
+      //
+      // Nothing scrolls the page to meet it. Three attempts at repositioning
+      // on focus all left the field half behind the header on an iPhone --
+      // Safari opens the keyboard after the focus event, runs its own reveal,
+      // and resizes the visual viewport, so any scroll we compute is against
+      // a layout that is about to change. The room this was buying back is
+      // already there from the chooser and portion control standing down.
+      className={
+        searching
+          ? "sticky top-14 z-10 -mx-2 space-y-1.5 bg-bg/90 px-2 py-2 backdrop-blur"
+          : "space-y-1.5"
+      }
+    >
       <label className="relative block">
         <IconSearch className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-accent-strong" />
         <input
@@ -102,15 +71,6 @@ export function MenuSearch({
           suppressHydrationWarning // Chrome iOS autofill injects __gcruniqueid
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          // The whole point of a mode: bring the field to the top of the
-          // screen before the keyboard takes the bottom half of it.
-          //
-          // Without this the sticky position was unreachable -- the field
-          // stays wherever it sits in the column, roughly 130px down, and on a
-          // phone with the keyboard up that left a band barely one result
-          // tall between it and the totals bar. Sticky only holds a position
-          // something has scrolled to.
-          onFocus={bring}
           // Names the chain, because the homepage has a box that looks like
           // this one and searches restaurants; names the count, because a
           // field over Chipotle's 32 rows and one over Buffalo Wild Wings'
@@ -162,7 +122,6 @@ export function MenuSearch({
           </ul>
         )
       )}
-      </div>
     </div>
   );
 }
