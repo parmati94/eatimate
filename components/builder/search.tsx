@@ -54,16 +54,25 @@ export function MenuSearch({
    * after the visual viewport changes size -- iOS opens the keyboard AFTER the
    * focus event and runs its own scroll to reveal the input, which lands
    * somewhere of its own choosing. scroll-padding-top in globals.css keeps
-   * that one out from under the header; this puts it back at the top rather
-   * than merely visible.
+   * that one out from under the header; this puts it at the top rather than
+   * merely visible.
+   *
+   * The ref is on the OUTER, static box, never on the sticky one. Scrolling to
+   * a stuck element chases its own position: it already renders at 56px, so
+   * the scroll meant to reveal it moves its container instead, and the field
+   * lands anywhere between slightly low and entirely behind the header
+   * depending on how far the page was already scrolled. The static space the
+   * sticky element leaves behind is the honest target.
    */
+  const seat = () =>
+    box.current?.scrollIntoView({ block: "start", inline: "nearest" });
   const bring = () => {
-    box.current?.scrollIntoView({ block: "start" });
+    seat();
     const vv = window.visualViewport;
     if (!vv) return;
     const again = () => {
       vv.removeEventListener("resize", again);
-      requestAnimationFrame(() => box.current?.scrollIntoView({ block: "start" }));
+      requestAnimationFrame(seat);
     };
     vv.addEventListener("resize", again);
     // No keyboard ever arrived (a desktop, a hardware keyboard): stop waiting,
@@ -71,20 +80,21 @@ export function MenuSearch({
     setTimeout(() => vv.removeEventListener("resize", again), 1200);
   };
   return (
-    <div
-      ref={box}
-      // Searching is a mode, so the control that governs it stays on screen
-      // for the whole of it. top-14 is the site header, which is sticky too.
-      // The bleed and the blur are what let results scroll under it cleanly.
-      // scroll-mt-14 is the site header, and it is what the focus handler
-      // below scrolls this box to. Same 14 as the sticky offset, so the field
-      // lands exactly where it will hold.
-      className={`scroll-mt-14 ${
-        searching
-          ? "sticky top-14 z-10 -mx-2 space-y-1.5 bg-bg/90 px-2 py-2 backdrop-blur"
-          : "space-y-1.5"
-      }`}
-    >
+    // Two boxes on purpose. The outer one stays in the flow and is what the
+    // focus handler scrolls to; the inner one is the thing that sticks.
+    // scroll-mt-14 is the site header and matches the sticky offset, so the
+    // field lands exactly where it will hold.
+    <div ref={box} className="scroll-mt-14">
+      <div
+        // Searching is a mode, so the control that governs it stays on screen
+        // for the whole of it. top-14 is the site header, which is sticky too.
+        // The bleed and the blur are what let results scroll under it cleanly.
+        className={
+          searching
+            ? "sticky top-14 z-10 -mx-2 space-y-1.5 bg-bg/90 px-2 py-2 backdrop-blur"
+            : "space-y-1.5"
+        }
+      >
       <label className="relative block">
         <IconSearch className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-accent-strong" />
         <input
@@ -152,6 +162,7 @@ export function MenuSearch({
           </ul>
         )
       )}
+      </div>
     </div>
   );
 }
