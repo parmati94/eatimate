@@ -148,6 +148,48 @@ export const listComparePairs = cache(async (): Promise<ComparePair[]> => {
   );
 });
 
+/** One set of chains, the dishes they all build, and every comparison among
+ *  them. Dishes with the same chain set share a group: the chicken bowl and
+ *  the steak bowl are built at the same five chains, and two headings over
+ *  the same ten links would be the duplication this view exists to remove. */
+export interface DishGroup {
+  dishes: Dish[];
+  chains: Chain[];
+  pairs: ComparePair[];
+}
+
+/**
+ * The comparisons arranged by what is being compared, for the /compare index.
+ *
+ * A flat list of pairs grows with the square of a cluster: six bowl chains
+ * are fifteen cards, and the seventh adds six more. Grouped by dish the same
+ * data is a handful of headings that grow by one line per chain, and it reads
+ * as the question people arrive with ("who has the lighter chicken bowl?")
+ * rather than a table of permutations. Data order, so the editorial order of
+ * data/meals.json is the order on the page.
+ */
+export const listDishGroups = cache(async (): Promise<DishGroup[]> => {
+  const pairs = await listComparePairs();
+  const out: DishGroup[] = [];
+  for (const dish of await listDishes()) {
+    const slugs = new Set(dish.builds.map((b) => b.chain));
+    const dishPairs = pairs.filter(
+      (p) => p.chains.every((c) => slugs.has(c.slug)) && p.dishes.includes(dish.name),
+    );
+    if (dishPairs.length === 0) continue;
+    const key = dishPairs.map((p) => p.slug).sort().join("|");
+    const existing = out.find((g) => g.pairs.map((p) => p.slug).sort().join("|") === key);
+    if (existing) {
+      existing.dishes.push(dish);
+      continue;
+    }
+    const chains = [...new Map(dishPairs.flatMap((p) => p.chains).map((c) => [c.slug, c])).values()]
+      .sort((a, b) => a.name.localeCompare(b.name));
+    out.push({ dishes: [dish], chains, pairs: dishPairs });
+  }
+  return out;
+});
+
 /** The comparisons one chain takes part in, for its page's compare strip. */
 export async function pairsWith(slug: string): Promise<ComparePair[]> {
   return (await listComparePairs()).filter((p) =>

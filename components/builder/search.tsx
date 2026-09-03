@@ -6,7 +6,11 @@
  *  and a box under that heading would be claiming a scope it does not have.
  *  Somebody looking for Tots does not know, and should not have to know, that
  *  Sonic lists them both on the meal shelf and under Snacks & Sides. */
-import { useState } from "react";
+import { useEffect, useRef, useState, type ReactNode, type Ref } from "react";
+
+/** The desktop layout, where search is a dropdown rather than a screen. */
+export const wide = () =>
+  typeof window !== "undefined" && window.matchMedia("(min-width: 1024px)").matches;
 import type { Chain, Component } from "@/lib/schema";
 import type { MenuFamily, MenuSearchResult } from "@/lib/search";
 import { Selections } from "@/lib/meal";
@@ -14,90 +18,202 @@ import { IconSearch } from "../icons";
 import { FamilyRow, SEARCH_THRESHOLD } from "./rows";
 
 /**
- * The field, what it says it covers, and the words worth tapping.
+ * The field at the top of the page, which is two things by breakpoint.
  *
- * Three things the six skins we drew never touched, all of them from what the
- * control DOES rather than how it sits next to the cards:
+ * On a phone it is a button that looks like a field: tapping it opens the
+ * search screen (SearchLayer), whose input is the real one. That is the native
+ * pattern, and it means the input is only ever focused inside the tap that
+ * opens the screen -- the one moment iOS reliably raises the keyboard.
  *
- *   - it covers between 32 rows and 699 depending on the chain, and said
- *     nothing about which;
- *   - typing one character replaces the whole page body, so it is a mode
- *     switch, and the loud moment belongs to the active state, not the idle
- *     one -- hence the pin, the running count and Cancel;
- *   - the chart is written in the chain's words. Nobody types "Limeades &
- *     Slushes", so ROLE_WORDS folds "drinks" and "sweets" into what the
- *     matcher sees -- in the matcher, where it costs no space, rather than as
- *     a row of chips under the field.
+ * On a wide screen it IS the field. Results drop down from its bottom edge as
+ * a panel the width of the field, in the same card language as an open step,
+ * with the page title, the field and the label sidebar all still where they
+ * were. A column-sized layer was tried first and read as a blob arriving over
+ * the builder: neither a screen nor a component. A dropdown is anchored to the
+ * thing you typed in, so it needs no explaining.
  */
-export function MenuSearch({
+export function SearchField({
   chainName,
   rosterCount,
   value,
   onChange,
-  searching,
+  open,
+  onOpen,
+  onClose,
   matches,
+  wrapRef,
+  children,
 }: {
   chainName: string;
-  /** Rows this field is offering to search, on the path in effect. */
   rosterCount: number;
   value: string;
   onChange: (v: string) => void;
-  searching: boolean;
+  open: boolean;
+  onOpen: () => void;
+  onClose: () => void;
   matches: number;
+  /** The whole thing, field and panel, so the builder can tell an outside
+   *  click from one inside. */
+  wrapRef: Ref<HTMLDivElement>;
+  /** The panel's body on a wide screen: results, once something is typed. */
+  children: ReactNode;
 }) {
+  const searching = value.trim().length > 0;
+  const anchor = useRef<HTMLDivElement>(null);
+  // The panel may not run past the bottom of the window: it starts wherever
+  // the field is, which moves with the page, so its ceiling is measured on
+  // open and again on scroll and resize while it is up.
+  const [maxH, setMaxH] = useState<number | null>(null);
+  useEffect(() => {
+    if (!open || !searching) return;
+    const measure = () => {
+      const r = anchor.current?.getBoundingClientRect();
+      if (r) setMaxH(Math.max(200, window.innerHeight - r.bottom - 24));
+    };
+    measure();
+    window.addEventListener("scroll", measure, { passive: true });
+    window.addEventListener("resize", measure);
+    return () => {
+      window.removeEventListener("scroll", measure);
+      window.removeEventListener("resize", measure);
+    };
+  }, [open, searching]);
+  const label = `Search ${rosterCount} items at ${chainName}`;
   return (
-    <div
-      // Searching is a mode, so the control that governs it stays on screen
-      // for the whole of it: top-14 is the site header, which is sticky too,
-      // and the bleed and blur let results scroll under it cleanly.
-      //
-      // Nothing scrolls the page to meet it. Three attempts at repositioning
-      // on focus all left the field half behind the header on an iPhone --
-      // Safari opens the keyboard after the focus event, runs its own reveal,
-      // and resizes the visual viewport, so any scroll we compute is against
-      // a layout that is about to change. The room this was buying back is
-      // already there from the chooser and portion control standing down.
-      className={
-        searching
-          ? "sticky top-14 z-10 -mx-2 space-y-1.5 bg-bg/90 px-2 py-2 backdrop-blur"
-          : "space-y-1.5"
-      }
-    >
-      <label className="relative block">
+    <div ref={wrapRef} className="relative lg:z-20">
+      {/* Phone: the door to the search screen. */}
+      <button
+        type="button"
+        onClick={onOpen}
+        className="relative flex min-h-12 w-full items-center rounded-2xl border border-line bg-surface py-3 pl-10 pr-4 text-left text-[15px] text-muted shadow-sm transition-colors hover:border-fg/30 focus-visible:border-accent focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/15 lg:hidden"
+      >
+        <IconSearch className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-accent-strong" />
+        {label}
+      </button>
+      {/* Wide: the field itself. */}
+      <div ref={anchor} className="relative hidden lg:block">
         <IconSearch className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-accent-strong" />
         <input
           type="search"
           suppressHydrationWarning // Chrome iOS autofill injects __gcruniqueid
           value={value}
-          onChange={(e) => onChange(e.target.value)}
-          // Names the chain, because the homepage has a box that looks like
-          // this one and searches restaurants; names the count, because a
-          // field over Chipotle's 32 rows and one over Buffalo Wild Wings'
-          // 699 are not the same promise.
-          placeholder={`Search ${rosterCount} items at ${chainName}`}
-          aria-label={`Search ${rosterCount} items at ${chainName}`}
+          onFocus={onOpen}
+          onChange={(e) => {
+            onChange(e.target.value);
+            onOpen();
+          }}
+          placeholder={label}
+          aria-label={label}
           className={`w-full rounded-2xl border bg-surface py-3 pl-10 text-[15px] shadow-sm outline-none transition-[border-color,box-shadow] placeholder:text-muted focus:border-accent focus:ring-4 focus:ring-accent/15 ${
-            searching ? "border-accent pr-20" : "border-line pr-4"
+            open && searching ? "border-accent pr-20" : "border-line pr-4"
           }`}
         />
-        {searching && (
-          // Cancel, not a cross: leaving search means leaving a mode that
-          // replaced the page, and a bare ✕ reads as "empty this box".
+        {open && searching && (
           <button
             type="button"
-            onClick={() => onChange("")}
+            onClick={onClose}
             className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full px-3 py-1.5 text-sm font-medium text-accent-strong transition-colors hover:bg-accent-soft"
           >
             Cancel
           </button>
         )}
-      </label>
-      {searching && (
-        <p className="px-1 text-xs text-muted" aria-live="polite">
-          <span className="num font-semibold text-fg">{matches}</span> match
-          {matches === 1 ? "" : "es"} across {chainName}
-        </p>
+      </div>
+      {open && searching && (
+        <div
+          role="region"
+          aria-label={`Results for ${value.trim()}`}
+          style={maxH ? { maxHeight: maxH } : undefined}
+          className="absolute inset-x-0 top-full z-20 mt-2 hidden overflow-y-auto rounded-2xl border border-line bg-surface p-2 shadow-2xl motion-safe:animate-[drop-in_.16s_ease-out] lg:block"
+        >
+          <p className="px-3 pb-1 pt-1.5 text-xs text-muted" aria-live="polite">
+            <span className="num font-semibold text-fg">{matches}</span> match
+            {matches === 1 ? "" : "es"} across {chainName}
+          </p>
+          {children}
+        </div>
       )}
+    </div>
+  );
+}
+
+/**
+ * The search screen on a phone: field at the top, results under it, from
+ * anywhere on the page.
+ *
+ * Results used to replace the page body in place, which meant that a search
+ * started 700px down was read from 700px down -- unless it returned few
+ * rows, in which case the page shrank under the scroll position and the
+ * browser snapped to the top. Two behaviours for one action. A fixed layer
+ * under the site header makes the page's scroll position irrelevant: the
+ * field is always at the top, Cancel drops you back exactly where you were,
+ * and nothing scrolls the page. Three attempts at scrolling the page to meet
+ * a focused field all lost to Safari's keyboard reveal; this never tries.
+ *
+ * Sized from the top edge, not the bottom: iOS shrinks the visual viewport
+ * for the keyboard and leaves the layout viewport alone, so anything pinned
+ * to the bottom would sit under the keys. The results scroll inside.
+ * Translucent and blurred, so it reads as a layer over the builder rather
+ * than the builder blanking out; results themselves sit on an opaque card.
+ */
+export function SearchLayer({
+  chainName,
+  rosterCount,
+  value,
+  onChange,
+  onClose,
+  matches,
+  inputRef,
+  children,
+}: {
+  chainName: string;
+  rosterCount: number;
+  value: string;
+  onChange: (v: string) => void;
+  onClose: () => void;
+  matches: number;
+  inputRef: Ref<HTMLInputElement>;
+  children: ReactNode;
+}) {
+  const searching = value.trim().length > 0;
+  return (
+    <div
+      role="dialog"
+      aria-label={`Search ${chainName}`}
+      className="fixed inset-x-0 bottom-0 top-14 z-20 overflow-y-auto bg-bg/80 backdrop-blur-xl"
+    >
+      <div className="mx-auto w-full max-w-5xl px-4 pb-32 pt-3">
+        <div className="sticky top-0 z-10 -mx-2 space-y-1.5 px-2 pb-2">
+          <label className="relative block">
+            <IconSearch className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-accent-strong" />
+            <input
+              ref={inputRef}
+              type="search"
+              suppressHydrationWarning // Chrome iOS autofill injects __gcruniqueid
+              value={value}
+              onChange={(e) => onChange(e.target.value)}
+              placeholder={`Search ${rosterCount} items at ${chainName}`}
+              aria-label={`Search ${rosterCount} items at ${chainName}`}
+              className="w-full rounded-2xl border border-accent bg-surface py-3 pl-10 pr-20 text-[15px] shadow-sm outline-none focus:ring-4 focus:ring-accent/15 placeholder:text-muted"
+            />
+            {/* Cancel, not a cross: leaving search means leaving a screen,
+                and a bare ✕ reads as "empty this box". */}
+            <button
+              type="button"
+              onClick={onClose}
+              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full px-3 py-1.5 text-sm font-medium text-accent-strong transition-colors hover:bg-accent-soft"
+            >
+              Cancel
+            </button>
+          </label>
+          {searching && (
+            <p className="px-1 text-xs text-muted" aria-live="polite">
+              <span className="num font-semibold text-fg">{matches}</span> match
+              {matches === 1 ? "" : "es"} across {chainName}
+            </p>
+          )}
+        </div>
+        <div className="mt-2">{children}</div>
+      </div>
     </div>
   );
 }
@@ -121,10 +237,15 @@ export function SearchResults({
   qmultFor,
   toggle,
   setQty,
+  framed = true,
 }: {
   chain: Chain;
   query: string;
   result: MenuSearchResult;
+  /** Draw the results as a card. Off inside the desktop dropdown, which is
+   *  already the card -- a card inside a card was the double frame that made
+   *  the panel read as one more accordion. */
+  framed?: boolean;
   /** What to call the path the unreachable matches are on. */
   otherPathName: string;
   /** Category ids that are numbered steps right now, so a result can say that
@@ -174,22 +295,40 @@ export function SearchResults({
           {elsewhere} more on the {otherPathName} path
         </p>
       )}
-      <div className="rounded-2xl border border-line bg-surface p-2 shadow-sm">
-        <ul className="space-y-0.5">
-          {shown.map(({ cat, head, members }) => (
-            <SearchHit
-              key={`${cat.id}/${head.id}`}
-              cat={cat}
-              head={head}
-              members={members}
-              isStep={stepCats.has(cat.id)}
-              selections={selections}
-              addonsOf={addonsOf}
-              qtySteps={portionCats.has(cat.id) ? qtySteps : undefined}
-              qmultFor={qmultFor}
-              toggle={toggle}
-              setQty={setQty}
-            />
+      <div className={framed ? "rounded-2xl border border-line bg-surface p-2 shadow-sm" : ""}>
+        <ul className="space-y-1">
+          {/* One heading per category, not one per row. "chick" on Chipotle
+              returned four proteins, each under its own "PROTEIN · a step in
+              the flow" line -- the same words four times in 300px. Grouped in
+              order of first appearance, so the best match's category still
+              leads. */}
+          {groupByCategory(shown).map(({ cat, families }) => (
+            <li key={cat.id}>
+              <p className="px-3 pt-1.5 text-[10px] font-semibold uppercase tracking-wider text-muted">
+                {cat.name}
+                {stepCats.has(cat.id) && (
+                  <span className="font-medium normal-case tracking-normal">
+                    {" "}&middot; a step in the flow
+                  </span>
+                )}
+              </p>
+              <ul className="space-y-0.5">
+                {families.map(({ head, members }) => (
+                  <FamilyRow
+                    key={head.id}
+                    head={head}
+                    members={members}
+                    selections={selections}
+                    single={cat.select === "single"}
+                    qtySteps={portionCats.has(cat.id) ? qtySteps : undefined}
+                    qmultFor={qmultFor}
+                    toggle={toggle}
+                    setQty={setQty}
+                    addonsOf={addonsOf}
+                  />
+                ))}
+              </ul>
+            </li>
           ))}
         </ul>
         {capped && (
@@ -206,46 +345,13 @@ export function SearchResults({
   );
 }
 
-/** One result: the row it would be in its own category, plus where that is. */
-function SearchHit({
-  cat,
-  head,
-  members,
-  isStep,
-  selections,
-  addonsOf,
-  qtySteps,
-  qmultFor,
-  toggle,
-  setQty,
-}: MenuFamily & {
-  isStep: boolean;
-  selections: Selections;
-  addonsOf: Map<string, Component[]>;
-  qtySteps?: number[];
-  qmultFor: (comp: Component) => number;
-  toggle: (comp: Component, single: boolean) => void;
-  setQty: (id: string, q: number) => void;
-}) {
-  return (
-    <li>
-      <p className="px-3 pt-1.5 text-[10px] font-semibold uppercase tracking-wider text-muted">
-        {cat.name}
-        {isStep && <span className="font-medium normal-case tracking-normal"> &middot; a step in the flow</span>}
-      </p>
-      <ul>
-        <FamilyRow
-          head={head}
-          members={members}
-          selections={selections}
-          single={cat.select === "single"}
-          qtySteps={qtySteps}
-          qmultFor={qmultFor}
-          toggle={toggle}
-          setQty={setQty}
-          addonsOf={addonsOf}
-        />
-      </ul>
-    </li>
-  );
+/** Hits bucketed by category, categories in order of their first hit. */
+function groupByCategory(hits: MenuFamily[]) {
+  const out: { cat: MenuFamily["cat"]; families: MenuFamily[] }[] = [];
+  for (const hit of hits) {
+    const last = out.find((g) => g.cat.id === hit.cat.id);
+    if (last) last.families.push(hit);
+    else out.push({ cat: hit.cat, families: [hit] });
+  }
+  return out;
 }

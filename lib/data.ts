@@ -3,6 +3,7 @@ import path from "path";
 import { cache } from "react";
 import { Chain, ChainSchema } from "./schema";
 import { Tint, tileTint, tintPeers } from "./brand";
+import { displayName } from "./text";
 
 // Resolved at request time relative to the server cwd; in the container this is
 // /app/data/chains, copied into the image at build time (no bind mount), so a
@@ -35,12 +36,34 @@ export const listChains = cache(async (): Promise<Chain[]> => {
  *  a feature off — say so rather than serving a blank page. */
 function parseChain(slug: string, raw: string): Chain | null {
   const parsed = ChainSchema.safeParse(JSON.parse(raw));
-  if (parsed.success) return parsed.data;
+  if (parsed.success) return readable(parsed.data);
   console.error(
     `chain "${slug}" failed validation and will not be served:`,
     parsed.error.issues.map((i) => `${i.path.join(".")}: ${i.message}`),
   );
   return null;
+}
+
+/**
+ * Names as the page will show them.
+ *
+ * Values stay as printed; this touches only how a row is NAMED, and only two
+ * ways (see lib/text.ts): an all-caps chart is re-cased, and the chain's own
+ * ®-marked prefix comes off on the chain's own page. Done once here, at load,
+ * so the rows, the picks chips, the label, the copied text and the comparison
+ * all agree -- a display-time helper called from some of those places and
+ * not others is how they would drift. Ids are untouched, so every share link
+ * still resolves.
+ */
+function readable(chain: Chain): Chain {
+  return {
+    ...chain,
+    components: chain.components.map((c) => ({
+      ...c,
+      name: displayName(c.name, chain.name),
+      ...(c.variant_label ? { variant_label: displayName(c.variant_label, chain.name) } : {}),
+    })),
+  };
 }
 
 export const getChain = cache(async (slug: string): Promise<Chain | null> => {

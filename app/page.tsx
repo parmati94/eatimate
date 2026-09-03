@@ -154,7 +154,7 @@ export default async function Home() {
       {/* The thesis, shown rather than described -- this replaced a sentence
           that said the same thing. */}
       {hero && (
-        <div className="mt-7 sm:mt-9 lg:mt-11">
+        <div className="mt-6 sm:mt-9 lg:mt-11">
           <HeroDemo
             chain={hero.chain}
             steps={hero.steps}
