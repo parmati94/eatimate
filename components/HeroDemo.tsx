@@ -184,12 +184,16 @@ export default function HeroDemo({
             </span>
           </div>
 
-          <ul className="mt-3 space-y-0.5">
+          {/* Tighter on a phone: the card was the entire first screen there,
+              with the restaurant search and the tiles starting below the
+              fold. The rows still add up in front of you; they just sit
+              closer. */}
+          <ul className="mt-2.5 sm:mt-3 sm:space-y-0.5">
             {steps.map((s, i) => (
               <li
                 key={s.name}
                 style={{ "--i": i } as CSSProperties}
-                className="motion-safe:animate-[demo-row_.5s_ease-out_both] flex items-center gap-2.5 py-1 [animation-delay:calc(var(--i)*.42s+.2s)]"
+                className="motion-safe:animate-[demo-row_.5s_ease-out_both] flex items-center gap-2.5 py-0.5 [animation-delay:calc(var(--i)*.42s+.2s)] sm:py-1"
               >
                 <span
                   aria-hidden
