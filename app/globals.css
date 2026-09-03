@@ -111,6 +111,13 @@
 
 html {
   color-scheme: light dark;
+  /* The site header is sticky and 56px tall, so every scroll that reveals
+   * something -- an anchor, and more importantly Safari's own "bring the
+   * focused input into view" when the keyboard opens -- has to stop short of
+   * it. Without this, focusing the meal search on iOS scrolled the field about
+   * half its height UNDER the header, because the browser's reveal knows the
+   * viewport but not what is painted over the top of it. */
+  scroll-padding-top: 3.5rem;
 }
 html[data-theme="light"] {
   color-scheme: light;

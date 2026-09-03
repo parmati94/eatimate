@@ -47,6 +47,29 @@ export function MenuSearch({
 }) {
   const typed = value.trim().toLowerCase();
   const box = useRef<HTMLDivElement>(null);
+  /**
+   * Put the field at the top, twice.
+   *
+   * Once immediately, which is all a desktop or Android needs, and once more
+   * after the visual viewport changes size -- iOS opens the keyboard AFTER the
+   * focus event and runs its own scroll to reveal the input, which lands
+   * somewhere of its own choosing. scroll-padding-top in globals.css keeps
+   * that one out from under the header; this puts it back at the top rather
+   * than merely visible.
+   */
+  const bring = () => {
+    box.current?.scrollIntoView({ block: "start" });
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const again = () => {
+      vv.removeEventListener("resize", again);
+      requestAnimationFrame(() => box.current?.scrollIntoView({ block: "start" }));
+    };
+    vv.addEventListener("resize", again);
+    // No keyboard ever arrived (a desktop, a hardware keyboard): stop waiting,
+    // so a later unrelated resize cannot yank the page.
+    setTimeout(() => vv.removeEventListener("resize", again), 1200);
+  };
   return (
     <div
       ref={box}
@@ -77,7 +100,7 @@ export function MenuSearch({
           // phone with the keyboard up that left a band barely one result
           // tall between it and the totals bar. Sticky only holds a position
           // something has scrolled to.
-          onFocus={() => box.current?.scrollIntoView({ block: "start" })}
+          onFocus={bring}
           // Names the chain, because the homepage has a box that looks like
           // this one and searches restaurants; names the count, because a
           // field over Chipotle's 32 rows and one over Buffalo Wild Wings'
@@ -275,11 +298,16 @@ function SearchHit({
           toggle={toggle}
           setQty={setQty}
           addonsOf={addonsOf}
-          // The same rule the row obeys where it lives. A result that behaved
-          // differently from its own category would be a third place this
-          // decision is made, and the last two bugs in the builder were one
-          // concept with two call sites drifting apart.
-          chipsOnPick={!(cat.size_leads ?? (cat.flow ?? "build") === "extras")}
+          // Always, whatever the category says.
+          //
+          // The rule elsewhere keys off the category, on the grounds that the
+          // size IS the question for a drink. In a result list it is not: the
+          // question is which of these six rows you meant, and the size can
+          // wait for the answer. This is the case chipsOnPick was measured for
+          // -- Chick-fil-A's fourteen rows ran 3,219px with chips against
+          // Burger King's 851px without -- and search results are the most
+          // scannable list on the site.
+          chipsOnPick
         />
       </ul>
     </li>
