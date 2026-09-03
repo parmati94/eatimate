@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, Geist } from "next/font/google";
+import Analytics from "@/components/Analytics";
 import Header from "@/components/Header";
 import SiteFooter from "@/components/SiteFooter";
 import { SITE_URL } from "@/lib/site";
@@ -71,6 +72,7 @@ const structuredData = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   const beaconToken = process.env.CF_BEACON_TOKEN;
+  const umamiId = process.env.UMAMI_WEBSITE_ID;
 
   return (
     <html
@@ -101,6 +103,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           until "Automatic setup" is OFF in the dashboard, or both beacons load
           and every hit is counted twice.
         */}
+        {/* Umami, proxied through /stats so no third-party hostname appears
+            in the page. Unset UMAMI_WEBSITE_ID (development, local builds) and
+            no tracker is served at all. */}
+        {umamiId ? <Analytics id={umamiId} /> : null}
         {beaconToken ? (
           /* type="module" is deferred by definition, so this never blocks
              parsing; the rule does not read the type attribute. */

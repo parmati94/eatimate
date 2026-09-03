@@ -15,6 +15,11 @@ ENV NEXT_TELEMETRY_DISABLED=1
 # (it ships in every page's HTML); without it the beacon is simply omitted.
 ARG CF_BEACON_TOKEN=""
 ENV CF_BEACON_TOKEN=$CF_BEACON_TOKEN
+# Same deal for the Umami website id, which is public for the same reason: it
+# ships in the HTML of every page that carries the tracker. Unset, the app
+# renders no tracker at all, which is what a local build should do.
+ARG UMAMI_WEBSITE_ID=""
+ENV UMAMI_WEBSITE_ID=$UMAMI_WEBSITE_ID
 RUN npm run build
 
 FROM base AS runner

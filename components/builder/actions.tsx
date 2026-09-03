@@ -8,6 +8,7 @@ import { Selections } from "@/lib/meal";
 import { show } from "@/lib/rounding";
 import { copyText } from "@/lib/clipboard";
 import { drawLabel } from "@/lib/labelImage";
+import { track } from "@/lib/analytics";
 import { IconCheck, IconCopy, IconDownload, IconShare } from "../icons";
 import { fmtQty, fullName, mealUrl } from "./format";
 
@@ -132,6 +133,14 @@ export function ShareMealButton({
       onClick={async () => {
         const url = mealUrl(selections, portion);
         const title = `${chain.name} on eatimate`;
+        // Counted at the intent, not at the outcome: the native sheet does not
+        // say whether anything was sent, and a share cancelled in the sheet is
+        // still someone who wanted to share. items says how much of a meal was
+        // worth passing on.
+        track("share-copied", {
+          chain: chain.slug,
+          items: Object.keys(selections).length,
+        });
         if (navigator.share) {
           try {
             await navigator.share({ title, url });

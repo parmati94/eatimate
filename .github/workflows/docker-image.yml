@@ -100,6 +100,7 @@ jobs:
           platforms: ${{ matrix.platform }}
           build-args: |
             CF_BEACON_TOKEN=${{ vars.CF_BEACON_TOKEN }}
+            UMAMI_WEBSITE_ID=${{ vars.UMAMI_WEBSITE_ID }}
           outputs: type=image,name=${{ env.IMAGE }},push-by-digest=true,name-canonical=true,push=true
           cache-from: type=gha,scope=${{ matrix.arch }}
           cache-to: type=gha,mode=max,scope=${{ matrix.arch }}
