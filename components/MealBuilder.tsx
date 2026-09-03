@@ -9,7 +9,7 @@ import {
   useState
 } from "react";
 import { buildPath, defaultMode as defaultPath, modeOf, owedNote, splitCats } from "@/lib/flow";
-import { menuFamilies, searchMenu } from "@/lib/search";
+import { menuFamilies, reachableCount, roleChips, searchMenu } from "@/lib/search";
 import type { Category, Chain, Component } from "@/lib/schema";
 import {
   show
@@ -27,7 +27,7 @@ import {
 } from "@/lib/meal";
 import NutritionLabel from "./NutritionLabel";
 import YourPicks from "./builder/picks";
-import { MenuSearchField, SearchResults } from "./builder/search";
+import { MenuSearch, SearchResults } from "./builder/search";
 import { mealUrl } from "./builder/format";
 import {
   ExtrasSection,
@@ -519,10 +519,14 @@ export default function MealBuilder({
             not have. The path question still comes first -- somebody arriving
             cold is answering that, not typing. */}
         {pathChosen && (
-          <MenuSearchField
+          <MenuSearch
+            chainName={chain.name}
+            rosterCount={reachableCount(families, reachable)}
+            chips={roleChips(families, reachable)}
             value={query}
             onChange={setQuery}
-            chainName={chain.name}
+            searching={searching}
+            matches={found.hits.length}
           />
         )}
 

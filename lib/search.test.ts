@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { describe, expect, it } from "vitest";
-import { familiesOf, menuFamilies, searchMenu } from "./search";
+import { familiesOf, menuFamilies, reachableCount, roleChips, searchMenu } from "./search";
 import { defaultSizeMode, mealLines, mealTotals } from "./meal";
 import { ChainSchema, type Chain, type Component } from "./schema";
 
@@ -114,6 +114,57 @@ describe("searchMenu", () => {
         ).toBe(true);
       }
     }
+  });
+});
+
+describe("roleChips", () => {
+  it("prices each chip at what tapping it actually returns", async () => {
+    // The gap is real: Subway files 18 rows under Protein and the word appears
+    // in the serving text of every sandwich, so the honest number is not the
+    // role tally.
+    for (const slug of await slugs()) {
+      const c = await chain(slug);
+      const fams = menuFamilies(c, allVisible(c));
+      const reach = new Set(c.categories.map((x) => x.id));
+      for (const { word, count } of roleChips(fams, reach)) {
+        expect(searchMenu(fams, word, reach).hits, `${slug}: ${word}`).toHaveLength(
+          count,
+        );
+      }
+    }
+  });
+
+  it("offers the customer's word, not the chain's heading", async () => {
+    const c = await chain("sonic");
+    const fams = menuFamilies(c, allVisible(c));
+    const reach = new Set(c.categories.map((x) => x.id));
+    const words = roleChips(fams, reach).map((x) => x.word);
+    expect(words).toContain("Drinks");
+    // One word over four of Sonic's headings: Soft Drinks, Limeades & Slushes,
+    // Teas, and Coffee. None of them is called "Drinks".
+    expect(c.categories.some((x) => x.name === "Drinks")).toBe(false);
+    expect(searchMenu(fams, "sweets", reach).hits.length).toBeGreaterThan(0);
+  });
+
+  it("never offers more chips than it has words for", async () => {
+    const c = await chain("chipotle");
+    const fams = menuFamilies(c, allVisible(c));
+    const chips = roleChips(fams, new Set(c.categories.map((x) => x.id)));
+    expect(chips.length).toBeLessThanOrEqual(4);
+    expect(chips.every((x) => x.count > 0)).toBe(true);
+  });
+});
+
+describe("reachableCount", () => {
+  it("counts only what this path offers", async () => {
+    const c = await chain("sonic");
+    const fams = menuFamilies(c, allVisible(c));
+    const all = new Set(c.categories.map((x) => x.id));
+    const build = new Set(
+      c.categories.filter((x) => x.flow !== "preset").map((x) => x.id),
+    );
+    expect(reachableCount(fams, all)).toBe(211);
+    expect(reachableCount(fams, build)).toBeLessThan(reachableCount(fams, all));
   });
 });
 
