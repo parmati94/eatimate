@@ -222,13 +222,13 @@ export function ComponentRow({
                     key={v.id}
                     type="button"
                     aria-pressed={active}
-                    // Picking answers the question, so it closes. Nothing is
-                    // lost by that -- the figures were all on screen at once,
-                    // which is what you opened it for.
-                    onClick={() => {
-                      onVariant?.(v);
-                      setOpen(false);
-                    }}
+                    // Picking does NOT close it. Comparing is iterative --
+                    // tap Large, read, tap RT 44, read -- and self-closing
+                    // charges a reopen for every step of the one activity this
+                    // list exists for, while taking away what you were reading
+                    // at the moment you were reading it. The pill closes it,
+                    // which is where you opened it.
+                    onClick={() => onVariant?.(v)}
                     className={`flex min-h-8 items-center gap-1.5 rounded-lg px-1.5 text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       active
                         ? "bg-accent-soft font-semibold text-accent-strong"
