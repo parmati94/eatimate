@@ -117,7 +117,65 @@ describe("searchMenu", () => {
   });
 });
 
+describe("normalising what people actually type", () => {
+  it("folds accents instead of deleting the letter", async () => {
+    // The ñ used to split the word: "Jalapeño" indexed as "jalape o", so
+    // "jalapeno" found nothing on any of the thirteen chains that sell one.
+    for (const slug of ["sonic", "fiveguys", "moes", "subway", "whataburger"]) {
+      const c = await chain(slug);
+      const fams = menuFamilies(c, allVisible(c));
+      expect(names(searchMenu(fams, "jalapeno")).length, slug).toBeGreaterThan(0);
+      // Typing it WITH the accent has to keep working too.
+      expect(names(searchMenu(fams, "jalape\u00f1o")).length, slug).toBeGreaterThan(0);
+    }
+    const js = await chain("justsalad");
+    expect(names(searchMenu(menuFamilies(js, allVisible(js)), "acai"))).toContain(
+      "A\u00e7a\u00ed Protein Punch",
+    );
+  });
+
+  it("reads an initialism run together or spaced", async () => {
+    const c = await chain("subway");
+    const fams = menuFamilies(c, allVisible(c));
+    for (const q of ["bmt", "b.m.t.", "b m t"]) {
+      expect(names(searchMenu(fams, q)), q).toContain("B.M.T.\u00ae");
+    }
+    const jj = await chain("jimmyjohns");
+    expect(names(searchMenu(menuFamilies(jj, allVisible(jj)), "jjblt")).length)
+      .toBeGreaterThan(0);
+  });
+});
+
+describe("ranking", () => {
+  it("leads with a word, without dropping what is buried in one", async () => {
+    const c = await chain("sonic");
+    const found = names(searchMenu(menuFamilies(c, allVisible(c)), "cola"));
+    expect(found[0]).toBe("COCA-COLA\u00ae");
+    // "cola" is inside "chocolate", and those stay -- mid-word matching is what
+    // makes "burger" find a cheeseburger.
+    expect(found.some((n) => n.includes("CHOCOLATE"))).toBe(true);
+  });
+
+  it("still puts an item match above a category match", async () => {
+    const c = await chain("sonic");
+    const fams = menuFamilies(c, allVisible(c));
+    const reach = new Set(c.categories.map((x) => x.id));
+    const hits = searchMenu(fams, "sides", reach).hits;
+    expect(hits.every((h) => h.cat.id === "sides")).toBe(true);
+  });
+});
+
 describe("the customer's word for a category", () => {
+  it("takes soda and pop for a drink", async () => {
+    const c = await chain("sonic");
+    const fams = menuFamilies(c, allVisible(c));
+    const reach = new Set(c.categories.map((x) => x.id));
+    const drinks = searchMenu(fams, "drinks", reach).hits.length;
+    for (const q of ["soda", "pop", "beverages"]) {
+      expect(searchMenu(fams, q, reach).hits.length, q).toBe(drinks);
+    }
+  });
+
   it("reaches headings that never use it", async () => {
     const c = await chain("sonic");
     const fams = menuFamilies(c, allVisible(c));
@@ -170,5 +228,36 @@ describe("mealLines", () => {
     const [line] = mealLines(c, sel, foot);
     expect(line.calories).toBe(proteins[0].calories * 2);
     expect(line.calories).toBe(mealTotals(c, sel, foot).calories);
+  });
+});
+
+describe("no regressions", () => {
+  // Everything below worked before the normalising and ranking changes. The
+  // matcher only ever gained words and reordered tiers, so nothing here may
+  // start returning nothing.
+  const KNOWN: Record<string, string[]> = {
+    sonic: ["coke", "diet coke", "cherry limeade", "fries", "tots", "shake",
+            "onion rings", "corn dog", "slush", "dr pepper", "sprite", "chili",
+            "coca cola", "rt 44", "ched r bites", "barqs"],
+    chickfila: ["nuggets", "waffle fries", "strips", "sandwich", "lemonade",
+                "sauce", "mac", "salad"],
+    bww: ["wings", "boneless", "mozzarella", "ranch", "fries", "nachos",
+          "burger", "dippers"],
+    subway: ["footlong", "meatball", "cold cut", "tuna", "cookie"],
+    chipotle: ["burrito", "bowl", "guac", "queso", "carnitas", "barbacoa", "chips"],
+    dominos: ["pepperoni", "thin crust", "garlic", "wings", "pan"],
+    burgerking: ["whopper", "fries", "onion rings", "coke", "shake", "nuggets"],
+    wingstop: ["wings", "boneless", "fries", "ranch", "lemon pepper"],
+    papajohns: ["pepperoni", "garlic sauce", "wings", "breadsticks"],
+    jimmyjohns: ["turkey", "italian", "chips", "pickle", "gargantuan"],
+  };
+  it("still finds everything it used to", async () => {
+    for (const [slug, queries] of Object.entries(KNOWN)) {
+      const c = await chain(slug);
+      const fams = menuFamilies(c, allVisible(c));
+      for (const q of queries) {
+        expect(searchMenu(fams, q).hits.length, `${slug}: "${q}"`).toBeGreaterThan(0);
+      }
+    }
   });
 });
