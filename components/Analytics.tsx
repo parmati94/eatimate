@@ -6,7 +6,21 @@ import { useEffect, useRef } from "react";
 import { pageview } from "@/lib/analytics";
 
 /**
- * Umami Cloud, loaded first-party and driven by hand.
+ * Umami Cloud, loaded from Umami and driven by hand.
+ *
+ * Loaded from their domain rather than proxied through ours, which is the
+ * opposite of what a first-party path would buy and was measured rather than
+ * assumed. A Next rewrite to an external URL proxies SERVER-side: the browser
+ * posts to us and we post onward, so Umami sees this origin's IP for every
+ * visitor on earth. That is not only a wrong city -- Umami's session id is a
+ * hash including the IP, so with it held constant two visitors sharing a user
+ * agent and a screen size collapse into one session, and "did a visit become a
+ * meal" is a ratio whose denominator we would have broken. Self-hosted Umami
+ * has CLIENT_IP_HEADER for exactly this; on Cloud there is no equivalent.
+ *
+ * The cost is the visitors whose blocklists carry umami.is. That loss is a
+ * minority of a mobile audience and it is unbiased, which is the better of the
+ * two errors.
  *
  * data-auto-track is OFF, and that single attribute is doing two jobs. Reading
  * script.js: `M && !U() && z()` is the whole of the tracker's automatic
@@ -42,15 +56,12 @@ export default function Analytics({ id }: { id: string }) {
 
   return (
     <Script
-      src="/stats/script.js"
+      src="https://cloud.umami.is/script.js"
       strategy="afterInteractive"
       data-website-id={id}
-      // Relative on purpose. The tracker builds its endpoint by concatenation
-      // -- `(hostUrl || "https://gateway.umami.is") + "/api/send"` -- so this
-      // becomes /stats/api/send on whatever origin is serving the page, which
-      // keeps localhost and production both talking to themselves. Without it
-      // the beacon goes straight to gateway.umami.is and the proxy is pointless.
-      data-host-url="/stats"
+      // No data-host-url: the tracker then posts to its own default,
+      // gateway.umami.is, straight from the browser -- which is the point, since
+      // that request carries the visitor's IP rather than ours.
       data-auto-track="false"
       // Belt and braces against the meal leaking into the numbers: pageview()
       // already overrides the URL, and this makes the tracker's own default

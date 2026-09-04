@@ -52,9 +52,9 @@ export default function Privacy() {
           <a href="https://umami.is/privacy" className="underline decoration-line underline-offset-2" rel="noopener nofollow">
             Umami
           </a>
-          , a privacy-focused analytics service that processes this data for us.
-          It is served from our own domain rather than theirs. If your browser
-          sends a Do&nbsp;Not&nbsp;Track signal, nothing is recorded at all.
+          , a privacy-focused analytics service that processes this data for
+          us. If your browser sends a Do&nbsp;Not&nbsp;Track signal, nothing is
+          recorded at all.
         </p>
         <AnalyticsToggle />
         <h2 className="pt-2 text-lg font-semibold">Infrastructure</h2>
