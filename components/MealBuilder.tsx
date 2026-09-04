@@ -28,6 +28,7 @@ import {
   splitCats,
 } from "@/lib/flow";
 import { menuFamilies, reachableCount, searchMenu } from "@/lib/search";
+import { useSearchMiss } from "@/lib/search-miss";
 import type { Category, Chain, Component } from "@/lib/schema";
 import {
   show
@@ -80,6 +81,9 @@ const URL_SYNC_DELAY_MS = 600;
  * one builder cannot fight the other over the address bar, and asks for `bare`
  * chrome because the comparison owns the totals panel for both sides.
  */
+/** Components before a meal counts as built rather than poked at. */
+const MEAL_BUILT_AT = 3;
+
 export default function MealBuilder({
   chain,
   selections: controlledSelections,
@@ -257,6 +261,14 @@ export default function MealBuilder({
   const found = searching
     ? searchMenu(families, query, reachable)
     : { hits: [], elsewhere: 0 };
+  // What this chain's chart was asked for and did not have. "elsewhere" rides
+  // along because the two misses are different problems: nothing at all is a
+  // gap in the data, while matches on the other path is a gap in the UI.
+  useSearchMiss(query, searching && found.hits.length === 0, {
+    scope: "menu",
+    chain: chain.slug,
+    elsewhere: found.elsewhere,
+  });
   // Keyed by the exact component an add-on attaches to, matching CategoryBody:
   // the parent is already size-resolved, so garlic oil on a medium is a
   // different row from garlic oil on a large.
@@ -435,6 +447,10 @@ export default function MealBuilder({
   );
 
   const selectedCount = Object.keys(selections).length;
+  // A meal that reached this many components is one somebody used, not one
+  // they poked at. Paired with meal-started it gives a completion rate, which
+  // is the thing "did the visit work" actually reduces to.
+  const builtSent = useRef(false);
   const subtitle = mealSubtitle(
     chain,
     activeMode && activeMode !== defaultMode ? activeMode.name : null,
@@ -454,6 +470,24 @@ export default function MealBuilder({
     // event per built meal however many ingredients follow.
     if (selectedCount === 0 && !selections[comp.id]) {
       track("meal-started", { chain: chain.slug });
+    }
+    // Counted from the gesture rather than from a useEffect on the count: a
+    // meal restored from a ?m= link or from the last order arrives complete
+    // without anyone building anything, and an effect could not tell those
+    // apart. A single-select pick REPLACES its sibling, so it has to be
+    // excluded or swapping bread would read as growing the meal.
+    if (!builtSent.current && !selections[comp.id]) {
+      const replaces =
+        single &&
+        !isAddon &&
+        (byCategory.get(comp.category) ?? []).some(
+          (other) => other.id !== comp.id && selections[other.id],
+        );
+      const after = selectedCount + (replaces ? 0 : 1);
+      if (after >= MEAL_BUILT_AT) {
+        builtSent.current = true;
+        track("meal-built", { chain: chain.slug, items: after });
+      }
     }
     setSelections((prev) => {
       const next = { ...prev };
@@ -476,6 +510,14 @@ export default function MealBuilder({
       const modeAfter = comp.size_mode
         ? (modes?.find((m) => m.id === comp.size_mode) ?? defaultMode)
         : activeMode;
+      // Only a real transition. A pick with no size_mode leaves modeAfter as
+      // the mode already in force, so the common case sends nothing.
+      if (modeAfter?.id !== activeMode?.id) {
+        track("size-changed", {
+          chain: chain.slug,
+          size: modeAfter?.id ?? "default",
+        });
+      }
       const vis = (c: Component) =>
         !c.only_modes ||
         (modeAfter != null && c.only_modes.includes(modeAfter.id));

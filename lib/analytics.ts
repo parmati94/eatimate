@@ -29,9 +29,30 @@ export type EventName =
   /** Took the offered last order rather than starting cold. */
   | "last-order-loaded"
   /** Opened the difference table on a comparison page. */
-  | "compare-opened";
+  | "compare-opened"
+  /** Chose a restaurant from the home page, and by which route. The first
+   *  step of the funnel, and the one that separates a visit that bounced off
+   *  the picker from a visit that went looking for something. */
+  | "chain-picked"
+  /** The meal crossed from poking at it to actually being one. meal-started
+   *  fires on the FIRST pick and so cannot tell those apart; this is the pair
+   *  that gives a completion rate. */
+  | "meal-built"
+  /** Changed the chain-wide size (6" to footlong, medium to large). */
+  | "size-changed"
+  /** A search that found nothing, with the term. Sent only once the field has
+   *  settled -- see lib/search-miss.ts, which is the only way to send it. */
+  | "search-empty";
 
-/** Event payload: small, non-identifying, and never free text from a user. */
+/**
+ * Event payload: small and non-identifying.
+ *
+ * One event, search-empty, carries a term the visitor typed, which is the one
+ * place free text reaches this file. It is what someone asked a menu for and
+ * did not get, which is the only way to learn what the site is missing from
+ * the people who wanted it. The privacy page says so in as many words rather
+ * than hiding it under "usage data".
+ */
 export type EventData = Record<string, string | number>;
 
 declare global {
