@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { track } from "@/lib/analytics";
+import { useSearchMiss } from "@/lib/search-miss";
 import ChainMark from "./ChainMark";
 import type { Tint } from "@/lib/brand";
 import { IconSearch } from "./icons";
@@ -20,6 +22,11 @@ export default function ChainSearch({ chains }: { chains: ChainCard[] }) {
   const shown = q
     ? chains.filter((c) => c.name.toLowerCase().includes(q.toLowerCase()))
     : chains;
+
+  // A restaurant somebody looked for and we do not have. The most directly
+  // actionable thing the site can learn: it names the next chain to ingest,
+  // from the people who wanted it rather than from a guess.
+  useSearchMiss(q, shown.length === 0, { scope: "chains" });
 
   return (
     <div>
@@ -41,6 +48,15 @@ export default function ChainSearch({ chains }: { chains: ChainCard[] }) {
           <li key={chain.slug}>
             <Link
               href={`/${chain.slug}`}
+              // The first step of the funnel. Without it a session that landed
+              // on the picker and left is indistinguishable from one that went
+              // somewhere, and "from" says whether the field earns its place.
+              onClick={() =>
+                track("chain-picked", {
+                  chain: chain.slug,
+                  from: q.trim() ? "search" : "list",
+                })
+              }
               className="group flex h-full flex-col items-center gap-2 rounded-2xl border border-line bg-surface p-5 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:border-fg/20 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/40"
             >
               <ChainMark

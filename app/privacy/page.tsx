@@ -48,6 +48,14 @@ export default function Privacy() {
           picked stays between you and your browser.
         </p>
         <p>
+          One exception, stated plainly: when a search finds nothing, we record
+          what was typed. A restaurant or a menu item somebody looked for and
+          did not find is the only way we learn what to add next, and it comes
+          from the people who wanted it. Nothing identifies you, it is not tied
+          to anything else you did, and it is only sent once the search has
+          finished — not as you type.
+        </p>
+        <p>
           This runs on{" "}
           <a href="https://umami.is/" className="underline decoration-line underline-offset-2" rel="noopener nofollow">
             Umami
