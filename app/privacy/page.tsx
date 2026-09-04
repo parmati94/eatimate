@@ -12,7 +12,7 @@ export default function Privacy() {
   return (
     <main className="mx-auto w-full max-w-2xl flex-1 px-4 py-10">
       <h1 className="text-3xl font-bold tracking-tight">Privacy</h1>
-      <p className="mt-2 text-sm text-muted">Effective September 3, 2026</p>
+      <p className="mt-2 text-sm text-muted">Effective September 4, 2026</p>
       <div className="mt-6 space-y-4 text-[15px] leading-relaxed">
         <p>
           Eatimate is a calculator: there are no accounts, no sign-ups, and the
@@ -49,12 +49,14 @@ export default function Privacy() {
         </p>
         <p>
           This runs on{" "}
-          <a href="https://umami.is/privacy" className="underline decoration-line underline-offset-2" rel="noopener nofollow">
+          <a href="https://umami.is/" className="underline decoration-line underline-offset-2" rel="noopener nofollow">
             Umami
           </a>
-          , a privacy-focused analytics service that processes this data for
-          us. If your browser sends a Do&nbsp;Not&nbsp;Track signal, nothing is
-          recorded at all.
+          , open-source analytics software we host ourselves, on our own
+          server. Nothing is handed to an analytics company, and the counts are
+          not sold, shared, or combined with data from anywhere else. If your
+          browser sends a Do&nbsp;Not&nbsp;Track signal, nothing is recorded at
+          all.
         </p>
         <AnalyticsToggle />
         <h2 className="pt-2 text-lg font-semibold">Infrastructure</h2>

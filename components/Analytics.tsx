@@ -6,21 +6,28 @@ import { useEffect, useRef } from "react";
 import { pageview } from "@/lib/analytics";
 
 /**
- * Umami Cloud, loaded from Umami and driven by hand.
+ * Umami, self-hosted on our own box, driven by hand.
  *
- * Loaded from their domain rather than proxied through ours, which is the
- * opposite of what a first-party path would buy and was measured rather than
- * assumed. A Next rewrite to an external URL proxies SERVER-side: the browser
- * posts to us and we post onward, so Umami sees this origin's IP for every
- * visitor on earth. That is not only a wrong city -- Umami's session id is a
- * hash including the IP, so with it held constant two visitors sharing a user
- * agent and a screen size collapse into one session, and "did a visit become a
- * meal" is a ratio whose denominator we would have broken. Self-hosted Umami
- * has CLIENT_IP_HEADER for exactly this; on Cloud there is no equivalent.
+ * Served first-party from analytics.eatimate.app, which is the arrangement an
+ * earlier attempt reached for and got wrong, so the difference is worth
+ * stating. That attempt was a Next rewrite, and a rewrite to an external URL
+ * proxies SERVER-side: the browser posts to us, we post onward, and Umami sees
+ * this origin's IP for every visitor on earth. That is not merely a wrong city.
+ * Umami's session id is a hash including the IP, so with it held constant two
+ * visitors sharing a user agent and a screen size collapse into one session,
+ * and "did a visit become a meal" is a ratio whose denominator that breaks.
  *
- * The cost is the visitors whose blocklists carry umami.is. That loss is a
- * minority of a mobile audience and it is unbiased, which is the better of the
- * two errors.
+ * Self-hosting gets the first-party domain without that cost. The request path
+ * is visitor -> Cloudflare -> Caddy -> Umami, all of it network-layer proxying
+ * that preserves the client, and the container sets CLIENT_IP_HEADER to
+ * CF-Connecting-IP so Umami reads the visitor rather than the last hop. Umami
+ * Cloud has no equivalent setting, which is why this could not be had there.
+ * Verified rather than assumed: identical payloads with identical user agents
+ * sent from two different source IPs produced two different session ids.
+ *
+ * No data-host-url. The self-hosted tracker derives its collection endpoint
+ * from its own script src, so it posts back to analytics.eatimate.app; the
+ * hosted build's gateway.umami.is default does not appear in this one.
  *
  * data-auto-track is OFF, and that single attribute is doing two jobs. Reading
  * script.js: `M && !U() && z()` is the whole of the tracker's automatic
@@ -30,7 +37,9 @@ import { pageview } from "@/lib/analytics";
  * dozen pageviews at a dozen distinct URLs -- the same failure the Cloudflare
  * beacon has spelled out beside it in layout.tsx, and the reason that URL sync
  * is debounced at all. With it off, nothing is counted that we did not count
- * on purpose, and a pageview means a navigation again.
+ * on purpose, and a pageview means a navigation again. (This build also reads
+ * data-auto-pageview, but that only gates the send INSIDE z(); auto-track is
+ * still the flag that stops the history wrapping, so it stays the one we set.)
  *
  * window.umami is assigned regardless of that flag, so events still work; the
  * cost is that the first pageview is now ours to send, hence onLoad below.
@@ -56,12 +65,9 @@ export default function Analytics({ id }: { id: string }) {
 
   return (
     <Script
-      src="https://cloud.umami.is/script.js"
+      src="https://analytics.eatimate.app/script.js"
       strategy="afterInteractive"
       data-website-id={id}
-      // No data-host-url: the tracker then posts to its own default,
-      // gateway.umami.is, straight from the browser -- which is the point, since
-      // that request carries the visitor's IP rather than ours.
       data-auto-track="false"
       // Belt and braces against the meal leaking into the numbers: pageview()
       // already overrides the URL, and this makes the tracker's own default
