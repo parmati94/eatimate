@@ -629,6 +629,35 @@ export default function MealBuilder({
             className="absolute -inset-2 z-10 hidden rounded-3xl bg-bg/70 backdrop-blur-[2px] motion-safe:animate-[fade-in_.2s_ease-out] lg:block"
           />
         )}
+        {/* First thing under the title, above the last order and the path
+            question both. Search is the PAGE's control, not a step in the
+            flow: it reaches every numbered step, so anywhere inside the flow
+            claims a scope it does not have, and the band below the fork is the
+            least-looked-at strip on the page -- with a last order present it
+            was the fourth block down. It used to sit under the fork because
+            somebody arriving cold is answering that question, not typing; a
+            control placed above a question does not force anyone to answer it
+            first, and that reasoning also predates `default_flow`, which on a
+            chain like Cook Out means the fork is no longer even the first
+            thing asked. */}
+        {pathChosen && (
+          <SearchField
+            chainName={chain.name}
+            rosterCount={reachableCount(families, reachable)}
+            value={query}
+            onChange={setQuery}
+            open={searchOpen}
+            onOpen={openSearch}
+            onClose={() => {
+              setSearchOpen(false);
+              setQuery("");
+            }}
+            matches={found.hits.length}
+            wrapRef={wrapRef}
+          >
+            {results(false)}
+          </SearchField>
+        )}
         {/* Both of these stand down while searching. Neither belongs to the
             mode, and together they were ~120px of the screen sitting between
             the header and a field that is trying to reach the top of it. */}
@@ -740,28 +769,6 @@ export default function MealBuilder({
           </div>
         )}
 
-        {/* Above the flow, not under "Add to it": it reaches the numbered
-            steps too, and a box under that heading would claim a scope it does
-            not have. The path question still comes first -- somebody arriving
-            cold is answering that, not typing. */}
-        {pathChosen && (
-          <SearchField
-            chainName={chain.name}
-            rosterCount={reachableCount(families, reachable)}
-            value={query}
-            onChange={setQuery}
-            open={searchOpen}
-            onOpen={openSearch}
-            onClose={() => {
-              setSearchOpen(false);
-              setQuery("");
-            }}
-            matches={found.hits.length}
-            wrapRef={wrapRef}
-          >
-            {results(false)}
-          </SearchField>
-        )}
 
         <>
           {/* The numbered steps are one run, not six loose cards: a short rule
@@ -795,7 +802,7 @@ export default function MealBuilder({
           {featured.length > 0 && mealStarted(chain, selections, owedSteps) && (
             <section className="rounded-2xl border border-line bg-surface p-3 shadow-sm">
               <h2 className="px-1 pb-2 text-xs font-semibold uppercase tracking-wider text-muted">
-                Make it a meal
+                {chain.meal_shelf ?? "Make it a meal"}
               </h2>
               <div className="space-y-3">
                 {featured.map(({ cat, comps }) => (

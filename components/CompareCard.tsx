@@ -36,13 +36,19 @@ export default function CompareCard({
 export function PairChip({
   pair,
   tints,
+  dish,
 }: {
   pair: ComparePair;
   tints: Map<string, Tint>;
+  /** Which dish this chip sits under, so the pair page opens on that one
+   *  rather than on whichever dish happens to sort first. A hash, not a query
+   *  param: the route reads `params` and never `searchParams`, and touching
+   *  searchParams here would opt the whole page out of static rendering. */
+  dish?: string;
 }) {
   return (
     <Link
-      href={`/compare/${pair.slug}`}
+      href={`/compare/${pair.slug}${dish ? `#${dish}` : ""}`}
       className="flex min-h-11 items-center gap-2 rounded-full border border-line bg-surface py-1.5 pl-1.5 pr-4 text-sm text-muted transition-colors hover:border-fg/30 hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/40"
     >
       <span className="flex items-center -space-x-1.5">

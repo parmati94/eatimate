@@ -191,6 +191,12 @@ export const ChainSchema = z
     // to start?" first spends a click on a question with a usual answer. The
     // chooser is not removed -- "Change" still switches paths.
     default_flow: z.enum(["menu", "build"]).optional(),
+    // What the quick-add shelf is called on this chain. Cook Out sells a
+    // tray, not a meal, and the shelf is the one place the site names the
+    // thing you are assembling -- so a chain whose customers have their own
+    // word for it says that word. Editorial, like `feature`: it changes the
+    // heading and nothing else. Defaults to "Make it a meal".
+    meal_shelf: z.string().min(1).optional(),
     // Deliberate departures from what the chain's cuisine peers do, each with
     // the reason. lib/consistency.test.ts fails CI on an UNDECLARED departure,
     // so the only way past it is to fix the chain or write down why it differs
