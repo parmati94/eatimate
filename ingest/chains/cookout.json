@@ -52,14 +52,14 @@
    "id": "sides",
    "name": "Sides",
    "select": "multi",
-   "flow": "both",
+   "flow": "extras",
    "role": "side"
   },
   {
    "id": "drinks",
    "name": "Drinks",
    "select": "multi",
-   "flow": "both",
+   "flow": "extras",
    "role": "drink"
   },
   {
@@ -172,10 +172,6 @@
    "cat": "sides",
    "feature": true
   },
-  "Hushpuppies Side": {
-   "cat": "sides",
-   "feature": true
-  },
   "Coca-Cola® Regular 16 oz (453.6 g)": {
    "cat": "drinks",
    "feature": true
@@ -198,6 +194,58 @@
    "cat": "menu",
    "id": "beef-quesadilla",
    "name": "Beef Quesadilla"
+  },
+  "Hushpuppies Full Order": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Onion Rings Full Order": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Chicken Nuggets Full Order": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Cook Out Rounds Full Order": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Cheese Curds Full Order": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Corn Dog": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Diet Coke® Regular 16 oz (453.6 g)": {
+   "cat": "drinks",
+   "feature": true
+  },
+  "Sprite® Regular 16 oz (453.6 g)": {
+   "cat": "drinks",
+   "feature": true
+  },
+  "Dr. Pepper® Regular 16 oz (453.6 g)": {
+   "cat": "drinks",
+   "feature": true
+  },
+  "Cheerwine® Regular 16 oz (453.6 g)": {
+   "cat": "drinks",
+   "feature": true
+  },
+  "Vanilla": {
+   "cat": "shakes",
+   "feature": true
+  },
+  "Hershey's® Chocolate": {
+   "cat": "shakes",
+   "feature": true
+  },
+  "Strawberry": {
+   "cat": "shakes",
+   "feature": true
   }
  },
  "name_trim": [
