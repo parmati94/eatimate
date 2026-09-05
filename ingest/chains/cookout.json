@@ -1,0 +1,235 @@
+{
+ "meta": {
+  "name": "Cook Out",
+  "slug": "cookout",
+  "source": {
+   "pdf_url": "https://cookout.com/wp-content/uploads/Cook-Out-Nutrition1.pdf",
+   "retrieved": "2026-09-05",
+   "format": "pdf",
+   "page_url": "https://cookout.com/menu/",
+   "link_pattern": "Nutrition",
+   "fetch": "plain",
+   "dump_sha256": "2f5345f35d4b9deea3f0480ae1c4338e771f96f7f368e0d0d276ae4be855affa",
+   "asset_sha256": "289a561c5604268e22e5450c772954393b9cfebbd11fe263dcad785a210006a2"
+  },
+  "disclaimer_extra": "Cook Out publishes one four-page chart. The burger \"style\" rows are add-ons — the chart states them as the amount the style adds, which checks out exactly against its own hot dogs (a Cook Out Style Hot Dog is 383 cal against a plain 260, and the Cook Out Style row is 123). The chicken \"style\" rows are not consistent in the same way and are left out rather than guessed at; the chicken sandwiches are listed whole instead.",
+  "blurb": "Build a Cook Out tray — char-grilled burgers and the styles that go on them, hot dogs, sides in two portions, and forty-odd fancy milkshakes.",
+  "glyph": "burger",
+  "formats": [
+   "Burgers",
+   "Trays",
+   "Hot Dogs",
+   "Milkshakes"
+  ]
+ },
+ "categories": [
+  {
+   "id": "burger",
+   "name": "Char-Grilled Hamburger",
+   "select": "single",
+   "flow": "build",
+   "role": "protein",
+   "in_preset": true
+  },
+  {
+   "id": "style",
+   "name": "Make It a Style",
+   "select": "single",
+   "flow": "build",
+   "role": "topping",
+   "note": "Cook Out's styles are alternatives, not extras — you order one.",
+   "in_preset": true
+  },
+  {
+   "id": "menu",
+   "name": "Sandwiches, Dogs & Wraps",
+   "select": "single",
+   "flow": "preset",
+   "role": "preset"
+  },
+  {
+   "id": "sides",
+   "name": "Sides",
+   "select": "multi",
+   "flow": "both",
+   "role": "side"
+  },
+  {
+   "id": "drinks",
+   "name": "Drinks",
+   "select": "multi",
+   "flow": "both",
+   "role": "drink"
+  },
+  {
+   "id": "shakes",
+   "name": "Fancy Milkshakes",
+   "select": "multi",
+   "flow": "extras",
+   "role": "dessert"
+  }
+ ],
+ "layout": {
+  "columns": [
+   "calories",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g",
+   "vit_a",
+   "vit_c",
+   "calcium",
+   "iron"
+  ],
+  "allergen": false,
+  "serving": null,
+  "start": "^Fresh Homemade Char-Grilled Hamburgers$",
+  "sections": "^(Fresh Homemade Char-Grilled Hamburgers|Char-Grilled Chicken Breast|Hot Crispy Spicy Chicken Breast Fillet|Chopped Pork Barbeque|Char-Grilled Hot Dogs|Crispy Chicken Wraps|Homemade Style Chicken Strips|Quesadillas|Sides/Other Menu Items|Beverages|Fancy Milkshakes)$",
+  "pre_replace": [
+   [
+    "^Fudge 33\\.5 oz949\\.6 g\\)",
+    "Fudge 33.5 oz (949.6 g)"
+   ],
+   [
+    "^(Small 1/8 lb|Regular 1/4 lb|Huge 1/2 lb) ",
+    "Hamburger \\1 "
+   ],
+   [
+    " Add\\s+(?=[\\d.]+\\s*oz)",
+    " "
+   ],
+   [
+    "(?<!Huge)(?<!Large)(?<!Regular)(?<!Small)\\s+((?:[\\d.]+\\s*oz[\\d.]*|[\\d.]+)\\s*\\(\\s*[\\d.]+\\s*(?:g|oz)\\))\\s+(?=[<\\d])",
+    " [\\1] "
+   ]
+  ],
+  "serving_brackets": true,
+  "tier_rows": {
+   "sections": "^(Beverages)$",
+   "tiers": [
+    "Huge",
+    "Large",
+    "Regular",
+    "Small"
+   ],
+   "head": "Regular"
+  }
+ },
+ "section_categories": {
+  "Fresh Homemade Char-Grilled Hamburgers": "burger",
+  "Char-Grilled Chicken Breast": "menu",
+  "Hot Crispy Spicy Chicken Breast Fillet": "menu",
+  "Chopped Pork Barbeque": "menu",
+  "Char-Grilled Hot Dogs": "menu",
+  "Crispy Chicken Wraps": "menu",
+  "Homemade Style Chicken Strips": "menu",
+  "Quesadillas": "menu",
+  "Sides/Other Menu Items": "sides",
+  "Beverages": "drinks",
+  "Fancy Milkshakes": "shakes"
+ },
+ "items": {
+  "Fresh Homemade Char-Grilled Hamburgers/Everything": {
+   "cat": "style"
+  },
+  "Fresh Homemade Char-Grilled Hamburgers/Cook Out® Style": {
+   "cat": "style"
+  },
+  "Fresh Homemade Char-Grilled Hamburgers/Out West Style": {
+   "cat": "style"
+  },
+  "Fresh Homemade Char-Grilled Hamburgers/Steak Style": {
+   "cat": "style"
+  },
+  "Fresh Homemade Char-Grilled Hamburgers/Cheddar Style": {
+   "cat": "style"
+  },
+  "Char-Grilled Chicken Breast/Orginal Style": {
+   "skip": "Chicken style rows are cumulative totals in the chart, not add-ons like the burger styles, and they disagree with each other: Cajun Style repeats the plain breast's calories with a seasoning's sodium, and Club Style raises calories while copying every other cell unchanged. Left out rather than guessed at."
+  },
+  "Char-Grilled Chicken Breast/Barbeque Style": {
+   "skip": "See Orginal Style."
+  },
+  "Char-Grilled Chicken Breast/Cajun Style": {
+   "skip": "See Orginal Style."
+  },
+  "Char-Grilled Chicken Breast/Club Style": {
+   "skip": "See Orginal Style."
+  },
+  "Char-Grilled Chicken Breast/Cheddar Style": {
+   "skip": "See Orginal Style."
+  },
+  "Hot Crispy Spicy Chicken Breast Fillet/Cheese Style": {
+   "skip": "See Char-Grilled Chicken Breast/Orginal Style."
+  },
+  "Regular Fries": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Hushpuppies Side": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Coca-Cola® Regular 16 oz (453.6 g)": {
+   "cat": "drinks",
+   "feature": true
+  },
+  "Fresh Brewed Sweet Tea Regular 16 oz (453.6 g)": {
+   "cat": "drinks",
+   "feature": true
+  },
+  "Quesadillas/Cheese": {
+   "cat": "menu",
+   "id": "cheese-quesadilla",
+   "name": "Cheese Quesadilla"
+  },
+  "Quesadillas/Chicken": {
+   "cat": "menu",
+   "id": "chicken-quesadilla",
+   "name": "Chicken Quesadilla"
+  },
+  "Quesadillas/Beef": {
+   "cat": "menu",
+   "id": "beef-quesadilla",
+   "name": "Beef Quesadilla"
+  }
+ },
+ "name_trim": [
+  {
+   "pattern": "\\s+([\\d.]+\\s*oz[\\d.]*\\s*\\(\\s*[\\d.]+\\s*(?:g|oz)\\))$",
+   "into": "serving"
+  },
+  {
+   "pattern": "\\s+(Small 1/8 lb|Regular 1/4 lb|Huge 1/2 lb)$",
+   "into": "size",
+   "labels": [
+    "Regular 1/4 lb",
+    "Small 1/8 lb",
+    "Huge 1/2 lb"
+   ]
+  },
+  {
+   "pattern": "\\s+(Full Order|Side)$",
+   "into": "size",
+   "labels": [
+    "Full Order",
+    "Side"
+   ]
+  },
+  {
+   "pattern": "\\s+(Huge|Large|Regular|Small)$",
+   "into": "size",
+   "labels": [
+    "Regular",
+    "Small",
+    "Large",
+    "Huge"
+   ]
+  }
+ ]
+}
