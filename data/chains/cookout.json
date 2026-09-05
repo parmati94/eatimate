@@ -15,6 +15,7 @@
     "Milkshakes"
   ],
   "meal_shelf": "Make it a tray",
+  "default_flow": "menu",
   "categories": [
     {
       "id": "burger",

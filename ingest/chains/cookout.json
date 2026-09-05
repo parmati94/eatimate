@@ -21,7 +21,8 @@
    "Hot Dogs",
    "Milkshakes"
   ],
-  "meal_shelf": "Make it a tray"
+  "meal_shelf": "Make it a tray",
+  "default_flow": "menu"
  },
  "categories": [
   {
