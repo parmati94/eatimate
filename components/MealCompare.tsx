@@ -70,6 +70,18 @@ export default function MealCompare({
     // on mount is the one thing this rule cannot express, because a lazy
     // initialiser cannot read window during SSR without a hydration mismatch.
     /* eslint-disable react-hooks/set-state-in-effect */
+    // Which dish the link asked for. /compare lists a pair once per dish
+    // heading, but the href carried only the pair, so every one of them opened
+    // on presets[0] -- "A side of fries" under its own heading landed you on
+    // the chicken sandwich. Applied before ?a=&b= below, because an explicit
+    // shared meal still outranks a starting build.
+    const want = decodeURIComponent(window.location.hash.slice(1));
+    const asked = want ? presets.find((p) => p.id === want) : undefined;
+    if (asked) {
+      setPresetId(asked.id);
+      setSelections([asked.sides[0] ?? {}, asked.sides[1] ?? {}]);
+      setPortions([asked.portions[0] ?? 1, asked.portions[1] ?? 1]);
+    }
     const q = new URLSearchParams(window.location.search);
     const [a, b] = [q.get("a"), q.get("b")];
     if (a || b) {

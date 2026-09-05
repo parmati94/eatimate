@@ -68,7 +68,7 @@ export default async function CompareIndex() {
               <ul className="mt-3 flex flex-wrap gap-2">
                 {pairs.map((p) => (
                   <li key={p.slug}>
-                    <PairChip pair={p} tints={tints} />
+                    <PairChip pair={p} tints={tints} dish={dishes[0].id} />
                   </li>
                 ))}
               </ul>
