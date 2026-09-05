@@ -100,7 +100,7 @@ export function SearchField({
       <button
         type="button"
         onClick={onOpen}
-        className="relative flex min-h-12 w-full items-center rounded-full border border-accent/30 bg-accent-soft py-3 pl-10 pr-4 text-left text-[15px] text-muted transition-colors hover:border-accent/60 focus-visible:border-accent focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/15 lg:hidden"
+        className="relative flex min-h-12 w-full items-center rounded-full border border-accent/20 bg-accent-soft/50 py-3 pl-10 pr-4 text-left text-[15px] text-muted transition-colors hover:border-accent/50 focus-visible:border-accent focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/15 lg:hidden"
       >
         <IconSearch className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-accent-strong" />
         {label}
@@ -122,7 +122,7 @@ export function SearchField({
           className={`w-full rounded-full border py-3 pl-10 text-[15px] outline-none transition-[border-color,box-shadow,background-color] placeholder:text-muted focus:border-accent focus:ring-4 focus:ring-accent/15 ${
             open && searching
               ? "border-accent bg-surface pr-20 shadow-sm"
-              : "border-accent/30 bg-accent-soft pr-4"
+              : "border-accent/20 bg-accent-soft/50 pr-4"
           }`}
         />
         {open && searching && (
