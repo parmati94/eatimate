@@ -136,6 +136,8 @@ Config (ingest/chains/<slug>.json):
 
   --- meta keys (copied wholesale to the output; see lib/schema.ts) ---
     size_modes, portion, glyph, formats, blurb, disclaimer_extra, menu_check
+    meal_shelf           heading for the quick-add shelf, when the chain's own
+                         word is not "meal" (Cook Out sells a tray)
     consistency          per-check waivers for lib/consistency.test.ts, value
                          being the REASON. Undeclared drift from what a chain's
                          cuisine peers do fails CI; a declared difference

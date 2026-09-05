@@ -18,7 +18,8 @@ TOP = {"meta", "layout", "categories", "items", "section_categories", "synthetic
        "section_subtract"}
 
 META = {"name", "slug", "source", "disclaimer_extra", "glyph", "formats", "blurb",
-        "default_flow", "size_modes", "consistency", "menu_check", "portion"}
+        "default_flow", "size_modes", "consistency", "menu_check", "portion",
+        "meal_shelf"}
 
 SOURCE = {"format", "fetch", "retrieved", "verified", "pdf_url", "html_url", "html_urls",
           "page_url", "link_pattern", "asset_sha256", "dump_sha256", "tables",

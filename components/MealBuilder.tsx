@@ -795,7 +795,7 @@ export default function MealBuilder({
           {featured.length > 0 && mealStarted(chain, selections, owedSteps) && (
             <section className="rounded-2xl border border-line bg-surface p-3 shadow-sm">
               <h2 className="px-1 pb-2 text-xs font-semibold uppercase tracking-wider text-muted">
-                Make it a meal
+                {chain.meal_shelf ?? "Make it a meal"}
               </h2>
               <div className="space-y-3">
                 {featured.map(({ cat, comps }) => (

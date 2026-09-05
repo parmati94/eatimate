@@ -14,6 +14,7 @@
     "Hot Dogs",
     "Milkshakes"
   ],
+  "meal_shelf": "Make it a tray",
   "categories": [
     {
       "id": "burger",
