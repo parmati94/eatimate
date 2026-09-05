@@ -183,17 +183,39 @@
   "Quesadillas/Cheese": {
    "cat": "menu",
    "id": "cheese-quesadilla",
-   "name": "Cheese Quesadilla"
+   "name": "Cheese Quesadilla",
+   "copies": [
+    {
+     "cat": "sides",
+     "id": "cheese-quesadilla-side",
+     "name": "Cheese Quesadilla",
+     "feature": true
+    }
+   ]
   },
   "Quesadillas/Chicken": {
    "cat": "menu",
    "id": "chicken-quesadilla",
-   "name": "Chicken Quesadilla"
+   "name": "Chicken Quesadilla",
+   "copies": [
+    {
+     "cat": "sides",
+     "id": "chicken-quesadilla-side",
+     "name": "Chicken Quesadilla"
+    }
+   ]
   },
   "Quesadillas/Beef": {
    "cat": "menu",
    "id": "beef-quesadilla",
-   "name": "Beef Quesadilla"
+   "name": "Beef Quesadilla",
+   "copies": [
+    {
+     "cat": "sides",
+     "id": "beef-quesadilla-side",
+     "name": "Beef Quesadilla"
+    }
+   ]
   },
   "Hushpuppies Full Order": {
    "cat": "sides",
@@ -208,8 +230,7 @@
    "feature": true
   },
   "Cook Out Rounds Full Order": {
-   "cat": "sides",
-   "feature": true
+   "cat": "sides"
   },
   "Cheese Curds Full Order": {
    "cat": "sides",
@@ -220,12 +241,10 @@
    "feature": true
   },
   "Diet Coke® Regular 16 oz (453.6 g)": {
-   "cat": "drinks",
-   "feature": true
+   "cat": "drinks"
   },
   "Sprite® Regular 16 oz (453.6 g)": {
-   "cat": "drinks",
-   "feature": true
+   "cat": "drinks"
   },
   "Dr. Pepper® Regular 16 oz (453.6 g)": {
    "cat": "drinks",
@@ -244,7 +263,49 @@
    "feature": true
   },
   "Strawberry": {
-   "cat": "shakes",
+   "cat": "shakes"
+  },
+  "Cajun Wrap": {
+   "cat": "menu",
+   "copies": [
+    {
+     "cat": "sides",
+     "id": "cajun-wrap-side",
+     "name": "Cajun Wrap"
+    }
+   ]
+  },
+  "Ranch Wrap": {
+   "cat": "menu",
+   "copies": [
+    {
+     "cat": "sides",
+     "id": "ranch-wrap-side",
+     "name": "Ranch Wrap",
+     "feature": true
+    }
+   ]
+  },
+  "Honey Mustard Wrap": {
+   "cat": "menu",
+   "copies": [
+    {
+     "cat": "sides",
+     "id": "honey-mustard-wrap-side",
+     "name": "Honey Mustard Wrap"
+    }
+   ]
+  },
+  "Side of Chili": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Side of Slaw": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Bacon Ranch Wrap": {
+   "cat": "sides",
    "feature": true
   }
  },
