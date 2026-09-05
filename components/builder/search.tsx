@@ -210,7 +210,7 @@ export function SearchLayer({
               onChange={(e) => onChange(e.target.value)}
               placeholder={`Search ${rosterCount} items at ${chainName}`}
               aria-label={`Search ${rosterCount} items at ${chainName}`}
-              className="w-full rounded-2xl border border-accent bg-surface py-3 pl-10 pr-20 text-[15px] shadow-sm outline-none focus:ring-4 focus:ring-accent/15 placeholder:text-muted"
+              className="w-full rounded-full border border-accent bg-surface py-3 pl-10 pr-20 text-[15px] shadow-sm outline-none focus:ring-4 focus:ring-accent/15 placeholder:text-muted"
             />
             {/* Cancel, not a cross: leaving search means leaving a screen,
                 and a bare ✕ reads as "empty this box". */}
