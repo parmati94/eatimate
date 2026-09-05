@@ -348,6 +348,306 @@
      ]
     }
    ]
+  },
+  {
+   "id": "burrito",
+   "name": "Chicken burrito",
+   "rule": "The chicken bowl wrapped: the same rice, beans, grilled chicken, fresh salsa and cheese, in the chain's standard large flour tortilla instead of a bowl. Moe's publishes a separate rice portion for burritos, so that is the one used here. No guacamole, no queso, no chips.",
+   "builds": [
+    {
+     "chain": "chipotle",
+     "name": "Chicken Burrito",
+     "items": [
+      "flour-tortilla-burrito",
+      "cilantro-lime-white-rice",
+      "black-beans",
+      "chicken",
+      "fresh-tomato-salsa",
+      "cheese"
+     ]
+    },
+    {
+     "chain": "qdoba",
+     "name": "Grilled Adobo Chicken Burrito",
+     "items": [
+      "flour-tortilla-12-5",
+      "cilantro-lime-rice",
+      "black-beans",
+      "chicken-grilled-adobo",
+      "pico-de-gallo",
+      "cheese-shredded"
+     ]
+    },
+    {
+     "chain": "moes",
+     "name": "Adobo Chicken Burrito",
+     "items": [
+      "tortilla-12",
+      "cilantro-lime-rice-burrito",
+      "black-beans",
+      "adobo-chicken",
+      "house-made-salsa",
+      "oaxaca-cheese"
+     ]
+    },
+    {
+     "chain": "caferio",
+     "name": "Fire-Grilled Chicken Burrito",
+     "items": [
+      "12-inch-flour-tortilla",
+      "cilantro-lime-rice",
+      "black-beans",
+      "fire-grilled-chicken",
+      "pico-de-gallo",
+      "shredded-jack-cheese"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cheese-pizza",
+   "name": "Two slices of cheese",
+   "rule": "Two slices of a large hand-tossed cheese pizza: the chain's standard large crust, its standard red sauce and its regular cheese, with no toppings at all. Domino's publishes a higher cheese figure for a cheese-only pizza than for one carrying toppings, and the cheese-only figure is the one used here.",
+   "builds": [
+    {
+     "chain": "papajohns",
+     "name": "Large Original Crust Cheese",
+     "items": [
+      "crust-original-large",
+      "original-sauce-original-large",
+      "cheese-original-large"
+     ],
+     "portion": 2
+    },
+    {
+     "chain": "dominos",
+     "name": "Large Hand Tossed Cheese",
+     "items": [
+      "hand-tossed-lg-hand",
+      "pizza-sauce-lg-hand",
+      "regular-cheese-cheese-only-pizza-lg-hand"
+     ],
+     "portion": 2
+    },
+    {
+     "chain": "littlecaesars",
+     "name": "Large Classic Cheese",
+     "items": [
+      "cheese-classic"
+     ],
+     "portion": 2
+    }
+   ]
+  },
+  {
+   "id": "bone-in-wings",
+   "name": "10 bone-in wings",
+   "rule": "Ten traditional bone-in wings in the chain's standard hot sauce. Wingstop sauces the wing itself, so the sauce is part of the item; Buffalo Wild Wings sauces separately, so the order is ten wings plus a sauce. No fries, no dip, no celery. Bone-in weights include the bone, which the published figures already account for.",
+   "builds": [
+    {
+     "chain": "wingstop",
+     "name": "10 Original Hot Classic Wings",
+     "items": [
+      "original-hot:10"
+     ]
+    },
+    {
+     "chain": "bww",
+     "name": "10 Bone-In Wings, Hot",
+     "items": [
+      "wings-bonein-10",
+      "hot-bonein-10"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "italian-sub",
+   "name": "Italian sub",
+   "rule": "The chain's standard Italian sandwich at its standard size — Subway's 6\" Spicy Italian, Jimmy John's 8\" French Vito, Potbelly's Original Italian — as it is sold, with the cured meats and cheese that come on it. These are menu items rather than builds, so each chain's own recipe stands. Potbelly publishes its sandwiches with the bread removed, so the loaf is added back here.",
+   "builds": [
+    {
+     "chain": "subway",
+     "name": "6\" Spicy Italian",
+     "items": [
+      "6-spicy-italian"
+     ]
+    },
+    {
+     "chain": "jimmyjohns",
+     "name": "Vito, 8\" French",
+     "items": [
+      "vito-french-8"
+     ]
+    },
+    {
+     "chain": "potbelly",
+     "name": "Italian, Original",
+     "items": [
+      "italian-originals-originals",
+      "bread-white-originals"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fries",
+   "name": "A side of fries",
+   "rule": "One standard order of the chain's own plain fries — what arrives if you ask for fries and say nothing else. That is a medium at Burger King, Sonic and Chick-fil-A, the only size Whataburger publishes, and a Regular at Five Guys. The portions are not the same weight and are not meant to be: Five Guys serves 411 g where Burger King serves 200 g, and that difference is the finding rather than a flaw in the comparison. No cheese, no chili, no seasoning upgrade.",
+   "builds": [
+    {
+     "chain": "burgerking",
+     "name": "Medium French Fries",
+     "items": [
+      "medium-french-fries"
+     ]
+    },
+    {
+     "chain": "sonic",
+     "name": "Medium Groovy Fries",
+     "items": [
+      "groovy-fries-medium"
+     ]
+    },
+    {
+     "chain": "chickfila",
+     "name": "Medium Waffle Potato Fries",
+     "items": [
+      "waffle-fries"
+     ]
+    },
+    {
+     "chain": "whataburger",
+     "name": "French Fries",
+     "items": [
+      "french-fries"
+     ]
+    },
+    {
+     "chain": "fiveguys",
+     "name": "Regular Five Guys Style Fries",
+     "items": [
+      "regular-five-guys-style"
+     ]
+    },
+    {
+     "chain": "cookout",
+     "name": "Regular Fries",
+     "items": [
+      "regular-fries"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chicken-rice-bowl",
+   "name": "Chicken and rice",
+   "rule": "One serving of the chain's plain rice and one grilled or roasted chicken, and nothing else — no beans, no cheese, no salsa, no sauce. The floor of a bowl order, which is what makes it comparable across chains that top their bowls very differently. Read the protein weights before the totals: a standard chicken portion is 4 oz at Chipotle but 2 oz at Cafe Rio, so Cafe Rio's lower number is half the chicken as much as it is a lighter chicken.",
+   "builds": [
+    {
+     "chain": "cava",
+     "name": "Brown Rice with Grilled Chicken",
+     "items": [
+      "bowl",
+      "brown-rice",
+      "grilled-chicken"
+     ]
+    },
+    {
+     "chain": "chipotle",
+     "name": "White Rice with Chicken",
+     "items": [
+      "no-tortilla",
+      "cilantro-lime-white-rice",
+      "chicken"
+     ]
+    },
+    {
+     "chain": "qdoba",
+     "name": "Cilantro Lime Rice with Grilled Adobo Chicken",
+     "items": [
+      "bowl",
+      "cilantro-lime-rice",
+      "chicken-grilled-adobo"
+     ]
+    },
+    {
+     "chain": "moes",
+     "name": "Cilantro Lime Rice with Adobo Chicken",
+     "items": [
+      "bowl",
+      "cilantro-lime-rice-bowl",
+      "adobo-chicken"
+     ]
+    },
+    {
+     "chain": "caferio",
+     "name": "Cilantro Lime Rice with Fire-Grilled Chicken",
+     "items": [
+      "no-tortilla",
+      "cilantro-lime-rice",
+      "fire-grilled-chicken"
+     ]
+    },
+    {
+     "chain": "dig",
+     "name": "Brown Rice with Charred Chicken",
+     "items": [
+      "brown-rice",
+      "charred-chicken"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chicken-greens",
+   "name": "Chicken on greens",
+   "rule": "One greens base and one grilled or roasted chicken, undressed — no cheese, no dressing, no crunch, no grains. Dig publishes neither a standalone cheese nor a vinaigrette, so the dressed chicken salad cannot include it; this is the build every greens chain here can make honestly, and it is also the number people are usually after.",
+   "builds": [
+    {
+     "chain": "chopt",
+     "name": "Greens with Roasted Chicken",
+     "items": [
+      "romaine",
+      "grilled-chicken-roasted-chicken-breast"
+     ]
+    },
+    {
+     "chain": "justsalad",
+     "name": "Romaine with Roasted Chicken",
+     "items": [
+      "format-salad",
+      "romaine-salad",
+      "roasted-chicken"
+     ]
+    },
+    {
+     "chain": "cava",
+     "name": "Romaine with Grilled Chicken",
+     "items": [
+      "bowl",
+      "romaine",
+      "grilled-chicken"
+     ]
+    },
+    {
+     "chain": "chipotle",
+     "name": "Supergreens with Chicken",
+     "items": [
+      "no-tortilla",
+      "supergreens-salad-mix",
+      "chicken"
+     ]
+    },
+    {
+     "chain": "dig",
+     "name": "Farm Greens with Charred Chicken",
+     "items": [
+      "farm-greens-with-mint",
+      "charred-chicken"
+     ]
+    }
+   ]
   }
  ]
 }
