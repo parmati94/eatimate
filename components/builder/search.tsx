@@ -81,11 +81,19 @@ export function SearchField({
   const label = `Search ${rosterCount} items at ${chainName}`;
   return (
     <div ref={wrapRef} className="relative lg:z-20">
-      {/* Phone: the door to the search screen. */}
+      {/* At rest this is a tinted well, not a bordered card: the path chooser
+          above it and the first numbered step below it are both
+          `border-line bg-surface shadow-sm`, and wearing the same clothes was
+          what made a control read as a third panel in a stack of three. Filling
+          with the chain's own accent-soft and dropping the border and shadow
+          says "operate me" instead. Typing turns it back into an ordinary
+          field -- once there are results to read, quiet is what a field owes.
+
+          Phone: the door to the search screen. */}
       <button
         type="button"
         onClick={onOpen}
-        className="relative flex min-h-12 w-full items-center rounded-2xl border border-line bg-surface py-3 pl-10 pr-4 text-left text-[15px] text-muted shadow-sm transition-colors hover:border-fg/30 focus-visible:border-accent focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/15 lg:hidden"
+        className="relative flex min-h-12 w-full items-center rounded-2xl border border-transparent bg-accent-soft py-3 pl-10 pr-4 text-left text-[15px] font-medium text-accent-strong transition-colors hover:border-accent/40 focus-visible:border-accent focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/15 lg:hidden"
       >
         <IconSearch className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-accent-strong" />
         {label}
@@ -104,8 +112,10 @@ export function SearchField({
           }}
           placeholder={label}
           aria-label={label}
-          className={`w-full rounded-2xl border bg-surface py-3 pl-10 text-[15px] shadow-sm outline-none transition-[border-color,box-shadow] placeholder:text-muted focus:border-accent focus:ring-4 focus:ring-accent/15 ${
-            open && searching ? "border-accent pr-20" : "border-line pr-4"
+          className={`w-full rounded-2xl border py-3 pl-10 text-[15px] outline-none transition-[border-color,box-shadow,background-color] focus:border-accent focus:ring-4 focus:ring-accent/15 ${
+            open && searching
+              ? "border-accent bg-surface pr-20 shadow-sm placeholder:text-muted"
+              : "border-transparent bg-accent-soft pr-4 font-medium placeholder:text-accent-strong"
           }`}
         />
         {open && searching && (
