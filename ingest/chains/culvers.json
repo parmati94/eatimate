@@ -290,16 +290,26 @@
  },
  "name_trim": [
   {
-   "pattern": ",\\s*(Family|Large|Medium|Small|Mini)$",
+   "pattern": ",\\s*(Family|Large|Medium|Small|Mini|Single|Double|Triple|\\d+ Piece)$",
    "into": "size",
    "base_label": "Regular",
    "labels": [
+    "Single",
     "Medium",
     "Regular",
     "Small",
     "Large",
     "Mini",
-    "Family"
+    "Family",
+    "Double",
+    "Triple",
+    "4 Piece",
+    "6 Piece",
+    "2 Piece",
+    "3 Piece",
+    "1 Piece",
+    "8 Piece",
+    "10 Piece"
    ]
   }
  ]
