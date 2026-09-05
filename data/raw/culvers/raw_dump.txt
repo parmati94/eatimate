@@ -1,0 +1,834 @@
+MENU: ButterBurgers
+ButterBurger Cheese, Double 700 0 42 19 1.4 145 1020 40 1 7.71 41.03
+ButterBurger Cheese, Single 460 0 23 10.5 0.7 75 700 39 1 6.86 23.52
+ButterBurger Cheese, Triple 940 0 61 27.5 2.1 215 1340 41 1 8.56 58.55
+ButterBurger, Double 560 0 30 12 1 105 580 38 1 6 34
+ButterBurger, Single 390 0 17 7 0.5 55 480 38 1 6 20
+ButterBurger, Triple 730 0 43 17 1.5 155 680 38 1 6 48
+Fried Pickle Pub Burger, Double 1021.05 35.1 68.93 24.72 1.78 163.51 1169.94 57.71 2.39 4.43 45.74
+Fried Pickle Pub Burger, Single 771.05 35.1 48.93 15.22 0.98 93.51 929.94 57.71 2.39 4.43 26.74
+Fried Pickle Pub Burger, Triple 1271.05 35.1 88.93 34.22 2.58 233.51 1409.94 57.71 2.39 4.43 64.74
+Mushroom & Swiss ButterBurger, Double 780 0 47 20 1.4 145 785 42 2 6 47
+Mushroom & Swiss ButterBurger, Single 530 0 28 11.5 0.7 75 645 41 2 6 27
+Mushroom & Swiss ButterBurger, Triple 1030 0 66 28.5 2.1 215 925 43 2 6 67
+Sourdough Melt, Double 735.01 21.9 44.13 20.8 1.7 146.45 844.29 41.88 2.5 3.42 44.77
+Sourdough Melt, Single 485.01 21.9 24.13 11.3 0.9 76.45 604.29 41.88 2.5 3.42 25.77
+Sourdough Melt, Triple 985.01 21.9 64.13 30.3 2.5 216.45 1084.29 41.88 2.5 3.42 63.77
+The Culver's Bacon Deluxe, Double 912.48 315.56 59.3 23.3 1.43 179.84 1617 42.67 1.17 8.85 50.23
+The Culver's Bacon Deluxe, Single 672.48 315.56 40.3 14.8 0.73 109.84 1297 41.67 1.17 8 32.72
+The Culver's Bacon Deluxe, Triple 1152.48 315.56 78.3 31.8 2.13 249.84 1937 43.67 1.17 9.71 67.75
+The Culver's Deluxe, Double 816.42 0 53 21 1.4 155 1238 42 1 8.21 41.03
+The Culver's Deluxe, Single 576.42 0 34 12.5 0.7 85 918 41 1 7.36 23.52
+The Culver's Deluxe, Triple 1056.42 0 72 29.5 2.1 225 1558 43 1 9.06 58.55
+Wisconsin Swiss Melt, Double 733.51 21.9 42.88 18.9 1.5 146.45 697.29 42.48 3.8 3.42 46.92
+Wisconsin Swiss Melt, Single 483.51 21.9 23.88 10.4 0.8 76.45 557.29 41.48 3.8 3.42 26.92
+Wisconsin Swiss Melt, Triple 983.51 21.9 61.88 27.4 2.2 216.45 837.29 43.48 3.8 3.42 66.92
+MENU: Chicken & Sandwiches
+Beef Pot Roast 410 0 13 6 1 140 740 40 1 8 31
+Buffalo Chicken Tenders, 1 Piece 133.97 0 6.04 0.65 0.07 20.7 503.12 10.12 0.77 0.17 9.78
+Buffalo Chicken Tenders, 2 Piece 267.95 0 12.08 1.29 0.13 41.4 1006.25 20.24 1.53 0.35 19.55
+Buffalo Chicken Tenders, 4 Piece 535.9 0 24.16 2.58 0.26 82.8 2012.5 40.48 3.06 0.7 39.1
+Buffalo Chicken Tenders, 8 Piece 1071.8 0 48.32 5.16 0.52 165.6 4025 80.96 6.12 1.4 78.2
+Corn Dog 240 0 14 4 0 20 500 23 0 7 6
+Crispy Chicken Sandwich 687.87 21.9 34.66 7.5 0.23 75.74 1589.03 65.09 2.48 8.98 27.85
+Grilled Cheese 355.01 21.9 16.13 8.8 0.5 46.45 804.29 38.88 1.5 3.13 13.8
+Grilled Chicken Sandwich 481.25 21.9 19.16 6.16 0.1 114.49 1281.03 40.42 1.78 9.21 35.74
+Grilled Reuben Melt 661.51 21.9 35.68 14.2 0.66 106.45 1933.29 47.48 3.8 6.72 37.22
+Harvest Veggie Burger 606.42 0 25.7 10.46 0.34 58 1030 74 5.11 8.59 19
+Original Chicken Tenders, 1 Piece 129.4 0 5.66 0.57 0.06 22.8 390 10.31 0.61 0.17 9.73
+Original Chicken Tenders, 2 Piece 258.8 0 11.31 1.14 0.11 45.6 780 20.63 1.22 0.34 19.47
+Original Chicken Tenders, 4 Piece 517.6 0 22.62 2.28 0.22 91.2 1560 41.26 2.44 0.68 38.94
+Original Chicken Tenders, 8 Piece 1035.2 0 45.24 4.56 0.44 182.4 3120 82.52 4.88 1.36 77.88
+Pork Loin 581 0 19.96 3.64 0.18 55 991 67.82 2.4 7.12 30.5
+Spicy Crispy Chicken Sandwich 682.23 21.9 32.61 7.47 0.24 77.74 1680.03 64.59 3.47 8.55 31.52
+MENU: Seafood & Salads
+Beef Pot Roast Dinner 1042.7 10.95 49.69 13.54 1.21 164.72 1991.79 110.07 7.33 15.01 37.28
+Butterfly Jumbo Shrimp Dinner, 10 Piece 1230.7 0 62.72 9.04 0.56 216.79 2709.64 143.43 8.78 15.9 24.3
+Butterfly Jumbo Shrimp Dinner, 6 Piece 1016.5 0 51.88 8.08 0.4 138.67 2069.64 120.31 7.9 14.46 18.14
+Butterfly Jumbo Shrimp Value Basket, 10 Piece 535.5 0 27.1 2.4 0.4 195.3 1600 57.8 2.2 3.6 15.4
+Butterfly Jumbo Shrimp Value Basket, 3 Piece 160.65 0 8.13 0.72 0.12 58.59 480 17.34 0.66 1.08 4.62
+Butterfly Jumbo Shrimp Value Basket, 6 Piece 321.3 0 16.26 1.44 0.24 117.18 960 34.68 1.32 2.16 9.24
+Chicken Cashew Salad 430 0 23.38 8.43 0 113.75 1020 16.53 5.5 5.03 41.39
+Chopped Steak Dinner 1105.2 0 66.62 17.64 1.16 121.49 1434.64 89.63 7.58 12.3 37.9
+Cranberry Bacon Bleu Salad 391.06 315.56 15.68 7.73 0.03 133.59 1489 18.2 4.67 11.67 45.59
+Garden Fresco Salad 330 0 12.38 5.93 0 113.75 1090 18.53 4.5 4.03 39.39
+North Atlantic Cod Dinner, 1 Piece 897.7 0 47.77 7.71 0.28 52.09 1375.64 95.89 7.26 12.39 21.77
+North Atlantic Cod Dinner, 2 Piece 1100.2 0 59.92 8.78 0.4 82.69 1641.64 106.15 7.94 12.48 34.64
+North Atlantic Cod Dinner, 3 Piece 1302.7 0 72.07 9.85 0.52 113.29 1907.64 116.41 8.62 12.57 47.51
+North Atlantic Cod Sandwich 597.5 0 33.65 7.52 0.32 58.1 886 54.76 2.68 6.09 23.37
+Strawberry Fields Salad 366.67 0 20.38 4.43 0 98.75 1002.5 11.61 6.71 5.45 34.89
+MENU: Sides
+Boston Clam Chowder Soup, Large 415 0 17 6 0 45 2385 45.5 1.5 12 18.5
+Boston Clam Chowder Soup, Medium 285 0 11.5 4 0 30 1620 32 1 8 12.5
+Broccoli Cheese Soup, Large 355 0 18.5 8.25 0 46.5 1830 30.5 1.5 13.5 15.5
+Broccoli Cheese Soup, Medium 245 0 12.5 5.5 0 31 1250 22 1 9 10.5
+Chicken Noodle Soup, Large 176.58 0 4.14 0.1 0 36 1641 24.5 1.44 1.26 10.22
+Chicken Noodle Soup, Medium 126.05 0 2.93 0.07 0 24 1124 18 0.96 0.84 6.98
+Chili Cheddar Fries 613.9 0 30.85 9.35 0.76 41.22 1431.47 70.11 5.57 3.19 14.38
+Chili Cheddar Fries, Family 1874.63 0 93.9 28.18 2.3 123.79 4356.27 215.1 17.05 9.6 43.55
+Coleslaw, Large 400 0 32 5 0 20 480 30 4 18 2
+Coleslaw, Medium 200 0 16 2.5 0 10 240 15 2 9 1
+Crinkle Cut Fries, Family 1316.8 0 54.26 5.45 0.62 5.68 2474.67 191.28 13.62 1.14 16.46
+Crinkle Cut Fries, Large 429.2 0 17.69 1.78 0.2 1.85 806.6 62.34 4.44 0.37 5.37
+Crinkle Cut Fries, Medium 345.68 0 14.24 1.43 0.16 1.49 649.64 50.21 3.58 0.3 4.32
+Crinkle Cut Fries, Small 219.25 0 9.03 0.91 0.1 0.94 412.03 31.85 2.27 0.19 2.74
+Culver's Vegetable Beef Soup, Large 265 0 6.5 3 0 30 2010 38 3 6 12.5
+Culver's Vegetable Beef Soup, Medium 185 0 4.5 2 0 20 1370 27 2 4 8.5
+Fried Pickles 354.92 117 19 2.35 0.1 0 910 41 1 1 5
+Garden Side Salad 53.63 0 2.57 1.26 0 5.75 101.4 5.4 2 1.33 3.28
+George's Chili Supreme, Large 623.57 0 33.79 15.43 0 109.29 2380 46.57 9.57 9.57 34.21
+George's Chili Supreme, Medium 425.71 0 22.86 10.54 0 75.36 1590 33.21 6.71 6.71 22.14
+George's Chili, Large 453.57 0 19.79 6.43 0 64.29 2190 43.57 8.57 8.57 26.21
+George's Chili, Medium 310.71 0 13.36 4.29 0 42.86 1490 30.71 5.71 5.71 17.64
+Mashed Potatoes & Gravy, Large 260 0 2.6 1 0 0 820 50 4 0 8
+Mashed Potatoes & Gravy, Medium 130 0 1.3 0.5 0 0 410 25 2 0 4
+Mott's Applesauce 50 0 0 0 0 0 10 12 2 8 0
+Onion Rings, Family 1265.64 0 68.46 5.58 0.3 3 2801.4 146.97 11.4 13.53 15.18
+Onion Rings, Large 843.76 0 45.64 3.72 0.2 2 1867.6 97.98 7.6 9.02 10.12
+Onion Rings, Medium 421.88 0 22.82 1.86 0.1 1 933.8 48.99 3.8 4.51 5.06
+Potato with Bacon Soup, Large 385 0 15.5 6 0 37.5 1800 47 3 13.5 14
+Potato with Bacon Soup, Medium 265 0 10.5 4 0 25 1230 33 2 9 9.5
+Pretzel Bites, Family 1322.4 0 57.3 22.53 2.04 92.7 2430.6 158.61 6 20.43 43.71
+Pretzel Bites, Large 881.6 0 38.2 15.02 1.36 61.8 1620.4 105.74 4 13.62 29.14
+Pretzel Bites, Medium 440.8 0 19.1 7.51 0.68 30.9 810.2 52.87 2 6.81 14.57
+Side of Dill Pickles 5.46 0 0 0 0 0 570.5 0 0 0 0
+Side of Thick Cut Bacon 96.06 315.56 6.3 2.3 0.03 24.84 379 0.67 0.17 0.64 9.2
+Steamed Broccoli 40 0 0 0 0 0 40 7 3 2 3
+Stuffed Green Pepper with Beef Soup, Large 235 0 3.5 1.5 0 15 1845 41 1.5 9 8
+Stuffed Green Pepper with Beef Soup, Medium 165 0 2.5 1 0 10 1260 29 1 6 5.5
+Tomato Florentine Soup, Large 190 0 2 0.75 0 0 2010 38 3 10.5 6.5
+Tomato Florentine Soup, Medium 135 0 1.5 0.5 0 0 1370 27 2 7 4.5
+Wild and Brown Rice with Chicken Soup, Large 430 0 21.5 7.5 0 57 1920 44 1.5 13.5 15.5
+Wild and Brown Rice with Chicken Soup, Medium 295 0 14.5 5 0 38 1310 31 1 9 10.5
+Wisconsin Cheese Curds, Family 1476.9 0 80.55 37.41 1.8 101.25 4545 136.8 7.53 12.48 51.21
+Wisconsin Cheese Curds, Large 984.6 0 53.7 24.94 1.2 67.5 3030 91.2 5.02 8.32 34.14
+Wisconsin Cheese Curds, Medium 492.3 0 26.85 12.47 0.6 33.75 1515 45.6 2.51 4.16 17.07
+MENU: Drinks
+Chocolate Milk 160 0 2.5 1.5 0 15 220 27 0 26 8
+Culver's Premium Lemonade 182.81 0 0 0 0 0 0 48.44 0 45.31 0
+Culver's Strawberry Lemonade 197.98 0 0.08 0 0 0 6.15 51.9 0.6 47.97 0.18
+Mott's 100% Apple Juice 100 0 0 0 0 0 10 24 0 23 0
+White Milk 110 0 2.5 1.5 0 10 130 13 0 12 8
+MENU: Fresh Frozen Custard
+Banana Split, 2 Scoop 1261.67 0 66.29 31.15 1.36 247.84 481.2 150.31 10.9 113.76 17.05
+Banana Split, 3 Scoop 1418.81 0 75.57 36.87 1.71 304.99 524.05 166.03 11.9 127.33 19.91
+Cake Cone, 1 Scoop 334.29 0 18.57 11.43 0.71 114.29 95.71 36.43 2 27.14 5.71
+Cake Cone, 2 Scoop 617.14 0 35.29 21.71 1.36 217.14 172.86 64.71 3.8 51.57 10.86
+Cake Cone, 3 Scoop 774.29 0 44.57 27.43 1.71 274.29 215.71 80.43 4.8 65.14 13.71
+Caramel Cashew Sundae, 1 Scoop 727.49 0 34.99 16.21 0.71 125.69 407.71 92.35 3 61.3 11.99
+Caramel Cashew Sundae, 2 Scoop 1010.34 0 51.71 26.49 1.36 228.54 484.86 120.63 4.8 85.73 17.14
+Caramel Cashew Sundae, 3 Scoop 1167.49 0 60.99 32.21 1.71 285.69 527.71 136.35 5.8 99.3 19.99
+Chocolate Frozen Custard, Pint 769.54 0 38.67 23.35 1.3 218.23 256.51 95.71 3.18 81.55 15.7
+Chocolate Turtle Sundae, 1 Scoop 738.74 0 39.94 15.65 0.49 87.13 406.71 86.69 4.45 66.87 10.52
+Chocolate Turtle Sundae, 2 Scoop 997.17 0 52.92 23.5 0.92 160.41 492.86 118.84 5.51 94.25 15.79
+Chocolate Turtle Sundae, 3 Scoop 1140.74 0 60.14 27.85 1.17 201.13 540.71 136.69 6.11 109.47 18.72
+Coca-Cola Float, Large 498.27 0 18.57 11.43 0.71 114.29 135.69 81.6 2 77.32 5.71
+Coca-Cola Float, Medium 473.74 0 18.57 11.43 0.71 114.29 129.03 74.91 2 70.63 5.71
+Coca-Cola Float, Small 424.68 0 18.57 11.43 0.71 114.29 115.7 61.53 2 57.25 5.71
+Concrete Mixer, Large 942.86 0 55.71 34.29 2.14 342.86 257.14 94.29 6 81.43 17.14
+Concrete Mixer, Medium 817.14 0 48.29 29.71 1.86 297.14 222.86 81.71 5.2 70.57 14.86
+Concrete Mixer, Mini 377.14 0 22.29 13.71 0.86 137.14 102.86 37.71 2.4 32.57 6.86
+Concrete Mixer, Small 628.57 0 37.14 22.86 1.43 228.57 171.43 62.86 4 54.29 11.43
+Create Your Own Dish, 1 Scoop 314.29 0 18.57 11.43 0.71 114.29 85.71 31.43 2 27.14 5.71
+Create Your Own Dish, 2 Scoop 597.14 0 35.29 21.71 1.36 217.14 162.86 59.71 3.8 51.57 10.86
+Create Your Own Dish, 3 Scoop 754.29 0 44.57 27.43 1.71 274.29 205.71 75.43 4.8 65.14 13.71
+Culver's Root Beer Float, Large 516.79 0 18.57 11.43 0.71 114.29 188.84 86.74 2 81.52 5.71
+Culver's Root Beer Float, Medium 489.79 0 18.57 11.43 0.71 114.29 175.09 79.37 2 74.27 5.71
+Culver's Root Beer Float, Small 435.79 0 18.57 11.43 0.71 114.29 147.59 64.62 2 59.77 5.71
+Fanta Orange Float, Large 507.5 0.01 18.57 11.43 0.71 114.29 136.04 81.11 2 76.76 5.71
+Fanta Orange Float, Medium 481.74 0.01 18.57 11.43 0.71 114.29 129.33 74.49 2 70.14 5.71
+Fanta Orange Float, Small 430.21 0 18.57 11.43 0.71 114.29 115.91 61.24 2 56.91 5.71
+Malt, Large 1118.57 0 62.61 36 2.06 385.71 368.57 120.86 5.14 107.57 22.07
+Malt, Medium 802.86 0 45.17 26 1.49 278.57 262.86 86.29 3.71 76.86 15.86
+Malt, Small 601.43 0 34.59 20 1.14 214.29 191.43 63.14 2.86 56.43 11.93
+Shake, Large 1028.57 0 61.71 36 2.06 385.71 308.57 102.86 5.14 92.57 20.57
+Shake, Medium 742.86 0 44.57 26 1.49 278.57 222.86 74.29 3.71 66.86 14.86
+Shake, Small 571.43 0 34.29 20 1.14 214.29 171.43 57.14 2.86 51.43 11.43
+Turtle Sundae, 1 Scoop 765.89 0 44.08 18.37 0.71 119.99 396.71 82.41 5.26 63.58 10.37
+Turtle Sundae, 2 Scoop 1048.74 0 60.8 28.65 1.36 222.84 473.86 110.69 7.06 88.01 15.52
+Turtle Sundae, 3 Scoop 1205.89 0 70.08 34.37 1.71 279.99 516.71 126.41 8.06 101.58 18.37
+Vanilla Frozen Custard, Pint 779.43 0 46.06 28.34 1.77 283.43 212.57 77.94 4.96 67.31 14.17
+Waffle Cone, 1 Scoop 424.29 0 19.07 11.43 0.71 114.29 140.71 56.43 3 35.14 7.71
+Waffle Cone, 2 Scoop 707.14 0 35.79 21.71 1.36 217.14 217.86 84.71 4.8 59.57 12.86
+Waffle Cone, 3 Scoop 864.29 0 45.07 27.43 1.71 274.29 260.71 100.43 5.8 73.14 15.71
+MENU: Lemon Ice
+Lemon Ice Cooler, Large 432.04 0 0.83 0.83 0 0 1.65 107.31 0.17 91.6 0.04
+Lemon Ice Cooler, Medium 351.04 0 0.67 0.67 0 0 1.34 87.19 0.13 74.43 0.03
+Lemon Ice Cooler, Small 229.52 0 0.44 0.44 0 0 0.88 57.01 0.09 48.66 0.02
+Lemon Ice Dish, 1 Scoop 189.02 0 0.36 0.36 0 0 0.72 46.95 0.07 40.08 0.02
+Lemon Ice Dish, 2 Scoop 270.03 0 0.52 0.52 0 0 1.03 67.07 0.1 57.25 0.03
+Lemon Ice Dish, 3 Scoop 324.03 0 0.62 0.62 0 0 1.24 80.48 0.12 68.7 0.03
+Lemon Ice Smoothie, Large 639.89 0 21.14 12.57 0.69 128.57 103.99 108.06 1.83 93.84 6.89
+Lemon Ice Smoothie, Medium 493.02 0 15.47 9.22 0.5 93.75 75.93 85.36 1.34 74.03 5.02
+Lemon Ice Smoothie, Small 333.45 0 10.6 6.31 0.34 64.29 52.05 57.38 0.92 49.78 3.44
+MENU: Test and LTOs (Preview Only)
+Bacon Bleu Pub Burger, Double 919.75 0 73.36 28.5 2 238.7 934 1.64 0 0.5 64.14
+Bacon Bleu Pub Burger, Single 409.75 0 34.36 13.5 0.5 88.7 634 1.64 0 0.5 22.14
+Bacon Bleu Pub Burger, Triple 1848.08 0 144.72 57.5 4.5 507.4 1560 1.78 0 0.5 139.28
+BBQ Brisket Pub Burger, Double 421.56 0 33 14.5 1.3 120 503 0 0 0 33
+BBQ Brisket Pub Burger, Single 251.56 0 20 9.5 0.8 70 403 0 0 0 19
+BBQ Brisket Pub Burger, Triple 671.56 0 53 24 2.1 190 743 0 0 0 52
+Berry Happy Birthday Concrete Mixer, Large 1302.14 0 77.29 47.21 2.86 472.14 342.86 128.71 8 111.57 22.86
+Berry Happy Birthday Concrete Mixer, Medium 862.14 0 51.29 31.21 1.86 312.14 222.86 84.71 5.2 73.57 14.86
+Berry Happy Birthday Concrete Mixer, Mini 422.14 0 25.29 15.21 0.86 152.14 102.86 40.71 2.4 35.57 6.86
+Berry Happy Birthday Concrete Mixer, Small 673.57 0 40.14 24.36 1.43 243.57 171.43 65.86 4 57.29 11.43
+Bratwurst Pub Burger 699.73 315.56 39.5 16.6 1.08 124.84 1029 49 2.84 4.64 41.2
+Buttery Parmesan Chicken Sandwich, Crispy 693.81 21.9 34.66 7.5 0.23 75.74 1429.78 66.59 2.98 9.23 28.1
+Buttery Parmesan Chicken Sandwich, Grilled 487.19 21.9 19.16 6.16 0.1 114.49 1121.78 41.92 2.28 9.46 35.99
+Buttery Parmesan Chicken Sandwich, Spicy Crispy 688.17 21.9 32.61 7.47 0.24 77.74 1520.78 66.09 3.97 8.8 31.77
+Buttery Parmesan Pub Burger, Double 697.19 21.9 43.78 15.73 1.1 125.74 621.78 40.4 1.78 8.43 36.1
+Buttery Parmesan Pub Burger, Single 527.19 21.9 30.78 10.73 0.6 75.74 521.78 40.4 1.78 8.43 22.1
+Buttery Parmesan Pub Burger, Triple 867.19 21.9 56.78 20.73 1.6 175.74 721.78 40.4 1.78 8.43 50.1
+Caramel Pretzel Brownie Sundae 374.29 0 19.42 11.93 0.71 116.79 215.71 43.93 2 34.64 6.21
+Chocolate Raspberry Concrete Mixer made with Dove, Large 864.43 0 43.38 26.19 1.46 244.31 287.74 107.69 3.61 91.67 17.59
+Chocolate Raspberry Concrete Mixer made with Dove, Medium 749.57 0 37.61 22.71 1.26 211.74 249.45 93.4 3.13 79.5 15.25
+Chocolate Raspberry Concrete Mixer made with Dove, Mini 709.07 0 28.35 16.64 0.58 100.56 186.86 109.22 7.42 83.34 9.68
+Chocolate Raspberry Concrete Mixer made with Dove, Small 575.79 0 28.9 17.45 0.97 162.87 191.72 71.7 2.4 61.05 11.73
+Cinnamon Sugar Pretzel Bites 564.68 0.12 11.88 2.79 0.12 10.1 983.24 103.67 3.04 37.13 11.05
+Cinnamon Toast Crunch Concrete Mixer, Large 942.86 0 55.71 34.29 2.14 342.86 257.14 94.29 6 81.43 17.14
+Cinnamon Toast Crunch Concrete Mixer, Medium 817.14 0 48.29 29.71 1.86 297.14 222.86 81.71 5.2 70.57 14.86
+Cinnamon Toast Crunch Concrete Mixer, Mini 377.14 0 22.29 13.71 0.86 137.14 102.86 37.71 2.4 32.57 6.86
+Cinnamon Toast Crunch Concrete Mixer, Small 628.57 0 37.14 22.86 1.43 228.57 171.43 62.86 4 54.29 11.43
+Cocoa Puffs Concrete Mixer, Large 861.43 0 43.29 26.14 1.46 244.29 287.14 107.14 3.56 91.29 17.57
+Cocoa Puffs Concrete Mixer, Medium 746.57 0 37.51 22.66 1.26 211.71 248.86 92.86 3.08 79.11 15.23
+Cocoa Puffs Concrete Mixer, Mini 344.57 0 17.31 10.46 0.58 97.71 114.86 42.86 1.42 36.51 7.03
+Cocoa Puffs Concrete Mixer, Small 574.29 0 28.86 17.43 0.97 162.86 191.43 71.43 2.37 60.86 11.71
+Colby Jack Pub Burger, Double 340 0 26 10 1 100 200 0 0 0 28
+Colby Jack Pub Burger, Single 170 0 13 5 0.5 50 100 0 0 0 14
+Colby Jack Pub Burger, Triple 510 0 39 15 1.5 150 300 0 0 0 42
+Crispy Chicken Club Sandwich 863.93 337.46 47.96 14.3 0.56 120.58 2108.03 65.77 2.65 9.62 42.05
+Culver's CurderBurger 506.42 0 28 9 0.5 65 698 40 1 6.5 20
+Earth Day Dirt Sundae 377.77 0 18.1 9.84 0.49 81.43 160.71 49.49 1.57 37.98 6.65
+Frozen Cocoa Concrete Mixer with Andes, Large 1085.86 0 64.79 41.68 2.14 352.86 266.14 108.67 6.75 94.68 18.2
+Frozen Cocoa Concrete Mixer with Andes, Medium 960.14 0 57.37 37.1 1.86 307.14 231.86 96.09 5.95 83.82 15.92
+Frozen Cocoa Concrete Mixer with Andes, Mini 463.64 0 27.83 17.91 0.86 147.14 107.36 45.9 2.77 40.2 7.39
+Frozen Cocoa Concrete Mixer with Andes, Small 771.57 0 46.22 30.25 1.43 238.57 180.43 77.24 4.75 67.54 12.49
+Frozen Cocoa Concrete Mixer, Large 972.86 0 57.71 35.29 2.14 352.86 257.14 96.29 6 83.43 17.14
+Frozen Cocoa Concrete Mixer, Medium 847.14 0 50.29 30.71 1.86 307.14 222.86 83.71 5.2 72.57 14.86
+Frozen Cocoa Concrete Mixer, Mini 407.14 0 24.29 14.71 0.86 147.14 102.86 39.71 2.4 34.57 6.86
+Frozen Cocoa Concrete Mixer, Small 658.57 0 39.14 23.86 1.43 238.57 171.43 64.86 4 56.29 11.43
+Greek Gyro Pub Burger 180 0 13 5 0.5 50 100 2 0 0.5 14
+Grilled Chicken Club Sandwich 657.31 337.46 32.46 12.96 0.43 159.33 1800.03 41.09 1.95 9.85 49.94
+Jalapeno Jack Crispy Chicken Sandwich 781.45 21.9 43.16 11.75 0.23 96.99 1661.03 65.84 2.48 9.73 32.85
+Jalapeno Jack Grilled Chicken Sandwich 574.83 21.9 27.66 10.41 0.1 135.74 1353.03 41.17 1.78 9.96 40.74
+Jalapeno Jack Pub Burger, Double 864.83 21.9 58.28 23.98 1.1 166.99 978.03 39.65 1.28 8.93 45.85
+Jalapeno Jack Pub Burger, Single 614.83 21.9 39.28 14.98 0.6 96.99 753.03 39.65 1.28 8.93 26.85
+Jalapeno Jack Pub Burger, Triple 1114.83 21.9 77.28 32.98 1.6 236.99 1203.03 39.65 1.28 8.93 64.85
+Jalapeno Jack Spicy Chicken Sandwich 775.81 21.9 41.11 11.72 0.24 98.99 1752.03 65.34 3.47 9.3 36.52
+JJ's Way, Double 1605.72 0 79.85 33.47 2 188.75 2904.25 168.72 3.51 92.12 58.1
+JJ's Way, Single 1365.72 0 60.85 24.97 1.3 118.75 2584.25 167.72 3.51 91.27 40.59
+JJ's Way, Triple 1845.72 0 98.85 41.97 2.7 258.75 3224.25 169.72 3.51 92.97 75.61
+Lemon Ice Cooler made with Skittles Pop'd, Large 432.04 0 0.83 0.83 0 0 1.65 107.31 0.17 91.6 0.04
+Lemon Ice Cooler made with Skittles Pop'd, Medium 351.04 0 0.67 0.67 0 0 1.34 87.19 0.13 74.43 0.03
+Lemon Ice Cooler made with Skittles Pop'd, Small 229.52 0 0.44 0.44 0 0 0.88 57.01 0.09 48.66 0.02
+Lucky Charms Concrete Mixer, Large 942.86 0 55.71 34.29 2.14 342.86 257.14 94.29 6 81.43 17.14
+Lucky Charms Concrete Mixer, Medium 817.14 0 48.29 29.71 1.86 297.14 222.86 81.71 5.2 70.57 14.86
+Lucky Charms Concrete Mixer, Mini 377.14 0 22.29 13.71 0.86 137.14 102.86 37.71 2.4 32.57 6.86
+Lucky Charms Concrete Mixer, Small 628.57 0 37.14 22.86 1.43 228.57 171.43 62.86 4 54.29 11.43
+Mint Shake, Large 1131.17 0 61.71 36 2.06 385.71 411.17 128.32 5.14 111.95 20.57
+Mint Shake, Medium 811.26 0 44.57 26 1.49 278.57 291.26 91.26 3.71 79.78 14.86
+Mint Shake, Small 605.63 0 34.29 20 1.14 214.29 205.63 65.63 2.86 57.89 11.43
+Minute Maid Strawberry Lemonade 197.98 0 0.08 0 0 0 6.15 51.9 0.6 47.97 0.18
+North Atlantic Cod Value Basket, 1 Piece 202.5 0 12.15 1.07 0.12 30.6 266 10.26 0.68 0.09 12.87
+North Atlantic Cod Value Basket, 2 Piece 405 0 24.3 2.14 0.24 61.2 532 20.52 1.36 0.18 25.74
+North Atlantic Cod Value Basket, 3 Piece 607.5 0 36.45 3.21 0.36 91.8 798 30.78 2.04 0.27 38.61
+Northwoods Walleye Dinner, 1 Piece 695.2 0 35.62 6.64 0.16 21.49 1109.64 85.63 6.58 12.3 8.9
+Northwoods Walleye Dinner, 2 Piece 695.2 0 35.62 6.64 0.16 21.49 1109.64 85.63 6.58 12.3 8.9
+Northwoods Walleye Dinner, 3 Piece 695.2 0 35.62 6.64 0.16 21.49 1109.64 85.63 6.58 12.3 8.9
+Northwoods Walleye Sandwich 395 0 21.5 6.45 0.2 27.5 620 44.5 2 6 10.5
+Oreo Reese's Cheesecake Concrete Mixer, Large 1146.64 0 66.47 39.64 2.14 373.76 410.27 118.77 6.63 97.48 19.83
+Oreo Reese's Cheesecake Concrete Mixer, Medium 1020.93 0 59.04 35.07 1.86 328.04 375.99 106.2 5.83 86.62 17.54
+Oreo Reese's Cheesecake Concrete Mixer, Mini 530.93 0 30.29 17.32 0.86 153.04 213.49 56.7 3.03 45.62 9.04
+Oreo Reese's Cheesecake Concrete Mixer, Small 832.35 0 47.89 28.22 1.43 259.47 324.56 87.35 4.63 70.34 14.11
+Pepper Grinder Pub Burger, Double 596.06 315.56 45.3 20.3 1.53 164.84 759 1.67 0.17 0.64 48.2
+Pepper Grinder Pub Burger, Single 426.06 315.56 32.3 15.3 1.03 114.84 659 1.67 0.17 0.64 34.2
+Pepper Grinder Pub Burger, Triple 766.06 315.56 58.3 25.3 2.03 214.84 859 1.67 0.17 0.64 62.2
+Pretzel Haus Pub Burger, Double 847.46 315.56 52.82 22.46 1.76 170.24 1182.6 47.07 2.17 5.48 51
+Pretzel Haus Pub Burger, Single 677.46 315.56 39.82 17.46 1.26 120.24 1082.6 47.07 2.17 5.48 37
+Pretzel Haus Pub Burger, Triple 1017.46 315.56 65.82 27.46 2.26 220.24 1282.6 47.07 2.17 5.48 65
+Pumpkin S'mores Concrete Mixer, Large 942.86 0 55.71 34.29 2.14 342.86 257.14 94.29 6 81.43 17.14
+Pumpkin S'mores Concrete Mixer, Medium 817.14 0 48.29 29.71 1.86 297.14 222.86 81.71 5.2 70.57 14.86
+Pumpkin S'mores Concrete Mixer, Mini 377.14 0 22.29 13.71 0.86 137.14 102.86 37.71 2.4 32.57 6.86
+Pumpkin S'mores Concrete Mixer, Small 628.57 0 37.14 22.86 1.43 228.57 171.43 62.86 4 54.29 11.43
+Pumpkin Spice Malt, Large 1119.77 0 62.63 36 2.06 385.71 369.37 121.1 5.14 107.77 22.09
+Pumpkin Spice Malt, Medium 802.86 0 45.17 26 1.49 278.57 262.86 86.29 3.71 76.86 15.86
+Pumpkin Spice Malt, Small 601.43 0 34.59 20 1.14 214.29 191.43 63.14 2.86 56.43 11.93
+Pumpkin Spice Shake, Large 1028.57 0 61.71 36 2.06 385.71 308.57 102.86 5.14 92.57 20.57
+Pumpkin Spice Shake, Medium 742.86 0 44.57 26 1.49 278.57 222.86 74.29 3.71 66.86 14.86
+Pumpkin Spice Shake, Small 571.43 0 34.29 20 1.14 214.29 171.43 57.14 2.86 51.43 11.43
+Roasted Garlic and Bacon Pub Burger, Double 602.62 315.56 46.3 21.3 1.63 164.84 1022 1.67 0.17 1.14 47.2
+Roasted Garlic and Bacon Pub Burger, Single 352.62 315.56 26.3 11.8 0.83 94.84 782 1.67 0.17 1.14 28.2
+Roasted Garlic and Bacon Pub Burger, Triple 852.62 315.56 66.3 30.8 2.43 234.84 1262 1.67 0.17 1.14 66.2
+Salted Caramel Pumpkin Concrete Mixer&reg, Mini 437.14 0 23.14 14.21 0.86 139.64 232.86 50.21 2.4 40.07 7.36
+Salted Caramel Pumpkin Concrete Mixer, Large 1062.86 0 57.41 35.29 2.14 347.86 517.14 119.29 6 96.43 18.14
+Salted Caramel Pumpkin Concrete Mixer, Medium 937.14 0 49.99 30.71 1.86 302.14 482.86 106.71 5.2 85.57 15.86
+Salted Caramel Pumpkin Concrete Mixer, Small 748.57 0 38.84 23.86 1.43 233.57 431.43 87.86 4 69.29 12.43
+Seafood Combo Meal 726.3 0 40.56 3.58 0.48 178.38 1492 55.2 2.68 2.34 34.98
+Smoked Cheddar CurderBurger 506.42 0 28 9 0.5 65 698 40 1 6.5 20
+Spicy Crispy Chicken Club Sandwich 858.29 337.46 45.91 14.27 0.57 122.58 2199.03 65.27 3.64 9.19 45.72
+Strawberry Dove Sundae, 2 Scoop 744.07 0 42.52 25.83 1.36 219.04 171.2 80.23 6.22 67.85 12.23
+Strawberry Fields Salad - TEST w/ Cuc Removal + Cherry Tomato 373.33 0 20.38 4.43 0 98.75 1002.5 12.95 6.71 6.11 35.22
+Sugar Cookie Concrete Mixer, Large 1050.86 0 57.71 36.09 2.14 342.86 257.39 116.79 6 97.26 17.22
+Sugar Cookie Concrete Mixer, Medium 925.14 0 50.29 31.51 1.86 297.14 223.11 104.21 5.2 86.41 14.93
+Sugar Cookie Concrete Mixer, Mini 431.14 0 23.29 14.61 0.86 137.14 102.98 48.96 2.4 40.49 6.89
+Sugar Cookie Concrete Mixer, Small 736.57 0 39.14 24.66 1.43 228.57 171.68 85.36 4 70.12 11.5
+Vanilla Concrete Mixer made with Skittles Pop'd, Large 942.86 0 55.71 34.29 2.14 342.86 257.14 94.29 6 81.43 17.14
+Vanilla Concrete Mixer made with Skittles Pop'd, Medium 817.14 0 48.29 29.71 1.86 297.14 222.86 81.71 5.2 70.57 14.86
+Vanilla Concrete Mixer made with Skittles Pop'd, Mini 377.14 0 22.29 13.71 0.86 137.14 102.86 37.71 2.4 32.57 6.86
+Vanilla Concrete Mixer made with Skittles Pop'd, Small 628.57 0 37.14 22.86 1.43 228.57 171.43 62.86 4 54.29 11.43
+Wisconsin Big Cheese Pub Burger, Double 490 0 39 18 1.5 140 560 1 0 0.85 36.52
+Wisconsin Big Cheese Pub Burger, Single 320 0 26 13 1 90 460 1 0 0.85 22.52
+Wisconsin Big Cheese Pub Burger, Triple 660 0 52 23 2 190 660 1 0 0.85 50.52
+Buns & Bread
+Brioche Bun - Lightly Buttered & Toasted 239.83 21.9 6.78 3.73 0.1 15.74 363.03 37.9 1.28 7.68 7.85
+Hoagie Bun - Lightly Buttered & Toasted 225 0 5 1.7 0 5 420 43 2 5 7
+Lightly Toasted Buttered Bun 220 0 4 2 0 5 380 38 1 6 6
+Pretzel Bun - Lightly Buttered & Toasted 267 0 8.2 2.3 0.15 10 290 45 2 4 6
+Rotella's Gluten Free Bun 210 0 3.5 0 0 0 440 39 3 6 5
+Rye Bread - Lightly Buttered & Toasted 213.51 21.9 4.88 1.9 0.1 6.45 417.29 35.48 2.8 1.42 6.92
+Sourdough Bread - Lightly Buttered & Toasted 215.01 21.9 4.13 1.8 0.1 6.45 364.29 36.88 1.5 1.42 6.77
+Toasted Bun 200 0 2 0 0 0 360 38 1 6 6
+Meat & Seafood (Hidden)
+Beef Pot Roast 210 0 11 6 1 140 380 2 0 2 25
+Breaded Cod Filet 202.5 0 12.15 1.07 0.12 30.6 266 10.26 0.68 0.09 12.87
+Breaded Shrimp 53.55 0 2.71 0.24 0.04 19.53 160 5.78 0.22 0.36 1.54
+Buffalo Seasoned Chicken Tender 267.95 0 12.08 1.29 0.13 41.4 1006.25 20.24 1.53 0.35 19.55
+Corn Dog 240 0 14 4 0 20 500 23 0 7 6
+Corned Beef 160 0 8 3.5 0 45 890 3 0 1 18
+Crispy Chicken Filet 336.62 0 16.88 1.77 0.13 50 1008 26.2 1.2 0.8 20
+Culver's Ground Beef Patty 170 0 13 5 0.5 50 100 0 0 0 14
+Dinner Roll & Butter Packet 149.52 0 5.38 2.71 0 10 220 20.42 1 3 3.58
+Grilled Chicken Filet 130 0 1.38 0.43 0 88.75 700 1.53 0.5 1.03 27.89
+Harvest Veggie Burger 270 0 10.7 6.46 0.34 43 432 34 4.11 2.09 13
+Lemon Wedge 0 0 0 0 0 0 0 0 0 0 0
+Original Chicken Tenders 258.8 0 11.31 1.14 0.11 45.6 780 20.63 1.22 0.34 19.47
+Pork Loin Fritter 361 0 15.96 1.64 0.18 50 611 29.82 1.4 1.12 24.5
+Spicy Crispy Chicken Filet 330.98 0 14.83 1.74 0.14 52 1099 25.7 2.19 0.37 23.67
+Wisconsin Cheddar Cheese Sauce 64.4 0 5.32 3.36 0.28 15.4 173.6 1.4 0 0.84 2.8
+Cheese - One Choice
+American Cheese Slice 70 0 6 3.5 0.2 20 220 1 0 0.85 3.52
+Cheddar Cheese Slice 80 0 7 4.5 0.3 20 140 0 0 0 5
+Swiss Cheese Slice 80 0 6 3.5 0.2 20 40 1 0 0 6
+Toppings - LTO Burgers & Sandwiches (Hidden)
+Bleu Cheese Crumbles 100 0 8 5 0 20 380 1 0 0 6
+Brewpub Sauce 147.57 0 15.03 2.72 0 13.51 126.94 0.41 0.09 0.13 0.24
+Crispy Pickle Chips 354.92 117 19 2.35 0.1 0 910 41 1 1 5
+Jalapeno Sauce 160 0 18 3 0 15 220 1 0 1 0
+Monterey Jack Cheese 78.33 0 6.36 4 0 18.7 126 0.14 0 0 5.14
+Pepper Jack Cheese 80 0 6 4 0 20 125 0 0 0 5
+Salad Blend 10 0 0 0 0 0 15 2 2 1 1
+Toppings - ButterBurgers, Sandwiches
+Coleslaw (only at select restaurants) 87.42 0 6.99 1.09 0 4.37 104.91 6.56 0.87 3.93 0.44
+Dill Pickle 1.56 0 0 0 0 0 163 0 0 0 0
+George's Chili (only at select restaurants) 28.35 0 1.28 0.43 0 4.25 138.91 2.55 0.57 0.57 1.7
+Grilled Onions 20 0 0 0 0 0 0 5 1 2 0
+Jalape&ntilde;o Peppers (only at select restaurants) 2.5 1.89 0.21 0.02 0 0 200 0.75 0.3 0.3 0
+Ketchup 15 0 0 0 0 0 130 4 0 3 0
+Mayonnaise 104.86 0 11 2 0 10 55 0 0 0 0
+Red Onion Ring 5 0 0 0 0 0 0 1 0 0 0
+Sauteed Mushrooms 60 0 5 1 0 0 125 2 1 0 1
+Shredded Lettuce 0 0 0 0 0 0 0 0 0 0 0
+Sliced Green Olives (only at select restaurants) 15 3.69 1.5 0.5 0 0 130 0.5 0 0 0
+Thick Cut Bacon 28.82 94.67 1.89 0.69 0.01 7.45 113.7 0.2 0.05 0.19 2.76
+Tomato Slice 5 0 0 0 0 0 0 1 0 0.5 0
+Yellow Mustard 0 0 0 0 0 0 40 0 0 0 0
+Shakes & Malts, Lemon Ice, Root Beer Float (Hidden)
+Classic Lemon Ice 95.25 0 0.18 0.18 0 0 0.36 23.66 0.04 20.19 0.01
+Coca-Cola 196.25 0 0 0 0 0 53.31 53.52 0 53.52 0
+Culver's Root Beer 216 0 0 0 0 0 110 59 0 58 0
+Fanta Orange 206.09 0.01 0 0 0 0 53.69 53 0 52.92 0
+Malted Milk Powder 30 0 0.3 0 0 0 20 6 0 5 0.5
+Vanilla Frozen Custard 314.29 0 18.57 11.43 0.71 114.29 85.71 31.43 2 27.14 5.71
+Vanilla Shake Mix 571.43 0 34.29 20 1.14 214.29 171.43 57.14 2.86 51.43 11.43
+Wisconsin Cheese Curds, Medium 492.3 0 26.85 12.47 0.6 33.75 1515 45.6 2.51 4.16 17.07
+Toppings - Fish Sandwich
+Coleslaw (only at select restaurants) 87.42 0 6.99 1.09 0 4.37 104.91 6.56 0.87 3.93 0.44
+Dill Pickle 1.56 0 0 0 0 0 163 0 0 0 0
+George's Chili (only at select restaurants) 28.35 0 1.28 0.43 0 4.25 138.91 2.55 0.57 0.57 1.7
+Grilled Onions 20 0 0 0 0 0 0 5 1 2 0
+Jalape&ntilde;o Peppers (only at select restaurants) 2.5 1.89 0.21 0.02 0 0 200 0.75 0.3 0.3 0
+Ketchup 15 0 0 0 0 0 130 4 0 3 0
+Mayonnaise 104.86 0 11 2 0 10 55 0 0 0 0
+Red Onion Ring 5 0 0 0 0 0 0 1 0 0 0
+Sauteed Mushrooms 60 0 5 1 0 0 125 2 1 0 1
+Shredded Cheddar Cheese 55 0 4.5 2.75 0 12.5 90 0.5 0 0 3.5
+Shredded Lettuce 0 0 0 0 0 0 0 0 0 0 0
+Sliced Green Olives (only at select restaurants) 15 3.69 1.5 0.5 0 0 130 0.5 0 0 0
+Tartar Sauce 115 0 12 2 0.2 10 110 1 0 1 0
+Thick Cut Bacon 28.82 94.67 1.89 0.69 0.01 7.45 113.7 0.2 0.05 0.19 2.76
+Tomato Slice 5 0 0 0 0 0 0 1 0 0.5 0
+Yellow Mustard 0 0 0 0 0 0 40 0 0 0 0
+Sauce - Beef Pot Roast
+Horseradish Sauce 60 0 6 1 0 5 90 2 0 1 0
+Sweet Baby Ray's BBQ Sauce 110 0 0 0 0 0 450 28 1 26 1
+Toppings - Reuben
+Coleslaw (only at select restaurants) 87.42 0 6.99 1.09 0 4.37 104.91 6.56 0.87 3.93 0.44
+Dill Pickle 1.56 0 0 0 0 0 163 0 0 0 0
+George's Chili (only at select restaurants) 28.35 0 1.28 0.43 0 4.25 138.91 2.55 0.57 0.57 1.7
+Grilled Onions 20 0 0 0 0 0 0 5 1 2 0
+Jalape&ntilde;o Peppers (only at select restaurants) 2.5 1.89 0.21 0.02 0 0 200 0.75 0.3 0.3 0
+Ketchup 15 0 0 0 0 0 130 4 0 3 0
+Mayonnaise 104.86 0 11 2 0 10 55 0 0 0 0
+Red Onion Ring 5 0 0 0 0 0 0 1 0 0 0
+Sauerkraut 10 0 0 0 0 0 270 2 1 0 0
+Sauteed Mushrooms 60 0 5 1 0 0 125 2 1 0 1
+Shredded Lettuce 0 0 0 0 0 0 0 0 0 0 0
+Sliced Green Olives (only at select restaurants) 15 3.69 1.5 0.5 0 0 130 0.5 0 0 0
+Thick Cut Bacon 28.82 94.67 1.89 0.69 0.01 7.45 113.7 0.2 0.05 0.19 2.76
+Thousand Island Dressing 118 0 10.8 1.8 0.16 15 276 5 0 4.3 0.3
+Tomato Slice 5 0 0 0 0 0 0 1 0 0.5 0
+Yellow Mustard 0 0 0 0 0 0 40 0 0 0 0
+Sauce - Corn Dog
+Dip & Squeeze Ketchup 35 0 0 0 0 0 290 8 0 7 0
+Yellow Mustard Packet 0 0 0 0 0 0 65 0 0 0 0
+Salad Base (Hidden)
+Salad Blend 10 0 0 0 0 0 15 2 2 1 1
+Salad Toppings
+Bleu Cheese Crumbles 100 0 8 5 0 20 380 1 0 0 6
+Cashews 160 0 13 2.5 0 0 110 8 1 1 4
+Chopped Thick Cut Bacon 96.06 315.56 6.3 2.3 0.03 24.84 379 0.67 0.17 0.64 9.2
+Crouton 60 0 2 0 0 0 180 10 0 0 2
+Fresh Strawberries 10 0 0 0 0 0 0 2 0.5 1 0
+Grape Tomato 10 0 0 0 0 0 0 2 0 1 0.5
+Pecans 200 0 20 2 0 0 110 3 2.5 1 2
+Shredded Cheddar Cheese 110 0 9 5.5 0 25 180 1 0 0 7
+Sliced Cucumber 0 0 0 0 0 0 0 0 0 0 0
+Sweet Dried Cranberries 35 0 0 0 0 0 0 9 0 7 0
+Salad Proteins
+Buffalo Seasoned Chicken Tender 267.95 0 12.08 1.29 0.13 41.4 1006.25 20.24 1.53 0.35 19.55
+Crispy Chicken Filet 336.62 0 16.88 1.77 0.13 50 1008 26.2 1.2 0.8 20
+Culver's Ground Beef Patty 340 0 26 10 1 100 200 0 0 0 28
+Grilled Chicken Filet 130 0 1.38 0.43 0 88.75 700 1.53 0.5 1.03 27.89
+Original Chicken Tenders 258.8 0 11.31 1.14 0.11 45.6 780 20.63 1.22 0.34 19.47
+Spicy Crispy Chicken Filet 330.98 0 14.83 1.74 0.14 52 1099 25.7 2.19 0.37 23.67
+Dressing
+Buttermilk Ranch Dressing 180 0 19 3 0 20 380 2 0 1 1
+Culver's Signature Sauce 260 0 27 5 0 25 520 3 0 2 3
+Culver's Vinaigrette 120 0 13 2 0 0 330 3 0 2 0
+Honey Mustard Dressing 130 0 6 1 0 0 400 20 0 18 0
+Ken's Blue Cheese Dressing 200 0 21 4 0 15 320 2 0 1 1
+Ken's Country French 190 0 15 2.5 0 0 300 13 0 12 0
+Ken's Raspberry Vinaigrette 45 0 0 0 0 0 120 12 0 10 0
+Shakes - Flavors
+Caramel Flavor 240 0 3.4 2 0 10 520 50 0 30 2
+Chocolate Flavor 176 0 0.34 0 0 0 94 42.6 1.4 26 0.7
+Mint Flavor 205.2 0 0 0 0 0 205.2 50.92 0 38.76 0
+Peanut Butter Flavor 420 0 36.98 5.4 0 0 330 13.96 4.96 7.44 14.7
+Strawberry Flavor 59.86 0 0.19 0 0 0 14.68 14.52 1.43 12.21 0.43
+Frozen Custard Toppings & Mix-ins (Unlimited)
+Andes Creme De Menthe Thins 113 0 7.08 6.39 0 0 9 12.38 0.75 11.25 1.06
+Bananas 27 0 0.1 0 0 0 0 6.84 0.78 3.66 0.33
+Blueberries 41.91 0 0.05 0 0 0.1 2.74 10.26 0.02 8.9 0.04
+Brownie Pieces 100 0 4 1 0 10 60 18 2 11 1
+Butterfinger Pieces 140 0 5.5 3 0 0 76 20 1 12 3
+Candy Sprinkles 108 0 2 1.8 0 0 0.25 22.5 0 15.84 0.07
+Cashews 160 0 13 2.5 0 0 110 8 1 1 4
+Chocolate Cake Pieces 100 0 6 2.5 0 10 55 11 0 7.5 1
+Chocolate Chip Cookie Dough 118 0 4.74 2.44 0 5.4 45.64 18.11 0.46 9.34 0.97
+Chocolate Syrup 88 0 0.17 0 0 0 47 21.3 0.7 13 0.35
+Dove Semisweet Chocolate 117 0 7.14 4.12 0 1.9 1 13.26 1.7 10.17 1.16
+Eli's Cheesecake Pieces 100 0 5.5 3.5 0 30 85 11 0 6 1
+Heath Toffee Pieces 147 0 9 4.8 0 5 95 17 1 16.8 0.87
+Hot Caramel 121.6 0 1.71 1.14 0 5.7 106 25.46 0 15.58 1.14
+Hot Fudge 120 0 3.8 3.8 0 0 95 20.52 0.76 17.86 1.52
+M&M Minis 133.4 0 5.2 3.2 0 2.1 19.8 20.2 0.76 18.17 1.34
+Mango Fruit Topping 60 0 0 0 0 0 5 16 0.5 15 0
+Maraschino Cherry 10 0 0 0 0 0 0 2 0 2 0
+Marshmallow Creme 102.6 0 0 0 0 0 19 25.84 0 21.66 0
+Mint Syrup 102.6 0 0 0 0 0 102.6 25.46 0 19.38 0
+Novelty Chocolate Flavored Topping 198.02 0 15.18 7.59 0 4.95 33 15.51 1.65 12.54 0.99
+Oreo Cookies 90.63 0 3.67 1.13 0 0 65 13.78 0.38 7.55 0.79
+Peaches 34.8 0 0.06 0 0 0 9.5 8.65 0.44 8 0.22
+Pecans 200 0 20 2 0 0 110 3 2.5 1 2
+Raspberries 38 0 0.05 0 0 0 0 9.68 1.6 8.05 0.26
+Reese's Peanut Butter Cups 140 0 8 3 0 2 86.4 16.2 1.02 14.79 2.95
+Reese's Peanut Butter Sauce 210 0 18.49 2.7 0 0 165 6.98 2.48 3.72 7.35
+Root Beer Syrup 74.9 0 0 0 0 0 22 20.44 0 20.4 0
+Salted Caramel 120 0 1.7 1 0 5 260 25 0 15 1
+Snickers Candy Bar 132.8 0 6.39 2.43 0 1.4 65.7 17.18 0.76 14.58 2.39
+Strawberries 29.93 0 0.1 0 0 0 7.34 7.26 0.72 6.1 0.22
+Whipped Cream 45 0 3 1.5 0 15 0 3 0 3 0
+Wild Cherries 60.4 0 0 0 0 0 45.48 16.15 0 14.76 0.1
+Custard
+Chocolate Frozen Custard 287.14 0 14.43 8.71 0.49 81.43 95.71 35.71 1.19 30.43 5.86
+Vanilla Frozen Custard 314.29 0 18.57 11.43 0.71 114.29 85.71 31.43 2 27.14 5.71
+Cones (Hidden)
+Cake Cone 20 0 0 0 0 0 10 5 0 0 0
+Waffle Cone 110 0 0.5 0 0 0 55 25 1 8 2
+Sundae Toppings (Hidden)
+Bananas 90 0 0.33 0 0 0 0 22.8 2.6 12.2 1.1
+Cashews 160 0 13 2.5 0 0 110 8 1 1 4
+Hot Caramel 121.6 0 1.71 1.14 0 5.7 106 25.46 0 15.58 1.14
+Hot Fudge 120 0 3.8 3.8 0 0 95 20.52 0.76 17.86 1.52
+Maraschino Cherry 10 0 0 0 0 0 0 2 0 2 0
+Oreo Cookies 90.63 0 3.67 1.13 0 0 65 13.78 0.38 7.55 0.79
+Pecans 200 0 20 2 0 0 110 3 2.5 1 2
+Strawberries 29.93 0 0.1 0 0 0 7.34 7.26 0.72 6.1 0.22
+Whipped Cream 15 0 1 0.5 0 5 0 1 0 1 0
+Fried Pickles (Hidden)
+Crispy Pickle Chips 354.92 117 19 2.35 0.1 0 910 41 1 1 5
+Sauce - Chicken Tenders
+Brewpub Sauce 265.62 0 27.05 4.9 0 24.31 228.49 0.75 0.16 0.24 0.42
+Buttermilk Ranch Dressing 180 0 19 3 0 20 380 2 0 1 1
+Culver's Signature Sauce 260 0 27 5 0 25 520 3 0 2 3
+Dip & Squeeze Ketchup 35 0 0 0 0 0 290 8 0 7 0
+Frank's RedHot Buffalo Sauce 5 0 0 0 0 0 390 1 0 0 0
+Fry Sauce 120 0 11 2 0 10 240 5 0 3 0
+Honey Mustard Dressing 130 0 6 1 0 0 400 20 0 18 0
+Ken's Blue Cheese Dressing 200 0 21 4 0 15 320 2 0 1 1
+Ken's Boom Boom Sauce 310 0 32 5 0 25 490 5 0 4 1
+Marinara Cup 40 0 0 0 0 0 370 9 1 4 1
+Sweet Baby Ray's BBQ Sauce 110 0 0 0 0 0 450 28 1 26 1
+Tartar Sauce Cup 360 0 39 6 0.5 30 340 3 0 2 1
+Side Choice - Dinners
+Chili Cheddar Fries 606.36 0 30.54 9.32 0.76 41.18 1417.29 69.01 5.49 3.19 14.28
+Coleslaw, Large 400 0 32 5 0 20 480 30 4 18 2
+Coleslaw, Medium 200 0 16 2.5 0 10 240 15 2 9 1
+Crinkle Cut Fries, Large 429.2 0 17.69 1.78 0.2 1.85 806.6 62.34 4.44 0.37 5.37
+Crinkle Cut Fries, Medium 345.68 0 14.24 1.43 0.16 1.49 649.64 50.21 3.58 0.3 4.32
+Crinkle Cut Fries, Small 220.4 0 9.08 0.91 0.1 0.95 414.2 32.02 2.28 0.19 2.75
+Garden Side Salad 55.83 0 2.75 1.38 0 6.25 105 5.42 2 1.33 3.42
+George's Chili, Large 428.57 0 19.29 6.43 0 64.29 2100 38.57 8.57 8.57 25.71
+George's Chili, Medium 285.71 0 12.86 4.29 0 42.86 1400 25.71 5.71 5.71 17.14
+George's Chili Supreme, Large 598.57 0 33.29 15.43 0 109.29 2290 41.57 9.57 9.57 33.71
+George's Chili Supreme, Medium 400.71 0 22.36 10.54 0 75.36 1500 28.21 6.71 6.71 21.64
+Mashed Potatoes & Gravy, Large 260 0 2.6 1 0 0 820 50 4 0 8
+Mashed Potatoes & Gravy, Medium 130 0 1.3 0.5 0 0 410 25 2 0 4
+Mashed Potatoes, Large 293.33 0 0 0 0 0 586.67 61.33 5.33 0 10.67
+Mashed Potatoes, Medium 110 0 0 0 0 0 220 23 2 0 4
+Mott's Applesauce 50 0 0 0 0 0 10 12 2 8 0
+Onion Rings, Large 843.76 0 45.64 3.72 0.2 2 1867.6 97.98 7.6 9.02 10.12
+Onion Rings, Medium 421.88 0 22.82 1.86 0.1 1 933.8 48.99 3.8 4.51 5.06
+Pretzel Bites with Wisconsin Cheddar Cheese Sauce 440.8 0 19.1 7.51 0.68 30.9 810.2 52.87 2 6.81 14.57
+Steamed Broccoli 40 0 0 0 0 0 40 7 3 2 3
+Wisconsin Cheese Curds, Large 1020 0 50 24 1.4 110 2460 102 0 8 40
+Wisconsin Cheese Curds, Medium 492.3 0 26.85 12.47 0.6 33.75 1515 45.6 2.51 4.16 17.07
+Sauce - Seafood
+Cocktail Sauce 53.6 0 0 0 0 0 396 12.5 0.95 7.86 0.7
+Dip & Squeeze Ketchup 35 0 0 0 0 0 290 8 0 7 0
+Frank's RedHot Buffalo Sauce 5 0 0 0 0 0 390 1 0 0 0
+Fry Sauce 120 0 11 2 0 10 240 5 0 3 0
+Hot Sauce 0 0 0 0 0 0 110 0 0 0 0
+Ken's Boom Boom Sauce 310 0 32 5 0 25 490 5 0 4 1
+Malt Vinegar 0 0 0 0 0 0 0 0 0 0 0
+Tartar Sauce Cup 360 0 39 6 0.5 30 340 3 0 2 1
+Beef Dinner Condiment Toppings (hidden)
+Beef Gravy 15 0 0.5 0 0 0 160 2 0 0 0
+Red Onion Ring 5 0 0 0 0 0 0 1 0 0 0
+Sauteed Mushrooms 60 0 5 1 0 0 125 2 1 0 1
+Sourdough Bread - Lightly Buttered & Toasted 215.01 21.9 4.13 1.8 0.1 6.45 364.29 36.88 1.5 1.42 6.77
+Side Salad Toppings
+Crouton 15 0 0.5 0 0 0 45 2.5 0 0 0.5
+Grape Tomato 3.33 0 0 0 0 0 0 0.67 0 0.33 0.17
+Shredded Cheddar Cheese 27.5 0 2.25 1.38 0 6.25 45 0.25 0 0 1.75
+Sliced Cucumber 0 0 0 0 0 0 0 0 0 0 0
+Drinks (Hidden)
+Bottled Water 0 0 0 0 0 0 0 0 0 0 0
+Chocolate Milk 160 0 2.5 1.5 0 15 220 27 0 26 8
+Coffee 0 0 0 0 0 0 0 0 0 0 0
+Culver's Strawberry Lemonade 197.98 0 0.08 0 0 0 6.15 51.9 0.6 47.97 0.18
+Decaf Coffee 0 0 0 0 0 0 0 0 0 0 0
+Milk, 1% 110 0 2.5 1.5 0 10 130 13 0 12 8
+Mott's 100% Apple Juice 100 0 0 0 0 0 10 24 0 23 0
+Frozen Custard Toppings & Mix-ins (Choose 1)
+Andes Creme De Menthe Thins 113 0 7.08 6.39 0 0 9 12.38 0.75 11.25 1.06
+Bananas 27 0 0.1 0 0 0 0 6.84 0.78 3.66 0.33
+Blueberries 41.91 0 0.05 0 0 0.1 2.74 10.26 0.02 8.9 0.04
+Brownie Pieces 100 0 4 1 0 10 60 18 2 11 1
+Butterfinger Pieces 140 0 5.5 3 0 0 76 20 1 12 3
+Candy Sprinkles 108 0 2 1.8 0 0 0.25 22.5 0 15.84 0.07
+Cashews 160 0 13 2.5 0 0 110 8 1 1 4
+Chocolate Cake Pieces 100 0 6 2.5 0 10 55 11 0 7.5 1
+Chocolate Chip Cookie Dough 118 0 4.74 2.44 0 5.4 45.64 18.11 0.46 9.34 0.97
+Chocolate Syrup 88 0 0.17 0 0 0 47 21.3 0.7 13 0.35
+Dove Semisweet Chocolate 117 0 7.14 4.12 0 1.9 1 13.26 1.7 10.17 1.16
+Eli's Cheesecake Pieces 100 0 5.5 3.5 0 30 85 11 0 6 1
+Heath Toffee Pieces 147 0 9 4.8 0 5 95 17 1 16.8 0.87
+Hot Caramel 121.6 0 1.71 1.14 0 5.7 106 25.46 0 15.58 1.14
+Hot Fudge 120 0 3.8 3.8 0 0 95 20.52 0.76 17.86 1.52
+M&M Minis 133.4 0 5.2 3.2 0 2.1 19.8 20.2 0.76 18.17 1.34
+Mango Fruit Topping 60 0 0 0 0 0 5 16 0.5 15 0
+Maraschino Cherry 10 0 0 0 0 0 0 2 0 2 0
+Marshmallow Creme 102.6 0 0 0 0 0 19 25.84 0 21.66 0
+Mint Syrup 102.6 0 0 0 0 0 102.6 25.46 0 19.38 0
+Novelty Chocolate Flavored Topping 198.02 0 15.18 7.59 0 4.95 33 15.51 1.65 12.54 0.99
+Oreo Cookies 90.63 0 3.67 1.13 0 0 65 13.78 0.38 7.55 0.79
+Peaches 34.8 0 0.06 0 0 0 9.5 8.65 0.44 8 0.22
+Pecans 200 0 20 2 0 0 110 3 2.5 1 2
+Raspberries 38 0 0.05 0 0 0 0 9.68 1.6 8.05 0.26
+Reese's Peanut Butter Cups 140 0 8 3 0 2 86.4 16.2 1.02 14.79 2.95
+Reese's Peanut Butter Sauce 210 0 18.49 2.7 0 0 165 6.98 2.48 3.72 7.35
+Root Beer Syrup 74.9 0 0 0 0 0 22 20.44 0 20.4 0
+Salted Caramel 120 0 1.7 1 0 5 260 25 0 15 1
+Snickers Candy Bar 132.8 0 6.39 2.43 0 1.4 65.7 17.18 0.76 14.58 2.39
+Strawberries 29.93 0 0.1 0 0 0 7.34 7.26 0.72 6.1 0.22
+Whipped Cream 45 0 3 1.5 0 15 0 3 0 3 0
+Wild Cherries 60.4 0 0 0 0 0 45.48 16.15 0 14.76 0.1
+Frozen Custard Toppings & Mix-ins (Choose 2)
+Andes Creme De Menthe Thins 113 0 7.08 6.39 0 0 9 12.38 0.75 11.25 1.06
+Bananas 27 0 0.1 0 0 0 0 6.84 0.78 3.66 0.33
+Blueberries 41.91 0 0.05 0 0 0.1 2.74 10.26 0.02 8.9 0.04
+Brownie Pieces 100 0 4 1 0 10 60 18 2 11 1
+Butterfinger Pieces 140 0 5.5 3 0 0 76 20 1 12 3
+Candy Sprinkles 108 0 2 1.8 0 0 0.25 22.5 0 15.84 0.07
+Cashews 160 0 13 2.5 0 0 110 8 1 1 4
+Chocolate Cake Pieces 100 0 6 2.5 0 10 55 11 0 7.5 1
+Chocolate Chip Cookie Dough 118 0 4.74 2.44 0 5.4 45.64 18.11 0.46 9.34 0.97
+Chocolate Syrup 88 0 0.17 0 0 0 47 21.3 0.7 13 0.35
+Dove Semisweet Chocolate 117 0 7.14 4.12 0 1.9 1 13.26 1.7 10.17 1.16
+Eli's Cheesecake Pieces 100 0 5.5 3.5 0 30 85 11 0 6 1
+Heath Toffee Pieces 147 0 9 4.8 0 5 95 17 1 16.8 0.87
+Hot Caramel 121.6 0 1.71 1.14 0 5.7 106 25.46 0 15.58 1.14
+Hot Fudge 120 0 3.8 3.8 0 0 95 20.52 0.76 17.86 1.52
+M&M Minis 133.4 0 5.2 3.2 0 2.1 19.8 20.2 0.76 18.17 1.34
+Mango Fruit Topping 60 0 0 0 0 0 5 16 0.5 15 0
+Maraschino Cherry 10 0 0 0 0 0 0 2 0 2 0
+Marshmallow Creme 102.6 0 0 0 0 0 19 25.84 0 21.66 0
+Mint Syrup 102.6 0 0 0 0 0 102.6 25.46 0 19.38 0
+Novelty Chocolate Flavored Topping 198.02 0 15.18 7.59 0 4.95 33 15.51 1.65 12.54 0.99
+Oreo Cookies 90.63 0 3.67 1.13 0 0 65 13.78 0.38 7.55 0.79
+Peaches 34.8 0 0.06 0 0 0 9.5 8.65 0.44 8 0.22
+Pecans 200 0 20 2 0 0 110 3 2.5 1 2
+Raspberries 38 0 0.05 0 0 0 0 9.68 1.6 8.05 0.26
+Reese's Peanut Butter Cups 140 0 8 3 0 2 86.4 16.2 1.02 14.79 2.95
+Reese's Peanut Butter Sauce 210 0 18.49 2.7 0 0 165 6.98 2.48 3.72 7.35
+Root Beer Syrup 74.9 0 0 0 0 0 22 20.44 0 20.4 0
+Salted Caramel 120 0 1.7 1 0 5 260 25 0 15 1
+Snickers Candy Bar 132.8 0 6.39 2.43 0 1.4 65.7 17.18 0.76 14.58 2.39
+Strawberries 29.93 0 0.1 0 0 0 7.34 7.26 0.72 6.1 0.22
+Whipped Cream 45 0 3 1.5 0 15 0 3 0 3 0
+Wild Cherries 60.4 0 0 0 0 0 45.48 16.15 0 14.76 0.1
+Sides - No Cheese Sauce, Gravy (Hidden)
+Boston Clam Chowder Soup 260 0 11 4 0 30 1530 27 1 8 12
+Broccoli Cheese Soup 220 0 12 5.5 0 31 1160 17 1 9 10
+Chicken Noodle Soup 101.05 0 2.43 0.07 0 24 1034 13 0.96 0.84 6.48
+Coleslaw 200 0 16 2.5 0 10 240 15 2 9 1
+Crinkle Cut Fries 232 0 9.56 0.96 0.11 1 436 33.7 2.4 0.2 2.9
+Crouton 30 0 1 0 0 0 90 5 0 0 1
+Culver's Vegetable Beef Soup 160 0 4 2 0 20 1280 22 2 4 8
+George's Chili 100 0 4.5 1.5 0 15 490 9 2 2 6
+Grape Tomato 10 0 0 0 0 0 0 2 0 1 0.5
+Mashed Potatoes 110 0 0 0 0 0 220 23 2 0 4
+Mott's Applesauce 50 0 0 0 0 0 10 12 2 8 0
+Onion Rings, Fried 421.88 0 22.82 1.86 0.1 1 933.8 48.99 3.8 4.51 5.06
+Potato with Bacon Soup 240 0 10 4 0 25 1140 28 2 9 9
+Pretzel Bites 312 0 8.46 0.79 0.12 0.1 463 50.07 2 5.13 8.97
+Red Onion Ring 5 0 0 0 0 0 0 1 0 0 0
+Salad Blend 10 0 0 0 0 0 15 2 2 1 1
+Saltine Crackers 25 0 0.5 0 0 0 90 5 0 0 0.5
+Shredded Cheddar Cheese 110 0 9 5.5 0 25 180 1 0 0 7
+Sliced Cucumber 0 0 0 0 0 0 0 0 0 0 0
+Steamed Broccoli 40 0 0 0 0 0 40 7 3 2 3
+Stuffed Green Pepper with Beef Soup 140 0 2 1 0 10 1170 24 1 6 5
+Tomato Florentine Soup (V) 110 0 1 0.5 0 0 1280 22 2 7 4
+Wild and Brown Rice with Chicken Soup 270 0 14 5 0 38 1220 26 1 9 10
+Wisconsin Breaded Cheese Curds 492.3 0 26.85 12.47 0.6 33.75 1515 45.6 2.51 4.16 17.07
+Add-Ons - Mashed Potatoes
+Black Pepper Packet 0 0 0 0 0 0 0 0 0 0 0
+Butter Packet 40 0 4 2.5 0 10 30 0 0 0 0
+Chicken Gravy 20 0 1.3 0.5 0 0 190 2 0 0 0
+Salt Packet 0 0 0 0 0 0 240 0 0 0 0
+Add-Ons - Fries
+Dip & Squeeze Ketchup 35 0 0 0 0 0 290 8 0 7 0
+Salt Packet 0 0 0 0 0 0 240 0 0 0 0
+Wisconsin Cheddar Cheese Sauce 128.8 0 10.64 6.72 0.56 30.8 347.2 2.8 0 1.68 5.6
+Cream & Sugar
+Half & Half Liquid Creamer Cups 15 0 1 1 0 0 10 1 0 0 0
+Splenda Packet 0 0 0 0 0 0 0 0 0 0 0
+Sugar Packet 10 0 0 0 0 0 0 3 0 3 0
+Sweet N' Low 0 0 0 0 0 0 0 0 0 0 0
+Sides (Hidden)
+Beef Gravy 15 0 0.5 0 0 0 160 2 0 0 0
+Boston Clam Chowder Soup 260 0 11 4 0 30 1530 27 1 8 12
+Brewpub Sauce 265.62 0 27.05 4.9 0 24.31 228.49 0.75 0.16 0.24 0.42
+Broccoli Cheese Soup 220 0 12 5.5 0 31 1160 17 1 9 10
+Chicken Gravy 20 0 1.3 0.5 0 0 190 2 0 0 0
+Chicken Noodle Soup 101.05 0 2.43 0.07 0 24 1034 13 0.96 0.84 6.48
+Coleslaw 200 0 16 2.5 0 10 240 15 2 9 1
+Crinkle Cut Fries 232 0 9.56 0.96 0.11 1 436 33.7 2.4 0.2 2.9
+Crispy Pickle Chips 650.69 214.5 34.83 4.3 0.18 0 1668.33 75.17 1.83 1.83 9.17
+Crouton 30 0 1 0 0 0 90 5 0 0 1
+Culver's Vegetable Beef Soup 160 0 4 2 0 20 1280 22 2 4 8
+Dill Pickle 4.68 0 0 0 0 0 489 0 0 0 0
+George's Chili 100 0 4.5 1.5 0 15 490 9 2 2 6
+Grape Tomato 10 0 0 0 0 0 0 2 0 1 0.5
+Mashed Potatoes 110 0 0 0 0 0 220 23 2 0 4
+Mott's Applesauce 50 0 0 0 0 0 10 12 2 8 0
+Onion Rings, Fried 421.88 0 22.82 1.86 0.1 1 933.8 48.99 3.8 4.51 5.06
+Potato with Bacon Soup 240 0 10 4 0 25 1140 28 2 9 9
+Pretzel Bites 312 0 8.46 0.79 0.12 0.1 463 50.07 2 5.13 8.97
+Red Onion Ring 5 0 0 0 0 0 0 1 0 0 0
+Salad Blend 10 0 0 0 0 0 15 2 2 1 1
+Saltine Crackers 25 0 0.5 0 0 0 90 5 0 0 0.5
+Shredded Cheddar Cheese 110 0 9 5.5 0 25 180 1 0 0 7
+Sliced Cucumber 0 0 0 0 0 0 0 0 0 0 0
+Sour Cream Packet 55 0 5 3.5 0 20 10 1 1 1 1
+Steamed Broccoli 40 0 0 0 0 0 40 7 3 2 3
+Stuffed Green Pepper with Beef Soup 140 0 2 1 0 10 1170 24 1 6 5
+Thick Cut Bacon 28.82 94.67 1.89 0.69 0.01 7.45 113.7 0.2 0.05 0.19 2.76
+Tomato Florentine Soup (V) 110 0 1 0.5 0 0 1280 22 2 7 4
+Wild and Brown Rice with Chicken Soup 270 0 14 5 0 38 1220 26 1 9 10
+Wisconsin Breaded Cheese Curds 492.3 0 26.85 12.47 0.6 33.75 1515 45.6 2.51 4.16 17.07
+Wisconsin Cheddar Cheese Sauce 128.8 0 10.64 6.72 0.56 30.8 347.2 2.8 0 1.68 5.6
+Fountain Drinks
+Coca-Cola 196.25 0 0 0 0 0 53.31 53.52 0 53.52 0
+Coca-Cola Cherry (only at select restaurants) 205.01 0 0 0 0 0 54.83 55.81 0 55.81 0
+Coca-Cola Zero Sugar 1.24 0 0 0 0 0 53.52 0.16 0.12 0.16 0.07
+Culver's Diet Root Beer 0 0 0 0 0 0 110 0 0 0 0
+Culver's Root Beer 216 0 0 0 0 0 110 59 0 58 0
+Diet Coke 1.37 0 0 0 0 0 64.3 0.4 0.11 0.03 0.04
+Diet Dr Pepper 0 0 0 0 0 0 95 0 0 0 0
+Dr Pepper 190 0 0 0 0 0 60 52 0 51 0
+Fanta Orange 206.09 0.01 0 0 0 0 53.69 53 0 52.92 0
+Hi-C Flashin' Fruit Punch 214.82 0.01 0 0 0 0 97.63 56.52 0 55.14 0
+Mello Yello 219.05 0.02 0 0 0 0 67.36 58 0.01 58 0
+Minute Maid Lemonade 182.52 0.01 0 0 0 0 131.1 48.14 0 45.83 0
+Minute Maid Zero Sugar Lemonade 11.54 0 0 0 0 0 78.1 3.59 0 0.2 0.11
+Powerade Mountain Berry Blast 116.23 0.18 0.03 0.02 0 0 149.23 29.26 0 29.2 0
+Sprite 185.4 0 0 0 0 0 94.69 49.74 0 49.74 0
+Lemon Ice Toppings & Mix-ins - Dish (Unlimited)
+Bananas 27 0 0.1 0 0 0 0 6.84 0.78 3.66 0.33
+Blueberries 41.91 0 0.05 0 0 0.1 2.74 10.26 0.02 8.9 0.04
+Mango Fruit Topping 60 0 0 0 0 0 5 16 0.5 15 0
+Peaches 34.8 0 0.06 0 0 0 9.5 8.65 0.44 8 0.22
+Raspberries 38 0 0.05 0 0 0 0 9.68 1.6 8.05 0.26
+Strawberries 29.93 0 0.1 0 0 0 7.34 7.26 0.72 6.1 0.22
+Watermelon 67.75 0 0 0 0 0 0 14 0 0 0
+Wild Cherries 60.4 0 0 0 0 0 45.48 16.15 0 14.76 0.1
+Lemon Ice Toppings & Mix-ins - 2 portions (Choose 2)
+Bananas 54 0 0.2 0 0 0 0 13.68 1.56 7.32 0.66
+Blueberries 83.82 0 0.09 0 0 0.2 5.48 20.52 0.03 17.8 0.08
+Mango Fruit Topping 120 0 0 0 0 0 10 32 1 30 0
+Peaches 69.6 0 0.12 0 0 0 19 17.31 0.88 16 0.44
+Raspberries 76 0 0.1 0 0 0 0 19.36 3.2 16.1 0.52
+Strawberries 59.86 0 0.19 0 0 0 14.68 14.52 1.43 12.21 0.43
+Watermelon 101.62 0 0 0 0 0 0 21 0 0 0
+Wild Cherries 120.8 0 0 0 0 0 90.96 32.3 0 29.52 0.19
+Add-Ons - Chili Cheddar Fries
+Dip & Squeeze Ketchup 35 0 0 0 0 0 290 8 0 7 0
+Salt Packet 0 0 0 0 0 0 240 0 0 0 0
+Add-Ons - Broccoli
+Black Pepper Packet 0 0 0 0 0 0 0 0 0 0 0
+Butter Packet 40 0 4 2.5 0 10 30 0 0 0 0
+Salt Packet 0 0 0 0 0 0 240 0 0 0 0
+Wisconsin Cheddar Cheese Sauce 128.8 0 10.64 6.72 0.56 30.8 347.2 2.8 0 1.68 5.6
+Iced Tea
+Fresh Brewed Iced Tea 0 0 0 0 0 0 0 0 0 0 0
+Fresh Brewed Sweet Tea (South) 190 0 0 0 0 0 0 50 0 50 0
+Fresh Brewed Tea, Sweet 130 0 0 0 0 0 0 33 0 33 0
+Half Lemonade / Half Unsweet 91.26 0 0 0 0 0 65.55 24.07 0 22.92 0
+Half Sweet / Half Unsweet 65 0 0 0 0 0 0 16.5 0 16.5 0
+Half Zero Sugar Lemonade / Half Unsweet (only at select restaurants) 5.77 0 0 0 0 0 39.05 1.79 0 0.1 0.06
+Cheese - Two Choices
+American Cheese Slice 70 0 6 3.5 0.2 20 220 1 0 0.85 3.52
+Cheddar Cheese Slice 80 0 7 4.5 0.3 20 140 0 0 0 5
+Swiss Cheese Slice 80 0 6 3.5 0.2 20 40 1 0 0 6
+Toppings - Bratwurst Pub Burger
+Coleslaw (only at select restaurants) 87.42 0 6.99 1.09 0 4.37 104.91 6.56 0.87 3.93 0.44
+Dill Pickle 1.56 0 0 0 0 0 163 0 0 0 0
+George's Chili (only at select restaurants) 28.35 0 1.28 0.43 0 4.25 138.91 2.55 0.57 0.57 1.7
+Grilled Onions 20 0 0 0 0 0 0 5 1 2 0
+Jalape&ntilde;o Peppers (only at select restaurants) 2.5 1.89 0.21 0.02 0 0 200 0.75 0.3 0.3 0
+Ketchup 15 0 0 0 0 0 130 4 0 3 0
+Mayonnaise 104.86 0 11 2 0 10 55 0 0 0 0
+Red Onion Ring 5 0 0 0 0 0 0 1 0 0 0
+Sauerkraut 6.67 0 0 0 0 0 180 1.33 0.67 0 0
+Sauteed Mushrooms 60 0 5 1 0 0 125 2 1 0 1
+Shredded Lettuce 0 0 0 0 0 0 0 0 0 0 0
+Sliced Green Olives (only at select restaurants) 15 3.69 1.5 0.5 0 0 130 0.5 0 0 0
+Thick Cut Bacon 28.82 94.67 1.89 0.69 0.01 7.45 113.7 0.2 0.05 0.19 2.76
+Tomato Slice 5 0 0 0 0 0 0 1 0 0.5 0
+Yellow Mustard 0 0 0 0 0 0 40 0 0 0 0
+Desserts & Sides (Hidden)
+Cinnamon Sugar 12.68 0.12 0.02 0 0 0 0.24 3.6 1.04 2 0.08
+Pretzel Bites 312 0 8.46 0.79 0.12 0.1 463 50.07 2 5.13 8.97
+Salted Caramel 240 0 3.4 2 0 10 520 50 0 30 2
+Wisconsin Cheese Curds, Medium 492.3 0 26.85 12.47 0.6 33.75 1515 45.6 2.51 4.16 17.07
+Custard Mix Ins (hidden)
+Andes Creme De Menthe Thins 113 0 7.08 6.39 0 0 9 12.38 0.75 11.25 1.06
+Chocolate Frozen Custard 201 0 10.1 6.1 0.34 57 67 25 0.83 21.3 4.1
+Chocolate Syrup 88 0 0.17 0 0 0 47 21.3 0.7 13 0.35
+Dove Semisweet Chocolate 117 0 7.14 4.12 0 1.9 1 13.26 1.7 10.17 1.16
+Malted Milk Powder 30 0 0.3 0 0 0 20 6 0 5 0.5
+Oreo Cookies 90.63 0 3.67 1.13 0 0 65 13.78 0.38 7.55 0.79
+Raspberries 38 0 0.05 0 0 0 0 9.68 1.6 8.05 0.26
+Salted Caramel 120 0 1.7 1 0 5 260 25 0 15 1
+Vanilla Frozen Custard 220 0 13 8 0.5 80 60 22 1.4 19 4
+Vanilla Shake Mix 200 0 12 7 0.4 75 60 20 1 18 4
+Whipped Cream 15 0 1 0.5 0 5 0 1 0 1 0
+JJ's Way Root Beer
+Culver's Diet Root Beer 0 0 0 0 0 0 151.25 0 0 0 0
+Culver's Root Beer 297 0 0 0 0 0 151.25 81.12 0 79.75 0
+Flavor of the Day
+*Choose Your Flavor 0 0 0 0 0 0 0 0 0 0 0
+Andes Mint Avalanche Flavor of the Day 385.89 0 22.25 13.85 0.5 74.06 112.99 43.19 0.87 36.91 4.82
+Blueberry Cheesecake Flavor of the Day 318.03 0 17.19 10.63 0.53 103.33 116.95 35.8 1.5 28.81 4.88
+Brownie Batter Overload Flavor of the Day 338.06 0 17.94 9.98 0.57 99.22 143.93 41.16 3.03 31.47 5.41
+Brownie Thunder Flavor of the Day 348.38 0 18.24 10.03 0.57 99.56 155.43 43.26 3.21 32.69 5.5
+Butter Pecan Flavor of the Day 385.71 0 24.5 9.86 0.51 75.83 166.15 36.49 1.2 31.02 5.27
+Caramel Cashew Flavor of the Day 357.12 0 20.95 10.89 0.61 98.53 181.95 36.28 2.06 27.44 6.57
+Caramel Chocolate Pecan Flavor of the Day 360.99 0 21.11 9.12 0.41 69.45 170.33 38.81 2.26 31.02 6.06
+Caramel Fudge Cookie Dough Flavor of the Day 357.75 0 18.59 11.28 0.57 94.98 142.03 42.62 1.98 31.76 5.49
+Caramel Peanut Buttercup Flavor of the Day 360.58 0 22.35 11.75 0.62 101.15 145.66 34.27 2.48 28.18 6.73
+Caramel Pecan Flavor of the Day 371.59 0 23.48 10.71 0.61 98.53 181.95 34.48 2.6 27.44 5.85
+Caramel Turtle Flavor of the Day 390.07 0 25.53 11.25 0.53 79.67 183.99 35.58 1.2 28.76 5.46
+Cherry Cheesecake Flavor of the Day 322.45 0 17.16 10.63 0.53 103.27 136.37 37.51 1.49 30.64 4.9
+Chocolate Caramel Twist Flavor of the Day 336.62 0 18.31 11.06 0.53 88.55 108.43 38.89 2.24 32.09 5.81
+Chocolate Covered Strawberry Flavor of the Day 307.4 0 18 10.62 0.55 88.99 78.25 32.26 2.37 27.55 4.76
+Chocolate Heath Crunch Flavor of the Day 332.89 0 17.58 10.28 0.43 75 135.29 40.73 1.58 35.92 5.66
+Chocolate Volcano Flavor of the Day 340.68 0 15.97 9.18 0.4 67.73 116.58 45.69 1.78 36.33 5.72
+Cookies and Cream Flavor of the Day 354.49 0 19.55 11.1 0.63 101.59 130.07 39.36 2.09 30.39 5.73
+Crazy for Cookie Dough Flavor of the Day 352.14 0 16.49 10.09 0.45 77.41 177.36 46.67 1.64 34.66 5.48
+Dark Chocolate Decadence Flavor of the Day 296.84 0 12.95 7.85 0.42 70.94 146.48 42.06 1.05 32.76 5.87
+Dark Chocolate Peanut Butter Crunch Flavor of the Day 360.21 0 18.46 8.49 0.38 63.06 198.26 44.04 1.93 32.97 8.16
+Devil's Food Cake Flavor of the Day 356.8 0 18.1 10.01 0.37 67.34 161.17 45.69 1.36 35.21 5.81
+Double Strawberry Flavor of the Day 270.62 0 13.87 8.21 0.48 70.48 67.94 32.38 0.56 25.14 4.07
+Dulce de Leche Cheesecake Flavor of the Day 349.28 0 18.6 11.23 0.5 95.03 220.8 40.68 0 30.69 5.07
+Georgia Peach Flavor of the Day 288.32 0 14.7 8.72 0.51 74.85 74.78 35.14 0.35 27.82 4.33
+How Now Brown Cow Flavor of the Day 370.78 0 18.1 9.88 0.35 67.69 127.83 49.81 1.45 41.85 5.48
+Mint Chip Flavor of the Day 357.1 0 19.33 11.43 0.53 77.8 104.71 42.37 1.03 35.39 4.94
+Mint Cookie Flavor of the Day 355.82 0 17.75 9.69 0.52 75.22 156.05 45.09 0.32 34.93 4.81
+Mint Explosion Flavor of the Day 389.61 0 21.1 12.35 0.5 73.49 142.09 46.36 0.74 37.33 4.92
+Oreo Cookie Cheesecake Flavor of the Day 357.08 0 20.02 11.8 0.59 109.56 148.34 38.66 1.84 29.32 5.62
+Oreo Cookie Overload Flavor of the Day 310.28 0 14.39 8.22 0.43 72.35 121.42 41.67 1.35 32.74 5.6
+Oreo Cookie Reese's Cheesecake Flavor of the Day 373.72 0 21.3 12.04 0.57 103.68 156.85 40.07 2.11 32.22 6.37
+Peanut Butter Cup Flavor of the Day 377.39 0 22.08 12.03 0.6 97.62 141.98 39.52 2.51 34.78 7.19
+Peanut Butter Fudge Brownie Flavor of the Day 338.81 0 17.47 8.52 0.39 70.87 151.75 42.88 2.61 33.73 6.7
+Raspberry Cheesecake Flavor of the Day 309.2 0 16.99 10.49 0.55 102.49 107.49 34.32 2.33 27.77 5.01
+Really Reese's Flavor of the Day 353 0 18.43 9.82 0.43 73.24 145.98 43.04 1.77 37.37 7.27
+Rocky Road Flavor of the Day 357.93 0 20.91 9.07 0.42 70.07 123.55 38.7 2.26 32.12 5.97
+Salted Double Caramel Pecan Flavor of the Day 375.15 0 23.35 10.18 0.53 79.57 214.66 36.57 0.94 28.84 5.44
+Snickers Swirl Flavor of the Day 339.92 0 18.15 10.25 0.53 87.1 116.96 39.27 1.83 33.59 6.45
+Strawberry Cheesecake Flavor of the Day 302.24 0 16.66 10.29 0.51 99.87 117.03 33.25 1.83 26.5 4.81
+Turtle Cheesecake Flavor of the Day 373.9 0 22.65 12.19 0.57 106.94 162.17 36.98 2.37 28.8 5.75
+Turtle Dove Flavor of the Day 358.71 0 21.4 11.24 0.61 99.06 130.12 36.45 2.56 29.95 5.66
+Turtle Flavor of the Day 394.14 0 26.17 12.05 0.61 99.54 153.96 34.21 2.92 27.93 5.94
+Cheese - Three Choices
+American Cheese Slice 70 0 6 3.5 0.2 20 220 1 0 0.85 3.52
+Cheddar Cheese Slice 80 0 7 4.5 0.3 20 140 0 0 0 5
+Side Choice - Value Basket
+Chili Cheddar Fries 606.36 0 30.54 9.32 0.76 41.18 1417.29 69.01 5.49 3.19 14.28
+Coleslaw, Large 400 0 32 5 0 20 480 30 4 18 2
+Coleslaw, Medium 200 0 16 2.5 0 10 240 15 2 9 1
+Crinkle Cut Fries, Large 429.2 0 17.69 1.78 0.2 1.85 806.6 62.34 4.44 0.37 5.37
+Crinkle Cut Fries, Medium 345.68 0 14.24 1.43 0.16 1.49 649.64 50.21 3.58 0.3 4.32
+Crinkle Cut Fries, Small 220.4 0 9.08 0.91 0.1 0.95 414.2 32.02 2.28 0.19 2.75
+Garden Side Salad 55.83 0 2.75 1.38 0 6.25 105 5.42 2 1.33 3.42
+George's Chili, Large 428.57 0 19.29 6.43 0 64.29 2100 38.57 8.57 8.57 25.71
+George's Chili, Medium 285.71 0 12.86 4.29 0 42.86 1400 25.71 5.71 5.71 17.14
+George's Chili Supreme, Large 598.57 0 33.29 15.43 0 109.29 2290 41.57 9.57 9.57 33.71
+George's Chili Supreme, Medium 400.71 0 22.36 10.54 0 75.36 1500 28.21 6.71 6.71 21.64
+Mashed Potatoes & Gravy, Large 260 0 2.6 1 0 0 820 50 4 0 8
+Mashed Potatoes & Gravy, Medium 130 0 1.3 0.5 0 0 410 25 2 0 4
+Mashed Potatoes, Large 293.33 0 0 0 0 0 586.67 61.33 5.33 0 10.67
+Mashed Potatoes, Medium 110 0 0 0 0 0 220 23 2 0 4
+Mott's Applesauce 50 0 0 0 0 0 10 12 2 8 0
+Onion Rings, Large 843.76 0 45.64 3.72 0.2 2 1867.6 97.98 7.6 9.02 10.12
+Onion Rings, Medium 421.88 0 22.82 1.86 0.1 1 933.8 48.99 3.8 4.51 5.06
+Pretzel Bites with Wisconsin Cheddar Cheese Sauce 440.8 0 19.1 7.51 0.68 30.9 810.2 52.87 2 6.81 14.57
+Steamed Broccoli 40 0 0 0 0 0 40 7 3 2 3
+Wisconsin Cheese Curds, Large 1020 0 50 24 1.4 110 2460 102 0 8 40
+Wisconsin Cheese Curds, Medium 492.3 0 26.85 12.47 0.6 33.75 1515 45.6 2.51 4.16 17.07
+Culver's Premium Lemonade (Hidden)
+Culver's Lemonade 182.81 0 0 0 0 0 0 48.44 0 45.31 0
+Culver's Strawberry Lemonade 197.98 0 0.08 0 0 0 6.15 51.9 0.6 47.97 0.18

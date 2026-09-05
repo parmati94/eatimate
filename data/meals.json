@@ -228,6 +228,13 @@
      "items": [
       "sonic-cheeseburger-with-ketchup-mayo"
      ]
+    },
+    {
+     "chain": "culvers",
+     "name": "ButterBurger Cheese, Single",
+     "items": [
+      "butterburger-cheese-single"
+     ]
     }
    ]
   },
@@ -259,6 +266,13 @@
     },
     {
      "chain": "sonic",
+     "name": "Crispy Chicken Sandwich",
+     "items": [
+      "crispy-chicken-sandwich"
+     ]
+    },
+    {
+     "chain": "culvers",
      "name": "Crispy Chicken Sandwich",
      "items": [
       "crispy-chicken-sandwich"
@@ -535,6 +549,13 @@
      "name": "Regular Fries",
      "items": [
       "regular-fries"
+     ]
+    },
+    {
+     "chain": "culvers",
+     "name": "Medium Crinkle Cut Fries",
+     "items": [
+      "crinkle-cut-fries-medium"
      ]
     }
    ]

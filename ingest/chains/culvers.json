@@ -1,0 +1,306 @@
+{
+ "meta": {
+  "name": "Culver's",
+  "slug": "culvers",
+  "source": {
+   "html_url": "https://restaurant.nutritionix.com/culvers/landing",
+   "retrieved": "2026-09-05",
+   "format": "nutritionix",
+   "page_url": "https://www.culvers.com/menu",
+   "fetch": "manual",
+   "dump_sha256": "8285c7c313e7d71df062d140b05def67e8ce3e01a56b9c30c96ecadec668ed58",
+   "asset_sha256": "a175129d85bdc6e06109c52a3ebe0dbb3beb67e3e16c38f050e9a37d48b69980"
+  },
+  "disclaimer_extra": "Culver's does not publish nutrition itself — it hands the job to Nutritionix and links that calculator from its own menu, so these figures come from the export Culver's points its customers at. The parts add up exactly: a lightly toasted buttered bun (220), one ground beef patty (170) and a slice of American cheese (70) make the 460 Culver's publishes for a single ButterBurger Cheese.",
+  "blurb": "Build a Culver's ButterBurger from the bun up — patties, cheese and toppings — or start from a named sandwich and change it.",
+  "glyph": "burger",
+  "formats": [
+   "ButterBurgers",
+   "Sandwiches",
+   "Custard",
+   "Sides"
+  ],
+  "default_flow": "menu"
+ },
+ "categories": [
+  {
+   "id": "item",
+   "name": "ButterBurgers & Sandwiches",
+   "select": "single",
+   "flow": "preset",
+   "role": "preset"
+  },
+  {
+   "id": "bun",
+   "name": "Bun or Bread",
+   "select": "single",
+   "flow": "build",
+   "role": "format",
+   "in_preset": true
+  },
+  {
+   "id": "protein",
+   "name": "Patty or Filet",
+   "select": "multi",
+   "flow": "build",
+   "role": "protein",
+   "in_preset": true,
+   "note": "A ButterBurger is one patty per name — Single, Double, Triple. Use the quantity control to stack them."
+  },
+  {
+   "id": "cheese",
+   "name": "Cheese",
+   "select": "single",
+   "flow": "build",
+   "role": "cheese",
+   "in_preset": true
+  },
+  {
+   "id": "toppings",
+   "name": "Toppings",
+   "select": "multi",
+   "flow": "both",
+   "role": "topping"
+  },
+  {
+   "id": "sauces",
+   "name": "Dressings",
+   "select": "multi",
+   "flow": "both",
+   "role": "sauce"
+  },
+  {
+   "id": "sides",
+   "name": "Sides",
+   "select": "multi",
+   "flow": "extras",
+   "role": "side"
+  },
+  {
+   "id": "drinks",
+   "name": "Drinks",
+   "select": "multi",
+   "flow": "extras",
+   "role": "drink"
+  },
+  {
+   "id": "desserts",
+   "name": "Fresh Frozen Custard",
+   "select": "multi",
+   "flow": "extras",
+   "role": "dessert"
+  }
+ ],
+ "layout": {
+  "columns": [
+   "calories",
+   "cff",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g"
+  ],
+  "allergen": false,
+  "serving": null,
+  "sections": "^(MENU: .+|[A-Z].*)$"
+ },
+ "section_categories": {
+  "MENU: ButterBurgers": "item",
+  "MENU: Chicken & Sandwiches": "item",
+  "MENU: Seafood & Salads": "item",
+  "MENU: Sides": "sides",
+  "MENU: Drinks": "drinks",
+  "MENU: Fresh Frozen Custard": "desserts",
+  "MENU: Lemon Ice": "desserts",
+  "Buns & Bread": "bun",
+  "Meat & Seafood (Hidden)": "protein",
+  "Cheese - One Choice": "cheese",
+  "Toppings - ButterBurgers, Sandwiches": "toppings",
+  "Dressing": "sauces",
+  "Fountain Drinks": "drinks",
+  "Shakes - Flavors": "desserts",
+  "MENU: Test and LTOs (Preview Only)": {
+   "skip": "preview-only items the calculator hides from customers"
+  },
+  "Toppings - LTO Burgers & Sandwiches (Hidden)": {
+   "skip": "limited-time builds; hidden in the chain's own calculator"
+  },
+  "Shakes & Malts, Lemon Ice, Root Beer Float (Hidden)": {
+   "skip": "hidden group; the menu items already carry these"
+  },
+  "Toppings - Fish Sandwich": {
+   "skip": "per-item topping set, same modifiers as the burger list"
+  },
+  "Toppings - Reuben": {
+   "skip": "per-item topping set, same modifiers as the burger list"
+  },
+  "Toppings - Bratwurst Pub Burger": {
+   "skip": "per-item topping set, same modifiers as the burger list"
+  },
+  "Sauce - Beef Pot Roast": {
+   "skip": "per-item sauce, republished from Dressing"
+  },
+  "Sauce - Corn Dog": {
+   "skip": "per-item sauce, republished from Dressing"
+  },
+  "Sauce - Chicken Tenders": {
+   "skip": "per-item sauce, republished from Dressing"
+  },
+  "Sauce - Seafood": {
+   "skip": "per-item sauce, republished from Dressing"
+  },
+  "Salad Base (Hidden)": {
+   "skip": "hidden group"
+  },
+  "Salad Toppings": {
+   "skip": "salad build is its own flow; not ingested"
+  },
+  "Salad Proteins": {
+   "skip": "same proteins as Meat & Seafood at a 2x salad portion"
+  },
+  "Side Salad Toppings": {
+   "skip": "salad build is its own flow; not ingested"
+  },
+  "Frozen Custard Toppings & Mix-ins (Unlimited)": {
+   "skip": "same mix-ins as the Choose 1 group"
+  },
+  "Frozen Custard Toppings & Mix-ins (Choose 1)": {
+   "skip": "mix-ins belong to the custard build; not ingested"
+  },
+  "Frozen Custard Toppings & Mix-ins (Choose 2)": {
+   "skip": "same mix-ins at a 2x portion"
+  },
+  "Custard": {
+   "skip": "the menu items already carry the custard"
+  },
+  "Cones (Hidden)": {
+   "skip": "hidden group"
+  },
+  "Sundae Toppings (Hidden)": {
+   "skip": "hidden group"
+  },
+  "Fried Pickles (Hidden)": {
+   "skip": "hidden group"
+  },
+  "Side Choice - Dinners": {
+   "skip": "republishes the Sides menu at dinner portions"
+  },
+  "Side Choice - Value Basket": {
+   "skip": "republishes the Sides menu at basket portions"
+  },
+  "Beef Dinner Condiment Toppings (hidden)": {
+   "skip": "hidden group"
+  },
+  "Drinks (Hidden)": {
+   "skip": "hidden group; the Drinks menu and Fountain Drinks carry these"
+  },
+  "Sides - No Cheese Sauce, Gravy (Hidden)": {
+   "skip": "hidden group"
+  },
+  "Sides (Hidden)": {
+   "skip": "hidden group; the Sides menu carries these"
+  },
+  "Add-Ons - Mashed Potatoes": {
+   "skip": "per-item add-on, republished from the Sides menu"
+  },
+  "Add-Ons - Fries": {
+   "skip": "per-item add-on, republished from the Sides menu"
+  },
+  "Add-Ons - Chili Cheddar Fries": {
+   "skip": "per-item add-on, republished from the Sides menu"
+  },
+  "Add-Ons - Broccoli": {
+   "skip": "per-item add-on, republished from the Sides menu"
+  },
+  "Cream & Sugar": {
+   "skip": "coffee condiments; not part of a build"
+  },
+  "Lemon Ice Toppings & Mix-ins - Dish (Unlimited)": {
+   "skip": "lemon ice build is its own flow; not ingested"
+  },
+  "Lemon Ice Toppings & Mix-ins - 2 portions (Choose 2)": {
+   "skip": "same mix-ins at a 2x portion"
+  },
+  "Desserts & Sides (Hidden)": {
+   "skip": "hidden group"
+  },
+  "Custard Mix Ins (hidden)": {
+   "skip": "hidden group"
+  },
+  "Cheese - Two Choices": {
+   "skip": "same three slices at a 2x portion"
+  },
+  "Cheese - Three Choices": {
+   "skip": "same three slices at a 3x portion"
+  },
+  "Iced Tea": {
+   "skip": "republished from Fountain Drinks"
+  },
+  "JJ's Way Root Beer": {
+   "skip": "republished from Fountain Drinks"
+  },
+  "Culver's Premium Lemonade (Hidden)": {
+   "skip": "hidden group; the Drinks menu carries it"
+  },
+  "Flavor of the Day": {
+   "skip": "a rotating daily custard flavour, not a component of a build"
+  }
+ },
+ "items": {
+  "Meat & Seafood (Hidden)/Beef Pot Roast": {
+   "cat": "protein",
+   "id": "beef-pot-roast-portion",
+   "name": "Beef Pot Roast"
+  },
+  "Meat & Seafood (Hidden)/Corn Dog": {
+   "cat": "protein",
+   "id": "corn-dog-portion",
+   "name": "Corn Dog"
+  },
+  "Meat & Seafood (Hidden)/Harvest Veggie Burger": {
+   "cat": "protein",
+   "id": "harvest-veggie-burger-portion",
+   "name": "Harvest Veggie Burger"
+  },
+  "MENU: Sides/Crinkle Cut Fries, Medium": {
+   "cat": "sides",
+   "feature": true
+  },
+  "MENU: Sides/Cheese Curds": {
+   "cat": "sides",
+   "feature": true
+  },
+  "MENU: Sides/Onion Rings, Medium": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Fountain Drinks/Coca-Cola": {
+   "cat": "drinks",
+   "feature": true
+  },
+  "Fountain Drinks/Culver's Root Beer": {
+   "cat": "drinks",
+   "feature": true
+  }
+ },
+ "name_trim": [
+  {
+   "pattern": ",\\s*(Family|Large|Medium|Small|Mini)$",
+   "into": "size",
+   "base_label": "Regular",
+   "labels": [
+    "Medium",
+    "Regular",
+    "Small",
+    "Large",
+    "Mini",
+    "Family"
+   ]
+  }
+ ]
+}
