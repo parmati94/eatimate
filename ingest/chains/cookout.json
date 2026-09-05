@@ -197,24 +197,8 @@
    "id": "beef-quesadilla",
    "name": "Beef Quesadilla"
   },
-  "Hushpuppies Full Order": {
-   "cat": "sides",
-   "feature": true
-  },
-  "Onion Rings Full Order": {
-   "cat": "sides",
-   "feature": true
-  },
-  "Chicken Nuggets Full Order": {
-   "cat": "sides",
-   "feature": true
-  },
   "Cook Out Rounds Full Order": {
    "cat": "sides"
-  },
-  "Cheese Curds Full Order": {
-   "cat": "sides",
-   "feature": true
   },
   "Corn Dog": {
    "cat": "sides",
@@ -266,6 +250,22 @@
   "Bacon Ranch Wrap": {
    "cat": "sides",
    "feature": true
+  },
+  "Hushpuppies Side": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Onion Rings Side": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Chicken Nuggets Side": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Cheese Curds Side": {
+   "cat": "sides",
+   "feature": true
   }
  },
  "name_trim": [
@@ -277,28 +277,24 @@
    "pattern": "\\s+(Small 1/8 lb|Regular 1/4 lb|Huge 1/2 lb)$",
    "into": "size",
    "labels": [
+    "Side",
+    "Full Order",
     "Regular 1/4 lb",
     "Small 1/8 lb",
-    "Huge 1/2 lb"
-   ]
-  },
-  {
-   "pattern": "\\s+(Full Order|Side)$",
-   "into": "size",
-   "labels": [
-    "Full Order",
-    "Side"
-   ]
-  },
-  {
-   "pattern": "\\s+(Huge|Large|Regular|Small)$",
-   "into": "size",
-   "labels": [
+    "Huge 1/2 lb",
     "Regular",
     "Small",
     "Large",
     "Huge"
    ]
+  },
+  {
+   "pattern": "\\s+(Full Order|Side)$",
+   "into": "size"
+  },
+  {
+   "pattern": "\\s+(Huge|Large|Regular|Small)$",
+   "into": "size"
   }
  ]
 }
