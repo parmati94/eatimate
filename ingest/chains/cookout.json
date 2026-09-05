@@ -44,7 +44,7 @@
   },
   {
    "id": "menu",
-   "name": "Sandwiches, Dogs & Wraps",
+   "name": "Sandwiches & Dogs",
    "select": "single",
    "flow": "preset",
    "role": "preset"
@@ -128,9 +128,9 @@
   "Hot Crispy Spicy Chicken Breast Fillet": "menu",
   "Chopped Pork Barbeque": "menu",
   "Char-Grilled Hot Dogs": "menu",
-  "Crispy Chicken Wraps": "menu",
+  "Crispy Chicken Wraps": "sides",
   "Homemade Style Chicken Strips": "menu",
-  "Quesadillas": "menu",
+  "Quesadillas": "sides",
   "Sides/Other Menu Items": "sides",
   "Beverages": "drinks",
   "Fancy Milkshakes": "shakes"
@@ -182,41 +182,20 @@
    "feature": true
   },
   "Quesadillas/Cheese": {
-   "cat": "menu",
+   "cat": "sides",
    "id": "cheese-quesadilla",
    "name": "Cheese Quesadilla",
-   "copies": [
-    {
-     "cat": "sides",
-     "id": "cheese-quesadilla-side",
-     "name": "Cheese Quesadilla",
-     "feature": true
-    }
-   ]
+   "feature": true
   },
   "Quesadillas/Chicken": {
-   "cat": "menu",
+   "cat": "sides",
    "id": "chicken-quesadilla",
-   "name": "Chicken Quesadilla",
-   "copies": [
-    {
-     "cat": "sides",
-     "id": "chicken-quesadilla-side",
-     "name": "Chicken Quesadilla"
-    }
-   ]
+   "name": "Chicken Quesadilla"
   },
   "Quesadillas/Beef": {
-   "cat": "menu",
+   "cat": "sides",
    "id": "beef-quesadilla",
-   "name": "Beef Quesadilla",
-   "copies": [
-    {
-     "cat": "sides",
-     "id": "beef-quesadilla-side",
-     "name": "Beef Quesadilla"
-    }
-   ]
+   "name": "Beef Quesadilla"
   },
   "Hushpuppies Full Order": {
    "cat": "sides",
@@ -267,35 +246,14 @@
    "cat": "shakes"
   },
   "Cajun Wrap": {
-   "cat": "menu",
-   "copies": [
-    {
-     "cat": "sides",
-     "id": "cajun-wrap-side",
-     "name": "Cajun Wrap"
-    }
-   ]
+   "cat": "sides"
   },
   "Ranch Wrap": {
-   "cat": "menu",
-   "copies": [
-    {
-     "cat": "sides",
-     "id": "ranch-wrap-side",
-     "name": "Ranch Wrap",
-     "feature": true
-    }
-   ]
+   "cat": "sides",
+   "feature": true
   },
   "Honey Mustard Wrap": {
-   "cat": "menu",
-   "copies": [
-    {
-     "cat": "sides",
-     "id": "honey-mustard-wrap-side",
-     "name": "Honey Mustard Wrap"
-    }
-   ]
+   "cat": "sides"
   },
   "Side of Chili": {
    "cat": "sides",

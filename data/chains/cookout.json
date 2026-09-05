@@ -36,7 +36,7 @@
     },
     {
       "id": "menu",
-      "name": "Sandwiches, Dogs & Wraps",
+      "name": "Sandwiches & Dogs",
       "select": "single",
       "flow": "preset",
       "role": "preset"
@@ -221,108 +221,6 @@
       "fiber_g": 0,
       "sugars_g": 1,
       "protein_g": 8
-    },
-    {
-      "id": "cheese-quesadilla",
-      "name": "Cheese Quesadilla",
-      "category": "menu",
-      "serving_desc": "3.5 oz (98.2 g)",
-      "serving_g": null,
-      "calories": 355,
-      "fat_g": 23,
-      "sat_fat_g": 11,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 39,
-      "sodium_mg": 644,
-      "carbs_g": 24,
-      "fiber_g": 1,
-      "sugars_g": 1,
-      "protein_g": 13
-    },
-    {
-      "id": "chicken-quesadilla",
-      "name": "Chicken Quesadilla",
-      "category": "menu",
-      "serving_desc": "4.3 oz (123 g)",
-      "serving_g": null,
-      "calories": 449,
-      "fat_g": 28,
-      "sat_fat_g": 12,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 54,
-      "sodium_mg": 788,
-      "carbs_g": 31,
-      "fiber_g": 1,
-      "sugars_g": 2,
-      "protein_g": 19
-    },
-    {
-      "id": "beef-quesadilla",
-      "name": "Beef Quesadilla",
-      "category": "menu",
-      "serving_desc": "4.5 oz (126.5 g)",
-      "serving_g": null,
-      "calories": 514,
-      "fat_g": 29,
-      "sat_fat_g": 13,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 63,
-      "sodium_mg": 845,
-      "carbs_g": 42,
-      "fiber_g": 1,
-      "sugars_g": 3,
-      "protein_g": 22
-    },
-    {
-      "id": "cajun-wrap",
-      "name": "Cajun Wrap",
-      "category": "menu",
-      "serving_desc": "6 oz (170 g)",
-      "serving_g": null,
-      "calories": 501,
-      "fat_g": 27,
-      "sat_fat_g": 11,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 54,
-      "sodium_mg": 1285,
-      "carbs_g": 44,
-      "fiber_g": 2,
-      "sugars_g": 0,
-      "protein_g": 25
-    },
-    {
-      "id": "ranch-wrap",
-      "name": "Ranch Wrap",
-      "category": "menu",
-      "serving_desc": "6.1 oz (174.2 g)",
-      "serving_g": null,
-      "calories": 522,
-      "fat_g": 29,
-      "sat_fat_g": 12,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 56,
-      "sodium_mg": 1273,
-      "carbs_g": 44,
-      "fiber_g": 2,
-      "sugars_g": 0,
-      "protein_g": 25
-    },
-    {
-      "id": "honey-mustard-wrap",
-      "name": "Honey Mustard Wrap",
-      "category": "menu",
-      "serving_desc": "6.2 oz (175.2 g)",
-      "serving_g": null,
-      "calories": 517,
-      "fat_g": 28,
-      "sat_fat_g": 11,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 55,
-      "sodium_mg": 1279,
-      "carbs_g": 46,
-      "fiber_g": 2,
-      "sugars_g": 2,
-      "protein_g": 25
     },
     {
       "id": "char-grilled-chicken-breast",
@@ -530,7 +428,7 @@
       "feature": true
     },
     {
-      "id": "cheese-quesadilla-side",
+      "id": "cheese-quesadilla",
       "name": "Cheese Quesadilla",
       "category": "sides",
       "serving_desc": "3.5 oz (98.2 g)",
@@ -548,7 +446,7 @@
       "feature": true
     },
     {
-      "id": "chicken-quesadilla-side",
+      "id": "chicken-quesadilla",
       "name": "Chicken Quesadilla",
       "category": "sides",
       "serving_desc": "4.3 oz (123 g)",
@@ -565,7 +463,7 @@
       "protein_g": 19
     },
     {
-      "id": "beef-quesadilla-side",
+      "id": "beef-quesadilla",
       "name": "Beef Quesadilla",
       "category": "sides",
       "serving_desc": "4.5 oz (126.5 g)",
@@ -789,7 +687,7 @@
       "feature": true
     },
     {
-      "id": "cajun-wrap-side",
+      "id": "cajun-wrap",
       "name": "Cajun Wrap",
       "category": "sides",
       "serving_desc": "6 oz (170 g)",
@@ -806,7 +704,7 @@
       "protein_g": 25
     },
     {
-      "id": "ranch-wrap-side",
+      "id": "ranch-wrap",
       "name": "Ranch Wrap",
       "category": "sides",
       "serving_desc": "6.1 oz (174.2 g)",
@@ -824,7 +722,7 @@
       "feature": true
     },
     {
-      "id": "honey-mustard-wrap-side",
+      "id": "honey-mustard-wrap",
       "name": "Honey Mustard Wrap",
       "category": "sides",
       "serving_desc": "6.2 oz (175.2 g)",
