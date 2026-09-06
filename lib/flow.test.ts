@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { describe, expect, it } from "vitest";
-import { buildPath, mealStarted, modeOf, owedNote } from "./flow";
+import { buildPath, defaultMode, mealStarted, modeOf, owedNote, splitCats } from "./flow";
 import { defaultSizeMode } from "./meal";
 import { ChainSchema, type Chain, type Component } from "./schema";
 
@@ -33,6 +33,32 @@ describe("modeOf", () => {
     expect(modeOf(c, {})).toBeNull();
     expect(modeOf(c, { "kale-caesar": 1 })).toBe("menu");
     expect(modeOf(c, { romaine: 1 })).toBe("scratch");
+  });
+});
+
+describe("a chain with no build path", () => {
+  it("offers no fork, and still opens on the menu", async () => {
+    const c = await chain("freddys");
+    const v = allVisible(c);
+    const { hasPresets, hasScratch, scratchCats } = splitCats(c, v);
+    // The `both` categories are real and still reachable -- they are just not
+    // a second path, because Freddy's publishes no bun and no bare patty.
+    expect(hasPresets).toBe(true);
+    expect(hasScratch).toBe(false);
+    expect(scratchCats).toEqual([]);
+    expect(defaultMode(c)).toBe("menu");
+    // ...and the sauces stay promoted under the menu item rather than falling
+    // into the extras accordions with the drinks.
+    const p = buildPath(c, "menu", {}, v);
+    expect(ids(p.stepCats)).toEqual(["item"]);
+    expect(ids(p.addCats)).toEqual(["addons"]);
+  });
+
+  it("leaves every other chain's fork alone", async () => {
+    for (const slug of ["chipotle", "burgerking", "sonic", "firehousesubs"]) {
+      const c = await chain(slug);
+      expect(splitCats(c, allVisible(c)).hasScratch).toBe(true);
+    }
   });
 });
 

@@ -179,7 +179,8 @@ export default function MealBuilder({
 
   // The two paths, the numbered steps and the additive rest all come from
   // lib/flow.ts, which is pure and tested over the real chain files.
-  const { presetCats, scratchCats, hasPresets } = splitCats(chain, visibleByCategory);
+  const { presetCats, scratchCats, hasPresets, hasScratch } =
+    splitCats(chain, visibleByCategory);
 
   const [mode, setMode] = useState<"menu" | "scratch" | null>(defaultPath(chain));
   // A preloaded comparison never mounts empty, so this settles it before paint
@@ -469,7 +470,7 @@ export default function MealBuilder({
     // Fired on the transition out of empty, not per pick, so it stays one
     // event per built meal however many ingredients follow.
     if (selectedCount === 0 && !selections[comp.id]) {
-      track("meal-started", { chain: chain.slug });
+      track("meal-started", { chain: chain.slug, path: mode ?? "menu" });
     }
     // Counted from the gesture rather than from a useEffect on the count: a
     // meal restored from a ?m= link or from the last order arrives complete
@@ -486,7 +487,11 @@ export default function MealBuilder({
       const after = selectedCount + (replaces ? 0 : 1);
       if (after >= MEAL_BUILT_AT) {
         builtSent.current = true;
-        track("meal-built", { chain: chain.slug, items: after });
+        track("meal-built", {
+          chain: chain.slug,
+          items: after,
+          path: mode ?? "menu",
+        });
       }
     }
     setSelections((prev) => {
@@ -687,7 +692,8 @@ export default function MealBuilder({
             preset that had just loaded, its Change link wiped that preset, and
             since only one of the two chains has the row, the two columns' first
             steps sat 60px apart on desktop. */}
-        {hasPresets && !searching && (chrome === "full" || mode === null) && (
+        {hasPresets && hasScratch && !searching &&
+          (chrome === "full" || mode === null) && (
           <div className="rounded-2xl border border-line bg-surface p-3 shadow-sm">
             {mode === null ? (
               <>
@@ -713,10 +719,11 @@ export default function MealBuilder({
                     className="rounded-xl border border-line px-4 py-3 text-left transition-colors hover:border-accent hover:bg-surface-2"
                   >
                     <span className="block text-sm font-semibold">
-                      Build your own
+                      {chain.build_label?.title ?? "Build your own"}
                     </span>
                     <span className="mt-0.5 block text-xs text-muted">
-                      Compose it ingredient by ingredient.
+                      {chain.build_label?.note ??
+                        "Compose it ingredient by ingredient."}
                     </span>
                   </button>
                 </div>
@@ -726,7 +733,7 @@ export default function MealBuilder({
                 <span className="text-sm font-medium">
                   {mode === "menu"
                     ? "Starting from a menu item"
-                    : "Building your own"}
+                    : (chain.build_label?.title ?? "Building your own")}
                 </span>
                 <button
                   type="button"

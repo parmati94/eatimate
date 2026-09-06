@@ -22,7 +22,8 @@
    "Frozen Custard"
   ],
   "default_flow": "menu",
-  "meal_shelf": "Make it a combo"
+  "meal_shelf": "Make it a combo",
+  "no_build": "Freddy's publishes finished items and the things you add to them, but no bun, no bread and no bare patty — those appear on their allergen table with no figures. A build-your-own path here could only offer sauces and cheese with nothing to put them on, so the page does not ask which way you want to start."
  },
  "layout": {
   "columns": [

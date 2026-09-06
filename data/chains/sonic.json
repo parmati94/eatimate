@@ -15,6 +15,10 @@
   ],
   "blurb": "Sonic publishes a figure for every drink add-in at every cup size, which is why this is the only place you can price a cherry-vanilla Route 44 exactly. Start from a menu item, or build a drink from the cup up.",
   "default_flow": "menu",
+  "build_label": {
+    "title": "Build a drink",
+    "note": "Pick a cup size, then add flavours and mix-ins."
+  },
   "categories": [
     {
       "id": "item",

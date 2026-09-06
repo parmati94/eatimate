@@ -197,6 +197,24 @@ export const ChainSchema = z
     // word for it says that word. Editorial, like `feature`: it changes the
     // heading and nothing else. Defaults to "Make it a meal".
     meal_shelf: z.string().min(1).optional(),
+    // Why this chain has no build-your-own path, in plain words. Freddy's
+    // publishes finished items and the things you add to them, but no bun, no
+    // bread and no bare patty -- so "build your own" there offered a list of
+    // sauces and nothing to put them on. A fork needs two branches; where the
+    // second one has no food in it, say so here and the question is not asked.
+    // Declared rather than inferred from an empty category list, because a
+    // chain can also be missing its parts by accident, and that is a bug to
+    // fix rather than a fact to render.
+    no_build: z.string().min(20).optional(),
+    // Overrides the build path's own wording where "Build your own /
+    // Compose it ingredient by ingredient" describes the wrong thing. Sonic's
+    // build path is 6 burger add-ons against 52 rows of cups and flavour
+    // shots: it is a drink builder, and calling it a sandwich builder sends
+    // people down it looking for a bun.
+    build_label: z.object({
+      title: z.string().min(1),
+      note: z.string().min(1),
+    }).strict().optional(),
     // Deliberate departures from what the chain's cuisine peers do, each with
     // the reason. lib/consistency.test.ts fails CI on an UNDECLARED departure,
     // so the only way past it is to fix the chain or write down why it differs
