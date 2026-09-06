@@ -160,7 +160,19 @@ def resolve(src, deadline=None):
         hits = [u for u in found if re.search(pat, u)]
         if not hits:
             raise RuntimeError(f"no link matching {pat!r} among {len(found)}")
-        return hits[0], f"{len(found)} assets on page, matched {pat!r}"
+        # Prefer the url we already have when it is still on the page. Several
+        # of these pages keep LAST year's guide next to this year's -- Einstein
+        # Bros lists EBB-Nutrition-Guide-Master.pdf (2025) beside
+        # EBB-Nutrition-Guide-Master-2026-2.pdf -- and hits[0] after sorting
+        # would quietly hand us the archive and call it a move. A move is the
+        # recorded url DISAPPEARING, which is what Five Guys did when September
+        # replaced August; while it is still listed, nothing has moved.
+        #
+        # The count goes in the note either way, so a page that grows a second
+        # candidate is visible rather than silently resolved.
+        pick = src["pdf_url"] if src.get("pdf_url") in hits else hits[0]
+        many = f", {len(hits)} candidates" if len(hits) > 1 else ""
+        return pick, f"{len(found)} assets on page, matched {pat!r}{many}"
     return (src["pdf_url"] if src["pdf_url"] in found else found[0]), f"{len(found)} pdfs on page"
 
 

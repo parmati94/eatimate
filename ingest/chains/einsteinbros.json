@@ -6,10 +6,10 @@
    "pdf_url": "https://www.einsteinbros.com/wp-content/uploads/2026/08/EBB-Nutrition-Guide-Master-2026-2.pdf",
    "retrieved": "2026-09-06",
    "format": "pdf",
-   "fetch": "asset",
+   "fetch": "plain",
    "tables": true,
-   "page_url": "https://www.einsteinbros.com/nutrition/",
-   "link_pattern": "Nutrition-Guide",
+   "page_url": "https://www.einsteinbros.com/menu/",
+   "link_pattern": "EBB-Nutrition-Guide-Master",
    "dump_sha256": "5e286b252dee57c2ff99029ff7cc16d27ece74f806b3c39f70392018211b2066",
    "asset_sha256": "e2057df90f06974ad87c40a86e5559f4a31b2c93373d1f07a67eb23ed8cfc631"
   },
