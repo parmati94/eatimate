@@ -283,7 +283,6 @@ Hidden Valley Ranch Dipping Sauce 25.22 110 11 2 0 10 220 1 0 1 0
 Zesty Dipping Sauce 28.33 140 14 2.5 0 15 210 3 0 1 0
 BBQ Dipping Sauce 28.33 35 0 0 0 0 220 8 0 8 0
 Honey Mustard Dipping Sauce 28.33 110 8 1.5 0 30 190 8 0 7 0
-Super Saiyan Dipping Sauce 28.35 54 0.31 0.05 0 0.03 321.06 12.42 0.12 10.8 0.41
 Special Savory Sauce Dipping Sauce 25.2 116 10.87 1.81 0.16 14.76 261.38 4.5 0.22 3.8 0.42
 Sweet & Sour Dipping Sauce 28.2 70 0 0 0 0 310 18 0 16 0
 Buffalo Dipping Sauce 28.33 70 7 1 0 0 510 1 0 0 0
