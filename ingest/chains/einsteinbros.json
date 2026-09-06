@@ -1,0 +1,330 @@
+{
+ "meta": {
+  "name": "Einstein Bros. Bagels",
+  "slug": "einsteinbros",
+  "source": {
+   "pdf_url": "https://www.einsteinbros.com/wp-content/uploads/2026/08/EBB-Nutrition-Guide-Master-2026-2.pdf",
+   "retrieved": "2026-09-06",
+   "format": "pdf",
+   "fetch": "asset",
+   "tables": true,
+   "page_url": "https://www.einsteinbros.com/nutrition/",
+   "link_pattern": "Nutrition-Guide",
+   "dump_sha256": "5e286b252dee57c2ff99029ff7cc16d27ece74f806b3c39f70392018211b2066",
+   "asset_sha256": "e2057df90f06974ad87c40a86e5559f4a31b2c93373d1f07a67eb23ed8cfc631"
+  },
+  "disclaimer_extra": "Einstein Bros. publishes every part on its own — each bagel, each shmear, the egg, the meat, the cheese — so a sandwich here really is built from their figures rather than assembled from guesses. Two things they say themselves are carried through: a named egg or lunch sandwich is published as made on a PLAIN bagel, so swapping the bagel is a real change to the total; and the guide prints a second set of figures for license locations (airports, hospitals and college campuses), which are left out because they are not what a regular Einstein Bros. serves. Their caffeine column is published but not shown — this site carries the ten nutrients on a Nutrition Facts label, and caffeine is not one of them.",
+  "blurb": "Build an Einstein Bros. bagel the way the counter does — bagel, shmear, egg, meat and cheese — or start from a named sandwich and change the bagel under it.",
+  "glyph": "sub",
+  "formats": [
+   "Bagels",
+   "Egg Sandwiches",
+   "Lunch Sandwiches",
+   "Coffee"
+  ],
+  "default_flow": "menu",
+  "meal_shelf": "Make it a combo"
+ },
+ "layout": {
+  "columns": [
+   "serving",
+   "calories",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "added_sugar",
+   "protein_g",
+   "caffeine"
+  ],
+  "serving": "g",
+  "allergen": false,
+  "serving_brackets": true,
+  "carry_names": true,
+  "start": "^Limited Time Offerings Starting 08\\.26\\.26$",
+  "stop": "^1 Soy is only present",
+  "sections": "^(?!.*\\[[^\\]]*\\]\\s+[<\\d-]).+$",
+  "pre_replace": [
+   [
+    "\\s*\\*Items Available at License Locations Only.*$",
+    ""
+   ],
+   [
+    "\\s*\\^Nutrition and Allergen Information Shown.*$",
+    ""
+   ],
+   [
+    "\\s*\\*NW Locations Only.*$",
+    ""
+   ],
+   [
+    "\\s*\\^(?=\\s|\\*|\\[)",
+    " "
+   ],
+   [
+    "\\s*(\\[[^\\]]*?(\\d+ fl oz)\\])\\s+(?=[<\\d-])",
+    ", \\2 \\1 - "
+   ]
+  ],
+  "skip": "^(.*\\s\\*\\s*\\[|Hot Chocolate, )"
+ },
+ "name_trim": [
+  {
+   "pattern": ",\\s*(\\d+ fl oz)$",
+   "into": "size",
+   "labels": [
+    "16 fl oz",
+    "12 fl oz",
+    "20 fl oz",
+    "24 fl oz",
+    "96 fl oz"
+   ]
+  }
+ ],
+ "section_categories": {
+  "Limited Time Offerings Starting 08.26.26": "lto",
+  "Limited Time Offerings Starting 08.19.26": "lto",
+  "Limited Time Offerings Starting 6.10.26": "lto",
+  "Bagels and Bread": {
+   "skip": "group heading; the bagel tables follow it"
+  },
+  "Classic Bagels": "bagel",
+  "Signature Bagels": "bagel",
+  "Thintastic Bagels": "bagel",
+  "Gourmet Bagels": "bagel",
+  "Specialty Breads": "bagel",
+  "Cream Cheese and Spreads": {
+   "skip": "group heading"
+  },
+  "Whipped Cream Cheese Shmear": {
+   "cat": "shmear",
+   "id_suffix": "shmear"
+  },
+  "Spreads": {
+   "cat": "shmear",
+   "id_suffix": "spread"
+  },
+  "Egg Meat and Cheese": {
+   "skip": "group heading"
+  },
+  "Eggs": "eggmeat",
+  "Meat": "eggmeat",
+  "Cheese": {
+   "cat": "cheese",
+   "id_suffix": "slice"
+  },
+  "Sauces and Produce": {
+   "skip": "group heading"
+  },
+  "Sauces": "sauces",
+  "Produce": "produce",
+  "Einstein Bros Company Egg Sandwiches": {
+   "skip": "group heading"
+  },
+  "Einstein Bros. Company: Classic 1 Egg Sandwiches": {
+   "cat": "item",
+   "suffix": "1 Egg",
+   "id_suffix": "1egg"
+  },
+  "Einstein Bros. Company: Classic 2 Egg Sandwiches": {
+   "cat": "item",
+   "suffix": "2 Egg",
+   "id_suffix": "2egg"
+  },
+  "Einstein Bros. Company: Classic Egg White Sandwiches": {
+   "cat": "item",
+   "suffix": "Egg White",
+   "id_suffix": "eggwhite"
+  },
+  "Einstein Bros. Company Chef's Creations: 1 Egg Sandwiches": {
+   "cat": "item",
+   "suffix": "1 Egg",
+   "id_suffix": "c1egg"
+  },
+  "Einstein Bros. Company Chef's Creations: 2 Egg Sandwiches": {
+   "cat": "item",
+   "suffix": "2 Egg",
+   "id_suffix": "c2egg"
+  },
+  "Einstein Bros. Company Chef's Creations: 1 Egg White Sandwiches": {
+   "cat": "item",
+   "suffix": "Egg White",
+   "id_suffix": "ceggwhite"
+  },
+  "Burritos": {
+   "skip": "group heading"
+  },
+  "Einstein Bros. Company Burrito": "item",
+  "Einstein Bros License Egg Sandwiches": {
+   "skip": "group heading"
+  },
+  "Einstein Bros. License: Classic Egg Sandwiches": {
+   "skip": "license locations only — airports, hospitals and college campuses, which buy from different suppliers; the company figures for the same sandwiches are ingested above"
+  },
+  "Einstein Bros. License: Signature Egg Sandwiches": {
+   "skip": "license locations only — airports, hospitals and college campuses, which buy from different suppliers; the company figures for the same sandwiches are ingested above"
+  },
+  "License Burrito": {
+   "skip": "group heading"
+  },
+  "Einstein Bros. License: Burrito": {
+   "skip": "license locations only — airports, hospitals and college campuses, which buy from different suppliers; the company figures for the same sandwiches are ingested above"
+  },
+  "Einstein Bros. Company Lunch Sandwiches": {
+   "skip": "group heading"
+  },
+  "Einstein Bros. Company: Signature Lunch Sandwiches": "item",
+  "Einstein Bros. Company: Hot and Toasty Lunch Sandwiches": "item",
+  "Einstein Bros. License Lunch sandwiches": {
+   "skip": "group heading"
+  },
+  "Einstein Bros. License: Signature Lunch Sandwiches": {
+   "skip": "license locations only — airports, hospitals and college campuses, which buy from different suppliers; the company figures for the same sandwiches are ingested above"
+  },
+  "Einstein Bros. License: Hot Sandwiches": {
+   "skip": "license locations only — airports, hospitals and college campuses, which buy from different suppliers; the company figures for the same sandwiches are ingested above"
+  },
+  "Sides": "sides",
+  "Avocado Toast": "item",
+  "Sweets": "sweets",
+  "Doggie Bagels": {
+   "skip": "group heading"
+  },
+  "Doggie Bagels (Not for Human Consumption)": {
+   "skip": "the chain's own words: not for human consumption"
+  },
+  "Beverages": {
+   "skip": "group heading"
+  },
+  "Classic Coffee Drinks (With 2% Milk)": "drinks",
+  "Signature Coffee Drinks (With 2% Milk)": "drinks",
+  "Iced Coffee": "drinks",
+  "Cold Brew": "drinks",
+  "Cold Brew Frozen Shakes": "drinks",
+  "Refreshers": "drinks",
+  "Hot Chocolate (With 2% Milk)": {
+   "skip": "the guide's own table is broken here: the 12 fl oz row prints a stray cell that lands on trans fat (9 g in a hot chocolate) and the 20 fl oz row is missing a cell entirely, so every value after it reads one column left. Nothing in the document says which figure is right"
+  },
+  "Drip Coffee": "drinks",
+  "Tea (Hot and Iced) Lemonade": "drinks",
+  "Smoothies": "drinks"
+ },
+ "categories": [
+  {
+   "id": "item",
+   "name": "Sandwiches & Burritos",
+   "select": "single",
+   "flow": "preset",
+   "role": "preset"
+  },
+  {
+   "id": "bagel",
+   "name": "Bagel or Bread",
+   "select": "single",
+   "flow": "build",
+   "role": "format",
+   "in_preset": true,
+   "note": "Einstein Bros. publishes its named sandwiches as made on a plain bagel, so this is the one swap that changes a sandwich's figures rather than adding to them."
+  },
+  {
+   "id": "shmear",
+   "name": "Shmear & Spreads",
+   "select": "multi",
+   "flow": "both",
+   "role": "sauce"
+  },
+  {
+   "id": "eggmeat",
+   "name": "Egg & Meat",
+   "select": "multi",
+   "flow": "build",
+   "role": "protein",
+   "in_preset": true
+  },
+  {
+   "id": "cheese",
+   "name": "Cheese",
+   "select": "single",
+   "flow": "build",
+   "role": "cheese",
+   "in_preset": true
+  },
+  {
+   "id": "sauces",
+   "name": "Sauces",
+   "select": "multi",
+   "flow": "both",
+   "role": "sauce"
+  },
+  {
+   "id": "produce",
+   "name": "Produce",
+   "select": "multi",
+   "flow": "both",
+   "role": "topping"
+  },
+  {
+   "id": "sides",
+   "name": "Sides",
+   "select": "multi",
+   "flow": "extras",
+   "role": "side"
+  },
+  {
+   "id": "sweets",
+   "name": "Sweets",
+   "select": "multi",
+   "flow": "extras",
+   "role": "dessert"
+  },
+  {
+   "id": "drinks",
+   "name": "Coffee & Drinks",
+   "select": "multi",
+   "flow": "extras",
+   "role": "drink"
+  },
+  {
+   "id": "lto",
+   "name": "Limited Time",
+   "select": "multi",
+   "flow": "extras",
+   "role": "other"
+  }
+ ],
+ "items": {
+  "Cold Foam Topping": {
+   "skip": "another broken row: 80 calories against 0 g fat, 5 g carbohydrate and 0 g protein, with 6 g of saturated fat inside 0 g of total fat. The cells are shifted and the guide gives no way to tell by how much"
+  },
+  "Sea Salt Potato Chips": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Twice Baked Hash Brown": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Cookie, Heavenly Chocolate Chip": {
+   "cat": "sweets",
+   "feature": true
+  },
+  "Classic Iced Coffee, 16 fl oz": {
+   "cat": "drinks",
+   "feature": true
+  },
+  "Breakfast Blend Medium Roast Drip Coffee, 16 fl oz": {
+   "cat": "drinks",
+   "feature": true
+  },
+  "Caramel Macchiato, Iced, 16 fl oz [#2]": {
+   "skip": "printed twice under one name with different figures; nothing in the guide says which drink this second block is"
+  },
+  "Caramel Macchiato, Iced, 24 fl oz [#2]": {
+   "skip": "printed twice under one name with different figures; nothing in the guide says which drink this second block is"
+  }
+ }
+}

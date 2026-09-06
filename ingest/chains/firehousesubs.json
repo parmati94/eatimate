@@ -1,0 +1,807 @@
+{
+ "meta": {
+  "name": "Firehouse Subs",
+  "slug": "firehousesubs",
+  "source": {
+   "html_url": "https://nix-vue-inm.s3.amazonaws.com/restaurant/firehouse-subs/data/menu-latest.json.gz",
+   "retrieved": "2026-09-06",
+   "format": "nutritionix",
+   "fetch": "manual",
+   "page_url": "https://restaurant.nutritionix.com/firehouse-subs/landing",
+   "dump_sha256": "78bd153b303630d69fe81c75de540cf245c8ad0db529c4e9ca7d41045f0a0a85",
+   "asset_sha256": "fa077e5cb6e01c80f7bf1d9ed72ff8c8a932af8509b6a013e26272d553d8e8c4"
+  },
+  "disclaimer_extra": "Firehouse Subs hands its nutrition to Nutritionix and links that calculator from its own site, so these figures come from the export Firehouse points its customers at. Every ingredient is published three times over — once for the small, medium and large sub — and the three sets are not multiples of each other: of the 58 ingredients printed at all three sizes, 37 break a fixed ratio. A large gets twice the chicken breast of a medium while a small gets half, and the salami portion is identical on a large and a medium. So picking a size here shows that size's own published numbers rather than a scaled figure.",
+  "blurb": "Build a Firehouse sub the way they make it — pick the roll, the meats, the cheese and everything on top — or start from a Hook & Ladder or an Italian and change it.",
+  "glyph": "sub",
+  "formats": [
+   "Small Sub",
+   "Medium Sub",
+   "Large Sub",
+   "Chopped Salad"
+  ],
+  "size_modes": [
+   {
+    "id": "small",
+    "name": "Small",
+    "multipliers": {}
+   },
+   {
+    "id": "medium",
+    "name": "Medium",
+    "default": true,
+    "multipliers": {}
+   },
+   {
+    "id": "large",
+    "name": "Large",
+    "multipliers": {}
+   }
+  ],
+  "default_flow": "menu"
+ },
+ "layout": {
+  "columns": [
+   "calories",
+   "cff",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g"
+  ],
+  "allergen": false,
+  "serving": null,
+  "sections": "^(MENU: .+|[A-Z].*)$",
+  "pre_replace": [
+   [
+    "\\s*\\*contains gluten\\s*",
+    " "
+   ]
+  ]
+ },
+ "name_variants": [
+  {
+   "pattern": "^(?P<family>.+?),\\s*(?P<label>\\d+ oz)$",
+   "sections": [
+    "MENU: Soups"
+   ]
+  }
+ ],
+ "section_categories": {
+  "MENU: Hot Specialty Subs": "item",
+  "MENU: Single Meat Subs": "item",
+  "MENU: Cold Subs": "item",
+  "MENU: Chopped Salads": "item",
+  "MENU: Soups": "soups",
+  "MENU: Kid's Subs": "kids",
+  "Medium Sub Bread": "bread",
+  "Large Sub Bread": "bread",
+  "Small Sub Bread": "bread",
+  "Medium Sub Cheese": "cheese",
+  "Large Sub Cheese": "cheese",
+  "Small Sub Cheese": "cheese",
+  "Medium Sub Meats": "meats",
+  "Large Sub Meats": "meats",
+  "Small Sub Meats": "meats",
+  "Medium Sub Toppings": "toppings",
+  "Large Sub Toppings": "toppings",
+  "Small Sub Toppings": "toppings",
+  "Medium Sub Condiments": "condiments",
+  "Large Sub Condiments": "condiments",
+  "Small Sub Condiments": "condiments",
+  "Medium Sub Add-On Toppings": "addons",
+  "Large Sub Add-On Toppings": "addons",
+  "Small Sub Add-On Toppings": "addons",
+  "Sides": "sides",
+  "Chips": "sides",
+  "Pickles (Hidden)": {
+   "skip": "hidden group; the pickle spear is already in Toppings and again in Sides"
+  },
+  "Hidden Subs": {
+   "skip": "hidden group; Sweet & Spicy Meatball is already a named sub in all three sizes"
+  },
+  "Soups": {
+   "skip": "the modifier copy of the soup list; the same soups are ingested as menu items, where they carry their cup size"
+  },
+  "Kid's Bread": {
+   "skip": "kid's subs ship as whole named items; a kid's build path would need a fourth size mode for two rolls Firehouse already prints under the medium roll's name"
+  },
+  "Kid's Condiments": {
+   "skip": "kid's subs ship as whole named items"
+  },
+  "Salad Greens": {
+   "skip": "the chopped-salad builder is a second build path; the seven named salads are ingested as menu items and the salad component sets are left for a follow-up"
+  },
+  "Salad Cheese": {
+   "skip": "salad builder, deferred with Salad Greens"
+  },
+  "Salad Meats": {
+   "skip": "salad builder, deferred with Salad Greens"
+  },
+  "Salad Toppings": {
+   "skip": "salad builder, deferred with Salad Greens"
+  },
+  "Salad Dressings": {
+   "skip": "salad builder, deferred with Salad Greens"
+  },
+  "Salad Add-On Toppings": {
+   "skip": "salad builder, deferred with Salad Greens"
+  }
+ },
+ "section_modes": {
+  "Medium Sub Bread": "medium",
+  "Large Sub Bread": "large",
+  "Small Sub Bread": "small",
+  "Medium Sub Cheese": "medium",
+  "Large Sub Cheese": "large",
+  "Small Sub Cheese": "small",
+  "Medium Sub Meats": "medium",
+  "Large Sub Meats": "large",
+  "Small Sub Meats": "small",
+  "Medium Sub Toppings": "medium",
+  "Large Sub Toppings": "large",
+  "Small Sub Toppings": "small",
+  "Medium Sub Condiments": "medium",
+  "Large Sub Condiments": "large",
+  "Small Sub Condiments": "small",
+  "Medium Sub Add-On Toppings": "medium",
+  "Large Sub Add-On Toppings": "large",
+  "Small Sub Add-On Toppings": "small"
+ },
+ "categories": [
+  {
+   "id": "item",
+   "name": "Subs & Salads",
+   "select": "single",
+   "flow": "preset",
+   "role": "preset"
+  },
+  {
+   "id": "bread",
+   "name": "Roll",
+   "select": "single",
+   "flow": "build",
+   "role": "format",
+   "in_preset": true,
+   "note": "The roll is the size. Firehouse publishes a separate figure for every ingredient at each size, so picking the roll decides which set the rest of the build reads from."
+  },
+  {
+   "id": "meats",
+   "name": "Meats",
+   "select": "multi",
+   "flow": "build",
+   "role": "protein",
+   "in_preset": true
+  },
+  {
+   "id": "cheese",
+   "name": "Cheese",
+   "select": "single",
+   "flow": "build",
+   "role": "cheese",
+   "in_preset": true
+  },
+  {
+   "id": "toppings",
+   "name": "Toppings",
+   "select": "multi",
+   "flow": "both",
+   "role": "topping"
+  },
+  {
+   "id": "condiments",
+   "name": "Condiments",
+   "select": "multi",
+   "flow": "both",
+   "role": "sauce"
+  },
+  {
+   "id": "addons",
+   "name": "Add-On Toppings",
+   "select": "multi",
+   "flow": "both",
+   "role": "topping",
+   "note": "Firehouse charges for these; the toppings above are free."
+  },
+  {
+   "id": "sides",
+   "name": "Sides & Chips",
+   "select": "multi",
+   "flow": "extras",
+   "role": "side"
+  },
+  {
+   "id": "soups",
+   "name": "Soups & Chili",
+   "select": "multi",
+   "flow": "extras",
+   "role": "side"
+  },
+  {
+   "id": "kids",
+   "name": "Kid's Subs",
+   "select": "multi",
+   "flow": "extras",
+   "role": "kids"
+  }
+ ],
+ "items": {
+  "MENU: Hot Specialty Subs/Cajun Chicken - Medium": {
+   "cat": "item",
+   "name": "Cajun Chicken",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "cajun-chicken"
+  },
+  "MENU: Hot Specialty Subs/Club on a Sub - Medium": {
+   "cat": "item",
+   "name": "Club on a Sub",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "club-on-a-sub"
+  },
+  "MENU: Hot Specialty Subs/Engineer - Medium": {
+   "cat": "item",
+   "name": "Engineer",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "engineer"
+  },
+  "MENU: Hot Specialty Subs/Hero - Medium": {
+   "cat": "item",
+   "name": "Hero",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "hero"
+  },
+  "MENU: Hot Specialty Subs/Hook & Ladder - Medium": {
+   "cat": "item",
+   "name": "Hook & Ladder",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "hook-ladder"
+  },
+  "MENU: Hot Specialty Subs/Italian - Medium": {
+   "cat": "item",
+   "name": "Italian",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "italian"
+  },
+  "MENU: Hot Specialty Subs/Jamaican Jerk Turkey - Medium": {
+   "cat": "item",
+   "name": "Jamaican Jerk Turkey",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "jamaican-jerk-turkey"
+  },
+  "MENU: Hot Specialty Subs/Meatball - Medium": {
+   "cat": "item",
+   "name": "Meatball",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "meatball"
+  },
+  "MENU: Hot Specialty Subs/New York Steamer - Medium": {
+   "cat": "item",
+   "name": "New York Steamer",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "new-york-steamer"
+  },
+  "MENU: Hot Specialty Subs/Prime Rib Steak - Medium": {
+   "cat": "item",
+   "name": "Prime Rib Steak",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "prime-rib-steak"
+  },
+  "MENU: Hot Specialty Subs/Smokehouse Beef & Cheddar Brisket - Medium": {
+   "cat": "item",
+   "name": "Smokehouse Beef & Cheddar Brisket",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "smokehouse-beef-cheddar-brisket"
+  },
+  "MENU: Hot Specialty Subs/Steak & Cheese - Medium": {
+   "cat": "item",
+   "name": "Steak & Cheese",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "steak-cheese"
+  },
+  "MENU: Hot Specialty Subs/Sweet & Spicy Meatball - Medium": {
+   "cat": "item",
+   "name": "Sweet & Spicy Meatball",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "sweet-spicy-meatball"
+  },
+  "MENU: Hot Specialty Subs/Turkey Bacon Ranch - Medium": {
+   "cat": "item",
+   "name": "Turkey Bacon Ranch",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "turkey-bacon-ranch"
+  },
+  "MENU: Hot Specialty Subs/Cajun Chicken - Large": {
+   "cat": "item",
+   "name": "Cajun Chicken",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "cajun-chicken-lg",
+   "variant_of": "cajun-chicken"
+  },
+  "MENU: Hot Specialty Subs/Club on a Sub - Large": {
+   "cat": "item",
+   "name": "Club on a Sub",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "club-on-a-sub-lg",
+   "variant_of": "club-on-a-sub"
+  },
+  "MENU: Hot Specialty Subs/Engineer - Large": {
+   "cat": "item",
+   "name": "Engineer",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "engineer-lg",
+   "variant_of": "engineer"
+  },
+  "MENU: Hot Specialty Subs/Hero - Large": {
+   "cat": "item",
+   "name": "Hero",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "hero-lg",
+   "variant_of": "hero"
+  },
+  "MENU: Hot Specialty Subs/Hook & Ladder - Large": {
+   "cat": "item",
+   "name": "Hook & Ladder",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "hook-ladder-lg",
+   "variant_of": "hook-ladder"
+  },
+  "MENU: Hot Specialty Subs/Italian - Large": {
+   "cat": "item",
+   "name": "Italian",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "italian-lg",
+   "variant_of": "italian"
+  },
+  "MENU: Hot Specialty Subs/Jamaican Jerk Turkey - Large": {
+   "cat": "item",
+   "name": "Jamaican Jerk Turkey",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "jamaican-jerk-turkey-lg",
+   "variant_of": "jamaican-jerk-turkey"
+  },
+  "MENU: Hot Specialty Subs/Meatball - Large": {
+   "cat": "item",
+   "name": "Meatball",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "meatball-lg",
+   "variant_of": "meatball"
+  },
+  "MENU: Hot Specialty Subs/New York Steamer - Large": {
+   "cat": "item",
+   "name": "New York Steamer",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "new-york-steamer-lg",
+   "variant_of": "new-york-steamer"
+  },
+  "MENU: Hot Specialty Subs/Prime Rib Steak - Large": {
+   "cat": "item",
+   "name": "Prime Rib Steak",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "prime-rib-steak-lg",
+   "variant_of": "prime-rib-steak"
+  },
+  "MENU: Hot Specialty Subs/Smokehouse Beef & Cheddar Brisket - Large": {
+   "cat": "item",
+   "name": "Smokehouse Beef & Cheddar Brisket",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "smokehouse-beef-cheddar-brisket-lg",
+   "variant_of": "smokehouse-beef-cheddar-brisket"
+  },
+  "MENU: Hot Specialty Subs/Steak & Cheese - Large": {
+   "cat": "item",
+   "name": "Steak & Cheese",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "steak-cheese-lg",
+   "variant_of": "steak-cheese"
+  },
+  "MENU: Hot Specialty Subs/Sweet & Spicy Meatball - Large": {
+   "cat": "item",
+   "name": "Sweet & Spicy Meatball",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "sweet-spicy-meatball-lg",
+   "variant_of": "sweet-spicy-meatball"
+  },
+  "MENU: Hot Specialty Subs/Turkey Bacon Ranch - Large": {
+   "cat": "item",
+   "name": "Turkey Bacon Ranch",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "turkey-bacon-ranch-lg",
+   "variant_of": "turkey-bacon-ranch"
+  },
+  "MENU: Hot Specialty Subs/Cajun Chicken - Small": {
+   "cat": "item",
+   "name": "Cajun Chicken",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "cajun-chicken-sm",
+   "variant_of": "cajun-chicken"
+  },
+  "MENU: Hot Specialty Subs/Club on a Sub - Small": {
+   "cat": "item",
+   "name": "Club on a Sub",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "club-on-a-sub-sm",
+   "variant_of": "club-on-a-sub"
+  },
+  "MENU: Hot Specialty Subs/Engineer - Small": {
+   "cat": "item",
+   "name": "Engineer",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "engineer-sm",
+   "variant_of": "engineer"
+  },
+  "MENU: Hot Specialty Subs/Hero - Small": {
+   "cat": "item",
+   "name": "Hero",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "hero-sm",
+   "variant_of": "hero"
+  },
+  "MENU: Hot Specialty Subs/Hook & Ladder - Small": {
+   "cat": "item",
+   "name": "Hook & Ladder",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "hook-ladder-sm",
+   "variant_of": "hook-ladder"
+  },
+  "MENU: Hot Specialty Subs/Italian - Small": {
+   "cat": "item",
+   "name": "Italian",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "italian-sm",
+   "variant_of": "italian"
+  },
+  "MENU: Hot Specialty Subs/Jamaican Jerk Turkey - Small": {
+   "cat": "item",
+   "name": "Jamaican Jerk Turkey",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "jamaican-jerk-turkey-sm",
+   "variant_of": "jamaican-jerk-turkey"
+  },
+  "MENU: Hot Specialty Subs/Meatball - Small": {
+   "cat": "item",
+   "name": "Meatball",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "meatball-sm",
+   "variant_of": "meatball"
+  },
+  "MENU: Hot Specialty Subs/New York Steamer - Small": {
+   "cat": "item",
+   "name": "New York Steamer",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "new-york-steamer-sm",
+   "variant_of": "new-york-steamer"
+  },
+  "MENU: Hot Specialty Subs/Prime Rib Steak - Small": {
+   "cat": "item",
+   "name": "Prime Rib Steak",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "prime-rib-steak-sm",
+   "variant_of": "prime-rib-steak"
+  },
+  "MENU: Hot Specialty Subs/Smokehouse Beef & Cheddar Brisket - Small": {
+   "cat": "item",
+   "name": "Smokehouse Beef & Cheddar Brisket",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "smokehouse-beef-cheddar-brisket-sm",
+   "variant_of": "smokehouse-beef-cheddar-brisket"
+  },
+  "MENU: Hot Specialty Subs/Steak & Cheese - Small": {
+   "cat": "item",
+   "name": "Steak & Cheese",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "steak-cheese-sm",
+   "variant_of": "steak-cheese"
+  },
+  "MENU: Hot Specialty Subs/Sweet & Spicy Meatball - Small": {
+   "cat": "item",
+   "name": "Sweet & Spicy Meatball",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "sweet-spicy-meatball-sm",
+   "variant_of": "sweet-spicy-meatball"
+  },
+  "MENU: Hot Specialty Subs/Turkey Bacon Ranch - Small": {
+   "cat": "item",
+   "name": "Turkey Bacon Ranch",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "turkey-bacon-ranch-sm",
+   "variant_of": "turkey-bacon-ranch"
+  },
+  "MENU: Single Meat Subs/Chicken Breast - Medium": {
+   "cat": "item",
+   "name": "Chicken Breast",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "chicken-breast"
+  },
+  "MENU: Single Meat Subs/Corned Beef - Medium": {
+   "cat": "item",
+   "name": "Corned Beef",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "corned-beef"
+  },
+  "MENU: Single Meat Subs/Ham - Medium": {
+   "cat": "item",
+   "name": "Ham",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "ham"
+  },
+  "MENU: Single Meat Subs/Pastrami - Medium": {
+   "cat": "item",
+   "name": "Pastrami",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "pastrami"
+  },
+  "MENU: Single Meat Subs/Roast Beef - Medium": {
+   "cat": "item",
+   "name": "Roast Beef",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "roast-beef"
+  },
+  "MENU: Single Meat Subs/Turkey - Medium": {
+   "cat": "item",
+   "name": "Turkey",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "turkey"
+  },
+  "MENU: Single Meat Subs/Veggie - Medium": {
+   "cat": "item",
+   "name": "Veggie",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "veggie"
+  },
+  "MENU: Single Meat Subs/Chicken Breast - Large": {
+   "cat": "item",
+   "name": "Chicken Breast",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "chicken-breast-lg",
+   "variant_of": "chicken-breast"
+  },
+  "MENU: Single Meat Subs/Corned Beef - Large": {
+   "cat": "item",
+   "name": "Corned Beef",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "corned-beef-lg",
+   "variant_of": "corned-beef"
+  },
+  "MENU: Single Meat Subs/Ham - Large": {
+   "cat": "item",
+   "name": "Ham",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "ham-lg",
+   "variant_of": "ham"
+  },
+  "MENU: Single Meat Subs/Pastrami - Large": {
+   "cat": "item",
+   "name": "Pastrami",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "pastrami-lg",
+   "variant_of": "pastrami"
+  },
+  "MENU: Single Meat Subs/Roast Beef - Large": {
+   "cat": "item",
+   "name": "Roast Beef",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "roast-beef-lg",
+   "variant_of": "roast-beef"
+  },
+  "MENU: Single Meat Subs/Turkey - Large": {
+   "cat": "item",
+   "name": "Turkey",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "turkey-lg",
+   "variant_of": "turkey"
+  },
+  "MENU: Single Meat Subs/Veggie - Large": {
+   "cat": "item",
+   "name": "Veggie",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "veggie-lg",
+   "variant_of": "veggie"
+  },
+  "MENU: Single Meat Subs/Chicken Breast - Small": {
+   "cat": "item",
+   "name": "Chicken Breast",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "chicken-breast-sm",
+   "variant_of": "chicken-breast"
+  },
+  "MENU: Single Meat Subs/Corned Beef - Small": {
+   "cat": "item",
+   "name": "Corned Beef",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "corned-beef-sm",
+   "variant_of": "corned-beef"
+  },
+  "MENU: Single Meat Subs/Ham - Small": {
+   "cat": "item",
+   "name": "Ham",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "ham-sm",
+   "variant_of": "ham"
+  },
+  "MENU: Single Meat Subs/Pastrami - Small": {
+   "cat": "item",
+   "name": "Pastrami",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "pastrami-sm",
+   "variant_of": "pastrami"
+  },
+  "MENU: Single Meat Subs/Roast Beef - Small": {
+   "cat": "item",
+   "name": "Roast Beef",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "roast-beef-sm",
+   "variant_of": "roast-beef"
+  },
+  "MENU: Single Meat Subs/Turkey - Small": {
+   "cat": "item",
+   "name": "Turkey",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "turkey-sm",
+   "variant_of": "turkey"
+  },
+  "MENU: Single Meat Subs/Veggie - Small": {
+   "cat": "item",
+   "name": "Veggie",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "veggie-sm",
+   "variant_of": "veggie"
+  },
+  "MENU: Cold Subs/Tuna - Medium": {
+   "cat": "item",
+   "name": "Tuna",
+   "variant_label": "Medium",
+   "size_mode": "medium",
+   "id": "tuna"
+  },
+  "MENU: Cold Subs/Tuna - Large": {
+   "cat": "item",
+   "name": "Tuna",
+   "variant_label": "Large",
+   "size_mode": "large",
+   "id": "tuna-lg",
+   "variant_of": "tuna"
+  },
+  "MENU: Cold Subs/Tuna - Small": {
+   "cat": "item",
+   "name": "Tuna",
+   "variant_label": "Small",
+   "size_mode": "small",
+   "id": "tuna-sm",
+   "variant_of": "tuna"
+  },
+  "Medium Sub Bread/Medium White Sub Roll": {
+   "cat": "bread",
+   "name": "White Sub Roll",
+   "mode_selector": true,
+   "variant_family": "white"
+  },
+  "Medium Sub Bread/Medium Wheat Sub Roll": {
+   "cat": "bread",
+   "name": "Wheat Sub Roll",
+   "mode_selector": true,
+   "variant_family": "wheat"
+  },
+  "Medium Sub Bread/Gluten Free Ciabatta Roll": {
+   "cat": "bread",
+   "name": "Gluten Free Ciabatta Roll",
+   "mode_selector": true,
+   "variant_family": "gf"
+  },
+  "Large Sub Bread/Large White Sub Roll": {
+   "cat": "bread",
+   "name": "White Sub Roll",
+   "mode_selector": true,
+   "variant_family": "white"
+  },
+  "Large Sub Bread/Large Wheat Sub Roll": {
+   "cat": "bread",
+   "name": "Wheat Sub Roll",
+   "mode_selector": true,
+   "variant_family": "wheat"
+  },
+  "Small Sub Bread/Medium White Sub Roll": {
+   "cat": "bread",
+   "name": "White Sub Roll",
+   "mode_selector": true,
+   "variant_family": "white"
+  },
+  "Small Sub Bread/Medium Wheat Sub Roll": {
+   "cat": "bread",
+   "name": "Wheat Sub Roll",
+   "mode_selector": true,
+   "variant_family": "wheat"
+  },
+  "Chips/Lay's Original": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Chips/Doritos Nacho Cheese": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Chips/Miss Vickie's Simply Sea Salt Original": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Sides/Chocolate Chip Cookie": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Sides/Brownie": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Sides/5-Cheese Mac & Cheese": {
+   "cat": "sides",
+   "feature": true
+  }
+ }
+}

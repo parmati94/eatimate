@@ -311,6 +311,20 @@
   "Little John 6": {
    "cat": "sandwich",
    "name": "Provolone & Avocado"
+  },
+  "Regular Jimmy Chips": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Chocolate Chip Cookie": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Coca-Cola": {
+   "cat": "drinks",
+   "feature": true,
+   "id": "coca-cola-22-oz",
+   "suffix": "22 oz"
   }
  },
  "section_modes": {

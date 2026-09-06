@@ -528,6 +528,22 @@
    "name": "Flat Bread",
    "variant_family": "flat",
    "variant_label": "Skinny"
+  },
+  "Sides & Chips/Zapp's Regular Chips": {
+   "cat": "sides",
+   "feature": true,
+   "id": "zapps-regular-chips-sides-chips"
+  },
+  "Sides & Chips/Baked Lays": {
+   "cat": "sides",
+   "feature": true,
+   "id": "baked-lays-sides-chips"
+  },
+  "Beverages - 20 fl oz Fountain/Coke": {
+   "cat": "drinks",
+   "feature": true,
+   "id": "coke-20-fl-oz",
+   "suffix": "20 fl oz"
   }
  },
  "section_subtract": {
