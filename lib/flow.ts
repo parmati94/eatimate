@@ -13,6 +13,10 @@ export type Mode = "menu" | "scratch";
 
 /** The path a chain opens on when nothing has chosen one yet. */
 export function defaultMode(chain: Chain): Mode | null {
+  // A chain with no build path has only one place to start, and leaving this
+  // null would open it on neither -- buildPath returns [] for a null mode once
+  // presets exist, which is a blank page.
+  if (chain.no_build) return "menu";
   return chain.default_flow === "build"
     ? "scratch"
     : chain.default_flow === "menu"
@@ -45,16 +49,33 @@ export function splitCats(chain: Chain, visible: Map<string, Component[]>) {
   const presetCats = chain.categories.filter(
     (c) => (c.flow === "preset" || c.flow === "both") && visible.has(c.id),
   );
-  const scratchCats = chain.categories.filter(
-    (c) => ((c.flow ?? "build") === "build" || c.flow === "both") && visible.has(c.id),
-  );
-  return { presetCats, scratchCats, hasPresets: presetCats.length > 0 };
+  //
+  // `no_build` empties the second path outright. Freddy's `both` categories
+  // are real -- the sauces and cheeses belong on the menu path, where they are
+  // what you add to a steakburger -- but on their own they are not a meal, and
+  // "Build your own" leading to a sauce list is a promise the chain's data
+  // cannot keep.
+  const scratchCats = chain.no_build
+    ? []
+    : chain.categories.filter(
+        (c) => ((c.flow ?? "build") === "build" || c.flow === "both") && visible.has(c.id),
+      );
+  return {
+    presetCats,
+    scratchCats,
+    hasPresets: presetCats.length > 0,
+    // A fork needs two branches. Asked separately from hasPresets because the
+    // question "how do you want to start?" is only worth putting to someone
+    // when there are two answers.
+    hasScratch: scratchCats.length > 0,
+  };
 }
 
 export interface BuildPath {
   presetCats: Category[];
   scratchCats: Category[];
   hasPresets: boolean;
+  hasScratch: boolean;
   /** The categories of the path in effect, in config order. */
   buildCats: Category[];
   /** The numbered steps you owe. */
@@ -74,7 +95,7 @@ export function buildPath(
   selections: Selections,
   visible: Map<string, Component[]>,
 ): BuildPath {
-  const { presetCats, scratchCats, hasPresets } = splitCats(chain, visible);
+  const { presetCats, scratchCats, hasPresets, hasScratch } = splitCats(chain, visible);
   const buildCats = !hasPresets
     ? scratchCats
     : mode === "menu"
@@ -131,7 +152,8 @@ export function buildPath(
       ? [...scratchCats.filter((c) => c.flow !== "both" && !c.in_preset), ...plainExtras]
       : plainExtras;
 
-  return { presetCats, scratchCats, hasPresets, buildCats, stepCats, addCats, extraCats, owed };
+  return { presetCats, scratchCats, hasPresets, hasScratch, buildCats, stepCats,
+           addCats, extraCats, owed };
 }
 
 /**

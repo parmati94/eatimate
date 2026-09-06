@@ -21,7 +21,11 @@
    "Breakfast"
   ],
   "blurb": "Sonic publishes a figure for every drink add-in at every cup size, which is why this is the only place you can price a cherry-vanilla Route 44 exactly. Start from a menu item, or build a drink from the cup up.",
-  "default_flow": "menu"
+  "default_flow": "menu",
+  "build_label": {
+   "title": "Build a drink",
+   "note": "Pick a cup size, then add flavour shots and mix-ins."
+  }
  },
  "layout": {
   "columns": [
@@ -51,8 +55,9 @@
    "id": "toppings",
    "name": "Make It Yours",
    "select": "multi",
-   "flow": "both",
-   "role": "topping"
+   "flow": "extras",
+   "role": "topping",
+   "note": "American cheese, bacon, grilled onions — what Sonic adds to a burger you picked above. Not a step on the drink path, which is why it sits with the other add-ons rather than in the numbered flow."
   },
   {
    "id": "drink",

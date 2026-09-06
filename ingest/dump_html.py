@@ -27,6 +27,13 @@ Three table shapes, one raw_dump:
             meta.source.html_urls as {"url":..., "mode":"items", "section":...};
             a page list may mix "items" pages with --matrix ones.
 
+  --fields  no tables at all: the page prints each nutrient as a
+            <div>label</div><div class="...field-<name>">value</div> pair.
+            Freddy's does this (zero <tr> on the whole page); it is the Drupal
+            field-template convention, so the class suffix -- not column
+            position -- says which nutrient a value is. Values are emitted in
+            the fixed canonical order below, which layout.columns must match.
+
 --min-nums N  how many numeric cells a row needs to count as data (default 4)
 --all-rows    also emit rows that fell below that threshold, prefixed "?? ",
               so nothing is silently dropped while you tune a new chain
@@ -97,7 +104,8 @@ def config_source(slug):
         sys.exit(f"error: {cfg} has no meta.source.html_url/pdf_url to fetch")
     print(f"source from config: {url if isinstance(url, str) else len(url)} "
           + ("" if isinstance(url, str) else "pages"))
-    return url, bool(source.get("plain_ua")), bool(source.get("matrix"))
+    return (url, bool(source.get("plain_ua")), bool(source.get("matrix")),
+            bool(source.get("fields")))
 
 
 def strip_label(cell, label):
@@ -249,6 +257,63 @@ def item_rows(soup, section):
     return out
 
 
+# Drupal prints one <div> pair per nutrient and names the class after the field,
+# so the ORDER on the page is irrelevant and a page that reorders its panel (or
+# adds a nutrient) still lands in the right column. Freddy's panel happens to
+# print cholesterol third; reading it by name means never noticing.
+FIELD_MAP = [
+    ("calories", "calories"),
+    ("calories-from-fat", "cff"),
+    ("total-fat", "fat_g"),
+    ("saturated-fat", "sat_fat_g"),
+    ("trans-fat", "trans_fat_g"),
+    ("cholesterol", "cholesterol_mg"),
+    ("sodium", "sodium_mg"),
+    ("carbs", "carbs_g"),
+    ("fiber", "fiber_g"),
+    ("sugars", "sugars_g"),
+    ("protein", "protein_g"),
+]
+
+
+def field_rows(soup):
+    """[(section, name, values)] from label/value <div> pairs, not <td>s.
+
+    A page in this shape prints the SAME item list twice -- once with a
+    nutrition panel and once under an allergen tab with none -- so an item is
+    only real if a panel follows its name. Pairing on the panel rather than on
+    the name is what drops the allergen half; Freddy's prints 424 item names
+    against 301 panels."""
+    # Walk the PANELS, not the articles: these pages nest an <article> per
+    # section inside one <article> for the whole page, so iterating articles
+    # visits every panel twice -- once for its own section and once for the
+    # wrapper. The section is then whatever h2 the panel sits under.
+    out = []
+    for panel in soup.select(".nutrition-info"):
+        art = panel.find_parent("article")
+        head = art.find("h2") if art else None
+        section = norm(head.get_text(" ")) if head else "UNKNOWN"
+        holder = panel.find_previous(
+            lambda t: t.has_attr("class")
+            and any("field-menu-item" in c for c in t["class"]))
+        if holder is not None:
+            name = norm(holder.get_text(" "))
+            vals = []
+            for field, _ in FIELD_MAP:
+                # `~=` matches one whole class token, which is the only
+                # selector that works here: the wrapper carries
+                # "field__field-calories" and the value "field-item__field-
+                # calories", so a suffix match takes the wrapper and drags the
+                # printed label in with the number ("Calories 530"); a
+                # substring match would let "calories" answer for
+                # "calories-from-fat".
+                node = panel.select_one(f'[class~="field-item__field-{field}"]')
+                vals.append(cell(node.get_text(" ")) if node else "-")
+            if name and any(v not in ("-", "") for v in vals):
+                out.append((section, name, vals))
+    return out
+
+
 def emit_items(entries, plain_ua, min_nums):
     """Lines for every 'items'-mode page, grouped under its configured section."""
     lines, count = [], 0
@@ -284,12 +349,22 @@ def main():
     # remember, and one place to update when a chain moves its page.
     plain_ua = "--plain-ua" in sys.argv
     matrix = "--matrix" in sys.argv
+    fields = "--fields" in sys.argv
     if len(args) > 1:
         src = args[1]
+        # A local file still wants the mode the chain records, so re-dumping a
+        # saved page is the same command as fetching it.
+        cfg = Path(f"ingest/chains/{slug}.json")
+        if cfg.exists():
+            import json
+            source = json.loads(cfg.read_text()).get("meta", {}).get("source", {})
+            matrix = matrix or bool(source.get("matrix"))
+            fields = fields or bool(source.get("fields"))
     else:
-        src, cfg_plain, cfg_matrix = config_source(slug)
+        src, cfg_plain, cfg_matrix, cfg_fields = config_source(slug)
         plain_ua = plain_ua or cfg_plain
         matrix = matrix or cfg_matrix
+        fields = fields or cfg_fields
     min_nums = 4
     if "--min-nums" in sys.argv:
         min_nums = int(sys.argv[sys.argv.index("--min-nums") + 1])
@@ -316,6 +391,21 @@ def main():
     soup = BeautifulSoup(html, "lxml")
     for junk in soup(["script", "style", "noscript"]):
         junk.decompose()
+
+    if fields:
+        found = field_rows(soup)
+        if not found:
+            sys.exit("error: --fields found no label/value nutrition panels")
+        lines, last = [], None
+        for section, name, vals in found:
+            if section != last:
+                lines.append(f"\n===== {section} =====")
+                lines.append(section)
+                last = section
+            lines.append(f"{name} {' '.join(vals)}")
+        out.write_text("\n".join(lines + item_lines) + "\n")
+        print(f"{len({s for s, _, _ in found})} sections, {len(found)} rows -> {out}")
+        return
 
     if matrix:
         found = matrix_rows(soup, min_nums)

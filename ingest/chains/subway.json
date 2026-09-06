@@ -65,7 +65,8 @@
    "Salad"
   ],
   "consistency": {
-   "no_needs": "Subway's salads and protein bowls read \"no dressing unless noted\", a hedge the chart makes per item, and its menu row is one family with the sub, wrap, salad and bowl as size chips. Not promoted to a numbered step; the row's own words carry it."
+   "no_needs": "Subway's salads and protein bowls read \"no dressing unless noted\", a hedge the chart makes per item, and its menu row is one family with the sub, wrap, salad and bowl as size chips. Not promoted to a numbered step; the row's own words carry it.",
+   "no_meal_shelf": "Subway's US chart publishes cookies, crisps and soups but no fountain drinks at all, so a quick-add shelf here could only ever offer half a meal. Its sub cluster peers (Firehouse, Jimmy John's, Potbelly) all publish both."
   }
  },
  "categories": [

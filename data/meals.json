@@ -196,7 +196,7 @@
   {
    "id": "cheeseburger",
    "name": "Cheeseburger",
-   "rule": "One beef patty with one slice of cheese on the chain's standard bun. Burger King, Whataburger and Sonic publish their burgers built, so the Whopper's mayo, the Whataburger's mustard and Sonic's ketchup and mayo are in these figures. Five Guys publishes parts only and treats every topping as a free extra, so it is shown bare — which is why its sodium is a third of the others'. Single patty everywhere.",
+   "rule": "One beef patty with one slice of cheese on the chain's standard bun. Burger King, Whataburger and Sonic publish their burgers built, so the Whopper's mayo, the Whataburger's mustard and Sonic's ketchup and mayo are in these figures. Five Guys publishes parts only and treats every topping as a free extra, so it is shown bare — which is why its sodium is a third of the others'. Freddy's smashes two thin patties into most of its burgers but publishes a single, which is the one used here. Single patty everywhere.",
    "builds": [
     {
      "chain": "burgerking",
@@ -234,6 +234,13 @@
      "name": "ButterBurger Cheese, Single",
      "items": [
       "butterburger-cheese-single"
+     ]
+    },
+    {
+     "chain": "freddys",
+     "name": "Cheeseburger, Single Patty",
+     "items": [
+      "cheeseburger-single-patty"
      ]
     }
    ]
@@ -277,13 +284,20 @@
      "items": [
       "crispy-chicken-sandwich"
      ]
+    },
+    {
+     "chain": "freddys",
+     "name": "Crispy Chicken Club",
+     "items": [
+      "crispy-chicken-club"
+     ]
     }
    ]
   },
   {
    "id": "turkey-sub",
    "name": "Turkey sub",
-   "rule": "The chain's standard turkey sandwich at its standard size — Subway's 6\", Jimmy John's 8\" French, Potbelly's Original — on white bread with what that chain puts on as standard. Potbelly's comes with Swiss, which is why its protein runs higher; the others are turkey only. Potbelly publishes its sandwiches with the bread removed, so the loaf is added back here.",
+   "rule": "The chain's standard turkey sandwich at its standard size — Subway's 6\", Jimmy John's 8\" French, Potbelly's Original, Firehouse's medium — on white bread with what that chain puts on as standard. Potbelly's comes with Swiss, which is why its protein runs higher; the others are turkey only. Potbelly publishes its sandwiches with the bread removed, so the loaf is added back here. Firehouse's medium is the middle of three sizes it publishes in full, not a scaled figure.",
    "builds": [
     {
      "chain": "subway",
@@ -305,6 +319,13 @@
      "items": [
       "turkey-breast-swiss-originals-originals",
       "bread-white-originals"
+     ]
+    },
+    {
+     "chain": "firehousesubs",
+     "name": "Turkey, Medium",
+     "items": [
+      "turkey"
      ]
     }
    ]
@@ -478,7 +499,7 @@
   {
    "id": "italian-sub",
    "name": "Italian sub",
-   "rule": "The chain's standard Italian sandwich at its standard size — Subway's 6\" Spicy Italian, Jimmy John's 8\" French Vito, Potbelly's Original Italian — as it is sold, with the cured meats and cheese that come on it. These are menu items rather than builds, so each chain's own recipe stands. Potbelly publishes its sandwiches with the bread removed, so the loaf is added back here.",
+   "rule": "The chain's standard Italian sandwich at its standard size — Subway's 6\" Spicy Italian, Jimmy John's 8\" French Vito, Potbelly's Original Italian, Firehouse's medium Italian — as it is sold, with the cured meats and cheese that come on it. These are menu items rather than builds, so each chain's own recipe stands. Potbelly publishes its sandwiches with the bread removed, so the loaf is added back here.",
    "builds": [
     {
      "chain": "subway",
@@ -501,13 +522,20 @@
       "italian-originals-originals",
       "bread-white-originals"
      ]
+    },
+    {
+     "chain": "firehousesubs",
+     "name": "Italian, Medium",
+     "items": [
+      "italian"
+     ]
     }
    ]
   },
   {
    "id": "fries",
    "name": "A side of fries",
-   "rule": "One standard order of the chain's own plain fries — what arrives if you ask for fries and say nothing else. That is a medium at Burger King, Sonic and Chick-fil-A, the only size Whataburger publishes, and a Regular at Five Guys. The portions are not the same weight and are not meant to be: Five Guys serves 411 g where Burger King serves 200 g, and that difference is the finding rather than a flaw in the comparison. No cheese, no chili, no seasoning upgrade.",
+   "rule": "One standard order of the chain's own plain fries — what arrives if you ask for fries and say nothing else. That is a medium at Burger King, Sonic and Chick-fil-A, the only size Whataburger publishes, and a Regular at Five Guys, Cook Out and Freddy's. The portions are not the same weight and are not meant to be: Five Guys serves 411 g where Burger King serves 200 g, and that difference is the finding rather than a flaw in the comparison. No cheese, no chili, no seasoning upgrade.",
    "builds": [
     {
      "chain": "burgerking",
@@ -556,6 +584,13 @@
      "name": "Medium Crinkle Cut Fries",
      "items": [
       "crinkle-cut-fries-medium"
+     ]
+    },
+    {
+     "chain": "freddys",
+     "name": "Regular Freddy's Fries",
+     "items": [
+      "freddys-fries-regular"
      ]
     }
    ]
@@ -666,6 +701,48 @@
      "items": [
       "farm-greens-with-mint",
       "charred-chicken"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "breakfast-sandwich",
+   "name": "Bacon, egg & cheese breakfast sandwich",
+   "rule": "Bacon, egg and cheese on the chain's own breakfast bread, as it is sold. Four of these are biscuits and Einstein Bros. is a bagel, because that is what each chain actually serves at breakfast — the bread is the difference, not a flaw in the comparison, and it is most of why the bagel carries more carbohydrate and the biscuits more fat. Einstein's is the one-egg version; its two-egg is a separate item on the chain page. No sausage, no ham, no hash brown.",
+   "builds": [
+    {
+     "chain": "burgerking",
+     "name": "Bacon, Egg, & Cheese Biscuit",
+     "items": [
+      "bacon-egg-cheese-biscuit"
+     ]
+    },
+    {
+     "chain": "chickfila",
+     "name": "Bacon, Egg & Cheese Biscuit",
+     "items": [
+      "bacon-egg-cheese-biscuit"
+     ]
+    },
+    {
+     "chain": "sonic",
+     "name": "Bacon Biscuit Sandwich",
+     "items": [
+      "biscuit-sandwich-bacon"
+     ]
+    },
+    {
+     "chain": "whataburger",
+     "name": "Biscuit Sandwich with Bacon",
+     "items": [
+      "biscuit-sandwich-with-bacon"
+     ]
+    },
+    {
+     "chain": "einsteinbros",
+     "name": "Bacon & Cheddar, 1 Egg",
+     "items": [
+      "bacon-cheddar-1-egg"
      ]
     }
    ]

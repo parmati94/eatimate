@@ -6240,6 +6240,42 @@
       ]
     },
     {
+      "id": "zapps-regular-chips-sides-chips",
+      "name": "Zapp's Regular Chips",
+      "category": "sides",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 220,
+      "fat_g": 12,
+      "sat_fat_g": 2,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 130,
+      "carbs_g": 25,
+      "fiber_g": 1,
+      "sugars_g": 0,
+      "protein_g": 3,
+      "feature": true
+    },
+    {
+      "id": "baked-lays-sides-chips",
+      "name": "Baked Lays",
+      "category": "sides",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 140,
+      "fat_g": 4,
+      "sat_fat_g": 0.5,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 180,
+      "carbs_g": 24,
+      "fiber_g": 2,
+      "sugars_g": 3,
+      "protein_g": 2,
+      "feature": true
+    },
+    {
       "id": "mac-cheese-cup-mac-cheese",
       "name": "Mac & Cheese",
       "category": "sides",
@@ -6686,23 +6722,6 @@
       "protein_g": 0.07
     },
     {
-      "id": "baked-lays-sides-chips",
-      "name": "Baked Lays",
-      "category": "sides",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 140,
-      "fat_g": 4,
-      "sat_fat_g": 0.5,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 180,
-      "carbs_g": 24,
-      "fiber_g": 2,
-      "sugars_g": 3,
-      "protein_g": 2
-    },
-    {
       "id": "potbelly-whole-pickle-sides-chips",
       "name": "Potbelly Whole Pickle",
       "category": "sides",
@@ -6788,23 +6807,6 @@
       "protein_g": 3
     },
     {
-      "id": "zapps-regular-chips-sides-chips",
-      "name": "Zapp's Regular Chips",
-      "category": "sides",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 220,
-      "fat_g": 12,
-      "sat_fat_g": 2,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 130,
-      "carbs_g": 25,
-      "fiber_g": 1,
-      "sugars_g": 0,
-      "protein_g": 3
-    },
-    {
       "id": "zapps-salt-vinegar-chips-sides-chips",
       "name": "Zapp's Salt & Vinegar Chips",
       "category": "sides",
@@ -6871,6 +6873,7 @@
       "fiber_g": 0,
       "sugars_g": 72.59,
       "protein_g": 0,
+      "feature": true,
       "variant_label": "20 fl oz"
     },
     {

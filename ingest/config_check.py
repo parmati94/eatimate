@@ -19,18 +19,19 @@ TOP = {"meta", "layout", "categories", "items", "section_categories", "synthetic
 
 META = {"name", "slug", "source", "disclaimer_extra", "glyph", "formats", "blurb",
         "default_flow", "size_modes", "consistency", "menu_check", "portion",
-        "meal_shelf"}
+        "meal_shelf", "no_build", "build_label"}
 
 SOURCE = {"format", "fetch", "retrieved", "verified", "pdf_url", "html_url", "html_urls",
           "page_url", "link_pattern", "asset_sha256", "dump_sha256", "tables",
-          "transcribed", "matrix", "plain_ua", "groups",
+          "transcribed", "matrix", "fields", "plain_ua", "groups",
           # API-shaped sources
           "api_base", "dataset", "menu_id", "build_item", "menu_path", "headers",
           "skip_categories", "skip_ingredients"}
 
 LAYOUT = {"columns", "serving", "sections", "subsections", "row_sections", "skip",
           "footer", "pre_replace", "stop", "start", "allergen", "floz_sections",
-          "serving_brackets", "dual_split", "tier_rows", "dash_rows_are_data",
+          "serving_brackets", "dual_split", "tier_rows", "carry_names",
+          "dash_rows_are_data",
           "title_case"}
 
 CATEGORY = {"id", "name", "select", "flow", "in_preset", "note", "role",

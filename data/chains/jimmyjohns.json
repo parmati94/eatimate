@@ -9793,6 +9793,24 @@
       "variant_label": "XTRA"
     },
     {
+      "id": "regular-jimmy-chips",
+      "name": "Regular Jimmy Chips",
+      "category": "sides",
+      "serving_desc": "1 serving",
+      "serving_g": null,
+      "calories": 300,
+      "fat_g": 18,
+      "sat_fat_g": 3,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 0,
+      "sodium_mg": 180,
+      "carbs_g": 33,
+      "fiber_g": 2,
+      "sugars_g": 3,
+      "protein_g": 3,
+      "feature": true
+    },
+    {
       "id": "chocolate-chip-cookie",
       "name": "Chocolate Chip Cookie",
       "category": "sides",
@@ -9807,7 +9825,8 @@
       "carbs_g": 56,
       "fiber_g": 0.5,
       "sugars_g": 32,
-      "protein_g": 5
+      "protein_g": 5,
+      "feature": true
     },
     {
       "id": "oatmeal-raisin-cookie",
@@ -9842,23 +9861,6 @@
       "fiber_g": 2,
       "sugars_g": 33,
       "protein_g": 4
-    },
-    {
-      "id": "regular-jimmy-chips",
-      "name": "Regular Jimmy Chips",
-      "category": "sides",
-      "serving_desc": "1 serving",
-      "serving_g": null,
-      "calories": 300,
-      "fat_g": 18,
-      "sat_fat_g": 3,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0,
-      "sodium_mg": 180,
-      "carbs_g": 33,
-      "fiber_g": 2,
-      "sugars_g": 3,
-      "protein_g": 3
     },
     {
       "id": "bbq-jimmy-chips",
@@ -10028,7 +10030,8 @@
       "carbs_g": 73,
       "fiber_g": 0,
       "sugars_g": 73,
-      "protein_g": 0
+      "protein_g": 0,
+      "feature": true
     },
     {
       "id": "diet-coke-22-oz",

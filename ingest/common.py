@@ -234,10 +234,65 @@ def parse_dump(path, layout):
     cell_re = re.compile(DUAL)
     # Wrapped rows whose number line carries dual cells still need joining.
     nums_join = re.compile(rf"^(?:(?:{DUAL})\s+){{{n-1}}}(?:{DUAL})$") if dual_cfg else nums_only
+    # A size ladder whose name is printed on ONE line of the block, usually the
+    # first:
+    #
+    #     Crème Brulee Latte [12 fl oz] 240 4.5 3 ...
+    #                        [16 fl oz] 310 6   3.5 ...
+    #                        [20 fl oz] 410 7   4.5 ...
+    #
+    # Not the same shape as tier_rows, which exists for a fixed vocabulary of
+    # portion names (Jimmy John's EZ/REG/XTRA). Here the label is the serving
+    # itself and the set is open -- Einstein Bros prints 12, 16, 20, 24 and 96
+    # fl oz -- so the rule is positional.
+    #
+    # A page break moves the name off the first line: Einstein's Chocolate Iced
+    # Coffee has its 16 fl oz row at the foot of page 5 and its NAME on the 24
+    # fl oz row at the head of page 6. What separates that from a continuation
+    # is that a size ladder never repeats a size, so a bracket already seen
+    # under the current name ends the block -- and the row then belongs to the
+    # next named row instead. Without that test the orphan row inherits the
+    # previous drink and mints a duplicate id.
+    #
+    # Runs BEFORE pre_replace, unlike tier_rows: a chain that copies the serving
+    # into the name (so name_trim can lift it back out as a size chip) would
+    # otherwise leave every nameless row named ", 16 fl oz" -- not empty, so the
+    # carry silently stops on the row after.
+    raw = [l.strip() for l in Path(path).read_text().splitlines()]
+    if footer_re:
+        raw = [footer_re.sub("", l).strip() for l in raw]
+    if layout.get("carry_names"):
+        carry_re = re.compile(r"^(?P<name>.*?)\s*(?P<rest>\[(?P<sv>[^\]]*)\]\s+[<\d-].*)$")
+        hit = [carry_re.match(l) for l in raw]
+        skippable = lambda l: not l or l.startswith("=====")
+        cur, seen = "", set()
+        for i, m in enumerate(hit):
+            if m is None:
+                if not skippable(raw[i]):
+                    cur, seen = "", set()
+                continue
+            name = m.group("name").strip()
+            if name:
+                cur, seen = name, {m.group("sv")}
+                continue
+            if cur and m.group("sv") not in seen:
+                seen.add(m.group("sv"))
+            else:
+                cur = ""
+                for j in range(i + 1, len(hit)):
+                    if hit[j] is None:
+                        if skippable(raw[j]):
+                            continue
+                        break
+                    later = hit[j].group("name").strip()
+                    if later:
+                        cur = later
+                        break
+                seen = {m.group("sv")}
+            if cur:
+                raw[i] = f"{cur} {m.group('rest')}"
     lines = []
-    for line in Path(path).read_text().splitlines():
-        line = line.strip()
-        if footer_re: line = footer_re.sub("", line).strip()
+    for line in raw:
         for a, b in pre: line = a.sub(b, line)
         if stop_re and stop_re.match(line): break
         if not started:

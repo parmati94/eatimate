@@ -1,0 +1,193 @@
+{
+ "meta": {
+  "name": "Freddy's",
+  "slug": "freddys",
+  "source": {
+   "html_url": "https://www.freddys.com/nutrition-and-allergens",
+   "retrieved": "2026-09-06",
+   "format": "html",
+   "fetch": "page",
+   "fields": true,
+   "page_url": "https://www.freddys.com/nutrition-and-allergens",
+   "dump_sha256": "af3f05a88bb90659af3545661f06606979cd7a93856c13e4156b0a6fb6b24924",
+   "asset_sha256": "11ae2add9682eb70c8b2d042ef32f539a3dd3367904a39b76f6a0e89140bf484"
+  },
+  "disclaimer_extra": "Freddy's publishes nutrition for finished items and for the things you add to them — cheese, bacon, sauces, custard mix-ins — but not for the bun, the bread or a patty on its own. Those appear on their allergen table with no figures. So this starts from a steakburger Freddy's sells and adds to it, rather than building one from the bun up. The patty is still visible in their own arithmetic: a Double Steakburger is 190 calories over a Single, and a Double Cheeseburger is 240 over a Single because the second patty brings a second slice of American cheese (50). Jalapeño Pepper Jack steps by 260, which is that same 190 plus its 70-calorie slice.",
+  "blurb": "Start from a Freddy's steakburger, chicken sandwich or bowl and add the cheese, bacon and sauces — then build a concrete or shake from the custard menu and its mix-ins.",
+  "glyph": "burger",
+  "formats": [
+   "Steakburgers",
+   "Chicken & Hot Dogs",
+   "Bowls",
+   "Frozen Custard"
+  ],
+  "default_flow": "menu",
+  "meal_shelf": "Make it a combo",
+  "no_build": "Freddy's publishes finished items and the things you add to them, but no bun, no bread and no bare patty — those appear on their allergen table with no figures. A build-your-own path here could only offer sauces and cheese with nothing to put them on, so the page does not ask which way you want to start."
+ },
+ "layout": {
+  "columns": [
+   "calories",
+   "cff",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g"
+  ],
+  "allergen": false,
+  "serving": null,
+  "sections": "^(Chicken & Hot Dogs|Frozen Custard Toppings|Sides|Steakburgers|Bowls|Drinks|Frozen Custard|Condiments & Sandwich Add-Ons|Kids' Meals|Limited Time Offerings)$",
+  "pre_replace": [
+   [
+    "^(Single|Double|Triple) (Steakburger \\(No Cheese\\))(?=\\s)",
+    "\\2 - \\1 Patty"
+   ],
+   [
+    "\\u00ae\\ufe0f|\\u00ae",
+    ""
+   ]
+  ],
+  "skip": "^Make any Sandwich a Lettuce Wrap"
+ },
+ "name_trim": [
+  {
+   "pattern": "\\s+-\\s+(Single Patty|Double Patty|Triple Patty)$",
+   "into": "size",
+   "labels": [
+    "Single Patty",
+    "Regular",
+    "Regular (3-Piece)",
+    "Medium",
+    "Cup",
+    "Single Scoop",
+    "Kid's",
+    "Small",
+    "Mini",
+    "Double Patty",
+    "Large",
+    "Large (5-Piece)",
+    "Bowl",
+    "Double Scoop",
+    "Triple Patty",
+    "Triple Scoop"
+   ]
+  },
+  {
+   "pattern": "\\s+-\\s+(Bowl|Cup) \\(w/ Cheese\\)$",
+   "into": "size"
+  },
+  {
+   "pattern": "\\s+-\\s+((?:Regular|Large) \\(\\d-Piece\\))$",
+   "into": "size"
+  },
+  {
+   "pattern": "\\s+-\\s+((?:Single|Double|Triple) Scoop)$",
+   "into": "size"
+  },
+  {
+   "pattern": "\\s+-\\s+(Kid's|Regular|Large|Mini|Small|Medium)$",
+   "into": "size"
+  },
+  {
+   "pattern": "\\s+(Small|Medium|Large)$",
+   "into": "size"
+  }
+ ],
+ "section_categories": {
+  "Steakburgers": "item",
+  "Chicken & Hot Dogs": "item",
+  "Bowls": "item",
+  "Limited Time Offerings": "item",
+  "Condiments & Sandwich Add-Ons": "addons",
+  "Sides": "sides",
+  "Drinks": "drinks",
+  "Frozen Custard": "custard",
+  "Frozen Custard Toppings": "mixins",
+  "Kids' Meals": "kids"
+ },
+ "categories": [
+  {
+   "id": "item",
+   "name": "Steakburgers & Sandwiches",
+   "select": "single",
+   "flow": "preset",
+   "role": "preset"
+  },
+  {
+   "id": "addons",
+   "name": "Add to it",
+   "select": "multi",
+   "flow": "both",
+   "role": "sauce",
+   "note": "Freddy's publishes the cheese, bacon and sauces on their own, so anything here can be added to a sandwich above. The bun is not published separately and is already inside every item's figure."
+  },
+  {
+   "id": "sides",
+   "name": "Sides",
+   "select": "multi",
+   "flow": "extras",
+   "role": "side"
+  },
+  {
+   "id": "drinks",
+   "name": "Drinks",
+   "select": "multi",
+   "flow": "extras",
+   "role": "drink"
+  },
+  {
+   "id": "custard",
+   "name": "Frozen Custard",
+   "select": "multi",
+   "flow": "extras",
+   "role": "dessert",
+   "note": "CYO is Freddy's own name for a build-your-own concrete, malt, shake or sundae. Pick one, then add mix-ins below."
+  },
+  {
+   "id": "mixins",
+   "name": "Custard Mix-ins",
+   "select": "multi",
+   "flow": "extras",
+   "role": "dessert"
+  },
+  {
+   "id": "kids",
+   "name": "Kids' Meals",
+   "select": "multi",
+   "flow": "extras",
+   "role": "kids"
+  }
+ ],
+ "items": {
+  "Limited Time Offerings/Peanut Butter Brownie Concrete Made with Butterfinger - Mini": {
+   "cat": "custard"
+  },
+  "Limited Time Offerings/Peanut Butter Brownie Concrete Made with Butterfinger - Regular": {
+   "cat": "custard"
+  },
+  "Limited Time Offerings/Peanut Butter Brownie Concrete Made with Butterfinger - Large": {
+   "cat": "custard"
+  },
+  "Sides/Freddy's Fries - Regular": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Sides/Freddy's Tots - Regular": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Sides/Onion Rings - Regular": {
+   "cat": "sides",
+   "feature": true
+  },
+  "Sides/Cheese Fries - Regular": {
+   "cat": "sides",
+   "feature": true
+  }
+ }
+}
