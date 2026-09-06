@@ -7,7 +7,7 @@
    "retrieved": "2026-08-31",
    "format": "pdf",
    "page_url": "https://www.dominos.com/en/pages/content/nutritional/nutrition",
-   "fetch": "manual",
+   "fetch": "asset",
    "dump_sha256": "f3ce89116c12bd5a84d841709bc633a736258e8c30787f96ee97a0bc451f9959",
    "asset_sha256": "a38f57ef911da916dfd4b6e07888b9374fae1540cd90a06fe5e67f778284eb11"
   },

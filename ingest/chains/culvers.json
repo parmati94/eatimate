@@ -7,9 +7,10 @@
    "retrieved": "2026-09-05",
    "format": "nutritionix",
    "page_url": "https://www.culvers.com/menu",
-   "fetch": "manual",
+   "fetch": "plain",
    "dump_sha256": "8285c7c313e7d71df062d140b05def67e8ce3e01a56b9c30c96ecadec668ed58",
-   "asset_sha256": "a175129d85bdc6e06109c52a3ebe0dbb3beb67e3e16c38f050e9a37d48b69980"
+   "asset_sha256": "a175129d85bdc6e06109c52a3ebe0dbb3beb67e3e16c38f050e9a37d48b69980",
+   "nutritionix_slug": "culvers"
   },
   "disclaimer_extra": "Culver's does not publish nutrition itself — it hands the job to Nutritionix and links that calculator from its own menu, so these figures come from the export Culver's points its customers at. The parts add up exactly: a lightly toasted buttered bun (220), one ground beef patty (170) and a slice of American cheese (70) make the 460 Culver's publishes for a single ButterBurger Cheese.",
   "blurb": "Build a Culver's ButterBurger from the bun up — patties, cheese and toppings — or start from a named sandwich and change it.",

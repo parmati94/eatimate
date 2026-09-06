@@ -7,7 +7,7 @@
    "retrieved": "2026-08-31",
    "format": "pdf",
    "page_url": "https://www.chipotle.com/nutrition-calculator",
-   "fetch": "manual",
+   "fetch": "asset",
    "dump_sha256": "5d6080a0749e43da3303c4f1bebe05581618417e3bc920843dc3a40185308aa0",
    "asset_sha256": "b1836d0f05a41ca8b5e17e16f2dc571c0cc10756b7fc098c29660f6d1e5d5d0c"
   },

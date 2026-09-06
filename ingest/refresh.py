@@ -33,11 +33,15 @@ CAVA and Moe's are the reverse:
                 without a browser (Domino's). overview.py's freshness table
                 is what catches these, by age rather than by change.
 
+--serial     check one chain at a time (readable log when debugging one)
+$REFRESH_TIMEOUT  seconds per request  (default 20)
+$REFRESH_BUDGET   seconds per chain    (default 45)
+
 `source.format` picks the strategy, via formats.py: an "asset" format (pdf,
 image) is resolved and hashed; a "redump" format (html, json, sanity,
 compose) is re-parsed and its text compared; a "manual" one is reported.
 """
-import hashlib, json, re, subprocess, sys, tempfile, warnings
+import hashlib, json, os, re, subprocess, sys, tempfile, time, warnings
 from pathlib import Path
 
 from formats import dump_args, dumper_path, spec
@@ -63,20 +67,39 @@ UA = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
                     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36"}
 
 
-def get(url, how, tries=3):
-    """Retry once or twice: some of these sites (Subway) are simply slow, and a
-    transient timeout reported as a change would be worse than useless."""
+# One attempt's patience, and the whole chain's. Subway sits behind Akamai Bot
+# Manager, which does not REFUSE urllib3 -- it accepts the connection and then
+# never answers -- so a 90s timeout retried three times spent 4.5 minutes on
+# one chain and was most of a five-minute sweep. A host that has not spoken in
+# 20 seconds is not being slow, it is not going to answer; and the sweep has to
+# stay short enough to run on a timer as the chain count grows.
+TIMEOUT = int(os.environ.get("REFRESH_TIMEOUT", "20"))
+BUDGET = int(os.environ.get("REFRESH_BUDGET", "45"))
+
+
+class Budget(Exception):
+    """This chain used its whole time budget. Reported, never silent."""
+
+
+def get(url, how, tries=3, deadline=None):
+    """Retry once or twice: some of these sites are simply slow, and a
+    transient timeout reported as a change would be worse than useless. But
+    retries stop at the deadline, so one wedged host cannot hold the sweep."""
     import time
     last = None
     for n in range(tries):
+        if deadline and time.monotonic() > deadline:
+            raise Budget(f"gave up after {BUDGET}s")
         try:
             if how == "cloudscraper":
                 import cloudscraper
-                return cloudscraper.create_scraper().get(url, timeout=90)
+                return cloudscraper.create_scraper().get(url, timeout=TIMEOUT)
             import requests
-            return requests.get(url, timeout=90, headers=UA, allow_redirects=True)
+            return requests.get(url, timeout=TIMEOUT, headers=UA, allow_redirects=True)
         except Exception as e:
             last = e
+            if deadline and time.monotonic() + 2 * (n + 1) > deadline:
+                break
             time.sleep(2 * (n + 1))
     raise last
 
@@ -101,7 +124,7 @@ class Manual(Exception):
     """Not a failure: this chain simply cannot be checked without a browser."""
 
 
-def resolve(src):
+def resolve(src, deadline=None):
     """The asset URL the chain publishes right now, and how we know."""
     how = src.get("fetch", "plain")
     if how == "manual":
@@ -109,12 +132,12 @@ def resolve(src):
     if how == "asset":
         return src["pdf_url"], "asset url (no page)"
     if how == "redirect":
-        r = get(src["page_url"], "plain")
+        r = get(src["page_url"], "plain", deadline=deadline)
         return r.url, f"redirect from {src['page_url']}"
     page = src.get("page_url")
     if not page:
         return src.get("pdf_url"), "no page recorded"
-    r = get(page, how)
+    r = get(page, how, deadline=deadline)
     if r.status_code != 200:
         raise RuntimeError(f"page {r.status_code}")
     found = sorted({("https:" + u if u.startswith("//") else u)
@@ -136,6 +159,7 @@ def resolve(src):
 def check(slug):
     src = json.loads((CHAINS / f"{slug}.json").read_text())["meta"]["source"]
     out = {"chain": slug, "state": "error", "note": ""}
+    deadline = time.monotonic() + BUDGET
     recorded = src.get("pdf_url") or src.get("html_url")
     try:
         entry = spec(src)
@@ -164,13 +188,16 @@ def check(slug):
                    note="page re-parsed; text " + ("identical" if same else "DIFFERS"))
         return out
     try:
-        live, how = resolve(src)
+        live, how = resolve(src, deadline)
         out["note"] = how
     except Manual as e:
         out.update(state="manual", note=str(e))
         return out
+    except Budget as e:
+        out.update(state="slow", note=str(e))
+        return out
     except Exception as e:
-        out["note"] = f"{type(e).__name__}: {e}"
+        out["note"] = f"{type(e).__name__}: {str(e)[:70]}"
         return out
 
     if live != recorded:
@@ -178,7 +205,8 @@ def check(slug):
         return out
 
     try:
-        body = get(live, "plain" if src.get("fetch") == "redirect" else src.get("fetch", "plain")).content
+        body = get(live, "plain" if src.get("fetch") == "redirect" else src.get("fetch", "plain"),
+                   deadline=deadline).content
     except Exception as e:
         out["note"] = f"fetching asset: {type(e).__name__}"
         return out
@@ -278,7 +306,18 @@ def main():
     slugs = sorted(p.stem for p in CHAINS.glob("*.json")) if "--all" in sys.argv else args
     if not slugs:
         sys.exit(__doc__)
-    rows = [check(s) for s in slugs]
+    # Checked in parallel, because the sweep is almost entirely waiting on
+    # other people's servers and one slow host used to hold up all the rest.
+    # Same shape as gsc.py's index_states: a small pool, well under anything
+    # that would look like pressure on a single site -- and every chain here is
+    # a DIFFERENT site, so the pool never sends two requests to one host at
+    # once. Serial on request, for a readable log while debugging one chain.
+    if len(slugs) > 1 and "--serial" not in sys.argv:
+        from concurrent.futures import ThreadPoolExecutor
+        with ThreadPoolExecutor(max_workers=8) as pool:
+            rows = list(pool.map(check, slugs))
+    else:
+        rows = [check(s) for s in slugs]
     if "--touch" in sys.argv:
         touch([r["chain"] for r in rows if r["state"] in ("ok", "reexport")])
     if as_json:

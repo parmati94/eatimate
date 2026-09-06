@@ -23,12 +23,45 @@ builder's existing quantity steps.
 
 --groups   list the groups with their sizes and portions, and exit. Run this
            FIRST: the names it prints are the section keys for the config.
+
+With no file argument the export is FETCHED, from the same stable URL the
+chain's own calculator reads. The note here used to say the export URL was
+minted per session and so the chain could only be re-checked by hand; that was
+wrong. `restaurant.nutritionix.com/<brand>/landing` loads /landing-config.js,
+which names the host, and the data is public and unchanging at:
+
+    <host>/restaurant/<brand>/data/menu-latest.json.gz
+
+Set `meta.source.nutritionix_slug` to the brand as Nutritionix spells it
+("firehouse-subs", not our "firehousesubs"). The payload carries its own
+`generatedAt`, which is a better staleness signal than any hash of it.
 """
 import argparse
 import json
 import re
 import sys
 from pathlib import Path
+
+NIX_HOST = "https://nix-vue-inm.s3.amazonaws.com"
+UA = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36"}
+
+
+def fetch(slug):
+    """The live export for a chain, from the config's nutritionix_slug."""
+    import requests
+    cfg = Path(f"ingest/chains/{slug}.json")
+    if not cfg.exists():
+        sys.exit(f"no config at {cfg}, and no file given")
+    src = json.loads(cfg.read_text())["meta"]["source"]
+    brand = src.get("nutritionix_slug")
+    if not brand:
+        sys.exit(f"{cfg} has no meta.source.nutritionix_slug -- the brand as "
+                 f"Nutritionix spells it, e.g. 'firehouse-subs'")
+    url = f"{NIX_HOST}/restaurant/{brand}/data/menu-latest.json.gz"
+    r = requests.get(url, timeout=60, headers=UA)
+    r.raise_for_status()
+    return r.json(), url
 
 # Nutritionix's field names, in the order layout.columns must be written.
 FIELDS = [
@@ -65,15 +98,23 @@ def main() -> None:
         sys.exit(__doc__)
     a = ap.parse_args()
 
-    raw = Path(a.slug if a.path is None else "").name  # placeholder, resolved below
+    # A local file wins when given, then one already on disk, then the live
+    # export. Preferring the local copy keeps a re-dump of a chain reproducible
+    # offline; falling through to the network is what lets refresh.py check it.
     src = Path(a.path) if a.path else None
     if src is None:
         cands = sorted(Path(f"data/raw/{a.slug}").glob("*menu-latest*.json")) or \
                 sorted(Path(f"data/raw/{a.slug}").glob("*.json"))
-        if not cands:
-            sys.exit(f"no json found in data/raw/{a.slug}/ -- pass one explicitly")
-        src = max(cands, key=lambda p: p.stat().st_size)
-    doc = json.loads(src.read_text())
+        src = max(cands, key=lambda p: p.stat().st_size) if cands else None
+    if src is None:
+        doc, src = fetch(a.slug)
+        print(f"  fetched {src}")
+        src = Path(src)
+    else:
+        doc = json.loads(src.read_text())
+    gen = doc.get("generatedAt")
+    if gen:
+        print(f"  export generatedAt {str(gen)[:19]}")
 
     groups = {g["id"]: g for g in doc["groups"]}
     mods = {m["id"]: m for m in doc["modifiers"]}
