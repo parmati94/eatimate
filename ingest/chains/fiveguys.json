@@ -3,14 +3,14 @@
   "name": "Five Guys",
   "slug": "fiveguys",
   "source": {
-   "pdf_url": "https://www.fiveguys.com/wp-content/uploads/2026/08/Five-Guys-US-Nutrition-Allergen-Guide-English-August-2026.pdf",
-   "retrieved": "2026-08-31",
+   "pdf_url": "https://www.fiveguys.com/wp-content/uploads/2026/09/Five-Guys-US-Nutrition-Allergen-Guide-English-September-2026.pdf",
+   "retrieved": "2026-09-06",
    "format": "pdf",
    "page_url": "https://www.fiveguys.com/nutritional-information",
    "link_pattern": "Nutrition-Allergen-Guide",
    "fetch": "plain",
-   "dump_sha256": "ee5bfdb3c735d4be76b9ff0925bbf49bd22d67884dcc10078f1f31421d89a162",
-   "asset_sha256": "21a61297f7ece4627c31528f78436cb40327473d2308ef4d9ceaa58ae295c4e0"
+   "dump_sha256": "e35041002667290db081b8ce8358225bea5d6717430da6a1e40ce21589affe84",
+   "asset_sha256": "836c190333dfa25fb14f7b74e325ed39ae89b73a64e627822ba0f368c51c49ac"
   },
   "disclaimer_extra": "Five Guys' guide (June 2026) lists some items per supplier with near-identical values; the first-listed supplier's row is used. All toppings are free at the counter — free doesn't mean calorie-free.",
   "blurb": "Build your Five Guys order patty by patty — bun, meat, all the free toppings, fries by size and style, even the milkshake mix-ins.",
@@ -55,10 +55,18 @@
   },
   {
    "id": "shake",
-   "name": "Milkshake Builder",
+   "name": "Milkshake",
    "select": "multi",
    "flow": "extras",
-   "role": "drink"
+   "role": "drink",
+   "note": "Pick the base first — the mix-in portions below are published per shake size."
+  },
+  {
+   "id": "mixins",
+   "name": "Mix-ins & Toppings",
+   "select": "multi",
+   "flow": "extras",
+   "role": "dessert"
   },
   {
    "id": "snacks",
@@ -101,14 +109,15 @@
     "MIX-INS"
    ],
    [
-    "< 1",
+    "<\\s+1",
     "<1"
    ],
    [
-    "^Chives Seasoning 1-2 ",
-    "Chives Seasoning 2 "
+    "^(Chives Seasoning) 1-2\\b",
+    "\\1 -"
    ]
-  ]
+  ],
+  "start": "^MEAT$"
  },
  "section_categories": {
   "MEAT": {
@@ -146,6 +155,14 @@
   "PEANUTS": {
    "cat": "snacks",
    "desc": "1 oz scoop"
+  },
+  "MINI MILKSHAKES": {
+   "cat": "shake",
+   "desc": "1 mini shake"
+  },
+  "OTHER ITEMS": {
+   "cat": "toppings",
+   "desc": "1 serving"
   }
  },
  "items": {
@@ -212,15 +229,6 @@
   },
   "Pickles (Supplier B)": {
    "skip": "supplier variant; Supplier M row kept (values near-identical)"
-  },
-  "Whipped Cream (Supplier S)": {
-   "cat": "shake",
-   "id": "whipped-cream",
-   "name": "Whipped Cream",
-   "desc": "1 topping"
-  },
-  "Whipped Cream (Supplier A)": {
-   "skip": "supplier variant; Supplier S row kept (values near-identical)"
   },
   "Fry Sauce Bulk": {
    "skip": "bulk variant; the PC cup is what an order gets"
@@ -297,6 +305,227 @@
    "name": "Cajun Style Fries",
    "variant_label": "Large",
    "variant_of": "regular-cajun-style"
+  },
+  "Hamburger Bun": {
+   "cat": "bun",
+   "id": "bun",
+   "name": "Hamburger Bun",
+   "desc": "1 bun"
+  },
+  "Mini Bun": {
+   "cat": "bun",
+   "desc": "1 bun"
+  },
+  "Mini Five Guys Style": {
+   "cat": "fries",
+   "id": "mini-five-guys-style",
+   "name": "Five Guys Style Fries",
+   "variant_label": "Mini",
+   "variant_of": "regular-five-guys-style"
+  },
+  "Mini Five Guys Style [#2]": {
+   "skip": "printed twice; this one sits inside the Cajun block where Mini Cajun Style belongs, but the guide does not say so"
+  },
+  "Vanilla Shake Base": {
+   "cat": "shake",
+   "id": "vanilla-shake-base",
+   "name": "Vanilla Shake Base",
+   "variant_label": "Regular",
+   "desc": "1 shake"
+  },
+  "Mini Vanilla Shake Base": {
+   "cat": "shake",
+   "id": "mini-vanilla-shake-base",
+   "name": "Vanilla Shake Base",
+   "variant_label": "Mini",
+   "variant_of": "vanilla-shake-base",
+   "desc": "1 mini shake"
+  },
+  "Blackberry Sauce": {
+   "cat": "mixins",
+   "id": "blackberry-sauce",
+   "name": "Blackberry Sauce",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
+  },
+  "Blackberry Sauce [#2]": {
+   "cat": "mixins",
+   "id": "blackberry-sauce-mini",
+   "name": "Blackberry Sauce",
+   "variant_label": "Mini",
+   "variant_of": "blackberry-sauce",
+   "desc": "1 mix-in, mini shake"
+  },
+  "Bacon (2 pieces)": {
+   "cat": "mixins",
+   "id": "bacon-2-pieces",
+   "name": "Bacon (2 pieces)",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
+  },
+  "Bacon (2 pieces) [#2]": {
+   "cat": "mixins",
+   "id": "bacon-2-pieces-mini",
+   "name": "Bacon (2 pieces)",
+   "variant_label": "Mini",
+   "variant_of": "bacon-2-pieces",
+   "desc": "1 mix-in, mini shake"
+  },
+  "Banana Marinade": {
+   "cat": "mixins",
+   "id": "banana-marinade",
+   "name": "Banana Marinade",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
+  },
+  "Banana Marinade [#2]": {
+   "cat": "mixins",
+   "id": "banana-marinade-mini",
+   "name": "Banana Marinade",
+   "variant_label": "Mini",
+   "variant_of": "banana-marinade",
+   "desc": "1 mix-in, mini shake"
+  },
+  "Chocolate": {
+   "cat": "mixins",
+   "id": "chocolate",
+   "name": "Chocolate",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
+  },
+  "Chocolate [#2]": {
+   "cat": "mixins",
+   "id": "chocolate-mini",
+   "name": "Chocolate",
+   "variant_label": "Mini",
+   "variant_of": "chocolate",
+   "desc": "1 mix-in, mini shake"
+  },
+  "Coffee": {
+   "cat": "mixins",
+   "id": "coffee",
+   "name": "Coffee",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
+  },
+  "Coffee [#2]": {
+   "cat": "mixins",
+   "id": "coffee-mini",
+   "name": "Coffee",
+   "variant_label": "Mini",
+   "variant_of": "coffee",
+   "desc": "1 mix-in, mini shake"
+  },
+  "Oreo® Crème": {
+   "cat": "mixins",
+   "id": "oreo-creme",
+   "name": "Oreo® Crème",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
+  },
+  "Oreo® Crème [#2]": {
+   "cat": "mixins",
+   "id": "oreo-creme-mini",
+   "name": "Oreo® Crème",
+   "variant_label": "Mini",
+   "variant_of": "oreo-creme",
+   "desc": "1 mix-in, mini shake"
+  },
+  "Oreo® Cookie Pieces": {
+   "cat": "mixins",
+   "id": "oreo-cookie-pieces",
+   "name": "Oreo® Cookie Pieces",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
+  },
+  "Oreo® Cookie Pieces [#2]": {
+   "cat": "mixins",
+   "id": "oreo-cookie-pieces-mini",
+   "name": "Oreo® Cookie Pieces",
+   "variant_label": "Mini",
+   "variant_of": "oreo-cookie-pieces",
+   "desc": "1 mix-in, mini shake"
+  },
+  "Peanut Butter": {
+   "cat": "mixins",
+   "id": "peanut-butter",
+   "name": "Peanut Butter",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
+  },
+  "Peanut Butter [#2]": {
+   "cat": "mixins",
+   "id": "peanut-butter-mini",
+   "name": "Peanut Butter",
+   "variant_label": "Mini",
+   "variant_of": "peanut-butter",
+   "desc": "1 mix-in, mini shake"
+  },
+  "Reese’s® Peanut Butter Cup": {
+   "cat": "mixins",
+   "id": "reeses-peanut-butter-cup",
+   "name": "Reese’s® Peanut Butter Cup",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
+  },
+  "Reese’s® Peanut Butter Cup [#2]": {
+   "cat": "mixins",
+   "id": "reeses-peanut-butter-cup-mini",
+   "name": "Reese’s® Peanut Butter Cup",
+   "variant_label": "Mini",
+   "variant_of": "reeses-peanut-butter-cup",
+   "desc": "1 mix-in, mini shake"
+  },
+  "Salted Caramel": {
+   "cat": "mixins",
+   "id": "salted-caramel",
+   "name": "Salted Caramel",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
+  },
+  "Salted Caramel [#2]": {
+   "cat": "mixins",
+   "id": "salted-caramel-mini",
+   "name": "Salted Caramel",
+   "variant_label": "Mini",
+   "variant_of": "salted-caramel",
+   "desc": "1 mix-in, mini shake"
+  },
+  "Strawberry": {
+   "cat": "mixins",
+   "id": "strawberry",
+   "name": "Strawberry",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
+  },
+  "Strawberry [#2]": {
+   "cat": "mixins",
+   "id": "strawberry-mini",
+   "name": "Strawberry",
+   "variant_label": "Mini",
+   "variant_of": "strawberry",
+   "desc": "1 mix-in, mini shake"
+  },
+  "Whipped Cream (Supplier S)": {
+   "cat": "mixins",
+   "id": "whipped-cream",
+   "name": "Whipped Cream",
+   "variant_label": "Regular",
+   "desc": "1 topping"
+  },
+  "Whipped Cream (Supplier S) [#2]": {
+   "cat": "mixins",
+   "id": "whipped-cream-mini",
+   "name": "Whipped Cream",
+   "variant_label": "Mini",
+   "variant_of": "whipped-cream",
+   "desc": "1 topping, mini shake"
+  },
+  "Whipped Cream (Supplier A)": {
+   "skip": "supplier variant; Supplier S row kept (values near-identical)"
+  },
+  "Whipped Cream (Supplier A) [#2]": {
+   "skip": "supplier variant; Supplier S row kept (values near-identical)"
   }
  },
  "synthetic": [
