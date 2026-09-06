@@ -55,10 +55,18 @@
   },
   {
    "id": "shake",
-   "name": "Milkshake Builder",
+   "name": "Milkshake",
    "select": "multi",
    "flow": "extras",
-   "role": "drink"
+   "role": "drink",
+   "note": "Pick the base first — the mix-in portions below are published per shake size."
+  },
+  {
+   "id": "mixins",
+   "name": "Mix-ins & Toppings",
+   "select": "multi",
+   "flow": "extras",
+   "role": "dessert"
   },
   {
    "id": "snacks",
@@ -222,15 +230,6 @@
   "Pickles (Supplier B)": {
    "skip": "supplier variant; Supplier M row kept (values near-identical)"
   },
-  "Whipped Cream (Supplier S)": {
-   "cat": "shake",
-   "id": "whipped-cream",
-   "name": "Whipped Cream",
-   "desc": "1 topping"
-  },
-  "Whipped Cream (Supplier A)": {
-   "skip": "supplier variant; Supplier S row kept (values near-identical)"
-  },
   "Fry Sauce Bulk": {
    "skip": "bulk variant; the PC cup is what an order gets"
   },
@@ -327,84 +326,206 @@
   "Mini Five Guys Style [#2]": {
    "skip": "printed twice; this one sits inside the Cajun block where Mini Cajun Style belongs, but the guide does not say so"
   },
+  "Vanilla Shake Base": {
+   "cat": "shake",
+   "id": "vanilla-shake-base",
+   "name": "Vanilla Shake Base",
+   "variant_label": "Regular",
+   "desc": "1 shake"
+  },
   "Mini Vanilla Shake Base": {
    "cat": "shake",
+   "id": "mini-vanilla-shake-base",
+   "name": "Vanilla Shake Base",
+   "variant_label": "Mini",
+   "variant_of": "vanilla-shake-base",
    "desc": "1 mini shake"
   },
+  "Blackberry Sauce": {
+   "cat": "mixins",
+   "id": "blackberry-sauce",
+   "name": "Blackberry Sauce",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
+  },
   "Blackberry Sauce [#2]": {
-   "cat": "shake",
-   "suffix": "Mini",
-   "id_suffix": "mini",
+   "cat": "mixins",
+   "id": "blackberry-sauce-mini",
+   "name": "Blackberry Sauce",
+   "variant_label": "Mini",
+   "variant_of": "blackberry-sauce",
    "desc": "1 mix-in, mini shake"
+  },
+  "Bacon (2 pieces)": {
+   "cat": "mixins",
+   "id": "bacon-2-pieces",
+   "name": "Bacon (2 pieces)",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
   },
   "Bacon (2 pieces) [#2]": {
-   "cat": "shake",
-   "suffix": "Mini",
-   "id_suffix": "mini",
+   "cat": "mixins",
+   "id": "bacon-2-pieces-mini",
+   "name": "Bacon (2 pieces)",
+   "variant_label": "Mini",
+   "variant_of": "bacon-2-pieces",
    "desc": "1 mix-in, mini shake"
+  },
+  "Banana Marinade": {
+   "cat": "mixins",
+   "id": "banana-marinade",
+   "name": "Banana Marinade",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
   },
   "Banana Marinade [#2]": {
-   "cat": "shake",
-   "suffix": "Mini",
-   "id_suffix": "mini",
+   "cat": "mixins",
+   "id": "banana-marinade-mini",
+   "name": "Banana Marinade",
+   "variant_label": "Mini",
+   "variant_of": "banana-marinade",
    "desc": "1 mix-in, mini shake"
+  },
+  "Chocolate": {
+   "cat": "mixins",
+   "id": "chocolate",
+   "name": "Chocolate",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
   },
   "Chocolate [#2]": {
-   "cat": "shake",
-   "suffix": "Mini",
-   "id_suffix": "mini",
+   "cat": "mixins",
+   "id": "chocolate-mini",
+   "name": "Chocolate",
+   "variant_label": "Mini",
+   "variant_of": "chocolate",
    "desc": "1 mix-in, mini shake"
+  },
+  "Coffee": {
+   "cat": "mixins",
+   "id": "coffee",
+   "name": "Coffee",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
   },
   "Coffee [#2]": {
-   "cat": "shake",
-   "suffix": "Mini",
-   "id_suffix": "mini",
+   "cat": "mixins",
+   "id": "coffee-mini",
+   "name": "Coffee",
+   "variant_label": "Mini",
+   "variant_of": "coffee",
    "desc": "1 mix-in, mini shake"
+  },
+  "Oreo® Crème": {
+   "cat": "mixins",
+   "id": "oreo-creme",
+   "name": "Oreo® Crème",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
   },
   "Oreo® Crème [#2]": {
-   "cat": "shake",
-   "suffix": "Mini",
-   "id_suffix": "mini",
+   "cat": "mixins",
+   "id": "oreo-creme-mini",
+   "name": "Oreo® Crème",
+   "variant_label": "Mini",
+   "variant_of": "oreo-creme",
    "desc": "1 mix-in, mini shake"
+  },
+  "Oreo® Cookie Pieces": {
+   "cat": "mixins",
+   "id": "oreo-cookie-pieces",
+   "name": "Oreo® Cookie Pieces",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
   },
   "Oreo® Cookie Pieces [#2]": {
-   "cat": "shake",
-   "suffix": "Mini",
-   "id_suffix": "mini",
+   "cat": "mixins",
+   "id": "oreo-cookie-pieces-mini",
+   "name": "Oreo® Cookie Pieces",
+   "variant_label": "Mini",
+   "variant_of": "oreo-cookie-pieces",
    "desc": "1 mix-in, mini shake"
+  },
+  "Peanut Butter": {
+   "cat": "mixins",
+   "id": "peanut-butter",
+   "name": "Peanut Butter",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
   },
   "Peanut Butter [#2]": {
-   "cat": "shake",
-   "suffix": "Mini",
-   "id_suffix": "mini",
+   "cat": "mixins",
+   "id": "peanut-butter-mini",
+   "name": "Peanut Butter",
+   "variant_label": "Mini",
+   "variant_of": "peanut-butter",
    "desc": "1 mix-in, mini shake"
+  },
+  "Reese’s® Peanut Butter Cup": {
+   "cat": "mixins",
+   "id": "reeses-peanut-butter-cup",
+   "name": "Reese’s® Peanut Butter Cup",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
   },
   "Reese’s® Peanut Butter Cup [#2]": {
-   "cat": "shake",
-   "suffix": "Mini",
-   "id_suffix": "mini",
+   "cat": "mixins",
+   "id": "reeses-peanut-butter-cup-mini",
+   "name": "Reese’s® Peanut Butter Cup",
+   "variant_label": "Mini",
+   "variant_of": "reeses-peanut-butter-cup",
    "desc": "1 mix-in, mini shake"
+  },
+  "Salted Caramel": {
+   "cat": "mixins",
+   "id": "salted-caramel",
+   "name": "Salted Caramel",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
   },
   "Salted Caramel [#2]": {
-   "cat": "shake",
-   "suffix": "Mini",
-   "id_suffix": "mini",
+   "cat": "mixins",
+   "id": "salted-caramel-mini",
+   "name": "Salted Caramel",
+   "variant_label": "Mini",
+   "variant_of": "salted-caramel",
    "desc": "1 mix-in, mini shake"
+  },
+  "Strawberry": {
+   "cat": "mixins",
+   "id": "strawberry",
+   "name": "Strawberry",
+   "variant_label": "Regular",
+   "desc": "1 mix-in"
   },
   "Strawberry [#2]": {
-   "cat": "shake",
-   "suffix": "Mini",
-   "id_suffix": "mini",
+   "cat": "mixins",
+   "id": "strawberry-mini",
+   "name": "Strawberry",
+   "variant_label": "Mini",
+   "variant_of": "strawberry",
    "desc": "1 mix-in, mini shake"
   },
+  "Whipped Cream (Supplier S)": {
+   "cat": "mixins",
+   "id": "whipped-cream",
+   "name": "Whipped Cream",
+   "variant_label": "Regular",
+   "desc": "1 topping"
+  },
   "Whipped Cream (Supplier S) [#2]": {
-   "cat": "shake",
+   "cat": "mixins",
    "id": "whipped-cream-mini",
-   "name": "Whipped Cream (Mini)",
+   "name": "Whipped Cream",
+   "variant_label": "Mini",
+   "variant_of": "whipped-cream",
    "desc": "1 topping, mini shake"
   },
+  "Whipped Cream (Supplier A)": {
+   "skip": "supplier variant; Supplier S row kept (values near-identical)"
+  },
   "Whipped Cream (Supplier A) [#2]": {
-   "skip": "supplier variant; Supplier S row kept"
+   "skip": "supplier variant; Supplier S row kept (values near-identical)"
   }
  },
  "synthetic": [
