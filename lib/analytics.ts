@@ -36,8 +36,17 @@ export type EventName =
   | "chain-picked"
   /** The meal crossed from poking at it to actually being one. meal-started
    *  fires on the FIRST pick and so cannot tell those apart; this is the pair
-   *  that gives a completion rate. */
+   *  that gives a completion rate. Carries NO size: it fires the instant the
+   *  threshold is crossed, so any count on it is that threshold and nothing
+   *  else. Size is meal-final's job. */
   | "meal-built"
+  /** How big the meal actually got, read when the visit ends -- a builder has
+   *  no "done" button, so there is no earlier honest moment. */
+  | "meal-final"
+  /** Copied the label as text. */
+  | "label-copied"
+  /** Saved or shared the label as an image. */
+  | "label-saved"
   /** Changed the chain-wide size (6" to footlong, medium to large). */
   | "size-changed"
   /** A search that found nothing, with the term. Sent only once the field has

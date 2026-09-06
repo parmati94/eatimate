@@ -86,8 +86,13 @@ export function SaveImageButton({
           const nav = navigator as Navigator & {
             canShare?: (d: { files: File[] }) => boolean;
           };
+          // Counted at each SUCCESS point rather than once up front: a
+          // cancelled share rejects into the catch below, and counting the
+          // attempt would report saves nobody made.
+          const items = chain.components.filter((c) => selections[c.id]).length;
           if (nav.canShare?.({ files: [file] })) {
             await nav.share({ files: [file], title: "Nutrition Facts" });
+            track("label-saved", { chain: chain.slug, items, via: "share" });
             return;
           }
           const url = URL.createObjectURL(blob);
@@ -96,6 +101,7 @@ export function SaveImageButton({
           a.download = name;
           if ("download" in a) a.click();
           else window.open(url, "_blank");
+          track("label-saved", { chain: chain.slug, items, via: "download" });
           setTimeout(() => URL.revokeObjectURL(url), 10000);
         } catch {
           // A cancelled share rejects; nothing to report.
@@ -210,6 +216,10 @@ export function CopyLabelButton({
           );
           setText(t);
           if (await copyText(t)) {
+            // The signal an export path is wanted. Until this existed the two
+            // buttons that mean "I want these numbers somewhere else" sent
+            // nothing at all, so "nobody wants it" was an absence of data.
+            track("label-copied", { chain: chain.slug, items: picked.length });
             setState("copied");
             setTimeout(() => setState("idle"), 1500);
           } else {
