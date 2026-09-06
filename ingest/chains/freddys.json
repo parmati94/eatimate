@@ -5,8 +5,8 @@
   "source": {
    "html_url": "https://www.freddys.com/nutrition-and-allergens",
    "retrieved": "2026-09-06",
-   "format": "html",
-   "fetch": "page",
+   "format": "html_fields",
+   "fetch": "plain",
    "fields": true,
    "page_url": "https://www.freddys.com/nutrition-and-allergens",
    "dump_sha256": "af3f05a88bb90659af3545661f06606979cd7a93856c13e4156b0a6fb6b24924",

@@ -44,6 +44,11 @@ FORMATS = {
     "html_table": {"dumper": "dump_html.py", "refresh": "redump", "needs": ("html_url",)},
     "html_matrix": {"dumper": "dump_html.py", "refresh": "redump", "needs": ("html_url",)},
     "html_items": {"dumper": "dump_html.py", "refresh": "redump", "needs": ("html_url",)},
+    # Label/value <div> pairs rather than a table -- Freddy's publishes its
+    # whole nutrition page with zero <tr> on it. The class on each value names
+    # the nutrient, so print order does not matter.
+    "html_fields": {"dumper": "dump_html.py", "refresh": "redump", "needs": ("html_url",),
+                    "args": lambda src: ["--fields"]},
     # Structured JSON embedded in a page or served by an API (Chick-fil-A).
     "json": {"dumper": "dump_json.py", "refresh": "redump", "needs": ("html_url",)},
     # A Sanity CMS dataset queried with GROQ (Burger King).
