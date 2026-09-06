@@ -24,7 +24,7 @@
   "default_flow": "menu",
   "build_label": {
    "title": "Build a drink",
-   "note": "Pick a cup size, then add flavours and mix-ins."
+   "note": "Pick a cup size, then add flavour shots and mix-ins."
   }
  },
  "layout": {
@@ -55,8 +55,9 @@
    "id": "toppings",
    "name": "Make It Yours",
    "select": "multi",
-   "flow": "both",
-   "role": "topping"
+   "flow": "extras",
+   "role": "topping",
+   "note": "American cheese, bacon, grilled onions — what Sonic adds to a burger you picked above. Not a step on the drink path, which is why it sits with the other add-ons rather than in the numbered flow."
   },
   {
    "id": "drink",
