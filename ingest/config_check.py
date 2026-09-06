@@ -24,6 +24,7 @@ META = {"name", "slug", "source", "disclaimer_extra", "glyph", "formats", "blurb
 SOURCE = {"format", "fetch", "retrieved", "verified", "pdf_url", "html_url", "html_urls",
           "page_url", "link_pattern", "asset_sha256", "dump_sha256", "tables",
           "transcribed", "matrix", "fields", "plain_ua", "groups",
+          "nutritionix_slug",
           # API-shaped sources
           "api_base", "dataset", "menu_id", "build_item", "menu_path", "headers",
           "skip_categories", "skip_ingredients"}

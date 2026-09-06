@@ -1,6 +1,7 @@
 """Check whether a chain's published source has moved or changed.
 
 Usage: refresh.py <slug> | --all [--json]
+       refresh.py --pull <slug>     carry the current source through to data/
        refresh.py --record <slug>   after a re-ingest, re-pin hashes + date
 
 Reads meta.source from ingest/chains/<slug>.json and reports one of:
@@ -15,7 +16,10 @@ Reads meta.source from ingest/chains/<slug>.json and reports one of:
   error     could not reach or resolve the source
 
 Exit code 0 when every chain is ok/reexport, 1 otherwise, so a cron can
-branch on it. Nothing is written: this only reports -- except with --touch,
+branch on it. Checking writes NOTHING -- it downloads a changed asset, parses
+it to tell a re-export from a real edit, and restores what was there. The
+three flags that DO write are --pull (ingest the change), --record (re-pin
+hashes after one) and --touch,
 which stamps source.verified with today's date on every chain that came back
 ok or reexport, so overview.py's freshness table measures how long since the
 source was last found unchanged rather than how long since it was fetched.
@@ -33,11 +37,19 @@ CAVA and Moe's are the reverse:
                 without a browser (Domino's). overview.py's freshness table
                 is what catches these, by age rather than by change.
 
+--pull <slug>  fetch the chain's CURRENT source and carry it through to
+             data/chains: updates a moved url, downloads, dumps, extracts and
+             re-pins the hashes. Stops and says so where a new row needs a
+             config decision -- that is the one step it cannot make.
+--serial     check one chain at a time (readable log when debugging one)
+$REFRESH_TIMEOUT  seconds per request  (default 20)
+$REFRESH_BUDGET   seconds per chain    (default 45)
+
 `source.format` picks the strategy, via formats.py: an "asset" format (pdf,
 image) is resolved and hashed; a "redump" format (html, json, sanity,
 compose) is re-parsed and its text compared; a "manual" one is reported.
 """
-import hashlib, json, re, subprocess, sys, tempfile, warnings
+import hashlib, json, os, re, subprocess, sys, tempfile, time, warnings
 from pathlib import Path
 
 from formats import dump_args, dumper_path, spec
@@ -63,20 +75,39 @@ UA = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
                     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36"}
 
 
-def get(url, how, tries=3):
-    """Retry once or twice: some of these sites (Subway) are simply slow, and a
-    transient timeout reported as a change would be worse than useless."""
+# One attempt's patience, and the whole chain's. Subway sits behind Akamai Bot
+# Manager, which does not REFUSE urllib3 -- it accepts the connection and then
+# never answers -- so a 90s timeout retried three times spent 4.5 minutes on
+# one chain and was most of a five-minute sweep. A host that has not spoken in
+# 20 seconds is not being slow, it is not going to answer; and the sweep has to
+# stay short enough to run on a timer as the chain count grows.
+TIMEOUT = int(os.environ.get("REFRESH_TIMEOUT", "20"))
+BUDGET = int(os.environ.get("REFRESH_BUDGET", "45"))
+
+
+class Budget(Exception):
+    """This chain used its whole time budget. Reported, never silent."""
+
+
+def get(url, how, tries=3, deadline=None):
+    """Retry once or twice: some of these sites are simply slow, and a
+    transient timeout reported as a change would be worse than useless. But
+    retries stop at the deadline, so one wedged host cannot hold the sweep."""
     import time
     last = None
     for n in range(tries):
+        if deadline and time.monotonic() > deadline:
+            raise Budget(f"gave up after {BUDGET}s")
         try:
             if how == "cloudscraper":
                 import cloudscraper
-                return cloudscraper.create_scraper().get(url, timeout=90)
+                return cloudscraper.create_scraper().get(url, timeout=TIMEOUT)
             import requests
-            return requests.get(url, timeout=90, headers=UA, allow_redirects=True)
+            return requests.get(url, timeout=TIMEOUT, headers=UA, allow_redirects=True)
         except Exception as e:
             last = e
+            if deadline and time.monotonic() + 2 * (n + 1) > deadline:
+                break
             time.sleep(2 * (n + 1))
     raise last
 
@@ -101,7 +132,7 @@ class Manual(Exception):
     """Not a failure: this chain simply cannot be checked without a browser."""
 
 
-def resolve(src):
+def resolve(src, deadline=None):
     """The asset URL the chain publishes right now, and how we know."""
     how = src.get("fetch", "plain")
     if how == "manual":
@@ -109,12 +140,12 @@ def resolve(src):
     if how == "asset":
         return src["pdf_url"], "asset url (no page)"
     if how == "redirect":
-        r = get(src["page_url"], "plain")
+        r = get(src["page_url"], "plain", deadline=deadline)
         return r.url, f"redirect from {src['page_url']}"
     page = src.get("page_url")
     if not page:
         return src.get("pdf_url"), "no page recorded"
-    r = get(page, how)
+    r = get(page, how, deadline=deadline)
     if r.status_code != 200:
         raise RuntimeError(f"page {r.status_code}")
     found = sorted({("https:" + u if u.startswith("//") else u)
@@ -129,13 +160,26 @@ def resolve(src):
         hits = [u for u in found if re.search(pat, u)]
         if not hits:
             raise RuntimeError(f"no link matching {pat!r} among {len(found)}")
-        return hits[0], f"{len(found)} assets on page, matched {pat!r}"
+        # Prefer the url we already have when it is still on the page. Several
+        # of these pages keep LAST year's guide next to this year's -- Einstein
+        # Bros lists EBB-Nutrition-Guide-Master.pdf (2025) beside
+        # EBB-Nutrition-Guide-Master-2026-2.pdf -- and hits[0] after sorting
+        # would quietly hand us the archive and call it a move. A move is the
+        # recorded url DISAPPEARING, which is what Five Guys did when September
+        # replaced August; while it is still listed, nothing has moved.
+        #
+        # The count goes in the note either way, so a page that grows a second
+        # candidate is visible rather than silently resolved.
+        pick = src["pdf_url"] if src.get("pdf_url") in hits else hits[0]
+        many = f", {len(hits)} candidates" if len(hits) > 1 else ""
+        return pick, f"{len(found)} assets on page, matched {pat!r}{many}"
     return (src["pdf_url"] if src["pdf_url"] in found else found[0]), f"{len(found)} pdfs on page"
 
 
 def check(slug):
     src = json.loads((CHAINS / f"{slug}.json").read_text())["meta"]["source"]
     out = {"chain": slug, "state": "error", "note": ""}
+    deadline = time.monotonic() + BUDGET
     recorded = src.get("pdf_url") or src.get("html_url")
     try:
         entry = spec(src)
@@ -164,21 +208,26 @@ def check(slug):
                    note="page re-parsed; text " + ("identical" if same else "DIFFERS"))
         return out
     try:
-        live, how = resolve(src)
+        live, how = resolve(src, deadline)
         out["note"] = how
     except Manual as e:
         out.update(state="manual", note=str(e))
         return out
+    except Budget as e:
+        out.update(state="slow", note=str(e))
+        return out
     except Exception as e:
-        out["note"] = f"{type(e).__name__}: {e}"
+        out["note"] = f"{type(e).__name__}: {str(e)[:70]}"
         return out
 
+    out["live"] = live
     if live != recorded:
         out.update(state="moved", note=f"{how}; now {live}")
         return out
 
     try:
-        body = get(live, "plain" if src.get("fetch") == "redirect" else src.get("fetch", "plain")).content
+        body = get(live, "plain" if src.get("fetch") == "redirect" else src.get("fetch", "plain"),
+                   deadline=deadline).content
     except Exception as e:
         out["note"] = f"fetching asset: {type(e).__name__}"
         return out
@@ -249,6 +298,87 @@ def record(slug):
     print("  now re-run extract.py so the shipped retrieved date matches")
 
 
+def pull(slug):
+    """Take the chain's CURRENT source and carry it all the way to shipped data.
+
+    refresh.py already downloads a changed asset and runs the dumper on it, to
+    tell a re-export from a real edit -- and then throws all of it away, on
+    purpose. This keeps it, which is the only difference between detecting a
+    change and ingesting one, and collapses six mechanical steps into one:
+
+        edit pdf_url if it moved -> download -> dump -> extract -> re-record
+        -> extract again so the shipped `retrieved` date matches
+
+    The seventh step is the one it CANNOT do: when a chain adds a row that no
+    section default or items entry covers, extract aborts by design, and
+    somebody has to say what that row is. That is reported, loudly, with the
+    tree left as it is so the new dump can be read -- reverting is one git
+    checkout and the message says so.
+    """
+    import datetime
+    cp = CHAINS / f"{slug}.json"
+    cfg = json.loads(cp.read_text())
+    src = cfg["meta"]["source"]
+    entry = spec(src)
+    r = check(slug)
+    print(f"  {slug}: {r['state'].upper()} — {r['note'][:100]}")
+    if r["state"] in ("ok", "reexport"):
+        print("     source is unchanged; nothing to pull")
+        return r["state"]
+    if r["state"] == "manual":
+        print("     cannot be fetched without a person; fetch it and run "
+              f"{entry['dumper']} {slug} <file> by hand")
+        return "manual"
+    if r["state"] not in ("changed", "moved", "unpinned"):
+        print("     not a state worth pulling; fix the error first")
+        return r["state"]
+
+    # A moved asset is the chain publishing at a new URL. Record it BEFORE
+    # fetching, so the config and the bytes on disk can never disagree.
+    live = r.get("live")
+    if r["state"] == "moved" and live:
+        key = "pdf_url" if src.get("pdf_url") else "html_url"
+        print(f"     {key}: {src.get(key)}\n              -> {live}")
+        src[key] = live
+        cp.write_text(json.dumps(cfg, indent=1, ensure_ascii=False) + "\n")
+
+    raw = RAW / slug
+    raw.mkdir(parents=True, exist_ok=True)
+    before = (raw / "raw_dump.txt").read_text() if (raw / "raw_dump.txt").exists() else None
+    if entry["refresh"] == "redump":
+        # These dumpers fetch for themselves.
+        subprocess.run([sys.executable, str(dumper_path(src)), slug] + dump_args(src),
+                       check=True, capture_output=True)
+    else:
+        body = get(src.get("pdf_url") or src["html_url"],
+                   "plain" if src.get("fetch") == "redirect" else src.get("fetch", "plain")).content
+        # Keep the source file: --record hashes it, and a guide we can no
+        # longer download is a guide we can no longer prove anything about.
+        name = "source.pdf" if body[:4] == b"%PDF" else "source.html"
+        (raw / name).write_bytes(body)
+        print(f"     fetched {len(body):,}b -> data/raw/{slug}/{name}")
+        subprocess.run([sys.executable, str(dumper_path(src)), slug, str(raw / name)] + dump_args(src),
+                       check=True, capture_output=True)
+    after = (raw / "raw_dump.txt").read_text()
+    if before is not None and norm_hash(before) == norm_hash(after):
+        print("     dump is identical after all; nothing further to do")
+        return "ok"
+
+    ex = subprocess.run([sys.executable, "ingest/extract.py", slug], capture_output=True, text=True)
+    if ex.returncode != 0:
+        tail = [l for l in (ex.stdout + ex.stderr).splitlines() if l.strip()][-3:]
+        print("     EXTRACT FAILED — this is the judgement call, not a bug:")
+        for l in tail:
+            print(f"       {l[:150]}")
+        print(f"     the new dump is left in place so it can be read;"
+              f" revert with:\n       git checkout -- data/raw/{slug}/raw_dump.txt ingest/chains/{slug}.json")
+        return "needs-config"
+
+    record(slug)                      # re-pin hashes and the retrieved date
+    subprocess.run([sys.executable, "ingest/extract.py", slug], capture_output=True)
+    return "pulled"
+
+
 def touch(slugs):
     """Stamp source.verified = today on chains found unchanged. The date is
     carried into data/chains by the next extract, so it has to be followed by
@@ -268,6 +398,16 @@ def touch(slugs):
 
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    if "--pull" in sys.argv:
+        if not args:
+            sys.exit("usage: refresh.py --pull <slug> [slug...]")
+        done = {}
+        for slug in args:
+            done[slug] = pull(slug)
+        print()
+        for slug, st in done.items():
+            print(f"  {slug:<15} {st}")
+        sys.exit(0 if all(v in ("pulled", "ok", "manual") for v in done.values()) else 1)
     if "--record" in sys.argv:
         if not args:
             sys.exit("usage: refresh.py --record <slug>")
@@ -278,7 +418,18 @@ def main():
     slugs = sorted(p.stem for p in CHAINS.glob("*.json")) if "--all" in sys.argv else args
     if not slugs:
         sys.exit(__doc__)
-    rows = [check(s) for s in slugs]
+    # Checked in parallel, because the sweep is almost entirely waiting on
+    # other people's servers and one slow host used to hold up all the rest.
+    # Same shape as gsc.py's index_states: a small pool, well under anything
+    # that would look like pressure on a single site -- and every chain here is
+    # a DIFFERENT site, so the pool never sends two requests to one host at
+    # once. Serial on request, for a readable log while debugging one chain.
+    if len(slugs) > 1 and "--serial" not in sys.argv:
+        from concurrent.futures import ThreadPoolExecutor
+        with ThreadPoolExecutor(max_workers=8) as pool:
+            rows = list(pool.map(check, slugs))
+    else:
+        rows = [check(s) for s in slugs]
     if "--touch" in sys.argv:
         touch([r["chain"] for r in rows if r["state"] in ("ok", "reexport")])
     if as_json:

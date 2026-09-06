@@ -6,10 +6,11 @@
    "html_url": "https://nix-vue-inm.s3.amazonaws.com/restaurant/firehouse-subs/data/menu-latest.json.gz",
    "retrieved": "2026-09-06",
    "format": "nutritionix",
-   "fetch": "manual",
+   "fetch": "plain",
    "page_url": "https://restaurant.nutritionix.com/firehouse-subs/landing",
    "dump_sha256": "78bd153b303630d69fe81c75de540cf245c8ad0db529c4e9ca7d41045f0a0a85",
-   "asset_sha256": "fa077e5cb6e01c80f7bf1d9ed72ff8c8a932af8509b6a013e26272d553d8e8c4"
+   "asset_sha256": "fa077e5cb6e01c80f7bf1d9ed72ff8c8a932af8509b6a013e26272d553d8e8c4",
+   "nutritionix_slug": "firehouse-subs"
   },
   "disclaimer_extra": "Firehouse Subs hands its nutrition to Nutritionix and links that calculator from its own site, so these figures come from the export Firehouse points its customers at. Every ingredient is published three times over — once for the small, medium and large sub — and the three sets are not multiples of each other: of the 58 ingredients printed at all three sizes, 37 break a fixed ratio. A large gets twice the chicken breast of a medium while a small gets half, and the salami portion is identical on a large and a medium. So picking a size here shows that size's own published numbers rather than a scaled figure.",
   "blurb": "Build a Firehouse sub the way they make it — pick the roll, the meats, the cheese and everything on top — or start from a Hook & Ladder or an Italian and change it.",

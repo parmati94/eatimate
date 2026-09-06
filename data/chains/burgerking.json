@@ -3,7 +3,7 @@
   "slug": "burgerking",
   "source": {
     "html_url": "https://www.bk.com/menu",
-    "retrieved": "2026-09-01"
+    "retrieved": "2026-09-06"
   },
   "disclaimer_extra": "Burger King publishes each menu item as sold and each topping as its own figure. The build-your-own portions are the ones Burger King lists for the Whopper: a slice of cheese on a Whopper is not the same slice as on a Jr., so pooling them would invent a portion the chain does not serve.",
   "glyph": "burger",
@@ -5174,23 +5174,6 @@
       "fiber_g": 0,
       "sugars_g": 7,
       "protein_g": 0
-    },
-    {
-      "id": "super-saiyan-dipping-sauce",
-      "name": "Super Saiyan Dipping Sauce",
-      "category": "condiments",
-      "serving_desc": "28 g",
-      "serving_g": 28,
-      "calories": 54,
-      "fat_g": 0.31,
-      "sat_fat_g": 0.05,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 0.03,
-      "sodium_mg": 321.06,
-      "carbs_g": 12.42,
-      "fiber_g": 0.12,
-      "sugars_g": 10.8,
-      "protein_g": 0.41
     },
     {
       "id": "special-savory-sauce-dipping-sauce",

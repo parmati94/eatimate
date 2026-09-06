@@ -58,10 +58,13 @@ FORMATS = {
     # (Whataburger).
     "compose": {"dumper": "dump_compose.py", "refresh": "redump",
                 "needs": ("api_base", "menu_path", "headers")},
-    # A Nutritionix export captured from the chain's embedded calculator
-    # (Potbelly). The export URL is minted per session, so it is re-captured
-    # by hand.
-    "nutritionix": {"dumper": "dump_nutritionix.py", "refresh": "manual", "needs": ()},
+    # A Nutritionix export, read from the same stable public URL the chain's own
+    # embedded calculator reads. This was "manual" until 2026-09-06 on the
+    # belief that the export URL was minted per session; it is not. See
+    # dump_nutritionix.py for how the host is discovered. `needs` the brand as
+    # Nutritionix spells it, which is not always our slug.
+    "nutritionix": {"dumper": "dump_nutritionix.py", "refresh": "redump",
+                    "needs": ("nutritionix_slug",)},
 }
 
 
