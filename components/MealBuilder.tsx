@@ -68,6 +68,12 @@ import {
 } from "./icons";
 import { possessive } from "@/lib/text";
 import { track } from "@/lib/analytics";
+import {
+  newFunnel,
+  onClear as funnelClear,
+  onEnd as funnelEnd,
+  onPick as funnelPick,
+} from "@/lib/funnel";
 
 /** Quiet period before mirroring selections into the URL (see the sync effect). */
 const URL_SYNC_DELAY_MS = 600;
@@ -82,7 +88,6 @@ const URL_SYNC_DELAY_MS = 600;
  * chrome because the comparison owns the totals panel for both sides.
  */
 /** Components before a meal counts as built rather than poked at. */
-const MEAL_BUILT_AT = 3;
 
 export default function MealBuilder({
   chain,
@@ -451,7 +456,11 @@ export default function MealBuilder({
   // A meal that reached this many components is one somebody used, not one
   // they poked at. Paired with meal-started it gives a completion rate, which
   // is the thing "did the visit work" actually reduces to.
-  const builtSent = useRef(false);
+  // The funnel's own state, in lib/funnel.ts so its transitions are testable
+  // without a browser. It replaces a `builtSent` ref that was never reset, and
+  // which therefore reported one completed meal per page however many were
+  // actually built.
+  const funnel = useRef(newFunnel());
   const subtitle = mealSubtitle(
     chain,
     activeMode && activeMode !== defaultMode ? activeMode.name : null,
@@ -469,31 +478,25 @@ export default function MealBuilder({
     // The one funnel step worth counting: did this visit become a meal at all.
     // Fired on the transition out of empty, not per pick, so it stays one
     // event per built meal however many ingredients follow.
-    if (selectedCount === 0 && !selections[comp.id]) {
-      track("meal-started", { chain: chain.slug, path: mode ?? "menu" });
-    }
+    //
     // Counted from the gesture rather than from a useEffect on the count: a
     // meal restored from a ?m= link or from the last order arrives complete
     // without anyone building anything, and an effect could not tell those
     // apart. A single-select pick REPLACES its sibling, so it has to be
     // excluded or swapping bread would read as growing the meal.
-    if (!builtSent.current && !selections[comp.id]) {
-      const replaces =
+    const step = funnelPick(funnel.current, {
+      countBefore: selectedCount,
+      already: !!selections[comp.id],
+      replaces:
         single &&
         !isAddon &&
         (byCategory.get(comp.category) ?? []).some(
           (other) => other.id !== comp.id && selections[other.id],
-        );
-      const after = selectedCount + (replaces ? 0 : 1);
-      if (after >= MEAL_BUILT_AT) {
-        builtSent.current = true;
-        track("meal-built", {
-          chain: chain.slug,
-          items: after,
-          path: mode ?? "menu",
-        });
-      }
-    }
+        ),
+    });
+    funnel.current = step.state;
+    if (step.started) track("meal-started", { chain: chain.slug, path: mode ?? "menu" });
+    if (step.built) track("meal-built", { chain: chain.slug, path: mode ?? "menu" });
     setSelections((prev) => {
       const next = { ...prev };
       const adding = !next[comp.id];
@@ -564,7 +567,50 @@ export default function MealBuilder({
   const setQty = (id: string, q: number) =>
     setSelections((prev) => ({ ...prev, [id]: q }));
 
-  const clearAll = () => setSelections({});
+  // Clearing starts a NEW meal, and a new meal can complete on its own. The
+  // old ref latched for the life of the mount, so building, clearing and
+  // building again read as two starts against one completion -- understating
+  // the completion rate exactly on the most engaged visits.
+  const clearAll = () => {
+    funnel.current = funnelClear(funnel.current);
+    setSelections({});
+  };
+
+  /**
+   * How big the meal actually got.
+   *
+   * There is no "done" button in a builder, so the only honest moment to read
+   * the size is when the visit ends. `visibilitychange` is the event to use:
+   * `unload` never fires on iOS Safari and `pagehide` is unreliable there too,
+   * while hiding the tab covers switching apps, locking the phone and closing
+   * the page alike.
+   *
+   * Read through refs so the listener is registered once. Binding it to
+   * `selectedCount` instead would tear down and re-add it on every tap, which
+   * is a lot of work to learn one number.
+   */
+  const latest = useRef({ count: selectedCount, mode });
+  // Written in an effect, not during render: a ref is not render state, and
+  // eslint's react-hooks/refs is right to say so.
+  useEffect(() => {
+    latest.current = { count: selectedCount, mode };
+  });
+  useEffect(() => {
+    const onHide = () => {
+      if (document.visibilityState !== "hidden") return;
+      const { state, items } = funnelEnd(funnel.current, latest.current.count);
+      funnel.current = state;
+      if (items != null) {
+        track("meal-final", {
+          chain: chain.slug,
+          items,
+          path: latest.current.mode ?? "menu",
+        });
+      }
+    };
+    document.addEventListener("visibilitychange", onHide);
+    return () => document.removeEventListener("visibilitychange", onHide);
+  }, [chain.slug]);
 
   /** Drop one pick. No confirm: a mis-tap costs one re-add, and a dialog on
    *  every chip would cost more than the mistake does. */
@@ -738,6 +784,7 @@ export default function MealBuilder({
                 <button
                   type="button"
                   onClick={() => {
+                    funnel.current = funnelClear(funnel.current);
                     setSelections({});
                     setMode(null);
                     setQuery("");
