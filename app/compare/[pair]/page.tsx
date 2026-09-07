@@ -5,7 +5,7 @@ import MealCompare, { type ComparePreset } from "@/components/MealCompare";
 import type { Tint } from "@/lib/brand";
 import { chainTint, getChain } from "@/lib/data";
 import { listPairs, pairDishes, pairSlug, parsePair } from "@/lib/meals";
-import { possessive } from "@/lib/text";
+import { fmtDate, possessive } from "@/lib/text";
 
 // Both orderings are generated, because "chipotle vs cava" and "cava vs
 // chipotle" are both things people type. Only the alphabetical one is
@@ -128,7 +128,7 @@ export default async function ComparePage(props: PageProps<"/compare/[pair]">) {
               >
                 {possessive(c.name)} published data
               </a>{" "}
-              (retrieved {c.source.retrieved})
+              (retrieved {fmtDate(c.source.retrieved)})
             </span>
           ))}
           . Not affiliated with or endorsed by either chain.

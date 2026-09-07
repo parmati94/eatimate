@@ -13,6 +13,9 @@
     "Any crust",
     "By the slice"
   ],
+  "aliases": [
+    "Dominoes"
+  ],
   "size_modes": [
     {
       "id": "personal",

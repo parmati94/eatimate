@@ -249,6 +249,7 @@ export default async function Home() {
             name: c.name,
             glyph: c.glyph,
             formats: c.formats,
+            aliases: c.aliases,
             tint: tints.get(c.slug)!,
           }))}
         />

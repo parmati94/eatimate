@@ -20,6 +20,9 @@
    "Specialties",
    "Nachos"
   ],
+  "aliases": [
+   "T-Bell"
+  ],
   "default_flow": "menu"
  },
  "categories": [

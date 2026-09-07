@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { displayName, possessive, readableCase } from "./text";
+import { displayName, findChains, fmtDate, possessive, readableCase } from "./text";
 
 describe("possessive", () => {
   it("adds 's to an ordinary name", () => {
@@ -73,5 +73,51 @@ describe("displayName", () => {
     expect(displayName("SONIC BLAST® WITH HEATH TOFFEE PIECES", "Sonic")).toBe(
       "Sonic Blast® with Heath Toffee Pieces",
     );
+  });
+});
+
+describe("fmtDate", () => {
+  it("prints a data date the way a reader expects it", () => {
+    expect(fmtDate("2026-08-30")).toBe("Aug 30, 2026");
+    expect(fmtDate("2026-01-05")).toBe("Jan 5, 2026");
+  });
+  it("leaves anything that is not a date alone", () => {
+    expect(fmtDate("Summer 2026")).toBe("Summer 2026");
+  });
+});
+
+describe("findChains", () => {
+  const roster = [
+    { name: "Buffalo Wild Wings", aliases: ["BWW", "B-Dubs"], formats: ["Boneless", "Bone-in"] },
+    { name: "Café Rio", formats: ["Burrito", "Bowl"] },
+    { name: "Chick-fil-A", aliases: ["CFA"], formats: ["Sandwich", "Nuggets"] },
+    { name: "Domino's", formats: ["Pizza", "By the slice"] },
+    { name: "Five Guys", aliases: ["5 Guys"], formats: ["Burger", "Hot dog"] },
+    { name: "Little Caesars", formats: ["Round", "Deep Dish"] },
+    { name: "Wingstop", formats: ["Classic", "Boneless"] },
+  ];
+  const names = (q: string) => findChains(q, roster).map((c) => c.name);
+  it("matches the name however it is spelt or spaced", () => {
+    expect(names("chick fil a")).toEqual(["Chick-fil-A"]);
+    expect(names("cafe rio")).toEqual(["Café Rio"]);
+    expect(names("little caesar's")).toEqual(["Little Caesars"]);
+    expect(names("dominoes")).toEqual([]);
+  });
+  it("matches an alias", () => {
+    expect(names("bww")).toEqual(["Buffalo Wild Wings"]);
+    expect(names("b dubs")).toEqual(["Buffalo Wild Wings"]);
+    expect(names("5 guys")).toEqual(["Five Guys"]);
+    expect(names("cfa")).toEqual(["Chick-fil-A"]);
+  });
+  it("matches a format, after the name matches", () => {
+    expect(names("pizza")).toEqual(["Domino's"]);
+    expect(names("hot dog")).toEqual(["Five Guys"]);
+    // Name hits lead; a format hit on the same term follows in roster order.
+    expect(names("wing")).toEqual(["Buffalo Wild Wings", "Wingstop"]);
+    expect(names("boneless")).toEqual(["Buffalo Wild Wings", "Wingstop"]);
+  });
+  it("returns the whole roster for an empty query", () => {
+    expect(names("")).toHaveLength(roster.length);
+    expect(names("  ")).toHaveLength(roster.length);
   });
 });
