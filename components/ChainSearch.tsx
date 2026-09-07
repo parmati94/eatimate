@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { track } from "@/lib/analytics";
 import { useSearchMiss } from "@/lib/search-miss";
+import { findChains } from "@/lib/text";
 import ChainMark from "./ChainMark";
 import type { Tint } from "@/lib/brand";
 import { IconSearch } from "./icons";
@@ -14,14 +16,24 @@ export type ChainCard = {
   glyph?: string;
   /** What the chain sells, in a customer's words. */
   formats?: string[];
+  /** What people type for it that the name does not contain: "BWW". */
+  aliases?: string[];
   tint: Tint;
 };
 
 export default function ChainSearch({ chains }: { chains: ChainCard[] }) {
+  const router = useRouter();
   const [q, setQ] = useState("");
-  const shown = q
-    ? chains.filter((c) => c.name.toLowerCase().includes(q.toLowerCase()))
-    : chains;
+  // Name and alias first, then what the chain sells: "pizza" used to be a
+  // logged missing restaurant on a site with three pizza chains, and so did
+  // "bww" and "5 guys". lib/text.ts squashes spelling, so is "chick fil a".
+  const shown = findChains(q, chains);
+  const go = (chain: ChainCard) => {
+    track("chain-picked", {
+      chain: chain.slug,
+      from: q.trim() ? "search" : "list",
+    });
+  };
 
   // A restaurant somebody looked for and we do not have. The most directly
   // actionable thing the site can learn: it names the next chain to ingest,
@@ -39,6 +51,15 @@ export default function ChainSearch({ chains }: { chains: ChainCard[] }) {
           onChange={(e) => setQ(e.target.value)}
           placeholder="Search restaurants…"
           aria-label="Search restaurants"
+          // Enter opens the best match. The field already narrows the grid,
+          // but on a phone the grid is below the keyboard, and "sub" + Enter
+          // is how a search box is expected to behave.
+          onKeyDown={(e) => {
+            if (e.key !== "Enter" || !q.trim() || shown.length === 0) return;
+            e.preventDefault();
+            go(shown[0]);
+            router.push(`/${shown[0].slug}`);
+          }}
           className="w-full rounded-2xl border border-line bg-surface py-4 pl-12 pr-5 text-lg shadow-sm outline-none transition-[border-color,box-shadow] placeholder:text-muted focus:border-brand focus:ring-4 focus:ring-brand/15"
         />
       </label>
@@ -51,12 +72,7 @@ export default function ChainSearch({ chains }: { chains: ChainCard[] }) {
               // The first step of the funnel. Without it a session that landed
               // on the picker and left is indistinguishable from one that went
               // somewhere, and "from" says whether the field earns its place.
-              onClick={() =>
-                track("chain-picked", {
-                  chain: chain.slug,
-                  from: q.trim() ? "search" : "list",
-                })
-              }
+              onClick={() => go(chain)}
               className="group flex h-full flex-col items-center gap-2 rounded-2xl border border-line bg-surface p-5 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:border-fg/20 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/40"
             >
               <ChainMark

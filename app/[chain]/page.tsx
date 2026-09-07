@@ -8,7 +8,7 @@ import MealBuilder from "@/components/MealBuilder";
 import { IconExternal } from "@/components/icons";
 import { chainTints, getChain, listChains } from "@/lib/data";
 import { pairsWith } from "@/lib/meals";
-import { possessive } from "@/lib/text";
+import { fmtDate, possessive } from "@/lib/text";
 
 // The chain data ships inside the image, so every page is known at build time.
 // Rendering them once makes the HTML edge-cacheable instead of re-parsing 400+
@@ -119,7 +119,7 @@ export default async function ChainPage(props: PageProps<"/[chain]">) {
         >
           <IconExternal className="h-3.5 w-3.5" />
           Source {chain.source.pdf_url ? "PDF" : "page"} ·{" "}
-          {chain.source.retrieved}
+          {fmtDate(chain.source.retrieved)}
         </a>
       </div>
 
@@ -169,7 +169,7 @@ export default async function ChainPage(props: PageProps<"/[chain]">) {
           >
             {possessive(chain.name)} published nutrition data
           </a>{" "}
-          (retrieved {chain.source.retrieved}); actual values vary with
+          (retrieved {fmtDate(chain.source.retrieved)}); actual values vary with
           portioning and preparation. Verify allergen and dietary decisions with
           the restaurant directly.
         </p>

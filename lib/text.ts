@@ -75,3 +75,64 @@ export function displayName(name: string, chainName: string): string {
   const stripped = cased.replace(prefix, "");
   return stripped.length > 0 ? stripped : cased;
 }
+
+/**
+ * A data date as a reader expects it: "Aug 30, 2026", never "2026-08-30".
+ *
+ * Built from the parts rather than `new Date(iso)`: an ISO date string parses
+ * as UTC midnight, which is the previous evening anywhere west of Greenwich,
+ * so the day printed would depend on where the page was rendered.
+ */
+export function fmtDate(iso: string): string {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+  if (!m) return iso;
+  const d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+  return d.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
+
+/** Letters and digits only, accents folded: "Chick-fil-A" and "chick fil a"
+ *  and "Café Rio" and "cafe rio" all reduce to the same string. */
+function squash(s: string): string {
+  return s
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "");
+}
+
+export interface Findable {
+  name: string;
+  aliases?: string[];
+  formats?: string[];
+}
+
+/**
+ * How well a restaurant answers a search, or 0 for not at all.
+ *
+ * 2 for the name or an alias -- what the visitor was looking for. 1 for a
+ * format: "pizza" should list the pizza chains, but under a chain called
+ * Pizza-something if there were one. Everything is squashed first, so
+ * punctuation, spacing and accents never decide a miss: "5 guys", "chick fil
+ * a" and "little caesar's" all land.
+ */
+export function chainMatch(q: string, c: Findable): 0 | 1 | 2 {
+  const term = squash(q);
+  if (!term) return 2;
+  if ([c.name, ...(c.aliases ?? [])].some((n) => squash(n).includes(term))) return 2;
+  if ((c.formats ?? []).some((f) => squash(f).includes(term))) return 1;
+  return 0;
+}
+
+/** The restaurants matching `q`, best answers first, chain order otherwise. */
+export function findChains<T extends Findable>(q: string, chains: T[]): T[] {
+  return chains
+    .map((c, i) => ({ c, i, score: chainMatch(q, c) }))
+    .filter((x) => x.score > 0)
+    .sort((a, b) => b.score - a.score || a.i - b.i)
+    .map((x) => x.c);
+}

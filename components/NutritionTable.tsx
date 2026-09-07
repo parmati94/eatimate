@@ -1,5 +1,5 @@
 import type { Chain } from "@/lib/schema";
-import { possessive } from "@/lib/text";
+import { fmtDate, possessive } from "@/lib/text";
 import { show } from "@/lib/rounding";
 
 // A plain, crawlable rendering of every published value. The builder above is
@@ -46,7 +46,7 @@ export default function NutritionTable({ chain }: { chain: Chain }) {
       <p className="mt-2 max-w-3xl text-sm text-muted">
         Every item {chain.name} publishes, as served. Values come from{" "}
         {possessive(chain.name)} official nutrition guide (retrieved{" "}
-        {chain.source.retrieved}) exactly as published.
+        {fmtDate(chain.source.retrieved)}) exactly as published.
       </p>
 
       {byCategory.map(({ cat, rows }) => (

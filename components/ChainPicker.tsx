@@ -6,11 +6,14 @@ import ChainMark from "@/components/ChainMark";
 import { IconSearch, IconX } from "@/components/icons";
 import type { Tint } from "@/lib/brand";
 import { pairSlug } from "@/lib/compare";
+import { findChains } from "@/lib/text";
 
 export interface PickableChain {
   slug: string;
   name: string;
   glyph?: string;
+  aliases?: string[];
+  formats?: string[];
   tint: Tint;
 }
 
@@ -52,9 +55,7 @@ export default function ChainPicker({ chains }: { chains: PickableChain[] }) {
 
   const shown = useMemo(() => {
     const taken = new Set(picked.map((c) => c.slug));
-    return chains
-      .filter((c) => !taken.has(c.slug))
-      .filter((c) => c.name.toLowerCase().includes(q.trim().toLowerCase()));
+    return findChains(q, chains.filter((c) => !taken.has(c.slug)));
   }, [chains, picked, q]);
 
   const pick = (c: PickableChain) => {

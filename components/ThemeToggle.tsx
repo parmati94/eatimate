@@ -40,8 +40,16 @@ export default function ThemeToggle() {
   useEffect(() => {
     try {
       const saved = localStorage.getItem(THEME_KEY) as Theme | null;
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- sync from storage after mount
-      if (saved && ORDER.includes(saved)) setTheme(saved);
+      if (saved && ORDER.includes(saved)) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- sync from storage after mount
+        setTheme(saved);
+        // Re-applied, not just read. The inline bootstrap in the layout sets
+        // data-theme before first paint, but a layout rendered on the CLIENT
+        // -- which Next does for every notFound() thrown from a matched route
+        // -- rebuilds <html>'s attributes from props and drops it, so a
+        // visitor on dark hit a light 404 page. Idempotent on a normal load.
+        apply(saved);
+      }
     } catch {}
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
     setSystemDark(mq.matches);

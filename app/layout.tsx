@@ -81,10 +81,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col bg-bg text-fg">
-        {/* Apply a saved theme before first paint; default is the OS setting. */}
-        <script
+        {/* Apply a saved theme before first paint; default is the OS setting.
+
+            Written as HTML inside a hidden div rather than as a React <script>
+            element. The browser runs it at parse time either way, which is the
+            whole point -- but a <script> in the React tree is also re-created
+            whenever the layout is rendered on the client, which happens on
+            every notFound() thrown from a matched route (/dairyqueen), and
+            React logs "Encountered a script tag while rendering" each time.
+            innerHTML never executes a script, so there is nothing to warn
+            about; ThemeToggle re-applies the saved theme on mount, which is
+            what actually keeps a dark 404 page dark. */}
+        <div
+          hidden
           dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem("eatimate.theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}`,
+            __html: `<script>try{var t=localStorage.getItem("eatimate.theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>`,
           }}
         />
         {/* Next's Metadata API has no JSON-LD support, so this is a script tag. */}

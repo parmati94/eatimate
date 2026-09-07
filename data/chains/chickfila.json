@@ -13,6 +13,9 @@
     "Nuggets",
     "Salad"
   ],
+  "aliases": [
+    "CFA"
+  ],
   "default_flow": "menu",
   "categories": [
     {

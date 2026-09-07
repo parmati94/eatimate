@@ -191,6 +191,18 @@ export const ChainSchema = z
     // picks a restaurant by ingredient count, and 784 vs 35 made the better
     // covered chain look worse.
     formats: z.array(z.string().min(1)).min(1).max(5).optional(),
+    // What people TYPE for this chain that its name does not contain: "BWW",
+    // "5 Guys", "BK". The home search matches these alongside the name and
+    // the formats, so "bww" is a hit rather than a logged missing restaurant.
+    // Only spellings the name cannot already reach -- "Little Caesar's" is
+    // found by the name once punctuation is dropped, "Lil Caesars" is not.
+    aliases: z.array(z.string().min(1)).min(1).max(6).optional(),
+    // The last day this chain's PAGE changed by hand -- a rename, a rewritten
+    // blurb -- as distinct from the chart it is built from. `source.retrieved`
+    // moves only when the chart is re-fetched, and the sitemap used to read
+    // freshness from that alone, so a title change shipped with no signal to
+    // recrawl. Never written by refresh.py, so it cannot pass for a fetch.
+    updated: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
     // Which path the page opens on, for a chain where one of them is plainly
     // the common order. Pizza is built far more often than a whole specialty
     // pizza is picked off the list, so making everyone answer "how do you want

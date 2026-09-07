@@ -34,6 +34,8 @@ export default async function CompareIndex() {
             slug: c.slug,
             name: c.name,
             glyph: c.glyph,
+            aliases: c.aliases,
+            formats: c.formats,
             tint: tints.get(c.slug)!,
           }))}
         />
