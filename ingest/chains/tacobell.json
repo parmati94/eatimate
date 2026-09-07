@@ -110,18 +110,45 @@
   "sections": "^(MENU: .+|[A-Z].*)$"
  },
  "section_categories": {
-  "MENU: New": "item",
-  "MENU: Cantina Chicken Menu": "item",
-  "MENU: Tacos": "item",
-  "MENU: Burritos": "item",
-  "MENU: Specialties": "item",
-  "MENU: Quesadillas": "item",
-  "MENU: Nachos": "item",
+  "MENU: New": {
+   "cat": "item",
+   "group": "New"
+  },
+  "MENU: Cantina Chicken Menu": {
+   "cat": "item",
+   "group": "Cantina Chicken"
+  },
+  "MENU: Tacos": {
+   "cat": "item",
+   "group": "Tacos"
+  },
+  "MENU: Burritos": {
+   "cat": "item",
+   "group": "Burritos"
+  },
+  "MENU: Specialties": {
+   "cat": "item",
+   "group": "Specialties"
+  },
+  "MENU: Quesadillas": {
+   "cat": "item",
+   "group": "Quesadillas"
+  },
+  "MENU: Nachos": {
+   "cat": "item",
+   "group": "Nachos"
+  },
   "MENU: Veggie Cravings": {
    "skip": "a vegetarian VIEW of the menu — every row is already in Tacos, Burritos, Specialties or Sides"
   },
-  "MENU: Cravings Value Menu": "item",
-  "MENU: Breakfast": "item",
+  "MENU: Cravings Value Menu": {
+   "cat": "item",
+   "group": "Cravings Value Menu"
+  },
+  "MENU: Breakfast": {
+   "cat": "item",
+   "group": "Breakfast"
+  },
   "MENU: Sides & Sweets": "sides",
   "MENU: Drinks": "drinks",
   "Fountain Beverages (16 oz)": "drinks",
@@ -281,22 +308,6 @@
   "MENU: New/Dulce de Leche Cinnabon Delights (2 Pack)": {
    "cat": "sides"
   },
-  "MENU: Tacos/Crunchy Taco": {
-   "cat": "item",
-   "feature": true
-  },
-  "MENU: Specialties/Crunchwrap Supreme": {
-   "cat": "item",
-   "feature": true
-  },
-  "MENU: Burritos/Bean Burrito (V)": {
-   "cat": "item",
-   "feature": true
-  },
-  "MENU: Cantina Chicken Menu/Cantina Chicken Bowl": {
-   "cat": "item",
-   "feature": true
-  },
   "MENU: Sides & Sweets/Nacho Fries": {
    "cat": "sides",
    "feature": true
@@ -304,6 +315,28 @@
   "MENU: Sides & Sweets/Cinnamon Twists (V)": {
    "cat": "sides",
    "feature": true
+  },
+  "Fountain Beverages (20 oz)/Mtn Dew Baja Blast (20 fl oz)": {
+   "cat": "drinks",
+   "id": "mtn-dew-baja-blast",
+   "name": "Mtn Dew Baja Blast",
+   "variant_label": "20 fl oz",
+   "variant_family": "mtn-dew-baja-blast",
+   "feature": true
+  },
+  "Fountain Beverages (16 oz)/Mtn Dew Baja Blast (16 fl oz)": {
+   "cat": "drinks",
+   "id": "mtn-dew-baja-blast-16-oz",
+   "name": "Mtn Dew Baja Blast",
+   "variant_label": "16 fl oz",
+   "variant_family": "mtn-dew-baja-blast"
+  },
+  "Fountain Beverages (30 oz)/Mtn Dew Baja Blast (30 fl oz)": {
+   "cat": "drinks",
+   "id": "mtn-dew-baja-blast-30-oz",
+   "name": "Mtn Dew Baja Blast",
+   "variant_label": "30 fl oz",
+   "variant_family": "mtn-dew-baja-blast"
   }
  },
  "name_variants": [

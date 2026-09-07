@@ -117,12 +117,30 @@
   }
  ],
  "section_categories": {
-  "MENU: Flame Grilled Burgers": "item",
-  "MENU: Chicken & Fish": "item",
-  "MENU: Breakfast Sandwiches": "item",
-  "MENU: Breakfast Meals": "item",
-  "MENU: Burritos": "item",
-  "MENU: Burgers for Breakfast": "item",
+  "MENU: Flame Grilled Burgers": {
+   "cat": "item",
+   "group": "Burgers"
+  },
+  "MENU: Chicken & Fish": {
+   "cat": "item",
+   "group": "Chicken & Fish"
+  },
+  "MENU: Breakfast Sandwiches": {
+   "cat": "item",
+   "group": "Breakfast"
+  },
+  "MENU: Breakfast Meals": {
+   "cat": "item",
+   "group": "Breakfast"
+  },
+  "MENU: Burritos": {
+   "cat": "item",
+   "group": "Breakfast"
+  },
+  "MENU: Burgers for Breakfast": {
+   "cat": "item",
+   "group": "Burgers"
+  },
   "MENU: Breakfast Sides": "sides",
   "MENU: Sides": "sides",
   "MENU: Drinks & Coffee": "drinks",
@@ -183,6 +201,10 @@
   "Fat Free Milk": {
    "cat": "drinks",
    "feature": true
+  },
+  "MENU: Burgers for Breakfast/Original Chicken Sandwich": {
+   "cat": "item",
+   "group": "Chicken & Fish"
   }
  },
  "corrections": {

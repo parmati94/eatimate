@@ -28,6 +28,12 @@ export const ComponentSchema = z.object({
   fiber_g: nonNeg,
   sugars_g: nonNeg,
   protein_g: nonNeg,
+  // A heading this row sits under INSIDE its category. Categories cannot carry
+  // this: on the menu path each preset category is its own numbered step, so
+  // Taco Bell's Tacos/Burritos/Nachos as categories would read "pick one of
+  // each". Rows without a group render loose, above any grouped ones, so a
+  // chain can group part of a list and leave the rest alone.
+  group: z.string().min(1).optional(),
   corrections: z.array(CorrectionSchema).optional(),
   // Selecting this component activates the named chain size_mode (e.g. the
   // "Footlong" format row activates footlong scaling).

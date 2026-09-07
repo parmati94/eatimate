@@ -556,8 +556,28 @@ export function CategoryBody({
   filterable?: boolean;
 }) {
   const [filter, setFilter] = useState("");
+  const [group, setGroup] = useState<string | null>(null);
   const [expanded, setExpanded] = useState(false);
   const single = cat.select === "single";
+  // The groups a source already named -- Taco Bell's Tacos / Burritos / Nachos,
+  // and the Breakfast half of a drive-thru menu. Kept in row order rather than
+  // sorted, so they read in the order the chain prints them.
+  //
+  // Deliberately NOT categories: on the menu path every preset category becomes
+  // its own numbered step (lib/flow.ts), so these as categories would ask you
+  // to pick a taco AND a burrito AND a nacho.
+  const groups = useMemo(() => {
+    const n = new Map<string, number>();
+    for (const c of comps) {
+      // Count FAMILY HEADS, not rows: "Crispy Chicken Strips" is one line in
+      // the list whatever its two counts, so a chip reading 12 has to mean
+      // twelve lines or it is a promise the list breaks.
+      if (c.group && !c.variant_of && !c.addon_of) {
+        n.set(c.group, (n.get(c.group) ?? 0) + 1);
+      }
+    }
+    return [...n].map(([name, count]) => ({ name, count }));
+  }, [comps]);
   // Extras belonging to one specific row (Domino's garlic oil, which exists
   // only on Hand Tossed). Keyed by the exact component they attach to, not by
   // its family: the parent is already size-resolved, so garlic oil on a medium
@@ -574,11 +594,16 @@ export function CategoryBody({
   // size selector. Shared with the whole-chart search, which has to collapse
   // them the same way or "Coca-Cola" comes back five times.
   const families = useMemo(() => familiesOf(comps), [comps]);
+  // Group first, then text: the pills narrow WHAT you are looking at, the box
+  // searches within it. A group with nothing left after a text filter still
+  // shows its pill, because removing pills as you type moves the thing you are
+  // about to tap.
+  const inGroup = group ? families.filter((f) => f.head.group === group) : families;
   const matched = filter
-    ? families.filter((f) =>
+    ? inGroup.filter((f) =>
         f.head.name.toLowerCase().includes(filter.toLowerCase()),
       )
-    : families;
+    : inGroup;
   // Long lists cut off with a "Show all" rather than becoming an inner scroll
   // box: a nested scroll region fights the page scroll on touch, and a styled
   // scrollbar does not exist there. Anything selected survives the cut.
@@ -605,6 +630,52 @@ export function CategoryBody({
             className="w-full rounded-lg border border-line bg-surface-2 py-2 pl-9 pr-3 text-sm outline-none transition-colors placeholder:text-muted focus:border-accent"
           />
         </label>
+      )}
+      {groups.length > 1 && (
+        <div
+          // No filled track behind these. It framed the strip nicely on a
+          // phone, but on desktop the row WRAPS, and a full-width grey block
+          // with one lone chip on its second line reads as a half-empty box --
+          // Sonic's "Breakfast" sitting alone under six others. Chips carry
+          // their own shape, so the row reads as one control without it and
+          // wrapping just looks like wrapping.
+          //
+          // Phones scroll it sideways with a fade for the edge; from `sm` up it
+          // wraps, because a mouse has no good way to scroll horizontally.
+          className="-mx-1 mb-2 flex gap-1 overflow-x-auto px-1 pb-1 [mask-image:linear-gradient(to_right,black_calc(100%-28px),transparent)] [scrollbar-width:none] sm:flex-wrap sm:overflow-visible sm:pb-0 sm:[mask-image:none] [&::-webkit-scrollbar]:hidden"
+          role="group"
+          aria-label={`Filter ${cat.name} by group`}
+        >
+          {[null, ...groups].map((g) => {
+            const on = group === (g?.name ?? null);
+            return (
+              <button
+                key={g?.name ?? "all"}
+                type="button"
+                aria-pressed={on}
+                onClick={() => {
+                  setGroup(g?.name ?? null);
+                  setExpanded(false);
+                }}
+                // Same selected language as the size chips on a row: soft
+                // accent fill, not a solid block. This is a filter, and solid
+                // accent made it the loudest thing on the page.
+                className={`flex shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                  on
+                    ? "bg-accent-soft font-semibold text-accent-strong"
+                    : "bg-surface-2 font-medium text-muted hover:text-fg"
+                }`}
+              >
+                {g?.name ?? "All"}
+                {/* The size of the list this chip leads to, so the choice is
+                    made before the tap rather than after it. */}
+                <span className={`num tabular-nums ${on ? "" : "text-muted/60"}`}>
+                  {g?.count ?? families.length}
+                </span>
+              </button>
+            );
+          })}
+        </div>
       )}
       <ul className="space-y-0.5">
         {shown.map(({ head, members }) => (

@@ -150,15 +150,30 @@
   "MENU: Whatadeals": {
    "skip": "bundles of items already listed on their own"
   },
-  "MENU: All-Time Favorites & Limited Time Offers": "item",
-  "MENU: Burgers": "item",
-  "MENU: Chicken": "item",
-  "MENU: Jr. Meals": "item",
+  "MENU: All-Time Favorites & Limited Time Offers": {
+   "cat": "item",
+   "group": "Favorites"
+  },
+  "MENU: Burgers": {
+   "cat": "item",
+   "group": "Burgers"
+  },
+  "MENU: Chicken": {
+   "cat": "item",
+   "group": "Chicken"
+  },
+  "MENU: Jr. Meals": {
+   "cat": "item",
+   "group": "Jr. Meals"
+  },
   "MENU: Kids": "kids",
   "MENU: Sides": "sides",
   "MENU: Desserts & Snacks": "sweets",
   "MENU: Drinks & Shakes": "drinks",
-  "MENU: Breakfast (Available 11pm-11am)": "item"
+  "MENU: Breakfast (Available 11pm-11am)": {
+   "cat": "item",
+   "group": "Breakfast"
+  }
  },
  "items": {
   "Whataburger Jr.®": {

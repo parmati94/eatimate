@@ -89,6 +89,24 @@
   ],
   "components": [
     {
+      "id": "original-chicken-sandwich",
+      "name": "Original Chicken Sandwich",
+      "category": "item",
+      "serving_desc": "214 g",
+      "serving_g": 214,
+      "calories": 680,
+      "fat_g": 39,
+      "sat_fat_g": 7,
+      "trans_fat_g": 0,
+      "cholesterol_mg": 65,
+      "sodium_mg": 1380,
+      "carbs_g": 63,
+      "fiber_g": 3,
+      "sugars_g": 7,
+      "protein_g": 23,
+      "group": "Chicken & Fish"
+    },
+    {
       "id": "whopper",
       "name": "Whopper",
       "category": "item",
@@ -103,7 +121,8 @@
       "carbs_g": 57,
       "fiber_g": 4,
       "sugars_g": 14,
-      "protein_g": 34
+      "protein_g": 34,
+      "group": "Burgers"
     },
     {
       "id": "whopper-with-bacon",
@@ -120,7 +139,8 @@
       "carbs_g": 57,
       "fiber_g": 4,
       "sugars_g": 14,
-      "protein_g": 38
+      "protein_g": 38,
+      "group": "Burgers"
     },
     {
       "id": "whopper-with-cheese",
@@ -137,7 +157,8 @@
       "carbs_g": 58,
       "fiber_g": 4,
       "sugars_g": 15,
-      "protein_g": 37
+      "protein_g": 37,
+      "group": "Burgers"
     },
     {
       "id": "whopper-with-bacon-cheese",
@@ -154,7 +175,8 @@
       "carbs_g": 58,
       "fiber_g": 4,
       "sugars_g": 15,
-      "protein_g": 42
+      "protein_g": 42,
+      "group": "Burgers"
     },
     {
       "id": "texas-whopper",
@@ -171,7 +193,8 @@
       "carbs_g": 56,
       "fiber_g": 5,
       "sugars_g": 12,
-      "protein_g": 42
+      "protein_g": 42,
+      "group": "Burgers"
     },
     {
       "id": "impossible-whopper",
@@ -188,7 +211,8 @@
       "carbs_g": 64,
       "fiber_g": 8,
       "sugars_g": 14,
-      "protein_g": 32
+      "protein_g": 32,
+      "group": "Burgers"
     },
     {
       "id": "impossible-texas-whopper",
@@ -205,7 +229,8 @@
       "carbs_g": 64,
       "fiber_g": 8,
       "sugars_g": 13,
-      "protein_g": 41
+      "protein_g": 41,
+      "group": "Burgers"
     },
     {
       "id": "double-whopper",
@@ -222,7 +247,8 @@
       "carbs_g": 57,
       "fiber_g": 5,
       "sugars_g": 14,
-      "protein_g": 56
+      "protein_g": 56,
+      "group": "Burgers"
     },
     {
       "id": "double-whopper-with-bacon",
@@ -239,7 +265,8 @@
       "carbs_g": 57,
       "fiber_g": 5,
       "sugars_g": 14,
-      "protein_g": 60
+      "protein_g": 60,
+      "group": "Burgers"
     },
     {
       "id": "double-whopper-with-cheese",
@@ -256,7 +283,8 @@
       "carbs_g": 59,
       "fiber_g": 5,
       "sugars_g": 15,
-      "protein_g": 60
+      "protein_g": 60,
+      "group": "Burgers"
     },
     {
       "id": "double-whopper-with-bacon-cheese",
@@ -273,7 +301,8 @@
       "carbs_g": 59,
       "fiber_g": 5,
       "sugars_g": 15,
-      "protein_g": 64
+      "protein_g": 64,
+      "group": "Burgers"
     },
     {
       "id": "texas-double-whopper",
@@ -290,7 +319,8 @@
       "carbs_g": 56,
       "fiber_g": 5,
       "sugars_g": 12,
-      "protein_g": 64
+      "protein_g": 64,
+      "group": "Burgers"
     },
     {
       "id": "triple-whopper",
@@ -307,7 +337,8 @@
       "carbs_g": 57,
       "fiber_g": 5,
       "sugars_g": 14,
-      "protein_g": 78
+      "protein_g": 78,
+      "group": "Burgers"
     },
     {
       "id": "triple-whopper-with-bacon",
@@ -324,7 +355,8 @@
       "carbs_g": 58,
       "fiber_g": 5,
       "sugars_g": 14,
-      "protein_g": 83
+      "protein_g": 83,
+      "group": "Burgers"
     },
     {
       "id": "triple-whopper-with-cheese",
@@ -341,7 +373,8 @@
       "carbs_g": 59,
       "fiber_g": 5,
       "sugars_g": 15,
-      "protein_g": 82
+      "protein_g": 82,
+      "group": "Burgers"
     },
     {
       "id": "triple-whopper-with-bacon-cheese",
@@ -358,7 +391,8 @@
       "carbs_g": 59,
       "fiber_g": 5,
       "sugars_g": 15,
-      "protein_g": 87
+      "protein_g": 87,
+      "group": "Burgers"
     },
     {
       "id": "bacon-king",
@@ -375,7 +409,8 @@
       "carbs_g": 58,
       "fiber_g": 4,
       "sugars_g": 14,
-      "protein_g": 69
+      "protein_g": 69,
+      "group": "Burgers"
     },
     {
       "id": "whopper-jr",
@@ -392,7 +427,8 @@
       "carbs_g": 30,
       "fiber_g": 2,
       "sugars_g": 7,
-      "protein_g": 15
+      "protein_g": 15,
+      "group": "Burgers"
     },
     {
       "id": "whopper-jr-with-bacon",
@@ -409,7 +445,8 @@
       "carbs_g": 30,
       "fiber_g": 2,
       "sugars_g": 7,
-      "protein_g": 19
+      "protein_g": 19,
+      "group": "Burgers"
     },
     {
       "id": "whopper-jr-with-cheese",
@@ -426,7 +463,8 @@
       "carbs_g": 31,
       "fiber_g": 2,
       "sugars_g": 7,
-      "protein_g": 17
+      "protein_g": 17,
+      "group": "Burgers"
     },
     {
       "id": "whopper-jr-with-bacon-cheese",
@@ -443,7 +481,8 @@
       "carbs_g": 31,
       "fiber_g": 2,
       "sugars_g": 7,
-      "protein_g": 20
+      "protein_g": 20,
+      "group": "Burgers"
     },
     {
       "id": "texas-whopper-jr",
@@ -460,7 +499,8 @@
       "carbs_g": 29,
       "fiber_g": 2,
       "sugars_g": 6,
-      "protein_g": 21
+      "protein_g": 21,
+      "group": "Burgers"
     },
     {
       "id": "bacon-double-cheeseburger",
@@ -477,7 +517,8 @@
       "carbs_g": 31,
       "fiber_g": 2,
       "sugars_g": 7,
-      "protein_g": 30
+      "protein_g": 30,
+      "group": "Burgers"
     },
     {
       "id": "bacon-cheeseburger",
@@ -494,7 +535,8 @@
       "carbs_g": 30,
       "fiber_g": 2,
       "sugars_g": 7,
-      "protein_g": 19
+      "protein_g": 19,
+      "group": "Burgers"
     },
     {
       "id": "double-cheeseburger",
@@ -511,7 +553,8 @@
       "carbs_g": 31,
       "fiber_g": 2,
       "sugars_g": 7,
-      "protein_g": 27
+      "protein_g": 27,
+      "group": "Burgers"
     },
     {
       "id": "cheeseburger",
@@ -528,7 +571,8 @@
       "carbs_g": 30,
       "fiber_g": 2,
       "sugars_g": 7,
-      "protein_g": 16
+      "protein_g": 16,
+      "group": "Burgers"
     },
     {
       "id": "hamburger",
@@ -545,24 +589,8 @@
       "carbs_g": 29,
       "fiber_g": 2,
       "sugars_g": 6,
-      "protein_g": 14
-    },
-    {
-      "id": "original-chicken-sandwich",
-      "name": "Original Chicken Sandwich",
-      "category": "item",
-      "serving_desc": "214 g",
-      "serving_g": 214,
-      "calories": 680,
-      "fat_g": 39,
-      "sat_fat_g": 7,
-      "trans_fat_g": 0,
-      "cholesterol_mg": 65,
-      "sodium_mg": 1380,
-      "carbs_g": 63,
-      "fiber_g": 3,
-      "sugars_g": 7,
-      "protein_g": 23
+      "protein_g": 14,
+      "group": "Burgers"
     },
     {
       "id": "pancake-sausage-platter",
@@ -579,7 +607,8 @@
       "carbs_g": 75,
       "fiber_g": 1,
       "sugars_g": 35,
-      "protein_g": 12
+      "protein_g": 12,
+      "group": "Breakfast"
     },
     {
       "id": "pancake-platter",
@@ -596,7 +625,8 @@
       "carbs_g": 74,
       "fiber_g": 1,
       "sugars_g": 34,
-      "protein_g": 5
+      "protein_g": 5,
+      "group": "Breakfast"
     },
     {
       "id": "fully-loaded-croissanwich",
@@ -613,7 +643,8 @@
       "carbs_g": 31,
       "fiber_g": 3,
       "sugars_g": 6,
-      "protein_g": 30
+      "protein_g": 30,
+      "group": "Breakfast"
     },
     {
       "id": "double-sausage-egg-cheese-croissanwich",
@@ -630,7 +661,8 @@
       "carbs_g": 30,
       "fiber_g": 3,
       "sugars_g": 5,
-      "protein_g": 28
+      "protein_g": 28,
+      "group": "Breakfast"
     },
     {
       "id": "bacon-sausage-egg-cheese-croissanwich",
@@ -647,7 +679,8 @@
       "carbs_g": 29,
       "fiber_g": 3,
       "sugars_g": 5,
-      "protein_g": 24
+      "protein_g": 24,
+      "group": "Breakfast"
     },
     {
       "id": "sausage-egg-cheese-croissanwich",
@@ -664,7 +697,8 @@
       "carbs_g": 28,
       "fiber_g": 3,
       "sugars_g": 4,
-      "protein_g": 19
+      "protein_g": 19,
+      "group": "Breakfast"
     },
     {
       "id": "bacon-egg-cheese-croissanwich",
@@ -681,7 +715,8 @@
       "carbs_g": 28,
       "fiber_g": 3,
       "sugars_g": 4,
-      "protein_g": 15
+      "protein_g": 15,
+      "group": "Breakfast"
     },
     {
       "id": "ham-egg-cheese-croissanwich",
@@ -698,7 +733,8 @@
       "carbs_g": 29,
       "fiber_g": 3,
       "sugars_g": 5,
-      "protein_g": 18
+      "protein_g": 18,
+      "group": "Breakfast"
     },
     {
       "id": "egg-cheese-croissanwich",
@@ -715,7 +751,8 @@
       "carbs_g": 28,
       "fiber_g": 3,
       "sugars_g": 4,
-      "protein_g": 12
+      "protein_g": 12,
+      "group": "Breakfast"
     },
     {
       "id": "fully-loaded-biscuit",
@@ -732,7 +769,8 @@
       "carbs_g": 34,
       "fiber_g": 2,
       "sugars_g": 4,
-      "protein_g": 31
+      "protein_g": 31,
+      "group": "Breakfast"
     },
     {
       "id": "double-sausage-egg-cheese-biscuit",
@@ -749,7 +787,8 @@
       "carbs_g": 33,
       "fiber_g": 3,
       "sugars_g": 3,
-      "protein_g": 29
+      "protein_g": 29,
+      "group": "Breakfast"
     },
     {
       "id": "bacon-sausage-egg-cheese-biscuit",
@@ -766,7 +805,8 @@
       "carbs_g": 33,
       "fiber_g": 2,
       "sugars_g": 3,
-      "protein_g": 25
+      "protein_g": 25,
+      "group": "Breakfast"
     },
     {
       "id": "sausage-egg-cheese-biscuit",
@@ -783,7 +823,8 @@
       "carbs_g": 32,
       "fiber_g": 2,
       "sugars_g": 2,
-      "protein_g": 20
+      "protein_g": 20,
+      "group": "Breakfast"
     },
     {
       "id": "bacon-egg-cheese-biscuit",
@@ -800,7 +841,8 @@
       "carbs_g": 31,
       "fiber_g": 2,
       "sugars_g": 2,
-      "protein_g": 16
+      "protein_g": 16,
+      "group": "Breakfast"
     },
     {
       "id": "ham-egg-cheese-biscuit",
@@ -817,7 +859,8 @@
       "carbs_g": 32,
       "fiber_g": 2,
       "sugars_g": 3,
-      "protein_g": 19
+      "protein_g": 19,
+      "group": "Breakfast"
     },
     {
       "id": "egg-cheese-biscuit",
@@ -834,7 +877,8 @@
       "carbs_g": 31,
       "fiber_g": 2,
       "sugars_g": 2,
-      "protein_g": 13
+      "protein_g": 13,
+      "group": "Breakfast"
     },
     {
       "id": "sausage-biscuit",
@@ -851,7 +895,8 @@
       "carbs_g": 30,
       "fiber_g": 2,
       "sugars_g": 2,
-      "protein_g": 12
+      "protein_g": 12,
+      "group": "Breakfast"
     },
     {
       "id": "egg-normous-burrito",
@@ -868,7 +913,8 @@
       "carbs_g": 67,
       "fiber_g": 3,
       "sugars_g": 4,
-      "protein_g": 35
+      "protein_g": 35,
+      "group": "Breakfast"
     },
     {
       "id": "breakfast-burrito-jr",
@@ -885,7 +931,8 @@
       "carbs_g": 29,
       "fiber_g": 1,
       "sugars_g": 2,
-      "protein_g": 16
+      "protein_g": 16,
+      "group": "Breakfast"
     },
     {
       "id": "build-your-own-sandwich-whopper-plain",
@@ -902,7 +949,8 @@
       "carbs_g": 48,
       "fiber_g": 2,
       "sugars_g": 8,
-      "protein_g": 29
+      "protein_g": 29,
+      "group": "Burgers"
     },
     {
       "id": "build-your-own-sandwich-impossible-whopper-plain",
@@ -919,7 +967,8 @@
       "carbs_g": 55,
       "fiber_g": 5,
       "sugars_g": 9,
-      "protein_g": 29
+      "protein_g": 29,
+      "group": "Burgers"
     },
     {
       "id": "build-your-own-sandwich-original-chicken-sandwich-plain",
@@ -936,7 +985,8 @@
       "carbs_g": 54,
       "fiber_g": 3,
       "sugars_g": 6,
-      "protein_g": 22
+      "protein_g": 22,
+      "group": "Burgers"
     },
     {
       "id": "bbq-bacon-whopper-jr",
@@ -953,7 +1003,8 @@
       "carbs_g": 32,
       "fiber_g": 2,
       "sugars_g": 9,
-      "protein_g": 19
+      "protein_g": 19,
+      "group": "Burgers"
     },
     {
       "id": "double-whopper-jr",
@@ -970,7 +1021,8 @@
       "carbs_g": 30,
       "fiber_g": 2,
       "sugars_g": 7,
-      "protein_g": 25
+      "protein_g": 25,
+      "group": "Burgers"
     },
     {
       "id": "double-whopper-jr-with-bacon",
@@ -987,7 +1039,8 @@
       "carbs_g": 30,
       "fiber_g": 2,
       "sugars_g": 7,
-      "protein_g": 28
+      "protein_g": 28,
+      "group": "Burgers"
     },
     {
       "id": "double-whopper-jr-with-cheese",
@@ -1004,7 +1057,8 @@
       "carbs_g": 33,
       "fiber_g": 3,
       "sugars_g": 8,
-      "protein_g": 30
+      "protein_g": 30,
+      "group": "Burgers"
     },
     {
       "id": "double-whopper-jr-with-bacon-and-cheese",
@@ -1021,7 +1075,8 @@
       "carbs_g": 32,
       "fiber_g": 2,
       "sugars_g": 8,
-      "protein_g": 32
+      "protein_g": 32,
+      "group": "Burgers"
     },
     {
       "id": "rodeo-double-cheeseburger",
@@ -1038,7 +1093,8 @@
       "carbs_g": 41,
       "fiber_g": 4,
       "sugars_g": 10,
-      "protein_g": 28
+      "protein_g": 28,
+      "group": "Burgers"
     },
     {
       "id": "rodeo-cheeseburger",
@@ -1055,7 +1111,8 @@
       "carbs_g": 41,
       "fiber_g": 3,
       "sugars_g": 9,
-      "protein_g": 17
+      "protein_g": 17,
+      "group": "Burgers"
     },
     {
       "id": "rodeo-burger",
@@ -1072,7 +1129,8 @@
       "carbs_g": 40,
       "fiber_g": 3,
       "sugars_g": 9,
-      "protein_g": 15
+      "protein_g": 15,
+      "group": "Burgers"
     },
     {
       "id": "spicy-original-chicken-sandwich",
@@ -1089,7 +1147,8 @@
       "carbs_g": 64,
       "fiber_g": 6,
       "sugars_g": 9,
-      "protein_g": 23
+      "protein_g": 23,
+      "group": "Chicken & Fish"
     },
     {
       "id": "royal-crispy-chicken",
@@ -1106,7 +1165,8 @@
       "carbs_g": 54,
       "fiber_g": 4,
       "sugars_g": 9,
-      "protein_g": 31
+      "protein_g": 31,
+      "group": "Chicken & Fish"
     },
     {
       "id": "spicy-royal-crispy-chicken",
@@ -1123,7 +1183,8 @@
       "carbs_g": 58,
       "fiber_g": 4,
       "sugars_g": 11,
-      "protein_g": 31
+      "protein_g": 31,
+      "group": "Chicken & Fish"
     },
     {
       "id": "bacon-and-swiss-royal-crispy-chicken",
@@ -1140,7 +1201,8 @@
       "carbs_g": 56,
       "fiber_g": 4,
       "sugars_g": 10,
-      "protein_g": 39
+      "protein_g": 39,
+      "group": "Chicken & Fish"
     },
     {
       "id": "flame-grilled-chicken-sandwich",
@@ -1157,7 +1219,8 @@
       "carbs_g": 43,
       "fiber_g": 2,
       "sugars_g": 7,
-      "protein_g": 35
+      "protein_g": 35,
+      "group": "Chicken & Fish"
     },
     {
       "id": "spicy-flame-grilled-chicken-sandwich",
@@ -1174,7 +1237,8 @@
       "carbs_g": 46,
       "fiber_g": 3,
       "sugars_g": 10,
-      "protein_g": 35
+      "protein_g": 35,
+      "group": "Chicken & Fish"
     },
     {
       "id": "bacon-and-swiss-flame-grilled-chicken-sandwich",
@@ -1191,7 +1255,8 @@
       "carbs_g": 45,
       "fiber_g": 2,
       "sugars_g": 8,
-      "protein_g": 43
+      "protein_g": 43,
+      "group": "Chicken & Fish"
     },
     {
       "id": "chicken-jr",
@@ -1208,7 +1273,8 @@
       "carbs_g": 39,
       "fiber_g": 2,
       "sugars_g": 5,
-      "protein_g": 13
+      "protein_g": 13,
+      "group": "Chicken & Fish"
     },
     {
       "id": "royal-crispy-wrap",
@@ -1225,7 +1291,8 @@
       "carbs_g": 28,
       "fiber_g": 4,
       "sugars_g": 2,
-      "protein_g": 15
+      "protein_g": 15,
+      "group": "Chicken & Fish"
     },
     {
       "id": "spicy-royal-crispy-wrap",
@@ -1242,7 +1309,8 @@
       "carbs_g": 30,
       "fiber_g": 5,
       "sugars_g": 3,
-      "protein_g": 15
+      "protein_g": 15,
+      "group": "Chicken & Fish"
     },
     {
       "id": "honey-mustard-royal-crispy-wrap",
@@ -1259,7 +1327,8 @@
       "carbs_g": 30,
       "fiber_g": 4,
       "sugars_g": 5,
-      "protein_g": 15
+      "protein_g": 15,
+      "group": "Chicken & Fish"
     },
     {
       "id": "classic-original-chicken-wrap",
@@ -1276,7 +1345,8 @@
       "carbs_g": 31,
       "fiber_g": 2,
       "sugars_g": 2,
-      "protein_g": 13
+      "protein_g": 13,
+      "group": "Chicken & Fish"
     },
     {
       "id": "spicy-original-chicken-wrap",
@@ -1293,7 +1363,8 @@
       "carbs_g": 32,
       "fiber_g": 2,
       "sugars_g": 3,
-      "protein_g": 13
+      "protein_g": 13,
+      "group": "Chicken & Fish"
     },
     {
       "id": "honey-mustard-original-chicken-wrap",
@@ -1310,7 +1381,8 @@
       "carbs_g": 33,
       "fiber_g": 2,
       "sugars_g": 5,
-      "protein_g": 13
+      "protein_g": 13,
+      "group": "Chicken & Fish"
     },
     {
       "id": "classic-flame-grilled-chicken-wrap",
@@ -1327,7 +1399,8 @@
       "carbs_g": 21,
       "fiber_g": 1,
       "sugars_g": 2,
-      "protein_g": 17
+      "protein_g": 17,
+      "group": "Chicken & Fish"
     },
     {
       "id": "spicy-flame-grilled-chicken-wrap",
@@ -1344,7 +1417,8 @@
       "carbs_g": 23,
       "fiber_g": 1,
       "sugars_g": 3,
-      "protein_g": 17
+      "protein_g": 17,
+      "group": "Chicken & Fish"
     },
     {
       "id": "honey-mustard-flame-grilled-chicken-wrap",
@@ -1361,7 +1435,8 @@
       "carbs_g": 24,
       "fiber_g": 1,
       "sugars_g": 5,
-      "protein_g": 17
+      "protein_g": 17,
+      "group": "Chicken & Fish"
     },
     {
       "id": "4-pc-chicken-fries",
@@ -1379,6 +1454,7 @@
       "fiber_g": 0,
       "sugars_g": 0,
       "protein_g": 7,
+      "group": "Chicken & Fish",
       "variant_label": "4 Pc."
     },
     {
@@ -1397,6 +1473,7 @@
       "fiber_g": 1,
       "sugars_g": 0,
       "protein_g": 13,
+      "group": "Chicken & Fish",
       "variant_label": "8 Pc.",
       "variant_of": "4-pc-chicken-fries"
     },
@@ -1416,6 +1493,7 @@
       "fiber_g": 1,
       "sugars_g": 0,
       "protein_g": 20,
+      "group": "Chicken & Fish",
       "variant_label": "12 Pc.",
       "variant_of": "4-pc-chicken-fries"
     },
@@ -1435,6 +1513,7 @@
       "fiber_g": 4,
       "sugars_g": 0,
       "protein_g": 11,
+      "group": "Chicken & Fish",
       "variant_label": "4 Pc."
     },
     {
@@ -1453,6 +1532,7 @@
       "fiber_g": 11,
       "sugars_g": 1,
       "protein_g": 26,
+      "group": "Chicken & Fish",
       "variant_label": "10 Pc.",
       "variant_of": "4-pc-chicken-nuggets"
     },
@@ -1472,6 +1552,7 @@
       "fiber_g": 21,
       "sugars_g": 2,
       "protein_g": 53,
+      "group": "Chicken & Fish",
       "variant_label": "20 Pc.",
       "variant_of": "4-pc-chicken-nuggets"
     },
@@ -1490,7 +1571,8 @@
       "carbs_g": 58,
       "fiber_g": 3,
       "sugars_g": 8,
-      "protein_g": 19
+      "protein_g": 19,
+      "group": "Chicken & Fish"
     },
     {
       "id": "whopper-base",

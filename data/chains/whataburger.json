@@ -110,7 +110,8 @@
       "carbs_g": 62.09,
       "fiber_g": 3.89,
       "sugars_g": 12.15,
-      "protein_g": 54.27
+      "protein_g": 54.27,
+      "group": "Favorites"
     },
     {
       "id": "chicken-fajita-taco",
@@ -127,7 +128,8 @@
       "carbs_g": 30.9,
       "fiber_g": 2.97,
       "sugars_g": 1.29,
-      "protein_g": 28.74
+      "protein_g": 28.74,
+      "group": "Favorites"
     },
     {
       "id": "sweet-spicy-bacon-burger",
@@ -144,7 +146,8 @@
       "carbs_g": 68.6,
       "fiber_g": 2.86,
       "sugars_g": 18.36,
-      "protein_g": 59.95
+      "protein_g": 59.95,
+      "group": "Favorites"
     },
     {
       "id": "whataburger-patty-melt",
@@ -161,7 +164,8 @@
       "carbs_g": 45.46,
       "fiber_g": 0.51,
       "sugars_g": 6.04,
-      "protein_g": 48.94
+      "protein_g": 48.94,
+      "group": "Favorites"
     },
     {
       "id": "honey-bbq-chicken-strip-sandwich",
@@ -178,7 +182,8 @@
       "carbs_g": 87.67,
       "fiber_g": 3.09,
       "sugars_g": 15.97,
-      "protein_g": 37.53
+      "protein_g": 37.53,
+      "group": "Favorites"
     },
     {
       "id": "green-chile-double",
@@ -195,7 +200,8 @@
       "carbs_g": 61.41,
       "fiber_g": 2.84,
       "sugars_g": 12.04,
-      "protein_g": 54.46
+      "protein_g": 54.46,
+      "group": "Favorites"
     },
     {
       "id": "whataburger",
@@ -212,7 +218,8 @@
       "carbs_g": 61.84,
       "fiber_g": 3.63,
       "sugars_g": 11.72,
-      "protein_g": 28.77
+      "protein_g": 28.77,
+      "group": "Burgers"
     },
     {
       "id": "double-meat-whataburger",
@@ -229,7 +236,8 @@
       "carbs_g": 61.85,
       "fiber_g": 3.63,
       "sugars_g": 11.8,
-      "protein_g": 46.93
+      "protein_g": 46.93,
+      "group": "Burgers"
     },
     {
       "id": "triple-meat-whataburger",
@@ -246,7 +254,8 @@
       "carbs_g": 61.86,
       "fiber_g": 3.63,
       "sugars_g": 11.88,
-      "protein_g": 65.09
+      "protein_g": 65.09,
+      "group": "Burgers"
     },
     {
       "id": "jalapeno-cheese-whataburger",
@@ -263,7 +272,8 @@
       "carbs_g": 62.72,
       "fiber_g": 4.04,
       "sugars_g": 12.12,
-      "protein_g": 33.77
+      "protein_g": 33.77,
+      "group": "Burgers"
     },
     {
       "id": "bacon-cheese-whataburger",
@@ -280,7 +290,8 @@
       "carbs_g": 61.9,
       "fiber_g": 3.63,
       "sugars_g": 11.72,
-      "protein_g": 39.32
+      "protein_g": 39.32,
+      "group": "Burgers"
     },
     {
       "id": "avocado-bacon-burger",
@@ -297,7 +308,8 @@
       "carbs_g": 51.49,
       "fiber_g": 3.95,
       "sugars_g": 7.13,
-      "protein_g": 37.13
+      "protein_g": 37.13,
+      "group": "Burgers"
     },
     {
       "id": "double-meat-whataburger-jr",
@@ -314,7 +326,8 @@
       "carbs_g": 37,
       "fiber_g": 1.86,
       "sugars_g": 6.44,
-      "protein_g": 23.07
+      "protein_g": 23.07,
+      "group": "Burgers"
     },
     {
       "id": "whatachickn-sandwich",
@@ -331,7 +344,8 @@
       "carbs_g": 55.4,
       "fiber_g": 3.59,
       "sugars_g": 8.82,
-      "protein_g": 32.72
+      "protein_g": 32.72,
+      "group": "Chicken"
     },
     {
       "id": "grilled-chicken-sandwich",
@@ -348,7 +362,8 @@
       "carbs_g": 45.49,
       "fiber_g": 4.65,
       "sugars_g": 8.12,
-      "protein_g": 31.85
+      "protein_g": 31.85,
+      "group": "Chicken"
     },
     {
       "id": "whatachickn-strips-3-pcs",
@@ -365,7 +380,8 @@
       "carbs_g": 39.93,
       "fiber_g": 2.79,
       "sugars_g": 1.71,
-      "protein_g": 25.23
+      "protein_g": 25.23,
+      "group": "Chicken"
     },
     {
       "id": "whatachickn-bites-6-pcs",
@@ -382,7 +398,8 @@
       "carbs_g": 32.01,
       "fiber_g": 2.04,
       "sugars_g": 1.71,
-      "protein_g": 30
+      "protein_g": 30,
+      "group": "Chicken"
     },
     {
       "id": "whatachickn-bites-9-pcs",
@@ -399,7 +416,8 @@
       "carbs_g": 44.01,
       "fiber_g": 3.06,
       "sugars_g": 2.07,
-      "protein_g": 45
+      "protein_g": 45,
+      "group": "Chicken"
     },
     {
       "id": "honey-butter-chicken-biscuit",
@@ -416,7 +434,8 @@
       "carbs_g": 49.89,
       "fiber_g": 1.94,
       "sugars_g": 10.28,
-      "protein_g": 14.55
+      "protein_g": 14.55,
+      "group": "Breakfast"
     },
     {
       "id": "biscuit-sandwich-with-bacon",
@@ -433,7 +452,8 @@
       "carbs_g": 34.45,
       "fiber_g": 1,
       "sugars_g": 3.21,
-      "protein_g": 19.23
+      "protein_g": 19.23,
+      "group": "Breakfast"
     },
     {
       "id": "biscuit-and-gravy",
@@ -450,7 +470,8 @@
       "carbs_g": 48.36,
       "fiber_g": 1.13,
       "sugars_g": 4.84,
-      "protein_g": 8.63
+      "protein_g": 8.63,
+      "group": "Breakfast"
     },
     {
       "id": "biscuit-with-bacon",
@@ -467,7 +488,8 @@
       "carbs_g": 34.04,
       "fiber_g": 1,
       "sugars_g": 3,
-      "protein_g": 9.7
+      "protein_g": 9.7,
+      "group": "Breakfast"
     },
     {
       "id": "biscuit-with-sausage",
@@ -484,7 +506,8 @@
       "carbs_g": 34,
       "fiber_g": 1,
       "sugars_g": 3,
-      "protein_g": 17.06
+      "protein_g": 17.06,
+      "group": "Breakfast"
     },
     {
       "id": "biscuit",
@@ -501,7 +524,8 @@
       "carbs_g": 34,
       "fiber_g": 1,
       "sugars_g": 3,
-      "protein_g": 6
+      "protein_g": 6,
+      "group": "Breakfast"
     },
     {
       "id": "hash-brown-sticks",
@@ -518,7 +542,8 @@
       "carbs_g": 20.72,
       "fiber_g": 1.72,
       "sugars_g": 0,
-      "protein_g": 1.68
+      "protein_g": 1.68,
+      "group": "Breakfast"
     },
     {
       "id": "pancakes",
@@ -535,7 +560,8 @@
       "carbs_g": 69,
       "fiber_g": 3,
       "sugars_g": 15,
-      "protein_g": 9
+      "protein_g": 9,
+      "group": "Breakfast"
     },
     {
       "id": "egg-sandwich",
@@ -552,7 +578,8 @@
       "carbs_g": 34.41,
       "fiber_g": 1,
       "sugars_g": 5.21,
-      "protein_g": 14.53
+      "protein_g": 14.53,
+      "group": "Breakfast"
     },
     {
       "id": "egg-and-cheese-biscuit",
@@ -569,7 +596,8 @@
       "carbs_g": 34.44,
       "fiber_g": 1,
       "sugars_g": 3.21,
-      "protein_g": 15.53
+      "protein_g": 15.53,
+      "group": "Breakfast"
     },
     {
       "id": "large-white-bun-ingredient",

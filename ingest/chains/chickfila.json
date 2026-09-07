@@ -137,9 +137,18 @@
   "Dipping Sauces": "sauce",
   "Dressings": "dressing",
   "Sides": "side",
-  "Entrées": "preset",
-  "Breakfast": "preset",
-  "Salads": "preset",
+  "Entrées": {
+   "cat": "preset",
+   "group": "Entrées"
+  },
+  "Breakfast": {
+   "cat": "preset",
+   "group": "Breakfast"
+  },
+  "Salads": {
+   "cat": "preset",
+   "group": "Salads"
+  },
   "Drinks": "drink",
   "Coffee": "drink",
   "Treats": "treat"
