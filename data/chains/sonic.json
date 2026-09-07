@@ -117,7 +117,8 @@
       "carbs_g": 32,
       "fiber_g": 2,
       "sugars_g": 8,
-      "protein_g": 39
+      "protein_g": 39,
+      "group": "Burgers"
     },
     {
       "id": "all-american-bacon-sonic-smasher-triple",
@@ -134,7 +135,8 @@
       "carbs_g": 33,
       "fiber_g": 2,
       "sugars_g": 9,
-      "protein_g": 52
+      "protein_g": 52,
+      "group": "Burgers"
     },
     {
       "id": "all-american-sonic-smasher-double",
@@ -151,7 +153,8 @@
       "carbs_g": 32,
       "fiber_g": 2,
       "sugars_g": 8,
-      "protein_g": 35
+      "protein_g": 35,
+      "group": "Burgers"
     },
     {
       "id": "all-american-sonic-smasher-triple",
@@ -168,7 +171,8 @@
       "carbs_g": 33,
       "fiber_g": 2,
       "sugars_g": 8,
-      "protein_g": 48
+      "protein_g": 48,
+      "group": "Burgers"
     },
     {
       "id": "hatch-green-chile-cheeseburger-with-mustard",
@@ -185,7 +189,8 @@
       "carbs_g": 50,
       "fiber_g": 2,
       "sugars_g": 9,
-      "protein_g": 30
+      "protein_g": 30,
+      "group": "Burgers"
     },
     {
       "id": "jr-bacon-cheeseburger",
@@ -202,7 +207,8 @@
       "carbs_g": 27,
       "fiber_g": 1,
       "sugars_g": 7,
-      "protein_g": 17
+      "protein_g": 17,
+      "group": "Burgers"
     },
     {
       "id": "jr-double-cheeseburger",
@@ -219,7 +225,8 @@
       "carbs_g": 25,
       "fiber_g": 2,
       "sugars_g": 6,
-      "protein_g": 21
+      "protein_g": 21,
+      "group": "Burgers"
     },
     {
       "id": "original-sonic-smasher-double",
@@ -236,7 +243,8 @@
       "carbs_g": 30,
       "fiber_g": 1,
       "sugars_g": 8,
-      "protein_g": 35
+      "protein_g": 35,
+      "group": "Burgers"
     },
     {
       "id": "original-sonic-smasher-triple",
@@ -253,7 +261,8 @@
       "carbs_g": 31,
       "fiber_g": 1,
       "sugars_g": 9,
-      "protein_g": 48
+      "protein_g": 48,
+      "group": "Burgers"
     },
     {
       "id": "sonic-cheeseburger-with-ketchup-mayo",
@@ -270,7 +279,8 @@
       "carbs_g": 52,
       "fiber_g": 2,
       "sugars_g": 12,
-      "protein_g": 30
+      "protein_g": 30,
+      "group": "Burgers"
     },
     {
       "id": "deluxe-teriyaki-sonic-smasher-double",
@@ -287,7 +297,8 @@
       "carbs_g": 58,
       "fiber_g": 2,
       "sugars_g": 15,
-      "protein_g": 36
+      "protein_g": 36,
+      "group": "Burgers"
     },
     {
       "id": "deluxe-teriyaki-sonic-smasher-triple",
@@ -304,7 +315,8 @@
       "carbs_g": 59,
       "fiber_g": 2,
       "sugars_g": 15,
-      "protein_g": 49
+      "protein_g": 49,
+      "group": "Burgers"
     },
     {
       "id": "blt-toaster",
@@ -321,7 +333,8 @@
       "carbs_g": 42,
       "fiber_g": 3,
       "sugars_g": 5,
-      "protein_g": 16
+      "protein_g": 16,
+      "group": "Toaster Sandwiches"
     },
     {
       "id": "chicken-club-toaster",
@@ -338,7 +351,8 @@
       "carbs_g": 55,
       "fiber_g": 5,
       "sugars_g": 6,
-      "protein_g": 33
+      "protein_g": 33,
+      "group": "Toaster Sandwiches"
     },
     {
       "id": "cheesy-baja-crispy-tender-wrap",
@@ -355,7 +369,8 @@
       "carbs_g": 30,
       "fiber_g": 2,
       "sugars_g": 1,
-      "protein_g": 12
+      "protein_g": 12,
+      "group": "Chicken"
     },
     {
       "id": "crispy-tenders-3-pc",
@@ -372,7 +387,8 @@
       "carbs_g": 16,
       "fiber_g": 2,
       "sugars_g": 0,
-      "protein_g": 21
+      "protein_g": 21,
+      "group": "Chicken"
     },
     {
       "id": "crispy-tenders-5-pc",
@@ -389,7 +405,8 @@
       "carbs_g": 27,
       "fiber_g": 3,
       "sugars_g": 0,
-      "protein_g": 35
+      "protein_g": 35,
+      "group": "Chicken"
     },
     {
       "id": "garlic-parmesan-ranch-crispy-tender-wrap",
@@ -406,7 +423,8 @@
       "carbs_g": 34,
       "fiber_g": 1,
       "sugars_g": 2,
-      "protein_g": 12
+      "protein_g": 12,
+      "group": "Chicken"
     },
     {
       "id": "premium-chicken-bites-small",
@@ -424,6 +442,7 @@
       "fiber_g": 1,
       "sugars_g": 0,
       "protein_g": 13,
+      "group": "Chicken",
       "variant_label": "SMALL"
     },
     {
@@ -442,6 +461,7 @@
       "fiber_g": 2,
       "sugars_g": 0,
       "protein_g": 19,
+      "group": "Chicken",
       "variant_label": "MEDIUM",
       "variant_of": "premium-chicken-bites-small"
     },
@@ -461,6 +481,7 @@
       "fiber_g": 3,
       "sugars_g": 0,
       "protein_g": 27,
+      "group": "Chicken",
       "variant_label": "LARGE",
       "variant_of": "premium-chicken-bites-small"
     },
@@ -479,7 +500,8 @@
       "carbs_g": 76,
       "fiber_g": 2,
       "sugars_g": 9,
-      "protein_g": 16
+      "protein_g": 16,
+      "group": "Sandwiches"
     },
     {
       "id": "crispy-chicken-sandwich",
@@ -496,7 +518,8 @@
       "carbs_g": 52,
       "fiber_g": 4,
       "sugars_g": 10,
-      "protein_g": 24
+      "protein_g": 24,
+      "group": "Sandwiches"
     },
     {
       "id": "grilled-cheese-sandwich",
@@ -513,7 +536,8 @@
       "carbs_g": 42,
       "fiber_g": 3,
       "sugars_g": 4,
-      "protein_g": 13
+      "protein_g": 13,
+      "group": "Sandwiches"
     },
     {
       "id": "philly-cheesesteak-sandwich",
@@ -530,7 +554,8 @@
       "carbs_g": 53,
       "fiber_g": 1,
       "sugars_g": 3,
-      "protein_g": 46
+      "protein_g": 46,
+      "group": "Sandwiches"
     },
     {
       "id": "pork-tenderloin-sandwich",
@@ -547,7 +572,8 @@
       "carbs_g": 69,
       "fiber_g": 2,
       "sugars_g": 9,
-      "protein_g": 20
+      "protein_g": 20,
+      "group": "Sandwiches"
     },
     {
       "id": "all-american-hot-dog",
@@ -564,7 +590,8 @@
       "carbs_g": 42,
       "fiber_g": 2,
       "sugars_g": 13,
-      "protein_g": 13
+      "protein_g": 13,
+      "group": "Hot Dogs"
     },
     {
       "id": "chicago-hot-dog",
@@ -581,7 +608,8 @@
       "carbs_g": 42,
       "fiber_g": 3,
       "sugars_g": 14,
-      "protein_g": 11
+      "protein_g": 11,
+      "group": "Hot Dogs"
     },
     {
       "id": "chili-cheese-coney",
@@ -598,7 +626,8 @@
       "carbs_g": 34,
       "fiber_g": 2,
       "sugars_g": 4,
-      "protein_g": 18
+      "protein_g": 18,
+      "group": "Hot Dogs"
     },
     {
       "id": "footlong-quarter-pound-coney",
@@ -615,7 +644,8 @@
       "carbs_g": 54,
       "fiber_g": 3,
       "sugars_g": 9,
-      "protein_g": 31
+      "protein_g": 31,
+      "group": "Hot Dogs"
     },
     {
       "id": "new-york-hot-dog",
@@ -632,7 +662,8 @@
       "carbs_g": 35,
       "fiber_g": 3,
       "sugars_g": 5,
-      "protein_g": 13
+      "protein_g": 13,
+      "group": "Hot Dogs"
     },
     {
       "id": "regular-hot-dog",
@@ -649,7 +680,8 @@
       "carbs_g": 31,
       "fiber_g": 2,
       "sugars_g": 4,
-      "protein_g": 12
+      "protein_g": 12,
+      "group": "Hot Dogs"
     },
     {
       "id": "biscuit-sandwich-bacon",
@@ -666,7 +698,8 @@
       "carbs_g": 40,
       "fiber_g": 1,
       "sugars_g": 5,
-      "protein_g": 20
+      "protein_g": 20,
+      "group": "Breakfast"
     },
     {
       "id": "biscuit-sandwich-ham",
@@ -683,7 +716,8 @@
       "carbs_g": 43,
       "fiber_g": 1,
       "sugars_g": 6,
-      "protein_g": 23
+      "protein_g": 23,
+      "group": "Breakfast"
     },
     {
       "id": "biscuit-sandwich-sausage",
@@ -700,7 +734,8 @@
       "carbs_g": 40,
       "fiber_g": 1,
       "sugars_g": 5,
-      "protein_g": 21
+      "protein_g": 21,
+      "group": "Breakfast"
     },
     {
       "id": "breakfast-burrito-bacon",
@@ -717,7 +752,8 @@
       "carbs_g": 35,
       "fiber_g": 1,
       "sugars_g": 1,
-      "protein_g": 25
+      "protein_g": 25,
+      "group": "Breakfast"
     },
     {
       "id": "breakfast-burrito-ham",
@@ -734,7 +770,8 @@
       "carbs_g": 38,
       "fiber_g": 1,
       "sugars_g": 2,
-      "protein_g": 27
+      "protein_g": 27,
+      "group": "Breakfast"
     },
     {
       "id": "breakfast-burrito-sausage",
@@ -751,7 +788,8 @@
       "carbs_g": 35,
       "fiber_g": 1,
       "sugars_g": 1,
-      "protein_g": 23
+      "protein_g": 23,
+      "group": "Breakfast"
     },
     {
       "id": "breakfast-toaster-bacon",
@@ -768,7 +806,8 @@
       "carbs_g": 42,
       "fiber_g": 3,
       "sugars_g": 4,
-      "protein_g": 22
+      "protein_g": 22,
+      "group": "Breakfast"
     },
     {
       "id": "breakfast-toaster-ham",
@@ -785,7 +824,8 @@
       "carbs_g": 45,
       "fiber_g": 3,
       "sugars_g": 6,
-      "protein_g": 26
+      "protein_g": 26,
+      "group": "Breakfast"
     },
     {
       "id": "breakfast-toaster-sausage",
@@ -802,7 +842,8 @@
       "carbs_g": 42,
       "fiber_g": 3,
       "sugars_g": 4,
-      "protein_g": 23
+      "protein_g": 23,
+      "group": "Breakfast"
     },
     {
       "id": "brioche-sandwich-bacon",
@@ -819,7 +860,8 @@
       "carbs_g": 38,
       "fiber_g": 2,
       "sugars_g": 9,
-      "protein_g": 20
+      "protein_g": 20,
+      "group": "Breakfast"
     },
     {
       "id": "brioche-sandwich-ham",
@@ -836,7 +878,8 @@
       "carbs_g": 41,
       "fiber_g": 2,
       "sugars_g": 11,
-      "protein_g": 24
+      "protein_g": 24,
+      "group": "Breakfast"
     },
     {
       "id": "brioche-sandwich-sausage",
@@ -853,7 +896,8 @@
       "carbs_g": 38,
       "fiber_g": 3,
       "sugars_g": 9,
-      "protein_g": 22
+      "protein_g": 22,
+      "group": "Breakfast"
     },
     {
       "id": "croissonic-sandwich-bacon",
@@ -870,7 +914,8 @@
       "carbs_g": 29,
       "fiber_g": 1,
       "sugars_g": 5,
-      "protein_g": 18
+      "protein_g": 18,
+      "group": "Breakfast"
     },
     {
       "id": "croissonic-sandwich-ham",
@@ -887,7 +932,8 @@
       "carbs_g": 31,
       "fiber_g": 1,
       "sugars_g": 6,
-      "protein_g": 22
+      "protein_g": 22,
+      "group": "Breakfast"
     },
     {
       "id": "croissonic-sandwich-sausage",
@@ -904,7 +950,8 @@
       "carbs_g": 29,
       "fiber_g": 1,
       "sugars_g": 5,
-      "protein_g": 19
+      "protein_g": 19,
+      "group": "Breakfast"
     },
     {
       "id": "french-toast-sticks-without-syrup-4-pc",
@@ -921,7 +968,8 @@
       "carbs_g": 54,
       "fiber_g": 3,
       "sugars_g": 12,
-      "protein_g": 8
+      "protein_g": 8,
+      "group": "Breakfast"
     },
     {
       "id": "jr-breakfast-burrito-bacon",
@@ -938,7 +986,8 @@
       "carbs_g": 22,
       "fiber_g": 1,
       "sugars_g": 0,
-      "protein_g": 13
+      "protein_g": 13,
+      "group": "Breakfast"
     },
     {
       "id": "jr-breakfast-burrito-sausage",
@@ -955,7 +1004,8 @@
       "carbs_g": 22,
       "fiber_g": 1,
       "sugars_g": 0,
-      "protein_g": 12
+      "protein_g": 12,
+      "group": "Breakfast"
     },
     {
       "id": "ultimate-meat-cheese-breakfast-burrito",
@@ -972,7 +1022,8 @@
       "carbs_g": 47,
       "fiber_g": 2,
       "sugars_g": 1,
-      "protein_g": 29
+      "protein_g": 29,
+      "group": "Breakfast"
     },
     {
       "id": "american-cheese",

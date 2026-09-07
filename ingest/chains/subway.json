@@ -158,51 +158,61 @@
  "section_categories": {
   "SANDWICHES": {
    "cat": "menu",
-   "desc": "one 6\" sub"
+   "desc": "one 6\" sub",
+   "group": "Sandwiches"
   },
   "SANDWICHES/Kids' Mini Sub": {
    "cat": "menu",
    "suffix": "Kids Mini",
-   "desc": "one kids mini sub"
+   "desc": "one kids mini sub",
+   "group": "Kids"
   },
   "WRAPS": {
    "cat": "menu",
    "suffix": "Wrap",
-   "desc": "one wrap"
+   "desc": "one wrap",
+   "group": "Wraps"
   },
   "WRAPS/Protein Pockets": {
    "cat": "menu",
    "suffix": "Protein Pocket",
-   "desc": "one 9\" pocket"
+   "desc": "one 9\" pocket",
+   "group": "Wraps"
   },
   "SALADS": {
    "cat": "menu",
    "suffix": "Salad",
-   "desc": "one salad, no dressing unless noted"
+   "desc": "one salad, no dressing unless noted",
+   "group": "Salads"
   },
   "PROTEIN BOWLS": {
    "cat": "menu",
    "suffix": "Protein Bowl",
-   "desc": "one bowl, no dressing or cheese unless noted"
+   "desc": "one bowl, no dressing or cheese unless noted",
+   "group": "Bowls"
   },
   "BREAKFAST & PIZZA & SLIDERS": {
    "cat": "menu",
-   "desc": "one 6\" breakfast sub"
+   "desc": "one 6\" breakfast sub",
+   "group": "Breakfast"
   },
   "BREAKFAST & PIZZA & SLIDERS/Egg Patty on 12\" Wrap": {
    "cat": "menu",
    "suffix": "Breakfast Wrap",
-   "desc": "one breakfast wrap"
+   "desc": "one breakfast wrap",
+   "group": "Breakfast"
   },
   "BREAKFAST & PIZZA & SLIDERS/8\" Pizza": {
    "cat": "menu",
    "suffix": "8\" Pizza",
-   "desc": "one 8\" pizza"
+   "desc": "one 8\" pizza",
+   "group": "Pizza"
   },
   "BREAKFAST & PIZZA & SLIDERS/Sliders": {
    "cat": "menu",
    "suffix": "Slider",
-   "desc": "one slider"
+   "desc": "one slider",
+   "group": "Sliders"
   },
   "BREADS & INGREDIENTS/Breads": {
    "cat": "bread",

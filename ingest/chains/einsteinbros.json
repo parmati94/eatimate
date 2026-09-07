@@ -128,37 +128,46 @@
   "Einstein Bros. Company: Classic 1 Egg Sandwiches": {
    "cat": "item",
    "suffix": "1 Egg",
-   "id_suffix": "1egg"
+   "id_suffix": "1egg",
+   "group": "Breakfast"
   },
   "Einstein Bros. Company: Classic 2 Egg Sandwiches": {
    "cat": "item",
    "suffix": "2 Egg",
-   "id_suffix": "2egg"
+   "id_suffix": "2egg",
+   "group": "Breakfast"
   },
   "Einstein Bros. Company: Classic Egg White Sandwiches": {
    "cat": "item",
    "suffix": "Egg White",
-   "id_suffix": "eggwhite"
+   "id_suffix": "eggwhite",
+   "group": "Breakfast"
   },
   "Einstein Bros. Company Chef's Creations: 1 Egg Sandwiches": {
    "cat": "item",
    "suffix": "1 Egg",
-   "id_suffix": "c1egg"
+   "id_suffix": "c1egg",
+   "group": "Breakfast"
   },
   "Einstein Bros. Company Chef's Creations: 2 Egg Sandwiches": {
    "cat": "item",
    "suffix": "2 Egg",
-   "id_suffix": "c2egg"
+   "id_suffix": "c2egg",
+   "group": "Breakfast"
   },
   "Einstein Bros. Company Chef's Creations: 1 Egg White Sandwiches": {
    "cat": "item",
    "suffix": "Egg White",
-   "id_suffix": "ceggwhite"
+   "id_suffix": "ceggwhite",
+   "group": "Breakfast"
   },
   "Burritos": {
    "skip": "group heading"
   },
-  "Einstein Bros. Company Burrito": "item",
+  "Einstein Bros. Company Burrito": {
+   "cat": "item",
+   "group": "Breakfast"
+  },
   "Einstein Bros License Egg Sandwiches": {
    "skip": "group heading"
   },
@@ -177,8 +186,14 @@
   "Einstein Bros. Company Lunch Sandwiches": {
    "skip": "group heading"
   },
-  "Einstein Bros. Company: Signature Lunch Sandwiches": "item",
-  "Einstein Bros. Company: Hot and Toasty Lunch Sandwiches": "item",
+  "Einstein Bros. Company: Signature Lunch Sandwiches": {
+   "cat": "item",
+   "group": "Lunch"
+  },
+  "Einstein Bros. Company: Hot and Toasty Lunch Sandwiches": {
+   "cat": "item",
+   "group": "Lunch"
+  },
   "Einstein Bros. License Lunch sandwiches": {
    "skip": "group heading"
   },
@@ -189,7 +204,10 @@
    "skip": "license locations only — airports, hospitals and college campuses, which buy from different suppliers; the company figures for the same sandwiches are ingested above"
   },
   "Sides": "sides",
-  "Avocado Toast": "item",
+  "Avocado Toast": {
+   "cat": "item",
+   "group": "Breakfast"
+  },
   "Sweets": "sweets",
   "Doggie Bagels": {
    "skip": "group heading"

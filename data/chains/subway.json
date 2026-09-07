@@ -139,6 +139,7 @@
       "fiber_g": 2,
       "sugars_g": 5,
       "protein_g": 28,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -157,6 +158,7 @@
       "fiber_g": 3,
       "sugars_g": 5,
       "protein_g": 46,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-steak-philly"
     },
@@ -176,6 +178,7 @@
       "fiber_g": 4,
       "sugars_g": 6,
       "protein_g": 24,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-steak-philly"
     },
@@ -195,6 +198,7 @@
       "fiber_g": 3,
       "sugars_g": 7,
       "protein_g": 43,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-steak-philly"
     },
@@ -214,6 +218,7 @@
       "fiber_g": 2,
       "sugars_g": 5,
       "protein_g": 30,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -232,6 +237,7 @@
       "fiber_g": 3,
       "sugars_g": 5,
       "protein_g": 47,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-chipotle-philly"
     },
@@ -251,6 +257,7 @@
       "fiber_g": 5,
       "sugars_g": 7,
       "protein_g": 25,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-chipotle-philly"
     },
@@ -270,6 +277,7 @@
       "fiber_g": 4,
       "sugars_g": 7,
       "protein_g": 46,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-chipotle-philly"
     },
@@ -289,6 +297,7 @@
       "fiber_g": 3,
       "sugars_g": 5,
       "protein_g": 26,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -307,6 +316,7 @@
       "fiber_g": 3,
       "sugars_g": 5,
       "protein_g": 43,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-cheesy-garlic-steak"
     },
@@ -326,6 +336,7 @@
       "fiber_g": 5,
       "sugars_g": 8,
       "protein_g": 23,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-cheesy-garlic-steak"
     },
@@ -345,6 +356,7 @@
       "fiber_g": 4,
       "sugars_g": 8,
       "protein_g": 39,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-cheesy-garlic-steak"
     },
@@ -364,6 +376,7 @@
       "fiber_g": 3,
       "sugars_g": 5,
       "protein_g": 31,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -382,6 +395,7 @@
       "fiber_g": 3,
       "sugars_g": 5,
       "protein_g": 48,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-grilled-chicken"
     },
@@ -401,6 +415,7 @@
       "fiber_g": 4,
       "sugars_g": 6,
       "protein_g": 26,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-grilled-chicken"
     },
@@ -420,6 +435,7 @@
       "fiber_g": 3,
       "sugars_g": 6,
       "protein_g": 48,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-grilled-chicken"
     },
@@ -439,6 +455,7 @@
       "fiber_g": 3,
       "sugars_g": 5,
       "protein_g": 35,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -457,6 +474,7 @@
       "fiber_g": 3,
       "sugars_g": 7,
       "protein_g": 56,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-chicken-bacon-ranch"
     },
@@ -476,6 +494,7 @@
       "fiber_g": 5,
       "sugars_g": 7,
       "protein_g": 30,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-chicken-bacon-ranch"
     },
@@ -495,6 +514,7 @@
       "fiber_g": 4,
       "sugars_g": 7,
       "protein_g": 55,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-chicken-bacon-ranch"
     },
@@ -514,6 +534,7 @@
       "fiber_g": 3,
       "sugars_g": 5,
       "protein_g": 24,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -532,6 +553,7 @@
       "fiber_g": 3,
       "sugars_g": 6,
       "protein_g": 40,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-spicy-nacho-chicken"
     },
@@ -551,6 +573,7 @@
       "fiber_g": 5,
       "sugars_g": 8,
       "protein_g": 20,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-spicy-nacho-chicken"
     },
@@ -570,6 +593,7 @@
       "fiber_g": 5,
       "sugars_g": 9,
       "protein_g": 35,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-spicy-nacho-chicken"
     },
@@ -589,6 +613,7 @@
       "fiber_g": 3,
       "sugars_g": 13,
       "protein_g": 30,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -607,6 +632,7 @@
       "fiber_g": 4,
       "sugars_g": 14,
       "protein_g": 46,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-honey-mustard-bbq-chicken"
     },
@@ -626,6 +652,7 @@
       "fiber_g": 5,
       "sugars_g": 22,
       "protein_g": 25,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-honey-mustard-bbq-chicken"
     },
@@ -645,6 +672,7 @@
       "fiber_g": 4,
       "sugars_g": 22,
       "protein_g": 45,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-honey-mustard-bbq-chicken"
     },
@@ -664,6 +692,7 @@
       "fiber_g": 4,
       "sugars_g": 20,
       "protein_g": 29,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -682,6 +711,7 @@
       "fiber_g": 3,
       "sugars_g": 27,
       "protein_g": 45,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-sweet-onion-teriyaki-chicken"
     },
@@ -701,6 +731,7 @@
       "fiber_g": 4,
       "sugars_g": 25,
       "protein_g": 23,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-sweet-onion-teriyaki-chicken"
     },
@@ -720,6 +751,7 @@
       "fiber_g": 3,
       "sugars_g": 33,
       "protein_g": 42,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-sweet-onion-teriyaki-chicken"
     },
@@ -739,6 +771,7 @@
       "fiber_g": 2,
       "sugars_g": 5,
       "protein_g": 27,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -757,6 +790,7 @@
       "fiber_g": 2,
       "sugars_g": 5,
       "protein_g": 27,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-b-m-t"
     },
@@ -776,6 +810,7 @@
       "fiber_g": 4,
       "sugars_g": 6,
       "protein_g": 22,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-b-m-t"
     },
@@ -795,6 +830,7 @@
       "fiber_g": 3,
       "sugars_g": 6,
       "protein_g": 40,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-b-m-t"
     },
@@ -814,6 +850,7 @@
       "fiber_g": 3,
       "sugars_g": 5,
       "protein_g": 27,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -832,6 +869,7 @@
       "fiber_g": 3,
       "sugars_g": 6,
       "protein_g": 39,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-spicy-italian"
     },
@@ -851,6 +889,7 @@
       "fiber_g": 4,
       "sugars_g": 5,
       "protein_g": 22,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-spicy-italian"
     },
@@ -870,6 +909,7 @@
       "fiber_g": 3,
       "sugars_g": 5,
       "protein_g": 39,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-spicy-italian"
     },
@@ -889,6 +929,7 @@
       "fiber_g": 3,
       "sugars_g": 6,
       "protein_g": 40,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -907,6 +948,7 @@
       "fiber_g": 3,
       "sugars_g": 8,
       "protein_g": 66,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-5-meat-italian"
     },
@@ -926,6 +968,7 @@
       "fiber_g": 4,
       "sugars_g": 7,
       "protein_g": 35,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-5-meat-italian"
     },
@@ -945,6 +988,7 @@
       "fiber_g": 3,
       "sugars_g": 8,
       "protein_g": 66,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-5-meat-italian"
     },
@@ -964,6 +1008,7 @@
       "fiber_g": 4,
       "sugars_g": 7,
       "protein_g": 27,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -982,6 +1027,7 @@
       "fiber_g": 7,
       "sugars_g": 12,
       "protein_g": 40,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-meatball-marinara"
     },
@@ -1001,6 +1047,7 @@
       "fiber_g": 4,
       "sugars_g": 7,
       "protein_g": 33,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -1019,6 +1066,7 @@
       "fiber_g": 7,
       "sugars_g": 12,
       "protein_g": 47,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-meatball-pepperoni"
     },
@@ -1038,6 +1086,7 @@
       "fiber_g": 3,
       "sugars_g": 5,
       "protein_g": 26,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -1056,6 +1105,7 @@
       "fiber_g": 3,
       "sugars_g": 6,
       "protein_g": 38,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-oven-roasted-turkey"
     },
@@ -1075,6 +1125,7 @@
       "fiber_g": 4,
       "sugars_g": 5,
       "protein_g": 21,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-oven-roasted-turkey"
     },
@@ -1094,6 +1145,7 @@
       "fiber_g": 3,
       "sugars_g": 5,
       "protein_g": 38,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-oven-roasted-turkey"
     },
@@ -1113,6 +1165,7 @@
       "fiber_g": 2,
       "sugars_g": 5,
       "protein_g": 25,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -1131,6 +1184,7 @@
       "fiber_g": 3,
       "sugars_g": 7,
       "protein_g": 36,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-black-forest-ham"
     },
@@ -1150,6 +1204,7 @@
       "fiber_g": 4,
       "sugars_g": 6,
       "protein_g": 20,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-black-forest-ham"
     },
@@ -1169,6 +1224,7 @@
       "fiber_g": 3,
       "sugars_g": 7,
       "protein_g": 36,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-black-forest-ham"
     },
@@ -1188,6 +1244,7 @@
       "fiber_g": 3,
       "sugars_g": 4,
       "protein_g": 11,
+      "group": "Kids",
       "variant_label": "Kids Mini",
       "variant_of": "6-black-forest-ham"
     },
@@ -1207,6 +1264,7 @@
       "fiber_g": 2,
       "sugars_g": 6,
       "protein_g": 31,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -1225,6 +1283,7 @@
       "fiber_g": 3,
       "sugars_g": 8,
       "protein_g": 48,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-roast-beef"
     },
@@ -1244,6 +1303,7 @@
       "fiber_g": 4,
       "sugars_g": 6,
       "protein_g": 26,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-roast-beef"
     },
@@ -1263,6 +1323,7 @@
       "fiber_g": 3,
       "sugars_g": 7,
       "protein_g": 48,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-roast-beef"
     },
@@ -1282,6 +1343,7 @@
       "fiber_g": 2,
       "sugars_g": 5,
       "protein_g": 25,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -1300,6 +1362,7 @@
       "fiber_g": 3,
       "sugars_g": 6,
       "protein_g": 35,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-cold-cut-combo"
     },
@@ -1319,6 +1382,7 @@
       "fiber_g": 4,
       "sugars_g": 5,
       "protein_g": 20,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-cold-cut-combo"
     },
@@ -1338,6 +1402,7 @@
       "fiber_g": 3,
       "sugars_g": 5,
       "protein_g": 35,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-cold-cut-combo"
     },
@@ -1357,6 +1422,7 @@
       "fiber_g": 2,
       "sugars_g": 4,
       "protein_g": 27,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -1375,6 +1441,7 @@
       "fiber_g": 3,
       "sugars_g": 5,
       "protein_g": 41,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-tuna"
     },
@@ -1394,6 +1461,7 @@
       "fiber_g": 4,
       "sugars_g": 5,
       "protein_g": 22,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-tuna"
     },
@@ -1413,6 +1481,7 @@
       "fiber_g": 3,
       "sugars_g": 4,
       "protein_g": 41,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-tuna"
     },
@@ -1432,6 +1501,7 @@
       "fiber_g": 4,
       "sugars_g": 6,
       "protein_g": 17,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -1450,6 +1520,7 @@
       "fiber_g": 3,
       "sugars_g": 5,
       "protein_g": 17,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-veggie-delite"
     },
@@ -1469,6 +1540,7 @@
       "fiber_g": 4,
       "sugars_g": 5,
       "protein_g": 10,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-veggie-delite"
     },
@@ -1488,6 +1560,7 @@
       "fiber_g": 3,
       "sugars_g": 6,
       "protein_g": 27,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -1506,6 +1579,7 @@
       "fiber_g": 3,
       "sugars_g": 9,
       "protein_g": 44,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-all-american-club"
     },
@@ -1525,6 +1599,7 @@
       "fiber_g": 4,
       "sugars_g": 7,
       "protein_g": 22,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-all-american-club"
     },
@@ -1544,6 +1619,7 @@
       "fiber_g": 3,
       "sugars_g": 9,
       "protein_g": 40,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-all-american-club"
     },
@@ -1563,6 +1639,7 @@
       "fiber_g": 4,
       "sugars_g": 8,
       "protein_g": 31,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -1581,6 +1658,7 @@
       "fiber_g": 3,
       "sugars_g": 9,
       "protein_g": 48,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-subway-club"
     },
@@ -1600,6 +1678,7 @@
       "fiber_g": 4,
       "sugars_g": 7,
       "protein_g": 24,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-subway-club"
     },
@@ -1619,6 +1698,7 @@
       "fiber_g": 3,
       "sugars_g": 9,
       "protein_g": 44,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-subway-club"
     },
@@ -1638,6 +1718,7 @@
       "fiber_g": 2,
       "sugars_g": 5,
       "protein_g": 30,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -1656,6 +1737,7 @@
       "fiber_g": 3,
       "sugars_g": 7,
       "protein_g": 49,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-big-hot-pastrami"
     },
@@ -1675,6 +1757,7 @@
       "fiber_g": 5,
       "sugars_g": 7,
       "protein_g": 26,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-big-hot-pastrami"
     },
@@ -1694,6 +1777,7 @@
       "fiber_g": 4,
       "sugars_g": 9,
       "protein_g": 46,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-big-hot-pastrami"
     },
@@ -1713,6 +1797,7 @@
       "fiber_g": 2,
       "sugars_g": 5,
       "protein_g": 18,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -1731,6 +1816,7 @@
       "fiber_g": 3,
       "sugars_g": 7,
       "protein_g": 30,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-b-l-t"
     },
@@ -1750,6 +1836,7 @@
       "fiber_g": 4,
       "sugars_g": 6,
       "protein_g": 13,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-b-l-t"
     },
@@ -1769,6 +1856,7 @@
       "fiber_g": 3,
       "sugars_g": 7,
       "protein_g": 22,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-b-l-t"
     },
@@ -1787,7 +1875,8 @@
       "carbs_g": 55,
       "fiber_g": 3,
       "sugars_g": 7,
-      "protein_g": 31
+      "protein_g": 31,
+      "group": "Sandwiches"
     },
     {
       "id": "6-oven-roasted-turkey-ham",
@@ -1804,7 +1893,8 @@
       "carbs_g": 41,
       "fiber_g": 4,
       "sugars_g": 6,
-      "protein_g": 27
+      "protein_g": 27,
+      "group": "Sandwiches"
     },
     {
       "id": "6-pizza-sub",
@@ -1822,6 +1912,7 @@
       "fiber_g": 2,
       "sugars_g": 5,
       "protein_g": 22,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -1840,6 +1931,7 @@
       "fiber_g": 3,
       "sugars_g": 6,
       "protein_g": 30,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-pizza-sub"
     },
@@ -1859,6 +1951,7 @@
       "fiber_g": 5,
       "sugars_g": 7,
       "protein_g": 17,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-pizza-sub"
     },
@@ -1878,6 +1971,7 @@
       "fiber_g": 4,
       "sugars_g": 8,
       "protein_g": 31,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-pizza-sub"
     },
@@ -1897,6 +1991,7 @@
       "fiber_g": 12,
       "sugars_g": 9,
       "protein_g": 19,
+      "group": "Sandwiches",
       "variant_label": "6\""
     },
     {
@@ -1915,6 +2010,7 @@
       "fiber_g": 19,
       "sugars_g": 10,
       "protein_g": 25,
+      "group": "Wraps",
       "variant_label": "Wrap",
       "variant_of": "6-veggie-patty"
     },
@@ -1934,6 +2030,7 @@
       "fiber_g": 12,
       "sugars_g": 8,
       "protein_g": 13,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "6-veggie-patty"
     },
@@ -1953,6 +2050,7 @@
       "fiber_g": 19,
       "sugars_g": 10,
       "protein_g": 22,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "6-veggie-patty"
     },
@@ -1971,7 +2069,8 @@
       "carbs_g": 44,
       "fiber_g": 6,
       "sugars_g": 8,
-      "protein_g": 35
+      "protein_g": 35,
+      "group": "Sandwiches"
     },
     {
       "id": "6-grilled-chicken-fresh-avocado",
@@ -1988,7 +2087,8 @@
       "carbs_g": 44,
       "fiber_g": 6,
       "sugars_g": 7,
-      "protein_g": 35
+      "protein_g": 35,
+      "group": "Sandwiches"
     },
     {
       "id": "6-ham-turkey-stacker",
@@ -2005,7 +2105,8 @@
       "carbs_g": 42,
       "fiber_g": 4,
       "sugars_g": 6,
-      "protein_g": 20
+      "protein_g": 20,
+      "group": "Sandwiches"
     },
     {
       "id": "6-turkey-ranch-delite",
@@ -2022,7 +2123,8 @@
       "carbs_g": 41,
       "fiber_g": 5,
       "sugars_g": 7,
-      "protein_g": 26
+      "protein_g": 26,
+      "group": "Sandwiches"
     },
     {
       "id": "6-seasoned-steak-smashed-avocado",
@@ -2039,7 +2141,8 @@
       "carbs_g": 45,
       "fiber_g": 6,
       "sugars_g": 7,
-      "protein_g": 35
+      "protein_g": 35,
+      "group": "Sandwiches"
     },
     {
       "id": "6-seasoned-steak-fresh-avocado",
@@ -2056,7 +2159,8 @@
       "carbs_g": 45,
       "fiber_g": 6,
       "sugars_g": 7,
-      "protein_g": 35
+      "protein_g": 35,
+      "group": "Sandwiches"
     },
     {
       "id": "veggie-delite-kids-mini",
@@ -2073,7 +2177,8 @@
       "carbs_g": 27,
       "fiber_g": 3,
       "sugars_g": 4,
-      "protein_g": 6
+      "protein_g": 6,
+      "group": "Kids"
     },
     {
       "id": "oven-roasted-turkey-kids-mini",
@@ -2090,7 +2195,8 @@
       "carbs_g": 27,
       "fiber_g": 3,
       "sugars_g": 4,
-      "protein_g": 12
+      "protein_g": 12,
+      "group": "Kids"
     },
     {
       "id": "turkey-ham-wrap",
@@ -2108,6 +2214,7 @@
       "fiber_g": 3,
       "sugars_g": 7,
       "protein_g": 37,
+      "group": "Wraps",
       "variant_label": "Wrap"
     },
     {
@@ -2126,6 +2233,7 @@
       "fiber_g": 2,
       "sugars_g": 4,
       "protein_g": 21,
+      "group": "Wraps",
       "variant_label": "Protein Pocket",
       "variant_of": "turkey-ham-wrap"
     },
@@ -2145,6 +2253,7 @@
       "fiber_g": 4,
       "sugars_g": 6,
       "protein_g": 21,
+      "group": "Salads",
       "variant_label": "Salad",
       "variant_of": "turkey-ham-wrap"
     },
@@ -2164,6 +2273,7 @@
       "fiber_g": 3,
       "sugars_g": 6,
       "protein_g": 37,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "turkey-ham-wrap"
     },
@@ -2182,7 +2292,8 @@
       "carbs_g": 30,
       "fiber_g": 2,
       "sugars_g": 2,
-      "protein_g": 24
+      "protein_g": 24,
+      "group": "Wraps"
     },
     {
       "id": "italian-trio-protein-pocket",
@@ -2199,7 +2310,8 @@
       "carbs_g": 32,
       "fiber_g": 2,
       "sugars_g": 2,
-      "protein_g": 22
+      "protein_g": 22,
+      "group": "Wraps"
     },
     {
       "id": "peppercorn-ranch-chicken-protein-pocket",
@@ -2216,7 +2328,8 @@
       "carbs_g": 30,
       "fiber_g": 2,
       "sugars_g": 2,
-      "protein_g": 24
+      "protein_g": 24,
+      "group": "Wraps"
     },
     {
       "id": "meatball-marinara-with-mvp-parmesan-vinaigrette-salad",
@@ -2234,6 +2347,7 @@
       "fiber_g": 7,
       "sugars_g": 11,
       "protein_g": 23,
+      "group": "Salads",
       "variant_label": "Salad"
     },
     {
@@ -2252,6 +2366,7 @@
       "fiber_g": 8,
       "sugars_g": 14,
       "protein_g": 42,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "meatball-marinara-with-mvp-parmesan-vinaigrette-salad"
     },
@@ -2271,6 +2386,7 @@
       "fiber_g": 7,
       "sugars_g": 11,
       "protein_g": 26,
+      "group": "Salads",
       "variant_label": "Salad"
     },
     {
@@ -2289,6 +2405,7 @@
       "fiber_g": 8,
       "sugars_g": 14,
       "protein_g": 48,
+      "group": "Bowls",
       "variant_label": "Protein Bowl",
       "variant_of": "meatball-pepperoni-with-mvp-parmesan-vinaigrette-salad"
     },
@@ -2308,6 +2425,7 @@
       "fiber_g": 2,
       "sugars_g": 4,
       "protein_g": 26,
+      "group": "Breakfast",
       "variant_label": "6\""
     },
     {
@@ -2326,6 +2444,7 @@
       "fiber_g": 2,
       "sugars_g": 5,
       "protein_g": 42,
+      "group": "Breakfast",
       "variant_label": "Breakfast Wrap",
       "variant_of": "6-bacon-egg-cheese"
     },
@@ -2345,6 +2464,7 @@
       "fiber_g": 2,
       "sugars_g": 4,
       "protein_g": 26,
+      "group": "Breakfast",
       "variant_label": "6\""
     },
     {
@@ -2363,6 +2483,7 @@
       "fiber_g": 2,
       "sugars_g": 5,
       "protein_g": 42,
+      "group": "Breakfast",
       "variant_label": "Breakfast Wrap",
       "variant_of": "6-black-forest-ham-egg-cheese"
     },
@@ -2382,6 +2503,7 @@
       "fiber_g": 2,
       "sugars_g": 4,
       "protein_g": 21,
+      "group": "Breakfast",
       "variant_label": "6\""
     },
     {
@@ -2400,6 +2522,7 @@
       "fiber_g": 2,
       "sugars_g": 3,
       "protein_g": 32,
+      "group": "Breakfast",
       "variant_label": "Breakfast Wrap",
       "variant_of": "6-egg-cheese"
     },
@@ -2419,6 +2542,7 @@
       "fiber_g": 2,
       "sugars_g": 4,
       "protein_g": 31,
+      "group": "Breakfast",
       "variant_label": "6\""
     },
     {
@@ -2437,6 +2561,7 @@
       "fiber_g": 2,
       "sugars_g": 4,
       "protein_g": 48,
+      "group": "Breakfast",
       "variant_label": "Breakfast Wrap",
       "variant_of": "6-steak-egg-cheese"
     },
@@ -2455,7 +2580,8 @@
       "carbs_g": 95,
       "fiber_g": 4,
       "sugars_g": 8,
-      "protein_g": 29
+      "protein_g": 29,
+      "group": "Pizza"
     },
     {
       "id": "bacon-8-pizza",
@@ -2472,7 +2598,8 @@
       "carbs_g": 96,
       "fiber_g": 4,
       "sugars_g": 9,
-      "protein_g": 34
+      "protein_g": 34,
+      "group": "Pizza"
     },
     {
       "id": "meatball-8-pizza",
@@ -2489,7 +2616,8 @@
       "carbs_g": 98,
       "fiber_g": 5,
       "sugars_g": 8,
-      "protein_g": 35
+      "protein_g": 35,
+      "group": "Pizza"
     },
     {
       "id": "pepperoni-8-pizza",
@@ -2506,7 +2634,8 @@
       "carbs_g": 96,
       "fiber_g": 5,
       "sugars_g": 8,
-      "protein_g": 33
+      "protein_g": 33,
+      "group": "Pizza"
     },
     {
       "id": "ham-jack-includes-pepper-jack-cheese-slider",
@@ -2523,7 +2652,8 @@
       "carbs_g": 21,
       "fiber_g": 0.5,
       "sugars_g": 2,
-      "protein_g": 10
+      "protein_g": 10,
+      "group": "Sliders"
     },
     {
       "id": "italian-spice-includes-american-cheese-and-mvp-parmesan-vinaigrette-slider",
@@ -2540,7 +2670,8 @@
       "carbs_g": 21,
       "fiber_g": 0.5,
       "sugars_g": 2,
-      "protein_g": 9
+      "protein_g": 9,
+      "group": "Sliders"
     },
     {
       "id": "little-cheesesteak-includes-american-cheese-and-baja-chipotle-sauce-slider",
@@ -2557,7 +2688,8 @@
       "carbs_g": 21,
       "fiber_g": 1,
       "sugars_g": 2,
-      "protein_g": 8
+      "protein_g": 8,
+      "group": "Sliders"
     },
     {
       "id": "turkey-includes-pepper-jack-cheese-and-mayonnaise-slider",
@@ -2574,7 +2706,8 @@
       "carbs_g": 20,
       "fiber_g": 1,
       "sugars_g": 2,
-      "protein_g": 12
+      "protein_g": 12,
+      "group": "Sliders"
     },
     {
       "id": "format-six-inch",

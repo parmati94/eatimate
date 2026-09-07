@@ -105,6 +105,7 @@
       "fiber_g": 2,
       "sugars_g": 8,
       "protein_g": 20,
+      "group": "Breakfast",
       "variant_label": "4 ct"
     },
     {
@@ -123,6 +124,7 @@
       "fiber_g": 6,
       "sugars_g": 19,
       "protein_g": 49,
+      "group": "Breakfast",
       "variant_of": "chick-fil-a-chick-n-minis",
       "variant_label": "10 ct"
     },
@@ -142,6 +144,7 @@
       "fiber_g": 3,
       "sugars_g": 2,
       "protein_g": 34,
+      "group": "Breakfast",
       "variant_label": "Nuggets"
     },
     {
@@ -160,6 +163,7 @@
       "fiber_g": 3,
       "sugars_g": 1,
       "protein_g": 28,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-burrito",
       "variant_label": "Sausage"
     },
@@ -179,6 +183,7 @@
       "fiber_g": 3,
       "sugars_g": 2,
       "protein_g": 35,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-burrito",
       "variant_label": "Grilled Filet"
     },
@@ -198,6 +203,7 @@
       "fiber_g": 4,
       "sugars_g": 2,
       "protein_g": 37,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-burrito",
       "variant_label": "Spicy Chicken"
     },
@@ -217,6 +223,7 @@
       "fiber_g": 3,
       "sugars_g": 2,
       "protein_g": 30,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-burrito",
       "variant_label": "Bacon"
     },
@@ -236,6 +243,7 @@
       "fiber_g": 5,
       "sugars_g": 1,
       "protein_g": 22,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-burrito",
       "variant_label": "No Meat"
     },
@@ -255,6 +263,7 @@
       "fiber_g": 2,
       "sugars_g": 2,
       "protein_g": 33,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-burrito",
       "variant_label": "Nuggets - no hash browns"
     },
@@ -274,6 +283,7 @@
       "fiber_g": 2,
       "sugars_g": 1,
       "protein_g": 26,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-burrito",
       "variant_label": "Sausage - no hash browns"
     },
@@ -293,6 +303,7 @@
       "fiber_g": 2,
       "sugars_g": 2,
       "protein_g": 34,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-burrito",
       "variant_label": "Grilled Filet - no hash brown"
     },
@@ -312,6 +323,7 @@
       "fiber_g": 2,
       "sugars_g": 2,
       "protein_g": 36,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-burrito",
       "variant_label": "Spicy Chicken - no hash browns"
     },
@@ -331,6 +343,7 @@
       "fiber_g": 2,
       "sugars_g": 2,
       "protein_g": 27,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-burrito",
       "variant_label": "Bacon - no hash browns"
     },
@@ -350,6 +363,7 @@
       "fiber_g": 3,
       "sugars_g": 1,
       "protein_g": 21,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-burrito",
       "variant_label": "No Meat - no hash browns"
     },
@@ -369,6 +383,7 @@
       "fiber_g": 2,
       "sugars_g": 2,
       "protein_g": 29,
+      "group": "Breakfast",
       "variant_label": "Nuggets"
     },
     {
@@ -387,6 +402,7 @@
       "fiber_g": 2,
       "sugars_g": 1,
       "protein_g": 23,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-bowl",
       "variant_label": "Sausage"
     },
@@ -406,6 +422,7 @@
       "fiber_g": 2,
       "sugars_g": 2,
       "protein_g": 30,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-bowl",
       "variant_label": "Grilled Filet"
     },
@@ -425,6 +442,7 @@
       "fiber_g": 3,
       "sugars_g": 2,
       "protein_g": 32,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-bowl",
       "variant_label": "Spicy Chicken"
     },
@@ -444,6 +462,7 @@
       "fiber_g": 2,
       "sugars_g": 2,
       "protein_g": 23,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-bowl",
       "variant_label": "Bacon"
     },
@@ -463,6 +482,7 @@
       "fiber_g": 3,
       "sugars_g": 1,
       "protein_g": 17,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-bowl",
       "variant_label": "No Meat"
     },
@@ -482,6 +502,7 @@
       "fiber_g": 0,
       "sugars_g": 2,
       "protein_g": 28,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-bowl",
       "variant_label": "Nuggets - no hash browns"
     },
@@ -501,6 +522,7 @@
       "fiber_g": 0,
       "sugars_g": 1,
       "protein_g": 21,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-bowl",
       "variant_label": "Sausage - no hash browns"
     },
@@ -520,6 +542,7 @@
       "fiber_g": 0,
       "sugars_g": 2,
       "protein_g": 29,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-bowl",
       "variant_label": "Grilled Filet - no hash browns"
     },
@@ -539,6 +562,7 @@
       "fiber_g": 1,
       "sugars_g": 2,
       "protein_g": 31,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-bowl",
       "variant_label": "Spicy Chicken - no hash browns"
     },
@@ -558,6 +582,7 @@
       "fiber_g": 0,
       "sugars_g": 2,
       "protein_g": 22,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-bowl",
       "variant_label": "Bacon - no hash browns"
     },
@@ -577,6 +602,7 @@
       "fiber_g": 2,
       "sugars_g": 1,
       "protein_g": 16,
+      "group": "Breakfast",
       "variant_of": "hash-brown-scramble-bowl",
       "variant_label": "No Meat - no hash browns"
     },
@@ -596,6 +622,7 @@
       "fiber_g": 4,
       "sugars_g": 27,
       "protein_g": 22,
+      "group": "Breakfast",
       "variant_label": "Chick-fil-A® Filet"
     },
     {
@@ -614,6 +641,7 @@
       "fiber_g": 5,
       "sugars_g": 26,
       "protein_g": 23,
+      "group": "Breakfast",
       "variant_of": "chicken-waffles-breakfast-sandwich",
       "variant_label": "Spicy Filet"
     },
@@ -633,6 +661,7 @@
       "fiber_g": 4,
       "sugars_g": 25,
       "protein_g": 20,
+      "group": "Breakfast",
       "variant_of": "chicken-waffles-breakfast-sandwich",
       "variant_label": "Grilled Filet"
     },
@@ -652,6 +681,7 @@
       "fiber_g": 2,
       "sugars_g": 7,
       "protein_g": 34,
+      "group": "Entrées",
       "variant_label": "Pepper Jack"
     },
     {
@@ -670,6 +700,7 @@
       "fiber_g": 2,
       "sugars_g": 7,
       "protein_g": 31,
+      "group": "Entrées",
       "variant_of": "spicy-deluxe-sandwich",
       "variant_label": "American"
     },
@@ -689,6 +720,7 @@
       "fiber_g": 2,
       "sugars_g": 7,
       "protein_g": 34,
+      "group": "Entrées",
       "variant_of": "spicy-deluxe-sandwich",
       "variant_label": "Colby Jack"
     },
@@ -708,6 +740,7 @@
       "fiber_g": 2,
       "sugars_g": 7,
       "protein_g": 28,
+      "group": "Entrées",
       "variant_of": "spicy-deluxe-sandwich",
       "variant_label": "No Cheese"
     },
@@ -727,6 +760,7 @@
       "fiber_g": 0,
       "sugars_g": 1,
       "protein_g": 19,
+      "group": "Entrées",
       "variant_label": "2 ct"
     },
     {
@@ -745,6 +779,7 @@
       "fiber_g": 0,
       "sugars_g": 2,
       "protein_g": 29,
+      "group": "Entrées",
       "variant_of": "chick-fil-a-chick-n-strips",
       "variant_label": "3 ct"
     },
@@ -764,6 +799,7 @@
       "fiber_g": 0,
       "sugars_g": 2,
       "protein_g": 39,
+      "group": "Entrées",
       "variant_of": "chick-fil-a-chick-n-strips",
       "variant_label": "4 ct"
     },
@@ -783,6 +819,7 @@
       "fiber_g": 0,
       "sugars_g": 6,
       "protein_g": 96,
+      "group": "Entrées",
       "variant_of": "chick-fil-a-chick-n-strips",
       "variant_label": "10 ct"
     },
@@ -802,6 +839,7 @@
       "fiber_g": 0,
       "sugars_g": 1,
       "protein_g": 27,
+      "group": "Entrées",
       "variant_label": "8 ct"
     },
     {
@@ -820,6 +858,7 @@
       "fiber_g": 0,
       "sugars_g": 1,
       "protein_g": 40,
+      "group": "Entrées",
       "variant_of": "chick-fil-a-nuggets",
       "variant_label": "12 ct"
     },
@@ -839,6 +878,7 @@
       "fiber_g": 0,
       "sugars_g": 4,
       "protein_g": 100,
+      "group": "Entrées",
       "variant_of": "chick-fil-a-nuggets",
       "variant_label": "30 ct"
     },
@@ -858,6 +898,7 @@
       "fiber_g": 0,
       "sugars_g": 1,
       "protein_g": 25,
+      "group": "Entrées",
       "variant_label": "8 ct"
     },
     {
@@ -876,6 +917,7 @@
       "fiber_g": 0,
       "sugars_g": 1,
       "protein_g": 38,
+      "group": "Entrées",
       "variant_of": "grilled-nuggets",
       "variant_label": "12 ct"
     },
@@ -895,6 +937,7 @@
       "fiber_g": 1,
       "sugars_g": 3,
       "protein_g": 98,
+      "group": "Entrées",
       "variant_of": "grilled-nuggets",
       "variant_label": "30 ct"
     },
@@ -914,6 +957,7 @@
       "fiber_g": 1,
       "sugars_g": 7,
       "protein_g": 32,
+      "group": "Entrées",
       "variant_label": "American"
     },
     {
@@ -932,6 +976,7 @@
       "fiber_g": 1,
       "sugars_g": 7,
       "protein_g": 34,
+      "group": "Entrées",
       "variant_of": "chick-fil-a-deluxe-sandwich",
       "variant_label": "Colby Jack"
     },
@@ -951,6 +996,7 @@
       "fiber_g": 1,
       "sugars_g": 7,
       "protein_g": 35,
+      "group": "Entrées",
       "variant_of": "chick-fil-a-deluxe-sandwich",
       "variant_label": "Pepper Jack"
     },
@@ -970,6 +1016,7 @@
       "fiber_g": 1,
       "sugars_g": 7,
       "protein_g": 29,
+      "group": "Entrées",
       "variant_of": "chick-fil-a-deluxe-sandwich",
       "variant_label": "No Cheese"
     },
@@ -989,6 +1036,7 @@
       "fiber_g": 3,
       "sugars_g": 12,
       "protein_g": 37,
+      "group": "Entrées",
       "variant_label": "Colby Jack"
     },
     {
@@ -1007,6 +1055,7 @@
       "fiber_g": 3,
       "sugars_g": 12,
       "protein_g": 34,
+      "group": "Entrées",
       "variant_of": "grilled-chicken-club",
       "variant_label": "American"
     },
@@ -1026,6 +1075,7 @@
       "fiber_g": 3,
       "sugars_g": 12,
       "protein_g": 37,
+      "group": "Entrées",
       "variant_of": "grilled-chicken-club",
       "variant_label": "Pepper Jack"
     },
@@ -1045,6 +1095,7 @@
       "fiber_g": 3,
       "sugars_g": 11,
       "protein_g": 31,
+      "group": "Entrées",
       "variant_of": "grilled-chicken-club",
       "variant_label": "No Cheese"
     },
@@ -1064,6 +1115,7 @@
       "fiber_g": 5,
       "sugars_g": 29,
       "protein_g": 32,
+      "group": "Entrées",
       "variant_label": "Chick-fil-A® Filet"
     },
     {
@@ -1082,6 +1134,7 @@
       "fiber_g": 6,
       "sugars_g": 29,
       "protein_g": 31,
+      "group": "Entrées",
       "variant_of": "chicken-waffles-sandwich",
       "variant_label": "Spicy Filet"
     },
@@ -1101,6 +1154,7 @@
       "fiber_g": 5,
       "sugars_g": 28,
       "protein_g": 29,
+      "group": "Entrées",
       "variant_of": "chicken-waffles-sandwich",
       "variant_label": "Grilled Filet"
     },
@@ -1120,6 +1174,7 @@
       "fiber_g": 5,
       "sugars_g": 8,
       "protein_g": 41,
+      "group": "Salads",
       "variant_label": "Nuggets"
     },
     {
@@ -1138,6 +1193,7 @@
       "fiber_g": 5,
       "sugars_g": 8,
       "protein_g": 33,
+      "group": "Salads",
       "variant_of": "cobb-salad",
       "variant_label": "Spicy Grilled Filet (Cold)"
     },
@@ -1157,6 +1213,7 @@
       "fiber_g": 5,
       "sugars_g": 8,
       "protein_g": 39,
+      "group": "Salads",
       "variant_of": "cobb-salad",
       "variant_label": "Grilled Nuggets"
     },
@@ -1176,6 +1233,7 @@
       "fiber_g": 5,
       "sugars_g": 9,
       "protein_g": 43,
+      "group": "Salads",
       "variant_of": "cobb-salad",
       "variant_label": "Chick-fil-A Chick-n-Strips®"
     },
@@ -1195,6 +1253,7 @@
       "fiber_g": 5,
       "sugars_g": 8,
       "protein_g": 35,
+      "group": "Salads",
       "variant_of": "cobb-salad",
       "variant_label": "Grilled Filet (Cold)"
     },
@@ -1214,6 +1273,7 @@
       "fiber_g": 5,
       "sugars_g": 8,
       "protein_g": 35,
+      "group": "Salads",
       "variant_of": "cobb-salad",
       "variant_label": "Grilled Filet (Warm)"
     },
@@ -1233,6 +1293,7 @@
       "fiber_g": 5,
       "sugars_g": 7,
       "protein_g": 14,
+      "group": "Salads",
       "variant_of": "cobb-salad",
       "variant_label": "No Chicken"
     },
@@ -1252,6 +1313,7 @@
       "fiber_g": 7,
       "sugars_g": 7,
       "protein_g": 33,
+      "group": "Salads",
       "variant_label": "Spicy Grilled Filet (Cold)"
     },
     {
@@ -1270,6 +1332,7 @@
       "fiber_g": 7,
       "sugars_g": 7,
       "protein_g": 35,
+      "group": "Salads",
       "variant_of": "spicy-southwest-salad",
       "variant_label": "Grilled Filet (Cold)"
     },
@@ -1289,6 +1352,7 @@
       "fiber_g": 7,
       "sugars_g": 7,
       "protein_g": 39,
+      "group": "Salads",
       "variant_of": "spicy-southwest-salad",
       "variant_label": "Nuggets"
     },
@@ -1308,6 +1372,7 @@
       "fiber_g": 7,
       "sugars_g": 7,
       "protein_g": 39,
+      "group": "Salads",
       "variant_of": "spicy-southwest-salad",
       "variant_label": "Grilled Nuggets"
     },
@@ -1327,6 +1392,7 @@
       "fiber_g": 7,
       "sugars_g": 8,
       "protein_g": 43,
+      "group": "Salads",
       "variant_of": "spicy-southwest-salad",
       "variant_label": "Chick-fil-A Chick-n-Strips®"
     },
@@ -1346,6 +1412,7 @@
       "fiber_g": 7,
       "sugars_g": 7,
       "protein_g": 35,
+      "group": "Salads",
       "variant_of": "spicy-southwest-salad",
       "variant_label": "Grilled Filet (Warm)"
     },
@@ -1365,6 +1432,7 @@
       "fiber_g": 7,
       "sugars_g": 6,
       "protein_g": 14,
+      "group": "Salads",
       "variant_of": "spicy-southwest-salad",
       "variant_label": "No Chicken"
     },
@@ -1384,6 +1452,7 @@
       "fiber_g": 5,
       "sugars_g": 26,
       "protein_g": 28,
+      "group": "Salads",
       "variant_label": "Grilled Filet (Cold)"
     },
     {
@@ -1402,6 +1471,7 @@
       "fiber_g": 6,
       "sugars_g": 27,
       "protein_g": 26,
+      "group": "Salads",
       "variant_of": "market-salad",
       "variant_label": "Spicy Grilled Filet (Cold)"
     },
@@ -1421,6 +1491,7 @@
       "fiber_g": 5,
       "sugars_g": 27,
       "protein_g": 36,
+      "group": "Salads",
       "variant_of": "market-salad",
       "variant_label": "Chick-fil-A Chick-n-Strips®"
     },
@@ -1440,6 +1511,7 @@
       "fiber_g": 5,
       "sugars_g": 27,
       "protein_g": 34,
+      "group": "Salads",
       "variant_of": "market-salad",
       "variant_label": "Nuggets"
     },
@@ -1459,6 +1531,7 @@
       "fiber_g": 6,
       "sugars_g": 27,
       "protein_g": 32,
+      "group": "Salads",
       "variant_of": "market-salad",
       "variant_label": "Grilled Nuggets"
     },
@@ -1478,6 +1551,7 @@
       "fiber_g": 5,
       "sugars_g": 26,
       "protein_g": 28,
+      "group": "Salads",
       "variant_of": "market-salad",
       "variant_label": "Grilled Filet (Warm)"
     },
@@ -1497,6 +1571,7 @@
       "fiber_g": 5,
       "sugars_g": 26,
       "protein_g": 7,
+      "group": "Salads",
       "variant_of": "market-salad",
       "variant_label": "No Chicken"
     },
@@ -1515,7 +1590,8 @@
       "carbs_g": 44,
       "fiber_g": 3,
       "sugars_g": 5,
-      "protein_g": 19
+      "protein_g": 19,
+      "group": "Breakfast"
     },
     {
       "id": "egg-white-grill",
@@ -1532,7 +1608,8 @@
       "carbs_g": 29,
       "fiber_g": 1,
       "sugars_g": 2,
-      "protein_g": 27
+      "protein_g": 27,
+      "group": "Breakfast"
     },
     {
       "id": "chicken-egg-cheese-biscuit",
@@ -1549,7 +1626,8 @@
       "carbs_g": 48,
       "fiber_g": 3,
       "sugars_g": 7,
-      "protein_g": 27
+      "protein_g": 27,
+      "group": "Breakfast"
     },
     {
       "id": "bacon-egg-cheese-biscuit",
@@ -1566,7 +1644,8 @@
       "carbs_g": 38,
       "fiber_g": 2,
       "sugars_g": 4,
-      "protein_g": 15
+      "protein_g": 15,
+      "group": "Breakfast"
     },
     {
       "id": "sausage-egg-cheese-biscuit",
@@ -1583,7 +1662,8 @@
       "carbs_g": 38,
       "fiber_g": 2,
       "sugars_g": 4,
-      "protein_g": 22
+      "protein_g": 22,
+      "group": "Breakfast"
     },
     {
       "id": "chicken-egg-cheese-muffin",
@@ -1600,7 +1680,8 @@
       "carbs_g": 36,
       "fiber_g": 1,
       "sugars_g": 4,
-      "protein_g": 27
+      "protein_g": 27,
+      "group": "Breakfast"
     },
     {
       "id": "bacon-egg-cheese-muffin",
@@ -1617,7 +1698,8 @@
       "carbs_g": 28,
       "fiber_g": 1,
       "sugars_g": 2,
-      "protein_g": 16
+      "protein_g": 16,
+      "group": "Breakfast"
     },
     {
       "id": "sausage-egg-cheese-muffin",
@@ -1634,7 +1716,8 @@
       "carbs_g": 29,
       "fiber_g": 1,
       "sugars_g": 1,
-      "protein_g": 23
+      "protein_g": 23,
+      "group": "Breakfast"
     },
     {
       "id": "small-hash-browns",
@@ -1651,7 +1734,8 @@
       "carbs_g": 23,
       "fiber_g": 3,
       "sugars_g": 0,
-      "protein_g": 3
+      "protein_g": 3,
+      "group": "Breakfast"
     },
     {
       "id": "large-hash-browns",
@@ -1668,7 +1752,8 @@
       "carbs_g": 35,
       "fiber_g": 4,
       "sugars_g": 0,
-      "protein_g": 4
+      "protein_g": 4,
+      "group": "Breakfast"
     },
     {
       "id": "buttery-biscuit",
@@ -1685,7 +1770,8 @@
       "carbs_g": 53,
       "fiber_g": 2,
       "sugars_g": 16,
-      "protein_g": 4
+      "protein_g": 4,
+      "group": "Breakfast"
     },
     {
       "id": "english-muffin",
@@ -1702,7 +1788,8 @@
       "carbs_g": 43,
       "fiber_g": 1,
       "sugars_g": 13,
-      "protein_g": 5
+      "protein_g": 5,
+      "group": "Breakfast"
     },
     {
       "id": "4-ct-mini-yeast-rolls",
@@ -1719,7 +1806,8 @@
       "carbs_g": 52,
       "fiber_g": 2,
       "sugars_g": 19,
-      "protein_g": 6
+      "protein_g": 6,
+      "group": "Breakfast"
     },
     {
       "id": "breakfast-waffle",
@@ -1736,7 +1824,8 @@
       "carbs_g": 46,
       "fiber_g": 4,
       "sugars_g": 24,
-      "protein_g": 4
+      "protein_g": 4,
+      "group": "Breakfast"
     },
     {
       "id": "waffle",
@@ -1753,7 +1842,8 @@
       "carbs_g": 52,
       "fiber_g": 5,
       "sugars_g": 27,
-      "protein_g": 5
+      "protein_g": 5,
+      "group": "Breakfast"
     },
     {
       "id": "chick-fil-a-chicken-biscuit",
@@ -1770,7 +1860,8 @@
       "carbs_g": 45,
       "fiber_g": 2,
       "sugars_g": 6,
-      "protein_g": 19
+      "protein_g": 19,
+      "group": "Breakfast"
     },
     {
       "id": "spicy-chicken-sandwich",
@@ -1787,7 +1878,8 @@
       "carbs_g": 45,
       "fiber_g": 1,
       "sugars_g": 6,
-      "protein_g": 28
+      "protein_g": 28,
+      "group": "Entrées"
     },
     {
       "id": "grilled-chicken-sandwich",
@@ -1804,7 +1896,8 @@
       "carbs_g": 45,
       "fiber_g": 3,
       "sugars_g": 11,
-      "protein_g": 28
+      "protein_g": 28,
+      "group": "Entrées"
     },
     {
       "id": "chick-fil-a-cool-wrap",
@@ -1821,7 +1914,8 @@
       "carbs_g": 32,
       "fiber_g": 14,
       "sugars_g": 5,
-      "protein_g": 43
+      "protein_g": 43,
+      "group": "Entrées"
     },
     {
       "id": "chick-fil-a-chicken-sandwich",
@@ -1838,7 +1932,8 @@
       "carbs_g": 41,
       "fiber_g": 1,
       "sugars_g": 6,
-      "protein_g": 29
+      "protein_g": 29,
+      "group": "Entrées"
     },
     {
       "id": "gluten-free-bun",

@@ -41,6 +41,7 @@ CATEGORY = {"id", "name", "select", "flow", "in_preset", "note", "role",
 # An items entry, and therefore also a section default (a dict there becomes
 # the spec of every row it covers), plus the section-only knobs.
 ITEM = {"cat", "id", "name", "desc", "skip", "copies", "suffix", "id_suffix",
+        "group",
         "size_mode", "only_modes", "mode_selector", "mode_names", "mode_variants",
         "variant_family", "variant_of", "variant_label", "addon_of", "feature",
         "needs"}

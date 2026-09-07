@@ -564,6 +564,15 @@ def build(cfg, rows, extra=None):
         if spec is not None:
             order_of[id(r)] = keys.index(k)
             spec = apply_suffix(dict(spec), r)
+            # An items entry REPLACES the section default, which silently drops
+            # the section's `group` -- Chick-fil-A hand-writes 75 of its 95
+            # breakfast rows, so every one of them fell out of the Breakfast
+            # pill while its section-defaulted siblings stayed in. The group is
+            # a property of WHERE THE ROW WAS PRINTED, so it survives an entry
+            # that only meant to rename or recategorise; an entry that names a
+            # group of its own still wins.
+            if isinstance(sec_cat, dict) and sec_cat.get("group"):
+                spec.setdefault("group", sec_cat["group"])
         if spec is None and extra:
             out = extra(r)
             if out is False: r.used = True; continue
@@ -688,6 +697,12 @@ def build(cfg, rows, extra=None):
                 # is per-mode too, so the reference needs the same suffix.
                 if sp.get("addon_of"):
                     sp = dict(sp, addon_of=f"{sp['addon_of']}-{mode}")
+            # A heading INSIDE a category's list. Categories cannot express this:
+            # on the menu path every preset category becomes its own numbered
+            # step (see lib/flow.ts), so splitting Taco Bell's 65 menu items
+            # into Tacos/Burritos/Nachos categories would ask you to pick one of
+            # each. The grouping is a label on the row, not a step.
+            if sp.get("group"): c["group"] = sp["group"]
             if sp.get("size_mode"): c["size_mode"] = sp["size_mode"]
             if sp.get("only_modes"): c["only_modes"] = sp["only_modes"]
             if sp.get("variant_of"): c["variant_of"] = sp["variant_of"]

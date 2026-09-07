@@ -127,14 +127,32 @@
  ],
  "section_categories": {
   "LIMITED TIME ONLY": "limeades",
-  "BURGERS": "item",
+  "BURGERS": {
+   "cat": "item",
+   "group": "Burgers"
+  },
   "MAKE IT YOURS": "toppings",
   "WACKY PACK!® KIDS MEALS": "kids",
-  "TOASTER® SANDWICHES": "item",
-  "CHICKEN": "item",
-  "SANDWICHES": "item",
-  "HOT DOGS": "item",
-  "BREAKFAST": "item",
+  "TOASTER® SANDWICHES": {
+   "cat": "item",
+   "group": "Toaster Sandwiches"
+  },
+  "CHICKEN": {
+   "cat": "item",
+   "group": "Chicken"
+  },
+  "SANDWICHES": {
+   "cat": "item",
+   "group": "Sandwiches"
+  },
+  "HOT DOGS": {
+   "cat": "item",
+   "group": "Hot Dogs"
+  },
+  "BREAKFAST": {
+   "cat": "item",
+   "group": "Breakfast"
+  },
   "COFFEE": "coffee",
   "SNACKS & SIDES": "sides",
   "SONIC BLAST®": "frozen",

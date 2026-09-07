@@ -115,7 +115,8 @@
       "carbs_g": 58,
       "fiber_g": 2,
       "sugars_g": 6,
-      "protein_g": 25
+      "protein_g": 25,
+      "group": "Breakfast"
     },
     {
       "id": "cheddar-cheese-1-egg",
@@ -132,7 +133,8 @@
       "carbs_g": 57,
       "fiber_g": 2,
       "sugars_g": 5,
-      "protein_g": 20
+      "protein_g": 20,
+      "group": "Breakfast"
     },
     {
       "id": "ham-swiss-1-egg",
@@ -149,7 +151,8 @@
       "carbs_g": 59,
       "fiber_g": 2,
       "sugars_g": 7,
-      "protein_g": 26
+      "protein_g": 26,
+      "group": "Breakfast"
     },
     {
       "id": "pork-sausage-cheddar-1-egg",
@@ -166,7 +169,8 @@
       "carbs_g": 57,
       "fiber_g": 2,
       "sugars_g": 5,
-      "protein_g": 26
+      "protein_g": 26,
+      "group": "Breakfast"
     },
     {
       "id": "turkey-sausage-cheddar-1-egg",
@@ -183,7 +187,8 @@
       "carbs_g": 57,
       "fiber_g": 2,
       "sugars_g": 5,
-      "protein_g": 27
+      "protein_g": 27,
+      "group": "Breakfast"
     },
     {
       "id": "bacon-cheddar-2-egg",
@@ -200,7 +205,8 @@
       "carbs_g": 58,
       "fiber_g": 2,
       "sugars_g": 7,
-      "protein_g": 31
+      "protein_g": 31,
+      "group": "Breakfast"
     },
     {
       "id": "cheddar-cheese-2-egg",
@@ -217,7 +223,8 @@
       "carbs_g": 57,
       "fiber_g": 2,
       "sugars_g": 6,
-      "protein_g": 26
+      "protein_g": 26,
+      "group": "Breakfast"
     },
     {
       "id": "ham-swiss-2-egg",
@@ -234,7 +241,8 @@
       "carbs_g": 59,
       "fiber_g": 2,
       "sugars_g": 7,
-      "protein_g": 33
+      "protein_g": 33,
+      "group": "Breakfast"
     },
     {
       "id": "pork-sausage-cheddar-2-egg",
@@ -251,7 +259,8 @@
       "carbs_g": 57,
       "fiber_g": 2,
       "sugars_g": 6,
-      "protein_g": 32
+      "protein_g": 32,
+      "group": "Breakfast"
     },
     {
       "id": "turkey-sausage-cheddar-2-egg",
@@ -268,7 +277,8 @@
       "carbs_g": 57,
       "fiber_g": 2,
       "sugars_g": 6,
-      "protein_g": 33
+      "protein_g": 33,
+      "group": "Breakfast"
     },
     {
       "id": "bacon-cheddar-egg-white",
@@ -285,7 +295,8 @@
       "carbs_g": 57,
       "fiber_g": 2,
       "sugars_g": 6,
-      "protein_g": 25
+      "protein_g": 25,
+      "group": "Breakfast"
     },
     {
       "id": "cheddar-cheese-egg-white",
@@ -302,7 +313,8 @@
       "carbs_g": 56,
       "fiber_g": 2,
       "sugars_g": 5,
-      "protein_g": 20
+      "protein_g": 20,
+      "group": "Breakfast"
     },
     {
       "id": "ham-swiss-egg-white",
@@ -319,7 +331,8 @@
       "carbs_g": 58,
       "fiber_g": 2,
       "sugars_g": 7,
-      "protein_g": 26
+      "protein_g": 26,
+      "group": "Breakfast"
     },
     {
       "id": "turkey-sausage-cheddar-egg-white",
@@ -336,7 +349,8 @@
       "carbs_g": 56,
       "fiber_g": 2,
       "sugars_g": 5,
-      "protein_g": 27
+      "protein_g": 27,
+      "group": "Breakfast"
     },
     {
       "id": "chorizo-sunrise-on-green-chile-1-egg",
@@ -353,7 +367,8 @@
       "carbs_g": 64,
       "fiber_g": 5,
       "sugars_g": 8,
-      "protein_g": 34
+      "protein_g": 34,
+      "group": "Breakfast"
     },
     {
       "id": "farmhouse-on-cheesy-hash-brown-1-egg",
@@ -370,7 +385,8 @@
       "carbs_g": 65,
       "fiber_g": 3,
       "sugars_g": 9,
-      "protein_g": 35
+      "protein_g": 35,
+      "group": "Breakfast"
     },
     {
       "id": "garden-avocado-on-everything-1-egg",
@@ -387,7 +403,8 @@
       "carbs_g": 64,
       "fiber_g": 5,
       "sugars_g": 8,
-      "protein_g": 18
+      "protein_g": 18,
+      "group": "Breakfast"
     },
     {
       "id": "maplehouse-egg-sandwich-1-egg-1-egg",
@@ -404,7 +421,8 @@
       "carbs_g": 92,
       "fiber_g": 4,
       "sugars_g": 35,
-      "protein_g": 31
+      "protein_g": 31,
+      "group": "Breakfast"
     },
     {
       "id": "santa-fe-sandwich-on-asiago-1-egg",
@@ -421,7 +439,8 @@
       "carbs_g": 59,
       "fiber_g": 2,
       "sugars_g": 7,
-      "protein_g": 31
+      "protein_g": 31,
+      "group": "Breakfast"
     },
     {
       "id": "texas-brisket-on-cheddar-jalapeno-1-egg",
@@ -438,7 +457,8 @@
       "carbs_g": 56,
       "fiber_g": 3,
       "sugars_g": 6,
-      "protein_g": 30
+      "protein_g": 30,
+      "group": "Breakfast"
     },
     {
       "id": "all-nighter-on-cheesy-hash-brown-2-egg",
@@ -455,7 +475,8 @@
       "carbs_g": 65,
       "fiber_g": 3,
       "sugars_g": 8,
-      "protein_g": 35
+      "protein_g": 35,
+      "group": "Breakfast"
     },
     {
       "id": "chorizo-sunrise-on-green-chile-2-egg",
@@ -472,7 +493,8 @@
       "carbs_g": 64,
       "fiber_g": 5,
       "sugars_g": 9,
-      "protein_g": 40
+      "protein_g": 40,
+      "group": "Breakfast"
     },
     {
       "id": "farmhouse-on-cheesy-hash-brown-2-egg",
@@ -489,7 +511,8 @@
       "carbs_g": 66,
       "fiber_g": 3,
       "sugars_g": 10,
-      "protein_g": 41
+      "protein_g": 41,
+      "group": "Breakfast"
     },
     {
       "id": "garden-avocado-on-everything-2-egg",
@@ -506,7 +529,8 @@
       "carbs_g": 65,
       "fiber_g": 5,
       "sugars_g": 8,
-      "protein_g": 24
+      "protein_g": 24,
+      "group": "Breakfast"
     },
     {
       "id": "maplehouse-egg-sandwich-2-eggs-2-egg",
@@ -523,7 +547,8 @@
       "carbs_g": 93,
       "fiber_g": 4,
       "sugars_g": 35,
-      "protein_g": 38
+      "protein_g": 38,
+      "group": "Breakfast"
     },
     {
       "id": "santa-fe-sandwich-on-asiago-2-egg",
@@ -540,7 +565,8 @@
       "carbs_g": 60,
       "fiber_g": 2,
       "sugars_g": 7,
-      "protein_g": 37
+      "protein_g": 37,
+      "group": "Breakfast"
     },
     {
       "id": "texas-brisket-on-cheddar-jalapeno-2-egg",
@@ -557,7 +583,8 @@
       "carbs_g": 56,
       "fiber_g": 3,
       "sugars_g": 6,
-      "protein_g": 36
+      "protein_g": 36,
+      "group": "Breakfast"
     },
     {
       "id": "bacon-avocado-tomato-thin-on-plain-egg-white",
@@ -574,7 +601,8 @@
       "carbs_g": 47,
       "fiber_g": 4,
       "sugars_g": 7,
-      "protein_g": 19
+      "protein_g": 19,
+      "group": "Breakfast"
     },
     {
       "id": "chorizo-sunrise-on-green-chile-egg-white",
@@ -591,7 +619,8 @@
       "carbs_g": 63,
       "fiber_g": 5,
       "sugars_g": 8,
-      "protein_g": 34
+      "protein_g": 34,
+      "group": "Breakfast"
     },
     {
       "id": "farmhouse-on-cheesy-hash-brown-egg-white",
@@ -608,7 +637,8 @@
       "carbs_g": 65,
       "fiber_g": 3,
       "sugars_g": 9,
-      "protein_g": 34
+      "protein_g": 34,
+      "group": "Breakfast"
     },
     {
       "id": "garden-avocado-on-everything-egg-white",
@@ -625,7 +655,8 @@
       "carbs_g": 63,
       "fiber_g": 5,
       "sugars_g": 7,
-      "protein_g": 18
+      "protein_g": 18,
+      "group": "Breakfast"
     },
     {
       "id": "santa-fe-sandwich-on-asiago-egg-white",
@@ -642,7 +673,8 @@
       "carbs_g": 59,
       "fiber_g": 2,
       "sugars_g": 7,
-      "protein_g": 31
+      "protein_g": 31,
+      "group": "Breakfast"
     },
     {
       "id": "texas-brisket-on-cheddar-jalapeno-egg-white",
@@ -659,7 +691,8 @@
       "carbs_g": 55,
       "fiber_g": 3,
       "sugars_g": 6,
-      "protein_g": 30
+      "protein_g": 30,
+      "group": "Breakfast"
     },
     {
       "id": "big-breakfast-burrito",
@@ -676,7 +709,8 @@
       "carbs_g": 76,
       "fiber_g": 4,
       "sugars_g": 5,
-      "protein_g": 50
+      "protein_g": 50,
+      "group": "Breakfast"
     },
     {
       "id": "chorizo-breakfast-burrito",
@@ -693,7 +727,8 @@
       "carbs_g": 77,
       "fiber_g": 4,
       "sugars_g": 6,
-      "protein_g": 49
+      "protein_g": 49,
+      "group": "Breakfast"
     },
     {
       "id": "avocado-veg-out-on-sesame",
@@ -710,7 +745,8 @@
       "carbs_g": 66,
       "fiber_g": 6,
       "sugars_g": 8,
-      "protein_g": 14
+      "protein_g": 14,
+      "group": "Lunch"
     },
     {
       "id": "ham-swiss-on-plain-bagel",
@@ -727,7 +763,8 @@
       "carbs_g": 63,
       "fiber_g": 3,
       "sugars_g": 10,
-      "protein_g": 27
+      "protein_g": 27,
+      "group": "Lunch"
     },
     {
       "id": "nova-lox-on-plain-bagel",
@@ -744,7 +781,8 @@
       "carbs_g": 60,
       "fiber_g": 3,
       "sugars_g": 8,
-      "protein_g": 24
+      "protein_g": 24,
+      "group": "Lunch"
     },
     {
       "id": "tasty-turkey-on-asiago-bagel",
@@ -761,7 +799,8 @@
       "carbs_g": 71,
       "fiber_g": 3,
       "sugars_g": 10,
-      "protein_g": 32
+      "protein_g": 32,
+      "group": "Lunch"
     },
     {
       "id": "turkey-cheddar-on-plain-bagel",
@@ -778,7 +817,8 @@
       "carbs_g": 68,
       "fiber_g": 3,
       "sugars_g": 8,
-      "protein_g": 29
+      "protein_g": 29,
+      "group": "Lunch"
     },
     {
       "id": "turkey-bacon-avocado-on-plain-bagel",
@@ -795,7 +835,8 @@
       "carbs_g": 73,
       "fiber_g": 4,
       "sugars_g": 10,
-      "protein_g": 31
+      "protein_g": 31,
+      "group": "Lunch"
     },
     {
       "id": "pizza-bagel-cheese-on-plain",
@@ -812,7 +853,8 @@
       "carbs_g": 61,
       "fiber_g": 3,
       "sugars_g": 7,
-      "protein_g": 25
+      "protein_g": 25,
+      "group": "Lunch"
     },
     {
       "id": "pizza-bagel-pepperoni-on-plain",
@@ -829,7 +871,8 @@
       "carbs_g": 61,
       "fiber_g": 3,
       "sugars_g": 7,
-      "protein_g": 28
+      "protein_g": 28,
+      "group": "Lunch"
     },
     {
       "id": "avocado-toast",
@@ -846,7 +889,8 @@
       "carbs_g": 63,
       "fiber_g": 6,
       "sugars_g": 6,
-      "protein_g": 11
+      "protein_g": 11,
+      "group": "Breakfast"
     },
     {
       "id": "ancient-grain",
