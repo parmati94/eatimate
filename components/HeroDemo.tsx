@@ -214,8 +214,10 @@ export default function HeroDemo({
                 </span>
                 {/* Fixed width, right-aligned: the figures are a column and
                     should read as one, the way the builder's rows do. */}
+                {/* Rounded: a composed chain (Taco Bell) states 166.1, and
+                    the builder's own rows never show a decimal. */}
                 <span className="num w-14 shrink-0 text-right text-xs text-muted">
-                  {s.nutrients.calories} cal
+                  {show(s.nutrients.calories)} cal
                 </span>
               </li>
             ))}

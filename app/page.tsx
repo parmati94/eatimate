@@ -21,9 +21,14 @@ export const revalidate = 86400;
  * every number is read out of the chain file, so the demo cannot drift from
  * the calculator it is advertising.
  *
- * Chosen for one FORMAT each -- bowl, pizza, wings, sub, burger. A rotation of
- * five burrito bowls would say nothing; this one quietly says the site covers
- * more than bowls, which is the only real reason to rotate at all.
+ * Chosen for one FORMAT each -- bowl, pizza, wings, sub, burger, taco, chicken,
+ * plate, grains bowl, bagel, salad. A rotation of five burrito bowls would say
+ * nothing; this one quietly says the site covers more than bowls, which is the
+ * only real reason to rotate at all. One meal per chain.
+ *
+ * A build from parts only where the parts are what the builder adds up. Taco
+ * Bell's standalone beef is a burrito portion, so a taco assembled from it
+ * lands at 234 against their published 170; that card uses the named tacos.
  */
 type Demo = {
   slug: string;
@@ -88,6 +93,67 @@ const DEMOS: Demo[] = [
       { id: "tomatoes" },
     ],
   },
+  {
+    slug: "tacobell",
+    dish: "crunchy taco combo",
+    components: [
+      { id: "crunchy-taco", qty: 2 },
+      { id: "bean-burrito-v" },
+      { id: "nacho-fries" },
+      { id: "mtn-dew-baja-blast" },
+    ],
+  },
+  {
+    slug: "chickfila",
+    dish: "chicken sandwich meal",
+    components: [
+      { id: "chick-fil-a-chicken-sandwich" },
+      { id: "waffle-fries" },
+      { id: "chick-fil-a-lemonade" },
+    ],
+  },
+  {
+    slug: "pandaexpress",
+    dish: "plate, orange chicken",
+    components: [
+      { id: "chow-mein" },
+      { id: "orange-chicken" },
+      { id: "broccoli-beef" },
+    ],
+  },
+  {
+    slug: "cava",
+    dish: "grains bowl",
+    components: [
+      { id: "brown-rice" },
+      { id: "grilled-chicken" },
+      { id: "hummus" },
+      { id: "tzatziki" },
+      { id: "crumbled-feta" },
+      { id: "tomato-cucumber" },
+    ],
+  },
+  {
+    slug: "einsteinbros",
+    dish: "bacon, egg & cheese bagel",
+    components: [
+      { id: "everything" },
+      { id: "1-cage-free-egg" },
+      { id: "bacon" },
+      { id: "american-1-slice-slice" },
+    ],
+  },
+  {
+    slug: "chopt",
+    dish: "chicken caesar",
+    components: [
+      { id: "romaine" },
+      { id: "grilled-chicken-roasted-chicken-breast" },
+      { id: "aged-parmesan" },
+      { id: "artisan-croutons" },
+      { id: "creamy-caesar" },
+    ],
+  },
 ];
 
 /** Resolves one preset against the chain files, or null if it no longer fits
@@ -122,17 +188,30 @@ async function resolve(d: Demo) {
   };
 }
 
+/** Days since the epoch, in UTC: the one counter both rotations key off. */
+const today = () => Math.floor(Date.now() / 86_400_000);
+
 /** Today's meal. Deterministic from the date in UTC, so a given day renders the
  *  same card everywhere and the page stays cacheable. Falls through to the next
  *  preset if one no longer resolves — a single stale id should cost one meal,
  *  not the whole hero. */
 async function demo() {
-  const day = Math.floor(Date.now() / 86_400_000);
+  const day = today();
   for (let i = 0; i < DEMOS.length; i++) {
     const picked = await resolve(DEMOS[(day + i) % DEMOS.length]);
     if (picked) return picked;
   }
   return null;
+}
+
+/** Four comparisons, starting from a different point in the list each day.
+ *  The list is alphabetical, so a fixed slice showed the same four cards to
+ *  everyone forever, while the rest were reachable only from /compare. Same
+ *  day counter as the hero, so the page stays a once-a-day prerender. */
+function featured<T>(pairs: T[]): T[] {
+  if (pairs.length <= 4) return pairs;
+  const start = today() % pairs.length;
+  return Array.from({ length: 4 }, (_, i) => pairs[(start + i) % pairs.length]);
 }
 
 export default async function Home() {
@@ -196,7 +275,7 @@ export default async function Home() {
             )}
           </div>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2 sm:gap-4">
-            {pairs.slice(0, 4).map((p) => (
+            {featured(pairs).map((p) => (
               <li key={p.slug}>
                 <CompareCard pair={p} tints={tints} />
               </li>
