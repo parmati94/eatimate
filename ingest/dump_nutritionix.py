@@ -37,6 +37,7 @@ Set `meta.source.nutritionix_slug` to the brand as Nutritionix spells it
 `generatedAt`, which is a better staleness signal than any hash of it.
 """
 import argparse
+import html
 import json
 import re
 import sys
@@ -74,8 +75,18 @@ FIELDS = [
 
 
 def clean(s: str) -> str:
-    """&reg; and friends survive the export; ids and names are cleaner without."""
-    s = re.sub(r"&(reg|trade|amp|nbsp);", lambda m: {"amp": "&"}.get(m.group(1), ""), s)
+    """&reg; and friends survive the export; ids and names are cleaner without.
+
+    html.unescape rather than a hand-written list, because the list only knew
+    four entities and every other one reached the site verbatim: Culver's
+    shipped a component literally named "Jalape&ntilde;o Peppers" (id
+    jalape-ntilde-o-peppers-...) and Taco Bell a drink carrying "&#160;".
+    A named entity nobody anticipated is the normal case, not the exception.
+    """
+    s = html.unescape(s)
+    # ® and ™ are legal furniture, not part of the food's name; NBSP is a space
+    # that does not behave like one in a slug.
+    s = s.replace("\u00ae", "").replace("\u2122", "").replace("\u00a0", " ")
     return re.sub(r"\s+", " ", s).strip()
 
 

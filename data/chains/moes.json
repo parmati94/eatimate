@@ -52,6 +52,9 @@
     "Taco",
     "Salad"
   ],
+  "consistency": {
+    "no_presets": "Moe's publishes per-ingredient figures only; there is no whole-burrito or whole-bowl row to start from, which is the same reason Chipotle and Cafe Rio carry this note."
+  },
   "categories": [
     {
       "id": "base",
@@ -1027,6 +1030,7 @@
       "fiber_g": 3,
       "sugars_g": 0,
       "protein_g": 5,
+      "feature": true,
       "variant_label": "Side"
     },
     {
@@ -1083,6 +1087,7 @@
       "fiber_g": 0,
       "sugars_g": 1,
       "protein_g": 8,
+      "feature": true,
       "variant_label": "Side"
     },
     {
@@ -1488,6 +1493,7 @@
       "fiber_g": 1,
       "sugars_g": 52,
       "protein_g": 0,
+      "feature": true,
       "variant_label": "Regular"
     },
     {

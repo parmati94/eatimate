@@ -58,7 +58,10 @@
    "Bowl",
    "Taco",
    "Salad"
-  ]
+  ],
+  "consistency": {
+   "no_presets": "Moe's publishes per-ingredient figures only; there is no whole-burrito or whole-bowl row to start from, which is the same reason Chipotle and Cafe Rio carry this note."
+  }
  },
  "categories": [
   {
@@ -453,7 +456,8 @@
   },
   "Tortilla Chips, Side": {
    "cat": "sides",
-   "desc": "side size"
+   "desc": "side size",
+   "feature": true
   },
   "Tortilla Chips, Cup": {
    "cat": "sides",
@@ -465,7 +469,8 @@
   },
   "Queso, Side": {
    "cat": "sides",
-   "desc": "side size"
+   "desc": "side size",
+   "feature": true
   },
   "Queso, Cup": {
    "cat": "sides",
@@ -572,7 +577,8 @@
   "Coca-Cola, Regular": {
    "cat": "drinks",
    "name": "Coca-Cola (Regular)",
-   "desc": "regular fountain"
+   "desc": "regular fountain",
+   "feature": true
   },
   "Coca-Cola, Large": {
    "cat": "drinks",

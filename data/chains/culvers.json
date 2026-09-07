@@ -3,7 +3,7 @@
   "slug": "culvers",
   "source": {
     "html_url": "https://restaurant.nutritionix.com/culvers/landing",
-    "retrieved": "2026-09-05"
+    "retrieved": "2026-09-06"
   },
   "disclaimer_extra": "Culver's does not publish nutrition itself — it hands the job to Nutritionix and links that calculator from its own menu, so these figures come from the export Culver's points its customers at. The parts add up exactly: a lightly toasted buttered bun (220), one ground beef patty (170) and a slice of American cheese (70) make the 460 Culver's publishes for a single ButterBurger Cheese.",
   "blurb": "Build a Culver's ButterBurger from the bun up — patties, cheese and toppings — or start from a named sandwich and change it.",
@@ -1632,8 +1632,8 @@
       "protein_g": 0
     },
     {
-      "id": "jalape-ntilde-o-peppers-only-at-select-restaurants",
-      "name": "Jalape&ntilde;o Peppers (only at select restaurants)",
+      "id": "jalapeno-peppers-only-at-select-restaurants",
+      "name": "Jalapeño Peppers (only at select restaurants)",
       "category": "toppings",
       "serving_desc": "1 serving",
       "serving_g": null,

@@ -436,6 +436,18 @@
       "pico-de-gallo",
       "shredded-jack-cheese"
      ]
+    },
+    {
+     "chain": "tacobell",
+     "name": "Grilled Chicken Burrito",
+     "items": [
+      "flour-tortilla",
+      "seasoned-rice",
+      "black-beans",
+      "grilled-chicken",
+      "pico-de-gallo",
+      "cheddar-cheese"
+     ]
     }
    ]
   },

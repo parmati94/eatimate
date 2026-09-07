@@ -1,0 +1,339 @@
+{
+ "meta": {
+  "name": "Taco Bell",
+  "slug": "tacobell",
+  "source": {
+   "html_url": "https://nix-vue-inm.s3.amazonaws.com/restaurant/taco-bell/data/menu-latest.json.gz",
+   "retrieved": "2026-09-06",
+   "format": "nutritionix",
+   "fetch": "plain",
+   "page_url": "https://www.tacobell.com/nutrition/info",
+   "nutritionix_slug": "taco-bell",
+   "dump_sha256": "1916ab26b25884053e819437062efbdc1dc4458bee0f9cec8fdac8d52ab411e9"
+  },
+  "disclaimer_extra": "Taco Bell hands its nutrition to Nutritionix and opens that data from its own site, so these figures come from the export Taco Bell points its customers at. Menu items there carry no totals of their own — every one is composed from its ingredients, each published per 100 g and scaled by the gram weight Taco Bell states for that item. The arithmetic lands within a few calories of the figures Taco Bell prints: a Crunchy Taco computes to 166 against 170 published, a Bean Burrito to 360 against 350. The export was last regenerated 2025-07-17; the menu it describes still matches what Taco Bell sells, but any item launched since will be missing.",
+  "blurb": "Build a Taco Bell order from the shell up — protein, beans, rice, cheese and every sauce — or start from a named item and change it.",
+  "glyph": "taco",
+  "formats": [
+   "Tacos",
+   "Burritos",
+   "Specialties",
+   "Nachos"
+  ],
+  "default_flow": "menu"
+ },
+ "categories": [
+  {
+   "id": "item",
+   "name": "Menu Items",
+   "select": "single",
+   "flow": "preset",
+   "role": "preset"
+  },
+  {
+   "id": "shell",
+   "name": "Shell or Tortilla",
+   "select": "single",
+   "flow": "build",
+   "role": "format",
+   "in_preset": true
+  },
+  {
+   "id": "protein",
+   "name": "Protein",
+   "select": "single",
+   "flow": "build",
+   "role": "protein",
+   "in_preset": true
+  },
+  {
+   "id": "fillings",
+   "name": "Beans & Rice",
+   "select": "multi",
+   "flow": "build",
+   "role": "base",
+   "in_preset": true
+  },
+  {
+   "id": "cheese",
+   "name": "Cheese",
+   "select": "single",
+   "flow": "build",
+   "role": "cheese",
+   "in_preset": true
+  },
+  {
+   "id": "toppings",
+   "name": "Toppings",
+   "select": "multi",
+   "flow": "both",
+   "role": "topping"
+  },
+  {
+   "id": "sauces",
+   "name": "Sauces",
+   "select": "multi",
+   "flow": "both",
+   "role": "sauce"
+  },
+  {
+   "id": "sides",
+   "name": "Sides & Sweets",
+   "select": "multi",
+   "flow": "extras",
+   "role": "side"
+  },
+  {
+   "id": "drinks",
+   "name": "Drinks",
+   "select": "multi",
+   "flow": "extras",
+   "role": "drink"
+  }
+ ],
+ "layout": {
+  "columns": [
+   "calories",
+   "cff",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g"
+  ],
+  "allergen": false,
+  "serving": null,
+  "sections": "^(MENU: .+|[A-Z].*)$"
+ },
+ "section_categories": {
+  "MENU: New": "item",
+  "MENU: Cantina Chicken Menu": "item",
+  "MENU: Tacos": "item",
+  "MENU: Burritos": "item",
+  "MENU: Specialties": "item",
+  "MENU: Quesadillas": "item",
+  "MENU: Nachos": "item",
+  "MENU: Veggie Cravings": {
+   "skip": "a vegetarian VIEW of the menu — every row is already in Tacos, Burritos, Specialties or Sides"
+  },
+  "MENU: Cravings Value Menu": "item",
+  "MENU: Breakfast": "item",
+  "MENU: Sides & Sweets": "sides",
+  "MENU: Drinks": "drinks",
+  "Fountain Beverages (16 oz)": "drinks",
+  "Fountain Beverages (20 oz)": "drinks",
+  "Fountain Beverages (30 oz)": "drinks",
+  "Dirty MTN Dew Baja Blast Dream Soda": "drinks",
+  "Dirty MTN Dew Baja Blast Zero Dream Soda": "drinks",
+  "Wrapper (hidden)": "shell",
+  "Tortilla 2.4oz (hidden)": "shell",
+  "Protein 3 oz": "protein",
+  "Beans (1x)": "fillings",
+  "Rice (1x)": "fillings",
+  "Shredded Cheese": "cheese",
+  "Toppings": "toppings",
+  "Signature Sauce 0.5": "sauces",
+  "Sauce (1x)": "sauces",
+  "Hot Sauce Packets": "sauces",
+  "Taco Shells": {
+   "skip": "both shells are already in Wrapper (hidden), which is the complete set"
+  },
+  "Tortilla 1oz (hidden)": {
+   "skip": "the same Flour Tortilla at a smaller portion"
+  },
+  "Tortilla (hidden)": {
+   "skip": "the same Flour Tortilla at a third portion"
+  },
+  "Protein 1.5oz": {
+   "skip": "the same four proteins at a half portion"
+  },
+  "Protein 1.5oz with Potatoes": {
+   "skip": "the same proteins at a half portion, plus Potato Bites"
+  },
+  "Protein 3 oz with Potatoes": {
+   "skip": "the Protein 3 oz set plus Potato Bites"
+  },
+  "Regional Protein": {
+   "skip": "a single PLACE HOLDER row"
+  },
+  "Regional** Ingredients (hidden)": {
+   "skip": "regional chili, not on the national menu"
+  },
+  "Beans (2x)": {
+   "skip": "the same two beans at a double portion"
+  },
+  "Rice (2x)": {
+   "skip": "the same rice at a double portion"
+  },
+  "Rice (3x)": {
+   "skip": "the same rice at a triple portion"
+  },
+  "Sauce (2x)": {
+   "skip": "the same three sauces at a double portion"
+  },
+  "Sauce (3x)": {
+   "skip": "the same three sauces at a triple portion"
+  },
+  "Signature Sauce 0.2": {
+   "skip": "the same five sauces at a smaller portion"
+  },
+  "Hot Sauce Packets - Side": {
+   "skip": "the same six packets, republished for sides"
+  },
+  "Side Toppings": {
+   "skip": "per-item topping set, same modifiers as Toppings"
+  },
+  "Cheesy Fiesta Potato Toppings": {
+   "skip": "per-item topping set, same modifiers as Toppings"
+  },
+  "Nacho Fries Toppings": {
+   "skip": "per-item topping set, same modifiers as Toppings"
+  },
+  "Chicken Nugget Dipping Sauce": {
+   "skip": "per-item sauce set, republished from Sauces"
+  },
+  "Chips (hidden)": {
+   "skip": "hidden group; the Sides menu carries the chips"
+  },
+  "Sides (hidden)": {
+   "skip": "hidden group; the Sides and Breakfast menus carry these"
+  },
+  "Potatoes": {
+   "skip": "hidden single row; Cheesy Fiesta Potatoes is on the Sides menu"
+  },
+  "Fries": {
+   "skip": "a PLACE HOLDER and Seasoned Fries, which is already in Toppings"
+  },
+  "LTO (Hidden)": {
+   "skip": "limited-time ingredients, including a PLACE HOLDER row"
+  },
+  "Chicken Tenders & Nuggets (hidden)": {
+   "skip": "hidden group carrying a THEORETICAL seasoning row"
+  },
+  "Drinks and Sweets (hidden)": {
+   "skip": "hidden group; the Drinks and Sides menus carry these"
+  },
+  "Breakfast Protein": {
+   "skip": "breakfast ships as menu items; its build is not ingested"
+  },
+  "Breakfast Crunchwrap Protein": {
+   "skip": "breakfast ships as menu items; its build is not ingested"
+  },
+  "Breakfast Beans": {
+   "skip": "breakfast ships as menu items; its build is not ingested"
+  },
+  "Breakfast Potatoes": {
+   "skip": "breakfast ships as menu items; its build is not ingested"
+  },
+  "Breakfast Toppings": {
+   "skip": "breakfast ships as menu items; its build is not ingested"
+  },
+  "Breakfast Sauce and Gravy": {
+   "skip": "breakfast ships as menu items; its build is not ingested"
+  },
+  "Breakfast Beverages": {
+   "skip": "one orange juice; the Drinks menu carries it"
+  },
+  "Cinnabon Delight Coffee (hidden)": {
+   "skip": "coffee build internals — bases, ice and concentrate, not orderable parts"
+  },
+  "Cinnabon Delight Syrup": {
+   "skip": "coffee build internals, including a PLACE HOLDER row"
+  },
+  "Freezes, Chillers & Refrescas (hidden)": {
+   "skip": "freeze build internals — bases, syrups and spirits, not orderable parts"
+  },
+  "Drink Syrups (Hidden) w/ extra portions": {
+   "skip": "drink build internals"
+  },
+  "Churro Crumbles (Hidden) - w/ extra portions": {
+   "skip": "drink build internals"
+  },
+  "Whipped Cream (Hidden) - w/ extra portions": {
+   "skip": "drink build internals"
+  },
+  "LTO Freeze - Add Syrup": {
+   "skip": "limited-time freeze syrup"
+  }
+ },
+ "items": {
+  "MENU: New/Dragonfruit Freeze (16 oz)": {
+   "cat": "drinks",
+   "id": "dragonfruit-freeze",
+   "name": "Dragonfruit Freeze",
+   "variant_label": "16 oz",
+   "variant_family": "dragonfruit-freeze"
+  },
+  "MENU: New/Dragonfruit Freeze (20 oz)": {
+   "cat": "drinks",
+   "id": "dragonfruit-freeze-20-oz",
+   "name": "Dragonfruit Freeze",
+   "variant_label": "20 oz",
+   "variant_family": "dragonfruit-freeze"
+  },
+  "MENU: New/Dulce de Leche Cinnabon Delights (12 Pack - Serves 4)": {
+   "cat": "sides"
+  },
+  "MENU: New/Dulce de Leche Cinnabon Delights (2 Pack)": {
+   "cat": "sides"
+  },
+  "MENU: Tacos/Crunchy Taco": {
+   "cat": "item",
+   "feature": true
+  },
+  "MENU: Specialties/Crunchwrap Supreme": {
+   "cat": "item",
+   "feature": true
+  },
+  "MENU: Burritos/Bean Burrito (V)": {
+   "cat": "item",
+   "feature": true
+  },
+  "MENU: Cantina Chicken Menu/Cantina Chicken Bowl": {
+   "cat": "item",
+   "feature": true
+  },
+  "MENU: Sides & Sweets/Nacho Fries": {
+   "cat": "sides",
+   "feature": true
+  },
+  "MENU: Sides & Sweets/Cinnamon Twists (V)": {
+   "cat": "sides",
+   "feature": true
+  }
+ },
+ "name_variants": [
+  {
+   "pattern": "^(?P<family>.+?)\\s*\\((?P<label>\\d+(?:\\.\\d+)?\\s*(?:fl\\s+)?oz)\\)$",
+   "labels": [
+    "20 fl oz",
+    "20 oz",
+    "19 oz",
+    "30 fl oz",
+    "30 oz",
+    "16 fl oz",
+    "16 oz",
+    "16.9 fl oz"
+   ]
+  },
+  {
+   "pattern": "^(?P<family>.+?)\\s*-\\s*(?P<label>Small|Medium|Large)$",
+   "labels": [
+    "Medium",
+    "Large",
+    "Small"
+   ]
+  },
+  {
+   "pattern": "^(?P<family>.+?)\\s*-\\s*(?P<label>\\d+ piece)$",
+   "labels": [
+    "4 piece",
+    "2 piece"
+   ]
+  }
+ ]
+}

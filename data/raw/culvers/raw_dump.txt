@@ -259,7 +259,7 @@ Pumpkin Spice Shake, Small 571.43 0 34.29 20 1.14 214.29 171.43 57.14 2.86 51.43
 Roasted Garlic and Bacon Pub Burger, Double 602.62 315.56 46.3 21.3 1.63 164.84 1022 1.67 0.17 1.14 47.2
 Roasted Garlic and Bacon Pub Burger, Single 352.62 315.56 26.3 11.8 0.83 94.84 782 1.67 0.17 1.14 28.2
 Roasted Garlic and Bacon Pub Burger, Triple 852.62 315.56 66.3 30.8 2.43 234.84 1262 1.67 0.17 1.14 66.2
-Salted Caramel Pumpkin Concrete Mixer&reg, Mini 437.14 0 23.14 14.21 0.86 139.64 232.86 50.21 2.4 40.07 7.36
+Salted Caramel Pumpkin Concrete Mixer, Mini 437.14 0 23.14 14.21 0.86 139.64 232.86 50.21 2.4 40.07 7.36
 Salted Caramel Pumpkin Concrete Mixer, Large 1062.86 0 57.41 35.29 2.14 347.86 517.14 119.29 6 96.43 18.14
 Salted Caramel Pumpkin Concrete Mixer, Medium 937.14 0 49.99 30.71 1.86 302.14 482.86 106.71 5.2 85.57 15.86
 Salted Caramel Pumpkin Concrete Mixer, Small 748.57 0 38.84 23.86 1.43 233.57 431.43 87.86 4 69.29 12.43
@@ -322,7 +322,7 @@ Coleslaw (only at select restaurants) 87.42 0 6.99 1.09 0 4.37 104.91 6.56 0.87 
 Dill Pickle 1.56 0 0 0 0 0 163 0 0 0 0
 George's Chili (only at select restaurants) 28.35 0 1.28 0.43 0 4.25 138.91 2.55 0.57 0.57 1.7
 Grilled Onions 20 0 0 0 0 0 0 5 1 2 0
-Jalape&ntilde;o Peppers (only at select restaurants) 2.5 1.89 0.21 0.02 0 0 200 0.75 0.3 0.3 0
+Jalapeño Peppers (only at select restaurants) 2.5 1.89 0.21 0.02 0 0 200 0.75 0.3 0.3 0
 Ketchup 15 0 0 0 0 0 130 4 0 3 0
 Mayonnaise 104.86 0 11 2 0 10 55 0 0 0 0
 Red Onion Ring 5 0 0 0 0 0 0 1 0 0 0
@@ -346,7 +346,7 @@ Coleslaw (only at select restaurants) 87.42 0 6.99 1.09 0 4.37 104.91 6.56 0.87 
 Dill Pickle 1.56 0 0 0 0 0 163 0 0 0 0
 George's Chili (only at select restaurants) 28.35 0 1.28 0.43 0 4.25 138.91 2.55 0.57 0.57 1.7
 Grilled Onions 20 0 0 0 0 0 0 5 1 2 0
-Jalape&ntilde;o Peppers (only at select restaurants) 2.5 1.89 0.21 0.02 0 0 200 0.75 0.3 0.3 0
+Jalapeño Peppers (only at select restaurants) 2.5 1.89 0.21 0.02 0 0 200 0.75 0.3 0.3 0
 Ketchup 15 0 0 0 0 0 130 4 0 3 0
 Mayonnaise 104.86 0 11 2 0 10 55 0 0 0 0
 Red Onion Ring 5 0 0 0 0 0 0 1 0 0 0
@@ -366,7 +366,7 @@ Coleslaw (only at select restaurants) 87.42 0 6.99 1.09 0 4.37 104.91 6.56 0.87 
 Dill Pickle 1.56 0 0 0 0 0 163 0 0 0 0
 George's Chili (only at select restaurants) 28.35 0 1.28 0.43 0 4.25 138.91 2.55 0.57 0.57 1.7
 Grilled Onions 20 0 0 0 0 0 0 5 1 2 0
-Jalape&ntilde;o Peppers (only at select restaurants) 2.5 1.89 0.21 0.02 0 0 200 0.75 0.3 0.3 0
+Jalapeño Peppers (only at select restaurants) 2.5 1.89 0.21 0.02 0 0 200 0.75 0.3 0.3 0
 Ketchup 15 0 0 0 0 0 130 4 0 3 0
 Mayonnaise 104.86 0 11 2 0 10 55 0 0 0 0
 Red Onion Ring 5 0 0 0 0 0 0 1 0 0 0
@@ -728,7 +728,7 @@ Coleslaw (only at select restaurants) 87.42 0 6.99 1.09 0 4.37 104.91 6.56 0.87 
 Dill Pickle 1.56 0 0 0 0 0 163 0 0 0 0
 George's Chili (only at select restaurants) 28.35 0 1.28 0.43 0 4.25 138.91 2.55 0.57 0.57 1.7
 Grilled Onions 20 0 0 0 0 0 0 5 1 2 0
-Jalape&ntilde;o Peppers (only at select restaurants) 2.5 1.89 0.21 0.02 0 0 200 0.75 0.3 0.3 0
+Jalapeño Peppers (only at select restaurants) 2.5 1.89 0.21 0.02 0 0 200 0.75 0.3 0.3 0
 Ketchup 15 0 0 0 0 0 130 4 0 3 0
 Mayonnaise 104.86 0 11 2 0 10 55 0 0 0 0
 Red Onion Ring 5 0 0 0 0 0 0 1 0 0 0
