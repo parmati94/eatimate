@@ -50,7 +50,10 @@ SYNTHETIC = {"id", "name", "cat", "desc", "before", "size_mode", "only_modes"}
 DERIVED = {"id", "name", "cat", "desc", "values", "reason", "estimated", "after",
            "size_mode", "only_modes", "serving_desc"}
 NAME_TRIM = {"pattern", "into", "base_label", "labels"}
-NAME_VARIANT = {"pattern", "sections"}
+# `labels` orders the chips and names the family HEAD; without it the first
+# size in the dump heads it, which understates whenever a source lists
+# smallest-first (see common.py).
+NAME_VARIANT = {"pattern", "sections", "labels"}
 TIER_ROWS = {"sections", "tiers", "head"}
 PORTION_SPLIT = {"per", "unit", "categories", "whole", "reason"}
 CORRECTION = {"field", "used", "reason"}

@@ -883,6 +883,40 @@ def build(cfg, rows, extra=None):
                 c["name"] = (f"{lbl} {c['name']}" if c.get("_label_pre")
                              else f"{c['name']}, {lbl}")
 
+    # `name_variants` joins a family as rows stream past, so the FIRST size in
+    # the dump heads it -- and a dump is usually ordered smallest-first. That is
+    # the CAVA bug with the sign flipped: Taco Bell lists its fountain drinks
+    # 16oz, 20oz, 30oz, so every unselected drink quoted the 16oz figure for a
+    # cup sold at three sizes. Understating a total by default is the one thing
+    # this site cannot do, so a rule may carry `labels` to say which size heads
+    # the family and in what order the chips read -- the same contract
+    # `name_trim` already honours. Rules without `labels` keep first-seen order,
+    # which is what the four chains using them today expect.
+    # Every rule's labels, concatenated in config order: a chain can carry one
+    # ladder per shape (fluid sizes, Small/Medium/Large, piece counts) and the
+    # sets are disjoint, so one rank table serves them all. Reading only the
+    # first rule's list would silently leave the other ladders first-seen.
+    nv_order = [l for r in cfg.get("name_variants", []) for l in (r.get("labels") or [])]
+    if nv_order:
+        rank = {l.lower(): i for i, l in enumerate(nv_order)}
+        groups = {}
+        for c in comps:
+            if c.get("variant_label"):
+                groups.setdefault((c["category"], c["name"].lower()), []).append(c)
+        for members in groups.values():
+            if len(members) < 2:
+                continue
+            if not any((m.get("variant_label") or "").lower() in rank for m in members):
+                continue
+            members.sort(key=lambda m: rank.get(
+                (m.get("variant_label") or "").lower(), len(rank)))
+            head, base_ord = members[0], min(m["_ord"] for m in members)
+            for i, m in enumerate(members):
+                m["_ord"] = base_ord + 0.0001 * i
+                m.pop("variant_of", None)
+                if m is not head:
+                    m["variant_of"] = head["id"]
+
     # Sections whose rows already BUNDLE a base component, named per section:
     # Potbelly's sandwich totals include white bread at that size, so the row as
     # published cannot be added to a bread the user picked without counting the
