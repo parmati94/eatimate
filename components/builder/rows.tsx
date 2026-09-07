@@ -633,15 +633,16 @@ export function CategoryBody({
       )}
       {groups.length > 1 && (
         <div
-          // One inset track rather than loose chips, so the row reads as a
-          // single control and the selected group sits raised inside it.
-          // Phones scroll it sideways; from `sm` up it wraps instead, because a
-          // mouse has no good way to scroll horizontally and the extra line
-          // costs nothing on a wide screen.
-          // The fade is the only cue that the strip scrolls -- there is no
-          // scrollbar on touch. Dropped from `sm` up, where it wraps and a
-          // faded last chip would be a lie.
-          className="mb-2 flex gap-1 overflow-x-auto rounded-xl bg-surface-2 p-1 [mask-image:linear-gradient(to_right,black_calc(100%-28px),transparent)] [scrollbar-width:none] sm:flex-wrap sm:overflow-visible sm:[mask-image:none] [&::-webkit-scrollbar]:hidden"
+          // No filled track behind these. It framed the strip nicely on a
+          // phone, but on desktop the row WRAPS, and a full-width grey block
+          // with one lone chip on its second line reads as a half-empty box --
+          // Sonic's "Breakfast" sitting alone under six others. Chips carry
+          // their own shape, so the row reads as one control without it and
+          // wrapping just looks like wrapping.
+          //
+          // Phones scroll it sideways with a fade for the edge; from `sm` up it
+          // wraps, because a mouse has no good way to scroll horizontally.
+          className="-mx-1 mb-2 flex gap-1 overflow-x-auto px-1 pb-1 [mask-image:linear-gradient(to_right,black_calc(100%-28px),transparent)] [scrollbar-width:none] sm:flex-wrap sm:overflow-visible sm:pb-0 sm:[mask-image:none] [&::-webkit-scrollbar]:hidden"
           role="group"
           aria-label={`Filter ${cat.name} by group`}
         >
@@ -656,18 +657,19 @@ export function CategoryBody({
                   setGroup(g?.name ?? null);
                   setExpanded(false);
                 }}
+                // Same selected language as the size chips on a row: soft
+                // accent fill, not a solid block. This is a filter, and solid
+                // accent made it the loudest thing on the page.
                 className={`flex shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   on
-                    ? "bg-surface font-semibold text-accent-strong shadow-sm"
-                    : "font-medium text-muted hover:text-fg"
+                    ? "bg-accent-soft font-semibold text-accent-strong"
+                    : "bg-surface-2 font-medium text-muted hover:text-fg"
                 }`}
               >
                 {g?.name ?? "All"}
                 {/* The size of the list this chip leads to, so the choice is
                     made before the tap rather than after it. */}
-                <span
-                  className={`tabular-nums ${on ? "text-accent-strong/60" : "text-muted/60"}`}
-                >
+                <span className={`num tabular-nums ${on ? "" : "text-muted/60"}`}>
                   {g?.count ?? families.length}
                 </span>
               </button>
