@@ -19,6 +19,7 @@ import {
 import type { Chain } from "@/lib/schema";
 import { show } from "@/lib/rounding";
 import { track } from "@/lib/analytics";
+import { DEFAULT_MEASURE, MEASURES, measureById, verdict, type MeasureId } from "@/lib/verdict";
 import { IconCheck, IconChevron, IconCopy, IconExternal } from "@/components/icons";
 import { NUTRIENT_LABELS } from "@/lib/schema";
 
@@ -142,6 +143,23 @@ export default function MealCompare({
   const names = chains.map((c) => c.name);
   const empty = selections.every((s) => Object.keys(s).length === 0);
 
+  // The verdict. Which reading of "healthier" is the visitor's to choose; the
+  // answer for that reading is arithmetic on the two meals as they stand, so
+  // it is server-rendered from the preset and moves with every tap after.
+  const [measureId, setMeasureId] = useState<MeasureId>(DEFAULT_MEASURE);
+  const measure = measureById(measureId);
+  // A side counts as picked only if something in it has a quantity: a size
+  // swap can leave a zero-quantity key behind, and an empty side must never
+  // win "fewest calories" with 0.
+  const picked = chains.map((c, i) => c.components.some((x) => selections[i][x.id]));
+  const call = verdict(measure, facts, names, picked);
+  // Whether the meals on screen are still the starting build, so the line
+  // under the verdict can say what it was read on without lying after a tap.
+  const onPreset =
+    !!preset &&
+    selections.every((s, i) => sameSelections(s, preset.sides[i] ?? {})) &&
+    portions.every((p, i) => p === (preset.portions[i] ?? 1));
+
   const setSide = (i: 0 | 1) => (update: React.SetStateAction<Selections>) =>
     setSelections((prev) => {
       const next: [Selections, Selections] = [prev[0], prev[1]];
@@ -187,6 +205,68 @@ export default function MealCompare({
 
   return (
     <div>
+      {/*
+        The verdict, first.
+
+        The page is titled as the question people type -- "Is X or Y
+        healthier?" -- so the first thing on it has to be an answer. That
+        answer is honest only with a measure attached: healthier by calories
+        is one chain, by protein per calorie often the other. So the sentence
+        comes with the measure it was read on, and the pills under it change
+        the measure rather than the meal. Server-rendered from the starting
+        build, so the crawler reads the same call the visitor does.
+      */}
+      <section
+        aria-labelledby="verdict-measure"
+        className="mb-5 max-w-2xl rounded-2xl border border-line bg-surface p-4"
+      >
+        <p
+          aria-live="polite"
+          className={`text-base font-semibold leading-snug sm:text-lg ${
+            call.kind === "call" ? "" : "text-muted"
+          }`}
+        >
+          {call.sentence}
+        </p>
+        <p
+          id="verdict-measure"
+          className="mt-3 text-xs font-semibold uppercase tracking-wider text-muted"
+        >
+          Healthier by which measure?
+        </p>
+        <div role="group" aria-labelledby="verdict-measure" className="mt-2 flex flex-wrap gap-2">
+          {MEASURES.map((m) => (
+            <button
+              key={m.id}
+              type="button"
+              onClick={() => {
+                if (m.id === measureId) return;
+                setMeasureId(m.id);
+                track("measure-changed", {
+                  pair: chains.map((c) => c.slug).join("-vs-"),
+                  measure: m.id,
+                });
+              }}
+              aria-pressed={m.id === measureId}
+              className={`flex min-h-10 items-center rounded-full border px-3.5 text-xs transition-colors ${
+                m.id === measureId
+                  ? "border-brand bg-surface-2 font-semibold text-fg"
+                  : "border-line bg-surface text-muted hover:border-fg/30 hover:text-fg"
+              }`}
+            >
+              {m.label}
+            </button>
+          ))}
+        </div>
+        {preset && (
+          <p className="mt-2.5 px-0.5 text-xs leading-relaxed text-muted">
+            {onPreset
+              ? `Read on the same ${preset.name.toLowerCase()} as each chain would build it. Change either order below and the verdict moves.`
+              : "Read on the two orders as they stand below."}
+          </p>
+        )}
+      </section>
+
       {/*
         The starting point, as one object.
 
@@ -534,6 +614,14 @@ function diffText(
   }
   out.push("", typeof window === "undefined" ? "" : window.location.href);
   return out.join("\n");
+}
+
+/** Same picks at the same quantities, ignoring zero-quantity leftovers. */
+function sameSelections(a: Selections, b: Selections): boolean {
+  const live = (s: Selections) => Object.entries(s).filter(([, q]) => q > 0);
+  const la = live(a);
+  const lb = new Map(live(b));
+  return la.length === lb.size && la.every(([id, q]) => lb.get(id) === q);
 }
 
 function decode(raw: string, chain: Chain): Selections {

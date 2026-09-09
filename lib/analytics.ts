@@ -49,6 +49,9 @@ export type EventName =
   | "label-saved"
   /** Changed the chain-wide size (6" to footlong, medium to large). */
   | "size-changed"
+  /** Picked a different "healthier by which measure" on a compare page, with
+   *  the pair and the measure -- which reading of healthier people want. */
+  | "measure-changed"
   /** A search that found nothing, with the term. Sent only once the field has
    *  settled -- see lib/search-miss.ts, which is the only way to send it. */
   | "search-empty";
