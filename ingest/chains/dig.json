@@ -104,195 +104,42 @@
   "subsections": "^(Chef's Specials|Seasonal Specials|All Day Deals|Salads|Sides|Mains|Extras) Serving Size",
   "skip": "^(DIG INN NUTRITION|Starting from|that you do not|average 1\\.5 servings|recipes, so our|1\\.5 servings|our ingredients|Serving Size \\(oz\\)|Last Updated)"
  },
+ "section_categories": {
+  "COMPOSED BOWLS, PLATES & SALADS": "signature",
+  "LITTLE DIGS": "kids",
+  "MARKET LINE/Sides": "sides",
+  "MARKET LINE/Mains": "mains",
+  "MARKET LINE/Extras": "extras",
+  "DESSERTS": "desserts",
+  "SAUCES": "sauces"
+ },
  "items": {
   "Brown Rice": {
-   "cat": "base",
-   "desc": "5 oz bowl portion"
+   "cat": "base"
   },
   "Autumn Farro with Butternut Squash": {
-   "cat": "base",
-   "desc": "5 oz bowl portion"
+   "cat": "base"
   },
   "Just a Really Good Salad": {
-   "cat": "base",
-   "desc": "1.5 oz bowl portion"
-  },
-  "Brussels with Sweet Chili Crisp": {
-   "cat": "sides",
-   "desc": "4.3 oz bowl portion"
-  },
-  "Delicata Squash with Maple Tahini": {
-   "cat": "sides",
-   "desc": "5 oz bowl portion"
-  },
-  "Yukon Mashed Potatoes with Garlic & Parm": {
-   "cat": "sides",
-   "desc": "6.5 oz bowl portion"
-  },
-  "Lentil & Chickpea Salad with Feta": {
-   "cat": "sides",
-   "desc": "5.2 oz bowl portion"
-  },
-  "Crunchy Roasted Red Beets": {
-   "cat": "sides",
-   "desc": "5 oz bowl portion"
-  },
-  "Hudson Valley Apples with Chai Yogurt": {
-   "cat": "sides",
-   "desc": "5 oz bowl portion"
-  },
-  "Cashew Kale Caesar": {
-   "cat": "sides",
-   "desc": "2.7 oz bowl portion"
-  },
-  "Charred Broccoli with Lemon": {
-   "cat": "sides",
-   "desc": "4.3 oz bowl portion"
-  },
-  "Sheet Tray Carrots": {
-   "cat": "sides",
-   "desc": "4 oz bowl portion"
-  },
-  "Roasted Sweet Potatoes": {
-   "cat": "sides",
-   "desc": "6 oz bowl portion"
-  },
-  "Jasper Hill Mac & Cheese": {
-   "cat": "sides",
-   "desc": "6 oz bowl portion"
-  },
-  "Char-grilled Steak": {
-   "cat": "mains",
-   "desc": "3 oz bowl portion"
-  },
-  "Wild Salmon": {
-   "cat": "mains",
-   "desc": "4.2 oz bowl portion"
-  },
-  "Crispy Tofu": {
-   "cat": "mains",
-   "desc": "4 oz bowl portion"
-  },
-  "Charred Chicken": {
-   "cat": "mains",
-   "desc": "4.3 oz bowl portion"
-  },
-  "Herb Roasted Chicken": {
-   "cat": "mains",
-   "desc": "3.3 oz bowl portion"
-  },
-  "Crispy Chicken": {
-   "cat": "mains",
-   "desc": "5.9 oz bowl portion"
-  },
-  "Hot Honey Chicken": {
-   "cat": "mains",
-   "desc": "5.3 oz bowl portion"
-  },
-  "Avocado with Olive Oil and Maldon Salt": {
-   "cat": "extras"
-  },
-  "Focaccia": {
-   "cat": "extras"
-  },
-  "Brioche Cheddar Pullapart": {
-   "cat": "extras"
-  },
-  "Garlic Aioli": {
-   "cat": "sauces"
-  },
-  "Hot Honey": {
-   "cat": "sauces"
-  },
-  "Pesto": {
-   "cat": "sauces"
-  },
-  "Sriracha": {
-   "cat": "sauces"
-  },
-  "Mr. Bing Chili Crisp": {
-   "cat": "sauces"
-  },
-  "Chimichurri": {
-   "cat": "sauces"
-  },
-  "Gravy": {
-   "cat": "sauces"
-  },
-  "Classic Dig": {
-   "cat": "signature"
-  },
-  "Vegan Dig Classic": {
-   "cat": "signature"
-  },
-  "Chili Lime Salmon Bowl": {
-   "cat": "signature"
+   "cat": "base"
   },
   "Hot Honey Chicken Bowl (sauce not included)": {
    "cat": "signature",
+   "id": "hot-honey-chicken-bowl",
    "name": "Hot Honey Chicken Bowl",
-   "desc": "As published, without its sauce",
-   "id": "hot-honey-chicken-bowl"
+   "desc": "As published, without its sauce"
   },
   "Steak & Greens with Chimichurri (sauce not included)": {
    "cat": "signature",
+   "id": "steak-greens-with-chimichurri",
    "name": "Steak & Greens with Chimichurri",
-   "desc": "As published, without its sauce",
-   "id": "steak-greens-with-chimichurri"
+   "desc": "As published, without its sauce"
   },
   "Chicken Pesto Bowl (sauce not included)": {
    "cat": "signature",
+   "id": "chicken-pesto-bowl",
    "name": "Chicken Pesto Bowl",
-   "desc": "As published, without its sauce",
-   "id": "chicken-pesto-bowl"
-  },
-  "Farmers' Choice": {
-   "cat": "signature"
-  },
-  "Autumn Feta Grain Bowl": {
-   "cat": "signature"
-  },
-  "Autumn Chicken Plate": {
-   "cat": "signature"
-  },
-  "Salmon & Beets Plate": {
-   "cat": "signature"
-  },
-  "Steak & Mash": {
-   "cat": "signature"
-  },
-  "Fan Faves Plate": {
-   "cat": "signature"
-  },
-  "Vegan Favorites Plate": {
-   "cat": "signature"
-  },
-  "Charred Chicken & Rice": {
-   "cat": "signature"
-  },
-  "Chicken & Chickpeas Plate": {
-   "cat": "signature"
-  },
-  "Supergreen Caesar Salad": {
-   "cat": "signature"
-  },
-  "Autumn House Salad": {
-   "cat": "signature"
-  },
-  "Kid's Classic": {
-   "cat": "kids"
-  },
-  "Old Macdonald": {
-   "cat": "kids"
-  },
-  "Flourless Brownie": {
-   "cat": "desserts"
-  },
-  "Chocolate Chip Cookie": {
-   "cat": "desserts"
-  },
-  "Salted Caramel Cookie": {
-   "cat": "desserts"
+   "desc": "As published, without its sauce"
   }
  },
  "synthetic": [],
