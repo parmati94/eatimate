@@ -3,17 +3,17 @@
   "name": "Dig Inn",
   "slug": "dig",
   "source": {
-   "pdf_url": "https://storyblok.pleinaircdn.com/f/274373/x/f847b38fee/dig-nutrition-summer-2026.pdf",
-   "retrieved": "2026-08-30",
+   "pdf_url": "https://storyblok.pleinaircdn.com/f/274373/x/82074425af/dig-nutrition-fall-2026.pdf",
+   "retrieved": "2026-09-10",
    "format": "pdf",
    "page_url": "https://www.diginn.com/nutrition",
    "link_pattern": "dig-nutrition",
    "fetch": "plain",
-   "dump_sha256": "be17492b25038c064e0e274627ed822a8f59c7e06c55bca537982d34d32f67fc",
-   "asset_sha256": "0f797abee9659999de07538a64a1b64c7ac6c869baa9e7e1c8303166004b3c73"
+   "dump_sha256": "c09498daf1a67b075b2e7930b3456dcdd579038beb0c3c88d1dcb9a699de4ccd",
+   "asset_sha256": "e067e79299ec875ed1cd57dc56313ea7b946ae2e50e783e3b6ae39a4dc42245b"
   },
-  "updated": "2026-09-07",
-  "disclaimer_extra": "DIG's chart lists single bowl-portion servings (Summer 2026 menu, updated July 9, 2026); a la carte vegetable sides are 1.5 servings. Menu rotates seasonally.",
+  "updated": "2026-09-10",
+  "disclaimer_extra": "DIG's chart lists single bowl-portion servings (Fall 2026 menu, updated September 9, 2026); a la carte vegetable sides average 1.5 servings. Menu rotates seasonally.",
   "blurb": "Build a DIG bowl the way the market line works — base, market sides, a main and sauces — including every seasonal plate and bowl.",
   "glyph": "grainbowl",
   "formats": [
@@ -100,38 +100,50 @@
   ],
   "allergen": false,
   "serving": "oz",
-  "sections": "^[A-Z][A-Z'’ ]{2,30}$",
-  "subsections": "^(Sides|Mains|Extras) Serving Size",
-  "skip": "^(DIG INN NUTRITION|Starting from|that you do not|1\\.5 servings|our ingredients|Serving Size \\(oz\\)|Last Updated)"
+  "sections": "^[A-Z][A-Z'’ ,&]{2,40}$",
+  "subsections": "^(Chef's Specials|Seasonal Specials|All Day Deals|Salads|Sides|Mains|Extras) Serving Size",
+  "skip": "^(DIG INN NUTRITION|Starting from|that you do not|average 1\\.5 servings|recipes, so our|1\\.5 servings|our ingredients|Serving Size \\(oz\\)|Last Updated)"
  },
  "items": {
   "Brown Rice": {
    "cat": "base",
    "desc": "5 oz bowl portion"
   },
-  "Herb Rice": {
+  "Autumn Farro with Butternut Squash": {
    "cat": "base",
    "desc": "5 oz bowl portion"
   },
-  "Farm Greens with Mint": {
+  "Just a Really Good Salad": {
    "cat": "base",
    "desc": "1.5 oz bowl portion"
   },
-  "Dill Pickle Potato Salad": {
+  "Brussels with Sweet Chili Crisp": {
+   "cat": "sides",
+   "desc": "4.3 oz bowl portion"
+  },
+  "Delicata Squash with Maple Tahini": {
    "cat": "sides",
    "desc": "5 oz bowl portion"
   },
-  "Cowboy Caviar": {
+  "Yukon Mashed Potatoes with Garlic & Parm": {
    "cat": "sides",
-   "desc": "4.3 oz bowl portion"
+   "desc": "6.5 oz bowl portion"
+  },
+  "Lentil & Chickpea Salad with Feta": {
+   "cat": "sides",
+   "desc": "5.2 oz bowl portion"
+  },
+  "Crunchy Roasted Red Beets": {
+   "cat": "sides",
+   "desc": "5 oz bowl portion"
+  },
+  "Hudson Valley Apples with Chai Yogurt": {
+   "cat": "sides",
+   "desc": "5 oz bowl portion"
   },
   "Cashew Kale Caesar": {
    "cat": "sides",
    "desc": "2.7 oz bowl portion"
-  },
-  "Tomatoes & Cucumbers": {
-   "cat": "sides",
-   "desc": "4.3 oz bowl portion"
   },
   "Charred Broccoli with Lemon": {
    "cat": "sides",
@@ -149,21 +161,13 @@
    "cat": "sides",
    "desc": "6 oz bowl portion"
   },
-  "Cheesy Cauliflower": {
-   "cat": "sides",
-   "desc": "4.3 oz bowl portion"
-  },
-  "Feta Grain Salad": {
-   "cat": "sides",
-   "desc": "5 oz bowl portion"
-  },
-  "Smoky Sweet Chicken": {
+  "Char-grilled Steak": {
    "cat": "mains",
-   "desc": "5 oz bowl portion"
+   "desc": "3 oz bowl portion"
   },
-  "Seared Wild Salmon": {
+  "Wild Salmon": {
    "cat": "mains",
-   "desc": "4 oz bowl portion"
+   "desc": "4.2 oz bowl portion"
   },
   "Crispy Tofu": {
    "cat": "mains",
@@ -179,11 +183,11 @@
   },
   "Crispy Chicken": {
    "cat": "mains",
-   "desc": "5.3 oz bowl portion"
+   "desc": "5.9 oz bowl portion"
   },
   "Hot Honey Chicken": {
    "cat": "mains",
-   "desc": "5.1 oz bowl portion"
+   "desc": "5.3 oz bowl portion"
   },
   "Avocado with Olive Oil and Maldon Salt": {
    "cat": "extras"
@@ -192,12 +196,6 @@
    "cat": "extras"
   },
   "Brioche Cheddar Pullapart": {
-   "cat": "extras"
-  },
-  "Heirloom Blue Cornbread": {
-   "cat": "extras"
-  },
-  "Pickle Spear": {
    "cat": "extras"
   },
   "Garlic Aioli": {
@@ -212,31 +210,55 @@
   "Sriracha": {
    "cat": "sauces"
   },
+  "Mr. Bing Chili Crisp": {
+   "cat": "sauces"
+  },
+  "Chimichurri": {
+   "cat": "sauces"
+  },
+  "Gravy": {
+   "cat": "sauces"
+  },
   "Classic Dig": {
    "cat": "signature"
   },
   "Vegan Dig Classic": {
    "cat": "signature"
   },
-  "Spicy Salmon Bowl": {
+  "Chili Lime Salmon Bowl": {
    "cat": "signature"
   },
-  "Hot Honey Chicken Bowl": {
+  "Hot Honey Chicken Bowl (sauce not included)": {
+   "cat": "signature",
+   "name": "Hot Honey Chicken Bowl",
+   "desc": "As published, without its sauce",
+   "id": "hot-honey-chicken-bowl"
+  },
+  "Steak & Greens with Chimichurri (sauce not included)": {
+   "cat": "signature",
+   "name": "Steak & Greens with Chimichurri",
+   "desc": "As published, without its sauce",
+   "id": "steak-greens-with-chimichurri"
+  },
+  "Chicken Pesto Bowl (sauce not included)": {
+   "cat": "signature",
+   "name": "Chicken Pesto Bowl",
+   "desc": "As published, without its sauce",
+   "id": "chicken-pesto-bowl"
+  },
+  "Farmers' Choice": {
    "cat": "signature"
   },
-  "Smoky Sweet Chicken Plate": {
+  "Autumn Feta Grain Bowl": {
    "cat": "signature"
   },
-  "Summer Favorites Plate": {
+  "Autumn Chicken Plate": {
    "cat": "signature"
   },
-  "Vegan Picnic Plate": {
+  "Salmon & Beets Plate": {
    "cat": "signature"
   },
-  "Cheesy Cauliflower Chicken Plate": {
-   "cat": "signature"
-  },
-  "Feta Grain Bowl": {
+  "Steak & Mash": {
    "cat": "signature"
   },
   "Fan Faves Plate": {
@@ -248,13 +270,13 @@
   "Charred Chicken & Rice": {
    "cat": "signature"
   },
-  "Power Plate": {
+  "Chicken & Chickpeas Plate": {
    "cat": "signature"
   },
-  "Kale Caesar Salad": {
+  "Supergreen Caesar Salad": {
    "cat": "signature"
   },
-  "Kale Caesar Salad with Crispy Chicken": {
+  "Autumn House Salad": {
    "cat": "signature"
   },
   "Kid's Classic": {
@@ -271,10 +293,16 @@
   },
   "Salted Caramel Cookie": {
    "cat": "desserts"
-  },
-  "Iced Lemon Cake": {
-   "cat": "desserts"
   }
  },
- "synthetic": []
+ "synthetic": [],
+ "corrections": {
+  "charred-chicken": [
+   {
+    "field": "protein_g",
+    "used": 40,
+    "reason": "The Fall 2026 chart prints 4 g protein for 4.3 oz of charred chicken breast at 370 kcal, 19 g fat and 1 g carbohydrate; those macros account for about 190 kcal, so the row contradicts its own calorie figure, and a chicken breast portion cannot carry 4 g of protein. Hot Honey Chicken and Crispy Chicken — the same chicken with a sauce or a crust — each print 40 g, and 40 g brings this row's macros to within rounding of its 370 kcal, so that is the figure used."
+   }
+  ]
+ }
 }
