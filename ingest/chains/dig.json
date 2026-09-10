@@ -3,17 +3,17 @@
   "name": "Dig Inn",
   "slug": "dig",
   "source": {
-   "pdf_url": "https://storyblok.pleinaircdn.com/f/274373/x/82074425af/dig-nutrition-fall-2026.pdf",
+   "pdf_url": "https://storyblok.pleinaircdn.com/f/274373/x/7a84c6a7bd/dig-nutrition-fall-2026-1.pdf",
    "retrieved": "2026-09-10",
    "format": "pdf",
    "page_url": "https://www.diginn.com/nutrition",
    "link_pattern": "dig-nutrition",
    "fetch": "plain",
-   "dump_sha256": "c09498daf1a67b075b2e7930b3456dcdd579038beb0c3c88d1dcb9a699de4ccd",
-   "asset_sha256": "e067e79299ec875ed1cd57dc56313ea7b946ae2e50e783e3b6ae39a4dc42245b"
+   "dump_sha256": "1e84d8b28221abf7bd4a9cdb5bf0f69613a4e06ee0a1e83b01becb485ba3f34d",
+   "asset_sha256": "5f52615a6523c64bbd6e0255a3e916c699262c73832e3e83f036b330185b5988"
   },
   "updated": "2026-09-10",
-  "disclaimer_extra": "DIG's chart lists single bowl-portion servings (Fall 2026 menu, updated September 9, 2026); a la carte vegetable sides average 1.5 servings. Menu rotates seasonally.",
+  "disclaimer_extra": "DIG's chart lists single bowl-portion servings (Fall 2026 menu, updated September 10, 2026); a la carte vegetable sides average 1.5 servings. Menu rotates seasonally.",
   "blurb": "Build a DIG bowl the way the market line works — base, market sides, a main and sauces — including every seasonal plate and bowl.",
   "glyph": "grainbowl",
   "formats": [
@@ -142,14 +142,5 @@
    "desc": "As published, without its sauce"
   }
  },
- "synthetic": [],
- "corrections": {
-  "charred-chicken": [
-   {
-    "field": "protein_g",
-    "used": 40,
-    "reason": "The Fall 2026 chart prints 4 g protein for 4.3 oz of skinless charred chicken thigh at 370 kcal, 19 g fat and 1 g carbohydrate; those macros account for about 190 kcal, so the row contradicts its own calorie figure, and a chicken portion cannot carry 4 g of protein. Hot Honey Chicken and Crispy Chicken, the chain's other chicken mains, each print 40 g, so that is the figure used. The row as a whole is doubtful: 370 kcal is high for that weight of thigh, and the chain's summer chart printed 230 kcal and 28 g for the same recipe."
-   }
-  ]
- }
+ "synthetic": []
 }

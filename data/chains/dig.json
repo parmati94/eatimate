@@ -2,11 +2,11 @@
   "name": "Dig Inn",
   "slug": "dig",
   "source": {
-    "pdf_url": "https://storyblok.pleinaircdn.com/f/274373/x/82074425af/dig-nutrition-fall-2026.pdf",
+    "pdf_url": "https://storyblok.pleinaircdn.com/f/274373/x/7a84c6a7bd/dig-nutrition-fall-2026-1.pdf",
     "retrieved": "2026-09-10"
   },
   "updated": "2026-09-10",
-  "disclaimer_extra": "DIG's chart lists single bowl-portion servings (Fall 2026 menu, updated September 9, 2026); a la carte vegetable sides average 1.5 servings. Menu rotates seasonally.",
+  "disclaimer_extra": "DIG's chart lists single bowl-portion servings (Fall 2026 menu, updated September 10, 2026); a la carte vegetable sides average 1.5 servings. Menu rotates seasonally.",
   "blurb": "Build a DIG bowl the way the market line works — base, market sides, a main and sauces — including every seasonal plate and bowl.",
   "glyph": "grainbowl",
   "formats": [
@@ -670,15 +670,7 @@
       "carbs_g": 1,
       "fiber_g": 0.5,
       "sugars_g": 0,
-      "protein_g": 40,
-      "corrections": [
-        {
-          "field": "protein_g",
-          "printed": 4,
-          "used": 40,
-          "reason": "The Fall 2026 chart prints 4 g protein for 4.3 oz of skinless charred chicken thigh at 370 kcal, 19 g fat and 1 g carbohydrate; those macros account for about 190 kcal, so the row contradicts its own calorie figure, and a chicken portion cannot carry 4 g of protein. Hot Honey Chicken and Crispy Chicken, the chain's other chicken mains, each print 40 g, so that is the figure used. The row as a whole is doubtful: 370 kcal is high for that weight of thigh, and the chain's summer chart printed 230 kcal and 28 g for the same recipe."
-        }
-      ]
+      "protein_g": 44
     },
     {
       "id": "herb-roasted-chicken",
