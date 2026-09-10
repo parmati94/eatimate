@@ -3,17 +3,17 @@
   "name": "Dig Inn",
   "slug": "dig",
   "source": {
-   "pdf_url": "https://storyblok.pleinaircdn.com/f/274373/x/f847b38fee/dig-nutrition-summer-2026.pdf",
-   "retrieved": "2026-08-30",
+   "pdf_url": "https://storyblok.pleinaircdn.com/f/274373/x/7a84c6a7bd/dig-nutrition-fall-2026-1.pdf",
+   "retrieved": "2026-09-10",
    "format": "pdf",
    "page_url": "https://www.diginn.com/nutrition",
    "link_pattern": "dig-nutrition",
    "fetch": "plain",
-   "dump_sha256": "be17492b25038c064e0e274627ed822a8f59c7e06c55bca537982d34d32f67fc",
-   "asset_sha256": "0f797abee9659999de07538a64a1b64c7ac6c869baa9e7e1c8303166004b3c73"
+   "dump_sha256": "1e84d8b28221abf7bd4a9cdb5bf0f69613a4e06ee0a1e83b01becb485ba3f34d",
+   "asset_sha256": "5f52615a6523c64bbd6e0255a3e916c699262c73832e3e83f036b330185b5988"
   },
-  "updated": "2026-09-07",
-  "disclaimer_extra": "DIG's chart lists single bowl-portion servings (Summer 2026 menu, updated July 9, 2026); a la carte vegetable sides are 1.5 servings. Menu rotates seasonally.",
+  "updated": "2026-09-10",
+  "disclaimer_extra": "DIG's chart lists single bowl-portion servings (Fall 2026 menu, updated September 10, 2026); a la carte vegetable sides average 1.5 servings. Menu rotates seasonally.",
   "blurb": "Build a DIG bowl the way the market line works — base, market sides, a main and sauces — including every seasonal plate and bowl.",
   "glyph": "grainbowl",
   "formats": [
@@ -100,180 +100,46 @@
   ],
   "allergen": false,
   "serving": "oz",
-  "sections": "^[A-Z][A-Z'’ ]{2,30}$",
-  "subsections": "^(Sides|Mains|Extras) Serving Size",
-  "skip": "^(DIG INN NUTRITION|Starting from|that you do not|1\\.5 servings|our ingredients|Serving Size \\(oz\\)|Last Updated)"
+  "sections": "^[A-Z][A-Z'’ ,&]{2,40}$",
+  "subsections": "^(Chef's Specials|Seasonal Specials|All Day Deals|Salads|Sides|Mains|Extras) Serving Size",
+  "skip": "^(DIG INN NUTRITION|Starting from|that you do not|average 1\\.5 servings|recipes, so our|1\\.5 servings|our ingredients|Serving Size \\(oz\\)|Last Updated)"
+ },
+ "section_categories": {
+  "COMPOSED BOWLS, PLATES & SALADS": "signature",
+  "LITTLE DIGS": "kids",
+  "MARKET LINE/Sides": "sides",
+  "MARKET LINE/Mains": "mains",
+  "MARKET LINE/Extras": "extras",
+  "DESSERTS": "desserts",
+  "SAUCES": "sauces"
  },
  "items": {
   "Brown Rice": {
-   "cat": "base",
-   "desc": "5 oz bowl portion"
+   "cat": "base"
   },
-  "Herb Rice": {
-   "cat": "base",
-   "desc": "5 oz bowl portion"
+  "Autumn Farro with Butternut Squash": {
+   "cat": "base"
   },
-  "Farm Greens with Mint": {
-   "cat": "base",
-   "desc": "1.5 oz bowl portion"
+  "Just a Really Good Salad": {
+   "cat": "base"
   },
-  "Dill Pickle Potato Salad": {
-   "cat": "sides",
-   "desc": "5 oz bowl portion"
+  "Hot Honey Chicken Bowl (sauce not included)": {
+   "cat": "signature",
+   "id": "hot-honey-chicken-bowl",
+   "name": "Hot Honey Chicken Bowl",
+   "desc": "As published, without its sauce"
   },
-  "Cowboy Caviar": {
-   "cat": "sides",
-   "desc": "4.3 oz bowl portion"
+  "Steak & Greens with Chimichurri (sauce not included)": {
+   "cat": "signature",
+   "id": "steak-greens-with-chimichurri",
+   "name": "Steak & Greens with Chimichurri",
+   "desc": "As published, without its sauce"
   },
-  "Cashew Kale Caesar": {
-   "cat": "sides",
-   "desc": "2.7 oz bowl portion"
-  },
-  "Tomatoes & Cucumbers": {
-   "cat": "sides",
-   "desc": "4.3 oz bowl portion"
-  },
-  "Charred Broccoli with Lemon": {
-   "cat": "sides",
-   "desc": "4.3 oz bowl portion"
-  },
-  "Sheet Tray Carrots": {
-   "cat": "sides",
-   "desc": "4 oz bowl portion"
-  },
-  "Roasted Sweet Potatoes": {
-   "cat": "sides",
-   "desc": "6 oz bowl portion"
-  },
-  "Jasper Hill Mac & Cheese": {
-   "cat": "sides",
-   "desc": "6 oz bowl portion"
-  },
-  "Cheesy Cauliflower": {
-   "cat": "sides",
-   "desc": "4.3 oz bowl portion"
-  },
-  "Feta Grain Salad": {
-   "cat": "sides",
-   "desc": "5 oz bowl portion"
-  },
-  "Smoky Sweet Chicken": {
-   "cat": "mains",
-   "desc": "5 oz bowl portion"
-  },
-  "Seared Wild Salmon": {
-   "cat": "mains",
-   "desc": "4 oz bowl portion"
-  },
-  "Crispy Tofu": {
-   "cat": "mains",
-   "desc": "4 oz bowl portion"
-  },
-  "Charred Chicken": {
-   "cat": "mains",
-   "desc": "4.3 oz bowl portion"
-  },
-  "Herb Roasted Chicken": {
-   "cat": "mains",
-   "desc": "3.3 oz bowl portion"
-  },
-  "Crispy Chicken": {
-   "cat": "mains",
-   "desc": "5.3 oz bowl portion"
-  },
-  "Hot Honey Chicken": {
-   "cat": "mains",
-   "desc": "5.1 oz bowl portion"
-  },
-  "Avocado with Olive Oil and Maldon Salt": {
-   "cat": "extras"
-  },
-  "Focaccia": {
-   "cat": "extras"
-  },
-  "Brioche Cheddar Pullapart": {
-   "cat": "extras"
-  },
-  "Heirloom Blue Cornbread": {
-   "cat": "extras"
-  },
-  "Pickle Spear": {
-   "cat": "extras"
-  },
-  "Garlic Aioli": {
-   "cat": "sauces"
-  },
-  "Hot Honey": {
-   "cat": "sauces"
-  },
-  "Pesto": {
-   "cat": "sauces"
-  },
-  "Sriracha": {
-   "cat": "sauces"
-  },
-  "Classic Dig": {
-   "cat": "signature"
-  },
-  "Vegan Dig Classic": {
-   "cat": "signature"
-  },
-  "Spicy Salmon Bowl": {
-   "cat": "signature"
-  },
-  "Hot Honey Chicken Bowl": {
-   "cat": "signature"
-  },
-  "Smoky Sweet Chicken Plate": {
-   "cat": "signature"
-  },
-  "Summer Favorites Plate": {
-   "cat": "signature"
-  },
-  "Vegan Picnic Plate": {
-   "cat": "signature"
-  },
-  "Cheesy Cauliflower Chicken Plate": {
-   "cat": "signature"
-  },
-  "Feta Grain Bowl": {
-   "cat": "signature"
-  },
-  "Fan Faves Plate": {
-   "cat": "signature"
-  },
-  "Vegan Favorites Plate": {
-   "cat": "signature"
-  },
-  "Charred Chicken & Rice": {
-   "cat": "signature"
-  },
-  "Power Plate": {
-   "cat": "signature"
-  },
-  "Kale Caesar Salad": {
-   "cat": "signature"
-  },
-  "Kale Caesar Salad with Crispy Chicken": {
-   "cat": "signature"
-  },
-  "Kid's Classic": {
-   "cat": "kids"
-  },
-  "Old Macdonald": {
-   "cat": "kids"
-  },
-  "Flourless Brownie": {
-   "cat": "desserts"
-  },
-  "Chocolate Chip Cookie": {
-   "cat": "desserts"
-  },
-  "Salted Caramel Cookie": {
-   "cat": "desserts"
-  },
-  "Iced Lemon Cake": {
-   "cat": "desserts"
+  "Chicken Pesto Bowl (sauce not included)": {
+   "cat": "signature",
+   "id": "chicken-pesto-bowl",
+   "name": "Chicken Pesto Bowl",
+   "desc": "As published, without its sauce"
   }
  },
  "synthetic": []
