@@ -670,7 +670,7 @@
   {
    "id": "chicken-greens",
    "name": "Chicken on greens",
-   "rule": "One greens base and one grilled or roasted chicken, undressed — no cheese, no dressing, no crunch, no grains. Dig publishes neither a standalone cheese nor a vinaigrette, so the dressed chicken salad cannot include it; this is the build every greens chain here can make honestly, and it is also the number people are usually after.",
+   "rule": "One greens base and one grilled or roasted chicken, undressed — no cheese, no dressing, no crunch, no grains. Dig publishes neither a standalone cheese nor a vinaigrette, so the dressed chicken salad cannot include it, and its only greens base now is a lightly dressed house salad, so its line carries that; this is the build every greens chain here can make honestly, and it is also the number people are usually after.",
    "builds": [
     {
      "chain": "chopt",
@@ -709,9 +709,9 @@
     },
     {
      "chain": "dig",
-     "name": "Farm Greens with Charred Chicken",
+     "name": "House Salad Greens with Charred Chicken",
      "items": [
-      "farm-greens-with-mint",
+      "just-a-really-good-salad",
       "charred-chicken"
      ]
     }
