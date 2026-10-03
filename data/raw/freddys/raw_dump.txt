@@ -326,6 +326,13 @@ Kids Meal - Steakburger (No Cheese) 380 150 18.00 5.00 1.00 70 870 29.00 0 6.00 
 ===== Limited Time Offerings =====
 Limited Time Offerings
 Steakburger Taco 360 190 21.00 8.00 1.00 85 560 17.00 0 1.00 25.00
-Peanut Butter Brownie Concrete Made with Butterfinger - Mini 950 380 43.00 22.00 0 170 520 119.00 3.00 90.00 14.00
-Peanut Butter Brownie Concrete Made with Butterfinger - Regular 1280 530 60.00 33.00 0 270 680 152.00 3.00 120.00 21.00
-Peanut Butter Brownie Concrete Made with Butterfinger - Large 2030 820 93.00 49.00 0 390 1120 251.00 6.00 192.00 31.00
+Smoky Bacon Cheddar Stack 1090 590 67.00 21.00 1.50 260 1700 48.00 2.00 18.00 70.00
+Bacon Loaded Tots - Regular 750 490 56.00 16.00 0 40 2190 46.00 3.00 3.00 15.00
+Bacon Loaded Tots - Large 970 640 72.00 22.00 0 50 2830 60.00 4.00 4.00 18.00
+Maple Pecan Concrete - Mini 680 340 38.00 18.00 0 150 240 66.00 2.00 59.00 13.00
+Maple Pecan Concrete - Regular 1040 480 55.00 25.00 0 250 400 105.00 2.00 96.00 21.00
+Maple Pecan Concrete - Large 1440 650 73.00 40.00 0 355 570 152.00 2.00 139.00 28.00
+Maple Pecan Concrete w/ Bacon - Mini 770 400 45.00 20.00 0 175 610 66.00 2.00 60.00 20.00
+Maple Pecan Concrete w/ Bacon - Regular 1130 540 62.00 31.00 0 275 770 106.00 2.00 96.00 28.00
+Maple Pecan Concrete w/ Bacon - Large 1700 840 95.00 44.00 0 390 1200 154.00 3.00 139.00 42.00
+Smoky Bacon Steakburger Taco 440 240 27.00 11.00 1.00 100 600 17.00 0 1.00 31.00

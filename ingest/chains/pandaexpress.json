@@ -4,13 +4,13 @@
   "slug": "pandaexpress",
   "source": {
    "html_url": "https://www.pandaexpress.com/nutritioninformation",
-   "retrieved": "2026-08-31",
+   "retrieved": "2026-10-03",
    "format": "html_table",
    "page_url": "https://www.pandaexpress.com/nutritioninformation",
    "fetch": "plain",
-   "dump_sha256": "13e26bf50b9b2d5d9a6a86d65f752dd94ec7ffea73e7ceb9e4a07543dedc97f1"
+   "dump_sha256": "18cdf48004fe4d823e30e8e9440ca74a8ac958889ccaad557767246508861eda"
   },
-  "disclaimer_extra": "Panda Express publishes each side, entrée and sauce separately rather than as finished Bowls or Plates, so every value here is a component as printed. Portions are the standard serving: on a two- or three-entrée Plate the side is served smaller than the listed portion. Kids' Cub Meal portions and the beverage list are published but not included here.",
+  "disclaimer_extra": "Panda Express publishes each side, entrée and sauce separately rather than as finished Bowls or Plates, so every value here is a component as printed. Portions are the standard serving: on a two- or three-entrée Plate the side is served smaller than the listed portion. Kids' Cub Meal portions and the beverage list are published but not included here. Items marked Regional are the ones Panda flags as regional or limited-time, so your restaurant may not carry them.",
   "blurb": "Build your Panda Express order the way you order it — pick a side, then your entrées — and watch the calories and macros add up.",
   "glyph": "grainbowl",
   "formats": [
@@ -83,187 +83,175 @@
   ],
   "allergen": false,
   "serving": "oz",
-  "sections": "^(Sides|Vegetables|Chicken Breast|Chicken|Beef|Seafood|Appetizers|Cub Meals|More|Soup|Beverages)$",
-  "stop": "^Beverages$",
-  "skip": "^(Nutrition & Allergen information|Nothing found)|.*- cub meal"
+  "sections": "^(Base|Vegetables|Chicken Breast|Chicken|Beef|Seafood|Appetizers|Soup|Sauces & More)$",
+  "stop": "^.+ Cub Meal$",
+  "skip": "^Menu items — nutrition view$",
+  "pre_replace": [
+   [
+    "(?:®)",
+    ""
+   ],
+   [
+    "^(\\D+?)\\s+((?:[\\d.]+\\s+){10}[\\d.]+)$",
+    "\\1 - \\2"
+   ]
+  ]
  },
  "items": {
-  "chow fun": {
-   "cat": "side",
-   "name": "Chow Fun"
-  },
-  "chow mein": {
+  "Chow Mein": {
    "cat": "side",
    "name": "Chow Mein"
   },
-  "fried rice": {
+  "Chow Fun*": {
+   "cat": "side",
+   "name": "Chow Fun"
+  },
+  "Fried Rice": {
    "cat": "side",
    "name": "Fried Rice"
   },
-  "super greens": {
-   "cat": "side",
-   "name": "Super Greens"
-  },
-  "white steamed rice": {
+  "White Steamed Rice": {
    "cat": "side",
    "name": "White Steamed Rice"
   },
-  "eggplant tofu": {
+  "Quinoa Fried Rice*": {
+   "cat": "side",
+   "name": "Quinoa Fried Rice"
+  },
+  "Super Greens": {
+   "cat": "side",
+   "name": "Super Greens"
+  },
+  "Eggplant Tofu*": {
    "cat": "entree",
    "name": "Eggplant Tofu"
   },
-  "super greens entree": {
+  "Super Greens (Entree)": {
    "cat": "entree",
-   "name": "Super Greens (Entrée Portion)"
+   "name": "Super Greens (Entrée Portion)",
+   "id": "super-greens-entree"
   },
-  "black pepper chicken": {
+  "Black Pepper Chicken*": {
    "cat": "entree",
    "name": "Black Pepper Chicken"
   },
-  "grilled teriyaki chicken": {
-   "cat": "entree",
-   "name": "Grilled Teriyaki Chicken"
-  },
-  "hot orange chicken": {
-   "cat": "entree",
-   "name": "Hot Orange Chicken"
-  },
-  "kung pao chicken": {
+  "Kung Pao Chicken": {
    "cat": "entree",
    "name": "Kung Pao Chicken"
   },
-  "mushroom chicken": {
+  "Grilled Teriyaki Chicken": {
+   "cat": "entree",
+   "name": "Grilled Teriyaki Chicken"
+  },
+  "Mushroom Chicken": {
    "cat": "entree",
    "name": "Mushroom Chicken"
   },
-  "orange chicken": {
+  "The Original Orange Chicken": {
    "cat": "entree",
-   "name": "Orange Chicken"
+   "name": "Orange Chicken",
+   "id": "orange-chicken"
   },
-  "potato chicken": {
-   "cat": "entree",
-   "name": "Potato Chicken"
-  },
-  "teriyaki chicken": {
-   "cat": "entree",
-   "name": "Teriyaki Chicken"
-  },
-  "honey sesame chicken breast": {
+  "Honey Sesame Chicken Breast": {
    "cat": "entree",
    "name": "Honey Sesame Chicken Breast"
   },
-  "string bean chicken breast": {
+  "String Bean Chicken Breast": {
    "cat": "entree",
    "name": "String Bean Chicken Breast"
   },
-  "sweet & sour chicken breast": {
+  "SweetFire Chicken Breast*": {
    "cat": "entree",
-   "name": "Sweet & Sour Chicken Breast"
+   "name": "Sweetfire Chicken Breast",
+   "id": "sweetfire-chicken-breast"
   },
-  "sweetfire chicken breast": {
-   "cat": "entree",
-   "name": "Sweetfire Chicken Breast"
-  },
-  "beijing beef": {
+  "Beijing Beef": {
    "cat": "entree",
    "name": "Beijing Beef"
+  },
+  "Broccoli Beef": {
+   "cat": "entree",
+   "name": "Broccoli Beef"
   },
   "Black Pepper Sirloin Steak": {
    "cat": "entree",
    "name": "Black Pepper Sirloin Steak"
   },
-  "broccoli beef": {
-   "cat": "entree",
-   "name": "Broccoli Beef"
-  },
-  "honey walnut shrimp": {
+  "Honey Walnut Shrimp": {
    "cat": "entree",
    "name": "Honey Walnut Shrimp"
   },
-  "steamed ginger fish": {
-   "cat": "entree",
-   "name": "Steamed Ginger Fish"
-  },
-  "wok-fired shrimp": {
-   "cat": "entree",
-   "name": "Wok-Fired Shrimp"
-  },
-  "chicken egg roll (1 roll)": {
+  "Chicken Egg Roll": {
    "cat": "appetizer",
    "name": "Chicken Egg Roll",
+   "id": "chicken-egg-roll-1-roll",
    "desc": "1 roll"
   },
-  "chicken potsticker (3 pcs)": {
+  "Chicken Potsticker*": {
    "cat": "appetizer",
    "name": "Chicken Potstickers",
+   "id": "chicken-potsticker-3-pcs",
    "desc": "3 pieces"
   },
-  "cream cheese rangoon (3 pcs)": {
+  "Cream Cheese Rangoon": {
    "cat": "appetizer",
    "name": "Cream Cheese Rangoon",
+   "id": "cream-cheese-rangoon-3-pcs",
    "desc": "3 pieces"
   },
-  "vegetable spring roll (2 rolls)": {
+  "Vegetable Spring Roll": {
    "cat": "appetizer",
    "name": "Vegetable Spring Rolls",
+   "id": "vegetable-spring-roll-2-rolls",
    "desc": "2 rolls"
   },
-  "Broccoli Beef Cub Meal (white rice, super greens, broccoli beef, apple crisps, bottled water)": {
-   "skip": "pre-assembled kids combo; we build from components"
+  "Hot & Sour Soup (Cup)*": {
+   "cat": "soup"
   },
-  "Grilled Teriyaki Chicken Cub Meal (chow mein, super greens, grilled teriyaki chicken, apple crisps, bottled water)": {
-   "skip": "pre-assembled kids combo; we build from components"
+  "Hot & Sour Soup (Bowl)*": {
+   "cat": "soup"
   },
-  "Orange Chicken Cub Meal (white rice, super greens, orange chicken, apple crisps, bottled water)": {
-   "skip": "pre-assembled kids combo; we build from components"
-  },
-  "apple pie roll": {
-   "cat": "treat",
-   "name": "Apple Pie Roll"
-  },
-  "chili sauce": {
+  "Teriyaki Sauce": {
    "cat": "sauce",
-   "name": "Chili Sauce"
+   "name": "Teriyaki Sauce"
   },
-  "fortune cookie": {
-   "cat": "treat",
-   "name": "Fortune Cookie",
-   "desc": "1 cookie"
-  },
-  "hot mustard": {
-   "cat": "sauce",
-   "name": "Hot Mustard"
-  },
-  "potsticker sauce": {
-   "cat": "sauce",
-   "name": "Potsticker Sauce"
-  },
-  "soy sauce": {
-   "cat": "sauce",
-   "name": "Soy Sauce"
-  },
-  "sweet & sour sauce": {
+  "Sweet & Sour Sauce": {
    "cat": "sauce",
    "name": "Sweet & Sour Sauce"
   },
-  "teriyaki sauce": {
+  "Chili Sauce": {
    "cat": "sauce",
-   "name": "Teriyaki Sauce"
+   "name": "Chili Sauce"
+  },
+  "Soy Sauce": {
+   "cat": "sauce",
+   "name": "Soy Sauce"
+  },
+  "Potsticker Sauce*": {
+   "cat": "sauce",
+   "name": "Potsticker Sauce"
+  },
+  "Hot Mustard": {
+   "cat": "sauce",
+   "name": "Hot Mustard"
+  },
+  "Fortune Cookies": {
+   "cat": "treat",
+   "name": "Fortune Cookie",
+   "id": "fortune-cookie",
+   "desc": "1 cookie"
   },
   "Tree Top Apple Crisps": {
    "cat": "treat",
    "name": "Tree Top Apple Crisps"
-  },
-  "hot & sour soup - bowl": {
-   "cat": "soup",
-   "name": "Hot & Sour Soup (Bowl)"
-  },
-  "hot & sour soup - cup": {
-   "cat": "soup",
-   "name": "Hot & Sour Soup (Cup)"
   }
  },
  "name_trim": [
+  {
+   "pattern": "\\s*\\*\\s*$",
+   "into": "note",
+   "note": "Regional"
+  },
   {
    "pattern": "\\s*\\((Bowl|Cup)\\)\\s*$",
    "into": "size",

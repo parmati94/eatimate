@@ -9,10 +9,10 @@
    "dataset": "prod_bk_us",
    "menu_id": "menu_5492",
    "build_item": "Whopper",
-   "retrieved": "2026-09-06",
+   "retrieved": "2026-10-03",
    "format": "sanity",
    "fetch": "plain",
-   "dump_sha256": "72d24e558917e7bfb993b123f386a81929461133af690be257eadf6eb61afc85",
+   "dump_sha256": "d40d6fa9439b8fb5f5f2fedbccd1eb3085e1022b55b20b734c57af0bdc3510fe",
    "asset_sha256": "c00ba71475b376f288e3f52a45576fe5e97dc9d86efbb28ad0078878200a64c5"
   },
   "disclaimer_extra": "Burger King publishes each menu item as sold and each topping as its own figure. The build-your-own portions are the ones Burger King lists for the Whopper: a slice of cheese on a Whopper is not the same slice as on a Jr., so pooling them would invent a portion the chain does not serve.",
@@ -44,6 +44,12 @@
   ],
   "serving": "g",
   "sections": "^(MENU|BUILD): .+$",
+  "pre_replace": [
+   [
+    "Hi-C®",
+    "Hi-C"
+   ]
+  ],
   "skip": "^$"
  },
  "categories": [
@@ -146,6 +152,7 @@
   },
   "MENU: Breakfast Sides": "sides",
   "MENU: Sides": "sides",
+  "MENU: Limited Time Only": "sides",
   "MENU: Drinks & Coffee": "drinks",
   "MENU: Sweets": "sweets",
   "MENU: Condiments": "condiments",
@@ -208,6 +215,30 @@
   "MENU: Burgers for Breakfast/Original Chicken Sandwich": {
    "cat": "item",
    "group": "Chicken & Fish"
+  },
+  "MENU: Condiments/Zesty Sauce": {
+   "cat": "condiments",
+   "id": "zesty-dipping-sauce"
+  },
+  "MENU: Condiments/BBQ Sauce": {
+   "cat": "condiments",
+   "id": "bbq-dipping-sauce"
+  },
+  "MENU: Condiments/Honey Mustard Sauce": {
+   "cat": "condiments",
+   "id": "honey-mustard-dipping-sauce"
+  },
+  "MENU: Condiments/Special Savory Sauce": {
+   "cat": "condiments",
+   "id": "special-savory-sauce-dipping-sauce"
+  },
+  "MENU: Condiments/Sweet & Sour Sauce": {
+   "cat": "condiments",
+   "id": "sweet-sour-dipping-sauce"
+  },
+  "MENU: Condiments/Buffalo Sauce": {
+   "cat": "condiments",
+   "id": "buffalo-dipping-sauce"
   }
  },
  "corrections": {

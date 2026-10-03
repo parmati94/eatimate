@@ -423,7 +423,12 @@ def make_component(row, layout, cat, id=None, name=None, desc=None):
         if serving_g and not d2:
             d2 = f"{serving_g} g"
     elif unit == "oz":
-        serving_g, d2 = round(serving * 28.35), f"{serving:g} oz"
+        # As for "g": a "-" serving reads as 0, which is an absent weight, not
+        # a zero one -- "0 oz" would be a label nobody could order.
+        if serving:
+            serving_g, d2 = round(serving * 28.35), f"{serving:g} oz"
+        else:
+            serving_g = None
     else:
         serving_g = None
     if name is None and layout.get("title_case"): n2 = title_case(n2)
@@ -736,6 +741,7 @@ def build(cfg, rows, extra=None):
             if sp.get("needs"): c["needs"] = sp["needs"]
             c["_ord"] = base_ord + 0.001 * n
             c["_sec"] = r.section
+            c["_printed"] = r.printed
             comps.append(c)
     # Components declared in the config rather than read from the dump: either
     # worked out from figures the chain publishes (`reason` set, shown as
@@ -776,6 +782,10 @@ def build(cfg, rows, extra=None):
     # finished names, and before section_subtract so its note reads the tidy one.
     #
     #   into="serving"  captured text becomes serving_desc
+    #   into="note"     `note` (fixed text, since the capture is usually a
+    #                   symbol) is appended to serving_desc, which keeps the
+    #                   portion: Panda stars a regional dish, and "12 oz ·
+    #                   Regional" says more than either half alone
     #   into="drop"     captured text is discarded
     #   into="size"     captured text becomes the size chip, and rows sharing
     #                   the trimmed name become one row carrying those chips.
@@ -791,12 +801,21 @@ def build(cfg, rows, extra=None):
         # the portion to the next rule. List them outermost suffix first.
         for t in trims:
             m = t["re"].search(c["name"])
+            if t["into"] == "note" and not m:
+                # A note marks the PRINTED row, and an items `name` override
+                # has already replaced that text by now -- Panda's "Chow Fun*"
+                # arrives here as "Chow Fun". Look where the marker was printed.
+                if t["re"].search(c.get("_printed", "")):
+                    c["serving_desc"] = f'{c["serving_desc"]} · {t["note"]}'
+                continue
             if not m:
                 continue
             got = (m.group(1) if m.groups() else m.group(0)).strip(" -–,")
             c["name"] = t["re"].sub("", c["name"]).strip(" -–,")
             if t["into"] == "serving" and got:
                 c["serving_desc"] = got
+            elif t["into"] == "note":
+                c["serving_desc"] = f'{c["serving_desc"]} · {t["note"]}'
             elif t["into"] == "size":
                 # Capitalise an all-lowercase label so "(cup)" and ", Cup" read
                 # as the same chip. Only when it IS all lowercase: title-casing
@@ -994,7 +1013,7 @@ def build(cfg, rows, extra=None):
 
     order = {c["id"]: i for i, c in enumerate(cfg["categories"])}
     comps.sort(key=lambda c: (order[c["category"]], c["_ord"]))  # category order, then items-table order
-    for c in comps: c.pop("_ord", None); c.pop("_sec", None); c.pop("_label_pre", None)
+    for c in comps: c.pop("_ord", None); c.pop("_sec", None); c.pop("_label_pre", None); c.pop("_printed", None)
     return comps
 
 def finish(cfg, components, rows, pending, out_dir="data/chains"):
