@@ -72,8 +72,6 @@ Value Have-sies™ 79.152 220 9 1.5 0 0 280 27 2 2 3
 Small Have-sies™ 114.447 280 13 2.5 0 0 390 38 4 2 4
 Medium Have-sies™ 134.036 350 16 3 0 0 490 47 4 3 4
 Large Have-sies™ 177.893 490 23 4 0 0 700 67 6 4 6
-4 Pc. Cheddar Ranch Tots 52 140 6 2 0 5 510 17 1 1 3
-8 Pc. Cheddar Ranch Tots 104 270 12 4 0 15 1020 34 2 1 6
 MENU: Drinks & Coffee
 Small Brewed Coffee 23.53 0 0 0 0 0 0 0 0 0 0
 Medium Brewed Coffee 16.726 0 0 0 0 0 0 0 0 0 0
@@ -125,6 +123,10 @@ Large Dr Pepper® - 310 0 0 0 0 85 82 0 82 0
 Small FS Dr Pepper® - 170 0 0 0 0 45 46 0 46 0
 Medium FS Dr Pepper® - 260 0 0 0 0 70 70 0 69 0
 Large FS Dr Pepper® - 310 0 0 0 0 85 82 0 82 0
+Value Diet Dr Pepper® 0 0 0 0 0 0 85 0 0 0 0
+Small Diet Dr Pepper® 0 0 0 0 0 0 110 0 0 0 0
+Medium Diet Dr Pepper® 0 0 0 0 0 0 160 0 0 0 0
+Large Diet Dr Pepper® 0 0 0 0 0 0 190 0 0 0 0
 Value Sprite 16 130 0 0 0 0 35 35 0 35 0
 Small Sprite 20 170 0 0 0 0 45 45 0 45 0
 Medium Sprite 29 260 0 0 0 0 70 68 0 68 0
@@ -166,12 +168,12 @@ Medium Diet Barq's Root Beer - 0 0 0 0 0 75 0 0 0 0
 Large Diet Barq's Root Beer - 0 0 0 0 0 85 0 0 0 0
 Value Hi-C Fruit Punch - 160 0 0 0 0 35 41 0 40 0
 Small Hi-C Fruit Punch - 210 0 0 0 0 45 53 0 52 0
-Medium Hi-C Fruit Punch 29 310 0 0 0 0 65 79 0 78 0
-Large Hi-C Fruit Punch 38 370 0 0 0 0 80 94 0 92 0
+Medium Hi-C® Fruit Punch 29 310 0 0 0 0 65 79 0 78 0
+Large Hi-C® Fruit Punch 38 370 0 0 0 0 80 94 0 92 0
 Value Hi-C Pink Lemonade - 130 0 0 0 0 95 36 1 34 0
 Small Hi-C Pink Lemonade - 170 0 0 0 0 125 46 1 44 0
-Medium Hi-C Pink Lemonade 29 250 0 0 0 0 180 69 1 66 0
-Large Hi-C Pink Lemonade 38 300 0 0 0 0 220 82 1 78 0
+Medium Hi-C® Pink Lemonade 29 250 0 0 0 0 180 69 1 66 0
+Large Hi-C® Pink Lemonade 38 300 0 0 0 0 220 82 1 78 0
 Value Fanta Orange - 140 0 0 0 0 35 38 0 38 0
 Small Fanta Orange - 180 0 0 0 0 45 49 0 49 0
 Medium Fanta Orange 29 280 0 0 0 0 70 74 0 74 0
@@ -217,10 +219,10 @@ Cinnamon Apple Pie 82 270 12 5 0 0 280 36 1 9 4
 HERSHEY'S® Sundae Pie 75.7 310 18 12 0 10 230 32 1 22 3
 Chocolate Chip Cookie - 160 8 4 0 10 110 23 0 14 2
 2 Chocolate Chip Cookies 35.44 320 15 8 0 20 220 46 2 28 4
+MENU: Limited Time Only
+4 Pc. Cheesy Bacon Tots - 130 5 1.5 0 5 500 16 1 1 4
+8 Pc. Cheesy Bacon Tots - 260 11 3.5 0 10 990 33 2 2 8
 MENU: Flame Grilled Burgers
-Build Your Own Sandwich - Whopper (Plain) 176.584 500 22 9 0.5 75 590 48 2 8 29
-Build Your Own Sandwich - Impossible™ Whopper (Plain) 191.274 480 16 6 0 0 830 55 5 9 29
-Build Your Own Sandwich - Original Chicken Sandwich (Plain) 171.27 430 15 3.5 0 35 1070 54 3 6 22
 BBQ Bacon Whopper Jr. - 390 23 7 0 45 770 32 2 9 19
 Double Whopper® Jr. 182.846 450 28 9 0.5 75 630 30 2 7 25
 Double Whopper® Jr. with Bacon 188.734 500 31 10 0.5 80 800 30 2 7 28
@@ -231,6 +233,7 @@ Rodeo Cheeseburger 129.474 380 17 7 0 45 720 41 3 9 17
 Rodeo Burger 117.814 340 13 4.5 0 35 520 40 3 9 15
 MENU: Chicken & Fish
 Spicy Original Chicken Sandwich 240.009 790 49 9 0 65 1540 64 6 9 23
+Club Original Chicken Sandwich 291.279 840 53 14 0 100 2020 64 6 10 35
 Royal Crispy Chicken 247.774 600 31 5 0 80 1330 54 4 9 31
 Spicy Royal Crispy Chicken 269.036 760 47 8 0 80 1580 58 4 11 31
 Bacon and Swiss Royal Crispy Chicken - 740 43 11 0 110 1920 56 4 10 39
@@ -279,13 +282,14 @@ Dr Pepper® Shake - 540 13 9 0 55 400 93 1 78 11
 Soft Serve Cup 129.843 180 5 3.5 0 20 150 28 0 22 4
 Soft Serve Cone 135.843 200 5 3.5 0 20 150 33 0 22 5
 MENU: Condiments
-Hidden Valley Ranch Dipping Sauce 25.22 110 11 2 0 10 220 1 0 1 0
-Zesty Dipping Sauce 28.33 140 14 2.5 0 15 210 3 0 1 0
-BBQ Dipping Sauce 28.33 35 0 0 0 0 220 8 0 8 0
-Honey Mustard Dipping Sauce 28.33 110 8 1.5 0 30 190 8 0 7 0
-Special Savory Sauce Dipping Sauce 25.2 116 10.87 1.81 0.16 14.76 261.38 4.5 0.22 3.8 0.42
-Sweet & Sour Dipping Sauce 28.2 70 0 0 0 0 310 18 0 16 0
-Buffalo Dipping Sauce 28.33 70 7 1 0 0 510 1 0 0 0
+Nacho Cheese Sauce - 110 9 2 0 5 790 7 0 3 2
+Hidden Valley™ Ranch Dipping Sauce 25.22 110 11 2 0 10 220 1 0 1 0
+Zesty Sauce 28.33 140 14 2.5 0 15 210 3 0 1 0
+BBQ Sauce 28.33 35 0 0 0 0 220 8 0 8 0
+Honey Mustard Sauce 28.33 110 8 1.5 0 30 190 8 0 7 0
+Special Savory Sauce 25.2 116 10.87 1.81 0.16 14.76 261.38 4.5 0.22 3.8 0.42
+Sweet & Sour Sauce 28.2 70 0 0 0 0 310 18 0 16 0
+Buffalo Sauce 28.33 70 7 1 0 0 510 1 0 0 0
 Marinara Dipping Sauce - 25 1 0 0 0 330 5 1 3 3
 Syrup Packet 32.47 94.57 0 0 0 0 25.27 23.97 0.01 17.06 0
 Ketchup Packet 9 9.59 0.01 0 0 0 88.62 2.17 0.12 1.97 0.09

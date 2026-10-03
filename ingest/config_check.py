@@ -50,7 +50,7 @@ SECTION = ITEM | {"strict", "only"}
 SYNTHETIC = {"id", "name", "cat", "desc", "before", "size_mode", "only_modes"}
 DERIVED = {"id", "name", "cat", "desc", "values", "reason", "estimated", "after",
            "size_mode", "only_modes", "serving_desc"}
-NAME_TRIM = {"pattern", "into", "base_label", "labels"}
+NAME_TRIM = {"pattern", "into", "base_label", "labels", "note"}
 # `labels` orders the chips and names the family HEAD; without it the first
 # size in the dump heads it, which understates whenever a source lists
 # smallest-first (see common.py).
