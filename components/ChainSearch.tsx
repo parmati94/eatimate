@@ -7,6 +7,7 @@ import { track } from "@/lib/analytics";
 import { useSearchMiss } from "@/lib/search-miss";
 import { findChains } from "@/lib/text";
 import ChainMark from "./ChainMark";
+import RequestRestaurant from "./RequestRestaurant";
 import type { Tint } from "@/lib/brand";
 import { IconSearch } from "./icons";
 
@@ -93,18 +94,25 @@ export default function ChainSearch({ chains }: { chains: ChainCard[] }) {
         ))}
       </ul>
 
-      {shown.length === 0 && (
-        <p className="mt-8 text-center text-muted">
+      {shown.length === 0 ? (
+        // A div, not a p: the request form's <dialog> renders inside it, and
+        // a dialog in a paragraph is invalid HTML that breaks hydration.
+        <div className="mt-8 text-center text-muted">
           No restaurant matching “{q}” yet.{" "}
-          <a
-            href="https://github.com/parmati94/eatimate/issues/new"
-            rel="noopener"
-            className="underline decoration-line underline-offset-4 hover:text-fg"
+          <RequestRestaurant
+            initial={q}
+            className="font-medium text-fg underline decoration-line underline-offset-4 hover:decoration-fg"
           >
-            Ask for it
-          </a>
-          .
-        </p>
+            Request it
+          </RequestRestaurant>
+        </div>
+      ) : (
+        <div className="mt-6 text-center text-sm text-muted">
+          Don&rsquo;t see yours?{" "}
+          <RequestRestaurant className="font-medium text-fg underline decoration-line underline-offset-4 hover:decoration-fg">
+            Request a restaurant
+          </RequestRestaurant>
+        </div>
       )}
     </div>
   );

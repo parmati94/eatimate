@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RequestRestaurant from "@/components/RequestRestaurant";
 import { listChains } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -75,8 +76,13 @@ export default async function About() {
           identify whose published data a calculator is built from.
         </p>
         <h2 className="pt-2 text-lg font-semibold">Contact</h2>
-        <p>
-          Found a wrong number or want a restaurant added? Open an issue on{" "}
+        {/* A div: the request form's <dialog> can't sit inside a <p>. */}
+        <div>
+          Want a restaurant added?{" "}
+          <RequestRestaurant className="underline decoration-line underline-offset-2 hover:text-accent-strong">
+            Send me a request
+          </RequestRestaurant>
+          . Found a wrong number? Open an issue on{" "}
           <a
             href="https://github.com/parmati94/eatimate"
             className="underline decoration-line underline-offset-2 hover:text-accent-strong"
@@ -85,7 +91,7 @@ export default async function About() {
             GitHub
           </a>
           .
-        </p>
+        </div>
       </div>
       <p className="mt-8 text-sm">
         <Link href="/" className="text-accent-strong hover:underline">

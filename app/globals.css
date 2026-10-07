@@ -22,6 +22,8 @@
   --accent-strong: #0f766e;
   --accent-soft: #f0fdfa;
   --on-accent: #ffffff;
+  /* Form errors only. Not an accent: it never marks a pick or a total. */
+  --danger: #c2410c;
 }
 
 /* Dark: follows the OS unless the user picked a theme (data-theme on <html>).
@@ -46,6 +48,7 @@
     --accent-strong: #2dd4bf;
     --accent-soft: rgba(20, 184, 166, 0.14);
     --on-accent: #0e0f11;
+    --danger: #fb923c;
   }
 }
 :root[data-theme="dark"] {
@@ -62,6 +65,7 @@
   --accent-strong: #2dd4bf;
   --accent-soft: rgba(20, 184, 166, 0.14);
   --on-accent: #0e0f11;
+  --danger: #fb923c;
 }
 
 /* A chain page paints its own hue over the accent role. The element carries
@@ -103,6 +107,7 @@
   --color-brand: var(--brand);
   --color-brand-strong: var(--brand-strong);
   --color-on-brand: var(--on-brand);
+  --color-danger: var(--danger);
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-archivo), "Helvetica Neue", Helvetica, Arial,
     sans-serif;

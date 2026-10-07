@@ -14,7 +14,7 @@ export default function Privacy() {
   return (
     <main className="mx-auto w-full max-w-2xl flex-1 px-4 py-10">
       <h1 className="text-3xl font-bold tracking-tight">Privacy</h1>
-      <p className="mt-2 text-sm text-muted">Effective September 4, 2026</p>
+      <p className="mt-2 text-sm text-muted">Effective October 7, 2026</p>
       <div className="mt-6 space-y-4 text-[15px] leading-relaxed">
         <p>
           Eatimate is a calculator. No accounts, no tracking cookies, no ads,
@@ -50,6 +50,19 @@ export default function Privacy() {
           company. Do&nbsp;Not&nbsp;Track is honored.
         </p>
         <AnalyticsToggle />
+
+        <h2 className="pt-2 text-lg font-semibold">Restaurant requests</h2>
+        <p>
+          If you request a restaurant, what you type into that form — the
+          restaurant, and a city, email address or note if you add them — is
+          sent to us as an email, along with the page you sent it from. It is
+          delivered by{" "}
+          <a href="https://resend.com/legal/privacy-policy" className={link} rel="noopener nofollow">
+            Resend
+          </a>
+          , an email service, and used only to decide what to add and, if you
+          left an address, to tell you when it&apos;s there.
+        </p>
 
         <h2 className="pt-2 text-lg font-semibold">Infrastructure</h2>
         <p>
