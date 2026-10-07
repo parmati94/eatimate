@@ -7,7 +7,12 @@ import CompareCard from "@/components/CompareCard";
 import HeroDemo, { type DemoStep } from "@/components/HeroDemo";
 import { NUTRIENT_FIELDS, type Totals } from "@/lib/schema";
 
-export const metadata: Metadata = { alternates: { canonical: "/" } };
+// Spelled out, not just the name: "Eatimate" alone said nothing about what
+// the site is, and Bing flagged it as too short to describe the page.
+export const metadata: Metadata = {
+  title: { absolute: "Eatimate: Restaurant Nutrition Calculators" },
+  alternates: { canonical: "/" },
+};
 
 // The hero rotates daily rather than per request. Random-per-request would
 // force this page dynamic -- it is the most-linked page on the site and is
