@@ -1,31 +1,30 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import MealCompare, { type ComparePreset } from "@/components/MealCompare";
 import type { Tint } from "@/lib/brand";
 import { chainTint, getChain } from "@/lib/data";
-import { listPairs, pairDishes, pairSlug, parsePair } from "@/lib/meals";
+import { INDEXED_PAIRS, listPairs, pairDishes, pairSlug, parsePair } from "@/lib/meals";
 import { fmtDate, possessive } from "@/lib/text";
 
-// Both orderings are generated, because "chipotle vs cava" and "cava vs
-// chipotle" are both things people type. Only the alphabetical one is
-// canonical, so the mirror does not compete with it in search.
+// Only the alphabetical ordering is a page. The mirror ("cava-vs-chipotle")
+// used to be generated too, as a second URL with a canonical pointing across;
+// two URLs per comparison is one of the patterns a templated site gets judged
+// on, so the mirror now redirects instead -- see the page below.
 export async function generateStaticParams() {
   const pairs = await listPairs();
-  return pairs.flatMap(([a, b]) => [
-    { pair: `${a}-vs-${b}` },
-    { pair: `${b}-vs-${a}` },
-  ]);
+  return pairs.map(([a, b]) => ({ pair: pairSlug(a, b) }));
 }
 
 /**
  * Any two real chains can be compared; only some are *recommended*.
  *
- * A pair with a shared dish gets a starting build, is prerendered, sits in the
- * sitemap and is indexed. Every other pair still works — it just opens empty
- * and is left out of search. Indexing all 105 pairs would add ~200 thin,
- * near-identical pages to a site with twenty good ones, which costs more in
- * quality signal than the long tail could ever return.
+ * A pair with a shared dish gets a starting build and is prerendered. Every
+ * other pair still works -- it just opens empty.
+ *
+ * Only the pairs in INDEXED_PAIRS are indexed -- the few with real search
+ * demand behind them. The rest exist for people who reach them from a chain
+ * page, not as search landings.
  */
 async function load(slug: string) {
   const parsed = parsePair(slug);
@@ -66,13 +65,16 @@ export async function generateMetadata(
         .map((p) => p.name.toLowerCase())
         .join(" and ")} built at ${a.name} and ${b.name}, from each chain's own published nutrition data.`
     : `Build a ${a.name} order and a ${b.name} order side by side and compare calories, protein, carbs, fat and sodium.`;
-  const url = `/compare/${pairSlug(a.slug, b.slug)}`;
+  const slug = pairSlug(a.slug, b.slug);
+  const url = `/compare/${slug}`;
   return {
     title: { absolute: title },
     description,
     alternates: { canonical: url },
-    // follow, so the links out of an unrecommended pair still carry weight.
-    ...(recommended ? {} : { robots: { index: false, follow: true } }),
+    // follow, so the links out to the two chain pages still carry weight.
+    ...(INDEXED_PAIRS.has(slug)
+      ? {}
+      : { robots: { index: false, follow: true } }),
     openGraph: { title: `${title} · Eatimate`, description, url, type: "website", siteName: "Eatimate" },
     twitter: { card: "summary_large_image", title: `${title} · Eatimate`, description },
   };
@@ -82,6 +84,8 @@ export default async function ComparePage(props: PageProps<"/compare/[pair]">) {
   const { pair } = await props.params;
   const data = await load(pair);
   if (!data) notFound();
+  const canonical = pairSlug(data.a.slug, data.b.slug);
+  if (pair !== canonical) permanentRedirect(`/compare/${canonical}`);
   const { a, b, tints, presets, recommended } = data;
 
   return (

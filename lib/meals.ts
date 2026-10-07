@@ -212,5 +212,5 @@ export async function pairDishes(a: string, b: string) {
   return out;
 }
 
-export { compareRows, pairSlug, parsePair } from "./compare";
+export { compareRows, INDEXED_PAIRS, pairSlug, parsePair } from "./compare";
 export type { CompareRow, MealFacts } from "./compare";
