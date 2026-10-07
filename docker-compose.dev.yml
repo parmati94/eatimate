@@ -19,3 +19,8 @@ services:
       - ./:/app
     environment:
       NEXT_TELEMETRY_DISABLED: "1"
+    # RESEND_API_KEY and REQUEST_TO for /api/request, kept outside the repo.
+    # Optional: without it the form answers "not switched on here yet".
+    env_file:
+      - path: ${HOME}/.credentials/.resend
+        required: false
