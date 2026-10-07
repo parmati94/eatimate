@@ -1,11 +1,20 @@
+"use client";
+
+import { useState } from "react";
 import type { Chain } from "@/lib/schema";
 import { fmtDate, possessive } from "@/lib/text";
 import { show } from "@/lib/rounding";
 
-// A plain, crawlable rendering of every published value. The builder above is
-// the product; this exists so the page also answers "<chain> nutrition facts"
-// for people (and crawlers) who just want the table.
+// Every published value in one plain table, for people who want the whole menu
+// at a glance rather than a build. The builder above is the product.
+//
+// Rendered only once opened. It used to sit in the HTML collapsed, partly so
+// the page would also rank for "<chain> nutrition facts" -- a few hundred
+// rows of crawler-facing text under every calculator, which is the kind of
+// thing Google's September 2026 demotion may have weighed. Opening costs
+// nothing: the chain is already on the client for the builder.
 export default function NutritionTable({ chain }: { chain: Chain }) {
+  const [open, setOpen] = useState(false);
   // A mode-gated component is published once per mode (BWW republishes every
   // sauce under each wing count). In the builder only one is ever visible, but
   // the table shows them all, so each needs to say which order it belongs to.
@@ -23,11 +32,13 @@ export default function NutritionTable({ chain }: { chain: Chain }) {
 
   const items = chain.components.filter((c) => !c.synthetic).length;
 
-  // Collapsed by default: it is a reference, not the product. Still rendered
-  // into the HTML (not display:none) so it stays crawlable and linkable.
+  // Collapsed by default: it is a reference, not the product.
   return (
     <section className="mt-10 border-t border-line pt-4">
-      <details className="group">
+      <details
+        className="group"
+        onToggle={(e) => setOpen(e.currentTarget.open)}
+      >
         <summary className="flex cursor-pointer list-none items-baseline gap-2 [&::-webkit-details-marker]:hidden">
           <h2 className="text-xl font-bold tracking-tight sm:text-2xl">
             {chain.name} Nutrition Facts
@@ -43,6 +54,8 @@ export default function NutritionTable({ chain }: { chain: Chain }) {
           </span>
         </summary>
 
+      {open && (
+      <>
       <p className="mt-2 max-w-3xl text-sm text-muted">
         Every item {chain.name} publishes, as served. Values come from{" "}
         {possessive(chain.name)} official nutrition guide (retrieved{" "}
@@ -150,6 +163,8 @@ export default function NutritionTable({ chain }: { chain: Chain }) {
           </div>
         </div>
       ))}
+      </>
+      )}
       </details>
     </section>
   );

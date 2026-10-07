@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   description:
     "Build the same order at two chains and see the calorie, protein, carb, fat and sodium difference — every figure from each chain's own published nutrition data.",
   alternates: { canonical: "/compare" },
+  // Out of the index with the pair pages it lists; see compare/[pair].
+  robots: { index: false, follow: true },
 };
 
 export default async function CompareIndex() {

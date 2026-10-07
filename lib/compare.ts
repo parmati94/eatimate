@@ -65,6 +65,29 @@ export function compareRows(meals: MealFacts[]): CompareRow[] {
   });
 }
 
+/**
+ * The comparisons we put in search; every other pair is noindexed.
+ *
+ * Chosen from Search Console's first 23 days (2026-08-31 to 09-22): a pair is
+ * here because people searched it by name ("five guys vs freddy's", "cava vs
+ * qdoba") or because it ranked on page one for a matchup with obvious demand
+ * (Domino's against Papa John's). The other fifty-odd pairs drew a click or
+ * two apiece at most, and fifty pages nobody searches for is the thin half of
+ * a site Google demoted on 09-23. Add a pair with demand to show for it.
+ */
+export const INDEXED_PAIRS: ReadonlySet<string> = new Set([
+  "burgerking-vs-chickfila",
+  "burgerking-vs-fiveguys",
+  "bww-vs-wingstop",
+  "cava-vs-justsalad",
+  "cava-vs-qdoba",
+  "cookout-vs-whataburger",
+  "dominos-vs-littlecaesars",
+  "dominos-vs-papajohns",
+  "fiveguys-vs-freddys",
+  "freddys-vs-whataburger",
+]);
+
 /** Alphabetical, so one ordering of a pair is always the canonical URL. */
 export function pairSlug(a: string, b: string): string {
   return [a, b].sort().join("-vs-");

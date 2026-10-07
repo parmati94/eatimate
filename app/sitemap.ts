@@ -1,21 +1,23 @@
 import type { MetadataRoute } from "next";
 import { listChains } from "@/lib/data";
-import { listPairs, pairSlug } from "@/lib/meals";
+import { INDEXED_PAIRS } from "@/lib/meals";
 import { SITE_URL } from "@/lib/site";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  // The pages we stand behind in search: home, one calculator per chain, the
+  // two pages saying who runs this and what it records, and the handful of
+  // comparisons people actually search for. The other pairs are noindexed
+  // (see INDEXED_PAIRS) and so are left out -- a sitemap listing pages that
+  // ask not to be indexed is a mixed signal.
   const chains = await listChains();
-  // Only the canonical (alphabetical) ordering; the mirror URLs point here.
-  const pairs = await listPairs();
 
   // A page is as fresh as the chart it is built from, or as the last hand
   // edit to it, whichever is later. Chain pages carry their own `retrieved`;
-  // the derived pages have to borrow it, because otherwise a re-ingest
-  // silently changes their figures with nothing telling a crawler to come
-  // back -- which is how the comparison pages went a full launch week without
-  // a freshness signal of any kind. `updated` covers the other way a page
-  // moves: the DIG -> Dig Inn rename changed the title on every page naming
-  // the chain and, read from `retrieved` alone, none of them had changed.
+  // the homepage and the comparisons have to borrow it, because otherwise a
+  // re-ingest silently changes their figures with nothing telling a crawler
+  // to come back. `updated` covers the other way a page moves: the DIG -> Dig
+  // Inn rename changed the title on every page naming the chain and, read
+  // from `retrieved` alone, none of them had changed.
   const retrieved = new Map(
     chains.map((c) => [
       c.slug,
@@ -29,15 +31,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const allChains = freshest(chains.map((c) => c.slug));
 
   return [
-    // The homepage and the comparison index both list live figures, so they
-    // move whenever any chain does.
+    // The homepage lists live figures, so it moves whenever any chain does.
     { url: `${SITE_URL}/`, lastModified: allChains, changeFrequency: "weekly", priority: 1 },
-    {
-      url: `${SITE_URL}/compare`,
-      lastModified: allChains,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
     // No lastModified on these two: they genuinely do not change, and a date
     // invented from the build would be a freshness claim we cannot honour.
     { url: `${SITE_URL}/about`, changeFrequency: "yearly", priority: 0.3 },
@@ -48,10 +43,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly" as const,
       priority: 0.9,
     })),
-    ...pairs.map(([a, b]) => ({
-      url: `${SITE_URL}/compare/${pairSlug(a, b)}`,
+    ...[...INDEXED_PAIRS].map((slug) => ({
+      url: `${SITE_URL}/compare/${slug}`,
       // The newer of the two charts: either re-ingest changes this page.
-      lastModified: freshest([a, b]),
+      lastModified: freshest(slug.split("-vs-")),
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),

@@ -22,6 +22,20 @@ export default async function About() {
           FDA-style label you can share as a link or copy into trackers like
           Lose&nbsp;It!.
         </p>
+        <h2 className="pt-2 text-lg font-semibold">Who makes it</h2>
+        <p>
+          I&apos;m Paul A. — a software engineer in Northern Virginia. I track
+          my macros in Lose&nbsp;It!, and restaurant meals were always the
+          hard part. Plenty of chains publish their nutrition, but not in a way
+          you can easily add up: a build-your-own bowl meant scrolling a PDF,
+          totalling it by hand, and usually settling for a guess.
+        </p>
+        <p>
+          So I built the tool I wanted: pick what you actually ordered, get
+          the real total, and copy it straight into your tracker. Eatimate is
+          an independent project, with no company behind it, no ads, and no one
+          paying for placement.
+        </p>
         <h2 className="pt-2 text-lg font-semibold">Where the numbers come from</h2>
         <p>
           Every number traces to the restaurant&apos;s own published nutrition
@@ -40,7 +54,20 @@ export default async function About() {
           here.
         </p>
         <h2 className="pt-2 text-lg font-semibold">Covered restaurants</h2>
-        <p>{chains.map((c) => c.name).join(" · ")} — with more on the way.</p>
+        <p>
+          {chains.map((c, i) => (
+            <span key={c.slug}>
+              {i > 0 && " · "}
+              <Link
+                href={`/${c.slug}`}
+                className="underline decoration-line underline-offset-2 hover:text-accent-strong"
+              >
+                {c.name}
+              </Link>
+            </span>
+          ))}{" "}
+          — with more on the way.
+        </p>
         <h2 className="pt-2 text-lg font-semibold">Not affiliated</h2>
         <p>
           Eatimate is independent: not affiliated with, endorsed by, or
