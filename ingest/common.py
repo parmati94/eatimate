@@ -67,7 +67,8 @@ Config (ingest/chains/<slug>.json):
                an explicit `name` in items is never recased.
 
   --- more top-level keys ---
-  derived:     [{id, name, cat, values, reason?, estimated?, after?}] a
+  derived:     [{id, name, cat, values, reason?, estimated?, after?, group?,
+               variant_of?, variant_label?}] a
                component computed from figures the chain publishes (shown as
                "derived") or published somewhere the main source does not
                reach. Never inferred at run time.
@@ -757,6 +758,11 @@ def build(cfg, rows, extra=None):
         if d.get("size_mode"): c["size_mode"] = d["size_mode"]
         if d.get("only_modes"): c["only_modes"] = d["only_modes"]
         if d.get("serving_desc"): c["serving_desc"] = d["serving_desc"]
+        # A derived size of a published row belongs in that row's family and
+        # heading (bartaco publishes small sides; the large is worked out).
+        if d.get("group"): c["group"] = d["group"]
+        if d.get("variant_of"): c["variant_of"] = d["variant_of"]
+        if d.get("variant_label"): c["variant_label"] = d["variant_label"]
         target = next((x for x in comps if x["id"] == d.get("after")), None)
         c["_ord"] = (target["_ord"] + 0.5) if target else (10**6 - 1)
         comps.append(c)

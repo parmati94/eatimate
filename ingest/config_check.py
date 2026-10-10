@@ -24,7 +24,7 @@ META = {"name", "slug", "source", "disclaimer_extra", "glyph", "formats", "blurb
 SOURCE = {"format", "fetch", "retrieved", "verified", "pdf_url", "html_url", "html_urls",
           "page_url", "link_pattern", "asset_sha256", "dump_sha256", "tables",
           "transcribed", "matrix", "fields", "plain_ua", "groups",
-          "nutritionix_slug",
+          "nutritionix_slug", "widget_id",
           # API-shaped sources
           "api_base", "dataset", "menu_id", "build_item", "menu_path", "headers",
           "skip_categories", "skip_ingredients"}
@@ -49,7 +49,8 @@ SECTION = ITEM | {"strict", "only"}
 
 SYNTHETIC = {"id", "name", "cat", "desc", "before", "size_mode", "only_modes"}
 DERIVED = {"id", "name", "cat", "desc", "values", "reason", "estimated", "after",
-           "size_mode", "only_modes", "serving_desc"}
+           "size_mode", "only_modes", "serving_desc", "group", "variant_of",
+           "variant_label"}
 NAME_TRIM = {"pattern", "into", "base_label", "labels", "note"}
 # `labels` orders the chips and names the family HEAD; without it the first
 # size in the dump heads it, which understates whenever a source lists
