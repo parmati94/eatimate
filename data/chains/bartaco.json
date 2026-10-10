@@ -16,7 +16,8 @@
     "Rice Bowls"
   ],
   "consistency": {
-    "no_presets": "bartaco publishes every taco, bowl and plate as a finished menu item and offers no build-your-own, so each row already IS a menu item; a meal is several of them, which the plain list expresses directly."
+    "no_presets": "bartaco publishes every taco, bowl and plate as a finished menu item and offers no build-your-own, so each row already IS a menu item; a meal is several of them, which the plain list expresses directly.",
+    "no_meal_shelf": "bartaco is ordered a la carte from one list, not as a combo: chips, sides and drinks are rows in the same menu as the tacos, so a separate make-it-a-meal step would only repeat items already on the page."
   },
   "categories": [
     {
@@ -406,7 +407,7 @@
       "id": "guac-chips",
       "name": "Guac + Chips",
       "category": "not-tacos",
-      "serving_desc": "small",
+      "serving_desc": "1 order",
       "serving_g": null,
       "calories": 390,
       "fat_g": 21,
@@ -419,14 +420,13 @@
       "sugars_g": 1,
       "protein_g": 6,
       "group": "Chips & Dips",
-      "variant_label": "Small",
-      "feature": true
+      "variant_label": "Small"
     },
     {
       "id": "guac-chips-large",
       "name": "Guac + Chips",
       "category": "not-tacos",
-      "serving_desc": "large",
+      "serving_desc": "1 order",
       "serving_g": null,
       "calories": 650,
       "fat_g": 37,
@@ -710,8 +710,7 @@
       "fiber_g": 2,
       "sugars_g": 7,
       "protein_g": 5,
-      "group": "Sides",
-      "feature": true
+      "group": "Sides"
     },
     {
       "id": "esquites",
@@ -771,7 +770,7 @@
       "id": "cucumber-salad",
       "name": "Cucumber Salad",
       "category": "not-tacos",
-      "serving_desc": "small",
+      "serving_desc": "1 order",
       "serving_g": null,
       "calories": 80,
       "fat_g": 6,
@@ -811,7 +810,7 @@
       "id": "kimchi",
       "name": "Kimchi",
       "category": "not-tacos",
-      "serving_desc": "small",
+      "serving_desc": "1 order",
       "serving_g": null,
       "calories": 35,
       "fat_g": 0,
@@ -851,7 +850,7 @@
       "id": "seasonal-fruit",
       "name": "Seasonal Fruit + Tajín",
       "category": "not-tacos",
-      "serving_desc": "small",
+      "serving_desc": "1 order",
       "serving_g": null,
       "calories": 100,
       "fat_g": 0,

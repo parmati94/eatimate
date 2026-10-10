@@ -22,7 +22,8 @@
    "Rice Bowls"
   ],
   "consistency": {
-   "no_presets": "bartaco publishes every taco, bowl and plate as a finished menu item and offers no build-your-own, so each row already IS a menu item; a meal is several of them, which the plain list expresses directly."
+   "no_presets": "bartaco publishes every taco, bowl and plate as a finished menu item and offers no build-your-own, so each row already IS a menu item; a meal is several of them, which the plain list expresses directly.",
+   "no_meal_shelf": "bartaco is ordered a la carte from one list, not as a combo: chips, sides and drinks are rows in the same menu as the tacos, so a separate make-it-a-meal step would only repeat items already on the page."
   }
  },
  "categories": [
@@ -228,17 +229,16 @@
    "cat": "not-tacos",
    "id": "guac-chips",
    "name": "Guac + Chips",
-   "desc": "small",
+   "desc": "1 order",
    "group": "Chips & Dips",
    "variant_family": "guac-chips",
-   "variant_label": "Small",
-   "feature": true
+   "variant_label": "Small"
   },
   "SECTION: NOT TACOS/guac, large": {
    "cat": "not-tacos",
    "id": "guac-chips-large",
    "name": "Guac + Chips",
-   "desc": "large",
+   "desc": "1 order",
    "group": "Chips & Dips",
    "variant_family": "guac-chips",
    "variant_label": "Large"
@@ -346,8 +346,7 @@
    "id": "street-corn",
    "name": "Street Corn",
    "desc": "1 order",
-   "group": "Sides",
-   "feature": true
+   "group": "Sides"
   },
   "SECTION: NOT TACOS/esquites (corn off the cob)": {
    "cat": "not-tacos",
@@ -374,7 +373,7 @@
    "cat": "not-tacos",
    "id": "cucumber-salad",
    "name": "Cucumber Salad",
-   "desc": "small",
+   "desc": "1 order",
    "group": "Sides",
    "variant_family": "cucumber-salad",
    "variant_label": "Small"
@@ -383,7 +382,7 @@
    "cat": "not-tacos",
    "id": "kimchi",
    "name": "Kimchi",
-   "desc": "small",
+   "desc": "1 order",
    "group": "Sides",
    "variant_family": "kimchi",
    "variant_label": "Small"
@@ -392,7 +391,7 @@
    "cat": "not-tacos",
    "id": "seasonal-fruit",
    "name": "Seasonal Fruit + Tajín",
-   "desc": "small",
+   "desc": "1 order",
    "group": "Sides",
    "variant_family": "seasonal-fruit",
    "variant_label": "Small"
