@@ -1,0 +1,122 @@
+SECTION: AGUAS FRESCAS
+Cucumber Cool 70 0 0 0 0 10 19 0 17 0
+Lemonade 70 0 0 0 0 0 18 0 15 0
+Watermelon Limonada 140 0 0 0 0 0 36 0 33 0
+berry colada 180 5 4.5 0 0 15 35 2 30 0
+honeydew agua fresca 90 0.5 0 0 0 15 22 2 16 0
+SECTION: COCKTAILS
+Tilden Lacewing Pour 70 0 0 0 0 0 20 0 2 0
+Zero Proof Marg (tilden) 90 0 0 0 0 190 25 0 11 0
+casa azul flight 160 0 0 0 100 1180 5 0 2 0
+grapefruit basil (zero proof) 60 0 0 0 0 0 15 0 11 0
+mezcal flight 170 0 0 0 100 1180 5 0 2 0
+purple haze (zero proof) 50 0 0 0 0 0 13 0 11 0
+bartaco margarita 230 0 0 0 0 0 22 0 18 0
+reposado margarita 230 0 0 0 0 0 23 1 18 0
+bartaco "green" margarita 210 0 0 0 0 190 24 1 18 0
+paloma fresca 190 0 0 0 0 1170 20 0 15 0
+oaxacan sunshine 350 4.5 0 0 0 0 43 5 32 3
+ranch water 110 0 0 0 0 0 3 0 0 0
+winter caipirinha 190 0 0 0 0 0 16 2 8 0
+mojito 200 0 0 0 0 15 18 0 15 0
+reviver 180 0 0 0 0 0 20 0 16 0
+old thymer 180 0 0 0 0 0 13 1 10 0
+orange crush 190 0 0 0 0 10 21 0 19 0
+fuego de piña 110 0 0 0 0 25 3 0 0 0
+cazuela 150 0 0 0 0 100 14 0 9 0
+red sangria - glass 210 0 0 0 0 5 14 0 10 0
+red sangria - pitcher 1230 0 0 0 0 35 80 5 58 1
+SECTION: DESSERTS
+churros 510 25 16 0.5 60 350 62 3 19 9
+key lime pie 400 15 8 0 195 140 59 0 56 10
+tres leches 450 23 15 0 125 160 53 1 42 10
+vanilla gelato 160 6 3.5 0 20 55 23 0 24 4
+chocolate gelato 180 7 4.5 0 15 40 26 2 22 4
+coconut gelato 180 7 4.5 0 25 55 27 0 21 3
+mint chip gelato 220 11 7 0 25 60 28 0 22 3
+SECTION: HAPPY HOUR
+Chicken Croqueta 60 3 1.5 0 15 250 4 0 2 4
+Chicken Samosa 130 4.5 0.5 0 10 570 17 1 5 4
+Chorizo Pintxo 100 6 1.5 0 35 75 0 0 0 12
+Coco Melon Marg 160 0.5 0.5 0 0 10 15 0 13 0
+Coconut Mojito 210 0.5 0.5 0 0 15 19 0 17 0
+Crispy Chicken Flauta 140 8 1.5 0 25 290 9 2 0 8
+Shrimp + Pork Smash Dumpling 70 1.5 0 0 25 210 8 0 2 6
+Tuna Tartare + Crispy Rice 120 3.5 0.5 0 15 170 12 0 0 9
+SECTION: KID'S MENU
+guacamole + chips (not spicy) 340 20 2 0 0 460 38 9 0 5
+chicken taco (w/ cheese) 160 7 3 0 60 290 8 1 0 15
+steak taco (w/ cheese) 180 11 4 0 30 220 9 1 0 10
+kids fish taco 110 1.5 0 0 10 490 18 2 0 5
+roasted chicken 140 7 2 0 95 440 0 0 0 20
+kids corn 150 12 7 0 30 25 10 1 3 2
+oaxaca cheese snack 270 30 15 0 60 510 3 0 0 18
+cucumbers 50 0 0 0 0 5 13 2 6 2
+steamed broccoli 130 12 7 0 30 800 6 2 1 3
+quesadilla 500 41 23 0 85 520 29 2 0 12
+avocado 80 8 1 0 0 0 4 3 0 0
+SECTION: NOT TACOS
+Chicken Soup 380 21 5 0 85 1070 25 5 9 25
+Gazpacho 360 30 4 0 0 1100 21 4 8 3
+Red Chorizo Arayes 570 29 11 0 35 7700 65 19 4 13
+Street Corn Dip 210 3.5 1.5 0 10 2100 37 6 4 7
+Tuna Crudo 400 24 2.5 0 35 1150 21 6 5 25
+guac + roja + verde + chips 580 27 3 0 0 1090 79 16 8 9
+guac, small 390 21 2.5 0 0 360 47 10 1 6
+guac, large 650 37 4 0 0 650 76 18 2 9
+salsa roja + chips 290 10 1 0 0 570 46 6 4 5
+salsa verde + chips 290 10 1 0 0 350 46 7 4 5
+ceviche 390 15 1.5 0 100 3100 42 8 2 23
+street corn fritters 620 44 15 0 115 2110 30 5 5 25
+tuna poke 530 23 2.5 0 40 1020 50 9 12 32
+duck birria w/ broth 330 20 9 0 95 1430 20 4 2 25
+chopped salad 520 45 8 0 20 990 25 7 6 9
+kale caesar 360 25 9 0 75 3410 12 3 0 23
+roasted half chicken 790 48 11 0 425 2250 4 2 2 87
+spicy cucumber salad 80 6 1 0 0 1030 9 0 7 0
+esquites (corn off the cob) 290 17 4.5 0 25 260 33 4 11 8
+street corn 230 16 4 0 25 250 21 2 7 5
+plantains 650 42 7 0 40 440 63 4 41 0
+black beans w/ sofrito 360 4.5 0.5 0 0 1200 63 15 6 21
+kimchi 35 0 0 0 0 960 6 2 4 2
+tajin pineapple 100 0 0 0 0 130 26 3 20 1
+chicken tortilla soup 560 35 10 0 150 1130 20 3 3 41
+steamed brown rice 230 3.5 0 0 0 450 44 2 0 4
+Caesar Slaw 180 13 4.5 0 40 1710 6 2 0 12
+SECTION: RICE BOWLS
+Ahi Tuna + Crispy Rice Bowl 490 17 2.5 0 20 1790 65 4 18 20
+Chicken Verde Rice Bowl 520 19 3 0 50 980 68 5 6 21
+Chicken Verde Rice Bowl - Duplicate 500 13 2.5 0 50 1290 72 9 3 24
+Crispy Tuna Rice Bowl 660 33 4 0 20 2210 73 4 25 20
+Korean BBQ Rice Bowl 420 15 3 0 30 1140 54 4 4 17
+Med. Cauliflower Bowl 610 29 4 0 0 1050 78 9 19 11
+Pork Belly Rice Bowl - Duplicate 740 34 9 0 55 1950 85 4 36 25
+Roasted Cauliflower Rice Bowl 460 15 2.5 0 0 840 75 7 22 9
+pistachio cauliflower rice bowl 430 19 2.5 0 0 690 57 6 4 9
+spiced chicken verde bowl 480 16 3 0 85 1260 54 4 3 30
+glazed pork belly bowl 710 34 9 0 55 1280 80 4 31 23
+ahi tuna bowl 590 29 3 0 20 1250 64 4 13 20
+sesame ribeye bowl 440 17 3.5 0 35 950 53 4 4 18
+roasted duck bowl 440 12 2.5 0 90 1230 59 4 9 24
+SECTION: TACOS
+Campechano Taco 150 7 1.5 0 20 1150 13 4 0 8
+Carne Asada Taco 150 8 2.5 0 35 380 9 1 0 9
+Chicken Tinga Taco 110 3.5 0.5 0 40 270 10 2 2 9
+Crispy Shrimp Taco 150 3 0 0 60 270 21 3 2 10
+Grilled Shrimp Taco 130 3.5 0 0 70 280 15 3 5 10
+Mojo Pork Taco 140 2.5 2 0 20 590 12 1 3 8
+Oyster Mushroom Taco 90 4.5 0.5 0 0 105 11 2 1 2
+Red Chorizo Taco 160 9 2 0 15 1680 16 5 0 6
+Roasted Cauliflower Taco 110 5 0.5 0 0 250 14 2 4 2
+mushroom taco 130 5 0.5 0 0 550 18 3 2 4
+pistachio cauliflower 140 9 1 0 0 160 12 3 2 3
+baja fish 190 10 1 0 20 700 21 2 2 5
+spiced chicken verde 160 7 1.5 0 45 440 11 2 0 13
+seared chorizo 140 6 1 0 35 110 8 1 0 12
+mushroom w/ queso fresco 120 7 2 0 10 250 10 2 1 4
+falafel 200 9 1 0 0 560 24 6 2 6
+tuna tatako 120 7 1 0 10 300 6 0 4 8
+crispy oyster 150 3.5 0.5 0 15 330 23 3 2 5
+glazed pork belly 230 15 4.5 0 25 420 16 0 15 9
+sesame ribeye 140 8 1.5 0 20 390 10 2 1 7
+roasted duck 160 6 1 0 45 540 16 2 7 10

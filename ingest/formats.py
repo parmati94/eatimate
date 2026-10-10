@@ -65,6 +65,11 @@ FORMATS = {
     # Nutritionix spells it, which is not always our slug.
     "nutritionix": {"dumper": "dump_nutritionix.py", "refresh": "redump",
                     "needs": ("nutritionix_slug",)},
+    # An EveryBite nutrition widget's public GraphQL feed (bartaco). The feed is
+    # the chain's recipe database, retired dishes included, so the config's
+    # `items` decides what is on the menu.
+    "everybite": {"dumper": "dump_everybite.py", "refresh": "redump",
+                  "needs": ("widget_id",)},
 }
 
 

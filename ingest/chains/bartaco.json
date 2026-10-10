@@ -1,0 +1,674 @@
+{
+ "meta": {
+  "name": "bartaco",
+  "slug": "bartaco",
+  "source": {
+   "format": "everybite",
+   "widget_id": "4facc5a0",
+   "html_url": "https://bartaco.com/nutrition/",
+   "page_url": "https://bartaco.com/nutrition/",
+   "fetch": "plain",
+   "dump_sha256": "02bdcf9d33ef97e252ff94e9190babad0f414e8e25c4936424743c2c32eab97e",
+   "retrieved": "2026-10-10"
+  },
+  "disclaimer_extra": "bartaco publishes nutrition per menu item: each taco is one taco (bartaco suggests 3 to 5 per person), and every other row is one order as served. Figures are bartaco's own, from the nutrition database behind bartaco.com/nutrition; the menu was checked against all 32 locations' printed menus dated 2026-10-06. bartaco prints calories but publishes no full nutrition for its sugary sodas and sparkling waters, the chicken + black bean bowl, the kids trays, the large guac + verde + roja or a gelato cone, so they are not listed. Items marked select locations are not on every menu.",
+  "blurb": "Count your bartaco tacos, add guac, sides and a rice bowl, and watch calories, protein, carbs and fat add up for the whole table — every taco on the menu, with bartaco's own figures.",
+  "glyph": "taco",
+  "aliases": [
+   "bar taco"
+  ],
+  "formats": [
+   "Tacos",
+   "Rice Bowls"
+  ],
+  "consistency": {
+   "no_presets": "bartaco publishes every taco, bowl and plate as a finished menu item and offers no build-your-own, so each row already IS a menu item; a meal is several of them, which the plain list expresses directly."
+  }
+ },
+ "categories": [
+  {
+   "id": "tacos",
+   "name": "Tacos",
+   "select": "multi",
+   "flow": "build",
+   "role": "entree",
+   "note": "Per taco. bartaco suggests 3 to 5 per person."
+  },
+  {
+   "id": "not-tacos",
+   "name": "Not Tacos",
+   "select": "multi",
+   "flow": "build",
+   "role": "side"
+  },
+  {
+   "id": "bowls",
+   "name": "Rice Bowls",
+   "select": "multi",
+   "flow": "build",
+   "role": "entree"
+  },
+  {
+   "id": "desserts",
+   "name": "Desserts",
+   "select": "multi",
+   "flow": "extras",
+   "role": "dessert"
+  },
+  {
+   "id": "kids",
+   "name": "Kids",
+   "select": "multi",
+   "flow": "extras",
+   "role": "kids"
+  },
+  {
+   "id": "drinks",
+   "name": "Drinks",
+   "select": "multi",
+   "flow": "extras",
+   "role": "drink"
+  }
+ ],
+ "layout": {
+  "columns": [
+   "calories",
+   "fat_g",
+   "sat_fat_g",
+   "trans_fat_g",
+   "cholesterol_mg",
+   "sodium_mg",
+   "carbs_g",
+   "fiber_g",
+   "sugars_g",
+   "protein_g"
+  ],
+  "serving": null,
+  "sections": "^SECTION: .+$",
+  "skip": "^$"
+ },
+ "section_categories": {
+  "SECTION: AGUAS FRESCAS": {
+   "skip": "on no current printed menu except the four Boston-area ones, which list drinks only there"
+  },
+  "SECTION: COCKTAILS": {
+   "skip": "alcohol; not carried on any chain on the site"
+  },
+  "SECTION: HAPPY HOUR": {
+   "skip": "on no current printed menu"
+  }
+ },
+ "items": {
+  "SECTION: TACOS/Chicken Tinga Taco": {
+   "cat": "tacos",
+   "id": "chicken-tinga",
+   "name": "Chicken Tinga",
+   "desc": "1 taco"
+  },
+  "SECTION: TACOS/Carne Asada Taco": {
+   "cat": "tacos",
+   "id": "carne-asada",
+   "name": "Carne Asada",
+   "desc": "1 taco"
+  },
+  "SECTION: TACOS/spiced chicken verde": {
+   "cat": "tacos",
+   "id": "chicken-verde",
+   "name": "Chicken Verde",
+   "desc": "1 taco"
+  },
+  "SECTION: TACOS/glazed pork belly": {
+   "cat": "tacos",
+   "id": "pork-belly",
+   "name": "Pork Belly",
+   "desc": "1 taco"
+  },
+  "SECTION: TACOS/sesame ribeye": {
+   "cat": "tacos",
+   "id": "sesame-ribeye",
+   "name": "Sesame Ribeye",
+   "desc": "1 taco"
+  },
+  "SECTION: TACOS/tuna tatako": {
+   "cat": "tacos",
+   "id": "ahi-tuna-tatako",
+   "name": "Ahi Tuna Tatako",
+   "desc": "1 taco, in bibb lettuce"
+  },
+  "SECTION: TACOS/Red Chorizo Taco": {
+   "cat": "tacos",
+   "id": "red-chorizo",
+   "name": "Red Chorizo",
+   "desc": "1 taco"
+  },
+  "SECTION: TACOS/roasted duck": {
+   "cat": "tacos",
+   "id": "roasted-duck",
+   "name": "Roasted Duck",
+   "desc": "1 taco"
+  },
+  "SECTION: TACOS/Mojo Pork Taco": {
+   "cat": "tacos",
+   "id": "mojo-pork-carnitas",
+   "name": "Mojo Pork Carnitas",
+   "desc": "1 taco"
+  },
+  "SECTION: TACOS/Oyster Mushroom Taco": {
+   "cat": "tacos",
+   "id": "mushroom",
+   "name": "Mushroom",
+   "desc": "1 taco"
+  },
+  "SECTION: TACOS/baja fish": {
+   "cat": "tacos",
+   "id": "baja-fish",
+   "name": "Baja Fish",
+   "desc": "1 taco"
+  },
+  "SECTION: TACOS/Roasted Cauliflower Taco": {
+   "cat": "tacos",
+   "id": "roasted-cauliflower",
+   "name": "Roasted Cauliflower",
+   "desc": "1 taco"
+  },
+  "SECTION: TACOS/Grilled Shrimp Taco": {
+   "cat": "tacos",
+   "id": "grilled-shrimp",
+   "name": "Grilled Shrimp",
+   "desc": "1 taco"
+  },
+  "SECTION: TACOS/crispy oyster": {
+   "cat": "tacos",
+   "id": "crispy-oyster",
+   "name": "Crispy Oyster",
+   "desc": "1 taco"
+  },
+  "SECTION: TACOS/falafel": {
+   "cat": "tacos",
+   "id": "falafel",
+   "name": "Falafel",
+   "desc": "1 taco"
+  },
+  "SECTION: TACOS/Crispy Shrimp Taco": {
+   "cat": "tacos",
+   "id": "crispy-shrimp",
+   "name": "Crispy Shrimp",
+   "desc": "1 taco, select locations"
+  },
+  "SECTION: TACOS/Campechano Taco": {
+   "skip": "retired: on no current printed menu"
+  },
+  "SECTION: TACOS/mushroom taco": {
+   "skip": "retired: the current mushroom taco is the oyster mushroom row (90 cal, as printed)"
+  },
+  "SECTION: TACOS/pistachio cauliflower": {
+   "skip": "retired: on no current printed menu"
+  },
+  "SECTION: TACOS/seared chorizo": {
+   "skip": "retired: replaced by red chorizo"
+  },
+  "SECTION: TACOS/mushroom w/ queso fresco": {
+   "skip": "retired: on no current printed menu"
+  },
+  "SECTION: NOT TACOS/guac, small": {
+   "cat": "not-tacos",
+   "id": "guac-chips",
+   "name": "Guac + Chips",
+   "desc": "small",
+   "group": "Chips & Dips",
+   "variant_family": "guac-chips",
+   "variant_label": "Small",
+   "feature": true
+  },
+  "SECTION: NOT TACOS/guac, large": {
+   "cat": "not-tacos",
+   "id": "guac-chips-large",
+   "name": "Guac + Chips",
+   "desc": "large",
+   "group": "Chips & Dips",
+   "variant_family": "guac-chips",
+   "variant_label": "Large"
+  },
+  "SECTION: NOT TACOS/guac + roja + verde + chips": {
+   "cat": "not-tacos",
+   "id": "guac-verde-roja",
+   "name": "Guac + Verde + Roja + Chips",
+   "desc": "small",
+   "group": "Chips & Dips"
+  },
+  "SECTION: NOT TACOS/salsa verde + chips": {
+   "cat": "not-tacos",
+   "id": "salsa-verde-chips",
+   "name": "Salsa Verde + Chips",
+   "desc": "1 order",
+   "group": "Chips & Dips"
+  },
+  "SECTION: NOT TACOS/salsa roja + chips": {
+   "cat": "not-tacos",
+   "id": "salsa-roja-chips",
+   "name": "Salsa Roja + Chips",
+   "desc": "1 order",
+   "group": "Chips & Dips"
+  },
+  "SECTION: NOT TACOS/Street Corn Dip": {
+   "cat": "not-tacos",
+   "id": "cotija-corn-dip",
+   "name": "Cotija Corn Dip",
+   "desc": "1 order",
+   "group": "Chips & Dips"
+  },
+  "SECTION: NOT TACOS/chopped salad": {
+   "cat": "not-tacos",
+   "id": "chopped-salad",
+   "name": "Chopped Salad",
+   "desc": "without added chicken",
+   "group": "Salads, Soup & Plates"
+  },
+  "SECTION: NOT TACOS/kale caesar": {
+   "cat": "not-tacos",
+   "id": "kale-caesar",
+   "name": "Kale Caesar",
+   "desc": "as published; size not stated",
+   "group": "Salads, Soup & Plates"
+  },
+  "SECTION: NOT TACOS/chicken tortilla soup": {
+   "cat": "not-tacos",
+   "id": "chicken-tortilla-soup",
+   "name": "Chicken Tortilla Soup",
+   "desc": "1 bowl",
+   "group": "Salads, Soup & Plates"
+  },
+  "SECTION: NOT TACOS/Red Chorizo Arayes": {
+   "cat": "not-tacos",
+   "id": "red-chorizo-arayes",
+   "name": "Red Chorizo Arayes",
+   "desc": "1 order",
+   "group": "Salads, Soup & Plates"
+  },
+  "SECTION: NOT TACOS/duck birria w/ broth": {
+   "cat": "not-tacos",
+   "id": "duck-birria-quesadilla",
+   "name": "Duck Birria Quesadilla",
+   "desc": "with broth",
+   "group": "Salads, Soup & Plates"
+  },
+  "SECTION: NOT TACOS/ceviche": {
+   "cat": "not-tacos",
+   "id": "ceviche",
+   "name": "Ceviche",
+   "desc": "1 order",
+   "group": "Salads, Soup & Plates"
+  },
+  "SECTION: NOT TACOS/Tuna Crudo": {
+   "cat": "not-tacos",
+   "id": "macha-tuna-crudo",
+   "name": "Macha Tuna Crudo",
+   "desc": "1 order",
+   "group": "Salads, Soup & Plates"
+  },
+  "SECTION: NOT TACOS/roasted half chicken": {
+   "cat": "not-tacos",
+   "id": "roasted-half-chicken",
+   "name": "Roasted Half Chicken",
+   "desc": "1 order",
+   "group": "Salads, Soup & Plates"
+  },
+  "SECTION: NOT TACOS/street corn fritters": {
+   "cat": "not-tacos",
+   "id": "street-corn-fritters",
+   "name": "Street Corn Fritters",
+   "desc": "1 order, select locations",
+   "group": "Salads, Soup & Plates"
+  },
+  "SECTION: NOT TACOS/plantains": {
+   "cat": "not-tacos",
+   "id": "plantains",
+   "name": "Plantains",
+   "desc": "1 order",
+   "group": "Sides"
+  },
+  "SECTION: NOT TACOS/street corn": {
+   "cat": "not-tacos",
+   "id": "street-corn",
+   "name": "Street Corn",
+   "desc": "1 order",
+   "group": "Sides",
+   "feature": true
+  },
+  "SECTION: NOT TACOS/esquites (corn off the cob)": {
+   "cat": "not-tacos",
+   "id": "esquites",
+   "name": "Esquites",
+   "desc": "street corn off the cob",
+   "group": "Sides"
+  },
+  "SECTION: NOT TACOS/steamed brown rice": {
+   "cat": "not-tacos",
+   "id": "brown-rice",
+   "name": "Brown Rice",
+   "desc": "1 order",
+   "group": "Sides"
+  },
+  "SECTION: NOT TACOS/black beans w/ sofrito": {
+   "cat": "not-tacos",
+   "id": "black-beans",
+   "name": "Black Beans",
+   "desc": "with sofrito",
+   "group": "Sides"
+  },
+  "SECTION: NOT TACOS/spicy cucumber salad": {
+   "cat": "not-tacos",
+   "id": "cucumber-salad",
+   "name": "Cucumber Salad",
+   "desc": "small",
+   "group": "Sides",
+   "variant_family": "cucumber-salad",
+   "variant_label": "Small"
+  },
+  "SECTION: NOT TACOS/kimchi": {
+   "cat": "not-tacos",
+   "id": "kimchi",
+   "name": "Kimchi",
+   "desc": "small",
+   "group": "Sides",
+   "variant_family": "kimchi",
+   "variant_label": "Small"
+  },
+  "SECTION: NOT TACOS/tajin pineapple": {
+   "cat": "not-tacos",
+   "id": "seasonal-fruit",
+   "name": "Seasonal Fruit + Tajín",
+   "desc": "small",
+   "group": "Sides",
+   "variant_family": "seasonal-fruit",
+   "variant_label": "Small"
+  },
+  "SECTION: NOT TACOS/Chicken Soup": {
+   "skip": "on no current printed menu"
+  },
+  "SECTION: NOT TACOS/Gazpacho": {
+   "skip": "on no current printed menu"
+  },
+  "SECTION: NOT TACOS/tuna poke": {
+   "skip": "on no current printed menu"
+  },
+  "SECTION: NOT TACOS/Caesar Slaw": {
+   "skip": "on no current printed menu"
+  },
+  "SECTION: RICE BOWLS/Roasted Cauliflower Rice Bowl": {
+   "cat": "bowls",
+   "id": "roasted-cauliflower-bowl",
+   "name": "Roasted Cauliflower Bowl",
+   "desc": "1 bowl"
+  },
+  "SECTION: RICE BOWLS/Pork Belly Rice Bowl - Duplicate": {
+   "cat": "bowls",
+   "id": "pork-belly-bowl",
+   "name": "Pork Belly Bowl",
+   "desc": "1 bowl"
+  },
+  "SECTION: RICE BOWLS/Korean BBQ Rice Bowl": {
+   "cat": "bowls",
+   "id": "korean-bbq-ribeye-bowl",
+   "name": "Korean BBQ Ribeye Bowl",
+   "desc": "1 bowl"
+  },
+  "SECTION: RICE BOWLS/Ahi Tuna + Crispy Rice Bowl": {
+   "cat": "bowls",
+   "id": "ahi-tuna-crispy-rice-bowl",
+   "name": "Ahi Tuna + Crispy Rice Bowl",
+   "desc": "1 bowl"
+  },
+  "SECTION: RICE BOWLS/Chicken Verde Rice Bowl": {
+   "skip": "on no current printed menu"
+  },
+  "SECTION: RICE BOWLS/Chicken Verde Rice Bowl - Duplicate": {
+   "skip": "on no current printed menu"
+  },
+  "SECTION: RICE BOWLS/Crispy Tuna Rice Bowl": {
+   "skip": "on no current printed menu"
+  },
+  "SECTION: RICE BOWLS/Med. Cauliflower Bowl": {
+   "skip": "on no current printed menu"
+  },
+  "SECTION: RICE BOWLS/pistachio cauliflower rice bowl": {
+   "skip": "on no current printed menu"
+  },
+  "SECTION: RICE BOWLS/spiced chicken verde bowl": {
+   "skip": "on no current printed menu"
+  },
+  "SECTION: RICE BOWLS/glazed pork belly bowl": {
+   "skip": "older pork belly bowl; the current one is the 740 cal row"
+  },
+  "SECTION: RICE BOWLS/ahi tuna bowl": {
+   "skip": "on no current printed menu"
+  },
+  "SECTION: RICE BOWLS/sesame ribeye bowl": {
+   "skip": "on no current printed menu"
+  },
+  "SECTION: RICE BOWLS/roasted duck bowl": {
+   "skip": "on no current printed menu"
+  },
+  "SECTION: DESSERTS/churros": {
+   "cat": "desserts",
+   "id": "churros",
+   "name": "Churros",
+   "desc": "1 order"
+  },
+  "SECTION: DESSERTS/key lime pie": {
+   "cat": "desserts",
+   "id": "key-lime-pie",
+   "name": "Key Lime Pie",
+   "desc": "1 slice"
+  },
+  "SECTION: DESSERTS/tres leches": {
+   "cat": "desserts",
+   "id": "tres-leches",
+   "name": "Tres Leches",
+   "desc": "1 slice"
+  },
+  "SECTION: DESSERTS/vanilla gelato": {
+   "cat": "desserts",
+   "id": "vanilla-gelato",
+   "name": "Vanilla Gelato",
+   "desc": "cup"
+  },
+  "SECTION: DESSERTS/chocolate gelato": {
+   "cat": "desserts",
+   "id": "chocolate-gelato",
+   "name": "Chocolate Gelato",
+   "desc": "cup"
+  },
+  "SECTION: DESSERTS/coconut gelato": {
+   "cat": "desserts",
+   "id": "coconut-gelato",
+   "name": "Coconut Gelato",
+   "desc": "cup"
+  },
+  "SECTION: DESSERTS/mint chip gelato": {
+   "cat": "desserts",
+   "id": "mint-chip-gelato",
+   "name": "Mint Chip Gelato",
+   "desc": "cup"
+  },
+  "SECTION: KID'S MENU/chicken taco (w/ cheese)": {
+   "cat": "kids",
+   "id": "kids-chicken-taco",
+   "name": "Kids Chicken Taco",
+   "desc": "1 taco, with cheese"
+  },
+  "SECTION: KID'S MENU/steak taco (w/ cheese)": {
+   "cat": "kids",
+   "id": "kids-steak-taco",
+   "name": "Kids Steak Taco",
+   "desc": "1 taco, with cheese"
+  },
+  "SECTION: KID'S MENU/kids fish taco": {
+   "cat": "kids",
+   "id": "kids-crispy-fish-taco",
+   "name": "Kids Crispy Fish Taco",
+   "desc": "1 taco"
+  },
+  "SECTION: KID'S MENU/quesadilla": {
+   "cat": "kids",
+   "id": "kids-cheese-quesadilla",
+   "name": "Kids Cheese Quesadilla",
+   "desc": "1 quesadilla"
+  },
+  "SECTION: KID'S MENU/guacamole + chips (not spicy)": {
+   "cat": "kids",
+   "id": "kids-guac-chips",
+   "name": "Kids Guac + Chips",
+   "desc": "not spicy"
+  },
+  "SECTION: KID'S MENU/roasted chicken": {
+   "cat": "kids",
+   "id": "kids-roasted-chicken",
+   "name": "Kids Roasted Chicken",
+   "desc": "1 order"
+  },
+  "SECTION: KID'S MENU/kids corn": {
+   "cat": "kids",
+   "id": "kids-corn-wheels",
+   "name": "Corn Wheels",
+   "desc": "with cheese"
+  },
+  "SECTION: KID'S MENU/oaxaca cheese snack": {
+   "cat": "kids",
+   "id": "oaxaca-cheese-snack",
+   "name": "Oaxaca Cheese Snack",
+   "desc": "1 order"
+  },
+  "SECTION: KID'S MENU/cucumbers": {
+   "cat": "kids",
+   "id": "kids-cucumbers",
+   "name": "Cucumbers",
+   "desc": "1 order"
+  },
+  "SECTION: KID'S MENU/steamed broccoli": {
+   "cat": "kids",
+   "id": "kids-steamed-broccoli",
+   "name": "Steamed Broccoli",
+   "desc": "1 order"
+  },
+  "SECTION: KID'S MENU/avocado": {
+   "skip": "on no current printed menu"
+  }
+ },
+ "derived": [
+  {
+   "id": "cucumber-salad-large",
+   "name": "Cucumber Salad",
+   "cat": "not-tacos",
+   "serving_desc": "1 order",
+   "values": {
+    "calories": 160,
+    "fat_g": 12,
+    "sat_fat_g": 2,
+    "trans_fat_g": 0,
+    "cholesterol_mg": 0,
+    "sodium_mg": 2060,
+    "carbs_g": 18,
+    "fiber_g": 0,
+    "sugars_g": 14,
+    "protein_g": 0,
+    "serving_g": null
+   },
+   "reason": "bartaco publishes only the small. Its printed menu lists the large at 160 cal, exactly twice the small's 80, so the large is the small's published figures doubled.",
+   "after": "cucumber-salad",
+   "group": "Sides",
+   "variant_of": "cucumber-salad",
+   "variant_label": "Large"
+  },
+  {
+   "id": "kimchi-large",
+   "name": "Kimchi",
+   "cat": "not-tacos",
+   "serving_desc": "1 order",
+   "values": {
+    "calories": 70,
+    "fat_g": 0,
+    "sat_fat_g": 0,
+    "trans_fat_g": 0,
+    "cholesterol_mg": 0,
+    "sodium_mg": 1920,
+    "carbs_g": 12,
+    "fiber_g": 4,
+    "sugars_g": 8,
+    "protein_g": 4,
+    "serving_g": null
+   },
+   "reason": "bartaco publishes only the small. Its printed menu lists the large at 70 cal, exactly twice the small's 35, so the large is the small's published figures doubled.",
+   "after": "kimchi",
+   "group": "Sides",
+   "variant_of": "kimchi",
+   "variant_label": "Large"
+  },
+  {
+   "id": "seasonal-fruit-large",
+   "name": "Seasonal Fruit + Tajín",
+   "cat": "not-tacos",
+   "serving_desc": "1 order",
+   "values": {
+    "calories": 200,
+    "fat_g": 0,
+    "sat_fat_g": 0,
+    "trans_fat_g": 0,
+    "cholesterol_mg": 0,
+    "sodium_mg": 260,
+    "carbs_g": 52,
+    "fiber_g": 6,
+    "sugars_g": 40,
+    "protein_g": 2,
+    "serving_g": null
+   },
+   "reason": "bartaco publishes only the small. Its printed menu lists the large at 200 cal, exactly twice the small's 100, so the large is the small's published figures doubled.",
+   "after": "seasonal-fruit",
+   "group": "Sides",
+   "variant_of": "seasonal-fruit",
+   "variant_label": "Large"
+  },
+  {
+   "id": "taco-teaser",
+   "name": "Taco Teaser",
+   "cat": "not-tacos",
+   "serving_desc": "guac + chips, esquites, plantains, cucumber salad",
+   "values": {
+    "calories": 1410,
+    "fat_g": 86,
+    "sat_fat_g": 15,
+    "trans_fat_g": 0,
+    "cholesterol_mg": 65,
+    "sodium_mg": 2090,
+    "carbs_g": 152,
+    "fiber_g": 18,
+    "sugars_g": 60,
+    "protein_g": 14,
+    "serving_g": null
+   },
+   "reason": "The sum of bartaco's published small guac + chips, esquites, plantains and small cucumber salad, which together match the 1,410 cal the printed menu lists for the Taco Teaser.",
+   "after": "seasonal-fruit-large",
+   "group": "Sides"
+  }
+ ],
+ "synthetic": [
+  {
+   "id": "diet-coke",
+   "name": "Diet Coke",
+   "cat": "drinks",
+   "desc": "0 cal, as printed"
+  },
+  {
+   "id": "topo-chico",
+   "name": "Topo Chico",
+   "cat": "drinks",
+   "desc": "0 cal, as printed"
+  },
+  {
+   "id": "water",
+   "name": "Water",
+   "cat": "drinks",
+   "desc": "0 cal"
+  }
+ ]
+}

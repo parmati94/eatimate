@@ -11,7 +11,7 @@ python3 -m venv ingest/.venv && ingest/.venv/bin/python -m pip install -r ingest
 
 ## Pipeline (deterministic — same dump in, byte-identical JSON out)
 
-Six dumpers, one intermediate. Whatever the source looks like, it becomes the
+Eight dumpers, one intermediate. Whatever the source looks like, it becomes the
 same `raw_dump.txt` — section headings followed by `name <numeric cells>` rows —
 so nothing downstream knows where the data came from. `raw_dump.txt` is
 tracked in git (the source documents are not), so `rebuild.py --check` can
@@ -31,6 +31,7 @@ flags it reads from the config, and how `refresh.py` checks it for change.
 | `json` | embedded / API JSON | `dump_json.py <slug>` | re-dump |
 | `sanity` | Sanity CMS dataset (GROQ) | `dump_sanity.py <slug>` | re-dump |
 | `compose` | ordering API publishing ingredients and recipes | `dump_compose.py <slug>` | re-dump |
+| `everybite` | EveryBite nutrition widget's GraphQL feed | `dump_everybite.py <slug>` | re-dump |
 | `nutritionix` | Nutritionix calculator export, captured by hand | `dump_nutritionix.py <slug>` | manual |
 
 With no source argument the dumpers read `meta.source` from the chain's own
