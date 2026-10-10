@@ -11,7 +11,7 @@
    "dump_sha256": "02bdcf9d33ef97e252ff94e9190babad0f414e8e25c4936424743c2c32eab97e",
    "retrieved": "2026-10-10"
   },
-  "disclaimer_extra": "bartaco publishes nutrition per menu item: each taco is one taco (bartaco suggests 3 to 5 per person), and every other row is one order as served. Figures are bartaco's own, from the nutrition database behind bartaco.com/nutrition; the menu was checked against all 32 locations' printed menus dated 2026-10-06. bartaco prints calories but publishes no full nutrition for its sugary sodas and sparkling waters, the chicken + black bean bowl, the kids trays, the large guac + verde + roja or a gelato cone, so they are not listed. Items marked select locations are not on every menu.",
+  "disclaimer_extra": "bartaco publishes nutrition per menu item: each taco is one taco (bartaco suggests 3 to 5 per person), and every other row is one order as served. Figures are bartaco's own, from the nutrition database behind bartaco.com/nutrition, which covers the in-store menu including cocktails and happy hour. Rows marked may not be at every location are in that database but on no menu we could check, so your bartaco may not serve them. Not listed, because bartaco prints calories but publishes no full nutrition for them: sodas, sparkling waters, iced teas, limeade, beer and wine, the chicken + black bean bowl, taco and family packs, kids trays, the large guac + verde + roja and a gelato cone.",
   "blurb": "Count your bartaco tacos, add guac, sides and a rice bowl, and watch calories, protein, carbs and fat add up for the whole table — every taco on the menu, with bartaco's own figures.",
   "glyph": "taco",
   "aliases": [
@@ -56,6 +56,14 @@
    "role": "dessert"
   },
   {
+   "id": "happy-hour",
+   "name": "Happy Hour",
+   "select": "multi",
+   "flow": "extras",
+   "role": "side",
+   "note": "bartaco's happy hour menu; times and items vary by location."
+  },
+  {
    "id": "kids",
    "name": "Kids",
    "select": "multi",
@@ -65,6 +73,13 @@
   {
    "id": "drinks",
    "name": "Drinks",
+   "select": "multi",
+   "flow": "extras",
+   "role": "drink"
+  },
+  {
+   "id": "cocktails",
+   "name": "Cocktails",
    "select": "multi",
    "flow": "extras",
    "role": "drink"
@@ -87,17 +102,7 @@
   "sections": "^SECTION: .+$",
   "skip": "^$"
  },
- "section_categories": {
-  "SECTION: AGUAS FRESCAS": {
-   "skip": "on no current printed menu except the four Boston-area ones, which list drinks only there"
-  },
-  "SECTION: COCKTAILS": {
-   "skip": "alcohol; not carried on any chain on the site"
-  },
-  "SECTION: HAPPY HOUR": {
-   "skip": "on no current printed menu"
-  }
- },
+ "section_categories": {},
  "items": {
   "SECTION: TACOS/Chicken Tinga Taco": {
    "cat": "tacos",
@@ -196,19 +201,28 @@
    "desc": "1 taco, select locations"
   },
   "SECTION: TACOS/Campechano Taco": {
-   "skip": "retired: on no current printed menu"
+   "cat": "tacos",
+   "id": "campechano",
+   "name": "Campechano",
+   "desc": "1 taco, may not be at every location"
   },
   "SECTION: TACOS/mushroom taco": {
-   "skip": "retired: the current mushroom taco is the oyster mushroom row (90 cal, as printed)"
+   "cat": "tacos",
+   "id": "mushroom-taco-130",
+   "name": "Mushroom (130 cal version)",
+   "desc": "1 taco, may not be at every location"
   },
   "SECTION: TACOS/pistachio cauliflower": {
-   "skip": "retired: on no current printed menu"
+   "skip": "replaced by the roasted cauliflower taco"
   },
   "SECTION: TACOS/seared chorizo": {
-   "skip": "retired: replaced by red chorizo"
+   "skip": "replaced by the red chorizo taco"
   },
   "SECTION: TACOS/mushroom w/ queso fresco": {
-   "skip": "retired: on no current printed menu"
+   "cat": "tacos",
+   "id": "mushroom-queso-fresco",
+   "name": "Mushroom w/ Queso Fresco",
+   "desc": "1 taco, may not be at every location"
   },
   "SECTION: NOT TACOS/guac, small": {
    "cat": "not-tacos",
@@ -384,16 +398,32 @@
    "variant_label": "Small"
   },
   "SECTION: NOT TACOS/Chicken Soup": {
-   "skip": "on no current printed menu"
+   "cat": "not-tacos",
+   "id": "chicken-soup",
+   "name": "Chicken Soup",
+   "desc": "1 bowl, may not be at every location",
+   "group": "Salads, Soup & Plates"
   },
   "SECTION: NOT TACOS/Gazpacho": {
-   "skip": "on no current printed menu"
+   "cat": "not-tacos",
+   "id": "gazpacho",
+   "name": "Gazpacho",
+   "desc": "1 bowl, may not be at every location",
+   "group": "Salads, Soup & Plates"
   },
   "SECTION: NOT TACOS/tuna poke": {
-   "skip": "on no current printed menu"
+   "cat": "not-tacos",
+   "id": "tuna-poke",
+   "name": "Tuna Poke",
+   "desc": "1 order, may not be at every location",
+   "group": "Salads, Soup & Plates"
   },
   "SECTION: NOT TACOS/Caesar Slaw": {
-   "skip": "on no current printed menu"
+   "cat": "not-tacos",
+   "id": "caesar-slaw",
+   "name": "Caesar Slaw",
+   "desc": "1 order, may not be at every location",
+   "group": "Sides"
   },
   "SECTION: RICE BOWLS/Roasted Cauliflower Rice Bowl": {
    "cat": "bowls",
@@ -420,34 +450,37 @@
    "desc": "1 bowl"
   },
   "SECTION: RICE BOWLS/Chicken Verde Rice Bowl": {
-   "skip": "on no current printed menu"
+   "skip": "replaced by the chicken + black bean rice bowl"
   },
   "SECTION: RICE BOWLS/Chicken Verde Rice Bowl - Duplicate": {
-   "skip": "on no current printed menu"
+   "skip": "replaced by the chicken + black bean rice bowl"
   },
   "SECTION: RICE BOWLS/Crispy Tuna Rice Bowl": {
-   "skip": "on no current printed menu"
+   "skip": "replaced by the ahi tuna + crispy rice bowl"
   },
   "SECTION: RICE BOWLS/Med. Cauliflower Bowl": {
-   "skip": "on no current printed menu"
+   "skip": "replaced by the roasted cauliflower rice bowl"
   },
   "SECTION: RICE BOWLS/pistachio cauliflower rice bowl": {
-   "skip": "on no current printed menu"
+   "skip": "replaced by the roasted cauliflower rice bowl"
   },
   "SECTION: RICE BOWLS/spiced chicken verde bowl": {
-   "skip": "on no current printed menu"
+   "skip": "replaced by the chicken + black bean rice bowl"
   },
   "SECTION: RICE BOWLS/glazed pork belly bowl": {
-   "skip": "older pork belly bowl; the current one is the 740 cal row"
+   "skip": "replaced by the 740 cal pork belly bowl"
   },
   "SECTION: RICE BOWLS/ahi tuna bowl": {
-   "skip": "on no current printed menu"
+   "skip": "replaced by the ahi tuna + crispy rice bowl"
   },
   "SECTION: RICE BOWLS/sesame ribeye bowl": {
-   "skip": "on no current printed menu"
+   "skip": "replaced by the korean bbq ribeye rice bowl"
   },
   "SECTION: RICE BOWLS/roasted duck bowl": {
-   "skip": "on no current printed menu"
+   "cat": "bowls",
+   "id": "roasted-duck-bowl",
+   "name": "Roasted Duck Bowl",
+   "desc": "1 bowl, may not be at every location"
   },
   "SECTION: DESSERTS/churros": {
    "cat": "desserts",
@@ -552,7 +585,250 @@
    "desc": "1 order"
   },
   "SECTION: KID'S MENU/avocado": {
-   "skip": "on no current printed menu"
+   "cat": "kids",
+   "id": "kids-avocado",
+   "name": "Avocado",
+   "desc": "1 order"
+  },
+  "SECTION: HAPPY HOUR/Chicken Croqueta": {
+   "cat": "happy-hour",
+   "id": "hh-chicken-croqueta",
+   "name": "Chicken Croqueta",
+   "desc": "1 piece, happy hour"
+  },
+  "SECTION: HAPPY HOUR/Chicken Samosa": {
+   "cat": "happy-hour",
+   "id": "hh-chicken-samosa",
+   "name": "Chicken Samosa",
+   "desc": "1 piece, happy hour"
+  },
+  "SECTION: HAPPY HOUR/Chorizo Pintxo": {
+   "cat": "happy-hour",
+   "id": "hh-chorizo-pintxo",
+   "name": "Chorizo Pintxo",
+   "desc": "1 piece, happy hour"
+  },
+  "SECTION: HAPPY HOUR/Crispy Chicken Flauta": {
+   "cat": "happy-hour",
+   "id": "hh-crispy-chicken-flauta",
+   "name": "Crispy Chicken Flauta",
+   "desc": "1 piece, happy hour"
+  },
+  "SECTION: HAPPY HOUR/Shrimp + Pork Smash Dumpling": {
+   "cat": "happy-hour",
+   "id": "hh-shrimp-pork-dumpling",
+   "name": "Shrimp + Pork Smash Dumpling",
+   "desc": "1 piece, happy hour"
+  },
+  "SECTION: HAPPY HOUR/Tuna Tartare + Crispy Rice": {
+   "cat": "happy-hour",
+   "id": "hh-tuna-tartare",
+   "name": "Tuna Tartare + Crispy Rice",
+   "desc": "1 piece, happy hour"
+  },
+  "SECTION: HAPPY HOUR/Coco Melon Marg": {
+   "cat": "cocktails",
+   "id": "coco-melon-marg",
+   "name": "Coco Melon Marg",
+   "desc": "happy hour",
+   "group": "Happy Hour"
+  },
+  "SECTION: HAPPY HOUR/Coconut Mojito": {
+   "cat": "cocktails",
+   "id": "coconut-mojito",
+   "name": "Coconut Mojito",
+   "desc": "happy hour",
+   "group": "Happy Hour"
+  },
+  "SECTION: COCKTAILS/bartaco margarita": {
+   "cat": "cocktails",
+   "id": "bartaco-margarita",
+   "name": "bartaco Margarita",
+   "desc": "1 order",
+   "group": "Margaritas",
+   "variant_family": "bartaco-margarita",
+   "variant_label": "Single"
+  },
+  "SECTION: COCKTAILS/bartaco \"green\" margarita": {
+   "cat": "cocktails",
+   "id": "green-margarita",
+   "name": "bartaco \"Green\" Margarita",
+   "desc": "1 order",
+   "group": "Margaritas",
+   "variant_family": "green-margarita",
+   "variant_label": "Single"
+  },
+  "SECTION: COCKTAILS/reposado margarita": {
+   "cat": "cocktails",
+   "id": "reposado-margarita",
+   "name": "Reposado Margarita",
+   "desc": "1 glass",
+   "group": "Margaritas"
+  },
+  "SECTION: COCKTAILS/oaxacan sunshine": {
+   "cat": "cocktails",
+   "id": "passionfruit-oaxacan-margarita",
+   "name": "Passionfruit Oaxacan Margarita",
+   "desc": "1 glass",
+   "group": "Margaritas"
+  },
+  "SECTION: COCKTAILS/paloma fresca": {
+   "cat": "cocktails",
+   "id": "paloma-fresca",
+   "name": "Paloma Fresca",
+   "desc": "1 glass",
+   "group": "Cocktails"
+  },
+  "SECTION: COCKTAILS/cazuela": {
+   "cat": "cocktails",
+   "id": "cazuela",
+   "name": "Cazuela",
+   "desc": "1 glass",
+   "group": "Cocktails"
+  },
+  "SECTION: COCKTAILS/mojito": {
+   "cat": "cocktails",
+   "id": "mojito",
+   "name": "Mojito",
+   "desc": "1 glass",
+   "group": "Cocktails"
+  },
+  "SECTION: COCKTAILS/old thymer": {
+   "cat": "cocktails",
+   "id": "old-thymer",
+   "name": "Old Thymer",
+   "desc": "1 glass",
+   "group": "Cocktails"
+  },
+  "SECTION: COCKTAILS/ranch water": {
+   "cat": "cocktails",
+   "id": "ranch-water",
+   "name": "Ranch Water",
+   "desc": "1 glass",
+   "group": "Cocktails"
+  },
+  "SECTION: COCKTAILS/winter caipirinha": {
+   "cat": "cocktails",
+   "id": "winter-caipirinha",
+   "name": "Winter Caipirinha",
+   "desc": "1 glass",
+   "group": "Cocktails"
+  },
+  "SECTION: COCKTAILS/reviver": {
+   "cat": "cocktails",
+   "id": "reviver",
+   "name": "Reviver",
+   "desc": "1 glass",
+   "group": "Cocktails"
+  },
+  "SECTION: COCKTAILS/orange crush": {
+   "cat": "cocktails",
+   "id": "orange-crush",
+   "name": "Orange Crush",
+   "desc": "1 glass",
+   "group": "Cocktails"
+  },
+  "SECTION: COCKTAILS/fuego de piña": {
+   "cat": "cocktails",
+   "id": "fuego-de-pina",
+   "name": "Fuego de Piña",
+   "desc": "1 glass",
+   "group": "Cocktails"
+  },
+  "SECTION: COCKTAILS/casa azul flight": {
+   "cat": "cocktails",
+   "id": "casa-azul-flight",
+   "name": "Casa Azul Flight",
+   "desc": "1 flight",
+   "group": "Flights"
+  },
+  "SECTION: COCKTAILS/mezcal flight": {
+   "cat": "cocktails",
+   "id": "mezcal-flight",
+   "name": "Mezcal Flight",
+   "desc": "1 flight",
+   "group": "Flights"
+  },
+  "SECTION: COCKTAILS/red sangria - glass": {
+   "cat": "cocktails",
+   "id": "red-sangria",
+   "name": "Red Sangria",
+   "desc": "1 order",
+   "group": "Cocktails",
+   "variant_family": "red-sangria",
+   "variant_label": "Glass"
+  },
+  "SECTION: COCKTAILS/red sangria - pitcher": {
+   "cat": "cocktails",
+   "id": "red-sangria-pitcher",
+   "name": "Red Sangria",
+   "desc": "1 order",
+   "group": "Cocktails",
+   "variant_family": "red-sangria",
+   "variant_label": "Pitcher"
+  },
+  "SECTION: COCKTAILS/Zero Proof Marg (tilden)": {
+   "cat": "drinks",
+   "id": "zero-proof-marg",
+   "name": "Zero Proof Marg",
+   "desc": "1 glass",
+   "group": "Zero Proof"
+  },
+  "SECTION: COCKTAILS/Tilden Lacewing Pour": {
+   "cat": "drinks",
+   "id": "tilden-lacewing",
+   "name": "Tilden Lacewing",
+   "desc": "1 glass",
+   "group": "Zero Proof"
+  },
+  "SECTION: COCKTAILS/grapefruit basil (zero proof)": {
+   "cat": "drinks",
+   "id": "grapefruit-basil",
+   "name": "Grapefruit Basil",
+   "desc": "1 glass",
+   "group": "Zero Proof"
+  },
+  "SECTION: COCKTAILS/purple haze (zero proof)": {
+   "cat": "drinks",
+   "id": "purple-haze",
+   "name": "Purple Haze",
+   "desc": "1 glass",
+   "group": "Zero Proof"
+  },
+  "SECTION: AGUAS FRESCAS/honeydew agua fresca": {
+   "cat": "drinks",
+   "id": "honeydew-agua-fresca",
+   "name": "Honeydew Agua Fresca",
+   "desc": "1 glass",
+   "group": "Aguas Frescas"
+  },
+  "SECTION: AGUAS FRESCAS/berry colada": {
+   "cat": "drinks",
+   "id": "berry-colada",
+   "name": "Berry Colada",
+   "desc": "1 glass",
+   "group": "Aguas Frescas"
+  },
+  "SECTION: AGUAS FRESCAS/Cucumber Cool": {
+   "cat": "drinks",
+   "id": "cucumber-cooler",
+   "name": "Cucumber Cooler",
+   "desc": "1 glass",
+   "group": "Aguas Frescas"
+  },
+  "SECTION: AGUAS FRESCAS/Watermelon Limonada": {
+   "cat": "drinks",
+   "id": "watermelon-limonada",
+   "name": "Watermelon Limonada",
+   "desc": "1 glass",
+   "group": "Aguas Frescas"
+  },
+  "SECTION: AGUAS FRESCAS/Lemonade": {
+   "cat": "drinks",
+   "id": "lemonade",
+   "name": "Fresh Squeezed Lemonade",
+   "desc": "1 glass",
+   "group": "Aguas Frescas"
   }
  },
  "derived": [
@@ -649,6 +925,54 @@
    "reason": "The sum of bartaco's published small guac + chips, esquites, plantains and small cucumber salad, which together match the 1,410 cal the printed menu lists for the Taco Teaser.",
    "after": "seasonal-fruit-large",
    "group": "Sides"
+  },
+  {
+   "id": "bartaco-margarita-carafe",
+   "name": "bartaco Margarita",
+   "cat": "cocktails",
+   "serving_desc": "1 order",
+   "values": {
+    "calories": 1150,
+    "fat_g": 0,
+    "sat_fat_g": 0,
+    "trans_fat_g": 0,
+    "cholesterol_mg": 0,
+    "sodium_mg": 0,
+    "carbs_g": 110,
+    "fiber_g": 0,
+    "sugars_g": 90,
+    "protein_g": 0,
+    "serving_g": null
+   },
+   "reason": "bartaco publishes only the single. Its printed menu lists the carafe at 1,150 cal, exactly five times the single's 230, so the carafe is the single's published figures times five.",
+   "after": "bartaco-margarita",
+   "group": "Margaritas",
+   "variant_of": "bartaco-margarita",
+   "variant_label": "Carafe"
+  },
+  {
+   "id": "green-margarita-carafe",
+   "name": "bartaco \"Green\" Margarita",
+   "cat": "cocktails",
+   "serving_desc": "1 order",
+   "values": {
+    "calories": 1050,
+    "fat_g": 0,
+    "sat_fat_g": 0,
+    "trans_fat_g": 0,
+    "cholesterol_mg": 0,
+    "sodium_mg": 950,
+    "carbs_g": 120,
+    "fiber_g": 5,
+    "sugars_g": 90,
+    "protein_g": 0,
+    "serving_g": null
+   },
+   "reason": "bartaco publishes only the single. Its printed menu lists the carafe at 1,050 cal, exactly five times the single's 210, so the carafe is the single's published figures times five.",
+   "after": "green-margarita",
+   "group": "Margaritas",
+   "variant_of": "green-margarita",
+   "variant_label": "Carafe"
   }
  ],
  "synthetic": [
@@ -656,13 +980,13 @@
    "id": "diet-coke",
    "name": "Diet Coke",
    "cat": "drinks",
-   "desc": "0 cal, as printed"
+   "desc": "0 cal"
   },
   {
    "id": "topo-chico",
    "name": "Topo Chico",
    "cat": "drinks",
-   "desc": "0 cal, as printed"
+   "desc": "0 cal"
   },
   {
    "id": "water",
@@ -670,5 +994,8 @@
    "cat": "drinks",
    "desc": "0 cal"
   }
- ]
+ ],
+ "energy_exempt": {
+  "cocktails": "calories are largely from alcohol (7 kcal/g), which is not a label nutrient"
+ }
 }
