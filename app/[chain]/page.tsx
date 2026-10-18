@@ -12,7 +12,15 @@ import { fmtDate, possessive } from "@/lib/text";
 
 // The chain data ships inside the image, so every page is known at build time.
 // Rendering them once makes the HTML edge-cacheable instead of re-parsing 400+
-// components per request. An unknown slug still 404s via notFound().
+// components per request.
+//
+// Unknown slugs 404 WITHOUT rendering. Left on (the default), any path
+// rendered this page on demand and wrote the 404 into the page cache under
+// its own name -- and on 2026-10-17 that name was "sitemap.xml". The sitemap
+// route then found a page in its cache slot ("app-route received invalid
+// cache entry APP_PAGE") and served 404 until the container was recreated.
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return (await listChains()).map((c) => ({ chain: c.slug }));
 }
