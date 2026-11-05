@@ -61,6 +61,18 @@ def row(name, nut):
     return f"{name} " + " ".join(num((nut or {}).get(f)) for f in FIELDS)
 
 
+def regular_portions(group):
+    """The modifiers in a group that are the ingredient at its normal portion.
+
+    Any published figure qualifies, not just calories: BK stopped publishing
+    the pickle's calories but still gives its 320 mg of sodium, and that sodium
+    is in the Whopper as sold. A group with no figures at all ("Cut In Half",
+    "Plain") is preparation, not an ingredient."""
+    return [m for m in (group.get("mods") or [])
+            if m.get("mult") == 1 and m.get("nut")
+            and any(m["nut"].get(f) is not None for f in FIELDS)]
+
+
 MENU_Q = """*[_id==$menu][0].options[]->{"section":name.en,"children":options[]->{
   _type,"name":name.en,"nut":nutritionWithModifiers,
   "picked":options[]{"it":option->{"name":name.en,"nut":nutritionWithModifiers}}}}"""
@@ -118,8 +130,7 @@ def main():
     # modifier, so this is the bun and what the chain bakes into it.
     out.append(row(f"{b['name']} base", b["base"]))
     for g in (b["groups"] or []):
-        one = [m for m in (g.get("mods") or [])
-               if m.get("mult") == 1 and m.get("nut") and m["nut"].get("calories") is not None]
+        one = regular_portions(g)
         if not one:
             continue  # "Cut In Half", "Plain" -- preparation, not an ingredient
         out.append(row(g["g"], one[0]["nut"]))

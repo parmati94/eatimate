@@ -9,10 +9,10 @@
    "dataset": "prod_bk_us",
    "menu_id": "menu_5492",
    "build_item": "Whopper",
-   "retrieved": "2026-10-03",
+   "retrieved": "2026-11-05",
    "format": "sanity",
    "fetch": "plain",
-   "dump_sha256": "d40d6fa9439b8fb5f5f2fedbccd1eb3085e1022b55b20b734c57af0bdc3510fe",
+   "dump_sha256": "3132740a1c90ce905412bbcc0cb7f82c36134cd92ba5557f200c83bd1e9dd667",
    "asset_sha256": "c00ba71475b376f288e3f52a45576fe5e97dc9d86efbb28ad0078878200a64c5"
   },
   "disclaimer_extra": "Burger King publishes each menu item as sold and each topping as its own figure. The build-your-own portions are the ones Burger King lists for the Whopper: a slice of cheese on a Whopper is not the same slice as on a Jr., so pooling them would invent a portion the chain does not serve.",
@@ -159,7 +159,10 @@
   "MENU: Dragon Ball Super Menu": {
    "skip": "a themed drinks promotion; the same cups are in Drinks & Coffee"
   },
-  "BUILD: Whopper": "toppings"
+  "BUILD: Whopper": "toppings",
+  "MENU: Whopper Toppers": {
+   "skip": "a promo shelf repeating four burgers from the main menu, at unrounded figures"
+  }
  },
  "items": {
   "BUILD: Whopper/Whopper base": {
@@ -239,6 +242,47 @@
   "MENU: Condiments/Buffalo Sauce": {
    "cat": "condiments",
    "id": "buffalo-dipping-sauce"
+  },
+  "MENU: Limited Time Only/Bacon and Cheddar Flame-Grilled Angus": {
+   "cat": "item",
+   "group": "Burgers"
+  },
+  "MENU: Limited Time Only/Game Day Pretzel Burger": {
+   "cat": "item",
+   "group": "Burgers"
+  },
+  "MENU: Limited Time Only/4 Pc. Game Day Chicken Fries": {
+   "cat": "item",
+   "group": "Chicken & Fish"
+  },
+  "MENU: Limited Time Only/8 Pc. Game Day Chicken Fries": {
+   "cat": "item",
+   "group": "Chicken & Fish"
+  },
+  "MENU: Limited Time Only/12 Pc. Game Day Chicken Fries": {
+   "cat": "item",
+   "group": "Chicken & Fish"
+  },
+  "MENU: Drinks & Coffee/Oreo® Shake": {
+   "skip": "market test (CMS: 'Shakes (MT)', with whipped cream) under the same names as the core shakes, which stay"
+  },
+  "Classic Flame-Grilled Angus [#1]": {
+   "skip": "market test running two cells that disagree (790 and 820 kcal, CMS: 'Cell 1' and 'Cell 2'); no single figure to publish yet"
+  },
+  "Classic Flame-Grilled Angus [#2]": {
+   "skip": "market test running two cells that disagree (790 and 820 kcal, CMS: 'Cell 1' and 'Cell 2'); no single figure to publish yet"
+  },
+  "Chocolate Oreo® Shake [#2]": {
+   "skip": "market test (CMS: 'Shakes (MT)', with whipped cream) under the same names as the core shakes, which stay"
+  },
+  "Chocolate Shake [#2]": {
+   "skip": "market test (CMS: 'Shakes (MT)', with whipped cream) under the same names as the core shakes, which stay"
+  },
+  "Vanilla Shake [#2]": {
+   "skip": "market test (CMS: 'Shakes (MT)', with whipped cream) under the same names as the core shakes, which stay"
+  },
+  "Strawberry Shake [#2]": {
+   "skip": "market test (CMS: 'Shakes (MT)', with whipped cream) under the same names as the core shakes, which stay"
   }
  },
  "corrections": {
