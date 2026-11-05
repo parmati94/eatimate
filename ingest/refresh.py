@@ -226,11 +226,17 @@ def check(slug):
         return out
 
     try:
-        body = get(live, "plain" if src.get("fetch") == "redirect" else src.get("fetch", "plain"),
-                   deadline=deadline).content
+        resp = get(live, "plain" if src.get("fetch") == "redirect" else src.get("fetch", "plain"),
+                   deadline=deadline)
     except Exception as e:
         out["note"] = f"fetching asset: {type(e).__name__}"
         return out
+    # A dead link still has a body (Einstein's 404 is a 142 KB HTML page), and
+    # handing that to the PDF dumper took the whole sweep down with it.
+    if not resp.ok:
+        out["note"] = f"{how}; asset returned HTTP {resp.status_code}"
+        return out
+    body = resp.content
 
     if not src.get("asset_sha256") and not src.get("dump_sha256"):
         # A newly added chain has nothing to compare against yet. Saying
