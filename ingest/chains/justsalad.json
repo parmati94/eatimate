@@ -3,12 +3,12 @@
   "name": "Just Salad",
   "slug": "justsalad",
   "source": {
-   "pdf_url": "https://www.justsalad.com/documents/Just_Salad_Nutrition_Guide_JUL26-C.pdf",
-   "retrieved": "2026-08-30",
+   "pdf_url": "https://jspublic.blob.core.windows.net/public/marketing/allergen/allergens.pdf",
+   "retrieved": "2026-11-05",
    "format": "pdf",
    "fetch": "redirect",
-   "dump_sha256": "96993f85ab9b0878740d7d1d01f8832f6b86cf6e9bd17d917c9c0a5778bebaf1",
-   "asset_sha256": "f775337a73a9d92b190d0319d334ceab71767c79b00845718503c122de47bf67",
+   "dump_sha256": "91674abf7e4414296316b7f7d4137ede99050de1b563f2f6030bea2d4509d533",
+   "asset_sha256": "657781fdb3fd8406d67fd9a96726c2de0e8b0b1fd9ab5b06591405ae0071e904",
    "page_url": "https://www.justsalad.com/allergens",
    "tables": true
   },
@@ -185,7 +185,7 @@
    "desc": "1 serving, no dressing",
    "needs": "dressings"
   },
-  "SUMMER SEASONALS": {
+  "FALL SEASONALS": {
    "cat": "signature",
    "desc": "1 serving, no dressing",
    "needs": "dressings"
@@ -283,36 +283,34 @@
    "cat": "bread",
    "desc": "1 piece"
   },
-  "Roasted Broccoli": {
-   "cat": "essentials",
-   "name": "Roasted Broccoli (seasonal)"
-  },
-  "Parmesan Crisp": {
-   "cat": "premiums",
-   "name": "Parmesan Crisp (seasonal)"
-  },
-  "Kimchi": {
-   "cat": "premiums",
-   "name": "Kimchi (seasonal)"
-  },
-  "Gochujang Chicken": {
-   "cat": "protein",
-   "name": "Gochujang Chicken (seasonal)"
-  },
-  "BBQ Ranch": {
-   "cat": "dressings",
-   "name": "BBQ Ranch (seasonal)",
-   "desc": "1 oz (light)"
-  },
-  "Gochujang Sauce": {
-   "cat": "dressings",
-   "name": "Gochujang Sauce (seasonal)",
-   "desc": "1 oz (light)"
-  },
   "Vegan Protein Powder": {
    "cat": "drinks",
    "name": "Vegan Protein Powder (smoothie add-in)",
    "desc": "1 scoop"
+  },
+  "Blue Cheese": {
+   "cat": "cheese",
+   "name": "Blue Cheese (seasonal)"
+  },
+  "Corn Salsa": {
+   "cat": "essentials",
+   "name": "Corn Salsa (seasonal)"
+  },
+  "Grillo’s Pickles®": {
+   "cat": "essentials",
+   "name": "Grillo’s Pickles® (seasonal)"
+  },
+  "Pickled Jalapeños": {
+   "cat": "essentials",
+   "name": "Pickled Jalapeños (seasonal)"
+  },
+  "Honey Adobo Chicken": {
+   "cat": "protein",
+   "name": "Honey Adobo Chicken (seasonal)"
+  },
+  "Hot Honey": {
+   "cat": "dressings",
+   "name": "Hot Honey (seasonal)"
   }
  },
  "synthetic": [

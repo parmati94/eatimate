@@ -4,12 +4,12 @@
   "slug": "freddys",
   "source": {
    "html_url": "https://www.freddys.com/nutrition-and-allergens",
-   "retrieved": "2026-10-03",
+   "retrieved": "2026-11-05",
    "format": "html_fields",
    "fetch": "plain",
    "fields": true,
    "page_url": "https://www.freddys.com/nutrition-and-allergens",
-   "dump_sha256": "9065fadaf51df4935a73243581a66ef0ac25b59a88aca71ae92fc6a6dfe8fd47",
+   "dump_sha256": "57943f66dabac6c4fbd3b52f980610939b341e119661efc74311f47978ac664c",
    "asset_sha256": "11ae2add9682eb70c8b2d042ef32f539a3dd3367904a39b76f6a0e89140bf484"
   },
   "disclaimer_extra": "Freddy's publishes nutrition for finished items and for the things you add to them — cheese, bacon, sauces, custard mix-ins — but not for the bun, the bread or a patty on its own. Those appear on their allergen table with no figures. So this starts from a steakburger Freddy's sells and adds to it, rather than building one from the bun up. The patty is still visible in their own arithmetic: a Double Steakburger is 190 calories over a Single, and a Double Cheeseburger is 240 over a Single because the second patty brings a second slice of American cheese (50). Jalapeño Pepper Jack steps by 260, which is that same 190 plus its 70-calorie slice.",
@@ -164,29 +164,35 @@
   }
  ],
  "items": {
-  "Limited Time Offerings/Maple Pecan Concrete - Mini": {
+  "Limited Time Offerings/Steakburger Taco": {
+   "skip": "same row as the permanent Steakburgers entry"
+  },
+  "Limited Time Offerings/Heath Caramel Cheesecake Concrete - Mini": {
    "cat": "custard"
   },
-  "Limited Time Offerings/Maple Pecan Concrete - Regular": {
+  "Limited Time Offerings/Heath Caramel Cheesecake Concrete - Regular": {
    "cat": "custard"
   },
-  "Limited Time Offerings/Maple Pecan Concrete - Large": {
+  "Limited Time Offerings/Heath Caramel Cheesecake Concrete - Large": {
    "cat": "custard"
   },
-  "Limited Time Offerings/Maple Pecan Concrete w/ Bacon - Mini": {
+  "Limited Time Offerings/Hershey Snowfall Sundae - Mini": {
    "cat": "custard"
   },
-  "Limited Time Offerings/Maple Pecan Concrete w/ Bacon - Regular": {
+  "Limited Time Offerings/Hershey Snowfall Sundae - Regular": {
    "cat": "custard"
   },
-  "Limited Time Offerings/Maple Pecan Concrete w/ Bacon - Large": {
+  "Limited Time Offerings/Hershey Snowfall Sundae - Large": {
    "cat": "custard"
   },
-  "Limited Time Offerings/Bacon Loaded Tots - Regular": {
-   "cat": "sides"
+  "Limited Time Offerings/Peanut Butter Blossom Cookie Concrete - Mini": {
+   "cat": "custard"
   },
-  "Limited Time Offerings/Bacon Loaded Tots - Large": {
-   "cat": "sides"
+  "Limited Time Offerings/Peanut Butter Blossom Cookie Concrete - Regular": {
+   "skip": "Freddy's prints this row identical to Hershey Snowfall Sundae - Regular (870 kcal, between its own Mini at 960 and Large at 2050), so it is a copy of the wrong item"
+  },
+  "Limited Time Offerings/Peanut Butter Blossom Cookie Concrete - Large": {
+   "cat": "custard"
   },
   "Sides/Freddy's Fries - Regular": {
    "cat": "sides",

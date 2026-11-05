@@ -4,12 +4,12 @@
   "slug": "chopt",
   "source": {
    "pdf_url": "https://assets.choptsalad.com/pdfs/web/chopt_nutrition_allergen_guide.pdf",
-   "retrieved": "2026-09-01",
+   "retrieved": "2026-11-05",
    "format": "pdf",
    "page_url": "https://www.choptsalad.com/nutrition-and-allergens",
    "link_pattern": "chopt_nutrition_allergen_guide",
    "fetch": "plain",
-   "dump_sha256": "d36e56c1f24673230a1f942468d7f4285f2d7b92d0c53f3d9c2cc6f04ebf93cb",
+   "dump_sha256": "dc53c4ac148f71e1f07051b26a7b276284be2368e3eadcbe5abb153cd40a5be7",
    "asset_sha256": "b69a2a5fcfbf3d35f6df71d9d9ee83589dbae70713dab2c4cf9e6ffe940fa369",
    "tables": true
   },
@@ -121,20 +121,20 @@
    "carbs_g",
    "fiber_g",
    "sugars_g",
-   "protein_g",
-   "vit_a",
-   "vit_c",
-   "calcium",
-   "iron"
+   "protein_g"
   ],
   "allergen": false,
   "serving": null,
   "serving_brackets": true,
   "sections": "^(SALADS|WRAPS|BOWLS|SANDWICHES|SANDWICH INGREDIENTS|GREENS|CORE CHOPPINGS|CHEESE & DAIRY|GRAINS & BEANS|CRUNCH|THE GOODS|HOUSEMADE DRESSINGS SALAD PORTIONS|BOWL PORTIONS|FOUNTAIN BEVERAGES|SWEETS|SOUPS)$",
   "subsections": "^(CLASSIC|CREATIVE|LIGHT|PANTRY)$",
-  "skip": "^(=====|\\* SELECT LOCATIONS|NUTRITION &$|ALLERGENS$|CRAFT YOUR OWN$|SALADS, WRAPS, BOWLS|HOUSEMADE DRESSINGS$|BEVERAGES & SWEETS$|SEASONAL$)",
+  "skip": "^(=====|\\* SELECT LOCATIONS|NUTRITION &$|ALLERGENS$|CRAFT YOUR OWN|SALADS, WRAPS, BOWLS|HOUSEMADE DRESSINGS$|BEVERAGES & SWEETS$|SEASONAL$)",
   "title_case": true,
   "pre_replace": [
+   [
+    "(\\[[^\\]]+\\](?: [\\d.<-]+){11})(?: [\\d.<-]+){4}$",
+    "\\1"
+   ],
    [
     "(?<=[A-Za-z])\\*",
     ""

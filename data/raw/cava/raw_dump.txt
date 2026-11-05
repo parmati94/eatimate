@@ -9,15 +9,15 @@ ingredient substitutions, which may occur due to variations in supplier practice
 See page 4 for Allergen Guide.
 Recipe Cal. fro C m a l F . at F T a o t t ( a g l ) F S at a ( t g . ) Tran (g s ) . fat Chol. (mg) So (m di g u ) m C ( a g r ) b. Fi ( b g e ) r Su (g g ) ar Pro (g te ) in
 CURATED BOWLS
+Greek Goddess Steak Salad 470 260 29 9 0 110 1250 22 4 4 34
+Greek Goddess Salmon Bowl 700 360 40 7 0 100 1800 57 7 15 34
 Spicy Lamb + Avocado Bowl 800 460 52 14 0 105 1670 49 17 11 43
 Steak + Harissa Bowl 620 310 35 10 0 105 1830 39 7 7 37
 Harissa Avocado Bowl 830 440 49 12 0 155 2010 62 12 12 41
 Chicken + Rice Bowl 700 370 42 10 0 165 1810 44 7 8 40
 Greek Salad Bowl 580 360 40 10 0 165 1810 19 8 5 37
 Falafel Crunch Bowl 860 470 56 9 0 15 2210 88 18 13 24
-Strawberry Steak Salad 420 190 22 6 0 95 830 26 5 10 32
-Salmon + Yogurt Dill 710 390 43 9 0 110 1870 49 5 10 35
-Salmon + Strawberry Sesame Bowl 700 385 43 9 0 110 1860 46 7 13 36
+Salmon + Yogurt Dill Bowl 710 390 43 9 0 110 1870 49 5 10 35
 Pomegranate Glazed Salmon Bowl 1040 590 65 11 0 105 2120 80 9 11 36
 CURATED PITAS
 Spicy Chicken + Avocado 930 430 48 11 0 155 2290 80 13 13 48
@@ -79,10 +79,10 @@ Crazy Feta® 70 50 6 3 0 15 230 1 0 0 4
 Harissa 70 50 6 1 0 0 250 5 1 2 1
 Red Pepper Hummus 40 10 1.5 0 0 0 105 5 2 1 2
 DRESSINGS
+Greek Goddess 35 25 3 1.5 0 5 115 2 0 0 2
 Balsamic Date Vinaigrette 60 35 4 0.5 0 0 250 7 1 5 0
 Yogurt Dill 30 20 2 1 0 5 190 1 0 0 2
 Lemon Herb Tahini 70 50 6 1 0 0 140 4 2 0 2
-Strawberry Sesame 60 40 5 0.5 0 0 130 3 1 2 1
 Greek Vinaigrette 130 120 14 2 0 0 230 1 0 0 0
 Skhug 80 80 9 1 0 0 150 1 0 0 0
 Hot Harissa Vinaigrette 70 60 7 1 0 0 270 1 0 1 0
@@ -103,11 +103,11 @@ Classic Lemonade - Kids (12 oz) 200 0 0 0 0 0 0 52 0 50 0
 Classic Lemonade - Small (16 oz) 260 0 0 0 0 0 0 69 0 66 0
 Classic Lemonade - Large (22 oz) 360 0 0 0 0 0 0 95 0 91 0
 Classic Lemonade (CA) - Kids (12 oz) 160 0 0 0 0 0 0 41 0 39 0
-Classic Lemonade (CA) - Small (16 oz) 210 0 0 0 0 0 0 55 0 52 0
 
 ===== PAGE 3 =====
 Cal. fro C m a l F . at F T a o t t ( a g l ) F S at a ( t g . ) Tran (g s ) . fat Chol. (mg) So (m di g u ) m C ( a g r ) b. Fi ( b g e ) r Su (g g ) ar Pro (g te ) in
 DRINKS*
+Classic Lemonade (CA) - Small (16 oz) 210 0 0 0 0 0 0 55 0 52 0
 Classic Lemonade (CA) - Large (22 oz) 290 0 0 0 0 0 0 75 0 71 0
 Black Tea Unsweetened - Kids (12 oz) 0 0 0 0 0 0 10 0 0 0 0
 Black Tea Unsweetened - Small (16 oz) 0 0 0 0 0 0 15 0 0 0 0
@@ -118,9 +118,9 @@ Sweet Tea - Large (22 oz) 200 0 0 0 0 0 20 51 0 51 0
 Jasmine Green Tea - Kids (12 oz) 0 0 0 0 0 0 10 0 0 0 0
 Jasmine Green Tea - Small (16 oz) 0 0 0 0 0 0 15 0 0 0 0
 Jasmine Green Tea - Large (22 oz) 0 0 0 0 0 0 20 0 0 0 0
-Strawberry Ginger - Kids (12 oz) 110 0 0 0 0 0 10 29 1 27 0
-Strawberry Ginger - Small (16 oz) 150 0 0 0 0 0 10 38 1 36 0
-Strawberry Ginger - Large (22 oz) 210 0 0 0 0 0 15 53 1 50 0
+Pomegranate Apple - Kids (12 oz) 140 0 0 0 0 0 10 34 1 33 0
+Pomegranate Apple - Small (16 oz) 180 0 0 0 0 0 15 45 1 43 0
+Pomegranate Apple - Large (22 oz) 250 0 0 0 0 0 25 62 1 60 0
 Cucumber Mint Lime - Kids (12 oz) 130 0 0 0 0 0 0 33 0 31 0
 Cucumber Mint Lime - Small (16 oz) 180 0 0 0 0 0 0 44 0 41 1
 Cucumber Mint Lime - Large (22 oz) 240 0 0 0 0 0 0 61 1 57 1
@@ -157,15 +157,15 @@ Shellfish
 Recipe Wheat Milk Soy Eggs Tree Nuts Sesame Peanuts (Sa F l i m sh o n) (S w h h r e im re p Vegan Vegetarian
 available)
 CURATED BOWL
+Greek Goddess Steak Salad
+Greek Goddess Salmon Bowl
 Spicy Lamb + Avocado Bowl
 Steak + Harissa Bowl
 Harissa Avocado Bowl
 Chicken + Rice Bowl
 Greek Salad Bowl
 Falafel Crunch Bowl
-Strawberry Steak Salad
-Salmon + Yogurt Dill
-Salmon + Strawberry Sesame Bowl
+Salmon + Yogurt Dill Bowl
 Pomegranate Glazed Salmon Bowl
 CURATED PITAS
 Spicy Chicken + Avocado Pita
@@ -197,7 +197,6 @@ Kids Chicken
 Kids Harissa Honey Chicken
 Kids Falafel
 Kids Spicy Lamb Meatballs
-Kids Roasted Vegetables
 
 ===== PAGE 5 =====
 Contains ALLERGEN DIET Contains Compliant Ingredients
@@ -205,6 +204,7 @@ Shellfish
 Recipe Wheat Milk Soy Eggs Tree Nuts Sesame Peanuts (Sa F l i m sh o n) (S w h h r e im re p Vegan Vegetarian
 available)
 KIDS MEAL
+Kids Roasted Vegetables
 Kids Braised Lamb
 Kids Grilled Steak
 Kids Pita Chips
@@ -230,10 +230,10 @@ Crazy Feta®
 Harissa
 Red Pepper Hummus
 DRESSINGS
+Greek Goddess
 Balsamic Date Vinaigrette
 Yogurt Dill
 Lemon Herb Tahini
-Strawberry Sesame
 Greek Vinaigrette
 Skhug
 Hot Harissa Vinaigrette
@@ -244,20 +244,19 @@ Pita Chips
 Harissa BBQ Pita Chips
 Greyston Chocolate Chip Blondie
 Greyston Brownie
-WWhisked! Apricot Honey (DMV)
+Whisked! Apricot Honey (DMV)
 Whisked! Salted Dark Chocolate Oat Cookie
-DRINKS
-Classic Lemonade
 
 ===== PAGE 6 =====
 Contains ALLERGEN DIET Contains Compliant Ingredients
 Recipe Wheat Milk Soy Eggs Tree Nuts Sesame Peanuts (Sa F l i m sh o n) S (S h h e r l i l m fis p h ) Vegan Vegetarian
 DRINKS
+Classic Lemonade
 Classic Lemonade (CA)
+Pomegranate Apple
 Unsweetened Black Tea
 Sweet Tea
 Jasmine Green Tea
-Strawberry Ginger
 Cucumber Mint Lime
 Blueberry Lavender
 Maine Root Soda (Fountain)
@@ -269,4 +268,4 @@ Spindrift Half Tea + Half Lemon
 Chocolate Milk
 1% Milk
 Honest Apple Juice
-KT5_26_AN_STND_RECAN11148
+KT6_26_AN_ANGUIDE_RETAIL_T_MKTAN11724

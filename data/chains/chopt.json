@@ -3,7 +3,7 @@
   "slug": "chopt",
   "source": {
     "pdf_url": "https://assets.choptsalad.com/pdfs/web/chopt_nutrition_allergen_guide.pdf",
-    "retrieved": "2026-09-01"
+    "retrieved": "2026-11-05"
   },
   "disclaimer_extra": "Chopt's Spring 2026 guide prints every chopping, green, grain and protein at one standard portion, and states that its salads and bowls do NOT include dressing — so a menu item here needs a dressing added the same way a built one does. Dressings are published twice, at the 30 g salad pour and the 22 g bowl pour; the format chip picks which. Some items are marked select-locations-only.",
   "blurb": "Build a Chopt salad, bowl or wrap chopping by chopping — greens, core choppings, grains and beans, cheese, crunch, the goods, and every housemade dressing at its published pour.",
@@ -2696,15 +2696,15 @@
       "serving_desc": "1 soup",
       "serving_g": null,
       "calories": 130,
-      "fat_g": 6,
+      "fat_g": 5,
       "sat_fat_g": 1,
       "trans_fat_g": 0,
-      "cholesterol_mg": 25,
-      "sodium_mg": 1030,
-      "carbs_g": 12,
+      "cholesterol_mg": 15,
+      "sodium_mg": 1020,
+      "carbs_g": 15,
       "fiber_g": 3,
       "sugars_g": 4,
-      "protein_g": 9
+      "protein_g": 6
     },
     {
       "id": "creamy-tomato-soup",
@@ -2712,16 +2712,16 @@
       "category": "extras",
       "serving_desc": "1 soup",
       "serving_g": null,
-      "calories": 270,
-      "fat_g": 19,
-      "sat_fat_g": 5,
+      "calories": 150,
+      "fat_g": 10,
+      "sat_fat_g": 2.5,
       "trans_fat_g": 0,
       "cholesterol_mg": 20,
-      "sodium_mg": 870,
-      "carbs_g": 16,
-      "fiber_g": 0,
-      "sugars_g": 4,
-      "protein_g": 4
+      "sodium_mg": 880,
+      "carbs_g": 13,
+      "fiber_g": 2,
+      "sugars_g": 5,
+      "protein_g": 2
     }
   ]
 }

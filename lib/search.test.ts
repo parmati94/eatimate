@@ -52,7 +52,7 @@ describe("searchMenu", () => {
   it("reads through the marks nobody types", async () => {
     const c = await chain("sonic");
     const fams = menuFamilies(c, allVisible(c));
-    expect(names(searchMenu(fams, "ched r bites"))).toContain("CHED 'R' BITES®");
+    expect(names(searchMenu(fams, "ched r peppers"))).toContain("CHED 'R' PEPPERS® (4 PC.), SMALL");
     expect(names(searchMenu(fams, "barqs"))).toContain("BARQ’S® ROOT BEER");
   });
 
@@ -198,7 +198,7 @@ describe("reachableCount", () => {
     const build = new Set(
       c.categories.filter((x) => x.flow !== "preset").map((x) => x.id),
     );
-    expect(reachableCount(fams, all)).toBe(211);
+    expect(reachableCount(fams, all)).toBe(208);
     expect(reachableCount(fams, build)).toBeLessThan(reachableCount(fams, all));
   });
 });
@@ -238,7 +238,7 @@ describe("no regressions", () => {
   const KNOWN: Record<string, string[]> = {
     sonic: ["coke", "diet coke", "cherry limeade", "fries", "tots", "shake",
             "onion rings", "corn dog", "slush", "dr pepper", "sprite", "chili",
-            "coca cola", "rt 44", "ched r bites", "barqs"],
+            "coca cola", "rt 44", "ched r peppers", "barqs"],
     chickfila: ["nuggets", "waffle fries", "strips", "sandwich", "lemonade",
                 "sauce", "mac", "salad"],
     bww: ["wings", "boneless", "mozzarella", "ranch", "fries", "nachos",
